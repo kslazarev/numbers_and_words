@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
     'lib/number_to_words_ru.rb',
     'lib/number_to_words_ru/integer.rb',
     'lib/pluralization.rb',
-    'locales/integer.ru.yml',
-    'locales/plurals.rb'
+    'lib/locales/integer.ru.yml',
+    'lib/locales/plurals.rb'
   ]
 end
