@@ -8,9 +8,11 @@ class Integer
     numbers = to_figure_array.reverse
     words = []
 
-    (numbers.length.to_f / 3).ceil.times do |capacity|
-      words.push(translation_mega(numbers, capacity)) if 0 < words.length and 0 < capacity
-      words += trio(numbers[capacity * 3, 3], translation_kind(1000 ** capacity))
+    I18nInitialization.environment do
+      (numbers.length.to_f / 3).ceil.times do |capacity|
+        words.push(translation_mega(numbers, capacity)) if 0 < words.length and 0 < capacity
+        words += trio(numbers[capacity * 3, 3], translation_kind(1000 ** capacity))
+      end
     end
 
     words.reverse.join(" ")
