@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{number_to_words_ru}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Kirill Lazarev}]
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.date = %q{2011-07-28}
   s.description = %q{Simple convert number to russian words using I18N.}
   s.email = %q{k.s.lazarev@gmail.com}
-  s.files = [%q{lib/locales}, %q{lib/locales/integer.ru.yml}, %q{lib/locales/plurals.rb}, %q{lib/number_to_words_ru}, %q{lib/number_to_words_ru/integer.rb}, %q{lib/number_to_words_ru.rb}, %q{lib/pluralization.rb}]
+  s.files = [%q{lib/locales}, %q{lib/locales/integer.ru.yml}, %q{lib/locales/plurals.rb}, %q{lib/number_to_words_ru}, %q{lib/number_to_words_ru/i18n_initialization.rb}, %q{lib/number_to_words_ru/integer.rb}, %q{lib/number_to_words_ru.rb}, %q{lib/pluralization.rb}]
   s.homepage = %q{http://github.com/kslazarev/number_to_words_ru}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
