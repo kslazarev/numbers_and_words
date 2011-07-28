@@ -1,15 +1,23 @@
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
+
 require 'rake/gempackagetask'
-require 'spec/rake/spectask'
 require 'rubygems/specification'
-require 'date'
 
 GEM = "number_to_words_ru"
 GEM_VERSION = "0.1.0"
 AUTHOR = "Kirill Lazarev"
 EMAIL = "k.s.lazarev@gmail.com"
 HOMEPAGE = "http://github.com/kslazarev/number_to_words_ru"
-SUMMARY = "Simple covert number to russian words"
+SUMMARY = "Simple convert number to russian words using I18N."
+LICENSE = "MIT"
 
 spec = Gem::Specification.new do |s|
   s.name = GEM
@@ -22,10 +30,7 @@ spec = Gem::Specification.new do |s|
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  
-  # Uncomment this to add a dependency
-  # s.add_dependency "foo"
-  
+  gem.license = LICENSE
   s.require_path = 'lib'
   s.autorequire = GEM
   s.files = Dir.glob("{lib,spec}/**/*")
@@ -35,7 +40,10 @@ Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
 end
 
-task :default => :spec
+#task :default => :spec
+
+#require 'spec/rake/spectask'
+#require 'date'
 
 #desc "Run specs"
 #Spec::Rake::SpecTask.new do |t|
