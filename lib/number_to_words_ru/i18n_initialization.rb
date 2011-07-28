@@ -3,9 +3,9 @@ module I18nInitialization
 
   def environment
     I18n.locale = :ru
-    I18n.load_path.unshift(*locale_files)
+    I18n.load_path << locale_files
     yield
-    I18n.load_path.shift 2
+    I18n.load_path.pop 2
     I18n.locale = I18n.default_locale
   end
 
