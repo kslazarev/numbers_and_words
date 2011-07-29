@@ -8,9 +8,9 @@ ru:
     thousands:
       one: тысяча
       few: тысячи
-      other: тысяч
+      many: тысяч
     millions:
       one: миллион
       few: миллиона
-      other: миллионов
+      many: миллионов
     mega: [ones, thousands, millions]
