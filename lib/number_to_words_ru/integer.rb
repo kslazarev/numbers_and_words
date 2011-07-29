@@ -15,6 +15,8 @@ class Integer
       end
     end
 
+    words.push(zero) if words.empty?
+
     words.reverse.join(" ")
   end
 
@@ -38,7 +40,7 @@ class Integer
     elsif numbers[1] and 0 < numbers[1]
       strings.push(numbers[0] == 0 ?
         translation_tens(numbers[1]) : translation_tens_with_ones(numbers[0, 2], kind))
-    elsif 0 <= numbers[0]
+    elsif 0 < numbers[0]
       strings.push(translation_ones(numbers[0], kind))
     end
 
