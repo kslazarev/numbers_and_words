@@ -10,7 +10,7 @@ ru_rule = lambda do |count|
     when (2..4).include?(count)
       :few
     else
-      :other
+      :many
     end
   else
     :other
