@@ -1,8 +1,8 @@
-= Number_to_words_ru
+== Number_to_words_ru
 
 Простой перевод чисел в слова при помощи библиотеки I18n.
 
-= Примеры
+== Примеры
 
     21.to_words
     => "Двадцать один"
@@ -13,21 +13,19 @@
     1000100.to_words
     => "Один миллион сто"
 
-= Требования
+== Требования
 
 * Ruby 1.8.7 (совместимость с Ruby 1.9, JRuby и Rubinius);
 * I18n 0.5.0 (рание версии не тестировались);
 * Для тестирования библиотеки вам понадобится RSpec.
 
-= Установка
-
-Страница number_to_words на github -- "http://github.com/kslazarev/number_to_words_ru":http://github.com/kslazarev/number_to_words_ru
+== Установка
 
 Для установки:
 
-@gem install number_to_words_ru@
+    gem install number_to_words_ru@
 
-== Ruby on Rails
+=== Ruby on Rails
 
 Существует два варианта использования number_to_words вместе с Rails:
 
@@ -35,47 +33,40 @@
 
 ==== Rails 3
 
-В файле Gemfile сделайте ссылку на gem @number_to_words_ru@:
+В файле Gemfile сделайте ссылку на gem number_to_words_ru:
 
-<pre><code>
-gem 'number_to_words'
-</code></pre>
+    gem 'number_to_words'
 
 Чтобы установить gem, используйте команду
 
-@bundle install@.
+   bundle install
 
 ==== Rails 2
 
-В файле @config/environment.rb@ сделайте ссылку на gem @number_to_words_ru@:
+В файле config/environment.rb сделайте ссылку на gem number_to_words_ru:
 
-<pre><code>
-Rails::Initializer.run do |config|
-  config.gem 'number_to_words_ru'
-end
-</code></pre>
+
+    Rails::Initializer.run do |config|
+      config.gem 'number_to_words_ru'
+    end
 
 Чтобы установить gem, используйте команду
 
-@rake gems:install@.
+    @rake gems:install@.
 
 2. Установка плагина
 
 Для того, чтобы установить number_to_words_ru как плагин к Rails, используйте команду
 
-@script/plugin install git://github.com/kslazarev/number_to_words_ru.git@
+    @script/plugin install git://github.com/kslazarev/number_to_words_ru.git@
 
 
-= Использование
+=== Использование в irb
 
-<pre><code>
-require 'number_to_words'
-</code></pre>
+    require 'number_to_words'
 
-= Авторы
+== Авторы
 
 Для сообщений об ошибках, обнаруженных неточностях и предложений:
 
 * "Кирилл Лазарев" ("k.s.lazarev@gmail.com":mailto:k.s.lazarev@gmail.com)
-
-2011
