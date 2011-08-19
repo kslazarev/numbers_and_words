@@ -1,25 +1,25 @@
-h1. Number_to_words_ru
+= Number_to_words_ru
 
 Простой перевод чисел в слова при помощи библиотеки I18n.
 
-h1. Примеры
+= Примеры
 
-<pre><code>
-21.to_words
-=> "Двадцать один"
-1241.to_words
-=> "Одна тысяча сорок один"
-1000100.to_words
-=> "Один миллион сто"
-</code></pre>
+    21.to_words
+    => "Двадцать один"
 
-h1. Требования
+    1241.to_words
+    => "Одна тысяча сорок один"
+
+    1000100.to_words
+    => "Один миллион сто"
+
+= Требования
 
 * Ruby 1.8.7 (совместимость с Ruby 1.9, JRuby и Rubinius);
 * I18n 0.5.0 (рание версии не тестировались);
 * Для тестирования библиотеки вам понадобится RSpec.
 
-h1. Установка
+= Установка
 
 Страница number_to_words на github -- "http://github.com/kslazarev/number_to_words_ru":http://github.com/kslazarev/number_to_words_ru
 
@@ -27,13 +27,13 @@ h1. Установка
 
 @gem install number_to_words_ru@
 
-h2. Ruby on Rails
+== Ruby on Rails
 
 Существует два варианта использования number_to_words вместе с Rails:
 
 1. Установка gem
 
-h4. Rails 3
+==== Rails 3
 
 В файле Gemfile сделайте ссылку на gem @number_to_words_ru@:
 
@@ -45,7 +45,7 @@ gem 'number_to_words'
 
 @bundle install@.
 
-h4. Rails 2
+==== Rails 2
 
 В файле @config/environment.rb@ сделайте ссылку на gem @number_to_words_ru@:
 
@@ -66,14 +66,16 @@ end
 @script/plugin install git://github.com/kslazarev/number_to_words_ru.git@
 
 
-h1. Использование
+= Использование
 
 <pre><code>
 require 'number_to_words'
 </code></pre>
 
-h1. Авторы
+= Авторы
 
 Для сообщений об ошибках, обнаруженных неточностях и предложений:
 
 * "Кирилл Лазарев" ("k.s.lazarev@gmail.com":mailto:k.s.lazarev@gmail.com)
+
+2011
