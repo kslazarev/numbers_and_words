@@ -23,7 +23,7 @@
 
 Для установки:
 
-    gem install number_to_words_ru@
+    gem install number_to_words_ru
 
 === Ruby on Rails
 
@@ -52,21 +52,21 @@
 
 Чтобы установить gem, используйте команду
 
-    @rake gems:install@.
+    rake gems:install.
 
 2. Установка плагина
 
 Для того, чтобы установить number_to_words_ru как плагин к Rails, используйте команду
 
-    @script/plugin install git://github.com/kslazarev/number_to_words_ru.git@
+    script/plugin install git://github.com/kslazarev/number_to_words_ru.git
 
 
-=== Использование в irb
+==== Использование в irb
 
     require 'number_to_words'
 
-== Авторы
+== Автор
 
 Для сообщений об ошибках, обнаруженных неточностях и предложений:
 
-* "Кирилл Лазарев" ("k.s.lazarev@gmail.com":mailto:k.s.lazarev@gmail.com)
+* "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)
