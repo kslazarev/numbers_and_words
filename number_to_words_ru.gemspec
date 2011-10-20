@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.date = %q{2011-08-19}
   s.description = %q{Simple convert number to russian words using I18N.}
   s.email = %q{k.s.lazarev@gmail.com}
-  s.files = [%q{lib/locales}, %q{lib/locales/integer.ru.yml}, %q{lib/locales/plurals.rb}, %q{lib/number_to_words_ru}, %q{lib/number_to_words_ru/figure_array.rb}, %q{lib/number_to_words_ru/integer.rb}, %q{lib/number_to_words_ru.rb}, %q{spec/number_to_words_ru}, %q{spec/number_to_words_ru/integer_spec.rb}, %q{spec/spec_helper.rb}]
+  s.files = [%q{lib/locales}, %q{lib/locales/integer.ru.yml}, %q{lib/locales/plurals.rb}, %q{lib/number_to_words_ru}, %q{lib/number_to_words_ru/array_additions.rb}, %q{lib/number_to_words_ru/integer.rb}, %q{lib/number_to_words_ru.rb}, %q{spec/number_to_words_ru}, %q{spec/number_to_words_ru/integer_spec.rb}, %q{spec/spec_helper.rb}]
   s.homepage = %q{http://github.com/kslazarev/number_to_words_ru}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
