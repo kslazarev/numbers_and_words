@@ -1,19 +1,25 @@
 require 'rubygems'
 require 'i18n'
-require 'number_to_words_ru/pluralization'
-require 'number_to_words_ru/integer'
+require 'active_support/inflector'
 
-module NumberToWordsRu
+require 'number_to_words_ru/translations_helpers'
+require 'number_to_words_ru/strategies'
+require 'number_to_words_ru/array_additions'
+require 'number_to_words_ru/figures_array'
+
+require 'number_to_words_ru/core_ext/integer'
+require 'number_to_words_ru/core_ext/array'
+
+module I18nInitialization
   extend self
 
-  def init_i18n
-    I18n.locale = :ru
-    I18n.load_path.unshift(*locale_files)
+  def init
+    I18n.load_path << locale_files
   end
 
   def locale_files
-    Dir[File.join(File.dirname(__FILE__), "locales", "**/*")]
+    Dir[File.join(File.dirname(__FILE__), 'locales', '**/*')]
   end
 end
 
-NumberToWordsRu.init_i18n
+I18nInitialization.init

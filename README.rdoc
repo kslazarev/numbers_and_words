@@ -1,19 +1,108 @@
-= number_to_words_ru
+== Number_to_words_ru
 
-Description goes here.
+Перевод чисел в слова при помощи библиотеки I18n.
 
-== Contributing to number_to_words_ru
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+= If you don’t speak Russian
 
-== Copyright
+Convert from numbers to words using I18n library.
 
-Copyright (c) 2011 Kirill Lazarev. See LICENSE.txt for
-further details.
+== Support languages
 
+  * Russian
+  * English
+
+== Примеры
+
+    21.to_words
+    => "двадцать один"
+
+    231.to_words
+    => "двести тридцать один"
+
+    4030.to_words
+    => "четыре тысячи тридцать"
+
+    1000100.to_words
+    => "один миллион сто"
+
+    1000000000000000000000000000000000.to_words
+    => "один дециллион"
+
+    [1, 2, 3].to_words
+    => "[один, два, три]"
+
+    [11, 22, 133].to_words
+    => ["одиннадцать", "двадцать два", "сто тридцать три"]
+
+== Examples
+
+    21.to_words
+    => "twenty-one"
+
+    231.to_words
+    => "two hundred thirty-one"
+
+    4030.to_words
+    => "four thousand thirty"
+
+    1000100.to_words
+    => "one million one hundred"
+
+    1000000000000000000000000000000000.to_words
+    => "one decillion"
+
+    [1, 2, 3].to_words
+    => ["one", "two", "three"]
+
+    [11, 22, 133].to_words
+    => ["eleven", "twenty-two", "one hundred thirty-three"]
+
+== Требования
+* Ruby 1.8.7 (совместимость с Ruby 1.9, JRuby и Rubinius);
+* I18n 0.5.0 (рание версии не тестировались);
+* Для тестирования библиотеки вам понадобится RSpec.
+== Установка
+Для установки:
+
+    gem install number_to_words_ru
+
+=== Ruby on Rails
+Существует два варианта использования number_to_words вместе с Rails:
+
+1. Установка gem
+
+==== Rails 3
+В файле Gemfile сделайте ссылку на gem number_to_words_ru:
+
+    gem 'number_to_words'
+
+Чтобы установить gem, используйте команду
+
+    bundle install
+
+==== Rails 2
+В файле config/environment.rb сделайте ссылку на gem number_to_words_ru:
+
+    Rails::Initializer.run do |config|
+      config.gem 'number_to_words_ru'
+    end
+
+Чтобы установить gem, используйте команду
+
+    rake gems:install.
+
+2. Установка плагина
+
+Для того, чтобы установить number_to_words_ru как плагин к Rails, используйте команду
+
+    script/plugin install git://github.com/kslazarev/number_to_words_ru.git
+
+==== Использование в irb
+
+    require 'number_to_words'
+
+== Автор
+
+Для сообщений об ошибках, обнаруженных неточностях и предложений:
+
+* "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)
