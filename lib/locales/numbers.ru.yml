@@ -1,0 +1,52 @@
+ru:
+  numbers:
+    ones_male: [ноль, один, два, три, четыре, пять, шесть, семь, восемь, девять]
+    ones_female: [ноль, однa, двe, три, четыре, пять, шесть, семь, восемь, девять]
+    teens: [десять, одиннадцать, двенадцать, тринадцать, четырнадцать, пятнадцать, шестнадцать, семнадцать, восемнадцать, девятнадцать]
+    tens: [ноль, десять, двадцать, тридцать, сорок, пятьдесят, шестьдесят, семьдесят, восемьдесят, девяносто]
+    hundreds: [ноль, сто, двести, триста, четыреста, пятьсот, шестьсот, семьсот, восемьсот, девятьсот]
+    thousands:
+      one: тысяча
+      few: тысячи
+      many: тысяч
+    millions:
+      one: миллион
+      few: миллиона
+      many: миллионов
+    billions:
+      one: миллиард
+      few: миллиарда
+      many: миллиардов
+    trillions:
+      one: триллион
+      few: триллионa
+      many: триллионов
+    quadrillions:
+      one: квадриллион
+      few: квадриллиона
+      many: квадриллионов
+    quintillions:
+      one: квинтиллион
+      few: квинтиллиона
+      many: квинтиллионов
+    sextillions:
+      one: секстиллион
+      few: секстиллиона
+      many: секстиллионов
+    septillions:
+      one: септиллион
+      few: секстиллиона
+      many: секстиллионов
+    octillions:
+      one: октиллион
+      few: октиллиона
+      many: октиллионов
+    nonillions:
+      one: нониллион
+      few: нониллиона
+      many: нониллионов
+    decillions:
+      one: дециллион
+      few: дециллиона
+      many: дециллионов
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]

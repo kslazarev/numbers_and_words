@@ -1,17 +1,61 @@
 == Number_to_words_ru
 
-Простой перевод чисел в слова при помощи библиотеки I18n.
+Перевод чисел в слова при помощи библиотеки I18n.
+
+= If you don’t speak Russian
+
+Convert from numbers to words using I18n library.
+
+== Support languages
+
+  * Russian
+  * English
 
 == Примеры
 
     21.to_words
     => "двадцать один"
 
-    1241.to_words
-    => "однa тысяча двести сорок один"
+    231.to_words
+    => "двести тридцать один"
+
+    4030.to_words
+    => "четыре тысячи тридцать"
 
     1000100.to_words
     => "один миллион сто"
+
+    1000000000000000000000000000000000.to_words
+    => "один дециллион"
+
+    [1, 2, 3].to_words
+    => "[один, два, три]"
+
+    [11, 22, 133].to_words
+    => ["одиннадцать", "двадцать два", "сто тридцать три"]
+
+== Examples
+
+    21.to_words
+    => "twenty-one"
+
+    231.to_words
+    => "two hundred thirty-one"
+
+    4030.to_words
+    => "four thousand thirty"
+
+    1000100.to_words
+    => "one million one hundred"
+
+    1000000000000000000000000000000000.to_words
+    => "one decillion"
+
+    [1, 2, 3].to_words
+    => ["one", "two", "three"]
+
+    [11, 22, 133].to_words
+    => ["eleven", "twenty-two", "one hundred thirty-three"]
 
 == Требования
 * Ruby 1.8.7 (совместимость с Ruby 1.9, JRuby и Rubinius);

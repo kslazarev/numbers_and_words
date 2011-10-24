@@ -2,15 +2,17 @@ module ArrayAdditions
   module Helpers
     THOUSAND_CAPACITY = 1
 
-    private
-
     def capacity_count
       count = (self.length.to_f / 3).ceil
       1 == count ? nil : count
     end
 
-    def numerical_array_in_capacity capacity
+    def figures_array_in_capacity capacity
       self[capacity * 3, 3]
+    end
+
+    def number_in_capacity capacity
+      figures_array_in_capacity(capacity).reverse.join.to_i
     end
 
     def is_a_thousand_capacity? capacity
@@ -18,7 +20,7 @@ module ArrayAdditions
     end
 
     def ones
-      self[0] if 0 < self[0]
+      self[0] if 0 < self[0].to_i
     end
 
     def teens
@@ -26,7 +28,7 @@ module ArrayAdditions
     end
 
     def tens
-      self[1] if self[1] and 0 < self[1]
+      self[1] if self[1] and 0 < self[1].to_i
     end
 
     def tens_with_ones
@@ -34,7 +36,7 @@ module ArrayAdditions
     end
 
     def hundreds
-      0 == self[2].to_i ? nil : self[2]
+      self[2] if 0 < self[2].to_i
     end
   end
 end
