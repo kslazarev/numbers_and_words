@@ -4,7 +4,7 @@
 
 = If you don’t speak Russian
 
-Convert from numbers to words using I18n library.
+Convert numbers to words using I18n library.
 
 == Support languages
 
