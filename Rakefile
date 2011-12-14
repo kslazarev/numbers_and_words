@@ -12,7 +12,7 @@ require 'rake/gempackagetask'
 require 'rubygems/specification'
 
 GEM = "number_to_words_ru"
-GEM_VERSION = "0.2.0"
+GEM_VERSION = "0.2.1"
 AUTHOR = "Kirill Lazarev"
 EMAIL = "k.s.lazarev@gmail.com"
 HOMEPAGE = "http://github.com/kslazarev/number_to_words_ru"
