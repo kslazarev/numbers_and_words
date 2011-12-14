@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'i18n'
+require 'initializers/i18n'
 require 'active_support/inflector'
 
 require 'number_to_words_ru/translations_helpers'
