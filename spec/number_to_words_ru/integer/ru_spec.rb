@@ -132,147 +132,161 @@ describe Integer do
             join(' ') }
         end
 
-        describe 'few' do
-          context '2000 as lower example' do
-            subject { 2000 }
+        context '21000 as uniq example' do
+          subject { 21000 }
 
-            its(:to_words) { should == [t(:ones_female)[2], t(:thousands, :count => 2)].
-              join(' ') }
-          end
+          its(:to_words) { should == [
+            t(:tens)[2], t(:ones_female)[1], t(:thousands, :count => 1)
+          ].join(' ') }
+        end
+      end
 
-          context '4000 as upper example' do
-            subject { 4000 }
+      describe 'few' do
+        context '2000 as lower example' do
+          subject { 2000 }
 
-            its(:to_words) { should == [t(:ones_female)[4], t(:thousands, :count => 4)].
-              join(' ') }
-          end
+          its(:to_words) { should == [t(:ones_female)[2], t(:thousands, :count => 2)].
+            join(' ') }
         end
 
-        describe 'many' do
-          context '5000 as lower example' do
-            subject { 5000 }
+        context '4000 as upper example' do
+          subject { 4000 }
 
-            its(:to_words) { should == [t(:ones_female)[5], t(:thousands, :count => 5)].
-              join(' ') }
-          end
+          its(:to_words) { should == [t(:ones_female)[4], t(:thousands, :count => 4)].
+            join(' ') }
+        end
+      end
 
-          context '999000 as upper example' do
-            subject { 999000 }
+      describe 'many' do
+        context '5000 as lower example' do
+          subject { 5000 }
 
-            its(:to_words) { should == [t(:hundreds)[9],
-              t(:tens)[9],
-              t(:ones_female)[9],
-              t(:thousands, :count => 999)
-            ].join(' ') }
-          end
+          its(:to_words) { should == [t(:ones_female)[5], t(:thousands, :count => 5)].
+            join(' ') }
         end
 
-        describe 'custom' do
-          context '999999 as example with first capacity' do
-            subject { 999999 }
+        context '11000 as uniq example' do
+          subject { 11000 }
 
-            its(:to_words) { should == [t(:hundreds)[9],
-              t(:tens)[9],
-              t(:ones_female)[9],
-              t(:thousands, :count => 999),
-              t(:hundreds)[9],
-              t(:tens)[9],
-              t(:ones_male)[9],
-            ].join(' ') }
-          end
+          its(:to_words) { should == [t(:teens)[1], t(:thousands, :count => 11)].join(' ') }
+        end
+
+        context '999000 as upper example' do
+          subject { 999000 }
+
+          its(:to_words) { should == [t(:hundreds)[9],
+            t(:tens)[9],
+            t(:ones_female)[9],
+            t(:thousands, :count => 999)
+          ].join(' ') }
+        end
+      end
+
+      describe 'custom' do
+        context '999999 as example with first capacity' do
+          subject { 999999 }
+
+          its(:to_words) { should == [t(:hundreds)[9],
+            t(:tens)[9],
+            t(:ones_female)[9],
+            t(:thousands, :count => 999),
+            t(:hundreds)[9],
+            t(:tens)[9],
+            t(:ones_male)[9],
+          ].join(' ') }
         end
       end
     end
+  end
 
-    describe 'millions' do
-      describe 'one' do
-        context '1000000 as uniq example' do
-          subject { 1000000 }
+  describe 'millions' do
+    describe 'one' do
+      context '1000000 as uniq example' do
+        subject { 1000000 }
 
-          its(:to_words) { should == [t(:ones_male)[1], t(:millions, :count => 1)].
-            join(' ') }
-        end
+        its(:to_words) { should == [t(:ones_male)[1], t(:millions, :count => 1)].
+          join(' ') }
+      end
+    end
+
+    context 'few' do
+      context '2000000 as lower example in few' do
+        subject { 2000000 }
+
+        its(:to_words) { should == [t(:ones_male)[2], t(:millions, :count => 2)].
+          join(' ') }
       end
 
-      context 'few' do
-        context '2000000 as lower example in few' do
-          subject { 2000000 }
+      context '4000000 as upper example in few' do
+        subject { 4000000 }
 
-          its(:to_words) { should == [t(:ones_male)[2], t(:millions, :count => 2)].
-            join(' ') }
-        end
+        its(:to_words) { should == [t(:ones_male)[4], t(:millions, :count => 4)].
+          join(' ') }
+      end
+    end
 
-        context '4000000 as upper example in few' do
-          subject { 4000000 }
+    context 'many' do
+      context '5000000 as lower example in many' do
+        subject { 5000000 }
 
-          its(:to_words) { should == [t(:ones_male)[4], t(:millions, :count => 4)].
-            join(' ') }
-        end
+        its(:to_words) { should == [t(:ones_male)[5], t(:millions, :count => 5)].
+          join(' ') }
       end
 
-      context 'many' do
-        context '5000000 as lower example in many' do
-          subject { 5000000 }
+      context '99900000 as upper example' do
+        subject { 999000000 }
 
-          its(:to_words) { should == [t(:ones_male)[5], t(:millions, :count => 5)].
-            join(' ') }
-        end
+        its(:to_words) { should == [t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+          t(:millions, :count => 999)
+        ].join(' ') }
+      end
+    end
 
-        context '99900000 as upper example' do
-          subject { 999000000 }
+    context 'custom' do
+      context '999000999 as example with first capacity' do
+        subject { 999000999 }
 
-          its(:to_words) { should == [t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-            t(:millions, :count => 999)
-          ].join(' ') }
-        end
+        its(:to_words) { should == [t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+          t(:millions, :count => 999),
+          t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+        ].join(' ') }
       end
 
-      context 'custom' do
-        context '999000999 as example with first capacity' do
-          subject { 999000999 }
+      context '999999000 as example with second capacity' do
+        subject { 999999000 }
 
-          its(:to_words) { should == [t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-            t(:millions, :count => 999),
-            t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-          ].join(' ') }
-        end
+        its(:to_words) { should == [t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+          t(:millions, :count => 999),
+          t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_female)[9],
+          t(:thousands, :count => 999),
+        ].join(' ') }
+      end
 
-        context '999999000 as example with second capacity' do
-          subject { 999999000 }
+      context '999999999 as example with first and second capacity' do
+        subject { 999999999 }
 
-          its(:to_words) { should == [t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-            t(:millions, :count => 999),
-            t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_female)[9],
-            t(:thousands, :count => 999),
-          ].join(' ') }
-        end
-
-        context '999999999 as example with first and second capacity' do
-          subject { 999999999 }
-
-          its(:to_words) { should == [t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-            t(:millions, :count => 999),
-            t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_female)[9],
-            t(:thousands, :count => 999),
-            t(:hundreds)[9],
-            t(:tens)[9],
-            t(:ones_male)[9],
-          ].join(' ') }
-        end
+        its(:to_words) { should == [t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+          t(:millions, :count => 999),
+          t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_female)[9],
+          t(:thousands, :count => 999),
+          t(:hundreds)[9],
+          t(:tens)[9],
+          t(:ones_male)[9],
+        ].join(' ') }
       end
     end
   end

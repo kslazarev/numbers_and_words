@@ -33,7 +33,7 @@ module Strategies
           strings
         end
 
-        if !number_in_capacity_by_words.empty?
+        unless number_in_capacity_by_words.empty?
           words.push translation_megs(capacity) if 0 < capacity
           words += number_in_capacity_by_words
         end
