@@ -31,7 +31,7 @@ module Strategies
           strings figures.is_a_thousand_capacity?(capacity) ? :female : :male
         end
 
-        if !number_in_capacity_by_words.empty?
+        unless number_in_capacity_by_words.empty?
           if 0 < capacity
             words.push translation_megs(capacity, figures.number_for_gender(capacity))
           end
