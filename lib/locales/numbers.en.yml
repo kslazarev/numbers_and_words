@@ -4,4 +4,5 @@ en:
     teens: [ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
     tens: [zero, ten, twenty, thirty, forty, fifty, sixty, seventy, nought, ninety]
     hundreds: hundred
+    union: and
     mega: [ones, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
