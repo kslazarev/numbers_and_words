@@ -1,12 +1,10 @@
-== Number_to_words_ru
+== NumbersAndWords
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
-= If you don’t speak Russian
-
 Convert numbers to words using I18n library.
 
-== Support languages
+== Supported languages
 
   * Russian
   * English
@@ -57,52 +55,19 @@ Convert numbers to words using I18n library.
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
 
-== Требования
-* Ruby 1.8.7 (совместимость с Ruby 1.9, JRuby и Rubinius);
-* I18n 0.5.0 (рание версии не тестировались);
-* Для тестирования библиотеки вам понадобится RSpec.
-== Установка
-Для установки:
+== Требования / Requirements
 
-    gem install number_to_words_ru
+* Ruby 1.8.7 (совместимость с / compatible with Ruby 1.9, JRuby и / and Rubinius);
+* I18n 0.5.0 (рание версии не тестировались / earlier versions not tested);
 
-=== Ruby on Rails
-Существует два варианта использования number_to_words вместе с Rails:
+== Установка / Installation
 
-1. Установка gem
+    gem install numbers_and_words
 
-==== Rails 3
-В файле Gemfile сделайте ссылку на gem number_to_words_ru:
+== License
 
-    gem 'number_to_words'
-
-Чтобы установить gem, используйте команду
-
-    bundle install
-
-==== Rails 2
-В файле config/environment.rb сделайте ссылку на gem number_to_words_ru:
-
-    Rails::Initializer.run do |config|
-      config.gem 'number_to_words_ru'
-    end
-
-Чтобы установить gem, используйте команду
-
-    rake gems:install.
-
-2. Установка плагина
-
-Для того, чтобы установить number_to_words_ru как плагин к Rails, используйте команду
-
-    script/plugin install git://github.com/kslazarev/number_to_words_ru.git
-
-==== Использование в irb
-
-    require 'number_to_words'
-
-== Автор
-
-Для сообщений об ошибках, обнаруженных неточностях и предложений:
+MIT License
+    
+== Автор / Contact
 
 * "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)

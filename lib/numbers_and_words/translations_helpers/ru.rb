@@ -1,5 +1,5 @@
-module TranslationsHelpers::Ru
-  include TranslationsHelpers::Base
+module NumbersAndWords::TranslationsHelpers::Ru
+  include NumbersAndWords::TranslationsHelpers::Base
 
   private
 

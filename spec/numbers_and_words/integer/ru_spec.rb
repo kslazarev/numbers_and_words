@@ -1,6 +1,7 @@
-require './spec/spec_helper'
+require 'spec_helper'
 
 describe Integer do
+  
   around :each do |example|
     I18n.with_locale(:ru) do
       example.run
