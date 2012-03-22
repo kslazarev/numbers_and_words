@@ -6,8 +6,8 @@ Convert numbers to words using I18n library.
 
 == Supported languages
 
-  * Russian
-  * English
+* Russian
+* English
 
 == Примеры
 
