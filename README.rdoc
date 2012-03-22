@@ -4,7 +4,7 @@
 
 Convert numbers to words using I18n library.
 
-== Supported languages
+== Supported Languages
 
 * Russian
 * English
@@ -67,7 +67,11 @@ Convert numbers to words using I18n library.
 == License
 
 MIT License
-    
+
+== Contributing
+
+Fork the project. Make your feature addition or bug fix with tests. Send a pull request. Bonus points for topic branches.
+
 == Автор / Contact
 
 * "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)
