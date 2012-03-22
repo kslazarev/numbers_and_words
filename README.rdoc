@@ -1,4 +1,4 @@
-== NumbersAndWords
+== numbers_and_words
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
