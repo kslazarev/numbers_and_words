@@ -1,4 +1,4 @@
-== Number_to_words_ru
+== numbers_and_words
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
@@ -64,27 +64,27 @@ Convert numbers to words using I18n library.
 == Установка
 Для установки:
 
-    gem install number_to_words_ru
+    gem install numbers_and_words
 
 === Ruby on Rails
-Существует два варианта использования number_to_words вместе с Rails:
+Существует два варианта использования numbers_and_words вместе с Rails:
 
 1. Установка gem
 
 ==== Rails 3
-В файле Gemfile сделайте ссылку на gem number_to_words_ru:
+В файле Gemfile сделайте ссылку на gem numbers_and_words:
 
-    gem 'number_to_words'
+    gem 'numbers_and_words'
 
 Чтобы установить gem, используйте команду
 
     bundle install
 
 ==== Rails 2
-В файле config/environment.rb сделайте ссылку на gem number_to_words_ru:
+В файле config/environment.rb сделайте ссылку на gem numbers_and_words:
 
     Rails::Initializer.run do |config|
-      config.gem 'number_to_words_ru'
+      config.gem 'numbers_and_words'
     end
 
 Чтобы установить gem, используйте команду
@@ -93,13 +93,13 @@ Convert numbers to words using I18n library.
 
 2. Установка плагина
 
-Для того, чтобы установить number_to_words_ru как плагин к Rails, используйте команду
+Для того, чтобы установить numbers_and_words как плагин к Rails, используйте команду
 
-    script/plugin install git://github.com/kslazarev/number_to_words_ru.git
+    script/plugin install git://github.com/kslazarev/numbers_and_words.git
 
 ==== Использование в irb
 
-    require 'number_to_words'
+    require 'numbers_and_words'
 
 == Автор
 
