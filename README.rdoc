@@ -47,8 +47,8 @@ Convert numbers to words using the I18n library.
  
 == Requirements / Требования
 
-* Ruby 1.8.7 (compatible with/совместимость с Ruby 1.9, JRuby and/и Rubinius);
-* I18n 0.5.0 (earlier versions not tested/рание версии не тестировались);
+* 1.8.7 <= Ruby (compatible with/совместимость с Ruby 1.9, JRuby and/и Rubinius);
+* 0.5.0 <= I18n (earlier versions not tested/ранние версии не тестировались);
 
 == Installation / Установка
 
@@ -62,6 +62,6 @@ MIT License
 
 Fork the project. Make your feature addition or bug fix with tests. Send a pull request. Bonus points for topic branches.
 
-== Contact / Автор
+== Contacts / Контакты
 
-* "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)
+* "Kirill Lazarev" (mailto:k.s.lazarev@gmail.com)
