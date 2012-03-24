@@ -1,4 +1,4 @@
-require './spec/spec_helper'
+require 'spec_helper'
 
 describe NumbersAndWords::VERSION, 'version' do
   let(:version_array) { subject.split '.' }

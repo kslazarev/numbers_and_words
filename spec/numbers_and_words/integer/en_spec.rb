@@ -1,12 +1,9 @@
 require 'spec_helper'
 
+#TODO: write more readable tests
+
 describe Integer do
-  
-  around :each do |example|
-    I18n.with_locale(:en) do
-      example.run
-    end
-  end
+  around(:each) { |example| I18n.with_locale(:en) { example.run } }
 
   describe '#to_words' do
     describe 'ones' do

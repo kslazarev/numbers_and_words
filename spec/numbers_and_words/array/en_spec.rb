@@ -1,12 +1,10 @@
 require 'spec_helper'
 
-describe Array do
-  around :each do |example|
-    I18n.with_locale(:en) do
-      example.run
-    end
-  end
+#TODO: write more readable tests
 
+describe Array do
+  around(:each) { |example| I18n.with_locale(:en) { example.run } }
+  
   describe 'to_words' do
     context 'simple example' do
       subject { [1, 2, 3] }
