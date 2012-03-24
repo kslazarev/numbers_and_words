@@ -3,6 +3,8 @@ require 'i18n'
 require 'initializers/i18n'
 require 'active_support/inflector'
 
+require 'numbers_and_words/version'
+
 require 'numbers_and_words/translations_helpers'
 require 'numbers_and_words/strategies'
 require 'numbers_and_words/array_additions'
