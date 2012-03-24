@@ -13,16 +13,18 @@ require 'numbers_and_words/figures_array'
 require 'numbers_and_words/core_ext/integer'
 require 'numbers_and_words/core_ext/array'
 
-module I18nInitialization
-  extend self
+module NumbersAndWords
+  module I18nInitialization
+    extend self
 
-  def init
-    I18n.load_path << locale_files
-  end
+    def init
+      I18n.load_path << locale_files
+    end
 
-  def locale_files
-    Dir[File.join(File.dirname(__FILE__), 'locales', '**/*')]
+    def locale_files
+      Dir[File.join(File.dirname(__FILE__), 'locales', '**/*')]
+    end
   end
 end
 
-I18nInitialization.init
+NumbersAndWords::I18nInitialization.init
