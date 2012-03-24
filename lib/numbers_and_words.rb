@@ -18,7 +18,9 @@ module NumbersAndWords
     extend self
 
     def init
-      I18n.load_path << locale_files
+      locale_files.each do |locale_file|
+        I18n.load_path << locale_file
+      end
     end
 
     def locale_files
