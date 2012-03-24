@@ -6,6 +6,6 @@ class Integer
   private
 
   def to_figures_array
-    FiguresArray.new to_s.split(//).map(&:to_i)
+    to_s.split(//).map(&:to_i).to_figures
   end
 end
