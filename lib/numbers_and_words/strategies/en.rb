@@ -1,19 +1,19 @@
 module NumbersAndWords
   module Strategies
     class En < Base
-      include NumbersAndWords::TranslationsHelpers::En
-
+      include TranslationsHelpers::En
+  
       attr_accessor :figures_in_previous_capacity
-
+  
       def convert figures
         @figures = figures.reverse
-
+  
         @words = strings
         @words.empty? ? zero : @words.reverse.join(' ')
       end
-
+  
       private
-
+  
       def strings
         if figures.capacity_count
           complex_to_words
@@ -25,7 +25,7 @@ module NumbersAndWords
           []
         end
       end
-
+  
       def complex_to_words
         words = []
         figures.capacity_count.times do |capacity|
@@ -33,7 +33,7 @@ module NumbersAndWords
             @figures = parent_figures.figures_array_in_capacity(capacity)
             strings
           end
-
+  
           unless number_in_capacity_by_words.empty?
             words.push translation_megs(capacity) if 0 < capacity
             words += number_in_capacity_by_words
@@ -41,11 +41,11 @@ module NumbersAndWords
         end
         words
       end
-
+  
       def simple_hundreds_to_words
         simple_to_words + [translation_hundreds(figures.hundreds)]
       end
-
+  
       def simple_to_words
         if figures.teens
           [translation_teens(figures.ones)]
@@ -59,7 +59,7 @@ module NumbersAndWords
           []
         end
       end
-
+  
       def save_parent_figures
         parent_figures = @figures
         result = yield(parent_figures)
