@@ -65,5 +65,5 @@ Fork the project. Make your feature addition or bug fix with tests. Send a pull 
 == Contacts / Контакты
 
 * Kirill Lazarev (mailto:k.s.lazarev@gmail.com)
-* Daniel Doubrovkine (link:https://github.com/dblock)
+* Daniel Doubrovkine (link:http://github.com/dblock)
 
