@@ -6,4 +6,8 @@ class FiguresArray < Array
     validate_figure_array!
     strategy.convert self
   end
+
+  def reverse
+    super.to_figures
+  end
 end
