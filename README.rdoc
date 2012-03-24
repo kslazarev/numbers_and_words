@@ -2,7 +2,7 @@
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
-Convert numbers to words using I18n library.
+Convert numbers to words using the I18n library.
 
 == Языки / Supported Languages
 
@@ -54,11 +54,11 @@ Convert numbers to words using I18n library.
 
     gem install numbers_and_words
 
-== License
+== Лицензия / License
 
 MIT License
 
-== Contributing
+== Поправки и Новые Языки / Bugs and Language Support
 
 Fork the project. Make your feature addition or bug fix with tests. Send a pull request. Bonus points for topic branches.
 
