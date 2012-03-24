@@ -1,67 +1,67 @@
 == numbers_and_words
 
-Перевод чисел в слова при помощи библиотеки I18n.
-
 Convert numbers to words using the I18n library.
 
-== Языки / Supported Languages
+Перевод чисел в слова при помощи библиотеки I18n.
 
-* Русский
+== Supported Languages / Языки
+
 * English
+* Русский
 
-== Примеры / Examples
+== Examples / Примеры
 
-    I18n.with_locale(:ru) { 42.to_words }
-    => "сорок два"
-    
     I18n.with_locale(:en) { 42.to_words }
     => "forty-two"
 
+    I18n.with_locale(:ru) { 42.to_words }
+    => "сорок два"
+
     21.to_words
-    => "двадцать один"
     => "twenty-one"
+    => "двадцать один"
 
     231.to_words
-    => "двести тридцать один"
     => "two hundred thirty-one"
+    => "двести тридцать один"
 
     4030.to_words
-    => "четыре тысячи тридцать"
     => "four thousand thirty"
+    => "четыре тысячи тридцать"
 
     1000100.to_words
-    => "один миллион сто"
     => "one million one hundred"
+    => "один миллион сто"
 
     1000000000000000000000000000000000.to_words
-    => "один дециллион"
     => "one decillion"
+    => "один дециллион"
 
     [1, 2, 3].to_words
-    => "[один, два, три]"
     => "[one, two, three]"
+    => "[один, два, три]"
 
     [11, 22, 133].to_words
-    => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
+    => ["одиннадцать", "двадцать два", "сто тридцать три"]
  
-== Требования / Requirements
+== Requirements / Требования
 
-* Ruby 1.8.7 (совместимость с / compatible with Ruby 1.9, JRuby и / and Rubinius);
-* I18n 0.5.0 (рание версии не тестировались / earlier versions not tested);
+* Ruby 1.8.7 (compatible with/совместимость с Ruby 1.9, JRuby and/и Rubinius);
+* I18n 0.5.0 (earlier versions not tested/рание версии не тестировались);
 
-== Установка / Installation
+== Installation / Установка
 
     gem install numbers_and_words
 
-== Лицензия / License
+== License / Лицензия
 
 MIT License
 
-== Поправки и Новые Языки / Bugs and Language Support
+== Bugs and Language Support / Поправки и Новые Языки
 
 Fork the project. Make your feature addition or bug fix with tests. Send a pull request. Bonus points for topic branches.
 
-== Автор / Contact
+== Contact / Автор
 
 * "Кирилл Лазарев" (mailto:k.s.lazarev@gmail.com)
