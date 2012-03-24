@@ -11,11 +11,11 @@ end
 require 'rake/gempackagetask'
 require 'rubygems/specification'
 
-GEM = "number_to_words_ru"
+GEM = "numbers_and_words"
 GEM_VERSION = "0.2.3"
 AUTHOR = "Kirill Lazarev"
 EMAIL = "k.s.lazarev@gmail.com"
-HOMEPAGE = "http://github.com/kslazarev/number_to_words_ru"
+HOMEPAGE = "http://github.com/kslazarev/numbers_and_words"
 SUMMARY = "Simple convert number to russian words using I18N."
 LICENSE = "MIT"
 
