@@ -9,5 +9,4 @@ class Integer
   def to_figures_array
     to_s.split(//).map(&:to_i).to_figures
   end
-
 end
