@@ -1,11 +1,7 @@
-module TranslationsHelpers::En
-  include TranslationsHelpers::Base
+module NumbersAndWords::TranslationsHelpers::En
+  include NumbersAndWords::TranslationsHelpers::Base
 
   private
-
-  def translation_megs capacity
-    t(:mega)[capacity]
-  end
 
   def translation_teens number
     t(:teens)[number]
@@ -31,7 +27,15 @@ module TranslationsHelpers::En
     [t(:ones)[number], t(:hundreds)].join ' '
   end
 
+  def translation_megs capacity
+    t(:mega)[capacity]
+  end
+  
+  def translation_mega capacity
+    t(:mega)[capacity]
+  end
+  
   def zero
-    t(:ones_male)[0]
+    t(:ones)[0]
   end
 end
