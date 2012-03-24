@@ -3,13 +3,13 @@ require 'i18n'
 require 'initializers/i18n'
 require 'active_support/inflector'
 
-require 'number_to_words_ru/translations_helpers'
-require 'number_to_words_ru/strategies'
-require 'number_to_words_ru/array_additions'
-require 'number_to_words_ru/figures_array'
+require 'numbers_and_words/translations_helpers'
+require 'numbers_and_words/strategies'
+require 'numbers_and_words/array_additions'
+require 'numbers_and_words/figures_array'
 
-require 'number_to_words_ru/core_ext/integer'
-require 'number_to_words_ru/core_ext/array'
+require 'numbers_and_words/core_ext/integer'
+require 'numbers_and_words/core_ext/array'
 
 module I18nInitialization
   extend self
