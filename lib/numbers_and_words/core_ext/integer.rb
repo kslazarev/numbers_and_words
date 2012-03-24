@@ -1,6 +1,7 @@
 class Integer
+
   def to_words
-    to_figures_array.to_words Strategies::Base.factory
+    to_figures_array.to_words NumbersAndWords::Strategies::Base.factory
   end
 
   private

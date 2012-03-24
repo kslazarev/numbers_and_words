@@ -4,6 +4,6 @@ class Array
   end
 
   def to_figures
-    FiguresArray.new self
+    NumbersAndWords::FiguresArray.new self
   end
 end

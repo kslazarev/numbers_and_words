@@ -1,22 +1,30 @@
-ru_rule = lambda do |count|
-  case count
-  when Integer
-    case
-    when 1 == count
-      :one
-    when (2..4).include?(count)
-      :few
-    else
-      :many
+module NumbersAndWords
+  module Locales
+    module Plurals
+
+      RU = lambda do |count|
+        case count
+        when Integer
+          case
+          when 1 == count
+            :one
+          when (2..4).include?(count)
+            :few
+          else
+            :many
+          end
+        else
+          :other
+        end
+      end
+
+      EN = lambda { |count| 1 == count ? :one : :other }
+
     end
-  else
-    :other
   end
 end
 
-en_rule = lambda{|count| 1 == count ? :one : :other}
-
 {
-  :ru => {:i18n => {:plural => {:rule => ru_rule}}},
-  :en => {:i18n => {:plural => {:rule => en_rule}}}
+  :ru => {:i18n => {:plural => {:rule => NumbersAndWords::Locales::Plurals::RU}}},
+  :en => {:i18n => {:plural => {:rule => NumbersAndWords::Locales::Plurals::EN}}}
 }
