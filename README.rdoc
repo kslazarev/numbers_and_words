@@ -38,8 +38,8 @@ Convert numbers to words using the I18n library.
     => "один дециллион"
 
     [1, 2, 3].to_words
-    => "[one, two, three]"
-    => "[один, два, три]"
+    => ["one", "two", "three"]
+    => ["один", "два", "три"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
