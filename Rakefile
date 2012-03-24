@@ -1,64 +1,47 @@
 require 'rubygems'
 require 'bundler'
+
+require File.expand_path('../lib/numbers_and_words/version', __FILE__)
+
 begin
-  Bundler.setup(:default, :development)
+  Bundler.setup :default, :development
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 
-require 'rake/gempackagetask'
-require 'rubygems/specification'
+require 'rake'
 
-GEM = "number_to_words_ru"
-GEM_VERSION = "0.2.3"
-AUTHOR = "Kirill Lazarev"
-EMAIL = "k.s.lazarev@gmail.com"
-HOMEPAGE = "http://github.com/kslazarev/number_to_words_ru"
-SUMMARY = "Simple convert number to russian words using I18N."
-LICENSE = "MIT"
-
-spec = Gem::Specification.new do |s|
-  s.name = GEM
-  s.version = GEM_VERSION
-  s.platform = Gem::Platform::RUBY
-  s.has_rdoc = true
-  #s.extra_rdoc_files = ["README.textile", "LICENSE", "CHANGELOG", "TODO"]
-  s.summary = SUMMARY
-  s.description = s.summary
-  s.author = AUTHOR
-  s.email = EMAIL
-  s.homepage = HOMEPAGE
-  s.license = LICENSE
-  s.require_path = 'lib'
-  s.autorequire = GEM
-  s.files = Dir.glob("{lib,spec}/**/*")
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  gem.name = 'numbers_and_words'
+  gem.homepage = 'http://github.com/kslazarev/numbers_and_words'
+  gem.license = 'MIT'
+  gem.summary = 'Convert numbers to words using I18N.'
+  gem.description = 'Convert numbers to words using I18N.'
+  gem.email = 'k.s.lazarev@gmail.com'
+  gem.version = NumbersAndWords::VERSION
+  gem.authors = ['Kirill Lazarev']
+  gem.files = Dir.glob('lib/**/*')
 end
 
-Rake::GemPackageTask.new(spec) do |pkg|
-  pkg.gem_spec = spec
-end
+Jeweler::RubygemsDotOrgTasks.new
 
-#task :default => :spec
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
-#require 'spec/rake/spectask'
-#require 'date'
+RSpec::Core::RakeTask.new(:spec) { |spec| spec.pattern = FileList['spec/**/*_spec.rb'] }
 
-#desc "Run specs"
-#Spec::Rake::SpecTask.new do |t|
-#  t.spec_files = FileList['spec/**/*_spec.rb']
-#  t.spec_opts = %w(-fs --color)
-#end
+task :default => :spec
 
-desc "install the gem locally"
-task :install => [:package] do
-  sh %{gem install pkg/#{GEM}-#{GEM_VERSION}}
-end
+require 'rdoc/task'
+Rake::RDocTask.new do |rdoc|
+  version = File.exist?('VERSION') ? File.read('VERSION') : ''
 
-desc "create a gemspec file"
-task :make_spec do
-  File.open("#{GEM}.gemspec", "w") do |file|
-    file.puts spec.to_ruby
-  end
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title = "numbers_and_words #{version}"
+  rdoc.rdoc_files.include 'README*'
+  rdoc.rdoc_files.include 'LICENSE*'
+  rdoc.rdoc_files.include 'lib/**/*.rb'
 end
