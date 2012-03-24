@@ -33,10 +33,6 @@ module NumbersAndWords
         t(:mega)[capacity]
       end
       
-      def translation_mega capacity
-        t(:mega)[capacity]
-      end
-      
       def zero
         t(:ones)[0]
       end
