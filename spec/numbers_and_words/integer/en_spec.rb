@@ -58,6 +58,19 @@ describe Integer do
         [ 999000999, "nine hundred ninety-nine million nine hundred ninety-nine" ],
         [ 999999000, "nine hundred ninety-nine million nine hundred ninety-nine thousand" ],
         [ 999999999, "nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine" ],
+      ],
+    },
+    {
+      :billions => [
+        [ 1174315119, "one billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen" ],
+        [ 15174315119, "fifteen billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen" ],
+        [ 35174315119, "thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen" ],
+        [ 935174315119, "nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen" ],
+      ],
+    },
+    {
+      :trillions => [
+        [ 2935174315119, "two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen" ],
       ]
     }
   ].each do |ctx|
