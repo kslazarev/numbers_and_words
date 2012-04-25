@@ -1,4 +1,4 @@
-shared_examples 'correct examples' do
+shared_examples 'correct fixture_examples' do
   subject.call.each do |context_name, tests|
     context context_name do
       tests.each do |input, expectation|
