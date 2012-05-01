@@ -6,7 +6,7 @@
 
 ## 0.3.0
 
-* Re-released as 'numbers_and_words', full support for English and Russian.
+* Re-released as `numbers_and_words`, full support for English and Russian.
 
 ## 0.2.3 (December, 2011)
 
@@ -14,4 +14,4 @@
 
 ## 0.1.0 (July, 2011)
 
-* Initial release as 'numbers_to_words_ru'.
+* Initial release as `numbers_to_words_ru`.
