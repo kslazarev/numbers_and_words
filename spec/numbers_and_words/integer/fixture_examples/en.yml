@@ -9,6 +9,7 @@ to_words:
     19: nineteen
     20: twenty
     21: twenty-one
+    80: eighty
     90: ninety
     99: ninety-nine
   hundreds:
