@@ -60,7 +60,9 @@ MIT License
 
 == Bugs and Language Support / Поправки и Новые Языки
 
-Fork the project. Make your feature addition or bug fix with tests. Send a pull request. Bonus points for topic branches.
+See CHANGELOG.md for last changes.
+Fork the project. Make your feature addition or bug fix with tests.
+Send a pull request. Bonus points for topic branches.
 
 == Contacts / Контакты
 
