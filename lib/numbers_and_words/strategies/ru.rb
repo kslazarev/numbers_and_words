@@ -34,7 +34,7 @@ module NumbersAndWords
 
           unless number_in_capacity_by_words.empty?
             if 0 < capacity
-              words.push translation_megs(capacity, figures.number_for_gender(capacity))
+              words.push translation_megs(capacity, figures.number_in_capacity(capacity))
             end
             words += number_in_capacity_by_words
           end

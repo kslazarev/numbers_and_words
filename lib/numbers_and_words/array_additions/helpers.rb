@@ -16,12 +16,6 @@ module NumbersAndWords
         figures_array_in_capacity(capacity).reverse.join.to_i
       end
 
-      def number_for_gender capacity
-        figures = figures_array_in_capacity(capacity)
-        teens = figures.teens
-        teens ? teens.join.to_i : figures.first
-      end
-
       def is_a_thousand_capacity? capacity
         THOUSAND_CAPACITY == capacity
       end
