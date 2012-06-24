@@ -8,6 +8,8 @@ Convert numbers to words using the I18n library.
 
 * English
 * Русский
+* Українська
+* Türkçe
 
 == Examples / Примеры
 
@@ -20,22 +22,32 @@ Convert numbers to words using the I18n library.
     21.to_words
     => "twenty-one"
     => "двадцать один"
+    => "двадцять один"
+    => "yirmi bir"
 
     231.to_words
     => "two hundred thirty-one"
     => "двести тридцать один"
+    => "двiстi тридцять один"
+    => "iki yüz otuz bir"
 
     4030.to_words
     => "four thousand thirty"
     => "четыре тысячи тридцать"
+    => "чотири тисячi тридцять"
+    => "dört bin otuz"
 
     1000100.to_words
     => "one million one hundred"
     => "один миллион сто"
+    => "один мiльйон сто"
+    => "bir milyon bir yüz"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
     => "один дециллион"
+    => "один децильйон"
+    => "bir desilyon"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -44,7 +56,9 @@ Convert numbers to words using the I18n library.
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
- 
+    => ["одинадцять", "двадцять два", "сто тридцять три"]
+    => ["on bir", "yirmi iki", "bir yüz otuz üç"]
+
 == Requirements / Требования
 
 * 1.8.7 <= Ruby (compatible with/совместимость с Ruby 1.9, JRuby and/и Rubinius);
@@ -70,3 +84,4 @@ Send a pull request. Bonus points for topic branches.
 
 * Kirill Lazarev (mailto:k.s.lazarev@gmail.com)
 * Daniel Doubrovkine (link:http://github.com/dblock)
+* Sergey Shkirando (mailto:shkirando.s@yandex.ru)
