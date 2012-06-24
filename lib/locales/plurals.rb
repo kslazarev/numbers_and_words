@@ -2,20 +2,13 @@ module NumbersAndWords
   module Locales
     module Plurals
 
-      RU = lambda do |count|
-        case count
-        when Integer
-          case
-          when 1 == count
-            :one
-          when (2..4).include?(count)
-            :few
-          else
-            :many
-          end
-        else
-          :other
-        end
+      RU = lambda do |n|
+          n % 10 == 1 && n % 100 != 11 ?
+            :one :
+            [2, 3, 4].include?(n % 10) && ![12, 13, 14].include?(n % 100) ?
+              :few :
+              n % 10 == 0 || [5, 6, 7, 8, 9].include?(n % 10) || [11, 12, 13, 14].include?(n % 100) ?
+                :many : :other
       end
 
       EN = lambda { |count| 1 == count ? :one : :other }
