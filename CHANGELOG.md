@@ -1,4 +1,14 @@
-## 0.3.2 (June 03, 2012)
+## 0.4.0 (June 24, 2012)
+
+### Features
+  * Add Turkish language. \[[#26](https://github.com/kslazarev/numbers_and_words/issues/26)\] \([@Shk-Serji](https://github.com/Shk-Serji)\)
+  * Add Ukrainian language. \[[#25](https://github.com/kslazarev/numbers_and_words/issues/25)\] \([@Shk-Serji](https://github.com/Shk-Serji)\)
+
+### Supports
+  * Combine all connections with i18n library in one sub-module. \[[#28](https://github.com/kslazarev/numbers_and_words/issues/28)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add separate logics for pluralization in different languages. \[[#27](https://github.com/kslazarev/numbers_and_words/issues/27)\] \([@kslazarev](https://github.com/kslazarev)\)
+
+## 0.3.2 (June 24, 2012)
 
 ### Bugs
   * Ломает плюрализацию russian. \[[#22](https://github.com/kslazarev/numbers_and_words/issues/22)\] \([@kslazarev](https://github.com/kslazarev)\)

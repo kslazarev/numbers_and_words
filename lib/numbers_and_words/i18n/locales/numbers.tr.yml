@@ -1,0 +1,7 @@
+tr:
+  numbers:
+    ones: [sıfır, bir, iki, üç, dört, beş, altı, yedi, sekiz, dokuz]
+    teens: ['on', on bir, on iki, on üç, on dört, on beş, on altı, on yedi, on sekiz, on dokuz]
+    tens: [sıfır, 'on', yirmi, otuz, kırk, elli, altmış, yetmiş, seksen, doksan]
+    hundreds: yüz
+    mega: [bir, bin, milyon, milyar, trilyon, katrilyon, kentilyon, seksilyon, septilyon, oktilyon, nonilyon, desilyon]
