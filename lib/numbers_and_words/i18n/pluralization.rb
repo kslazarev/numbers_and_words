@@ -12,7 +12,7 @@ module NumbersAndWords
       end
 
       def files
-        I18n.files('plurals', '*.*')
+        I18n.files 'plurals', '*.*'
       end
 
       def config_file

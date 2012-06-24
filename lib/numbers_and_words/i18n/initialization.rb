@@ -11,11 +11,11 @@ module NumbersAndWords
       private
 
       def locale_files
-        I18n.files('locales', '*.*')
+        I18n.files 'locales', '*.*'
       end
 
       def languages
-        locale_files.map{|path| path.split(/[\/.]/)}[-2]
+        locale_files.map{|path| path.split /[\/.]/}[-2]
       end
     end
   end
