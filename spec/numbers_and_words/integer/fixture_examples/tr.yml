@@ -1,0 +1,51 @@
+to_words:
+  ones:
+    0: sıfır
+    1: bir
+    9: dokuz
+  teens:
+    10: 'on'
+    11: on bir
+    19: on dokuz
+    20: yirmi
+    21: yirmi bir
+    80: seksen
+    90: doksan
+    99: doksan dokuz
+  hundreds:
+    100: bir yüz
+    101: bir yüz bir
+    111: bir yüz on bir
+    120: bir yüz yirmi
+    121: bir yüz yirmi bir
+    900: dokuz yüz
+    909: dokuz yüz dokuz
+    919: dokuz yüz on dokuz
+    990: dokuz yüz doksan
+    999: dokuz yüz doksan dokuz
+  thousands:
+    1000: bir bin
+    2000: iki bin
+    4000: dört bin
+    5000: beş bin
+    11000: on bir bin
+    21000: yirmi bir bin
+    999000: dokuz yüz doksan dokuz bin
+    999999: dokuz yüz doksan dokuz bin dokuz yüz doksan dokuz
+  millions:
+    1000000: bir milyon
+    2000000: iki milyon
+    4000000: dört milyon
+    5000000: beş milyon
+    999000000: dokuz yüz doksan dokuz milyon
+    999000999: dokuz yüz doksan dokuz milyon dokuz yüz doksan dokuz
+    999999000: dokuz yüz doksan dokuz milyon dokuz yüz doksan dokuz bin
+    999999999: dokuz yüz doksan dokuz milyon dokuz yüz doksan dokuz bin dokuz yüz doksan dokuz
+  billions:
+    1174315110: bir milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on
+    1174315119: bir milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on dokuz
+    15174315119: on beş milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on dokuz
+    35174315119: otuz beş milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on dokuz
+    935174315119: dokuz yüz otuz beş milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on dokuz
+  trillions:
+    2935174315119: iki trilyon dokuz yüz otuz beş milyar bir yüz yetmiş dört milyon üç yüz on beş bin bir yüz on dokuz
