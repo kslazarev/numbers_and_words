@@ -1,3 +1,8 @@
+## 0.3.2 (June 03, 2012)
+
+### Bugs
+  * Ломает плюрализацию russian. \[[#22](https://github.com/kslazarev/numbers_and_words/issues/22)\] \([@kslazarev](https://github.com/kslazarev)\)
+
 ## 0.3.1 (May 04, 2012)
 
 ### Bugs
