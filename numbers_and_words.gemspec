@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words"
-  s.version = "0.3.2"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
@@ -17,26 +17,35 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    "lib/initializers/i18n.rb",
-    "lib/locales/numbers.en.yml",
-    "lib/locales/numbers.ru.yml",
-    "lib/locales/plurals.rb",
     "lib/numbers_and_words.rb",
     "lib/numbers_and_words/array_additions.rb",
     "lib/numbers_and_words/array_additions/helpers.rb",
     "lib/numbers_and_words/array_additions/validations.rb",
+    "lib/numbers_and_words/core_ext.rb",
     "lib/numbers_and_words/core_ext/array.rb",
     "lib/numbers_and_words/core_ext/integer.rb",
     "lib/numbers_and_words/figures_array.rb",
-    "lib/numbers_and_words/pluralization.rb",
+    "lib/numbers_and_words/i18n.rb",
+    "lib/numbers_and_words/i18n/initialization.rb",
+    "lib/numbers_and_words/i18n/locales/numbers.en.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.ru.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.tr.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.ua.yml",
+    "lib/numbers_and_words/i18n/pluralization.rb",
+    "lib/numbers_and_words/i18n/plurals/plurals.rb",
+    "lib/numbers_and_words/i18n/plurals/ru.rb",
+    "lib/numbers_and_words/i18n/plurals/ua.rb",
     "lib/numbers_and_words/strategies.rb",
     "lib/numbers_and_words/strategies/base.rb",
     "lib/numbers_and_words/strategies/en.rb",
     "lib/numbers_and_words/strategies/ru.rb",
+    "lib/numbers_and_words/strategies/tr.rb",
+    "lib/numbers_and_words/strategies/ua.rb",
     "lib/numbers_and_words/translations_helpers.rb",
     "lib/numbers_and_words/translations_helpers/base.rb",
     "lib/numbers_and_words/translations_helpers/en.rb",
     "lib/numbers_and_words/translations_helpers/ru.rb",
+    "lib/numbers_and_words/translations_helpers/tr.rb",
     "lib/numbers_and_words/version.rb"
   ]
   s.homepage = "http://github.com/kslazarev/numbers_and_words"
