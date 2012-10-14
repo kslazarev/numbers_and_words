@@ -2,77 +2,90 @@
 
 Convert numbers to words using the I18n library.
 
+Converti les nombres en lettres en utilisant la librairie I18n.
+
 Перевод чисел в слова при помощи библиотеки I18n.
 
-== Supported Languages / Языки
+== Supported Languages / Langues Supportées / Языки
 
 * English
+* Français
 * Русский
 * Українська
 * Türkçe
 
-== Examples / Примеры
+== Examples / Exemples / Примеры
 
     I18n.with_locale(:en) { 42.to_words }
     => "forty-two"
+
+    I18n.with_locale(:fr) { 42.to_words }
+    => "quarante-deux"
 
     I18n.with_locale(:ru) { 42.to_words }
     => "сорок два"
 
     21.to_words
     => "twenty-one"
+    => "vingt et un"
     => "двадцать один"
     => "двадцять один"
     => "yirmi bir"
 
     231.to_words
     => "two hundred thirty-one"
+    => "deux cent trente-trois"
     => "двести тридцать один"
     => "двiстi тридцять один"
     => "iki yüz otuz bir"
 
     4030.to_words
     => "four thousand thirty"
+    => "quatre mille trente"
     => "четыре тысячи тридцать"
     => "чотири тисячi тридцять"
     => "dört bin otuz"
 
     1000100.to_words
     => "one million one hundred"
+    => "un million cent"
     => "один миллион сто"
     => "один мiльйон сто"
     => "bir milyon bir yüz"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
+    => "un quintilliard"
     => "один дециллион"
     => "один децильйон"
     => "bir desilyon"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
+    => ["un", "deux", "trois"]
     => ["один", "два", "три"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
+    => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
 
-== Requirements / Требования
+== Requirements / Configuration Requise / Требования
 
-* 1.8.7 <= Ruby (compatible with/совместимость с Ruby 1.9, JRuby and/и Rubinius);
-* 0.5.0 <= I18n (earlier versions not tested/ранние версии не тестировались);
+* 1.8.7 <= Ruby (compatible with/compatible avec/совместимость с Ruby 1.9, JRuby and/et/и Rubinius);
+* 0.5.0 <= I18n (earlier versions not tested/versions précédentes non testées/ранние версии не тестировались);
 
-== Installation / Установка
+== Installation / Installation / Установка
 
     gem install numbers_and_words
 
-== License / Лицензия
+== License / Licence / Лицензия
 
 MIT License
 
-== Bugs and Language Support / Поправки и Новые Языки
+== Bugs and Language Support / Bugs et Support d'autres Langues / Поправки и Новые Языки
 
 See CHANGELOG.md for last changes.
 
@@ -80,7 +93,7 @@ Fork the project. Make your feature addition or bug fix with tests.
 
 Send a pull request. Bonus points for topic branches.
 
-== Contacts / Контакты
+== Contacts / Contacts / Контакты
 
 * Kirill Lazarev (mailto:k.s.lazarev@gmail.com)
 * Daniel Doubrovkine (link:http://github.com/dblock)
