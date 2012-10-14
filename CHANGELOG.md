@@ -1,3 +1,6 @@
+## 0.5.0 (October 14, 2012)
+  * Add French language. \#29\] \(@sorich87\)
+
 ## 0.4.0 (June 24, 2012)
 
 ### Features
