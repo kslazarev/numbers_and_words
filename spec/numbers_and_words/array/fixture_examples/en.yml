@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - one
+      - two
+      - three
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - one hundred one
+      - twenty-one
+      - thirteen
