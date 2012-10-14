@@ -1,5 +1,7 @@
 ## 0.5.0 (October 14, 2012)
-  * Add French language. \#29\] \(@sorich87\)
+
+### Features
+  * Add French language. \[[#29](https://github.com/kslazarev/numbers_and_words/pull/29)\] \([@sorich87](https://github.com/sorich87)\)
 
 ## 0.4.0 (June 24, 2012)
 
