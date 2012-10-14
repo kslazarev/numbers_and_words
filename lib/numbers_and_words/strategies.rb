@@ -1,4 +1,7 @@
 require 'numbers_and_words/strategies/base'
+require 'numbers_and_words/strategies/families/base'
+require 'numbers_and_words/strategies/families/cyrillic'
+require 'numbers_and_words/strategies/families/latin'
 require 'numbers_and_words/strategies/ru'
 require 'numbers_and_words/strategies/en'
 require 'numbers_and_words/strategies/ua'

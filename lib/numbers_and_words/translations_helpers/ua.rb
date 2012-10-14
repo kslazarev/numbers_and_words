@@ -1,8 +1,8 @@
 module NumbersAndWords
   module TranslationsHelpers
-    module Tr
+    module Ua
       include NumbersAndWords::TranslationsHelpers::Base
-      include NumbersAndWords::TranslationsHelpers::Families::Latin
+      include NumbersAndWords::TranslationsHelpers::Families::Cyrillic
     end
   end
 end

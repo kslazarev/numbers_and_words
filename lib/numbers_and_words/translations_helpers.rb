@@ -1,4 +1,8 @@
 require 'numbers_and_words/translations_helpers/base'
+require 'numbers_and_words/translations_helpers/families/base'
+require 'numbers_and_words/translations_helpers/families/cyrillic'
+require 'numbers_and_words/translations_helpers/families/latin'
 require 'numbers_and_words/translations_helpers/ru'
 require 'numbers_and_words/translations_helpers/en'
+require 'numbers_and_words/translations_helpers/ua'
 require 'numbers_and_words/translations_helpers/tr'

@@ -3,19 +3,21 @@ module NumbersAndWords
     module Initialization
       extend self
 
+      attr_accessor :languages
+
       def init
         locale_files.each { |locale_file| ::I18n.load_path << locale_file}
         NumbersAndWords::I18n::Pluralization.init
+      end
+
+      def languages
+        @languages ||= (locale_files.map{|path| path.split(/[\/.]/)[-2]})
       end
 
       private
 
       def locale_files
         I18n.files 'locales', '*.*'
-      end
-
-      def languages
-        locale_files.map{|path| path.split /[\/.]/}[-2]
       end
     end
   end
