@@ -1,4 +1,4 @@
-== numbers_and_words {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]
+== numbers_and_words {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words] {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
 
 Convert numbers to words using the I18n library.
 
