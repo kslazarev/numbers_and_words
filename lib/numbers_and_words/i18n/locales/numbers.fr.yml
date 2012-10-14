@@ -1,0 +1,43 @@
+fr:
+  numbers:
+    ones: [zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf]
+    teens: [dix, onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf]
+    tens: [zéro, dix, vingt, trente, quarante, cinquante, soixante, soixante-dix, quatre-vingt, quatre-vingt-dix]
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    eighty: quatre-vingts
+    hundreds:
+      one: cent
+      many: cents
+    thousands:
+      one: mille
+      many: mille
+    millions:
+      one: million
+      many: millions
+    billions:
+      one: milliard
+      many: milliards
+    trillions:
+      one: billion
+      many: billions
+    quadrillions:
+      one: billiard
+      many: billiards
+    quintillions:
+      one: trillion
+      many: trillions
+    sextillions:
+      one: trilliard
+      many: trilliards
+    septillions:
+      one: quadrillion
+      many: quadrillions
+    octillions:
+      one: quadrilliard
+      many: quadrilliards
+    nonillions:
+      one: quintillion
+      many: quintillions
+    decillions:
+      one: quintilliard
+      many: quintilliards
