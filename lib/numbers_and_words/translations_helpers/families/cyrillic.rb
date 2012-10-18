@@ -20,12 +20,7 @@ module NumbersAndWords
         end
 
         def translation_megs capacity
-          number = figures.number_in_capacity(capacity)
-          t translation_mega(capacity), :count => number
-        end
-
-        def translation_mega capacity
-          t(:mega)[capacity]
+          super(capacity, figures.number_in_capacity(capacity))
         end
 
         def zero
