@@ -7,7 +7,7 @@ module NumbersAndWords
       private
 
       def translation_tens_with_ones numbers
-        [ translation_ones(numbers[0]), translation_tens(numbers[1])].join 'en'
+        [translation_ones(numbers[0]), translation_tens(numbers[1])].join 'en'
       end
 
       def translation_hundreds number
