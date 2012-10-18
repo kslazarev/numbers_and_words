@@ -1,0 +1,7 @@
+it:
+  numbers:
+    ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
+    teens: [dieci, undici, dodici, tredici, quattordici, quindici, sedici, diciasette, diciotto, diciannove]
+    tens: [zero, dieci, venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta]
+    hundreds: cento
+    mega: [ones, mille, milione, miliardo, triliardo, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]

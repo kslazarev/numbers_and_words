@@ -1,0 +1,51 @@
+to_words:
+  ones:
+    0: zero
+    1: uno
+    9: nove
+  teens:
+    10: dieci
+    11: undici
+    19: diciannove
+    20: venti
+    21: ventiuno
+    80: ottanta
+    90: novanta
+    99: novantanove
+  hundreds:
+    100: 1 cento
+    101: 1 cento uno
+    111: 1 cento undici
+    120: 1 cento venti
+    121: 1 cento ventiuno
+    900: 9 cento
+    909: 9 cento nove
+    919: 9 cento diciannove
+    990: 9 cento novanta
+    999: 9 cento novantanove
+  thousands:
+    1000: uno mille
+    2000: due mille
+    4000: quattro mille
+    5000: cinque mille
+    11000: undici mille
+    21000: ventiuno mille
+    999000: 9 cento novantanove mille
+    999999: 9 cento novantanove mille 9 cento novantanove
+  millions:
+    1000000: uno milione
+    2000000: due milione
+    4000000: quattro milione
+    5000000: cinque milione
+    999000000: 9 cento novantanove milione
+    999000999: 9 cento novantanove milione 9 cento novantanove
+    999999000: 9 cento novantanove milione 9 cento novantanove mille
+    999999999: 9 cento novantanove milione 9 cento novantanove mille 9 cento novantanove
+  billions:
+    1174315110: uno miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento dieci
+    1174315119: uno miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+    15174315119: quindici miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+    35174315119: trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+    935174315119: 9 cento trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+  trillions:
+    2935174315119: due triliardo 9 cento trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
