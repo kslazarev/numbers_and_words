@@ -12,9 +12,9 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Русский
 * Français
 * Українська
-* Türkçe*
-* Italiano*
-* Nederlands*
+* Türkçe**
+* Italiano**
+* Nederlands**
 
 ** Experimental
 
