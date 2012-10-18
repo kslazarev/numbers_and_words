@@ -13,6 +13,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Français
 * Українська
 * Türkçe*
+* Nederlands*
 
 ** Experimental
 
@@ -33,6 +34,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "vingt et un"
     => "двадцять один"
     => "yirmi bir"
+    => "éénentwintig"
 
     231.to_words
     => "two hundred thirty-one"
@@ -40,6 +42,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "deux cent trente-trois"
     => "двiстi тридцять один"
     => "iki yüz otuz bir"
+    => "tweehonderdéénendertig"
 
     4030.to_words
     => "four thousand thirty"
@@ -47,6 +50,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "quatre mille trente"
     => "чотири тисячi тридцять"
     => "dört bin otuz"
+    => "vierthousanddertig"
 
     1000100.to_words
     => "one million one hundred"
@@ -54,6 +58,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "un million cent"
     => "один мiльйон сто"
     => "bir milyon bir yüz"
+    => "één miljoen honderd"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -61,6 +66,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "un quintilliard"
     => "один децильйон"
     => "bir desilyon"
+    => "één decillion"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -73,6 +79,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
+    => ["elf", "tweeentwintig", "honderddrieendertig"]
 
 == Requirements / Требования / Configuration Requise
 

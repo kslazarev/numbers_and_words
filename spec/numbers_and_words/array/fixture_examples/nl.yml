@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - één
+      - twee
+      - drie
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - honderdéén
+      - éénentwintig
+      - dertien
