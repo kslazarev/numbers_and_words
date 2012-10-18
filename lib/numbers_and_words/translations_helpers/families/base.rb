@@ -13,6 +13,10 @@ module NumbersAndWords
           t(:tens)[number]
         end
 
+        def translation_tens_with_ones numbers, separator = ' '
+          [translation_tens(numbers[1]), translation_ones(numbers[0])].join separator
+        end
+
         def translation_megs capacity, number = nil
           number ? t(translation_mega(capacity), :count => number) : t(:mega)[capacity]
         end

@@ -11,10 +11,6 @@ module NumbersAndWords
           t([:ones, gender].join('_'))[number]
         end
 
-        def translation_tens_with_ones numbers
-          [translation_tens(numbers[1]), translation_ones(numbers[0])].join ' '
-        end
-
         def translation_hundreds number
           t(:hundreds)[number]
         end

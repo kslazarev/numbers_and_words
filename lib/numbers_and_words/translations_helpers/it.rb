@@ -5,7 +5,7 @@ module NumbersAndWords
       include NumbersAndWords::TranslationsHelpers::Families::Latin
 
       def translation_tens_with_ones numbers
-        [translation_tens(numbers[1]), translation_ones(numbers[0])].join ''
+        super numbers, ''
       end
 
       def translation_hundreds number
