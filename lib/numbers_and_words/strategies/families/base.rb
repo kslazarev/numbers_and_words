@@ -18,15 +18,14 @@ module NumbersAndWords
         end
 
         def complex_number_to_words
+          (1..figures.capacity_count).map{|capacity| capacity_iteration(capacity)}.flatten
+        end
+
+        def capacity_iteration capacity
           words = []
-
-          (1..figures.capacity_count).each do |capacity|
-            capacity_words = words_in_capacity(capacity)
-            words.push(translation_megs(capacity)) unless capacity_words.empty?
-            words += capacity_words
-          end
-
-          words
+          capacity_words = words_in_capacity(capacity)
+          words.push(translation_megs(capacity)) unless capacity_words.empty?
+          words + capacity_words
         end
 
         def words_in_capacity capacity = 0
@@ -42,13 +41,17 @@ module NumbersAndWords
           simple_number_to_words + [translation_hundreds(figures.hundreds)]
         end
 
+        def complex_tens
+          figures.ones ?
+            translation_tens_with_ones(figures.tens_with_ones) :
+            translation_tens(figures.tens)
+        end
+
         def simple_number_to_words
           if figures.teens
             [translation_teens(figures.ones)]
           elsif figures.tens
-            figures.ones ?
-              [translation_tens_with_ones(figures.tens_with_ones)] :
-              [translation_tens(figures.tens)]
+            [complex_tens]
           elsif figures.ones
             [translation_ones(figures.ones)]
           else

@@ -18,10 +18,6 @@ module NumbersAndWords
           [t(:ones)[number], t(:hundreds)].join ' '
         end
 
-        def translation_megs capacity
-          t(:mega)[capacity]
-        end
-
         def zero
           t(:ones)[0]
         end
