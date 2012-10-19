@@ -1,8 +1,8 @@
 module NumbersAndWords
   module Strategies
-    class En < Base
+    class It < Base
       include Families::Latin
-      include NumbersAndWords::TranslationsHelpers::En
+      include NumbersAndWords::TranslationsHelpers::It
     end
   end
 end

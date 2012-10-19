@@ -2,9 +2,7 @@ module NumbersAndWords
   module I18n
     module Plurals
       module Fr
-        RULE = lambda do |n|
-           one_conditions(n) ? :one : :many
-        end
+        RULE = lambda { |n| one_conditions(n) ? :one : :many }
 
         extend self
 

@@ -4,8 +4,8 @@ module NumbersAndWords
       THOUSAND_CAPACITY = 1
 
       def capacity_count
-        count = (self.length.to_f / 3).ceil
-        1 == count ? nil : count
+        count = (self.length.to_f / 3).ceil - 1
+        0 == count ? nil : count
       end
 
       def figures_array_in_capacity capacity

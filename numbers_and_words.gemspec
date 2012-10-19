@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2012-10-14"
+  s.date = "2012-10-19"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/initialization.rb",
     "lib/numbers_and_words/i18n/locales/numbers.en.yml",
     "lib/numbers_and_words/i18n/locales/numbers.fr.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.it.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.nl.yml",
     "lib/numbers_and_words/i18n/locales/numbers.ru.yml",
     "lib/numbers_and_words/i18n/locales/numbers.tr.yml",
     "lib/numbers_and_words/i18n/locales/numbers.ua.yml",
@@ -40,16 +42,27 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies.rb",
     "lib/numbers_and_words/strategies/base.rb",
     "lib/numbers_and_words/strategies/en.rb",
+    "lib/numbers_and_words/strategies/families/base.rb",
+    "lib/numbers_and_words/strategies/families/cyrillic.rb",
+    "lib/numbers_and_words/strategies/families/latin.rb",
     "lib/numbers_and_words/strategies/fr.rb",
+    "lib/numbers_and_words/strategies/it.rb",
+    "lib/numbers_and_words/strategies/nl.rb",
     "lib/numbers_and_words/strategies/ru.rb",
     "lib/numbers_and_words/strategies/tr.rb",
     "lib/numbers_and_words/strategies/ua.rb",
     "lib/numbers_and_words/translations_helpers.rb",
     "lib/numbers_and_words/translations_helpers/base.rb",
     "lib/numbers_and_words/translations_helpers/en.rb",
+    "lib/numbers_and_words/translations_helpers/families/base.rb",
+    "lib/numbers_and_words/translations_helpers/families/cyrillic.rb",
+    "lib/numbers_and_words/translations_helpers/families/latin.rb",
     "lib/numbers_and_words/translations_helpers/fr.rb",
+    "lib/numbers_and_words/translations_helpers/it.rb",
+    "lib/numbers_and_words/translations_helpers/nl.rb",
     "lib/numbers_and_words/translations_helpers/ru.rb",
     "lib/numbers_and_words/translations_helpers/tr.rb",
+    "lib/numbers_and_words/translations_helpers/ua.rb",
     "lib/numbers_and_words/version.rb"
   ]
   s.homepage = "http://github.com/kslazarev/numbers_and_words"
