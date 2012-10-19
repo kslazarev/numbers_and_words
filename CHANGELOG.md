@@ -1,3 +1,16 @@
+## 0.5.0 (October 19, 2012)
+
+### Features
+  * Add Italian language. (experimental). \[[#34](https://github.com/kslazarev/numbers_and_words/issues/34)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add Dutch language. (experimental). \[[#33](https://github.com/kslazarev/numbers_and_words/issues/33)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add French language. \[[#29](https://github.com/kslazarev/numbers_and_words/issues/29)\] \([@sorich87](https://github.com/sorich87)\)
+
+### Supports
+  * Add @sorich87 contacts to README. \[[#36](https://github.com/kslazarev/numbers_and_words/issues/36)\] \([@sorich87](https://github.com/sorich87)\)
+  * Add Code Climate badge. \[[#35](https://github.com/kslazarev/numbers_and_words/issues/35)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Refactoring tests. \[[#32](https://github.com/kslazarev/numbers_and_words/issues/32)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Refactoring strategies. \[[#31](https://github.com/kslazarev/numbers_and_words/issues/31)\] \([@kslazarev](https://github.com/kslazarev)\)
+
 ## 0.4.0 (June 24, 2012)
 
 ### Features
