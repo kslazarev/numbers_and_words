@@ -114,3 +114,4 @@ Send a pull request. Bonus points for topic branches.
 * Kirill Lazarev (mailto:k.s.lazarev@gmail.com)
 * Daniel Doubrovkine (link:http://github.com/dblock)
 * Sergey Shkirando (mailto:shkirando.s@yandex.ru)
+* Ulrich Sossou (Github[http://github.com/sorich87], {Personal Page}[http://ulrichsossou.com/])
