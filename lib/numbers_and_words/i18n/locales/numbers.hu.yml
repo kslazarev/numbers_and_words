@@ -1,0 +1,7 @@
+hu:
+  numbers:
+    ones: [nulla, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
+    tens: [nulla, tíz, húsz, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
+    tens_with_ones: [nulla, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
+    hundreds: száz
+    mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
