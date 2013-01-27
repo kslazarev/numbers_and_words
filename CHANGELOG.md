@@ -1,3 +1,8 @@
+## Next Release
+
+### Features
+  * Add Hungarian language.
+
 ## 0.5.0 (October 19, 2012)
 
 ### Features
