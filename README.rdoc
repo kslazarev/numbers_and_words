@@ -13,6 +13,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Français
 * Українська
 * Hungarian
+* Spanish**
 * Türkçe**
 * Italiano**
 * Nederlands**
@@ -40,6 +41,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "vingt et un"
     => "двадцять один"
     => "huszonegy"
+    => "veinte y uno"
     => "yirmi bir"
     => "ventiuno"
     => "éénentwintig"
@@ -51,6 +53,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "deux cent trente-trois"
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
+    => "dos ciento teinta y uno
     => "iki yüz otuz bir"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
@@ -62,6 +65,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "quatre mille trente"
     => "чотири тисячi тридцять"
     => "négyezer-harminc"
+    => "cuatro mil teinta"
     => "dört bin otuz"
     => "quattro mille trenta"
     => "vierthousanddertig"
@@ -73,6 +77,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "un million cent"
     => "один мiльйон сто"
     => "egymillió-egyszáz"
+    => "uno millon uno cien"
     => "bir milyon bir yüz"
     => "uno milione 1 cento"
     => "één miljoen honderd"
@@ -84,6 +89,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "un quintilliard"
     => "один децильйон"
     => "egykvintilliárd"
+    => "uno quintilliard"
     => "bir desilyon"
     => "uno decillion"
     => "één decillion"
@@ -101,6 +107,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+    => ["once", "veinte y dos", "uno cien teinta y tres"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
