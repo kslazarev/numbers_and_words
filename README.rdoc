@@ -16,6 +16,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Türkçe**
 * Italiano**
 * Nederlands**
+* Swedish**
 
 ** Experimental
 
@@ -42,6 +43,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "yirmi bir"
     => "ventiuno"
     => "éénentwintig"
+    => "tjugo-en"
 
     231.to_words
     => "two hundred thirty-one"
@@ -52,6 +54,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "iki yüz otuz bir"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
+    => "två hundra trettio-en"
 
     4030.to_words
     => "four thousand thirty"
@@ -62,6 +65,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "dört bin otuz"
     => "quattro mille trenta"
     => "vierthousanddertig"
+    => "fyra tusen trettio"
 
     1000100.to_words
     => "one million one hundred"
@@ -72,6 +76,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "bir milyon bir yüz"
     => "uno milione 1 cento"
     => "één miljoen honderd"
+    => "en miljoner en hundra"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -82,6 +87,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "bir desilyon"
     => "uno decillion"
     => "één decillion"
+    => "en decillion"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -98,6 +104,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
+    => ["elva", "tjugo-två", "en hundra trettio-tre"]
 
 == Requirements / Требования / Configuration Requise
 
