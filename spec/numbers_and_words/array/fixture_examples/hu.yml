@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - egy
+      - kettő
+      - három
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - egyszázegy
+      - huszonegy
+      - tizenhárom

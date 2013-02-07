@@ -1,3 +1,8 @@
+## Next Release
+
+### Features
+  * Add Hungarian language. \[[#40](https://github.com/kslazarev/numbers_and_words/pull/40)\] \([@eLod](https://github.com/eLod)\)
+
 ## 0.5.0 (October 19, 2012)
 
 ### Features

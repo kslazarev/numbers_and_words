@@ -15,6 +15,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Türkçe**
 * Italiano**
 * Nederlands**
+* Hungarian
 
 ** Experimental
 
@@ -37,6 +38,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "yirmi bir"
     => "ventiuno"
     => "éénentwintig"
+    => "huszonegy"
 
     231.to_words
     => "two hundred thirty-one"
@@ -46,6 +48,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "iki yüz otuz bir"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
+    => "kettőszázharmincegy"
 
     4030.to_words
     => "four thousand thirty"
@@ -55,6 +58,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "dört bin otuz"
     => "quattro mille trenta"
     => "vierthousanddertig"
+    => "négyezer-harminc"
 
     1000100.to_words
     => "one million one hundred"
@@ -64,6 +68,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "bir milyon bir yüz"
     => "uno milione 1 cento"
     => "één miljoen honderd"
+    => "egymillió-egyszáz"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -73,11 +78,13 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => "bir desilyon"
     => "uno decillion"
     => "één decillion"
+    => "egykvintilliárd"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
     => ["один", "два", "три"]
     => ["un", "deux", "trois"]
+    => ["egy", "kettő", "három"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
@@ -87,6 +94,7 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
+    => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
 
 == Requirements / Требования / Configuration Requise
 
