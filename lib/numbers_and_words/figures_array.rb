@@ -3,9 +3,9 @@ module NumbersAndWords
     include NumbersAndWords::ArrayAdditions::Helpers
     include NumbersAndWords::ArrayAdditions::Validations
 
-    def to_words strategy, options = nil
+    def to_words strategy, options = {}
       validate_figure_array!
-      strategy.convert self
+      strategy.convert self, options
     end
 
     def reverse

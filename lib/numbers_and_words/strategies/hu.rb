@@ -4,7 +4,7 @@ module NumbersAndWords
       include Families::Latin
       include NumbersAndWords::TranslationsHelpers::Hu
 
-      def convert figures
+      def convert figures, options = {}
         super
         @words.empty? ? zero : inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
       end
