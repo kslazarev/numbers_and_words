@@ -12,10 +12,10 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 * Русский
 * Français
 * Українська
+* Hungarian
 * Türkçe**
 * Italiano**
 * Nederlands**
-* Hungarian
 
 ** Experimental
 
@@ -30,55 +30,58 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     I18n.with_locale(:fr) { 42.to_words }
     => "quarante-deux"
 
+    I18n.with_locale(:hu) { 42.to_words }
+    => "negyvenkettő"
+
     21.to_words
     => "twenty-one"
     => "двадцать один"
     => "vingt et un"
     => "двадцять один"
+    => "huszonegy"
     => "yirmi bir"
     => "ventiuno"
     => "éénentwintig"
-    => "huszonegy"
 
     231.to_words
     => "two hundred thirty-one"
     => "двести тридцать один"
     => "deux cent trente-trois"
     => "двiстi тридцять один"
+    => "kettőszázharmincegy"
     => "iki yüz otuz bir"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
-    => "kettőszázharmincegy"
 
     4030.to_words
     => "four thousand thirty"
     => "четыре тысячи тридцать"
     => "quatre mille trente"
     => "чотири тисячi тридцять"
+    => "négyezer-harminc"
     => "dört bin otuz"
     => "quattro mille trenta"
     => "vierthousanddertig"
-    => "négyezer-harminc"
 
     1000100.to_words
     => "one million one hundred"
     => "один миллион сто"
     => "un million cent"
     => "один мiльйон сто"
+    => "egymillió-egyszáz"
     => "bir milyon bir yüz"
     => "uno milione 1 cento"
     => "één miljoen honderd"
-    => "egymillió-egyszáz"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
     => "один дециллион"
     => "un quintilliard"
     => "один децильйон"
+    => "egykvintilliárd"
     => "bir desilyon"
     => "uno decillion"
     => "één decillion"
-    => "egykvintilliárd"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -91,10 +94,10 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
+    => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
-    => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
 
 == Requirements / Требования / Configuration Requise
 
