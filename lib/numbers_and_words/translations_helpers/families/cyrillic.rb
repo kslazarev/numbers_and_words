@@ -7,7 +7,6 @@ module NumbersAndWords
         private
 
         def translation_ones number
-          gender = figures.is_a_thousand_capacity?(current_capacity) ? :female : :male
           t([:ones, gender].join('_'))[number]
         end
 

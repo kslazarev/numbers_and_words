@@ -12,6 +12,17 @@ module NumbersAndWords
           @current_capacity = capacity
           super
         end
+
+        def gender
+          case current_capacity.to_i
+          when 1
+            :female
+          when 0
+            options[:gender] || :male
+          else
+            :male
+          end
+        end
       end
     end
   end

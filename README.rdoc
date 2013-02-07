@@ -127,6 +127,13 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     I18n.with_locale(:en) { 111.to_words hundreds_with_union: true }
     => "one hundred and eleven"
 
+* Russian
+
+  Изменение рода числительного: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:ru) { 1001.to_words gender: :neuter }
+    => "одна тысяча одно"
+
 == Requirements / Требования / Configuration Requise
 
 * 1.8.7 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
