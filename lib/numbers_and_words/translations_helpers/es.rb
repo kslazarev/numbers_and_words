@@ -8,6 +8,13 @@ module NumbersAndWords
         super numbers, ' y '
       end
 
+      def translation_hundreds number
+        [t(:ones)[number], t(:hundreds, :count => number)]
+      end
+
+      def translation_megs capacity
+        super(capacity, figures.number_in_capacity(capacity))
+      end
     end
   end
 end

@@ -7,8 +7,6 @@ module NumbersAndWords
       def translation_tens_with_ones numbers
         super numbers, '-'
       end
-
-      
     end
   end
 end
