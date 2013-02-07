@@ -1,14 +1,13 @@
 module NumbersAndWords
   module TranslationsHelpers
-    module En
+    module Es
       include NumbersAndWords::TranslationsHelpers::Base
       include NumbersAndWords::TranslationsHelpers::Families::Latin
 
       def translation_tens_with_ones numbers
-        super numbers, '-'
+        super numbers, ' y '
       end
 
-      
     end
   end
 end

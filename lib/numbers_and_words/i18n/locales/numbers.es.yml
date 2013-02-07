@@ -1,0 +1,42 @@
+es:
+  numbers:
+    ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
+    tens: [0, 10, veinte, teinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    hundreds:
+      one: cien
+      many: ciento
+    thousands:
+      one: mil
+      many: mil
+    millions:
+      one: millon
+      many: millones
+    billions:
+      one: millardo
+      many: millardos
+    trillions:
+      one: billardo
+      many: billardos
+    quadrillions:
+      one: billardo
+      many: billardos
+    quintillions:
+      one: trillion
+      many: trillions
+    sextillions:
+      one: trilliard
+      many: trilliards
+    septillions:
+      one: quadrillion
+      many: quadrillions
+    octillions:
+      one: quadrilliard
+      many: quadrilliards
+    nonillions:
+      one: quintillion
+      many: quintillions
+    decillions:
+      one: quintilliard
+      many: quintilliards
