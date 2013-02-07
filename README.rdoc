@@ -113,6 +113,15 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
 
+== Language options / Языковые опции
+
+* English
+
+  Remove hyphen between tens and ones: (remove_hyphen: [true || false])
+
+    I18n.with_locale(:en) { 21.to_words remove_hyphen: true }
+    => "one hundred and eleven"
+
 == Requirements / Требования / Configuration Requise
 
 * 1.8.7 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
