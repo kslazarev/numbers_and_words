@@ -113,6 +113,12 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
 
+    I18n.with_locale(:en) { 21.7.to_words }
+    => "twenty-one point seven"
+
+    I18n.with_locale(:en) { 21.7.to_words 'and' }
+    => "twenty-one and seven"
+
 == Language options / Языковые опции
 
 * English
