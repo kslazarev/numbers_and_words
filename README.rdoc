@@ -120,6 +120,11 @@ Converti les nombres en lettres en utilisant la librairie I18n.
   Remove hyphen between tens and ones: (remove_hyphen: [true || false])
 
     I18n.with_locale(:en) { 21.to_words remove_hyphen: true }
+    => "twenty one"
+
+  Add 'and' between hundreds and tens: (hundreds_with_union: [true || false])
+
+    I18n.with_locale(:en) { 111.to_words hundreds_with_union: true }
     => "one hundred and eleven"
 
 == Requirements / Требования / Configuration Requise
