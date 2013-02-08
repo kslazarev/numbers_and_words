@@ -1,21 +1,31 @@
+# encoding: UTF-8
 module NumbersAndWords
   module Strategies
     class Hu < Base
       include Families::Latin
       include NumbersAndWords::TranslationsHelpers::Hu
 
-      def convert figures, options = {}
-        super
-        @words.empty? ? zero : inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
+      def with_fractional
+        [integer_part, (options[:fractional_separator] || 'egész'), fractional_part].join(' ')
       end
 
-      def inner_reverse_words
-        @words.collect { |iteration| iteration.reverse.join }
+      def integer_part
+        words.empty? && zero || inner_reverse_words(words).reverse.join(greater_than_2000? && '-' || '')
+      end
+
+      def fractional_part
+        capacity_word, *words = fractional_words
+        fractional = inner_reverse_words(words).reverse.join(greater_than_2000?(fractional_figures) && '-' || '')
+        [fractional, capacity_word].join ' '
       end
 
       private
 
-      def greater_than_2000?
+      def inner_reverse_words words = words
+        words.collect { |iteration| iteration.reverse.join }
+      end
+
+      def greater_than_2000? figures = figures
         figures.length > 4 || (figures.length == 4 && figures.last >= 2)
       end
 

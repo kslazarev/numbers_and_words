@@ -39,6 +39,26 @@ module NumbersAndWords
       def hundreds
         self[2] if 0 < self[2].to_i
       end
+
+      def capacity_magnitude
+        self.length % 3
+      end
+
+      def fractional_index
+        index "."
+      end
+
+      def fractional_capacity_count
+        if capacity_count.nil?
+          capacity_magnitude == 0 && 3 || capacity_magnitude
+        else
+          capacity_count + 2 + (capacity_magnitude == 0 && 1 || 0)
+        end
+      end
+
+      def fractional_capacity_magnitude
+        capacity_count.nil? && 0 || capacity_magnitude
+      end
     end
   end
 end

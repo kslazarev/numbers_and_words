@@ -17,6 +17,14 @@ module NumbersAndWords
           end
         end
 
+        def fractional_strings
+          return [] unless @fractional_figures.any?
+          save_parent_figures do |parent_figures|
+            @figures = @fractional_figures
+            [translation_micro(@fractional_figures.fractional_capacity_count, @fractional_figures.fractional_capacity_magnitude)] + strings
+          end
+        end
+
         def complex_number_to_words
           (1..figures.capacity_count).map{|capacity| capacity_iteration(capacity)}.flatten
         end

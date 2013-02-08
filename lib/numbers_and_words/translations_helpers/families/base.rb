@@ -24,6 +24,17 @@ module NumbersAndWords
         def translation_mega capacity
           t(:mega)[capacity]
         end
+
+        def translation_micro capacity, magnitude, separator = '-'
+          [translation_micro_magnitude(magnitude), t(:micro)[capacity]].compact.join separator
+        end
+
+        def translation_micro_magnitude magnitude
+          case magnitude
+          when 2 then t(:hundreds)
+          when 1 then translation_tens(1)
+          end
+        end
       end
     end
   end

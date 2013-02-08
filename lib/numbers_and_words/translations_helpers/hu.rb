@@ -12,6 +12,10 @@ module NumbersAndWords
       def translation_hundreds number
         [t(:ones)[number], t(:hundreds)].join ''
       end
+
+      def translation_micro capacity, magnitude, separator = ''
+        super
+      end
     end
   end
 end

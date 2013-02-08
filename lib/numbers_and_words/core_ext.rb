@@ -1,3 +1,2 @@
-require 'numbers_and_words/core_ext/integer'
+require 'numbers_and_words/core_ext/numeric'
 require 'numbers_and_words/core_ext/array'
-require 'numbers_and_words/core_ext/float'
