@@ -1,6 +1,6 @@
 class Array
-  def to_words
-    map &:to_words
+  def to_words options = {}
+    map { |member| member.to_words options }
   end
 
   def to_figures

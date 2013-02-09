@@ -18,7 +18,8 @@ module NumbersAndWords
       end
 
       def with_fraction
-        words.empty? ? fractional_part : [integer_part, fraction_separator, fractional_part].join(' ')
+        return fractional_part if words.empty? && !options[:zero_with_fraction]
+        [integer_part, fraction_separator, fractional_part].join(' ')
       end
 
       def integer_part
