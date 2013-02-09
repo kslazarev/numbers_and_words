@@ -1,12 +1,12 @@
-# encoding: UTF-8
 module NumbersAndWords
   module Strategies
     class Hu < Base
       include Families::Latin
+      include Extensions::FractionSignificance
       include NumbersAndWords::TranslationsHelpers::Hu
 
-      def with_fractional
-        [integer_part, (options[:fractional_separator] || 'egész'), fractional_part].join(' ')
+      def with_fraction
+        [integer_part, fraction_separator, fractional_part].join(' ')
       end
 
       def integer_part
@@ -14,9 +14,9 @@ module NumbersAndWords
       end
 
       def fractional_part
-        capacity_word, *words = fractional_words
-        fractional = inner_reverse_words(words).reverse.join(greater_than_2000?(fractional_figures) && '-' || '')
-        [fractional, capacity_word].join ' '
+        significance, *words = fraction_words
+        fraction = inner_reverse_words(words).reverse.join(greater_than_2000?(fraction_figures) && '-' || '')
+        [fraction, significance].join ' '
       end
 
       private

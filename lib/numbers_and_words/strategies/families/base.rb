@@ -17,11 +17,11 @@ module NumbersAndWords
           end
         end
 
-        def fractional_strings
-          return [] unless @fractional_figures.any?
+        def fraction_strings
+          return [] unless @fraction_figures.any?
           save_parent_figures do |parent_figures|
-            @figures = @fractional_figures
-            [translation_micro(@fractional_figures.fractional_capacity_count, @fractional_figures.fractional_capacity_magnitude)] + strings
+            @figures = @fraction_figures
+            strings
           end
         end
 

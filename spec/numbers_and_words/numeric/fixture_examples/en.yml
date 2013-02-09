@@ -49,14 +49,19 @@ to_words:
     935174315119: nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
   trillions:
     2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
-  fractionals:
-    0.7: zero point seven tenth
-    21.77: twenty-one point seventy-seven hundredth
-    111.999: one hundred eleven point nine hundred ninety-nine thousandth
-    4242.7463: four thousand two hundred forty-two point seven thousand four hundred sixty-three ten-thousandth
-    0.77777: zero point seventy-seven thousand seven hundred seventy-seven hundred-thousandth
-    0.777777: zero point seven hundred seventy-seven thousand seven hundred seventy-seven millionth
-    0.7777777: zero point seven million seven hundred seventy-seven thousand seven hundred seventy-seven ten-millionth
-    0.77777777: zero point seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven hundred-millionth
-    0.777777777: zero point seven hundred seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven billionth
-    0.2935174315119: zero point two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen ten-trillionth
+  with_fraction:
+    0.1: one tenth
+    0.7: seven tenths
+    0.01: one hundredth
+    0.77: seventy-seven hundredths
+    0.777: seven hundred seventy-seven thousandths
+    0.7777: seven thousand seven hundred seventy-seven ten-thousandths
+    0.77777: seventy-seven thousand seven hundred seventy-seven hundred-thousandths
+    0.777777: seven hundred seventy-seven thousand seven hundred seventy-seven millionths
+    0.7777777: seven million seven hundred seventy-seven thousand seven hundred seventy-seven ten-millionths
+    0.77777777: seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven hundred-millionths
+    0.777777777: seven hundred seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven billionths
+    0.2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen ten-trillionths
+    21.77: twenty-one point seventy-seven hundredths
+    111.999: one hundred eleven point nine hundred ninety-nine thousandths
+    4242.7463: four thousand two hundred forty-two point seven thousand four hundred sixty-three ten-thousandths

@@ -3,6 +3,7 @@ module NumbersAndWords
     module En
       include NumbersAndWords::TranslationsHelpers::Base
       include NumbersAndWords::TranslationsHelpers::Families::Latin
+      include NumbersAndWords::TranslationsHelpers::Extensions::FractionSignificance
 
       def translation_tens_with_ones numbers
         super numbers, options[:remove_hyphen] ? ' ' : '-'

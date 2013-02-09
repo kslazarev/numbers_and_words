@@ -1,7 +1,7 @@
 module NumbersAndWords
   module Strategies
     class Base
-      attr_accessor :figures, :fractional_figures, :options, :words, :fractional_words
+      attr_accessor :figures, :fraction_figures, :options, :words, :fraction_words
 
       def self.factory
         "NumbersAndWords::Strategies::#{::I18n.locale.to_s.titleize}".constantize.new
@@ -9,16 +9,16 @@ module NumbersAndWords
 
       def convert figures, options = {}
         @figures = figures.integer_part.reverse
-        @fractional_figures = figures.fractional_part.reverse
+        @fraction_figures = figures.fractional_part.reverse
         @options = options
         @words = strings
-        @fractional_words = fractional_strings
+        @fraction_words = fraction_strings
 
-        @fractional_words.empty? && integer_part || with_fractional
+        fraction_words.empty? && integer_part || with_fraction
       end
 
-      def with_fractional
-        [integer_part, (options[:fractional_separator] || 'point'), fractional_part].join(' ')
+      def with_fraction
+        words.empty? ? fractional_part : [integer_part, fraction_separator, fractional_part].join(' ')
       end
 
       def integer_part
@@ -26,7 +26,11 @@ module NumbersAndWords
       end
 
       def fractional_part
-        fractional_words.reverse.join(' ')
+        fraction_words.reverse.join(' ')
+      end
+
+      def fraction_separator
+        options[:fraction_separator] || translation_fraction_separator(options)
       end
     end
   end

@@ -5,19 +5,25 @@ module NumbersAndWords
 
     def to_words strategy, options = {}
       validate_figure_array!
-      strategy.convert self, options
+      strategy.convert casted_array, options
     end
 
     def integer_part
-      fractional_index && self[0..fractional_index - 1].to_figures || self
+      fraction_index && self[0..fraction_index - 1].to_figures || self
     end
 
     def fractional_part
-      (fractional_index && self[fractional_index + 1..-1] || []).to_figures
+      (fraction_index && self[fraction_index + 1..-1] || []).to_figures
     end
 
     def reverse
       super.to_figures
+    end
+
+    private
+
+    def casted_array
+      map { |digit| digit == '.' && digit || digit.to_i }.to_figures
     end
   end
 end

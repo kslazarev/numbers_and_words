@@ -5,4 +5,5 @@ hu:
     tens_with_ones: [nulla, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
     hundreds: száz
     mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
+    fraction_separator: egész
     micro: [_, tized, század, ezred, milliomod, milliárdod, billiomod, billiárdod, trilliomod, trilliárdod, kvadrilliomod, kvadrilliárdod, kvintilliomod, kvintilliárdod]
