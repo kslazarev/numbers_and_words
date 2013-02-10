@@ -17,9 +17,11 @@ module NumbersAndWords
         fraction_words.empty? && integer_part || with_fraction
       end
 
+      private
+
       def with_fraction
-        return fractional_part if words.empty? && !options[:zero_with_fraction]
-        [integer_part, fraction_separator, fractional_part].join(' ')
+        return fractional_part if words.empty? && !zero_with_fraction?
+        [integer_part, fraction_separator, fractional_part].join ' '
       end
 
       def integer_part
@@ -32,6 +34,10 @@ module NumbersAndWords
 
       def fraction_separator
         options[:fraction_separator] || translation_fraction_separator(options)
+      end
+
+      def zero_with_fraction?
+        options[:zero_with_fraction]
       end
     end
   end

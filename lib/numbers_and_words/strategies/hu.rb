@@ -5,6 +5,8 @@ module NumbersAndWords
       include Extensions::FractionSignificance
       include NumbersAndWords::TranslationsHelpers::Hu
 
+      private
+
       def with_fraction
         [integer_part, fraction_separator, fractional_part].join(' ')
       end
@@ -18,8 +20,6 @@ module NumbersAndWords
         fraction = inner_reverse_words(words).reverse.join(greater_than_2000?(fraction_figures) && '-' || '')
         [fraction, significance].join ' '
       end
-
-      private
 
       def inner_reverse_words words = words
         words.collect { |iteration| iteration.reverse.join }

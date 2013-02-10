@@ -14,6 +14,11 @@ module NumbersAndWords
         hundreds << t(:union) if options[:hundreds_with_union]
         hundreds.join ' '
       end
+
+      def translation_fraction_separator options = {}
+        type = options[:british] && :british || :us
+        t "fraction_separator.#{type}"
+      end
     end
   end
 end
