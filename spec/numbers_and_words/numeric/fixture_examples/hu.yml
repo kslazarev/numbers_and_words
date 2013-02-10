@@ -52,7 +52,7 @@ to_words:
     935174315119: kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
   trillions:
     2935174315119: kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
-  with_fraction:
+  fractions:
     0.1: nulla egész egy tized
     0.7: nulla egész hét tized
     0.01: nulla egész egy század
