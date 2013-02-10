@@ -4,7 +4,7 @@ module NumbersAndWords
     include NumbersAndWords::ArrayAdditions::Validations
 
     def to_words strategy, options = {}
-      validate_figure_array!
+      validate_figure_array! options
       strategy.convert casted_array, options
     end
 

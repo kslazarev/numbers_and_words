@@ -73,6 +73,22 @@ module NumbersAndWords
           @figures = parent_figures
           result
         end
+
+        def ordinal
+          if figures.teens
+            translation_ordinal_teens(figures.ones)
+          elsif figures.tens && figures.ones
+            translation_ordinal_tens_with_ones(figures.tens_with_ones)
+          elsif figures.ones
+            translation_ordinal_ones(figures.ones)
+          elsif figures.tens
+            translation_ordinal_tens(figures.tens)
+          elsif figures.hundreds
+            translation_ordinal_hundreds(figures.hundreds)
+          else
+            translation_ordinal_megs(figures.ordinal_capacity)
+          end
+        end
       end
     end
   end

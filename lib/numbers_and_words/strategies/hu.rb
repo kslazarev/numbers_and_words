@@ -12,16 +12,24 @@ module NumbersAndWords
       end
 
       def integer_part
-        words.empty? && zero || inner_reverse_words(words).reverse.join(greater_than_2000? && '-' || '')
+        if ordinal?
+          words.empty? && zeroth || as_ordinal
+        else
+          words.empty? && zero || inner_reversed
+        end
       end
 
       def fractional_part
         significance, *words = fraction_words
-        fraction = inner_reverse_words(words).reverse.join(greater_than_2000?(fraction_figures) && '-' || '')
+        fraction = inner_reversed words, fraction_figures
         [fraction, significance].join ' '
       end
 
-      def inner_reverse_words words = words
+      def inner_reversed words = words, figures = figures
+        inner_reverse(words).reverse.join(greater_than_2000?(figures) && '-' || '')
+      end
+
+      def inner_reverse words = words
         words.collect { |iteration| iteration.reverse.join }
       end
 
@@ -53,6 +61,24 @@ module NumbersAndWords
           [translation_ones(figures.ones)]
         else
           []
+        end
+      end
+
+      def as_ordinal
+        inner_reversed words[1..-1].unshift(words[0][1..-1].unshift ordinal)
+      end
+
+      def ordinal
+        if figures.teens || (figures.tens && figures.ones)
+          translation_ordinal_tens_with_ones(figures.tens_with_ones)
+        elsif figures.ones
+          translation_ordinal_ones(figures.ones)
+        elsif figures.tens
+          translation_ordinal_tens(figures.tens)
+        elsif figures.hundreds
+          translation_ordinal_hundreds(figures.hundreds)
+        else
+          translation_ordinal_megs(figures.ordinal_capacity)
         end
       end
     end

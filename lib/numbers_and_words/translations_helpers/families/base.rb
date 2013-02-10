@@ -28,6 +28,26 @@ module NumbersAndWords
         def translation_fraction_separator options = {}
           t(:fraction_separator)
         end
+
+        def translation_ordinal_teens number
+          t("ordinals.teens")[number]
+        end
+
+        def translation_ordinal_tens number
+          t("ordinals.tens")[number]
+        end
+
+        def translation_ordinal_tens_with_ones numbers, separator = ' '
+          [translation_tens(numbers[1]), translation_ordinal_ones(numbers[0])].join separator
+        end
+
+        def translation_ordinal_megs capacity, number = nil
+          number ? t(translation_ordinal_mega(capacity), :count => number) : translation_ordinal_mega(capacity)
+        end
+
+        def translation_ordinal_mega capacity
+          t("ordinals.mega")[capacity]
+        end
       end
     end
   end

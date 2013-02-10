@@ -25,7 +25,11 @@ module NumbersAndWords
       end
 
       def integer_part
-        words.empty? && zero || words.reverse.join(' ')
+        if ordinal?
+          words.empty? && zeroth || as_ordinal
+        else
+          words.empty? && zero || words.reverse.join(' ')
+        end
       end
 
       def fractional_part
@@ -38,6 +42,14 @@ module NumbersAndWords
 
       def zero_with_fraction?
         options[:zero_with_fraction]
+      end
+
+      def ordinal?
+        options[:ordinal]
+      end
+
+      def as_ordinal
+        words[1..-1].unshift(ordinal).reverse.join(' ')
       end
     end
   end

@@ -19,6 +19,10 @@ module NumbersAndWords
         type = options[:british] && :british || :us
         t "fraction_separator.#{type}"
       end
+
+      def translation_ordinal_tens_with_ones numbers
+        super numbers, options[:remove_hyphen] ? ' ' : '-'
+      end
     end
   end
 end

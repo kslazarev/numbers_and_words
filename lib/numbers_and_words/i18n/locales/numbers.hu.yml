@@ -6,4 +6,10 @@ hu:
     hundreds: száz
     mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
     fraction_separator: egész
+    ordinals:
+      ones: [nulladik, első, második, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
+      ones_with_tens: [nulladik, egyedik, kettedik, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
+      tens: [nulladik, tizedik, huszadik, harmincadik, negyvenedik, ötvenedik, hatvanadik, hetvenedik, nyolcvanadik, kilencvenedik]
+      hundreds: századik
+      mega: [nulladik, ezredik, milliomodik, milliárdodik, billiomodik, billiárdodik, trilliomodik, trilliárdodik, kvadrilliomodik, kvadrilliárdodik, kvintilliomodik, kvintilliárdodik]
     micro: [_, tized, század, ezred, milliomod, milliárdod, billiomod, billiárdod, trilliomod, trilliárdod, kvadrilliomod, kvadrilliárdod, kvintilliomod, kvintilliárdod]
