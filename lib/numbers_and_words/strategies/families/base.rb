@@ -17,14 +17,6 @@ module NumbersAndWords
           end
         end
 
-        def fraction_strings
-          return [] unless @fraction_figures.any?
-          save_parent_figures do |parent_figures|
-            @figures = @fraction_figures
-            strings
-          end
-        end
-
         def complex_number_to_words
           (1..figures.capacity_count).map{|capacity| capacity_iteration(capacity)}.flatten
         end

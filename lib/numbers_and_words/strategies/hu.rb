@@ -2,30 +2,20 @@ module NumbersAndWords
   module Strategies
     class Hu < Base
       include Families::Latin
-      include Extensions::FractionSignificance
+      include Extensions::Options::Fractional
       include NumbersAndWords::TranslationsHelpers::Hu
 
       private
 
-      def with_fraction
-        [integer_part, fraction_separator, fractional_part].join(' ')
+      def print_words
+        inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
       end
 
-      def integer_part
-        words.empty? && zero || inner_reverse_words(words).reverse.join(greater_than_2000? && '-' || '')
+      def inner_reverse_words
+        @words.collect { |iteration| iteration.reverse.join }
       end
 
-      def fractional_part
-        significance, *words = fraction_words
-        fraction = inner_reverse_words(words).reverse.join(greater_than_2000?(fraction_figures) && '-' || '')
-        [fraction, significance].join ' '
-      end
-
-      def inner_reverse_words words = words
-        words.collect { |iteration| iteration.reverse.join }
-      end
-
-      def greater_than_2000? figures = figures
+      def greater_than_2000?
         figures.length > 4 || (figures.length == 4 && figures.last >= 2)
       end
 

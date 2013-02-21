@@ -16,8 +16,8 @@ module NumbersAndWords
       end
 
       def translation_fraction_separator options = {}
-        type = options[:british] && :british || :us
-        t "fraction_separator.#{type}"
+        #type = options[:british] && :british || :us
+        t 'fraction_separator'
       end
     end
   end

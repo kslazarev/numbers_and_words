@@ -1,15 +1,22 @@
 module NumbersAndWords
   module ArrayAdditions
     module Helpers
+      MICRO_CAPACITY_SHIFT = 2
+      FIGURES_IN_CAPACITY = 3
       THOUSAND_CAPACITY = 1
+      ONES_SHIFT = 1
+
+      def capacity_length
+        length - ONES_SHIFT
+      end
 
       def capacity_count
-        count = (self.length.to_f / 3).ceil - 1
+        count = capacity_length / FIGURES_IN_CAPACITY
         0 == count ? nil : count
       end
 
       def figures_array_in_capacity capacity
-        self[capacity * 3, 3]
+        self[capacity * FIGURES_IN_CAPACITY, FIGURES_IN_CAPACITY]
       end
 
       def number_in_capacity capacity
@@ -29,11 +36,11 @@ module NumbersAndWords
       end
 
       def tens
-        self[1] if self[1] and 0 < self[1].to_i
+        self[1] if self[1] && 0 < self[1].to_i
       end
 
       def tens_with_ones
-        [ones, tens] if ones and tens
+        [ones, tens] if ones && tens
       end
 
       def hundreds
@@ -41,11 +48,11 @@ module NumbersAndWords
       end
 
       def sub_capacity
-        self.length % 3
+        capacity_length % FIGURES_IN_CAPACITY
       end
 
       def fraction_index
-        index "."
+        index '.'
       end
 
       def fraction_capacity
@@ -53,15 +60,11 @@ module NumbersAndWords
       end
 
       def fraction_capacity_count
-        if capacity_count.nil?
-          sub_capacity == 0 && 3 || sub_capacity
-        else
-          capacity_count + 2 + (sub_capacity == 0 && 1 || 0)
-        end
+        capacity_count.nil? ? sub_capacity : capacity_count + MICRO_CAPACITY_SHIFT
       end
 
       def fraction_sub_capacity
-        capacity_count.nil? && 0 || sub_capacity
+        sub_capacity unless capacity_count.nil?
       end
     end
   end

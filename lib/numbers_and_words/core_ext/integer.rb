@@ -1,4 +1,4 @@
-class Numeric
+class Integer
   def to_words options = {}
     to_figures_array.to_words NumbersAndWords::Strategies::Base.factory, options
   end
