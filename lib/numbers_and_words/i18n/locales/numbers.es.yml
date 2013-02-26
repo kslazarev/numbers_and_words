@@ -1,0 +1,15 @@
+es:
+  numbers:
+    ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    one: un
+
+    teens: [diez, once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve]
+    tens: [cero, diez, veinti, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
+    twenty: veinte
+
+    hundreds: [ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
+    one_hundred: cien
+
+    mega: [ones, mil, millón, millardo, billón, billardo, trillón, trillardo, quadrillón, quadrillardo, quintillón, quintillardo]
+    megas: [ones, mil, millones, millardos, billones, billardos, trillones, trillardos, quadrillones, quadrillardos, quintillones, quintillardos]
+
