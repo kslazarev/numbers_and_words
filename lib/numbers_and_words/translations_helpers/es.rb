@@ -20,9 +20,7 @@ module NumbersAndWords
       end
 
       def translation_hundreds number, is_100=false
-        #puts "t_100s number #{number.inspect} is_100 #{is_100.inspect}"
         is_100 ? t(:one_hundred) : t(:hundreds)[number-1]
-        #t(:hundreds)[number-1]
       end
 
       def translation_megs capacity, is_one=false
