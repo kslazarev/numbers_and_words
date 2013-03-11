@@ -1,0 +1,82 @@
+to_words:
+  ones:
+    0: zero
+    1: one
+    9: nine 
+  teens:
+    10: ten
+    11: eleven
+    19: nineteen
+    20: twenty
+    21: twenty-one
+    80: eighty
+    90: ninety
+    99: ninety-nine
+  hundreds:
+    100: one hundred
+    101: one hundred one
+    111: one hundred eleven
+    120: one hundred twenty
+    121: one hundred twenty-one
+    900: nine hundred
+    909: nine hundred nine
+    919: nine hundred nineteen
+    990: nine hundred ninety
+    999: nine hundred ninety-nine
+  thousands:
+    1000: one thousand
+    2000: two thousand
+    4000: four thousand
+    5000: five thousand
+    11000: eleven thousand
+    21000: twenty-one thousand
+    999000: nine hundred ninety-nine thousand
+    999999: nine hundred ninety-nine thousand nine hundred ninety-nine
+  millions:
+    1000000: one million
+    2000000: two million
+    4000000: four million
+    5000000: five million
+    999000000: nine hundred ninety-nine million
+    999000999: nine hundred ninety-nine million nine hundred ninety-nine
+    999999000: nine hundred ninety-nine million nine hundred ninety-nine thousand
+    999999999: nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+  billions:
+    1174315110: one billion one hundred seventy-four million three hundred fifteen thousand one hundred ten
+    1174315119: one billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    15174315119: fifteen billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    35174315119: thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    935174315119: nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+  trillions:
+    2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+#  fractions:
+#    0.1: one tenth
+#    0.7: seven tenths
+#    0.01: one hundredth
+#    0.77: seventy-seven hundredths
+#    0.777: seven hundred seventy-seven thousandths
+#    0.7777: seven thousand seven hundred seventy-seven ten-thousandths
+#    0.77777: seventy-seven thousand seven hundred seventy-seven hundred-thousandths
+#    0.777777: seven hundred seventy-seven thousand seven hundred seventy-seven millionths
+#    0.7777777: seven million seven hundred seventy-seven thousand seven hundred seventy-seven ten-millionths
+#    0.77777777: seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven hundred-millionths
+#    0.777777777: seven hundred seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven billionths
+#    0.2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen ten-trillionths
+#    21.77: twenty-one and seventy-seven hundredths
+#    111.999: one hundred eleven and nine hundred ninety-nine thousandths
+#    4242.7463: four thousand two hundred forty-two and seven thousand four hundred sixty-three ten-thousandths
+#  fractions_with_zero:
+#    options:
+#      :zero_with_fraction: true
+#    0.1: zero and one tenth
+#    0.7: zero and seven tenths
+#    42.1: forty-two and one tenth
+#  british_fractions:
+#    options:
+#      :british_fraction: true
+#    0.1: point one
+#    0.12: point one two
+#    0.123: point one two three
+#    0.0001: point zero zero zero one
+#    42.123: forty-two point one two three
+#

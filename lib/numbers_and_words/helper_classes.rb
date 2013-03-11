@@ -1,0 +1,1 @@
+require 'numbers_and_words/helper_classes/figures_array'

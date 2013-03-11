@@ -1,9 +1,6 @@
 class Array
   def to_words options = {}
-    map! do |element|
-      element, options = element.first, options.merge(element.last) if element.is_a?(Array)
-      element.to_words options
-    end
+    map &:to_words
   end
 
   def to_figures

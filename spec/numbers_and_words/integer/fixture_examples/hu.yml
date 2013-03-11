@@ -1,0 +1,72 @@
+to_words:
+  ones:
+    0: nulla
+    1: egy
+    9: kilenc
+  teens:
+    10: tíz
+    11: tizenegy
+    19: tizenkilenc
+    20: húsz
+    21: huszonegy
+    80: nyolcvan
+    90: kilencven
+    99: kilencvenkilenc
+  hundreds:
+    100: egyszáz
+    101: egyszázegy
+    111: egyszáztizenegy
+    120: egyszázhúsz
+    121: egyszázhuszonegy
+    900: kilencszáz
+    909: kilencszázkilenc
+    919: kilencszáztizenkilenc
+    990: kilencszázkilencven
+    999: kilencszázkilencvenkilenc
+  thousands:
+    1000: egyezer
+    1111: egyezeregyszáztizenegy
+    2000: kettőezer
+    2001: kettőezer-egy
+    2111: kettőezer-egyszáztizenegy
+    4000: négyezer
+    5000: ötezer
+    11000: tizenegyezer
+    21000: huszonegyezer
+    999000: kilencszázkilencvenkilencezer
+    999999: kilencszázkilencvenkilencezer-kilencszázkilencvenkilenc
+  millions:
+    1000000: egymillió
+    2000000: kettőmillió
+    4000000: négymillió
+    5000000: ötmillió
+    999000000: kilencszázkilencvenkilencmillió
+    999000999: kilencszázkilencvenkilencmillió-kilencszázkilencvenkilenc
+    999999000: kilencszázkilencvenkilencmillió-kilencszázkilencvenkilencezer
+    999999999: kilencszázkilencvenkilencmillió-kilencszázkilencvenkilencezer-kilencszázkilencvenkilenc
+  billions:
+    1174315110: egymilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztíz
+    1174315119: egymilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+    15174315119: tizenötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+    35174315119: harmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+    935174315119: kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+  trillions:
+    2935174315119: kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+#  fractions:
+#    0.1: nulla egész egy tized
+#    0.7: nulla egész hét tized
+#    0.01: nulla egész egy század
+#    0.77: nulla egész hetvenhét század
+#    0.777: nulla egész hétszázhetvenhét ezred
+#    0.7777: nulla egész hétezer-hétszázhetvenhét tízezred
+#    0.77777: nulla egész hetvenhétezer-hétszázhetvenhét százezred
+#    0.777777: nulla egész hétszázhetvenhétezer-hétszázhetvenhét milliomod
+#    0.7777777: nulla egész hétmillió-hétszázhetvenhétezer-hétszázhetvenhét tízmilliomod
+#    0.77777777: nulla egész hetvenhétmillió-hétszázhetvenhétezer-hétszázhetvenhét százmilliomod
+#    0.777777777: nulla egész hétszázhetvenhétmillió-hétszázhetvenhétezer-hétszázhetvenhét milliárdod
+#    0.2935174315119: nulla egész kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc tízbilliomod
+#    21.77: huszonegy egész hetvenhét század
+#    111.999: egyszáztizenegy egész kilencszázkilencvenkilenc ezred
+#    4242.7463: négyezer-kettőszáznegyvenkettő egész hétezer-négyszázhatvanhárom tízezred
+#    1111.4444: egyezeregyszáztizenegy egész négyezer-négyszáznegyvennégy tízezred
+#    4444.1111: négyezer-négyszáznegyvennégy egész egyezeregyszáztizenegy tízezred
