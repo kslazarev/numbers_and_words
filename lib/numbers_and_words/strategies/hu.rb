@@ -2,18 +2,18 @@ module NumbersAndWords
   module Strategies
     class Hu < Base
       include Families::Latin
+      include Extensions::Options::Fractional
       include NumbersAndWords::TranslationsHelpers::Hu
 
-      def convert figures, options = {}
-        super
-        @words.empty? ? zero : inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
+      private
+
+      def print_words
+        inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
       end
 
       def inner_reverse_words
         @words.collect { |iteration| iteration.reverse.join }
       end
-
-      private
 
       def greater_than_2000?
         figures.length > 4 || (figures.length == 4 && figures.last >= 2)

@@ -24,6 +24,10 @@ module NumbersAndWords
         def translation_mega capacity
           t(:mega)[capacity]
         end
+
+        def translation_fraction_separator options = {}
+          t(:fraction_separator)
+        end
       end
     end
   end

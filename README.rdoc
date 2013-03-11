@@ -6,13 +6,15 @@ Convert numbers to words using the I18n library.
 
 Converti les nombres en lettres en utilisant la librairie I18n.
 
+Számok betűvel írva az I18n könyvtár segítségével.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English
 * Русский
 * Français
 * Українська
-* Hungarian
+* Magyar
 * Spanish**
 * Türkçe**
 * Italiano**
@@ -167,3 +169,4 @@ Send a pull request. Bonus points for topic branches.
 * Daniel Doubrovkine (link:http://github.com/dblock)
 * Sergey Shkirando (mailto:shkirando.s@yandex.ru)
 * Ulrich Sossou (Github[http://github.com/sorich87], {Personal Page}[http://ulrichsossou.com/])
+* eLod (link:http://github.com/eLod)

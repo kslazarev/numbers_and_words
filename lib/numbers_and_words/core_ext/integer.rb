@@ -1,5 +1,4 @@
 class Integer
-
   def to_words options = {}
     to_figures_array.to_words NumbersAndWords::Strategies::Base.factory, options
   end
@@ -7,6 +6,6 @@ class Integer
   private
 
   def to_figures_array
-    to_s.split(//).map(&:to_i).to_figures
+    to_s.split(//).to_figures
   end
 end

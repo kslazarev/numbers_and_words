@@ -1,18 +1,19 @@
 module NumbersAndWords
   module Strategies
     class Base
-      attr_accessor :figures, :options, :words
+      include Extensions::Convert
+      include Extensions::Union
 
       def self.factory
         "NumbersAndWords::Strategies::#{::I18n.locale.to_s.titleize}".constantize.new
       end
 
-      def convert figures, options = {}
-        @figures = figures.reverse
-        @options = options
-        @words = strings
+      def support_fractional_options?
+        support? Extensions::Options::Fractional
+      end
 
-        @words.empty? ? zero : @words.reverse.join(' ')
+      def support? checking_module
+        self.class.ancestors.include? checking_module
       end
     end
   end

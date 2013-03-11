@@ -3,6 +3,7 @@ module NumbersAndWords
     module Hu
       include NumbersAndWords::TranslationsHelpers::Base
       include NumbersAndWords::TranslationsHelpers::Families::Latin
+      include NumbersAndWords::TranslationsHelpers::Extensions::FractionSignificance
 
       def translation_tens_with_ones numbers
         ones, tens = numbers
@@ -11,6 +12,10 @@ module NumbersAndWords
 
       def translation_hundreds number
         [t(:ones)[number], t(:hundreds)].join ''
+      end
+
+      def translation_micros capacity, number = nil, separator = ''
+        super capacity, nil, separator
       end
     end
   end

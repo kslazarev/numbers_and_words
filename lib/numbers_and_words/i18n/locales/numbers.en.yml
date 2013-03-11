@@ -5,4 +5,45 @@ en:
     tens: [zero, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
     hundreds: hundred
     mega: [ones, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
+    fraction_separator: and
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths]
+    tenths:
+      one: tenth
+      other: tenths
+    hundredths:
+      one: hundredth
+      other: hundredths
+    thousandths:
+      one: thousandth
+      other: thousandths
+    millionths:
+      one: millionth
+      other: millionths
+    billionths:
+      one: billionth
+      other: billionths
+    trillionths:
+      one: trillionth
+      other: trillionths
+    quadrillionths:
+      one: quadrillionth
+      other: quadrillionths
+    quintillionths:
+      one: quintillionth
+      other: quintillionths
+    sextillionths:
+      one: sextillionth
+      other: sextillionths
+    septillionths:
+      one: septillionth
+      other: septillionths
+    octillionths:
+      one: octillionth
+      other: octillionths
+    nonillionths:
+      one: nonillionth
+      other: nonillionths
+    decillionths:
+      one: decillionth
+      other: decillionths
     union: and

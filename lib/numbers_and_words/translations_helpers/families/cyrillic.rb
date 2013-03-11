@@ -7,7 +7,7 @@ module NumbersAndWords
         private
 
         def translation_ones number
-          t([:ones, gender].join('_'))[number]
+          t(:ones)[gender][number]
         end
 
         def translation_hundreds number
@@ -19,7 +19,11 @@ module NumbersAndWords
         end
 
         def zero
-          t(:ones_male)[0]
+          t(:ones).values.first[0]
+        end
+
+        def translate_integral_word number
+          t(:integral_word, :count => number)
         end
       end
     end
