@@ -66,6 +66,14 @@ module NumbersAndWords
       def fraction_sub_capacity
         sub_capacity unless capacity_count.nil?
       end
+
+      def ordinal_index
+        index { |i| i != 0 }
+      end
+
+      def ordinal_capacity
+        (ordinal_index.to_f / 3).floor
+      end
     end
   end
 end

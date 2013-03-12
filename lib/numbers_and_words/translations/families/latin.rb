@@ -17,6 +17,18 @@ module NumbersAndWords
         def zero
           t(:ones)[0]
         end
+
+        def ordinal_ones number
+          t("ordinals.ones")[number]
+        end
+
+        def ordinal_hundreds number, separator = ' '
+          [t(:ones)[number], t("ordinals.hundreds")].join separator
+        end
+
+        def zeroth
+          t("ordinals.ones")[0]
+        end
       end
     end
   end
