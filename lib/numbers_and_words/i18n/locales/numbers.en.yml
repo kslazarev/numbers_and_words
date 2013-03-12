@@ -5,6 +5,12 @@ en:
     tens: [zero, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
     hundreds: hundred
     mega: [ones, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
+    ordinal:
+      ones: [zeroth, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
+      teens: [tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth]
+      tens: [zeroth, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]
+      hundreds: hundredth
+      mega: [zeroth, thousandth, millionth, billionth, trillionth, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth]
     fraction_separator: and
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths]
     tenths:

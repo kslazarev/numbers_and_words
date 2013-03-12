@@ -6,16 +6,16 @@ module NumbersAndWords
 
         #private
 
-        def ones number
-          t(:ones)[number]
+        def ones number, options = {}
+          t([options[:prefix], :ones].join('.'))[number]
         end
 
-        def hundreds number
-          [t(:ones)[number], t(:hundreds)].join ' '
+        def hundreds number, options = {}
+          [t(:ones)[number], t([options[:prefix], :hundreds].join('.'))].join options[:separator] || ' '
         end
 
-        def zero
-          t(:ones)[0]
+        def zero options = {}
+          t([options[:prefix], :ones].join('.'))[0]
         end
       end
     end

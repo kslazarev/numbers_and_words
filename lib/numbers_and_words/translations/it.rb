@@ -4,7 +4,7 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
 
       def tens_with_ones numbers
-        super numbers, ''
+        super numbers, :separator => ''
       end
 
       def hundreds number

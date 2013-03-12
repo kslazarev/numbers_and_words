@@ -5,20 +5,21 @@ module NumbersAndWords
 
         #private
 
-        def teens number
-          t(:teens)[number]
+        def teens numbers, options = {}
+          t([options[:prefix], :teens].join('.'))[numbers[0]]
         end
 
-        def tens number
-          t(:tens)[number]
+        def tens number, options = {}
+          t([options[:prefix], :tens].join('.'))[number]
         end
 
-        def tens_with_ones numbers, separator = ' '
-          [tens(numbers[1]), ones(numbers[0])].join separator
+        def tens_with_ones numbers, options = {}
+          [tens(numbers[1]), ones(numbers[0], options)].join options[:separator]
         end
 
-        def megs capacity, number = nil
-          number ? t(mega(capacity), :count => number) : t(:mega)[capacity]
+        def megs capacity, number = nil, options = {}
+          mega_name = [options[:prefix], :mega].join('.')
+          number ? t(mega(capacity), :count => number) : t(mega_name)[capacity]
         end
 
         def mega capacity

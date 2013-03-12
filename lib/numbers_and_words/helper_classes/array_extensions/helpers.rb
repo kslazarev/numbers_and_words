@@ -66,6 +66,15 @@ module NumbersAndWords
       def fraction_sub_capacity
         sub_capacity unless capacity_count.nil?
       end
+
+      def ordinal_index
+        index { |figure| figure != 0 }
+      end
+
+      def ordinal_capacity
+        count = ordinal_index / FIGURES_IN_CAPACITY
+        0 == count ? nil : count
+      end
     end
   end
 end

@@ -1,6 +1,7 @@
 require 'numbers_and_words/strategies/figures_converter/options/en'
 require 'numbers_and_words/strategies/figures_converter/options/ru'
 require 'numbers_and_words/strategies/figures_converter/options/ua'
+require 'numbers_and_words/strategies/figures_converter/options/hu'
 
 module NumbersAndWords
   module Strategies
