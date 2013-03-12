@@ -11,7 +11,7 @@ module NumbersAndWords
 
       def tens_with_ones numbers
         if [7, 9].include? numbers[1]
-          [tens(numbers[1] - 1, false), teens(numbers[0])].join '-'
+          [tens(numbers[1] - 1, false), teens(numbers)].join '-'
         else
           union = numbers[0] == 1 ? ' et ' : '-'
           [tens(numbers[1], false), ones(numbers[0])].join union

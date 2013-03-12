@@ -6,28 +6,16 @@ module NumbersAndWords
 
         #private
 
-        def ones number
-          t(:ones)[number]
+        def ones number, options = {}
+          t([options[:prefix], :ones].join('.'))[number]
         end
 
-        def hundreds number
-          [t(:ones)[number], t(:hundreds)].join ' '
+        def hundreds number, options = {}
+          [t(:ones)[number], t([options[:prefix], :hundreds].join('.'))].join options[:separator] || ' '
         end
 
-        def zero
-          t(:ones)[0]
-        end
-
-        def ordinal_ones number
-          t("ordinals.ones")[number]
-        end
-
-        def ordinal_hundreds number, separator = ' '
-          [t(:ones)[number], t("ordinals.hundreds")].join separator
-        end
-
-        def zeroth
-          t("ordinals.ones")[0]
+        def zero options = {}
+          t([options[:prefix], :ones].join('.'))[0]
         end
       end
     end

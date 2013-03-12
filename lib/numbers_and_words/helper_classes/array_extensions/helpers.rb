@@ -68,11 +68,12 @@ module NumbersAndWords
       end
 
       def ordinal_index
-        index { |i| i != 0 }
+        index { |figure| figure != 0 }
       end
 
       def ordinal_capacity
-        (ordinal_index.to_f / 3).floor
+        count = ordinal_index / FIGURES_IN_CAPACITY
+        0 == count ? nil : count
       end
     end
   end

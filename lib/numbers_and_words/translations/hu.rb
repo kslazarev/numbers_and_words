@@ -4,13 +4,14 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
 
-      def tens_with_ones numbers
+      def tens_with_ones numbers, options = {}
         ones, tens = numbers
-        [t(:tens_with_ones)[tens], ones(ones)].join ''
+        [t(:tens_with_ones)[tens], t([options[:prefix], :ones_with_tens].join('.'))[ones]].join ''
       end
 
-      def hundreds number
-        [t(:ones)[number], t(:hundreds)].join ''
+      def hundreds number, options = {}
+        options[:separator] = ''
+        super number, options
       end
 
       def micros capacity, number = nil, separator = ''

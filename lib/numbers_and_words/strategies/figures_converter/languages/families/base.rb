@@ -5,7 +5,7 @@ module NumbersAndWords
         module Families
           module Base
 
-            attr_accessor :current_capacity
+            attr_accessor :current_capacity, :parent_figures
 
             private
 
@@ -56,7 +56,7 @@ module NumbersAndWords
 
             def simple_number_to_words
               if figures.teens
-                [translations.teens(figures.ones)]
+                [translations.teens(figures.teens)]
               elsif figures.tens
                 [complex_tens]
               elsif figures.ones
@@ -67,9 +67,9 @@ module NumbersAndWords
             end
 
             def save_parent_figures
-              parent_figures = @figures
+              @parent_figures = @figures
               result = yield(parent_figures)
-              @figures = parent_figures
+              @figures = @parent_figures
               result
             end
           end

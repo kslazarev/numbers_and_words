@@ -5,7 +5,7 @@ en:
     tens: [zero, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
     hundreds: hundred
     mega: [ones, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
-    ordinals:
+    ordinal:
       ones: [zeroth, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
       teens: [tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth]
       tens: [zeroth, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]

@@ -17,7 +17,7 @@ module NumbersAndWords
 
             def simple_number_to_words
               if figures.teens
-                [translations.teens(figures.ones)]
+                [translations.teens(figures.teens)]
               elsif figures.tens
                 [complex_tens]
               elsif figures.ones
