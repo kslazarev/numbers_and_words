@@ -1,33 +1,29 @@
 module NumbersAndWords
   module Strategies
     module ArrayJoiner
-      module Union
+      class Base
 
-        def run elements, options = {}
+        attr_accessor :options, :elements
+
+        def initialize elements, options = {}
+          @elements = elements
           @options = options
-          around_union_elements do
-            union = union_separator ? [' ',union_separator, ' '].join : ' '
-            elements.join union
-          end
+          @translations = Translations::Base.factory
+        end
+
+        def run
+          around { elements.join union_separator }
         end
 
         private
 
         def union_separator
-          options[:union_separator]
+          separator = options[:union_separator] || @translations.union || ''
+          " #{separator} " if separator.present?
         end
 
-        def around_union_elements
-          before_union_elements
-          result = yield
-          after_union_elements
-          result
-        end
-
-        def before_union_elements
-        end
-
-        def after_union_elements
+        def around
+          yield
         end
       end
     end

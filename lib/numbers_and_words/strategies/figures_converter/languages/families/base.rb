@@ -72,6 +72,10 @@ module NumbersAndWords
               @figures = @parent_figures
               result
             end
+
+            def zero
+              translations.zero
+            end
           end
         end
       end

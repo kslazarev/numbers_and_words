@@ -2,6 +2,7 @@ require 'rubygems'
 require 'i18n'
 require 'i18n/backend/pluralization'
 require 'active_support/inflector'
+require 'active_support/core_ext/object'
 
 require 'numbers_and_words/translations'
 require 'numbers_and_words/strategies'

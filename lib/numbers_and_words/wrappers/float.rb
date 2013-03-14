@@ -8,13 +8,55 @@ module NumbersAndWords
       end
 
       def to_words options = {}
-        to_figures_array.to_words options
+        words = []
+        words << integral_part_with(options) if integral_part_with(options).present?
+        words << fractional_part_with(options) unless fractional_part_is_nil?
+        NumbersAndWords::WordsArray.new(words).join options
       end
 
       private
 
-      def to_figures_array
-        number.to_s.split(//).map(&:to_i).to_figures
+      def parts
+        number.to_s.split '.'
+      end
+
+      def exponential?
+        number.to_s =~ /[eE]{1}\+/
+      end
+
+      def integral_part
+        parts.first
+      end
+
+      def fractional_part
+        parts.last
+      end
+
+      def integral_part_with options
+        integral_part.to_i.to_words options.merge(integral_options)
+      end
+
+      def fractional_part_with options
+        fractional_part.to_i.to_words options.merge(fractional_options)
+      end
+
+      def integral_options
+        {:options => :integral}
+      end
+
+      def fractional_options
+        {
+          :options => :fractional,
+          :fractional => {:length => fractional_part.length}
+        }
+      end
+
+      def integral_part_is_nil?
+        0 == integral_part.to_i
+      end
+
+      def fractional_part_is_nil?
+        0 == fractional_part.to_i
       end
     end
   end

@@ -2,8 +2,8 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module Ru
-          class Gender
+        module En
+          class RemoveZero
             attr_accessor :strategy, :options
 
             def initialize proxy, *args, &block
@@ -11,14 +11,15 @@ module NumbersAndWords
               @options = proxy.options
             end
 
+
             def result
-              active? ? @options[:gender].to_sym : :male
+              active? ? '' : @strategy.language.translate(:zero)
             end
 
             private
 
             def active?
-              @options[:gender]
+              @options[:remove_zero]
             end
           end
         end

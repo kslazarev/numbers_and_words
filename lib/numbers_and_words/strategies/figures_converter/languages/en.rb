@@ -44,6 +44,10 @@ module NumbersAndWords
             define_method(method_name) { translate method_name }
           end
 
+          def zero
+            maybe_remove_zero
+          end
+
           def tens_with_ones
             translate :tens_with_ones, {:separator => maybe_hyphen_separator}
           end
@@ -64,6 +68,10 @@ module NumbersAndWords
 
           def maybe_union_after_hundreds translations
             @options.hundreds_with_union.modify_or_leave translations
+          end
+
+          def maybe_remove_zero
+           @options.remove_zero.result
           end
         end
       end

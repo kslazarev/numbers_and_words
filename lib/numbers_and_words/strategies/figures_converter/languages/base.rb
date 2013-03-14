@@ -24,7 +24,7 @@ module NumbersAndWords
 
           def words
             @strings = strings_logic
-            @strings.empty? && translations.zero || print_format
+            @strings.empty? && zero || print_format
           end
 
           #def support_fractional_options?

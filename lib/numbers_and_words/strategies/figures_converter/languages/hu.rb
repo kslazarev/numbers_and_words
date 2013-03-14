@@ -72,7 +72,7 @@ module NumbersAndWords
               options
           end
 
-          [:ones, :teens, :tens_with_ones, :tens, :hundreds, :megs].each do |method_name|
+          [:zero, :ones, :teens, :tens_with_ones, :tens, :hundreds, :megs].each do |method_name|
             define_method(method_name) { translate method_name }
           end
 

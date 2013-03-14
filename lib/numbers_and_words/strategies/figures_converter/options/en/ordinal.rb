@@ -4,6 +4,7 @@ module NumbersAndWords
       module Options
         module En
           class Ordinal
+            ZERO_TYPE = :zero
             HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
 
@@ -27,7 +28,11 @@ module NumbersAndWords
 
             def check_simple_numbers
               @proc_options[:prefix] = :ordinal if simple_numbers_condition && active?
-              @proc_method.call figures.send(@type), @proc_options
+              if ZERO_TYPE != @type
+                @proc_method.call figures.send(@type), @proc_options
+              else
+                @proc_method.call @proc_options
+              end
             end
 
             def check_megs_numbers

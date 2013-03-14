@@ -2,7 +2,6 @@ module NumbersAndWords
   module Translations
     module Extensions
       module FractionSignificance
-        private
 
         def micros capacity, number = nil, separator = '-'
           micro, prefix = capacity
