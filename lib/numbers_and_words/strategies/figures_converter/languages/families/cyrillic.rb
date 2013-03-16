@@ -4,8 +4,7 @@ module NumbersAndWords
       module Languages
         module Families
           module Cyrillic
-
-            private
+            include Base
 
             def gender
               case @current_capacity.to_i

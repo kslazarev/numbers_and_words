@@ -10,10 +10,6 @@ module NumbersAndWords
         [micro_prefix(prefix), micros].compact.join separator
       end
 
-      def micro capacity
-
-      end
-
       def micro_prefix capacity
         case capacity
         when 2 then t(:sub_micro)[2]
@@ -21,9 +17,9 @@ module NumbersAndWords
         end
       end
 
-      def fraction_separator options = {}
-        super if options[:with_fractional_separator]
-      end
+      #def fraction_separator options = {}
+      #  super if options[:with_fractional_separator]
+      #end
     end
   end
 end
