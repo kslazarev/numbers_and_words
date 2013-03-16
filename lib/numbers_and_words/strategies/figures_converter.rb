@@ -12,9 +12,8 @@ module NumbersAndWords
         def initialize figures, options = {}
           @figures = figures.reverse
 
-          @options = Options::Proxy.new(self, options)
           @decorator = Decorators.factory(self, options)
-
+          @options = Options::Proxy.new(self, options)
           @translations = Translations.factory
           @language = Languages.factory(self)
         end

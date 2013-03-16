@@ -20,8 +20,8 @@ module NumbersAndWords
           t(:ones).values.first[0]
         end
 
-        def integral_word number
-          t(:integral_word, :count => number)
+        def integral number, options = {}
+          t(:integral, :count => number)
         end
       end
     end

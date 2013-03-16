@@ -41,14 +41,11 @@ module NumbersAndWords
       end
 
       def integral_options
-        {:options => :integral}
+        {:integral => {}}
       end
 
       def fractional_options
-        {
-          :options => :fractional,
-          :fractional => {:length => fractional_part.length}
-        }
+        {:fractional => {:length => fractional_part.length}}
       end
 
       def integral_part_is_nil?
