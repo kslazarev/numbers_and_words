@@ -15,11 +15,12 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Français
 * Українська
 * Magyar
-* Spanish**
-* Türkçe**
+* German**
 * Italiano**
 * Nederlands**
+* Spanish**
 * Swedish**
+* Türkçe**
 
 ** Experimental
 
