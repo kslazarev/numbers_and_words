@@ -7,28 +7,28 @@ module NumbersAndWords
 
           private
 
-          def capacity_iteration capacity
+          def capacity_iteration
             words = []
-            capacity_words = words_in_capacity(capacity)
-            unless capacity_words.empty?
-             words.push translations.megs(capacity,figures.number_in_capacity(capacity))
-            end
-            words += capacity_words unless is_a_thousand?(capacity) and is_a_one?(capacity_words)
+            capacity_words = words_in_capacity(@current_capacity)
+            words.push(megs) unless capacity_words.empty?
+            words += capacity_words unless is_a_thousand? and is_a_one?
             words
           end
 
-          def is_a_one? capacity_words
-            translations.ones(1) == capacity_words
+          def is_a_one?
+            translations.ones(1) == @current_capacity
           end
 
-          def is_a_thousand? capacity
-            FiguresArray::THOUSAND_CAPACITY == capacity
+          def is_a_thousand?
+            FiguresArray::THOUSAND_CAPACITY == @current_capacity
           end
 
-          def hundreds_number_to_words
-            simple_number_to_words + [
-              translations.hundreds(figures.hundreds, simple_number_to_words.empty?)
-            ]
+          def hundreds
+            super({:pluralize => simple_number_to_words.empty?})
+          end
+
+          def megs
+            super({:number => @figures.number_in_capacity(@current_capacity)})
           end
         end
       end

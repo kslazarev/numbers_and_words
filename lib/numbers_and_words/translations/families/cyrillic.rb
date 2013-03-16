@@ -4,22 +4,21 @@ module NumbersAndWords
       module Cyrillic
         include NumbersAndWords::Translations::Families::Base
 
-        def ones number, gender = :male
-          t(:ones)[gender][number]
+        def ones number, options = {}
+          t(:ones)[options[:gender]][number]
         end
 
-        def tens_with_ones numbers, gender, separator = ' '
-          [tens(numbers[1]), ones(numbers[0], gender)].join separator
+        def tens_with_ones numbers, options = {}
+          [tens(numbers[1]), ones(numbers[0], options)].join ' '
         end
 
-        def hundreds number
+        def hundreds number, options = {}
           t(:hundreds)[number]
         end
 
-        def zero
+        def zero options = {}
           t(:ones).values.first[0]
         end
-
 
         def integral_word number
           t(:integral_word, :count => number)

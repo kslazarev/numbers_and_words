@@ -4,15 +4,16 @@ module NumbersAndWords
       module Languages
         class Es < Base
           include Families::Latin
-          #include NumbersAndWords::Translations::Es
 
-          def capacity_iteration capacity
+          def capacity_iteration
             words = []
-            capacity_words = words_in_capacity(capacity)
-            unless capacity_words.empty?
-              words.push translations.megs(capacity, figures.number_in_capacity(capacity))
-            end
+            capacity_words = words_in_capacity(@current_capacity)
+            words.push megs unless capacity_words.empty?
             words + capacity_words
+          end
+
+          def megs
+            super({:number => @figures.number_in_capacity(@current_capacity)})
           end
         end
       end

@@ -8,15 +8,13 @@ module NumbersAndWords
             HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
 
-            attr_accessor :strategy, :options
-
             def initialize proxy, *args, &block
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
-            def result type, proc_method, proc_options = {}
-              @type, @proc_method, @proc_options = type, proc_method, proc_options
+            def result type
+              @type = type
               MEGS_TYPE != type ? check_simple_numbers : check_megs_numbers
             end
 
@@ -27,17 +25,11 @@ module NumbersAndWords
             end
 
             def check_simple_numbers
-              @proc_options[:prefix] = :ordinal if simple_numbers_condition && active?
-              if ZERO_TYPE != @type
-                @proc_method.call figures.send(@type), @proc_options
-              else
-                @proc_method.call @proc_options
-              end
+              :ordinal if simple_numbers_condition && active?
             end
 
             def check_megs_numbers
-              @proc_options[:prefix] = :ordinal if megs_numbers_condition && active?
-              @proc_method.call current_capacity, nil, @proc_options
+              :ordinal if megs_numbers_condition && active?
             end
 
             def simple_numbers_condition
@@ -50,19 +42,15 @@ module NumbersAndWords
             end
 
             def simple_number_to_words
-              strategy.language.simple_number_to_words
+              @strategy.language.simple_number_to_words
             end
 
             def current_capacity
-              strategy.language.current_capacity
+              @strategy.language.current_capacity
             end
 
             def language_figures
-              strategy.language.parent_figures
-            end
-
-            def figures
-              strategy.language.figures
+              @strategy.language.parent_figures
             end
           end
         end

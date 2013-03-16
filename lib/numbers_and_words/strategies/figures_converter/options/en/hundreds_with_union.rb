@@ -12,7 +12,7 @@ module NumbersAndWords
             end
 
             def modify_or_leave hundreds
-              hundreds += translations.union if active?
+              hundreds = "#{hundreds} #{translations.union}" if active?
               hundreds
             end
 
@@ -20,6 +20,10 @@ module NumbersAndWords
 
             def active?
               @options[:hundreds_with_union]
+            end
+
+            def translations
+              @strategy.translations
             end
           end
         end

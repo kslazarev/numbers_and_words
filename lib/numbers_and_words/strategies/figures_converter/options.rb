@@ -21,12 +21,18 @@ module NumbersAndWords
             return nil
           end
 
+          private
+
           def proxy_class_name method_name
-            "#{language_class_name}::#{method_name.to_s.camelcase}".modulize(self.class.name)
+            "#{module_name}::#{language_class_name}::#{method_name.to_s.camelcase}"
           end
 
           def language_class_name
-            ::I18n.locale.to_s.titleize.gsub(' ', '::')
+            ::I18n.locale.to_s.titleize.gsub ' ', '::'
+          end
+
+          def module_name
+            self.class.name.split('::')[0..-2].join '::'
           end
         end
       end

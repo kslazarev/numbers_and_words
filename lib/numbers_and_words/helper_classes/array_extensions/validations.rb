@@ -1,7 +1,7 @@
 module NumbersAndWords
   module ArrayExtensions
     module Validations
-      VALID_CHARACTERS = ("0".."9").to_a.push(".").freeze
+      #VALID_CHARACTERS = ("0".."9").to_a.push(".").freeze
 
       def validate_figure_array!
         #if invalid_characters.any?

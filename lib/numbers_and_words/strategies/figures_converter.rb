@@ -15,8 +15,8 @@ module NumbersAndWords
           @options = Options::Proxy.new(self, options)
           @decorator = Decorators.factory(self, options)
 
-          @translations = Translations::Base.factory
-          @language = Languages::Base.factory(self)
+          @translations = Translations.factory
+          @language = Languages.factory(self)
         end
 
         def run

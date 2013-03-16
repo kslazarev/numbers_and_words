@@ -7,9 +7,5 @@ module NumbersAndWords
     def join options = {}
       Strategies.array_joiner.new(self.to_a, options).run
     end
-
-    def reverse
-      super.to_figures
-    end
   end
 end

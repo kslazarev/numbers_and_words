@@ -13,7 +13,7 @@ module NumbersAndWords
 
 
             def result
-              active? ? '' : @strategy.language.translate(:zero)
+              active?
             end
 
             private

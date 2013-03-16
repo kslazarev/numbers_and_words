@@ -10,11 +10,11 @@ module NumbersAndWords
             [super.reverse.join]
           end
 
-          def capacity_iteration capacity
-            if FiguresArray::THOUSAND_CAPACITY == capacity
+          def capacity_iteration
+            if FiguresArray::THOUSAND_CAPACITY == @current_capacity
               words = []
-              capacity_words = words_in_capacity(capacity)
-              words.push(translations.megs(capacity)) unless capacity_words.empty?
+              capacity_words = words_in_capacity(@current_capacity)
+              words.push megs unless capacity_words.empty?
               capacity_words.empty? ? [] : [capacity_words, words].join
             else
               super

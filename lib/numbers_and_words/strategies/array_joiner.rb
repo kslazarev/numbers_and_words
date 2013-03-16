@@ -8,7 +8,7 @@ module NumbersAndWords
         def initialize elements, options = {}
           @elements = elements
           @options = options
-          @translations = Translations::Base.factory
+          @translations = Translations.factory
         end
 
         def run

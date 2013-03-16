@@ -13,3 +13,13 @@ require 'numbers_and_words/translations/it'
 require 'numbers_and_words/translations/hu'
 require 'numbers_and_words/translations/se'
 require 'numbers_and_words/translations/es'
+
+module NumbersAndWords
+  module Translations
+    class << self
+      def factory
+        "NumbersAndWords::Translations::#{::I18n.locale.to_s.titleize}".constantize.new
+      end
+    end
+  end
+end

@@ -4,17 +4,16 @@ module NumbersAndWords
       module Languages
         module Families
           module Base
+            include Helpers
 
             attr_accessor :current_capacity, :parent_figures
 
-            private
-
             def strings_logic
-              if figures.capacity_count
+              if @figures.capacity_count
                 number_without_capacity_to_words + complex_number_to_words
-              elsif figures.hundreds
+              elsif @figures.hundreds
                 hundreds_number_to_words
-              elsif figures.tens or figures.ones
+              elsif @figures.tens or @figures.ones
                 simple_number_to_words
               else
                 []
@@ -22,22 +21,22 @@ module NumbersAndWords
             end
 
             def complex_number_to_words
-              (1..figures.capacity_count).map { |capacity|
+              (1..@figures.capacity_count).map { |capacity|
                 @current_capacity = capacity
-                capacity_iteration(capacity)
+                capacity_iteration
               }.flatten
             end
 
-            def capacity_iteration capacity
+            def capacity_iteration
               words = []
-              capacity_words = words_in_capacity(capacity)
-              words.push(translations.megs(capacity)) unless capacity_words.empty?
+              capacity_words = words_in_capacity(@current_capacity)
+              words.push(megs) unless capacity_words.empty?
               words + capacity_words
             end
 
             def words_in_capacity capacity = 0
-              save_parent_figures do |parent_figures|
-                @figures = parent_figures.figures_array_in_capacity(capacity)
+              save_parent_figures do
+                @figures = @parent_figures.figures_array_in_capacity(capacity)
                 strings_logic
               end
             end
@@ -45,22 +44,20 @@ module NumbersAndWords
             alias_method :number_without_capacity_to_words, :words_in_capacity
 
             def hundreds_number_to_words
-              simple_number_to_words + [translations.hundreds(figures.hundreds)]
+              simple_number_to_words + [hundreds]
             end
 
             def complex_tens
-              figures.ones ?
-                translations.tens_with_ones(figures.tens_with_ones) :
-                translations.tens(figures.tens)
+              @figures.ones ? tens_with_ones : tens
             end
 
             def simple_number_to_words
-              if figures.teens
-                [translations.teens(figures.teens)]
-              elsif figures.tens
+              if @figures.teens
+                [teens]
+              elsif @figures.tens
                 [complex_tens]
-              elsif figures.ones
-                [translations.ones(figures.ones)]
+              elsif @figures.ones
+                [ones]
               else
                 []
               end
@@ -68,13 +65,9 @@ module NumbersAndWords
 
             def save_parent_figures
               @parent_figures = @figures
-              result = yield(parent_figures)
+              result = yield
               @figures = @parent_figures
               result
-            end
-
-            def zero
-              translations.zero
             end
           end
         end
