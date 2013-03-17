@@ -4,7 +4,6 @@ module NumbersAndWords
       module Languages
         class Tr < Base
           include Families::Latin
-          #include NumbersAndWords::Translations::Tr
         end
       end
     end

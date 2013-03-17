@@ -4,7 +4,6 @@ module NumbersAndWords
       module Languages
         class Nl < Base
           include Families::Latin
-          #include NumbersAndWords::Translations::Nl
 
           def hundreds_number_to_words
             [super.reverse.join]

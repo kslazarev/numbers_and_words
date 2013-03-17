@@ -4,7 +4,6 @@ module NumbersAndWords
       module Languages
         class It < Base
           include Families::Latin
-          #include NumbersAndWords::Translations::It
         end
       end
     end
