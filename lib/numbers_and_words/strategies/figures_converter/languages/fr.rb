@@ -16,7 +16,7 @@ module NumbersAndWords
           end
 
           def is_a_one?
-            translations.ones(1) == @current_capacity
+            [translations.ones(1)] == words_in_capacity(@current_capacity)
           end
 
           def is_a_thousand?
