@@ -1,6 +1,8 @@
 == numbers_and_words
 
-{<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words] {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png?branch=development" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
+{<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
+{<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]
+{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png?branch=development" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
 Convert numbers to words using the I18n library.
 
