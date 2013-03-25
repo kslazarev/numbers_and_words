@@ -15,7 +15,7 @@ to_words:
     21.77: twenty-one and seventy-seven hundredths
     111.999: one hundred eleven and nine hundred ninety-nine thousandths
     4242.7463: four thousand two hundred forty-two and seven thousand four hundred sixty-three ten-thousandths
-  fractions_with_zero:
+  fractions_without_zero:
     options:
       :remove_zero: true
     0.1: one tenth
