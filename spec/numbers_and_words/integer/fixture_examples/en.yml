@@ -49,3 +49,55 @@ to_words:
     935174315119: nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
   trillions:
     2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+  ordinals:
+    options:
+      :ordinal: true
+    0: zeroth
+    1: first
+    2: second
+    3: third
+    4: fourth
+    5: fifth
+    6: sixth
+    7: seventh
+    8: eighth
+    9: ninth
+    10: tenth
+    11: eleventh
+    12: twelfth
+    13: thirteenth
+    14: fourteenth
+    15: fifteenth
+    16: sixteenth
+    17: seventeenth
+    18: eighteenth
+    19: nineteenth
+    20: twentieth
+    30: thirtieth
+    40: fortieth
+    50: fiftieth
+    60: sixtieth
+    70: seventieth
+    80: eightieth
+    90: ninetieth
+    100: one hundredth
+    1000: one thousandth
+    1000000: one millionth
+    1000000000: one billionth
+    1000000000000: one trillionth
+    1000000000000000: one quadrillionth
+    1000000000000000000: one quintillionth
+    1000000000000000000000: one sextillionth
+    1000000000000000000000000: one septillionth
+    1000000000000000000000000000: one octillionth
+    1000000000000000000000000000000: one nonillionth
+    1000000000000000000000000000000000: one decillionth
+    21: twenty-first
+    42: forty-second
+    133: one hundred thirty-third
+    4256: four thousand two hundred fifty-sixth
+    4200: four thousand two hundredth
+    42000: forty-two thousandth
+    420000: four hundred twenty thousandth
+    4200000: four million two hundred thousandth
+    42000000: forty-two millionth

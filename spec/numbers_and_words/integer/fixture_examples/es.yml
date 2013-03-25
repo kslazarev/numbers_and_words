@@ -1,0 +1,51 @@
+to_words:
+  ones:
+    0: cero
+    1: uno
+    9: nueve
+  teens:
+    10: diez
+    11: once
+    19: diecinueve
+    20: veinte
+    21: veintiuno
+    80: ochenta
+    90: noventa
+    99: noventa y nueve
+  hundreds:
+    100: cien
+    101: ciento uno
+    111: ciento once
+    120: ciento veinte
+    121: ciento veintiuno
+    900: novecientos
+    909: novecientos nueve
+    919: novecientos diecinueve
+    990: novecientos noventa
+    999: novecientos noventa y nueve
+  thousands:
+    1000: un mil
+    2000: dos mil
+    4000: cuatro mil
+    5000: cinco mil
+    11000: once mil
+    21000: veintiun mil
+    999000: novecientos noventa y nueve mil
+    999999: novecientos noventa y nueve mil novecientos noventa y nueve
+  millions:
+    1000000: un millón
+    2000000: dos millones
+    4000000: cuatro millones
+    5000000: cinco millones
+    999000000: novecientos noventa y nueve millones
+    999000999: novecientos noventa y nueve millones novecientos noventa y nueve
+    999999000: novecientos noventa y nueve millones novecientos noventa y nueve mil
+    999999999: novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve
+  billions:
+    1174315110: un millardo ciento setenta y cuatro millones trescientos quince mil ciento diez
+    1174315119: un millardo ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    15174315119: quince millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    35174315119: treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    935174315119: novecientos treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+  trillions:
+    2935174315119: dos billones novecientos treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve

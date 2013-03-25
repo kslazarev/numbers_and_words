@@ -1,0 +1,19 @@
+to_words:
+  fractions:
+    0.1: nulla egész egy tized
+    0.7: nulla egész hét tized
+    0.01: nulla egész egy század
+    0.77: nulla egész hetvenhét század
+    0.777: nulla egész hétszázhetvenhét ezred
+    0.7777: nulla egész hétezer-hétszázhetvenhét tízezred
+    0.77777: nulla egész hetvenhétezer-hétszázhetvenhét százezred
+    0.777777: nulla egész hétszázhetvenhétezer-hétszázhetvenhét milliomod
+    0.7777777: nulla egész hétmillió-hétszázhetvenhétezer-hétszázhetvenhét tízmilliomod
+    0.77777777: nulla egész hetvenhétmillió-hétszázhetvenhétezer-hétszázhetvenhét százmilliomod
+    0.777777777: nulla egész hétszázhetvenhétmillió-hétszázhetvenhétezer-hétszázhetvenhét milliárdod
+    0.2935174315119: nulla egész kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc tízbilliomod
+    21.77: huszonegy egész hetvenhét század
+    111.999: egyszáztizenegy egész kilencszázkilencvenkilenc ezred
+    4242.7463: négyezer-kettőszáznegyvenkettő egész hétezer-négyszázhatvanhárom tízezred
+    1111.4444: egyezeregyszáztizenegy egész négyezer-négyszáznegyvennégy tízezred
+    4444.1111: négyezer-négyszáznegyvennégy egész egyezeregyszáztizenegy tízezred

@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - en
+      - två
+      - tre
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - en hundra en
+      - tjugo-en
+      - tretton

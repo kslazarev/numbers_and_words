@@ -1,0 +1,23 @@
+to_words:
+  fractional:
+    0.1: zero and one tenth
+    0.7: zero and seven tenths
+    0.01: zero and one hundredth
+    0.77: zero and seventy-seven hundredths
+    0.777: zero and seven hundred seventy-seven thousandths
+    0.7777: zero and seven thousand seven hundred seventy-seven ten-thousandths
+    0.77777: zero and seventy-seven thousand seven hundred seventy-seven hundred-thousandths
+    0.777777: zero and seven hundred seventy-seven thousand seven hundred seventy-seven millionths
+    0.7777777: zero and seven million seven hundred seventy-seven thousand seven hundred seventy-seven ten-millionths
+    0.77777777: zero and seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven hundred-millionths
+    0.777777777: zero and seven hundred seventy-seven million seven hundred seventy-seven thousand seven hundred seventy-seven billionths
+    0.2935174315119: zero and two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen ten-trillionths
+    21.77: twenty-one and seventy-seven hundredths
+    111.999: one hundred eleven and nine hundred ninety-nine thousandths
+    4242.7463: four thousand two hundred forty-two and seven thousand four hundred sixty-three ten-thousandths
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: one tenth
+    0.7: seven tenths
+    42.1: forty-two and one tenth

@@ -52,3 +52,55 @@ to_words:
     935174315119: kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
   trillions:
     2935174315119: kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+  ordinals:
+    options:
+      :ordinal: true
+    0: nulladik
+    1: első
+    2: második
+    3: harmadik
+    4: negyedik
+    5: ötödik
+    6: hatodik
+    7: hetedik
+    8: nyolcadik
+    9: kilencedik
+    10: tizedik
+    11: tizenegyedik
+    12: tizenkettedik
+    13: tizenharmadik
+    14: tizennegyedik
+    15: tizenötödik
+    16: tizenhatodik
+    17: tizenhetedik
+    18: tizennyolcadik
+    19: tizenkilencedik
+    20: huszadik
+    30: harmincadik
+    40: negyvenedik
+    50: ötvenedik
+    60: hatvanadik
+    70: hetvenedik
+    80: nyolcvanadik
+    90: kilencvenedik
+    100: egyszázadik
+    1000: egyezredik
+    1000000: egymilliomodik
+    1000000000: egymilliárdodik
+    1000000000000: egybilliomodik
+    1000000000000000: egybilliárdodik
+    1000000000000000000: egytrilliomodik
+    1000000000000000000000: egytrilliárdodik
+    1000000000000000000000000: egykvadrilliomodik
+    1000000000000000000000000000: egykvadrilliárdodik
+    1000000000000000000000000000000: egykvintilliomodik
+    1000000000000000000000000000000000: egykvintilliárdodik
+    21: huszonegyedik
+    42: negyvenkettedik
+    133: egyszázharmincharmadik
+    4256: négyezer-kettőszázötvenhatodik
+    4200: négyezer-kettőszázadik
+    42000: negyvenkettőezredik
+    420000: négyszázhúszezredik
+    4200000: négymillió-kettőszázezredik
+    42000000: negyvenkettőmilliomodik

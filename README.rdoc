@@ -1,4 +1,4 @@
-== numbers_and_words {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words] {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
+== numbers_and_words {<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words] {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]
 
 Convert numbers to words using the I18n library.
 
@@ -6,16 +6,20 @@ Convert numbers to words using the I18n library.
 
 Converti les nombres en lettres en utilisant la librairie I18n.
 
+Számok betűvel írva az I18n könyvtár segítségével.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English
+* Spanish
 * Русский
 * Français
 * Українська
+* Magyar
 * Türkçe**
 * Italiano**
 * Nederlands**
-* Hungarian
+* Swedish**
 
 ** Experimental
 
@@ -24,77 +28,147 @@ Converti les nombres en lettres en utilisant la librairie I18n.
     I18n.with_locale(:en) { 42.to_words }
     => "forty-two"
 
+    I18n.with_locale(:es) { 42.to_words }
+    => "cuarenta y dos"
+
     I18n.with_locale(:ru) { 42.to_words }
     => "сорок два"
 
     I18n.with_locale(:fr) { 42.to_words }
     => "quarante-deux"
 
+    I18n.with_locale(:hu) { 42.to_words }
+    => "negyvenkettő"
+
     21.to_words
     => "twenty-one"
+    => "veintiuno"
     => "двадцать один"
     => "vingt et un"
     => "двадцять один"
+    => "huszonegy"
     => "yirmi bir"
     => "ventiuno"
     => "éénentwintig"
-    => "huszonegy"
+    => "tjugo-en"
 
     231.to_words
     => "two hundred thirty-one"
+    => "doscientos treinta y uno"
     => "двести тридцать один"
     => "deux cent trente-trois"
     => "двiстi тридцять один"
+    => "kettőszázharmincegy"
     => "iki yüz otuz bir"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
-    => "kettőszázharmincegy"
+    => "två hundra trettio-en"
 
     4030.to_words
     => "four thousand thirty"
+    => "cuatro mil treinta"
     => "четыре тысячи тридцать"
     => "quatre mille trente"
     => "чотири тисячi тридцять"
+    => "négyezer-harminc"
     => "dört bin otuz"
     => "quattro mille trenta"
     => "vierthousanddertig"
-    => "négyezer-harminc"
+    => "fyra tusen trettio"
 
     1000100.to_words
     => "one million one hundred"
+    => "un millón cien"
     => "один миллион сто"
     => "un million cent"
     => "один мiльйон сто"
+    => "egymillió-egyszáz"
     => "bir milyon bir yüz"
     => "uno milione 1 cento"
     => "één miljoen honderd"
-    => "egymillió-egyszáz"
+    => "en miljoner en hundra"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
+    => "un quintillardo"
     => "один дециллион"
     => "un quintilliard"
     => "один децильйон"
+    => "egykvintilliárd"
     => "bir desilyon"
     => "uno decillion"
     => "één decillion"
-    => "egykvintilliárd"
+    => "en decillion"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
+    => ["uno", "dos", "tres"]
     => ["один", "два", "три"]
     => ["un", "deux", "trois"]
     => ["egy", "kettő", "három"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
+    => ["once", "veintidos", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
+    => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
-    => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+    => ["elva", "tjugo-två", "en hundra trettio-tre"]
+
+    21.77.to_words
+    => "twenty-one and seventy-seven hundredths"
+    => "двадцать одна целая и семьдесят семь сотых"
+    => "двадцять одна цiла i сiмдесят сiм сотих"
+    => "huszonegy egész hetvenhét század"
+
+== Language options / Языковые опции
+
+* English
+
+  Ordinal form: (ordinal: [true || false])
+
+    I18n.with_locale(:en) { 21.to_words ordinal: true }
+    => "twenty-first"
+
+  Remove hyphen between tens and ones: (remove_hyphen: [true || false])
+
+    I18n.with_locale(:en) { 21.to_words remove_hyphen: true }
+    => "twenty one"
+
+  Add 'and' between hundreds and tens: (hundreds_with_union: [true || false])
+
+    I18n.with_locale(:en) { 111.to_words hundreds_with_union: true }
+    => "one hundred and eleven"
+
+  Remove 'zero' from integral part of float: (remove_zero: [true || false])
+
+    I18n.with_locale(:en) { 0.7.to_words remove_zero: true }
+    => "seven tenths"
+
+* Russian
+
+  Change gender form: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:ru) { 1001.to_words gender: :neuter }
+    => "одна тысяча одно"
+
+* Ukranian
+
+  Change gender form: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:ru) { 1001.to_words gender: :neuter }
+    => "одна тисяча одне"
+
+* Hungarian
+
+  Ordinal form: (ordinal: [true || false])
+
+    I18n.with_locale(:hu) { 21.to_words ordinal: true }
+    => "huszonegyedik"
 
 == Requirements / Требования / Configuration Requise
 
@@ -123,3 +197,4 @@ Send a pull request. Bonus points for topic branches.
 * Daniel Doubrovkine (link:http://github.com/dblock)
 * Sergey Shkirando (mailto:shkirando.s@yandex.ru)
 * Ulrich Sossou (Github[http://github.com/sorich87], {Personal Page}[http://ulrichsossou.com/])
+* eLod (link:http://github.com/eLod)

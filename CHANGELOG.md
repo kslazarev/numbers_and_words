@@ -1,7 +1,22 @@
-## Next Release
+## 0.6.0 (March 25, 2013)
 
 ### Features
-  * Add Hungarian language. \[[#40](https://github.com/kslazarev/numbers_and_words/pull/40)\] \([@eLod](https://github.com/eLod)\)
+  * Support fractional form for Ukranian. \[[#54](https://github.com/kslazarev/numbers_and_words/issues/54)\] \([@Shk-Serji](https://github.com/Shk-Serji)\)
+  * Support fractional form for Russian. \[[#53](https://github.com/kslazarev/numbers_and_words/issues/53)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Added functionality for spanish . \[[#51](https://github.com/kslazarev/numbers_and_words/issues/51)\] \([@jaambros](https://github.com/jaambros)\)
+  * Support ordinal form for English and Hungarian. \[[#50](https://github.com/kslazarev/numbers_and_words/issues/50)\] \([@eLod](https://github.com/eLod)\)
+  * Add option :remove_hyphen for English language. \[[#45](https://github.com/kslazarev/numbers_and_words/issues/45)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add option :hundreds_with_union for English language. \[[#44](https://github.com/kslazarev/numbers_and_words/issues/44)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add Spanish language. (experimental). \[[#42](https://github.com/kslazarev/numbers_and_words/issues/42)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add Swedish language. (experimental). \[[#41](https://github.com/kslazarev/numbers_and_words/issues/41)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add Hungarian language. \[[#40](https://github.com/kslazarev/numbers_and_words/issues/40)\] \([@eLod](https://github.com/eLod)\)
+  * Add option :gender for Russian language. \[[#39](https://github.com/kslazarev/numbers_and_words/issues/39)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Gem numbers_and_words not working for decimal values. \[[#38](https://github.com/kslazarev/numbers_and_words/issues/38)\] \([@eLod](https://github.com/eLod)\)
+
+### Supports
+  * Update 'code climate' badge. \[[#47](https://github.com/kslazarev/numbers_and_words/issues/47)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add @eLog contacts and project description on Hungarian language to README. \[[#46](https://github.com/kslazarev/numbers_and_words/issues/46)\] \([@eLod](https://github.com/eLod)\)
+  * Add language specific options. \[[#43](https://github.com/kslazarev/numbers_and_words/issues/43)\] \([@kslazarev](https://github.com/kslazarev)\)
 
 ## 0.5.0 (October 19, 2012)
 
