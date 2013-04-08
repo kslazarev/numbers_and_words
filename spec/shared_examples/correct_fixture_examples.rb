@@ -3,7 +3,8 @@ shared_examples 'correct fixture examples' do
     context "##{method_name}" do
       context_names.each do |context_name, tests|
         options = tests.delete("options") || {}
-        context context_name do
+        name = context_name + (options.any? && " (#{options.inspect})" || "")
+        context name do
           tests.each do |input, expectation|
             context input do
               subject { input.send method_name, options }
