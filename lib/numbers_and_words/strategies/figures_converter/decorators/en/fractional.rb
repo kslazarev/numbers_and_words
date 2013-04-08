@@ -31,6 +31,14 @@ module NumbersAndWords
               @options[:fractional][:length].to_i
             end
           end
+
+          module Gb
+            class Fractional < En::Fractional
+              def run
+                yield
+              end
+            end
+          end
         end
       end
     end

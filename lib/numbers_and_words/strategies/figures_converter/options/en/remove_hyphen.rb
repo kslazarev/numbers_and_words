@@ -22,6 +22,11 @@ module NumbersAndWords
               @options[:remove_hyphen]
             end
           end
+
+          module Gb
+            class RemoveHyphen < En::RemoveHyphen
+            end
+          end
         end
       end
     end

@@ -1,0 +1,103 @@
+to_words:
+  ones:
+    0: zero
+    1: one
+    9: nine
+  teens:
+    10: ten
+    11: eleven
+    19: nineteen
+    20: twenty
+    21: twenty-one
+    80: eighty
+    90: ninety
+    99: ninety-nine
+  hundreds:
+    100: one hundred
+    101: one hundred one
+    111: one hundred eleven
+    120: one hundred twenty
+    121: one hundred twenty-one
+    900: nine hundred
+    909: nine hundred nine
+    919: nine hundred nineteen
+    990: nine hundred ninety
+    999: nine hundred ninety-nine
+  thousands:
+    1000: one thousand
+    2000: two thousand
+    4000: four thousand
+    5000: five thousand
+    11000: eleven thousand
+    21000: twenty-one thousand
+    999000: nine hundred ninety-nine thousand
+    999999: nine hundred ninety-nine thousand nine hundred ninety-nine
+  millions:
+    1000000: one million
+    2000000: two million
+    4000000: four million
+    5000000: five million
+    999000000: nine hundred ninety-nine million
+    999000999: nine hundred ninety-nine million nine hundred ninety-nine
+    999999000: nine hundred ninety-nine million nine hundred ninety-nine thousand
+    999999999: nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+  billions:
+    1174315110: one billion one hundred seventy-four million three hundred fifteen thousand one hundred ten
+    1174315119: one billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    15174315119: fifteen billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    35174315119: thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    935174315119: nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+  trillions:
+    2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+  ordinals:
+    options:
+      :ordinal: true
+    0: zeroth
+    1: first
+    2: second
+    3: third
+    4: fourth
+    5: fifth
+    6: sixth
+    7: seventh
+    8: eighth
+    9: ninth
+    10: tenth
+    11: eleventh
+    12: twelfth
+    13: thirteenth
+    14: fourteenth
+    15: fifteenth
+    16: sixteenth
+    17: seventeenth
+    18: eighteenth
+    19: nineteenth
+    20: twentieth
+    30: thirtieth
+    40: fortieth
+    50: fiftieth
+    60: sixtieth
+    70: seventieth
+    80: eightieth
+    90: ninetieth
+    100: one hundredth
+    1000: one thousandth
+    1000000: one millionth
+    1000000000: one billionth
+    1000000000000: one trillionth
+    1000000000000000: one quadrillionth
+    1000000000000000000: one quintillionth
+    1000000000000000000000: one sextillionth
+    1000000000000000000000000: one septillionth
+    1000000000000000000000000000: one octillionth
+    1000000000000000000000000000000: one nonillionth
+    1000000000000000000000000000000000: one decillionth
+    21: twenty-first
+    42: forty-second
+    133: one hundred thirty-third
+    4256: four thousand two hundred fifty-sixth
+    4200: four thousand two hundredth
+    42000: forty-two thousandth
+    420000: four hundred twenty thousandth
+    4200000: four million two hundred thousandth
+    42000000: forty-two millionth

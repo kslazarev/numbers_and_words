@@ -21,6 +21,18 @@ module NumbersAndWords
             return nil
           end
 
+          def integral?
+            !!@options[:integral]
+          end
+
+          def fractional?
+            !!@options[:fractional]
+          end
+
+          def fractional_length
+            @options[:fractional][:length] if fractional?
+          end
+
           private
 
           def proxy_class_name method_name
