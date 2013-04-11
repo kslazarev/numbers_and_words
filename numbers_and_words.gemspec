@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words"
-  s.version = "0.6.0"
+  s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2013-03-25"
+  s.date = "2013-04-11"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
@@ -118,11 +118,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/kslazarev/numbers_and_words"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "2.0.3"
   s.summary = "Convert numbers to words using I18N."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
