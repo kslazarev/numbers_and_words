@@ -47,6 +47,10 @@ module NumbersAndWords
         self[2].to_i if 0 < self[2].to_i
       end
 
+      def round_hundred?
+        ones.nil? && tens.nil?
+      end
+
       def sub_capacity
         capacity_length % FIGURES_IN_CAPACITY
       end

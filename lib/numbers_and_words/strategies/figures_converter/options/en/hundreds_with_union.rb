@@ -12,7 +12,7 @@ module NumbersAndWords
             end
 
             def modify_or_leave hundreds
-              hundreds = "#{hundreds} #{translations.union}" if active?
+              hundreds = "#{hundreds} #{translations.union}" if active? && !round_hundred?
               hundreds
             end
 
@@ -20,6 +20,10 @@ module NumbersAndWords
 
             def active?
               @options[:hundreds_with_union]
+            end
+
+            def round_hundred?
+              @strategy.language.figures.round_hundred?
             end
 
             def translations

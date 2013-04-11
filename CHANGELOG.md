@@ -1,3 +1,8 @@
+## 0.6.1
+
+### Bugs
+  * Extra 'and' added after round hundreds (using hundreds_with_union: true) in English. \[[#58](https://github.com/kslazarev/numbers_and_words/issues/58)\] \([@eLod](https://github.com/eLod)\)
+
 ## 0.6.0 (March 25, 2013)
 
 ### Features
