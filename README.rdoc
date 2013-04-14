@@ -4,7 +4,7 @@
 {<img src="https://gemnasium.com/kslazarev/numbers_and_words.png" alt="Dependency Status" />}[https://gemnasium.com/kslazarev/numbers_and_words]
 {<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
 {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]
-{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png?branch=development" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
+{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
 Convert numbers to words using the I18n library.
 
@@ -26,6 +26,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Italiano**
 * Nederlands**
 * Swedish**
+* English (British)**
 
 ** Experimental
 
@@ -130,10 +131,11 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "двадцать одна целая и семьдесят семь сотых"
     => "двадцять одна цiла i сiмдесят сiм сотих"
     => "huszonegy egész hetvenhét század"
+    => "twenty-one point seven seven"
 
 == Language options / Языковые опции
 
-* English
+* English / British
 
   Ordinal form: (ordinal: [true || false])
 
@@ -154,6 +156,9 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
     I18n.with_locale(:en) { 0.7.to_words remove_zero: true }
     => "seven tenths"
+
+    I18n.with_locale(:en) { [0.1, 0.31, 0.12].to_words remove_zero: true }
+    => ["one tenth", "thirty-one hundredths", "twelve hundredths"]
 
 * Russian
 
