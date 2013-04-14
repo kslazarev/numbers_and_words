@@ -9,7 +9,7 @@ module NumbersAndWords
 
       def to_words options = {}
         words = []
-        words << integral_part_with(options) if integral_part_with(options).present?
+        words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
         NumbersAndWords::WordsArray.new(words).join options
       end

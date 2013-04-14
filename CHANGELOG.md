@@ -1,4 +1,10 @@
-## 0.6.1
+## 0.7.0 (April 14, 2013)
+
+### Features
+  * Send number's options through array. \[[#60](https://github.com/kslazarev/numbers_and_words/issues/60)\] \([@kslazarev](https://github.com/kslazarev)\)
+  * Add British English. \[[#57](https://github.com/kslazarev/numbers_and_words/issues/57)\] \([@eLod](https://github.com/eLod)\)
+
+## 0.6.1 (April 11, 2013)
 
 ### Bugs
   * Extra 'and' added after round hundreds (using hundreds_with_union: true) in English. \[[#58](https://github.com/kslazarev/numbers_and_words/issues/58)\] \([@eLod](https://github.com/eLod)\)

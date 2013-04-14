@@ -12,15 +12,15 @@ module NumbersAndWords
             private
 
             def fraction_significance
-              @strategy.translations.micros full_fraction.fraction_capacity, figures.reverse.join.to_i
+              @strategy.translations.micros full_fraction.fraction_capacity, figures.join.to_i
             end
 
             def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, el| result.unshift '0' }.to_figures
+              (0..zero_length).inject(figures.clone) { |result, el| result.unshift 0 }.to_figures
             end
 
             def figures
-              @strategy.figures
+              @strategy.figures.reverse
             end
 
             def zero_length

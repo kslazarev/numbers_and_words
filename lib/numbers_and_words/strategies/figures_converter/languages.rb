@@ -6,6 +6,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/base'
 require 'numbers_and_words/strategies/figures_converter/languages/families/latin'
 
 require 'numbers_and_words/strategies/figures_converter/languages/en'
+require 'numbers_and_words/strategies/figures_converter/languages/en_gb'
 require 'numbers_and_words/strategies/figures_converter/languages/fr'
 require 'numbers_and_words/strategies/figures_converter/languages/hu'
 require 'numbers_and_words/strategies/figures_converter/languages/se'
@@ -30,7 +31,7 @@ module NumbersAndWords
           end
 
           def language_class_name
-            ::I18n.locale.to_s.titleize.gsub ' ', '::'
+            ::I18n.locale.to_s.titleize.gsub ' ', ''
           end
         end
       end

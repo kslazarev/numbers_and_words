@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'shared_examples/correct_fixture_examples'
 
-[Integer].each do |type|
+[Integer, Array].each do |type|
   describe type do
     NumbersAndWords::I18n::Initialization.languages.each do |locale|
       context locale do
@@ -18,7 +18,7 @@ end
 
 [Float].each do |type|
   describe type do
-    [:en,:hu, :ru, :ua].each do |locale|
+    [:en, 'en-GB', :hu, :ru, :ua].each do |locale|
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
