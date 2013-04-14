@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'shared_examples/correct_fixture_examples'
 
-[Integer].each do |type|
+[Integer, Array].each do |type|
   describe type do
     NumbersAndWords::I18n::Initialization.languages.each do |locale|
       context locale do
