@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words"
-  s.version = "0.6.1"
+  s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2013-04-11"
+  s.date = "2013-04-14"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/helper_classes/words_array.rb",
     "lib/numbers_and_words/i18n.rb",
     "lib/numbers_and_words/i18n/initialization.rb",
+    "lib/numbers_and_words/i18n/locales/numbers.en-GB.yml",
     "lib/numbers_and_words/i18n/locales/numbers.en.yml",
     "lib/numbers_and_words/i18n/locales/numbers.es.yml",
     "lib/numbers_and_words/i18n/locales/numbers.fr.yml",
@@ -47,6 +48,14 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/plurals/ua.rb",
     "lib/numbers_and_words/strategies.rb",
     "lib/numbers_and_words/strategies/array_joiner.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/base.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/en.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/en_gb.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/families/base.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/hu.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/ru.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/ua.rb",
     "lib/numbers_and_words/strategies/figures_converter.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/base.rb",
@@ -54,6 +63,10 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/fractional.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/integral.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/en_gb.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/en_gb/base.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/en_gb/fractional.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/en_gb/integral.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu/fractional.rb",
@@ -69,6 +82,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/languages.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/en.rb",
+    "lib/numbers_and_words/strategies/figures_converter/languages/en_gb.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/es.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/families/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/families/cyrillic.rb",
@@ -88,6 +102,11 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/options/en/ordinal.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/en/remove_hyphen.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/en/remove_zero.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/en_gb.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/en_gb/hundreds_with_union.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/en_gb/ordinal.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/en_gb/remove_hyphen.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/en_gb/remove_zero.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/hu.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/hu/ordinal.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ru.rb",
@@ -97,6 +116,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/translations.rb",
     "lib/numbers_and_words/translations/base.rb",
     "lib/numbers_and_words/translations/en.rb",
+    "lib/numbers_and_words/translations/en_gb.rb",
     "lib/numbers_and_words/translations/es.rb",
     "lib/numbers_and_words/translations/extensions/fraction_significance.rb",
     "lib/numbers_and_words/translations/families/base.rb",
