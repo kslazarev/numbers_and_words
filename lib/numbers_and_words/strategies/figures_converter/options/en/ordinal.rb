@@ -53,11 +53,6 @@ module NumbersAndWords
               @strategy.language.parent_figures
             end
           end
-
-          module Gb
-            class Ordinal < En::Ordinal
-            end
-          end
         end
       end
     end

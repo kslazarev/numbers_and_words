@@ -2,8 +2,8 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module En
-          class Integral < Base
+        module EnGb
+          class Base < En::Base
           end
         end
       end

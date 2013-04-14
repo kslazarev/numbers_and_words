@@ -5,6 +5,7 @@ require 'numbers_and_words/translations/families/latin'
 require 'numbers_and_words/translations/extensions/fraction_significance'
 require 'numbers_and_words/translations/ru'
 require 'numbers_and_words/translations/en'
+require 'numbers_and_words/translations/en_gb'
 require 'numbers_and_words/translations/ua'
 require 'numbers_and_words/translations/tr'
 require 'numbers_and_words/translations/fr'
@@ -22,7 +23,7 @@ module NumbersAndWords
       end
 
       def language_class_name
-        ::I18n.locale.to_s.titleize.gsub ' ', '::'
+        ::I18n.locale.to_s.titleize.gsub ' ', ''
       end
     end
   end

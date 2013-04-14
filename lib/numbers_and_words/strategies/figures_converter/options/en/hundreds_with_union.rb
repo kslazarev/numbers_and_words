@@ -26,11 +26,6 @@ module NumbersAndWords
               @strategy.translations
             end
           end
-
-          module Gb
-            class HundredsWithUnion < En::HundredsWithUnion
-            end
-          end
         end
       end
     end

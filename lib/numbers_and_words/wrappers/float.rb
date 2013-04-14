@@ -9,7 +9,7 @@ module NumbersAndWords
 
       def to_words options = {}
         words = []
-        words << integral_part_with(options) if integral_part_with(options).present?
+        words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
         NumbersAndWords::WordsArray.new(words).join options
       end
@@ -45,7 +45,7 @@ module NumbersAndWords
       end
 
       def fractional_options
-        {:fractional => {:length => fractional_part.length, :integral => integral_part.to_i}}
+        {:fractional => {:length => fractional_part.length}}
       end
 
       def integral_part_is_nil?

@@ -1,5 +1,6 @@
 require 'numbers_and_words/strategies/figures_converter/decorators/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/en'
+require 'numbers_and_words/strategies/figures_converter/decorators/en_gb'
 require 'numbers_and_words/strategies/figures_converter/decorators/ru'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu'
 require 'numbers_and_words/strategies/figures_converter/decorators/ua'
@@ -30,7 +31,7 @@ module NumbersAndWords
           end
 
           def language_class_name
-            ::I18n.locale.to_s.titleize.gsub ' ', '::'
+            ::I18n.locale.to_s.titleize.gsub ' ', ''
           end
         end
       end

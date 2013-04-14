@@ -1,9 +1,9 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Decorators
-        module En
-          class Integral < Base
+      module Options
+        module EnGb
+          class HundredsWithUnion < En::HundredsWithUnion
           end
         end
       end

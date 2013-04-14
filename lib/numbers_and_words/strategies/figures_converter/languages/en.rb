@@ -41,47 +41,6 @@ module NumbersAndWords
           def maybe_remove_zero
             @options.remove_zero.result
           end
-
-          class Gb < En
-            def print_words
-              maybe_union_before_fractional super
-            end
-
-            def maybe_union_before_fractional words
-              @options.remove_zero.modify_or_leave words
-            end
-
-            def strings_logic
-              fractional? ? complex_number_as_digits : super
-            end
-
-            def complex_number_as_digits
-              strings = fraction_digits.map do |digit|
-                save_parent_figures do
-                  next zero if digit == 0
-                  @figures = [digit].to_figures
-                  simple_number_to_words
-                end
-              end
-              strings.flatten
-            end
-
-            def fraction_digits
-              @figures + fraction_zeros
-            end
-
-            def fraction_zeros
-              [0] * fraction_zero_count
-            end
-
-            def fraction_zero_count
-              @options.fractional_length - @figures.length
-            end
-
-            def fractional?
-              @options.fractional?
-            end
-          end
         end
       end
     end
