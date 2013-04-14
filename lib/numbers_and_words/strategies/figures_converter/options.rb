@@ -1,4 +1,5 @@
 require 'numbers_and_words/strategies/figures_converter/options/en'
+require 'numbers_and_words/strategies/figures_converter/options/en_gb'
 require 'numbers_and_words/strategies/figures_converter/options/ru'
 require 'numbers_and_words/strategies/figures_converter/options/ua'
 require 'numbers_and_words/strategies/figures_converter/options/hu'
@@ -28,7 +29,7 @@ module NumbersAndWords
           end
 
           def language_class_name
-            ::I18n.locale.to_s.titleize.gsub ' ', '::'
+            ::I18n.locale.to_s.titleize.gsub ' ', ''
           end
 
           def module_name

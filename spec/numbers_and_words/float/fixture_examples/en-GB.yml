@@ -1,0 +1,23 @@
+to_words:
+  fractional:
+    0.1: zero point one
+    0.7: zero point seven
+    0.01: zero point zero one
+    0.77: zero point seven seven
+    0.777: zero point seven seven seven
+    0.7777: zero point seven seven seven seven
+    0.77777: zero point seven seven seven seven seven
+    0.777777: zero point seven seven seven seven seven seven
+    0.7777777: zero point seven seven seven seven seven seven seven
+    0.77777777: zero point seven seven seven seven seven seven seven seven
+    0.777777777: zero point seven seven seven seven seven seven seven seven seven
+    0.2935174315119: zero point two nine three five one seven four three one five one one nine
+    21.77: twenty-one point seven seven
+    111.999: one hundred eleven point nine nine nine
+    4242.7463: four thousand two hundred forty-two point seven four six three
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: point one
+    0.7: point seven
+    42.1: forty-two point one

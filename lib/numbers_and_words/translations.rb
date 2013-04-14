@@ -5,6 +5,7 @@ require 'numbers_and_words/translations/families/latin'
 require 'numbers_and_words/translations/extensions/fraction_significance'
 require 'numbers_and_words/translations/ru'
 require 'numbers_and_words/translations/en'
+require 'numbers_and_words/translations/en_gb'
 require 'numbers_and_words/translations/ua'
 require 'numbers_and_words/translations/tr'
 require 'numbers_and_words/translations/fr'
@@ -18,7 +19,11 @@ module NumbersAndWords
   module Translations
     class << self
       def factory
-        "NumbersAndWords::Translations::#{::I18n.locale.to_s.titleize}".constantize.new
+        "#{name}::#{language_class_name}".constantize.new
+      end
+
+      def language_class_name
+        ::I18n.locale.to_s.titleize.gsub ' ', ''
       end
     end
   end
