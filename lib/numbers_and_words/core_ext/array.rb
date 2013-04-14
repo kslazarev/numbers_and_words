@@ -1,6 +1,6 @@
 class Array
   def to_words options = {}
-    map &:to_words
+    map{|element| element.to_words options}
   end
 
   def to_figures
