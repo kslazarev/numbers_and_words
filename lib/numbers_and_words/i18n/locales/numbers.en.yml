@@ -11,7 +11,7 @@ en:
       tens: [zeroth, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]
       hundreds: hundredth
       mega: [zeroth, thousandth, millionth, billionth, trillionth, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth]
-    fraction_separator: and
+    union_separator: and
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths]
     tenths:
       one: tenth

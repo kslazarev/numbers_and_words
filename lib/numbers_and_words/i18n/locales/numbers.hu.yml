@@ -6,6 +6,7 @@ hu:
     tens_with_ones: [nulla, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
     hundreds: száz
     mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
+    union_separator: egész
     union: egész
     ordinal:
       ones: [nulladik, első, második, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]

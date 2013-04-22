@@ -14,7 +14,7 @@ module NumbersAndWords
             end
 
             def union_separator
-              options[:union_separator] || @translations.union || ''
+              options[:union_separator] || @translations.union_separator || ''
             end
           end
         end

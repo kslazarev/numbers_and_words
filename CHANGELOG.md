@@ -1,3 +1,8 @@
+## 0.7.1 (April 22, 2013)
+
+### Bugs
+  * Wrong hundreds separator with British. \[[#62](https://github.com/kslazarev/numbers_and_words/issues/62)\] \([@kslazarev](https://github.com/kslazarev)\)
+
 ## 0.7.0 (April 14, 2013)
 
 ### Features
