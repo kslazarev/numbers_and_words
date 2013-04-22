@@ -101,3 +101,13 @@ to_words:
     420000: four hundred twenty thousandth
     4200000: four million two hundred thousandth
     42000000: forty-two millionth
+  hundred_with_union:
+    options:
+      :hundreds_with_union: true
+    0: zero
+    100: one hundred
+    111: one hundred and eleven
+    1111: one thousand one hundred and eleven
+    100100: one hundred thousand one hundred
+    100111: one hundred thousand one hundred and eleven
+    111111: one hundred and eleven thousand one hundred and eleven

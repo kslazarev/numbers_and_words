@@ -27,6 +27,10 @@ module NumbersAndWords
         def union
           t :union
         end
+
+        def union_separator
+          t :union_separator
+        end
       end
     end
   end
