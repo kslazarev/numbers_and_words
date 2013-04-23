@@ -3,8 +3,6 @@ module NumbersAndWords
     module Initialization
       extend self
 
-      attr_accessor :languages
-
       def init
         locale_files.each { |locale_file| ::I18n.load_path << locale_file}
         NumbersAndWords::I18n::Pluralization.init
