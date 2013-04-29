@@ -27,11 +27,7 @@ module NumbersAndWords
           end
 
           def decorator_class_name method_name
-            "#{name}::#{language_class_name}::#{method_name.to_s.camelcase}"
-          end
-
-          def language_class_name
-            ::I18n.locale.to_s.titleize.gsub ' ', ''
+            "#{name}::#{I18n.language_class_name}::#{method_name.to_s.camelcase}"
           end
         end
       end

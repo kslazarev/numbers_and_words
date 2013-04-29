@@ -27,11 +27,7 @@ module NumbersAndWords
       module Languages
         class << self
           def factory strategy
-            "#{name}::#{language_class_name}".constantize.new strategy
-          end
-
-          def language_class_name
-            ::I18n.locale.to_s.titleize.gsub ' ', ''
+            "#{name}::#{I18n.language_class_name}".constantize.new strategy
           end
         end
       end

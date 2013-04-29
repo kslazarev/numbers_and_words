@@ -8,11 +8,15 @@ module NumbersAndWords
 
     def to_words options = {}
       validate_figure_array!
-      Strategies.figures_converter.new(self, options).run
+      local_language { Strategies.figures_converter.new(self, options).run }
     end
 
     def reverse
       super.to_figures
+    end
+
+    def local_language
+      ::I18n.with_locale(I18n.local_language) { yield }
     end
   end
 end

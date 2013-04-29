@@ -19,11 +19,7 @@ module NumbersAndWords
   module Translations
     class << self
       def factory
-        "#{name}::#{language_class_name}".constantize.new
-      end
-
-      def language_class_name
-        ::I18n.locale.to_s.titleize.gsub ' ', ''
+        "#{name}::#{I18n.language_class_name}".constantize.new
       end
     end
   end
