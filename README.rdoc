@@ -28,12 +28,13 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Swedish** [se]
 * English (British)** [en-GB]
 
+** Experimental
+
 * {[en-AU], [en-CA], [en-IN], [en-US]}*** => [en]
 * {[es-419], [es-AR], [es-CL], [es-CO], [es-MX], [es-PE], [es-VE]}*** => [es]
 * {[fr-CA], [fr-CH]}*** => [fr]
 * {[it-CH]}*** => [it]
 
-** Experimental
 *** Aliases
 
 == Examples / Примеры / Exemples
