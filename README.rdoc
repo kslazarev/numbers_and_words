@@ -16,19 +16,26 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 == Supported Languages / Языки / Langues Supportées
 
-* English
-* Spanish
-* Русский
-* Français
-* Українська
-* Magyar
-* Türkçe**
-* Italiano**
-* Nederlands**
-* Swedish**
-* English (British)**
+* English [en]
+* Spanish [es]
+* Русский [ru]
+* Français [fr]
+* Українська [ua]
+* Magyar [hu]
+* Türkçe** [tr]
+* Italiano** [it]
+* Nederlands** [nl]
+* Swedish** [se]
+* English (British)** [en-GB]
 
 ** Experimental
+
+* {[en-AU], [en-CA], [en-IN], [en-US]}*** => [en]
+* {[es-419], [es-AR], [es-CL], [es-CO], [es-MX], [es-PE], [es-VE]}*** => [es]
+* {[fr-CA], [fr-CH]}*** => [fr]
+* {[it-CH]}*** => [it]
+
+*** Aliases
 
 == Examples / Примеры / Exemples
 

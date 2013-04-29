@@ -4,7 +4,7 @@ require 'shared_examples/correct_fixture_examples'
 
 [Integer, Array].each do |type|
   describe type do
-    NumbersAndWords::I18n::Initialization.languages.each do |locale|
+    NumbersAndWords::I18n.languages.each do |locale|
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
