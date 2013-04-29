@@ -3,7 +3,7 @@ shared_examples 'correct fixture examples' do
     context "##{method_name}" do
       context_names.each do |context_name, tests|
         options = tests.delete("options") || {}
-        context with_options(context_name, options) do
+        context context_with_options(context_name, options) do
           tests.each do |input, expectation|
             context input do
               subject { input.send method_name, options }
@@ -16,6 +16,6 @@ shared_examples 'correct fixture examples' do
   end
 end
 
-def with_options name, options
+def context_with_options name, options
   name + (options.any? && " (#{options.inspect})" || "")
 end

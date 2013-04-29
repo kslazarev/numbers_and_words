@@ -7,7 +7,9 @@ module NumbersAndWords
             include Base
 
             def gender
-              case @current_capacity.to_i
+              @current_capacity ||= 0
+
+              case @current_capacity
               when 1
                 :female
               when 0
