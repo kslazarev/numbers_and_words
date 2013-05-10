@@ -1,0 +1,42 @@
+
+lv:
+  numbers:
+    ones: [nulle, viens, divi, trīs, četri, pieci, seši, septiņi, astoņi, deviņi]
+    teens: [desmit, vienpadsmit, divpadsmit, trīspadsmit, čatrpadsmit, piecpadsmit, sešpadsmit, septiņpadsmit, astoņpadsmit, deviņpadsmit]
+    tens: [nulle, desmit, divdesmit, trīsdesmit, četrdesmit, piecdesmit, sešdesmit, septiņdesmit, astoņdesmit, deviņdesmit]
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    hundreds: [simts, divsimts, trīssimts, četrsimts, piecsimts, sešsimts, septiņsimts, astoņsimts, deviņsimts]
+    one_hundred: simts
+    thousands:
+      one: tūkstots
+      many: tūkstoši
+    millions:
+      one: miljons
+      many: miljoni
+    billions:
+      one: miljards
+      many: miljardi
+    trillions:
+      one: triljons
+      many: triljoni
+    quadrillions:
+      one: kvadriljons
+      many: kvadriljoni
+    quintillions:
+      one: kvintiljons
+      many: kvintiljoni
+    sextillions:
+      one: sekstiljons
+      many: sekstiljoni
+    septillions:
+      one: septiljons
+      many: septiljoni
+    octillions:
+      one: oktiljons
+      many: oktiljoni
+    nonillions:
+      one: noniljons
+      many: noniljoni
+    decillions:
+      one: deciljons
+      many: deciljoni

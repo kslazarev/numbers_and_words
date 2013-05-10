@@ -1,0 +1,50 @@
+to_words:
+  ones:
+    0: nulle
+    1: viens
+    9: deviņi
+  teens:
+    10: desmit
+    11: vienpadsmit
+    19: deviņpadsmit
+    20: divdesmit
+    21: divdesmit viens
+    90: deviņdesmit
+    99: deviņdesmit deviņi
+  hundreds: 
+    100: simts
+    101: simts viens
+    111: simts vienpadsmit
+    120: simts divdesmit
+    121: simts divdesmit viens
+    900: deviņsimts
+    909: deviņsimts deviņi
+    919: deviņsimts deviņpadsmit
+    990: deviņsimts deviņdesmit
+    999: deviņsimts deviņdesmit deviņi
+  thousands:
+    1000: tūkstots
+    2000: divi tūkstoši
+    4000: četri tūkstoši
+    5000: pieci tūkstoši
+    11000: vienpadsmit tūkstoši
+    21000: divdesmit viens tūkstots
+    999000: deviņsimts deviņdesmit deviņi tūkstoši
+    999999: deviņsimts deviņdesmit deviņi tūkstoši deviņsimts deviņdesmit deviņi
+  millions:
+    1000000: viens miljons
+    2000000: divi miljoni
+    4000000: četri miljoni
+    5000000: pieci miljoni
+    999000000: deviņsimts deviņdesmit deviņi miljoni
+    999000999: deviņsimts deviņdesmit deviņi miljoni deviņsimts deviņdesmit deviņi
+    999999000: deviņsimts deviņdesmit deviņi miljoni deviņsimts deviņdesmit deviņi tūkstoši
+    999999999: deviņsimts deviņdesmit deviņi miljoni deviņsimts deviņdesmit deviņi tūkstoši deviņsimts deviņdesmit deviņi
+  billions:
+    1174315110: viens miljards simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts desmit
+    1174315119: viens miljards simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts deviņpadsmit
+    15174315110: piecpadsmit miljardi simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts desmit
+    35174315119: trīsdesmit pieci miljardi simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts deviņpadsmit
+    935174315119: deviņsimts trīsdesmit pieci miljardi simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts deviņpadsmit
+  trillions:
+    2935174315119: divi triljoni deviņsimts trīsdesmit pieci miljardi simts septiņdesmit četri miljoni trīssimts piecpadsmit tūkstoši simts deviņpadsmit
