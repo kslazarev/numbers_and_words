@@ -2,6 +2,7 @@ require 'numbers_and_words/i18n/plurals/ru'
 require 'numbers_and_words/i18n/plurals/ua'
 require 'numbers_and_words/i18n/plurals/fr'
 require 'numbers_and_words/i18n/plurals/es'
+require 'numbers_and_words/i18n/plurals/lv'
 
 module NumbersAndWords
   module I18n
