@@ -8,34 +8,34 @@ lv:
     one_hundred: simts
     thousands:
       one: tūkstots
-      many: tūkstoši
+      other: tūkstoši
     millions:
       one: miljons
-      many: miljoni
+      other: miljoni
     billions:
       one: miljards
-      many: miljardi
+      other: miljardi
     trillions:
       one: triljons
-      many: triljoni
+      other: triljoni
     quadrillions:
       one: kvadriljons
-      many: kvadriljoni
+      other: kvadriljoni
     quintillions:
       one: kvintiljons
-      many: kvintiljoni
+      other: kvintiljoni
     sextillions:
       one: sekstiljons
-      many: sekstiljoni
+      other: sekstiljoni
     septillions:
       one: septiljons
-      many: septiljoni
+      other: septiljoni
     octillions:
       one: oktiljons
-      many: oktiljoni
+      other: oktiljoni
     nonillions:
       one: noniljons
-      many: noniljoni
+      other: noniljoni
     decillions:
       one: deciljons
-      many: deciljoni
+      other: deciljoni
