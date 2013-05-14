@@ -48,3 +48,39 @@ to_words:
     35174315119: fünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
     935174315119: neunhundertfünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
     2935174315119: zwei Billionen neunhundertfünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
+  ordinals:
+    options:
+      :ordinal: true
+    0: null
+    1: erste
+    2: zweite
+    3: dritte
+    4: vierte
+    5: fünfte
+    6: sechste
+    7: siebte
+    8: achte
+    9: neunte
+    10: zehnte
+    11: elfte
+    12: zwölfte
+    13: dreizehnte
+    14: vierzehnte
+    15: fünfzehnte
+    16: sechzehnte
+    17: siebzehnte
+    18: achtzehnte
+    19: neunzehnte
+    20: zwanzigste
+    30: dreißigste
+    40: vierzigste
+    50: fünfzigste
+    60: sechzigste
+    70: siebzigste
+    80: achtzigste
+    90: neunzigste
+    100: hundertste
+    1000: tausendste
+    1000000: millionste
+    1000000000: milliardeste
+    1000000000000: trillionste
