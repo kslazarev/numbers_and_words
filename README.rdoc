@@ -23,6 +23,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Українська [ua]
 * Magyar [hu]
 * Türkçe** [tr]
+* Deutsch** [de]
 * Italiano** [it]
 * Nederlands** [nl]
 * Swedish** [se]
