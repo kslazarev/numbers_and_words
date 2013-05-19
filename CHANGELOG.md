@@ -1,3 +1,12 @@
+## 0.9.0 (May 19, 2013)
+
+### Features
+  * Add Latvian language. \[[#70](https://github.com/kslazarev/numbers_and_words/issues/70)\] \([@martinsspringis](https://github.com/martinsspringis)\) \(assignee: [@martinsspringis](https://github.com/martinsspringis)\)
+  * Add German language. \[[#52](https://github.com/kslazarev/numbers_and_words/issues/52)\] \([@GSI](https://github.com/GSI)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
+
+### Supports
+  * Add @martinsspringis contacts and some examples on Latvian language to README. \[[#71](https://github.com/kslazarev/numbers_and_words/issues/71)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@martinsspringis](https://github.com/martinsspringis)\)
+
 ## 0.8.0 (April 29, 2013)
 
 ### Features

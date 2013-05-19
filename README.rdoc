@@ -22,19 +22,20 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Français [fr]
 * Українська [ua]
 * Magyar [hu]
+* Latviešu [lv]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
 * Nederlands** [nl]
 * Swedish** [se]
 * English (British)** [en-GB]
-* Latviešu [lv]
 
 ** Experimental
 
 * {[en-AU], [en-CA], [en-IN], [en-US]}*** => [en]
 * {[es-419], [es-AR], [es-CL], [es-CO], [es-MX], [es-PE], [es-VE]}*** => [es]
 * {[fr-CA], [fr-CH]}*** => [fr]
+* {[de], [de-AT], [de-CH]}*** => [de]
 * {[it-CH]}*** => [it]
 
 *** Aliases
