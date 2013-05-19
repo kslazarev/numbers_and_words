@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words"
-  s.version = "0.8.0"
+  s.version = "0.9.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2013-04-29"
+  s.date = "2013-05-19"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
@@ -29,12 +29,14 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/helper_classes/words_array.rb",
     "lib/numbers_and_words/i18n.rb",
     "lib/numbers_and_words/i18n/initialization.rb",
+    "lib/numbers_and_words/i18n/locales/numbers.de.yml",
     "lib/numbers_and_words/i18n/locales/numbers.en-GB.yml",
     "lib/numbers_and_words/i18n/locales/numbers.en.yml",
     "lib/numbers_and_words/i18n/locales/numbers.es.yml",
     "lib/numbers_and_words/i18n/locales/numbers.fr.yml",
     "lib/numbers_and_words/i18n/locales/numbers.hu.yml",
     "lib/numbers_and_words/i18n/locales/numbers.it.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.lv.yml",
     "lib/numbers_and_words/i18n/locales/numbers.nl.yml",
     "lib/numbers_and_words/i18n/locales/numbers.ru.yml",
     "lib/numbers_and_words/i18n/locales/numbers.se.yml",
@@ -43,6 +45,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/pluralization.rb",
     "lib/numbers_and_words/i18n/plurals/es.rb",
     "lib/numbers_and_words/i18n/plurals/fr.rb",
+    "lib/numbers_and_words/i18n/plurals/lv.rb",
     "lib/numbers_and_words/i18n/plurals/plurals.rb",
     "lib/numbers_and_words/i18n/plurals/ru.rb",
     "lib/numbers_and_words/i18n/plurals/ua.rb",
@@ -81,6 +84,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/decorators/ua/integral.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/base.rb",
+    "lib/numbers_and_words/strategies/figures_converter/languages/de.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/en.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/en_gb.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/es.rb",
@@ -91,6 +95,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/languages/fr.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/hu.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/it.rb",
+    "lib/numbers_and_words/strategies/figures_converter/languages/lv.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/nl.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/ru.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/se.rb",
@@ -115,6 +120,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/options/ua/gender.rb",
     "lib/numbers_and_words/translations.rb",
     "lib/numbers_and_words/translations/base.rb",
+    "lib/numbers_and_words/translations/de.rb",
     "lib/numbers_and_words/translations/en.rb",
     "lib/numbers_and_words/translations/en_gb.rb",
     "lib/numbers_and_words/translations/es.rb",
@@ -125,6 +131,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/translations/fr.rb",
     "lib/numbers_and_words/translations/hu.rb",
     "lib/numbers_and_words/translations/it.rb",
+    "lib/numbers_and_words/translations/lv.rb",
     "lib/numbers_and_words/translations/nl.rb",
     "lib/numbers_and_words/translations/ru.rb",
     "lib/numbers_and_words/translations/se.rb",
