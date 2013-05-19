@@ -40,8 +40,8 @@ module NumbersAndWords
 
           def print_megs
             complex_part[1..-1].map { |el|
-              [el[1..-1].reverse.join(''), el.first].join(' ')
-            }.reverse.join(' ')
+              [el[1..-1].to_a.reverse.join(''), el.first].join(' ')
+            }.select(&:present?).reverse.join(' ')
           end
 
           def print_other
@@ -51,7 +51,6 @@ module NumbersAndWords
           def print_thousands
             complex_part.first.reverse.join('')
           end
-
 
           def simple_part
             @strings.select { |f| !f.is_a?(Array) }

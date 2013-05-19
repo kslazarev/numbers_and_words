@@ -67,6 +67,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "двадцять один"
     => "huszonegy"
     => "yirmi bir"
+    => "einundzwanzig"
     => "ventiuno"
     => "éénentwintig"
     => "tjugo-en"
@@ -80,6 +81,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
     => "iki yüz otuz bir"
+    => "zweihunderteinunddreißig"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
@@ -93,6 +95,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "чотири тисячi тридцять"
     => "négyezer-harminc"
     => "dört bin otuz"
+    => "viertausenddreißig"
     => "quattro mille trenta"
     => "vierthousanddertig"
     => "fyra tusen trettio"
@@ -106,6 +109,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "один мiльйон сто"
     => "egymillió-egyszáz"
     => "bir milyon bir yüz"
+    => "eine Million einhundert"
     => "uno milione 1 cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
@@ -119,6 +123,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "один децильйон"
     => "egykvintilliárd"
     => "bir desilyon"
+    => "eine Quintilliarde"
     => "uno decillion"
     => "één decillion"
     => "en decillion"
@@ -140,6 +145,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
+    => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
