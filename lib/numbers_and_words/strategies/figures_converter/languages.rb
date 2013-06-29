@@ -15,6 +15,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/nl'
 require 'numbers_and_words/strategies/figures_converter/languages/tr'
 require 'numbers_and_words/strategies/figures_converter/languages/es'
 require 'numbers_and_words/strategies/figures_converter/languages/lv'
+require 'numbers_and_words/strategies/figures_converter/languages/lt'
 require 'numbers_and_words/strategies/figures_converter/languages/de'
 
 require 'numbers_and_words/strategies/figures_converter/languages/families/cyrillic'
