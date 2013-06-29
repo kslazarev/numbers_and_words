@@ -12,14 +12,10 @@ module NumbersAndWords
 
         def one_conditions n
           n % 10 == 1 && n % 100 != 11
-          #n == 1
-          #(n % 10 == 1) or (n == 1)
         end
 
         def ones_conditions n
           [2, 3, 4, 5, 6, 7, 8, 9].include?(n % 10) && ![12, 13, 14, 15, 16, 17, 18, 19].include?(n % 100)
-          #n < 10
-          #[2, 3, 4, 5, 6, 7, 8, 9].include?(n % 10)
         end
       end
     end
