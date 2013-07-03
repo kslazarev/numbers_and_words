@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - vienas
+      - du
+      - trys
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - šimtas vienas
+      - dvidešimt vienas
+      - trylika
