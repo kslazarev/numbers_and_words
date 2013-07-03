@@ -23,6 +23,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Українська [ua]
 * Magyar [hu]
 * Latviešu [lv]
+* Lietuvių [lt]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
@@ -60,6 +61,9 @@ Számok betűvel írva az I18n könyvtár segítségével.
     I18n.with_locale(:lv) { 42.to_words }
     => "četrdesmit divi"
 
+    I18n.with_locale(:lt) { 42.to_words }
+    => "keturiasdešimt du"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -73,6 +77,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "éénentwintig"
     => "tjugo-en"
     => "divdesmit viens"
+    => "dvidešimt vienas"
 
     231.to_words
     => "two hundred thirty-one"
@@ -87,6 +92,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
     => "divi simti trīsdesmit viens"
+    => "du šimtai trisdešimt vienas"
 
     4030.to_words
     => "four thousand thirty"
@@ -101,6 +107,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "vierthousanddertig"
     => "fyra tusen trettio"
     => "četri tūkstoši simts trīsdesmit"
+    => "keturi tūkstančiai trisdešimt"
 
     1000100.to_words
     => "one million one hundred"
@@ -115,6 +122,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "één miljoen honderd"
     => "en miljoner en hundra"
     => "viens miljons simts"
+    => "milijonas šimtas"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -129,6 +137,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "één decillion"
     => "en decillion"
     => "viens deciljons"
+    => "vienas decilijonas"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -137,6 +146,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["un", "deux", "trois"]
     => ["egy", "kettő", "három"]
     => ["viens", "divi", "trīs"]
+    => ["vienas", "du", "trys"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"] 
@@ -151,6 +161,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["vienpadsmit", "divdesmit divi", "simts trīsdesmit trīs"]
+    => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

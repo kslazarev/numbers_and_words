@@ -1,0 +1,52 @@
+lt:
+  numbers:
+    ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
+    teens: [dešimt, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
+    tens: [nulis, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    hundreds: [šimtas, du šimtai, trys šimtai, keturi šimtai, penki šimtai, šeši šimtai, septyni šimtai, aštuoni šimtai, devyni šimtai]
+    one_hundred: šimtas
+    thousands:
+      one: tūkstantis
+      ones: tūkstančiai
+      other: tūkstančių
+    millions:
+      one: milijonas
+      ones: milijonai
+      other: milijonø
+    billions:
+      one: bilijonas
+      ones: bilijonai
+      other: bilijonø
+    trillions:
+      one: trilijonas
+      ones: trilijonai
+      other: trilijonø
+    quadrillions:
+      one: kvadrilijonas
+      ones: kvadrilijonai
+      other: kvadrilijonø
+    quintillions:
+      one: kvintilijonas
+      ones: kvadrilijonai
+      other: kvadrilijonø
+    sextillions:
+      one: sekstilijonas
+      ones: sekstilijonai
+      other: sekstilijonø
+    septillions:
+      one: septilijonas
+      ones: septilijonai
+      other: septilijonø
+    octillions:
+      one: oktilijonas
+      ones: oktilijonai
+      other: oktilijonø
+    nonillions:
+      one: nonilijonas
+      ones: nonilijonai
+      other: nonilijonø
+    decillions:
+      one: decilijonas
+      ones: decilijonai
+      other: decilijonø
