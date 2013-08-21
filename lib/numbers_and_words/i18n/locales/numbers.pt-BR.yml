@@ -1,0 +1,59 @@
+pt-BR:
+  numbers:
+    ones:
+      default: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
+      combine: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
+      gender: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
+    teens: [dez, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
+    tens: [vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
+    hundreds: [cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
+    one_hundred: cem
+    mega: [unidades, mil, milhões, bilhões, trilhões, quadrilhões, quinqualhões, sextilhões, setilhões, octilhões, nonalhões, decilhões]
+    ordinal:
+      ones: [_, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
+      teens: [décimo, "décimo-primeiro", "décimo-segundo", "décimo-terceiro", "décimo-quarto", "décimo-quinto", "décimo-sexto", "décimo-sétimo", "décimo-oitavo", "décimo-nono"]
+      tens: [_, décimo, vigésimo, trigésimo, quadrigésimo, quinquagésimo, sextagésimo, septuagésimo, octagésimo, nonagésimo]
+      hundreds: centésimo
+      mega: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, quintilionésimo, sextilionésimo, septilionésimo, octolionésimo, nonalionésimo, decilionésimo]
+    union_separator: and
+    micro: [_, décimos, centésimos, milésimos, milionésimos, bilionésimos, trilionésimos, quadrilionésimos, quintilionésimos, sextilionésimos, septilionésimos, octolionésimos, nonalionésimos, decilionésimos]
+    tenths:
+      one: décimo
+      other: décimos
+    hundredths:
+      one: centésimo
+      other: centésimos
+    thousandths:
+      one: milésimo
+      other: milésimos
+    millionths:
+      one: milionésimo
+      other: milionésimos
+    billionths:
+      one: bilionésimo
+      other: bilionésimos
+    trillionths:
+      one: trilionésimo
+      other: trilionésimos
+    quadrillionths:
+      one: quadrilionésimo
+      other: quadrilionésimos
+    quintillionths:
+      one: quintilionésimo
+      other: quintilionésimos
+    sextillionths:
+      one: sextilionésimo
+      other: sextilionésimos
+    septillionths:
+      one: septilionésimo
+      other: septilionésimos
+    octillionths:
+      one: octolionésimo
+      other: octolionésimos
+    nonillionths:
+      one: nonalionésimo
+      other: nonalionésimos
+    decillionths:
+      one: decilionésimo
+      other: decilionésimos
+    union: e
