@@ -1,3 +1,15 @@
+## 0.10.0 (September 02, 2013)
+
+### Features
+  * Add Estonian language. \[[#82](https://github.com/kslazarev/numbers_and_words/issues/82)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+  * Add Lithuanian language. \[[#77](https://github.com/kslazarev/numbers_and_words/issues/77)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Bugs
+  * Fix latvian one hundread cases. \[[#81](https://github.com/kslazarev/numbers_and_words/issues/81)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Supports
+  * Added @miks contacts to contributors list in README. \[[#79](https://github.com/kslazarev/numbers_and_words/issues/79)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@miks](https://github.com/miks)\)
+
 ## 0.9.0 (May 19, 2013)
 
 ### Features

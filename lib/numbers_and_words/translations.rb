@@ -12,9 +12,11 @@ require 'numbers_and_words/translations/fr'
 require 'numbers_and_words/translations/nl'
 require 'numbers_and_words/translations/it'
 require 'numbers_and_words/translations/hu'
+require 'numbers_and_words/translations/et'
 require 'numbers_and_words/translations/se'
 require 'numbers_and_words/translations/es'
 require 'numbers_and_words/translations/lv'
+require 'numbers_and_words/translations/lt'
 require 'numbers_and_words/translations/de'
 
 module NumbersAndWords
