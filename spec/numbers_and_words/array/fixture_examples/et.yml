@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - üks
+      - kaks
+      - kolm
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - ükssada üks
+      - kakskümmend üks
+      - kolmteist
