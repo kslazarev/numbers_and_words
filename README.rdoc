@@ -24,6 +24,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Magyar [hu]
 * Latviešu [lv]
 * Lietuvių [lt]
+* Eesti [et]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
@@ -64,6 +65,9 @@ Számok betűvel írva az I18n könyvtár segítségével.
     I18n.with_locale(:lt) { 42.to_words }
     => "keturiasdešimt du"
 
+    I18n.with_locale(:et) { 42.to_words }
+    => "nelikümmend kaks"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -78,6 +82,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "tjugo-en"
     => "divdesmit viens"
     => "dvidešimt vienas"
+    => "kakskümmend üks"
 
     231.to_words
     => "two hundred thirty-one"
@@ -93,6 +98,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "två hundra trettio-en"
     => "divi simti trīsdesmit viens"
     => "du šimtai trisdešimt vienas"
+    => "kakssada kolmkümmend üks"
 
     4030.to_words
     => "four thousand thirty"
@@ -108,6 +114,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "fyra tusen trettio"
     => "četri tūkstoši simts trīsdesmit"
     => "keturi tūkstančiai trisdešimt"
+    => "neli tuhat kolmkümmend"
 
     1000100.to_words
     => "one million one hundred"
@@ -123,6 +130,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "en miljoner en hundra"
     => "viens miljons simts"
     => "milijonas šimtas"
+    => "üks miljon ükssada"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -138,6 +146,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "en decillion"
     => "viens deciljons"
     => "vienas decilijonas"
+    => "üks dekiljon"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -147,9 +156,10 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["egy", "kettő", "három"]
     => ["viens", "divi", "trīs"]
     => ["vienas", "du", "trys"]
+    => ["üks", "kaks", "kolm"]
 
     [11, 22, 133].to_words
-    => ["eleven", "twenty-two", "one hundred thirty-three"] 
+    => ["eleven", "twenty-two", "one hundred thirty-three"]
     => ["once", "veintidos", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
@@ -162,6 +172,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["vienpadsmit", "divdesmit divi", "simts trīsdesmit trīs"]
     => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
+    => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

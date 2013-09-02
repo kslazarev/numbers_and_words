@@ -1,0 +1,38 @@
+et:
+  numbers:
+    ones: ["null", üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
+    teens: [kümme, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
+    tens: ["null", kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]
+    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    hundreds: sada
+    thousands: tuhat
+    millions:
+      one: miljon
+      other: miljonit
+    billions:
+      one: miljard
+      other: miljardit
+    trillions:
+      one: triljon
+      other: triljonit
+    quadrillions:
+      one: kvadriljon
+      other: kvadriljonit
+    quintillions:
+      one: kvintiljon
+      other: kvintiljonit
+    sextillions:
+      one: sekstiljon
+      other: sekstiljonit
+    septillions:
+      one: septiljon
+      other: septiljonit
+    octillions:
+      one: oktiljon
+      other: oktiljonit
+    nonillions:
+      one: noniljon
+      other: noniljonit
+    decillions:
+      one: dekiljon
+      other: dekiljonit
