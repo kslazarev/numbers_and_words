@@ -5,17 +5,15 @@ to_words:
       - 2
       - 3
     :
-      - viens
-      - divi
-      - trīs
+      - üks
+      - kaks
+      - kolm
   complex_example:
     ?
-      - 100
       - 101
       - 21
       - 13
     :
-      - simts
-      - simtu viens
-      - divdesmit viens
-      - trīspadsmit
+      - ükssada üks
+      - kakskümmend üks
+      - kolmteist

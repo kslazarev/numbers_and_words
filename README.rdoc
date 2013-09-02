@@ -22,7 +22,9 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Français [fr]
 * Українська [ua]
 * Magyar [hu]
+* Lietuvių [lt]
 * Latviešu [lv]
+* Eesti [et]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
@@ -57,8 +59,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     I18n.with_locale(:hu) { 42.to_words }
     => "negyvenkettő"
 
+    I18n.with_locale(:lt) { 42.to_words }
+    => "keturiasdešimt du"
+
     I18n.with_locale(:lv) { 42.to_words }
     => "četrdesmit divi"
+
+    I18n.with_locale(:et) { 42.to_words }
+    => "nelikümmend kaks"
 
     21.to_words
     => "twenty-one"
@@ -67,12 +75,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "vingt et un"
     => "двадцять один"
     => "huszonegy"
+    => "dvidešimt vienas"
+    => "divdesmit viens"
+    => "kakskümmend üks"
     => "yirmi bir"
     => "einundzwanzig"
     => "ventiuno"
     => "éénentwintig"
     => "tjugo-en"
-    => "divdesmit viens"
 
     231.to_words
     => "two hundred thirty-one"
@@ -81,12 +91,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "deux cent trente-trois"
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
+    => "du šimtai trisdešimt vienas"
+    => "divi simti trīsdesmit viens"
+    => "kakssada kolmkümmend üks"
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
-    => "divi simti trīsdesmit viens"
 
     4030.to_words
     => "four thousand thirty"
@@ -95,12 +107,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "quatre mille trente"
     => "чотири тисячi тридцять"
     => "négyezer-harminc"
+    => "keturi tūkstančiai trisdešimt"
+    => "četri tūkstoši trīsdesmit"
+    => "neli tuhat kolmkümmend"
     => "dört bin otuz"
     => "viertausenddreißig"
     => "quattro mille trenta"
     => "vierthousanddertig"
     => "fyra tusen trettio"
-    => "četri tūkstoši simts trīsdesmit"
 
     1000100.to_words
     => "one million one hundred"
@@ -109,12 +123,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "un million cent"
     => "один мiльйон сто"
     => "egymillió-egyszáz"
+    => "milijonas šimtas"
+    => "viens miljons simts"
+    => "üks miljon ükssada"
     => "bir milyon bir yüz"
     => "eine Million einhundert"
     => "uno milione 1 cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
-    => "viens miljons simts"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -123,12 +139,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "un quintilliard"
     => "один децильйон"
     => "egykvintilliárd"
+    => "vienas decilijonas"
+    => "viens deciljons"
+    => "üks dekiljon"
     => "bir desilyon"
     => "eine Quintilliarde"
     => "uno decillion"
     => "één decillion"
     => "en decillion"
-    => "viens deciljons"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -136,21 +154,25 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["один", "два", "три"]
     => ["un", "deux", "trois"]
     => ["egy", "kettő", "három"]
+    => ["vienas", "du", "trys"]
     => ["viens", "divi", "trīs"]
+    => ["üks", "kaks", "kolm"]
 
     [11, 22, 133].to_words
-    => ["eleven", "twenty-two", "one hundred thirty-three"] 
+    => ["eleven", "twenty-two", "one hundred thirty-three"]
     => ["once", "veintidos", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+    => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
+    => ["vienpadsmit", "divdesmit divi", "simtu trīsdesmit trīs"]
+    => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
-    => ["vienpadsmit", "divdesmit divi", "simts trīsdesmit trīs"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -236,3 +258,4 @@ Send a pull request. Bonus points for topic branches.
 * Ulrich Sossou (Github[http://github.com/sorich87], {Personal Page}[http://ulrichsossou.com/])
 * eLod (link:http://github.com/eLod)
 * Mārtiņš Spriņģis (mailto:mspringis@gmail.com)
+* Miks Miķelsons (link:http://github.com/miks)
