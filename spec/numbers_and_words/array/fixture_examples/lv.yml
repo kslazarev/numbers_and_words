@@ -10,10 +10,12 @@ to_words:
       - trīs
   complex_example:
     ?
+      - 100
       - 101
       - 21
       - 13
     :
-      - simts viens
+      - simts
+      - simtu viens
       - divdesmit viens
       - trīspadsmit
