@@ -3,7 +3,7 @@ es:
     ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
     one: un
 
-    teens: [diez, once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve]
+    teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
     tens: [cero, diez, veinti, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
     twenty: veinte
 
