@@ -160,7 +160,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
-    => ["once", "veintidos", "ciento treinta y tres"]
+    => ["once", "veintidós", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
