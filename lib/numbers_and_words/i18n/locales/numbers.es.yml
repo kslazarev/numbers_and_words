@@ -1,6 +1,7 @@
 es:
   numbers:
     ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    ones_twenties: [cero, uno, dós, trés, cuatro, cinco, séis, siete, ocho, nueve]
     one: un
 
     teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
