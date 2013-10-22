@@ -13,6 +13,10 @@ module NumbersAndWords
         t(:ones)[number]
       end
 
+      def ones_twenties number, options = {}
+        t(:ones_twenties)[number]
+      end
+
       def tens numbers, options = {}
         options[:alone] = true if options[:alone].nil?
         (numbers == TENS_CASE && options[:alone]) ? t(:twenty) : super(numbers)
@@ -20,7 +24,8 @@ module NumbersAndWords
 
       def tens_with_ones numbers, options = {}
         inter = numbers[1] == TENS_CASE ? "" : " y "
-        [tens(numbers[1], :alone => false), ones(numbers[0])].join inter
+        ones_number = numbers[1] == TENS_CASE ? ones_twenties(numbers[0]) : ones(numbers[0])
+        [tens(numbers[1], :alone => false), ones_number].join inter
       end
 
       def hundreds number, options = {}
