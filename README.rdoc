@@ -134,7 +134,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
-    => "un quintillardo"
+    => "mil quintillones"
     => "один дециллион"
     => "un quintilliard"
     => "один децильйон"

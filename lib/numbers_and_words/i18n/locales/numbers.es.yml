@@ -11,6 +11,5 @@ es:
     hundreds: [ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
     one_hundred: cien
 
-    mega: [ones, mil, millón, millardo, billón, billardo, trillón, trillardo, quadrillón, quadrillardo, quintillón, quintillardo]
-    megas: [ones, mil, millones, millardos, billones, billardos, trillones, trillardos, quadrillones, quadrillardos, quintillones, quintillardos]
-
+    mega: [ones, mil, millón, mil millones, billón, mil billones, trillón, mil trillones, cuatrillón, mil cuatrillones, quintillón, mil quintillones]
+    megas: [ones, mil, millones, mil millones, billones, mil billones, trillones, mil trillones, cuatrillones, mil cuatrillones, quintillones, mil quintillones]
