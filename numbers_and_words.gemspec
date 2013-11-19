@@ -156,6 +156,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
       s.add_dependency(%q<i18n>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
