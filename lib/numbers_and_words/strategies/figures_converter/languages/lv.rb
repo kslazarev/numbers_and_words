@@ -15,10 +15,6 @@ module NumbersAndWords
             words
           end
 
-          def is_a_one?
-            [translations.ones(1)] == words_in_capacity(@current_capacity)
-          end
-
           def hundreds
             super({:is_hundred => (figures[1,2] == [0,1] && simple_number_to_words.empty?)})
           end
