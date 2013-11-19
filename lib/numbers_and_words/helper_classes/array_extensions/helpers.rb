@@ -23,10 +23,6 @@ module NumbersAndWords
         figures_array_in_capacity(capacity).reverse.join.to_i
       end
 
-      def is_a_thousand_capacity? capacity
-        THOUSAND_CAPACITY == capacity
-      end
-
       def ones
         self[0].to_i if 0 < self[0].to_i
       end
