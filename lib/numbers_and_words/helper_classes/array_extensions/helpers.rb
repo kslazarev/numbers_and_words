@@ -51,10 +51,6 @@ module NumbersAndWords
         capacity_length % FIGURES_IN_CAPACITY
       end
 
-      def fraction_index
-        index '.'
-      end
-
       def fraction_capacity
         [fraction_capacity_count, fraction_sub_capacity]
       end
