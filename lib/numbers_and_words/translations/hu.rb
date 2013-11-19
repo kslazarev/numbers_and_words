@@ -17,10 +17,6 @@ module NumbersAndWords
       def micros capacity, number = nil, separator = ''
         super capacity, nil, separator
       end
-
-      def union
-        t :union
-      end
     end
   end
 end
