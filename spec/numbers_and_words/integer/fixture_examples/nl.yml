@@ -49,3 +49,53 @@ to_words:
     935174315119: negenhonderdvijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
   trillions:
     2935174315119: twee biljoen negenhonderdvijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
+  ordinals:
+    options:
+      :ordinal: true
+    0: nulde
+    1: eerste
+    2: tweede
+    3: derde
+    4: vierde
+    5: vijfde
+    6: zesde
+    7: zevende
+    8: achtste
+    9: negende
+    10: tiende
+    11: elfde
+    12: twaalfde
+    13: dertiende
+    14: veertiende
+    15: vijftiende
+    16: zestiende
+    17: zeventiende
+    18: achtiende
+    19: negentiende
+    20: twintigste
+    30: dertigste
+    40: veertigste
+    50: vijftigste
+    60: zestigste
+    70: zeventigste
+    80: tachtigste
+    90: negentigste
+    100: honderdste
+    1000: éénduizendste
+    1000000: één miljoenste
+    1000000000: één miljardste
+    1000000000000: één biljoenste
+    1000000000000000: één biljardste
+    1000000000000000000: één triljoenste
+    1000000000000000000000: één triljardste
+    1000000000000000000000000: één septiljoenste
+    1000000000000000000000000000: één octillionste
+    1000000000000000000000000000000: één noniljoenste
+    1000000000000000000000000000000000: één decillionste
+    21: éénentwintigste
+    42: tweeenveertigste
+    4200: vierduizend tweehonderdste
+    42000: tweeenveertigduizendste
+    420000: vierhonderdtwintigduizendste
+    4200000: vier miljoen tweehonderdduizendste
+    42000000: tweeenveertig miljoenste

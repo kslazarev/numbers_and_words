@@ -3,6 +3,7 @@ require 'numbers_and_words/strategies/figures_converter/options/en_gb'
 require 'numbers_and_words/strategies/figures_converter/options/ru'
 require 'numbers_and_words/strategies/figures_converter/options/ua'
 require 'numbers_and_words/strategies/figures_converter/options/hu'
+require 'numbers_and_words/strategies/figures_converter/options/nl'
 
 module NumbersAndWords
   module Strategies

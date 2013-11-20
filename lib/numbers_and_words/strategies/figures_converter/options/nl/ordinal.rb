@@ -2,10 +2,9 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module Hu
+        module Nl
           class Ordinal
             ZERO_TYPE = :zero
-            HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
 
             def initialize proxy, *args, &block
@@ -33,8 +32,7 @@ module NumbersAndWords
             end
 
             def simple_numbers_condition
-              current_capacity.nil? &&
-                (HUNDRED_TYPE != @type || (HUNDRED_TYPE == @type && simple_number_to_words.empty?))
+              current_capacity.nil?
             end
 
             def megs_numbers_condition

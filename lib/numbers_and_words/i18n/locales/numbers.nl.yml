@@ -4,4 +4,12 @@ nl:
     teens: [tien, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
     tens: [nul, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
     hundreds: honderd
+    thousands: duizend
     mega: [degenen, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
+    ordinal:
+      ones: [nulde, eerste, tweede, derde, vierde, vijfde, zesde, zevende, achtste, negende]
+      teens: [tiende, elfde, twaalfde, dertiende, veertiende, vijftiende, zestiende, zeventiende, achtiende, negentiende]
+      tens: [nulde, tiende, twintigste, dertigste, veertigste, vijftigste, zestigste, zeventigste, tachtigste, negentigste]
+      hundreds: honderdste
+      mega: [nulde, duizendste, miljoenste, miljardste, biljoenste, biljardste, triljoenste, triljardste, septiljoenste, octillionste, noniljoenste, decillionste]
+    micro: [_, tienden, honderden, duizenden, miljoensten, biljoensten, biljardsten, triljoensten, triljardsten, septiljoensten, octillionsten, noniljoensten, decillionsten]
