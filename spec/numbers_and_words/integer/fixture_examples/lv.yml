@@ -23,12 +23,12 @@ to_words:
     990: deviņi simti deviņdesmit
     999: deviņi simti deviņdesmit deviņi
   thousands:
-    1000: tūkstots
+    1000: viens tūkstotis
     2000: divi tūkstoši
     4000: četri tūkstoši
     5000: pieci tūkstoši
     11000: vienpadsmit tūkstoši
-    21000: divdesmit viens tūkstots
+    21000: divdesmit viens tūkstotis
     999000: deviņi simti deviņdesmit deviņi tūkstoši
     999999: deviņi simti deviņdesmit deviņi tūkstoši deviņi simti deviņdesmit deviņi
   millions:
