@@ -8,17 +8,17 @@ to_words:
     11: elf
     19: negentien
     20: twintig
-    21: éénentwintig
+    21: eenentwintig
     42: tweeënveertig
     80: tachtig
     90: negentig
     99: negenennegentig
   hundreds:
     100: honderd
-    101: honderdéén
+    101: honderdeen
     111: honderdelf
     120: honderdtwintig
-    121: honderdéénentwintig
+    121: honderdeenentwintig
     142: honderdtweeënveertig
     900: negenhonderd
     909: negenhonderdnegen
@@ -31,7 +31,7 @@ to_words:
     4000: vierduizend
     5000: vijfduizend
     11000: elfduizend
-    21000: éénentwintigduizend
+    21000: eenentwintigduizend
     999000: negenhonderdnegenennegentigduizend
     999999: negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
   millions:
@@ -94,9 +94,9 @@ to_words:
     1000000000000000000000000000: één octillionste
     1000000000000000000000000000000: één noniljoenste
     1000000000000000000000000000000000: één decillionste
-    21: éénentwintigste
+    21: eenentwintigste
     42: tweeenveertigste
-    131: honderdéénendertigste
+    131: honderdeenendertigste
     142: honderdtweeënveertigste
     4200: vierduizend tweehonderdste
     4256: vierduizend tweehonderdzesenvijftigste
