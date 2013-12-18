@@ -7,7 +7,6 @@ hu:
     hundreds: száz
     mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
     union_separator: egész
-    union: egész
     ordinal:
       ones: [nulladik, első, második, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
       ones_with_tens: [nulladik, egyedik, kettedik, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]

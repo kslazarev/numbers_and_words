@@ -23,10 +23,6 @@ module NumbersAndWords
         figures_array_in_capacity(capacity).reverse.join.to_i
       end
 
-      def is_a_thousand_capacity? capacity
-        THOUSAND_CAPACITY == capacity
-      end
-
       def ones
         self[0].to_i if 0 < self[0].to_i
       end
@@ -53,10 +49,6 @@ module NumbersAndWords
 
       def sub_capacity
         capacity_length % FIGURES_IN_CAPACITY
-      end
-
-      def fraction_index
-        index '.'
       end
 
       def fraction_capacity
