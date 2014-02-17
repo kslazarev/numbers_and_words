@@ -8,44 +8,44 @@ to_words:
     11: undici
     19: diciannove
     20: venti
-    21: ventiuno
+    21: ventuno
     80: ottanta
     90: novanta
     99: novantanove
   hundreds:
-    100: 1 cento
-    101: 1 cento uno
-    111: 1 cento undici
-    120: 1 cento venti
-    121: 1 cento ventiuno
-    900: 9 cento
-    909: 9 cento nove
-    919: 9 cento diciannove
-    990: 9 cento novanta
-    999: 9 cento novantanove
+    100: cento
+    101: centouno
+    111: centoundici
+    120: centoventi
+    121: centoventuno
+    900: novecento
+    909: novecentonove
+    919: novecentodiciannove
+    990: novecentonovanta
+    999: novecentonovantanove
   thousands:
-    1000: uno mille
-    2000: due mille
-    4000: quattro mille
-    5000: cinque mille
-    11000: undici mille
-    21000: ventiuno mille
-    999000: 9 cento novantanove mille
-    999999: 9 cento novantanove mille 9 cento novantanove
+    1000: mille
+    2000: duemila
+    4000: quattromila
+    5000: cinquemila
+    11000: undicimila
+    21000: ventunomila
+    999000: novecentonovantanovemila
+    999999: novecentonovantanovemilanovecentonovantanove
   millions:
-    1000000: uno milione
-    2000000: due milione
-    4000000: quattro milione
-    5000000: cinque milione
-    999000000: 9 cento novantanove milione
-    999000999: 9 cento novantanove milione 9 cento novantanove
-    999999000: 9 cento novantanove milione 9 cento novantanove mille
-    999999999: 9 cento novantanove milione 9 cento novantanove mille 9 cento novantanove
+    1000000: un milione
+    2000000: due milioni
+    4000000: quattro milioni
+    5000000: cinque milioni
+    999000000: novecentonovantanove milioni
+    999000999: novecentonovantanove milioni novecentonovantanove
+    999999000: novecentonovantanove milioni novecentonovantanovemila
+    999999999: novecentonovantanove milioni novecentonovantanovemilanovecentonovantanove
   billions:
-    1174315110: uno miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento dieci
-    1174315119: uno miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
-    15174315119: quindici miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
-    35174315119: trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
-    935174315119: 9 cento trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+    1174315110: un miliardo centosettantaquattro milioni trecentoquindicimilacentodieci
+    1174315119: un miliardo centosettantaquattro milioni trecentoquindicimilacentodiciannove
+    15174315119: quindici miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
+    35174315119: trentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
+    935174315119: novecentotrentacinque miliardi centosettantaquattromilioni trecentoquindicimilacentodiciannove
   trillions:
-    2935174315119: due triliardo 9 cento trentacinque miliardo 1 cento settantaquattro milione 3 cento quindici mille 1 cento diciannove
+    2935174315119: due triliardi novecentotrentacinque miliardi centosettantaquattromilioni trecentoquindicimilacentodiciannove
