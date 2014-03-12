@@ -41,7 +41,6 @@ module NumbersAndWords
               else
                 result = tens_with_oh language, figures
                 result.push "#{thousands}#{hundreds}".to_i.to_words
-                result
               end
             end
 
@@ -49,7 +48,6 @@ module NumbersAndWords
               units, tens, hundreds = *figures.to_a.dup
               result = tens_with_oh language, figures
               result.push hundreds.to_words
-              result
             end
 
             def tens_with_oh language, figures
@@ -69,7 +67,6 @@ module NumbersAndWords
                   result.push language.complex_tens
                 end
               end
-              result
             end
           end
         end
