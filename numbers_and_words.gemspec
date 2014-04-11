@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2013-12-18"
+  s.date = "2014-04-09"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
@@ -40,6 +40,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/locales/numbers.lt.yml",
     "lib/numbers_and_words/i18n/locales/numbers.lv.yml",
     "lib/numbers_and_words/i18n/locales/numbers.nl.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.pt.yml",
     "lib/numbers_and_words/i18n/locales/numbers.ru.yml",
     "lib/numbers_and_words/i18n/locales/numbers.se.yml",
     "lib/numbers_and_words/i18n/locales/numbers.tr.yml",
@@ -102,6 +103,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/languages/lt.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/lv.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/nl.rb",
+    "lib/numbers_and_words/strategies/figures_converter/languages/pt.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/ru.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/se.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/tr.rb",
@@ -140,6 +142,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/translations/lt.rb",
     "lib/numbers_and_words/translations/lv.rb",
     "lib/numbers_and_words/translations/nl.rb",
+    "lib/numbers_and_words/translations/pt.rb",
     "lib/numbers_and_words/translations/ru.rb",
     "lib/numbers_and_words/translations/se.rb",
     "lib/numbers_and_words/translations/tr.rb",
@@ -152,7 +155,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/kslazarev/numbers_and_words"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.7"
+  s.rubygems_version = "2.0.6"
   s.summary = "Convert numbers to words using I18N."
 
   if s.respond_to? :specification_version then
@@ -177,4 +180,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
-
