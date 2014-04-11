@@ -1,3 +1,11 @@
+## 0.10.2 (December 18, 2013)
+
+### Bugs
+  * Fix latvian one thousand case. \[[#88](https://github.com/kslazarev/numbers_and_words/pull/88)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Supports
+  * Reach 100% coverage. \[[#89](https://github.com/kslazarev/numbers_and_words/pull/89)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
 ## 0.10.1 (October 22, 2013)
 
 ### Bugs
