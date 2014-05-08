@@ -1,3 +1,11 @@
+## 0.10.3 (May 8, 2014)
+
+### Features
+  * Add Georgian language. \[[#100](https://github.com/kslazarev/numbers_and_words/pull/100)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Bugs
+  * Simplify estonian tens with ones method. \[[#101](https://github.com/kslazarev/numbers_and_words/pull/101)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
 ## 0.10.2 (December 18, 2013)
 
 ### Bugs

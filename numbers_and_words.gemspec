@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words"
-  s.version = "0.10.2"
+  s.version = "0.10.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kirill Lazarev"]
-  s.date = "2014-04-09"
+  s.date = "2014-05-08"
   s.description = "Convert numbers to words using I18N."
   s.email = "k.s.lazarev@gmail.com"
   s.extra_rdoc_files = [
