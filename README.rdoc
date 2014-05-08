@@ -25,6 +25,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Lietuvių [lt]
 * Latviešu [lv]
 * Eesti [et]
+* ქართული (Georgian) [ka]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
@@ -68,6 +69,9 @@ Számok betűvel írva az I18n könyvtár segítségével.
     I18n.with_locale(:et) { 42.to_words }
     => "nelikümmend kaks"
 
+    I18n.with_locale(:ka) { 42.to_words }
+    => "ორმოცდაორი"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -79,6 +83,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "divdesmit viens"
     => "kakskümmend üks"
     => "yirmi bir"
+    => "ოცდაერთი"
     => "einundzwanzig"
     => "ventiuno"
     => "éénentwintig"
@@ -94,6 +99,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "du šimtai trisdešimt vienas"
     => "divi simti trīsdesmit viens"
     => "kakssada kolmkümmend üks"
+    => "ორას ოცდათერთმეტი"
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
     => "2 cento trentauno"
@@ -110,6 +116,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "keturi tūkstančiai trisdešimt"
     => "četri tūkstoši trīsdesmit"
     => "neli tuhat kolmkümmend"
+    => "ოთხი ათას ოცდაათი"
     => "dört bin otuz"
     => "viertausenddreißig"
     => "quattro mille trenta"
@@ -126,6 +133,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "milijonas šimtas"
     => "viens miljons simts"
     => "üks miljon ükssada"
+    => "ერთი მილიონ ასი"
     => "bir milyon bir yüz"
     => "eine Million einhundert"
     => "uno milione 1 cento"
@@ -157,6 +165,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["vienas", "du", "trys"]
     => ["viens", "divi", "trīs"]
     => ["üks", "kaks", "kolm"]
+    => ["ერთი", "ორი", "სამი"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -168,6 +177,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
     => ["vienpadsmit", "divdesmit divi", "simtu trīsdesmit trīs"]
     => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
+    => ["თერთმეტი", "ოცდაორი", "ას ოცდაცამეტი"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
