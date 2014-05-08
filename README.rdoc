@@ -1,10 +1,10 @@
 == numbers_and_words
 
-{<img src="https://badge.fury.io/rb/numbers_and_words.png" alt="Gem Version" />}[http://badge.fury.io/rb/numbers_and_words]
-{<img src="https://gemnasium.com/kslazarev/numbers_and_words.png" alt="Dependency Status" />}[https://gemnasium.com/kslazarev/numbers_and_words]
-{<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
-{<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png" />}[http://travis-ci.org/kslazarev/numbers_and_words]
-{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
+{<img src="https://badge.fury.io/rb/numbers_and_words.png?branch=master" alt="Gem Version" />}[http://badge.fury.io/rb/numbers_and_words]
+{<img src="https://gemnasium.com/kslazarev/numbers_and_words.png?branch=master" alt="Dependency Status" />}[https://gemnasium.com/kslazarev/numbers_and_words]
+{<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.png?branch=master" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
+{<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.png?branch=master" />}[http://travis-ci.org/kslazarev/numbers_and_words]
+{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
 Convert numbers to words using the I18n library.
 
@@ -22,9 +22,10 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Français [fr]
 * Українська [ua]
 * Magyar [hu]
-* Latviešu [lv]
 * Lietuvių [lt]
+* Latviešu [lv]
 * Eesti [et]
+* ქართული (Georgian) [ka]
 * Türkçe** [tr]
 * Deutsch** [de]
 * Italiano** [it]
@@ -59,14 +60,17 @@ Számok betűvel írva az I18n könyvtár segítségével.
     I18n.with_locale(:hu) { 42.to_words }
     => "negyvenkettő"
 
-    I18n.with_locale(:lv) { 42.to_words }
-    => "četrdesmit divi"
-
     I18n.with_locale(:lt) { 42.to_words }
     => "keturiasdešimt du"
 
+    I18n.with_locale(:lv) { 42.to_words }
+    => "četrdesmit divi"
+
     I18n.with_locale(:et) { 42.to_words }
     => "nelikümmend kaks"
+
+    I18n.with_locale(:ka) { 42.to_words }
+    => "ორმოცდაორი"
 
     21.to_words
     => "twenty-one"
@@ -75,14 +79,15 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "vingt et un"
     => "двадцять один"
     => "huszonegy"
+    => "dvidešimt vienas"
+    => "divdesmit viens"
+    => "kakskümmend üks"
     => "yirmi bir"
+    => "ოცდაერთი"
     => "einundzwanzig"
     => "ventiuno"
     => "éénentwintig"
     => "tjugo-en"
-    => "divdesmit viens"
-    => "dvidešimt vienas"
-    => "kakskümmend üks"
 
     231.to_words
     => "two hundred thirty-one"
@@ -91,14 +96,15 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "deux cent trente-trois"
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
+    => "du šimtai trisdešimt vienas"
+    => "divi simti trīsdesmit viens"
+    => "kakssada kolmkümmend üks"
+    => "ორას ოცდათერთმეტი"
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
-    => "divi simti trīsdesmit viens"
-    => "du šimtai trisdešimt vienas"
-    => "kakssada kolmkümmend üks"
 
     4030.to_words
     => "four thousand thirty"
@@ -107,14 +113,15 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "quatre mille trente"
     => "чотири тисячi тридцять"
     => "négyezer-harminc"
+    => "keturi tūkstančiai trisdešimt"
+    => "četri tūkstoši trīsdesmit"
+    => "neli tuhat kolmkümmend"
+    => "ოთხი ათას ოცდაათი"
     => "dört bin otuz"
     => "viertausenddreißig"
     => "quattro mille trenta"
     => "vierthousanddertig"
     => "fyra tusen trettio"
-    => "četri tūkstoši simts trīsdesmit"
-    => "keturi tūkstančiai trisdešimt"
-    => "neli tuhat kolmkümmend"
 
     1000100.to_words
     => "one million one hundred"
@@ -123,14 +130,15 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "un million cent"
     => "один мiльйон сто"
     => "egymillió-egyszáz"
+    => "milijonas šimtas"
+    => "viens miljons simts"
+    => "üks miljon ükssada"
+    => "ერთი მილიონ ასი"
     => "bir milyon bir yüz"
     => "eine Million einhundert"
     => "uno milione 1 cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
-    => "viens miljons simts"
-    => "milijonas šimtas"
-    => "üks miljon ükssada"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -139,14 +147,14 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "un quintilliard"
     => "один децильйон"
     => "egykvintilliárd"
+    => "vienas decilijonas"
+    => "viens deciljons"
+    => "üks dekiljon"
     => "bir desilyon"
     => "eine Quintilliarde"
     => "uno decillion"
     => "één decillion"
     => "en decillion"
-    => "viens deciljons"
-    => "vienas decilijonas"
-    => "üks dekiljon"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -154,25 +162,27 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["один", "два", "три"]
     => ["un", "deux", "trois"]
     => ["egy", "kettő", "három"]
-    => ["viens", "divi", "trīs"]
     => ["vienas", "du", "trys"]
+    => ["viens", "divi", "trīs"]
     => ["üks", "kaks", "kolm"]
+    => ["ერთი", "ორი", "სამი"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
-    => ["once", "veintidos", "ciento treinta y tres"]
+    => ["once", "veintidós", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
     => ["onze", "vingt-deux", "cent trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+    => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
+    => ["vienpadsmit", "divdesmit divi", "simtu trīsdesmit trīs"]
+    => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
+    => ["თერთმეტი", "ოცდაორი", "ას ოცდაცამეტი"]
     => ["on bir", "yirmi iki", "bir yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
-    => ["vienpadsmit", "divdesmit divi", "simts trīsdesmit trīs"]
-    => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
-    => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -231,7 +241,8 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 == Requirements / Требования / Configuration Requise
 
-* 1.8.7 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
+* 1.9.3 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
+* 1.8.7 <= Ruby <= 1.9.2 (-v 0.9.0)
 * 0.5.0 <= I18n (earlier versions not tested/ранние версии не тестировались/versions précédentes non testées);
 
 == Installation / Установка / Installation
@@ -258,3 +269,4 @@ Send a pull request. Bonus points for topic branches.
 * Ulrich Sossou (Github[http://github.com/sorich87], {Personal Page}[http://ulrichsossou.com/])
 * eLod (link:http://github.com/eLod)
 * Mārtiņš Spriņģis (mailto:mspringis@gmail.com)
+* Miks Miķelsons (link:http://github.com/miks)

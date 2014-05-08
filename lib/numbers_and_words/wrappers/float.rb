@@ -20,10 +20,6 @@ module NumbersAndWords
         number.to_s.split '.'
       end
 
-      def exponential?
-        number.to_s =~ /[eE]{1}\+/
-      end
-
       def integral_part
         parts.first
       end
@@ -46,10 +42,6 @@ module NumbersAndWords
 
       def fractional_options
         {:fractional => {:length => fractional_part.length}}
-      end
-
-      def integral_part_is_nil?
-        0 == integral_part.to_i
       end
 
       def fractional_part_is_nil?

@@ -1,8 +1,33 @@
+## 0.10.2 (December 18, 2013)
+
+### Bugs
+  * Fix latvian one thousand case. \[[#88](https://github.com/kslazarev/numbers_and_words/pull/88)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Supports
+  * Reach 100% coverage. \[[#89](https://github.com/kslazarev/numbers_and_words/pull/89)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+## 0.10.1 (October 22, 2013)
+
+### Bugs
+  * Minor orthographic typo in Spanish language. \[[#85](https://github.com/kslazarev/numbers_and_words/pull/85)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
+
+## 0.10.0 (September 03, 2013)
+
+### Features
+  * Add Estonian language. \[[#82](https://github.com/kslazarev/numbers_and_words/pull/82)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+  * Add Lithuanian language. \[[#77](https://github.com/kslazarev/numbers_and_words/pull/77)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Bugs
+  * Fix latvian one hundread cases. \[[#81](https://github.com/kslazarev/numbers_and_words/pull/81)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+
+### Supports
+  * Added @miks contacts to contributors list in README. \[[#79](https://github.com/kslazarev/numbers_and_words/issues/79)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@miks](https://github.com/miks)\)
+
 ## 0.9.0 (May 19, 2013)
 
 ### Features
-  * Add Latvian language. \[[#70](https://github.com/kslazarev/numbers_and_words/issues/70)\] \([@martinsspringis](https://github.com/martinsspringis)\) \(assignee: [@martinsspringis](https://github.com/martinsspringis)\)
-  * Add German language. \[[#52](https://github.com/kslazarev/numbers_and_words/issues/52)\] \([@GSI](https://github.com/GSI)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
+  * Add Latvian language. \[[#70](https://github.com/kslazarev/numbers_and_words/pull/70)\] \([@martinsspringis](https://github.com/martinsspringis)\) \(assignee: [@martinsspringis](https://github.com/martinsspringis)\)
+  * Add German language. \[[#52](https://github.com/kslazarev/numbers_and_words/pull/52)\] \([@GSI](https://github.com/GSI)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
 
 ### Supports
   * Add @martinsspringis contacts and some examples on Latvian language to README. \[[#71](https://github.com/kslazarev/numbers_and_words/issues/71)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@martinsspringis](https://github.com/martinsspringis)\)
@@ -14,7 +39,7 @@
 
 ### Supports
   * Add regional languages aliases to README. \[[#67](https://github.com/kslazarev/numbers_and_words/issues/67)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Remove all warnings in gem. (ruby -w). \[[#66](https://github.com/kslazarev/numbers_and_words/issues/66)\] \([@nikhaldi](https://github.com/nikhaldi)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
+  * Remove all warnings in gem. (ruby -w). \[[#66](https://github.com/kslazarev/numbers_and_words/pull/66)\] \([@nikhaldi](https://github.com/nikhaldi)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
 
 ## 0.7.1 (April 22, 2013)
 
@@ -37,13 +62,13 @@
 ### Features
   * Support fractional form for Ukranian. \[[#54](https://github.com/kslazarev/numbers_and_words/issues/54)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@Shk-Serji](https://github.com/Shk-Serji)\)
   * Support fractional form for Russian. \[[#53](https://github.com/kslazarev/numbers_and_words/issues/53)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Added functionality for spanish . \[[#51](https://github.com/kslazarev/numbers_and_words/issues/51)\] \([@jaambros](https://github.com/jaambros)\) \(assignee: [@jaambros](https://github.com/jaambros)\)
+  * Added functionality for spanish . \[[#51](https://github.com/kslazarev/numbers_and_words/pull/51)\] \([@jaambros](https://github.com/jaambros)\) \(assignee: [@jaambros](https://github.com/jaambros)\)
   * Support ordinal form for English and Hungarian. \[[#50](https://github.com/kslazarev/numbers_and_words/issues/50)\] \([@eLod](https://github.com/eLod)\) \(assignee: [@eLod](https://github.com/eLod)\)
   * Add option :remove_hyphen for English language. \[[#45](https://github.com/kslazarev/numbers_and_words/issues/45)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Add option :hundreds_with_union for English language. \[[#44](https://github.com/kslazarev/numbers_and_words/issues/44)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Add Spanish language. (experimental). \[[#42](https://github.com/kslazarev/numbers_and_words/issues/42)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Add Swedish language. (experimental). \[[#41](https://github.com/kslazarev/numbers_and_words/issues/41)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Add Hungarian language. \[[#40](https://github.com/kslazarev/numbers_and_words/issues/40)\] \([@eLod](https://github.com/eLod)\) \(assignee: [@eLod](https://github.com/eLod)\)
+  * Add Hungarian language. \[[#40](https://github.com/kslazarev/numbers_and_words/pull/40)\] \([@eLod](https://github.com/eLod)\) \(assignee: [@eLod](https://github.com/eLod)\)
   * Add option :gender for Russian language. \[[#39](https://github.com/kslazarev/numbers_and_words/issues/39)\] \([@ermolaev](https://github.com/ermolaev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Gem numbers_and_words not working for decimal values. \[[#38](https://github.com/kslazarev/numbers_and_words/issues/38)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@eLod](https://github.com/eLod)\)
 
@@ -57,7 +82,7 @@
 ### Features
   * Add Italian language. (experimental). \[[#34](https://github.com/kslazarev/numbers_and_words/issues/34)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Add Dutch language. (experimental). \[[#33](https://github.com/kslazarev/numbers_and_words/issues/33)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Add French language. \[[#29](https://github.com/kslazarev/numbers_and_words/issues/29)\] \([@sorich87](https://github.com/sorich87)\) \(assignee: [@sorich87](https://github.com/sorich87)\)
+  * Add French language. \[[#29](https://github.com/kslazarev/numbers_and_words/pull/29)\] \([@sorich87](https://github.com/sorich87)\) \(assignee: [@sorich87](https://github.com/sorich87)\)
 
 ### Supports
   * Add @sorich87 contacts to README. \[[#36](https://github.com/kslazarev/numbers_and_words/issues/36)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@sorich87](https://github.com/sorich87)\)
@@ -83,11 +108,11 @@
 ## 0.3.1 (May 04, 2012)
 
 ### Bugs
-  * Fixes 80 in English. \[[#18](https://github.com/kslazarev/numbers_and_words/issues/18)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Fixes 80 in English. \[[#18](https://github.com/kslazarev/numbers_and_words/pull/18)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
 
 ### Supports
   * Add CHANGELOG.md. \[[#19](https://github.com/kslazarev/numbers_and_words/issues/19)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Readable specs. \[[#16](https://github.com/kslazarev/numbers_and_words/issues/16)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
+  * Readable specs. \[[#16](https://github.com/kslazarev/numbers_and_words/pull/16)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
 
 ### Deprecations
   * Add deprecation warning for using gem 'number_to_words_ru' . \[[#21](https://github.com/kslazarev/numbers_and_words/issues/21)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
@@ -95,17 +120,17 @@
 ## 0.3.0 (March 24, 2012)
 
 ### Bugs
-  * Rails 3 will choke on a nested array. \[[#10](https://github.com/kslazarev/numbers_and_words/issues/10)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
-  * English fixes and tests. \[[#9](https://github.com/kslazarev/numbers_and_words/issues/9)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
-  * Namespaced NumbersAndWords. \[[#7](https://github.com/kslazarev/numbers_and_words/issues/7)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Rails 3 will choke on a nested array. \[[#10](https://github.com/kslazarev/numbers_and_words/pull/10)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * English fixes and tests. \[[#9](https://github.com/kslazarev/numbers_and_words/pull/9)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Namespaced NumbersAndWords. \[[#7](https://github.com/kslazarev/numbers_and_words/pull/7)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
 
 ### Supports
   * Add contacts to README. \[[#14](https://github.com/kslazarev/numbers_and_words/issues/14)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@dblock](https://github.com/dblock)\)
-  * Fixed typo in readme. \[[#13](https://github.com/kslazarev/numbers_and_words/issues/13)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
-  * Added Travis-ci. \[[#12](https://github.com/kslazarev/numbers_and_words/issues/12)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
-  * Fix README (Russian & English). \[[#11](https://github.com/kslazarev/numbers_and_words/issues/11)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Fixed typo in readme. \[[#13](https://github.com/kslazarev/numbers_and_words/pull/13)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Added Travis-ci. \[[#12](https://github.com/kslazarev/numbers_and_words/pull/12)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Fix README (Russian & English). \[[#11](https://github.com/kslazarev/numbers_and_words/pull/11)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
   * Rename the repo at https://github.com/kslazarev/number_to_words_ru. \[[#8](https://github.com/kslazarev/numbers_and_words/issues/8)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Switch a hard-coded gemspec to Jeweler. \[[#6](https://github.com/kslazarev/numbers_and_words/issues/6)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
+  * Switch a hard-coded gemspec to Jeweler. \[[#6](https://github.com/kslazarev/numbers_and_words/pull/6)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@dblock](https://github.com/dblock)\)
 
 ## 0.3.0.alpha (March 24, 2012)
 
@@ -117,4 +142,4 @@
 
 ### Supports
   * Remove temporary file Gemfile.lock. \[[#5](https://github.com/kslazarev/numbers_and_words/issues/5)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
-  * Renamed gem from number_to_words_ru to numbers_and_words. \[[#2](https://github.com/kslazarev/numbers_and_words/issues/2)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
+  * Renamed gem from number_to_words_ru to numbers_and_words. \[[#2](https://github.com/kslazarev/numbers_and_words/pull/2)\] \([@dblock](https://github.com/dblock)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)

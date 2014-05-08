@@ -18,6 +18,8 @@ require 'numbers_and_words/translations/es'
 require 'numbers_and_words/translations/lv'
 require 'numbers_and_words/translations/lt'
 require 'numbers_and_words/translations/de'
+require 'numbers_and_words/translations/pt'
+require 'numbers_and_words/translations/ka'
 
 module NumbersAndWords
   module Translations
