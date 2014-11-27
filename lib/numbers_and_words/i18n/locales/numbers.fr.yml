@@ -10,7 +10,7 @@ fr:
       many: cents
     thousands:
       one: mille
-      many: mille
+      other: mille
     millions:
       one: million
       many: millions
