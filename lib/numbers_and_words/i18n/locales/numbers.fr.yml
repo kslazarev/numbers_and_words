@@ -11,6 +11,7 @@ fr:
     thousands:
       one: mille
       many: mille
+      other: mille
     millions:
       one: million
       many: millions
