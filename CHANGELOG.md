@@ -1,3 +1,8 @@
+## 0.10.4 (March 02, 2015)
+
+### Bugs
+  * Fix Lithuanian `other` spelling errors. \[[#109](https://github.com/kslazarev/numbers_and_words/pull/109)\] \([@ViliusLuneckas](https://github.com/ViliusLuneckas)\) \(assignee: [@miks](https://github.com/miks)\)
+
 ## 0.10.3 (May 8, 2014)
 
 ### Features
