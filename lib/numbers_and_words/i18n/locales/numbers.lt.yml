@@ -13,40 +13,40 @@ lt:
     millions:
       one: milijonas
       ones: milijonai
-      other: milijonø
+      other: milijonų
     billions:
       one: bilijonas
       ones: bilijonai
-      other: bilijonø
+      other: bilijonų
     trillions:
       one: trilijonas
       ones: trilijonai
-      other: trilijonø
+      other: trilijonų
     quadrillions:
       one: kvadrilijonas
       ones: kvadrilijonai
-      other: kvadrilijonø
+      other: kvadrilijonų
     quintillions:
       one: kvintilijonas
       ones: kvadrilijonai
-      other: kvadrilijonø
+      other: kvadrilijonų
     sextillions:
       one: sekstilijonas
       ones: sekstilijonai
-      other: sekstilijonø
+      other: sekstilijonų
     septillions:
       one: septilijonas
       ones: septilijonai
-      other: septilijonø
+      other: septilijonų
     octillions:
       one: oktilijonas
       ones: oktilijonai
-      other: oktilijonø
+      other: oktilijonų
     nonillions:
       one: nonilijonas
       ones: nonilijonai
-      other: nonilijonø
+      other: nonilijonų
     decillions:
       one: decilijonas
       ones: decilijonai
-      other: decilijonø
+      other: decilijonų
