@@ -8,6 +8,7 @@ fr:
     hundreds:
       one: cent
       many: cents
+      other: cents
     thousands:
       one: mille
       many: mille
@@ -15,30 +16,40 @@ fr:
     millions:
       one: million
       many: millions
+      other: millions
     billions:
       one: milliard
       many: milliards
+      other: milliards
     trillions:
       one: billion
       many: billions
+      other: billions
     quadrillions:
       one: billiard
       many: billiards
+      other: billiards
     quintillions:
       one: trillion
       many: trillions
+      other: trillions
     sextillions:
       one: trilliard
       many: trilliards
+      other: trilliards
     septillions:
       one: quadrillion
       many: quadrillions
+      other: quadrillions
     octillions:
       one: quadrilliard
       many: quadrilliards
+      other: quadrilliards
     nonillions:
       one: quintillion
       many: quintillions
+      other: quintillions
     decillions:
       one: quintilliard
       many: quintilliards
+      other: quintilliards
