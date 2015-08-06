@@ -46,10 +46,10 @@ to_words:
     999999000: novecientos noventa y nueve millones novecientos noventa y nueve mil
     999999999: novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y nueve
   billions:
-    1174315110: un millardo ciento setenta y cuatro millones trescientos quince mil ciento diez
-    1174315119: un millardo ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
-    15174315119: quince millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
-    35174315119: treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
-    935174315119: novecientos treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    1174315110: mil millones ciento setenta y cuatro millones trescientos quince mil ciento diez
+    1174315119: mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    15174315119: quince mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    35174315119: treinta y cinco mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    935174315119: novecientos treinta y cinco mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
   trillions:
-    2935174315119: dos billones novecientos treinta y cinco millardos ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
+    2935174315119: dos billones novecientos treinta y cinco mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve
