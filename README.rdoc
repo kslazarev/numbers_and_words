@@ -14,6 +14,8 @@ Converti les nombres en lettres en utilisant la librairie I18n.
 
 Számok betűvel írva az I18n könyvtár segítségével.
 
+I18n kütüphanesi ile sayıları yazıya çevirir.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English [en]
@@ -26,7 +28,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 * Latviešu [lv]
 * Eesti [et]
 * ქართული (Georgian) [ka]
-* Türkçe** [tr]
+* Türkçe [tr]
 * Deutsch** [de]
 * Italiano** [it]
 * Nederlands** [nl]
@@ -134,7 +136,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => "viens miljons simts"
     => "üks miljon ükssada"
     => "ერთი მილიონ ასი"
-    => "bir milyon bir yüz"
+    => "bir milyon yüz"
     => "eine Million einhundert"
     => "uno milione 1 cento"
     => "één miljoen honderd"
@@ -178,7 +180,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
     => ["vienpadsmit", "divdesmit divi", "simtu trīsdesmit trīs"]
     => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
     => ["თერთმეტი", "ოცდაორი", "ას ოცდაცამეტი"]
-    => ["on bir", "yirmi iki", "bir yüz otuz üç"]
+    => ["on bir", "yirmi iki", "yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]

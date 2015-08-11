@@ -13,7 +13,12 @@ to_words:
       - 101
       - 21
       - 13
+      - 1101
+      - 2101
+
     :
-      - bir yüz bir
+      - yüz bir
       - yirmi bir
       - on üç
+      - bin yüz bir
+      - iki bin yüz bir
