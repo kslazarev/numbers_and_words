@@ -19,6 +19,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 == Supported Languages / Языки / Langues Supportées
 
 * English [en]
+* Česky [cs]
 * Spanish [es]
 * Русский [ru]
 * Français [fr]
@@ -74,6 +75,9 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     I18n.with_locale(:ka) { 42.to_words }
     => "ორმოცდაორი"
 
+    I18n.with_locale(:cs) { 42.to_words }
+    => "čtyřicetdva"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -90,6 +94,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "ventiuno"
     => "éénentwintig"
     => "tjugo-en"
+    => "dvacetjedna"
 
     231.to_words
     => "two hundred thirty-one"
@@ -107,6 +112,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
+    => "dvě stě třicetjedna"
 
     4030.to_words
     => "four thousand thirty"
@@ -124,6 +130,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "quattro mille trenta"
     => "vierthousanddertig"
     => "fyra tusen trettio"
+    => "čtyři tisíce třicet"
 
     1000100.to_words
     => "one million one hundred"
@@ -141,6 +148,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "uno milione 1 cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
+    => "jeden milión jedno sto"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -157,6 +165,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "uno decillion"
     => "één decillion"
     => "en decillion"
+    => "decilijon"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -168,6 +177,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => ["viens", "divi", "trīs"]
     => ["üks", "kaks", "kolm"]
     => ["ერთი", "ორი", "სამი"]
+    => ["jedna", "dva", "tři"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -185,6 +195,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
+    => ["jedenáct", "dvacetdva", "jedno sto třicettři"] 
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

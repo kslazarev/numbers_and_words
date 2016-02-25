@@ -1,0 +1,117 @@
+to_words:
+  ones:
+    0: nula
+    1: jedna
+    9: devět
+  teens:
+    10: deset
+    11: jedenáct
+    19: devatenáct
+    20: dvacet
+    21: dvacet jedna
+    80: osmdesát
+    90: devadesát
+    99: devadesát devět
+  hundreds:
+    100: jedno sto
+    101: jedno sto jedna
+    111: sto jedenáct
+    120: sto dvacet
+    121: sto dvacetjedna
+    900: devět set
+    909: 909
+    919: 919
+    990: 990
+    999: 999
+  thousands:
+    1000: jeden tisíc
+    2000: dva tisíce
+    4000: ctyři tisíce
+    5000: pět tisíc
+    11000: jedenácti tisíci
+    21000: 20-1000
+    999000: 990-9000
+    999999: 990 až 9999
+  millions:
+    1000000: One Million
+    2000000: dva miliony
+    4000000: čtyři milióny
+    5000000: pět milionů
+    999000000: 990-9000000
+    999000999: 990 - 9 milionů 999
+    999999000: 990-9.999.000
+    999999999: 990-9.999.000 9 100 90-9
+  billions:
+    1174315110: miliarda 170 až 4315000 1 100 zde
+    1174315119: miliarda 170 až 4315000 1 100 19
+    15174315119: patnáct miliard 170-4.315.000 1 100 19
+    35174315119: třicet-pět miliard 170-4.315.000 1 100 19
+    935174315119: devět set třicet až pět miliard 170 až 4315000 1 set 19
+  trillions:
+    2935174315119: dva biliony 930-5000000000 170-4.315.000 1 100 19
+  pordinals:
+    options:
+      :ordinal: true
+    0: nultý
+    1: První
+    2: Druhá
+    3: Třetí
+    4: Čtvrtá
+    5: Pátý
+    6: šestý
+    7: sedmý
+    8: osmý
+    9: devátý
+    10: desátý
+    11: jedenáctý
+    12: Dvanáctý
+    13: třináctý
+    14: čtrnáctý
+    15: Patnácté
+    16: Šestnáctý
+    17: sedmnáctého
+    18: osmnáctý
+    19: devatenáctého
+    20: Dvacáté
+    30: třicátým
+    40: čtyřicátého
+    50: padesátého
+    60: šedesáté
+    70: sedmdesáté
+    80: eightieths
+    90: devadesátých let
+    100: stotiny
+    1000: Jedna tisícina
+    1000000: jedna miliontina
+    1000000000: jedna miliardtina
+    1000000000000: 1000000000000.
+    1000000000000000: jeden quadrillionth
+    1000000000000000000: jeden quintillionth
+    1000000000000000000000: jeden sextillionth
+    1000000000000000000000000: jeden septillionth
+    1000000000000000000000000000: jeden octillionth
+    1000000000000000000000000000000: jeden nonillionth
+    1000000000000000000000000000000000: jeden decillionth
+    1000000000000000000000000000000000000: jeden undecillionth
+    1000000000000000000000000000000000000000: jeden duodecillionth
+    1000000000000000000000000000000000000000000: jeden tredecillionth
+    1000000000000000000000000000000000000000000000: jeden quattuordecillionth
+    21: dvacátýprvní
+    42: čtyřicátýdruhá
+    133: One Hundred Thirty-Third
+    4256: 4250-sixth
+    4200: čtyři tisíce 200.
+    42000: Čtyřicet dvoutisící
+    420000: 420000.
+    4200000: čtyři miliony 200000.
+    42000000: Čtyřicet dvoumiliontého
+  hundred_with_union:
+    options:
+      :hundreds_with_union: true
+    0: nula
+    100: One Hundred
+    111: Sto jedenáct
+    1111: Jeden tisíc sto jedenáct
+    100100: 100100
+    100111: 100111
+    111111: 111111
