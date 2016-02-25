@@ -26,6 +26,22 @@ module NumbersAndWords
             })
           end
 
+          def strings_logic
+            if @options.pronounced.active?
+              @options.pronounced.process self, @figures
+            else
+              if @figures.capacity_count
+                number_without_capacity_to_words + complex_number_to_words
+              elsif @figures.hundreds
+                hundreds_number_to_words
+              elsif @figures.tens or @figures.ones
+                simple_number_to_words
+              else
+                []
+              end
+            end
+          end
+
           def maybe_hyphen_separator
             @options.remove_hyphen.result
           end
