@@ -5,6 +5,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/base'
 
 require 'numbers_and_words/strategies/figures_converter/languages/families/latin'
 
+require 'numbers_and_words/strategies/figures_converter/languages/cs'
 require 'numbers_and_words/strategies/figures_converter/languages/en'
 require 'numbers_and_words/strategies/figures_converter/languages/en_gb'
 require 'numbers_and_words/strategies/figures_converter/languages/fr'
