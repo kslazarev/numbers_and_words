@@ -8,8 +8,7 @@ require 'shared_examples/correct_fixture_examples'
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
-        subject { fixture_examples type, locale }
-        it_behaves_like 'correct fixture examples'
+        it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end
     end
   end
@@ -22,8 +21,7 @@ end
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
-        subject { fixture_examples type, locale }
-        it_behaves_like 'correct fixture examples'
+        it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end
     end
   end

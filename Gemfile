@@ -9,6 +9,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', '2.12.0'
+  gem 'rspec', '~> 3.0'
   gem 'coveralls', :require => false
 end

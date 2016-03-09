@@ -8,17 +8,17 @@ describe I18n, 'fr' do
   end
 
   it "should pluralize correctly" do
-    @backend.send(:pluralize, :'fr', @hash, 1).should eq('one')
-    @backend.send(:pluralize, :'fr', @hash, 2).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 3).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 5).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 10).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 11).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 21).should eq('one')
-    @backend.send(:pluralize, :'fr', @hash, 29).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 131).should eq('one')
-    @backend.send(:pluralize, :'fr', @hash, 1.31).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 2.31).should eq('other')
-    @backend.send(:pluralize, :'fr', @hash, 3.31).should eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 1)).to eq('one')
+    expect(@backend.send(:pluralize, :'fr', @hash, 2)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 3)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 5)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 10)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 11)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 21)).to eq('one')
+    expect(@backend.send(:pluralize, :'fr', @hash, 29)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 131)).to eq('one')
+    expect(@backend.send(:pluralize, :'fr', @hash, 1.31)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 2.31)).to eq('other')
+    expect(@backend.send(:pluralize, :'fr', @hash, 3.31)).to eq('other')
   end
 end

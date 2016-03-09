@@ -9,14 +9,14 @@ describe NumbersAndWords::I18n do
 
     context "when string given instead of symbol" do
       it "correctly normalizes it " do
-        I18n.stub(:locale).and_return(" it ")
+        allow(I18n).to receive(:locale).and_return(" it ")
         expect(NumbersAndWords::I18n.local_language).to eq(:it)
       end
     end
 
     context "when no language given" do
       it "returns current I18n.locale" do
-        I18n.stub(:locale).and_return(:it)
+        allow(I18n).to receive(:locale).and_return(:it)
         expect(NumbersAndWords::I18n.local_language).to eq(:it)
       end
     end
