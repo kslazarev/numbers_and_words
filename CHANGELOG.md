@@ -1,3 +1,12 @@
+## 0.10.5 (March 9, 2016)
+
+### Bugs
+  * Fix pluralization rules for Spanish. \[[#122](https://github.com/kslazarev/numbers_and_words/pull/122)\] \([@jlduran](https://github.com/jlduran)\)
+  * Fix long scale names in Spanish. \[[#112](https://github.com/kslazarev/numbers_and_words/pull/112)\] \([@jlduran](https://github.com/jlduran)\)
+  * Fix Turkish hundred and thousand numbers. \[[#113](https://github.com/kslazarev/numbers_and_words/pull/113)\] \([@cbilgili](https://github.com/cbilgili)\)
+  * Fix one/other convention in Spanish and French. \[[#116](https://github.com/kslazarev/numbers_and_words/pull/116)\] \([@joseramonc](https://github.com/joseramonc)\)
+  * Fix hundreds in Lithuanian. \[[#117](https://github.com/kslazarev/numbers_and_words/pull/117)\] \([@osegrums](https://github.com/osegrums)\)
+
 ## 0.10.4 (March 02, 2015)
 
 ### Bugs
