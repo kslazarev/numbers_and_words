@@ -33,7 +33,8 @@ to_words:
     4000: cuatro mil
     5000: cinco mil
     11000: once mil
-    21000: veintiun mil
+    21000: veintiún mil
+    21021: veintiún mil veintiuno
     999000: novecientos noventa y nueve mil
     999999: novecientos noventa y nueve mil novecientos noventa y nueve
   millions:

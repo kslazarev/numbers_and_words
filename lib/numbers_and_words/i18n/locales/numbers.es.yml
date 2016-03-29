@@ -2,6 +2,7 @@ es:
   numbers:
     one: un
     ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    one_twenties: ún
     ones_twenties: [_, uno, dós, trés, cuatro, cinco, séis, siete, ocho, nueve]
 
     teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
@@ -13,3 +14,4 @@ es:
 
     mega: [_, mil, millón, mil millones, billón, mil billones, trillón, mil trillones, cuatrillón, mil cuatrillones, quintillón, mil quintillones]
     megas: [_, mil, millones, mil millones, billones, mil billones, trillones, mil trillones, cuatrillones, mil cuatrillones, quintillones, mil quintillones]
+    union: y
