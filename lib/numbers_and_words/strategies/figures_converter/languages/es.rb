@@ -8,17 +8,15 @@ module NumbersAndWords
           def capacity_iteration
             words = []
             capacity_words = words_in_capacity(@current_capacity)
-            words.push megs(capacity_words) unless capacity_words.empty?
+            words.push megs unless capacity_words.empty?
 
-            if 0 < @current_capacity
-              capacity_words = capacity_words.map do |word|
-                if twenty_one?
-                  word.gsub(@translations.ones(1), @translations.one_twenties)
-                elsif !thousand? || !one?
-                  word.gsub(@translations.ones(1), @translations.one)
-                end
-              end.compact
-            end
+            capacity_words = capacity_words.map do |word|
+              if twenty_one?
+                word.gsub(@translations.ones(1), @translations.one_twenties)
+              elsif !thousand? || !one?
+                word.gsub(@translations.ones(1), @translations.one)
+              end
+            end.compact
 
             words + capacity_words
           end
@@ -28,14 +26,19 @@ module NumbersAndWords
                                  simple_number_to_words.empty?) })
           end
 
-          def megs(capacity_words)
-            super({ is_one: capacity_words == [@translations.ones(1)] })
+          def megs
+            if thousand? &&
+               @figures.number_in_capacity(@current_capacity - 1) != 0
+              @translations.thousand
+            else
+              super({ number: @figures.number_in_capacity(@current_capacity) })
+            end
           end
 
           private
 
           def one?
-            [translations.ones(1)] == words_in_capacity(@current_capacity)
+            [@translations.ones(1)] == words_in_capacity(@current_capacity)
           end
 
           def thousand?

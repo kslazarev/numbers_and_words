@@ -4,14 +4,39 @@ es:
     ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
     one_twenties: ún
     ones_twenties: [_, uno, dós, trés, cuatro, cinco, séis, siete, ocho, nueve]
-
     teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
     tens: [_, diez, veinti, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
     twenty: veinte
-
     hundreds: [ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
     one_hundred: cien
-
-    mega: [_, mil, millón, mil millones, billón, mil billones, trillón, mil trillones, cuatrillón, mil cuatrillones, quintillón, mil quintillones]
-    megas: [_, mil, millones, mil millones, billones, mil billones, trillones, mil trillones, cuatrillones, mil cuatrillones, quintillones, mil quintillones]
+    mega: [_, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion, undecillion, duodecillion, tredecillion, quattuordecillion]
+    thousand: mil
+    million:
+      one: millón
+      other: millones
+    billion: mil millones
+    trillion:
+      one: billón
+      other: billones
+    quadrillion: mil billones
+    quintillion:
+      one: trillón
+      other: trillones
+    sextillion: mil trillones
+    septillion:
+      one: cuatrillón
+      other: cuatrillones
+    octillion: mil cuatrillones
+    nonillion:
+      one: quintillón
+      other: quintillones
+    decillion: mil quintillones
+    undecillion:
+      one: sextillón
+      other: sextillones
+    duodecillion: mil sextillones
+    tredecillion:
+      one: septillón
+      other: septillones
+    quattuordecillion: mil septillones
     union: y
