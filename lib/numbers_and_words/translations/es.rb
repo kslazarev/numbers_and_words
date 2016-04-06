@@ -37,9 +37,8 @@ module NumbersAndWords
         options[:is_hundred] ? t(:one_hundred) : t(:hundreds)[number - 1]
       end
 
-      def megs(capacity, options = {})
-        options[:is_one] = false if options[:is_one].nil?
-        options[:is_one] ? t(:mega)[capacity] : t(:megas)[capacity]
+      def thousand
+        t(:thousand)
       end
     end
   end

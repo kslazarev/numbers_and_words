@@ -3,6 +3,7 @@
   * Your contribution here.
 
 ### Bugs
+  * Fix big numbers in Spanish. \[[#129](https://github.com/kslazarev/numbers_and_words/pull/129)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
   * Fix typo for number twenty-one in Spanish. \[[#127](https://github.com/kslazarev/numbers_and_words/pull/127)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
 
 ## 0.10.5 (March 9, 2016)
