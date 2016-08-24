@@ -3,6 +3,7 @@
   * Your contribution here.
 
 ### Bugs
+  * Fix README typo for 231 in French. \(assignee: [@poilon](https://github.com/poilon)\)
   * Fix big numbers in Spanish. \[[#129](https://github.com/kslazarev/numbers_and_words/pull/129)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
   * Fix typo for number twenty-one in Spanish. \[[#127](https://github.com/kslazarev/numbers_and_words/pull/127)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
 
