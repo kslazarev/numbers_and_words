@@ -95,7 +95,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "two hundred thirty-one"
     => "doscientos treinta y uno"
     => "двести тридцать один"
-    => "deux cent trente-trois"
+    => "deux cent trente et un"
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
     => "du šimtai trisdešimt vienas"
