@@ -1,6 +1,8 @@
-## 0.11.6 (Next)
+## 0.10.6 (Next)
 
+### Features
   * Your contribution here.
+  * Add option `precision` to `to_words`. \[[#134](https://github.com/kslazarev/numbers_and_words/issues/134)\] \([@neodelf](https://github.com/neodelf)\) \(assignee: [@neodelf](https://github.com/neodelf)\)
 
 ### Bugs
   * Fix README typo for 231 in French. \(assignee: [@poilon](https://github.com/poilon)\)

@@ -1,6 +1,8 @@
 module NumbersAndWords
   module Wrappers
     class Float
+      ZERO_SYMBOL = '0'
+
       attr_accessor :number
 
       def initialize number
@@ -8,6 +10,7 @@ module NumbersAndWords
       end
 
       def to_words options = {}
+        @options = options
         words = []
         words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
@@ -15,6 +18,8 @@ module NumbersAndWords
       end
 
       private
+
+      attr_accessor :options
 
       def parts
         number.to_s.split '.'
@@ -25,7 +30,9 @@ module NumbersAndWords
       end
 
       def fractional_part
-        parts.last
+        part = parts.last
+        part += ZERO_SYMBOL*(precision - part.length) if precision
+        part
       end
 
       def integral_part_with options
@@ -41,11 +48,16 @@ module NumbersAndWords
       end
 
       def fractional_options
-        {:fractional => {:length => fractional_part.length}}
+        length = precision || fractional_part.length
+        {:fractional => {:length => length}}
       end
 
       def fractional_part_is_nil?
         0 == fractional_part.to_i
+      end
+
+      def precision
+        options.fetch(:precision, nil)
       end
     end
   end
