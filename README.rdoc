@@ -250,6 +250,23 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     I18n.with_locale(:ru) { 0.1.to_words precision: 3 }
     => ноль целых и десять сотых
 
+== Locales configuration / Конфигурация локалей
+
+You may optionally set locales you want to work with in your application.
+
+First, add to your Gemfile ("require: false" needed for config to take effect)
+
+  gem 'numbers_and_words', require: false
+
+Then create your configuration in config/initializers/numbers_and_words.rb
+
+  module NumbersAndWords
+    module I18n
+      APP_LOCALES = [:en, :ru]
+    end
+  end
+  require "numbers_and_words"
+
 == Requirements / Требования / Configuration Requise
 
 * 1.9.3 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
