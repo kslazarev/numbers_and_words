@@ -127,6 +127,8 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/options/en_gb/remove_zero.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/hu.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/hu/ordinal.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/nl.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/nl/ordinal.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ru.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ru/gender.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ua.rb",

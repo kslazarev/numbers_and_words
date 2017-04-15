@@ -19,6 +19,16 @@ module NumbersAndWords
               super
             end
           end
+
+          [:zero, :ones, :teens, :tens, :tens_with_ones, :hundreds, :megs].each do |method_name|
+            define_method(method_name) {
+              super({:prefix => maybe_ordinal(method_name)})
+            }
+          end
+
+          def maybe_ordinal type
+            @options.ordinal.result type
+          end
         end
       end
     end
