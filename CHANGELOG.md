@@ -1,5 +1,7 @@
 ## 0.10.6 (Next)
 
+  * Add full support for Brazilian Portuguese. \[[#139](https://github.com/kslazarev/numbers_and_words/pull/139)\]
+
 ### Features
   * Your contribution here.
   * Add option `precision` to `to_words`. \[[#134](https://github.com/kslazarev/numbers_and_words/issues/134)\] \([@neodelf](https://github.com/neodelf)\) \(assignee: [@neodelf](https://github.com/neodelf)\)

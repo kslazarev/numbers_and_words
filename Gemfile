@@ -6,6 +6,7 @@ gem 'activesupport'
 group :development do
   gem 'rake'
   gem 'jeweler'
+  gem 'pry'
 end
 
 group :test do

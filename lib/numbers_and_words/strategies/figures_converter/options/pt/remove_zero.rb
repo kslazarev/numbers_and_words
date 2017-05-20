@@ -2,7 +2,7 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module En
+        module Pt
           class RemoveZero
             attr_accessor :strategy, :options
 

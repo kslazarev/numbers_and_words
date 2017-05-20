@@ -2,8 +2,8 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module En
-          class RemoveZero
+        module Pt
+          class Gender
             attr_accessor :strategy, :options
 
             def initialize proxy, *args, &block
@@ -12,13 +12,14 @@ module NumbersAndWords
             end
 
             def result
-              active?
+              gender = active? ? @options[:gender].to_sym : :male
+              [:male, :female].include?(gender) ? gender : :male
             end
 
             private
 
             def active?
-              @options[:remove_zero]
+              @options[:gender]
             end
           end
         end
