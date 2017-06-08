@@ -2,7 +2,7 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Pt
+        module PtBr
           class Integral < Base
             def run
               "#{super}#{integral_significance}"

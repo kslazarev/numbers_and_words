@@ -1,7 +1,7 @@
 module NumbersAndWords
   module I18n
     module Plurals
-      module Pt
+      module PtBr
         RULE = lambda { |n| one_conditions(n) ? :one : :other }
 
         extend self

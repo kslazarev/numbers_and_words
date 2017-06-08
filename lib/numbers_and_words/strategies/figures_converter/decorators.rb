@@ -2,7 +2,7 @@ require 'numbers_and_words/strategies/figures_converter/decorators/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/en'
 require 'numbers_and_words/strategies/figures_converter/decorators/en_gb'
 require 'numbers_and_words/strategies/figures_converter/decorators/ru'
-require 'numbers_and_words/strategies/figures_converter/decorators/pt'
+require 'numbers_and_words/strategies/figures_converter/decorators/pt_br'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu'
 require 'numbers_and_words/strategies/figures_converter/decorators/ua'
 

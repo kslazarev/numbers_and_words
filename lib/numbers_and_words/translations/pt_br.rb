@@ -1,6 +1,6 @@
 module NumbersAndWords
   module Translations
-    class Pt < Base
+    class PtBr < Base
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
 

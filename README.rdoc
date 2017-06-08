@@ -37,6 +37,7 @@ Converte números em letras utilizando a biblioteca I18n.
 * Swedish** [se]
 * English (British)** [en-GB]
 * Português [pt]
+* Português Brasileiro [pt-BR]
 
 ** Experimental
 
@@ -252,6 +253,13 @@ Converte números em letras utilizando a biblioteca I18n.
 
     I18n.with_locale(:pt) { 2001.to_words gender: :female }
     => "duas mil e uma"
+
+* Brazilian Portuguese
+
+  Change gender form: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:pt) { 1000000001.to_words gender: :female }
+    => "um bilhão e uma"
 
 == Other options / Другие опции
 

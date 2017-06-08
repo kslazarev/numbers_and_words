@@ -2,7 +2,7 @@ module NumbersAndWords
   module Strategies
     module ArrayJoiner
       module Languages
-        class Pt < Base
+        class PtBr < Base
         end
       end
     end

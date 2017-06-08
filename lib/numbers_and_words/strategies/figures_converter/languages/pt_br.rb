@@ -2,7 +2,7 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        class Pt < Base
+        class PtBr < Base
           include Families::Latin
 
           [:teens, :tens, :tens_with_ones].each do |method_name|

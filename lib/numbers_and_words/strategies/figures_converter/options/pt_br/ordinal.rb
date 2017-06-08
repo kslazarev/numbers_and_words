@@ -2,24 +2,21 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module Pt
-          class Gender
-            attr_accessor :strategy, :options
-
+        module PtBr
+          class Ordinal
             def initialize proxy, *args, &block
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
             def result
-              gender = active? ? @options[:gender].to_sym : :male
-              [:male, :female].include?(gender) ? gender : :male
+              return :ordinal if active?
             end
 
             private
 
             def active?
-              @options[:gender]
+              @options[:ordinal]
             end
           end
         end
