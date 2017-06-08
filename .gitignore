@@ -2,4 +2,3 @@ coverage
 pkg
 Gemfile.lock
 .bundle
-.idea
