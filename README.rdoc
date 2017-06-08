@@ -247,18 +247,11 @@ Converte números em letras utilizando a biblioteca I18n.
     I18n.with_locale(:hu) { 21.to_words ordinal: true }
     => "huszonegyedik"
 
-* Portuguese
-
-  Change gender form: (gender: [:female || :male || :neuter])
-
-    I18n.with_locale(:pt) { 2001.to_words gender: :female }
-    => "duas mil e uma"
-
 * Brazilian Portuguese
 
   Change gender form: (gender: [:female || :male || :neuter])
 
-    I18n.with_locale(:pt) { 1000000001.to_words gender: :female }
+    I18n.with_locale(:'pt-BR') { 1000000001.to_words gender: :female }
     => "um bilhão e uma"
 
 == Other options / Другие опции
