@@ -11,7 +11,7 @@ to_words:
     21.77: vinte e um inteiros e setenta e sete centésimos
     111.999: cento e onze inteiros e novecentos e noventa e nove milésimos
     0.0001: zero inteiros e um décimo de milésimo
-    0.2935174315119: zero inteiros e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove décimos de trilionésimo
+    0.2935174315119: zero inteiros e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove décimos de trilionésimo
     4242.7463: quatro mil duzentos e quarenta e dois inteiros e sete mil quatrocentos e sessenta e três décimos de milésimos
   fractions_without_zero:
     options:

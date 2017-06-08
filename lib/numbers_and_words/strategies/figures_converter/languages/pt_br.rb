@@ -85,8 +85,7 @@ module NumbersAndWords
           end
 
           def is_without_connector?
-            return false unless @current_capacity == 1
-            return false if figures.number_in_capacity(@current_capacity) > 9
+            return false if is_with_comma?
             # without connector when there is hundreds and tens_with_ones
             return true if figures.hundreds and figures.tens_with_ones
             # without connector when there is hundreds and tens

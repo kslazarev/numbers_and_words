@@ -43,17 +43,18 @@ to_words:
     21000: vinte e um mil
     21001: vinte e um mil e um
     999000: novecentos e noventa e nove mil
-    999999: novecentos e noventa e nove mil e novecentos e noventa e nove
+    999999: novecentos e noventa e nove mil novecentos e noventa e nove
   millions:
     1000000: um milhão
     1000001: um milhão e um
     2000000: dois milhões
     4000000: quatro milhões
     5000000: cinco milhões
+    9999999: nove milhões, novecentos e noventa e nove mil novecentos e noventa e nove
     999000000: novecentos e noventa e nove milhões
     999000999: novecentos e noventa e nove milhões, novecentos e noventa e nove
     999999000: novecentos e noventa e nove milhões, novecentos e noventa e nove mil
-    999999999: novecentos e noventa e nove milhões, novecentos e noventa e nove mil e novecentos e noventa e nove
+    999999999: novecentos e noventa e nove milhões, novecentos e noventa e nove mil novecentos e noventa e nove
   billions:
     1000000001: um bilhão e um
     1000000021: um bilhão, vinte e um
@@ -65,18 +66,18 @@ to_words:
     1000000040: um bilhão e quarenta
     1000100000: um bilhão e cem mil
     1000000101: um bilhão, cento e um
-    1174315110: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dez
-    1174315119: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
-    15174315119: quinze bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
-    35174315119: trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
-    935174315119: novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
+    1174315110: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil cento e dez
+    1174315119: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    15174315119: quinze bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    35174315119: trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    935174315119: novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
   trillions:
-    2935174315119: dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
+    2935174315119: dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
     1001000000000: um trilhão e um bilhão
     1000000000104: um trilhão, cento e quatro
     1_000_000_000_104: um trilhão, cento e quatro
   quadrillions:
-    5492935174315119: cinco quadrilhões, quatrocentos e noventa e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil e cento e dezenove
+    5492935174315119: cinco quadrilhões, quatrocentos e noventa e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
   "female gender":
     options:
       :gender: female
@@ -86,7 +87,7 @@ to_words:
     1900: mil e novecentas
     1801: mil oitocentas e uma
     2972: duas mil novecentas e setenta e duas
-    200202: duzentas mil e duzentas e duas
+    200202: duzentas mil duzentas e duas
     1000000001: um bilhão e uma
   "male gender":
     options:
@@ -98,10 +99,10 @@ to_words:
     1801: mil oitocentos e um
     1945: mil novecentos e quarenta e cinco
     2972: dois mil novecentos e setenta e dois
-    200202: duzentos mil e duzentos e dois
+    200202: duzentos mil duzentos e dois
     1000000001: um bilhão e um
   commas:
-    1023945: um milhão, vinte e três mil e novecentos e quarenta e cinco
+    1023945: um milhão, vinte e três mil novecentos e quarenta e cinco
     101234021: cento e um milhões, duzentos e trinta e quatro mil e vinte e um
   ordinals:
     options:
