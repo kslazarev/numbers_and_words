@@ -16,6 +16,8 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 I18n kütüphanesi ile sayıları yazıya çevirir.
 
+Converte números em letras utilizando a biblioteca I18n.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English [en]
@@ -34,6 +36,8 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 * Nederlands** [nl]
 * Swedish** [se]
 * English (British)** [en-GB]
+* Português [pt]
+* Português Brasileiro [pt-BR]
 
 ** Experimental
 
@@ -90,6 +94,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "ventiuno"
     => "éénentwintig"
     => "tjugo-en"
+    => "vinte e um"
 
     231.to_words
     => "two hundred thirty-one"
@@ -107,6 +112,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "2 cento trentauno"
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
+    => "duzentos e trinta e um"
 
     4030.to_words
     => "four thousand thirty"
@@ -240,6 +246,13 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 
     I18n.with_locale(:hu) { 21.to_words ordinal: true }
     => "huszonegyedik"
+
+* Brazilian Portuguese
+
+  Change gender form: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:'pt-BR') { 1000000001.to_words gender: :female }
+    => "um bilhão e uma"
 
 == Other options / Другие опции
 

@@ -23,6 +23,19 @@ module NumbersAndWords
         figures_array_in_capacity(capacity).reverse.join.to_i
       end
 
+      def number_under_capacity capacity
+        figures_array_under_capacity(capacity).reverse.join.to_i
+      end
+
+      def is_opaque? capacity
+        figures_under = figures_array_under_capacity(capacity)
+        figures_under.count(0) == figures_under.length
+      end
+
+      def figures_array_under_capacity capacity
+        self[0..(capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT]
+      end
+
       def ones
         self[0].to_i if 0 < self[0].to_i
       end

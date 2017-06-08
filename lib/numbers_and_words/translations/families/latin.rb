@@ -4,8 +4,6 @@ module NumbersAndWords
       module Latin
         include NumbersAndWords::Translations::Families::Base
 
-        #private
-
         def ones number, options = {}
           t([options[:prefix], :ones].join('.'))[number]
         end

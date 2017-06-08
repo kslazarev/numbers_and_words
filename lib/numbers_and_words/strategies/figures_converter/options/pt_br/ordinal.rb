@@ -2,23 +2,21 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Options
-        module En
-          class RemoveZero
-            attr_accessor :strategy, :options
-
+        module PtBr
+          class Ordinal
             def initialize proxy, *args, &block
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
             def result
-              active?
+              return :ordinal if active?
             end
 
             private
 
             def active?
-              @options[:remove_zero]
+              @options[:ordinal]
             end
           end
         end

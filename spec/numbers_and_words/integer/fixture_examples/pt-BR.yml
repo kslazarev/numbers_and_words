@@ -1,0 +1,135 @@
+to_words:
+  ones:
+    0: zero
+    1: um
+    9: nove
+  teens:
+    10: dez
+    11: onze
+    19: dezenove
+    20: vinte
+    21: vinte e um
+    80: oitenta
+    90: noventa
+    99: noventa e nove
+  hundreds:
+    100: cem
+    101: cento e um
+    111: cento e onze
+    120: cento e vinte
+    121: cento e vinte e um
+    151: cento e cinquenta e um
+    800: oitocentos
+    900: novecentos
+    909: novecentos e nove
+    919: novecentos e dezenove
+    990: novecentos e noventa
+    999: novecentos e noventa e nove
+  thousands:
+    1000: mil
+    1800: mil e oitocentos
+    1880: mil oitocentos e oitenta
+    1881: mil oitocentos e oitenta e um
+    2000: dois mil
+    2800: dois mil e oitocentos
+    2880: dois mil oitocentos e oitenta
+    2801: dois mil oitocentos e um
+    2017: dois mil e dezessete
+    2045: dois mil e quarenta e cinco
+    4000: quatro mil
+    5000: cinco mil
+    5002: cinco mil e dois
+    11000: onze mil
+    21000: vinte e um mil
+    21001: vinte e um mil e um
+    999000: novecentos e noventa e nove mil
+    999999: novecentos e noventa e nove mil novecentos e noventa e nove
+  millions:
+    1000000: um milhão
+    1000001: um milhão e um
+    2000000: dois milhões
+    4000000: quatro milhões
+    5000000: cinco milhões
+    9999999: nove milhões, novecentos e noventa e nove mil novecentos e noventa e nove
+    999000000: novecentos e noventa e nove milhões
+    999000999: novecentos e noventa e nove milhões, novecentos e noventa e nove
+    999999000: novecentos e noventa e nove milhões, novecentos e noventa e nove mil
+    999999999: novecentos e noventa e nove milhões, novecentos e noventa e nove mil novecentos e noventa e nove
+  billions:
+    1000000001: um bilhão e um
+    1000000021: um bilhão, vinte e um
+    1000000040: um bilhão e quarenta
+    1000000100: um bilhão e cem
+    1000000200: um bilhão e duzentos
+    1000000201: um bilhão, duzentos e um
+    1000001000: um bilhão e mil
+    1000000040: um bilhão e quarenta
+    1000100000: um bilhão e cem mil
+    1000000101: um bilhão, cento e um
+    1174315110: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil cento e dez
+    1174315119: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    15174315119: quinze bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    35174315119: trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    935174315119: novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+  trillions:
+    2935174315119: dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+    1001000000000: um trilhão e um bilhão
+    1000000000104: um trilhão, cento e quatro
+    1_000_000_000_104: um trilhão, cento e quatro
+  quadrillions:
+    5492935174315119: cinco quadrilhões, quatrocentos e noventa e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
+  "female gender":
+    options:
+      :gender: female
+    1: uma
+    2: duas
+    4: quatro
+    1900: mil e novecentas
+    1801: mil oitocentas e uma
+    2972: duas mil novecentas e setenta e duas
+    200202: duzentas mil duzentas e duas
+    1000000001: um bilhão e uma
+  "male gender":
+    options:
+      :gender: male
+    1: um
+    2: dois
+    4: quatro
+    1900: mil e novecentos
+    1801: mil oitocentos e um
+    1945: mil novecentos e quarenta e cinco
+    2972: dois mil novecentos e setenta e dois
+    200202: duzentos mil duzentos e dois
+    1000000001: um bilhão e um
+  commas:
+    1023945: um milhão, vinte e três mil novecentos e quarenta e cinco
+    101234021: cento e um milhões, duzentos e trinta e quatro mil e vinte e um
+  ordinals:
+    options:
+      :ordinal: true
+    1: primeiro
+    3: terceiro
+    8: oitavo
+    15: décimo quinto
+    18: décimo oitavo
+    20: vigésimo
+    46: quadragésimo sexto
+    100: centésimo
+    101: centésimo primeiro
+    193: centésimo nonagésimo terceiro
+    477: quadringentésimo septuagésimo sétimo
+    1000: milésimo
+    4013: quarto milésimo décimo terceiro
+    4907: quarto milésimo noningentésimo sétimo
+    10000: décimo milésimo
+  "female ordinals":
+    options:
+      :ordinal: true
+      :gender: female
+    2: segunda
+    3: terceira
+    8: oitava
+    18: décima oitava
+    100: centésima
+    9999: nona milésima noningentésima nonagésima nona
+    73421: septuagésima terceira milésima quadringentésima vigésima primeira

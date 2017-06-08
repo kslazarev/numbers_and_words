@@ -1,0 +1,92 @@
+pt-BR:
+  numbers:
+    union: e
+    union_separator: e
+    integral:
+      one: inteiro
+      other: inteiros
+    ones:
+      male: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
+      female: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
+    ones_twenties: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
+    one: um
+    teens: [dez, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
+    tens: [zero, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
+    hundreds:
+      male: [cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
+      female: [cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
+    one_hundred: cem
+    mega: [_, mil, milhão, bilhão, trilhão, quadrilhão, quintilhão, sextilhão, septilhão, octilhão, nonilhão, decilhão]
+    megas: [_, mil, milhões, bilhões, trilhões, quadrilhões, quintilhões, sextilhões, septilhões, octilhões, nonilhões, decilhões]
+    ordinal:
+      ones:
+        male: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
+        female: [zera, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
+      tens:
+        male: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
+        female: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
+      hundreds:
+        male: [centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
+        female: [centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
+      mega:
+        male: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, sextilionésimo, septilionésimo, octilionésimo, nonilionésimo]
+        female: [_, milésima, milionésima, bilionésima, trilionésima, quadrilionésima, sextilionésima, septilionésima, octilionésima, nonilionésima]
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
+    micro_prefix:
+      tens:
+        one: décimo
+        other: décimos
+      hundreds:
+        one: centésimo
+        other: centésimos
+    tenths:
+      one: décimo
+      other: décimos
+    hundredths:
+      one: centésimo
+      other: centésimos
+    thousandths:
+      one: milésimo
+      other: milésimos
+    millionths:
+      one: milionésimo
+      other: milionésimos
+    billionths:
+      one: bilionésimo
+      other: bilionésimos
+    trillionths:
+      one: trilionésimo
+      other: trilionésimo
+    quadrillionths:
+      one: quadrilionésimo
+      other: quadrilionésimos
+    quintillionths:
+      one: quintilionésimo
+      other: quintilionésimos
+    sextillionths:
+      one: sextilionésimo
+      other: sextilionésimos
+    septillionths:
+      one: septilionésimo
+      other: septilionésimos
+    octillionths:
+      one: octilionésimo
+      other: octilionésimos
+    nonillionths:
+      one: nonilionésimo
+      other: nonilionésimos
+    decillionths:
+      one: decilionésimo
+      other: decilionésimos
+    undecillionths:
+      one: undecilionésimo
+      other: undecilionésimos
+    duodecillion:
+      one: duodecilionésimo
+      other: duodecilionésimos
+    tredecillion:
+      one: trecentilionésimo
+      other: trecentilionésimos
+    quattuordecillion:
+      one: quadringentilionésimo
+      other: quadringentilionésimos
