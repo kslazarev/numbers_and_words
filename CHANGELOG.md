@@ -4,6 +4,8 @@
 
 ### Features
   * Your contribution here.
+  * Set particular locales for application. \[[#135](https://github.com/kslazarev/numbers_and_words/issues/135)\] \([@seniorihor](https://github.com/seniorihor)\) \(assignee: [@seniorihor](https://github.com/seniorihor)\)
+
   * Add option `precision` to `to_words`. \[[#134](https://github.com/kslazarev/numbers_and_words/issues/134)\] \([@neodelf](https://github.com/neodelf)\) \(assignee: [@neodelf](https://github.com/neodelf)\)
 
 ### Bugs
