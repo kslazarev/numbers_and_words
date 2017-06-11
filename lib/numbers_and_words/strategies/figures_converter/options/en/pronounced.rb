@@ -35,7 +35,7 @@ module NumbersAndWords
             end
 
             def handle_thousands language, figures
-              units, tens, hundreds, thousands = *figures.to_a.dup
+              _units, _tens, hundreds, thousands = *figures.to_a.dup
               if hundreds == 0
                 language.number_without_capacity_to_words + language.complex_number_to_words
               else
@@ -45,7 +45,7 @@ module NumbersAndWords
             end
 
             def handle_hundreds language, figures
-              units, tens, hundreds = *figures.to_a.dup
+              _units, _tens, hundreds = *figures.to_a.dup
               result = tens_with_oh language, figures
               result.push hundreds.to_words
             end
