@@ -8,7 +8,7 @@ module NumbersAndWords
           end
 
           def union_element
-            @elements.first.blank? ? "#{union_separator} " : super
+            @elements.first.empty? ? "#{union_separator} " : super
           end
         end
       end
