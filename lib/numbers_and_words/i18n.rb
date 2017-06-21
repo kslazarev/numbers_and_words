@@ -19,7 +19,7 @@ module NumbersAndWords
     end
 
     def language_class_name
-      ::I18n.locale.to_s.titleize.gsub ' ', ''
+      ::I18n.locale.to_s.split('-').collect(&:capitalize).join
     end
 
     def locale_files

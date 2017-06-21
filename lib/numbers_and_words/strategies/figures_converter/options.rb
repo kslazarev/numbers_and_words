@@ -1,7 +1,7 @@
 require 'numbers_and_words/strategies/figures_converter/options/en'
-require 'numbers_and_words/strategies/figures_converter/options/en_gb'
+require 'numbers_and_words/strategies/figures_converter/options/en-GB'
 require 'numbers_and_words/strategies/figures_converter/options/ru'
-require 'numbers_and_words/strategies/figures_converter/options/pt_br'
+require 'numbers_and_words/strategies/figures_converter/options/pt-BR'
 require 'numbers_and_words/strategies/figures_converter/options/ua'
 require 'numbers_and_words/strategies/figures_converter/options/hu'
 
@@ -18,7 +18,7 @@ module NumbersAndWords
           end
 
           def method_missing method_name, *args, &block
-            proxy_class_name(method_name).constantize.new self, args, block
+            Object.const_get(proxy_class_name(method_name)).new self, args, block
           rescue NameError
             return nil
           end
@@ -26,7 +26,7 @@ module NumbersAndWords
           private
 
           def proxy_class_name method_name
-            "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.camelcase}"
+            "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
 
           def module_name

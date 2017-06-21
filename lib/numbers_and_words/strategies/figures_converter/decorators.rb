@@ -1,8 +1,8 @@
 require 'numbers_and_words/strategies/figures_converter/decorators/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/en'
-require 'numbers_and_words/strategies/figures_converter/decorators/en_gb'
+require 'numbers_and_words/strategies/figures_converter/decorators/en-GB'
 require 'numbers_and_words/strategies/figures_converter/decorators/ru'
-require 'numbers_and_words/strategies/figures_converter/decorators/pt_br'
+require 'numbers_and_words/strategies/figures_converter/decorators/pt-BR'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu'
 require 'numbers_and_words/strategies/figures_converter/decorators/ua'
 
@@ -24,11 +24,11 @@ module NumbersAndWords
           end
 
           def decorator_class method_name
-            method_name ? decorator_class_name(method_name).constantize : Decorators::Base
+            method_name ? Object.const_get(decorator_class_name(method_name)) : Decorators::Base
           end
 
           def decorator_class_name method_name
-            "#{name}::#{I18n.language_class_name}::#{method_name.to_s.camelcase}"
+            "#{name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
         end
       end

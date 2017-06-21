@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'activesupport'
 gem 'i18n'
 
 group :development do

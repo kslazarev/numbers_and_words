@@ -1,3 +1,3 @@
 module NumbersAndWords
-  VERSION = '0.10.6'
+  VERSION = '0.11.0'
 end
