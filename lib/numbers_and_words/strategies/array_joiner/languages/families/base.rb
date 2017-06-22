@@ -4,7 +4,6 @@ module NumbersAndWords
       module Languages
         module Families
           module Base
-
             def elements_logic
               @elements.first.empty? ? @elements.last : @elements.join(union_element)
             end

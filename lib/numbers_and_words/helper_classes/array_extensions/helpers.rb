@@ -12,40 +12,40 @@ module NumbersAndWords
 
       def capacity_count
         count = capacity_length / FIGURES_IN_CAPACITY
-        0 == count ? nil : count
+        count == 0 ? nil : count
       end
 
-      def figures_array_in_capacity capacity
+      def figures_array_in_capacity(capacity)
         self[capacity * FIGURES_IN_CAPACITY, FIGURES_IN_CAPACITY]
       end
 
-      def number_in_capacity capacity
+      def number_in_capacity(capacity)
         figures_array_in_capacity(capacity).reverse.join.to_i
       end
 
-      def number_under_capacity capacity
+      def number_under_capacity(capacity)
         figures_array_under_capacity(capacity).reverse.join.to_i
       end
 
-      def is_opaque? capacity
+      def is_opaque?(capacity)
         figures_under = figures_array_under_capacity(capacity)
         figures_under.count(0) == figures_under.length
       end
 
-      def figures_array_under_capacity capacity
+      def figures_array_under_capacity(capacity)
         self[0..(capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT]
       end
 
       def ones
-        self[0].to_i if 0 < self[0].to_i
+        self[0].to_i if self[0].to_i > 0
       end
 
       def teens
-        tens_with_ones if 1 == tens
+        tens_with_ones if tens == 1
       end
 
       def tens
-        self[1].to_i if self[1] && 0 < self[1].to_i
+        self[1].to_i if self[1] && self[1].to_i > 0
       end
 
       def tens_with_ones
@@ -53,7 +53,7 @@ module NumbersAndWords
       end
 
       def hundreds
-        self[2].to_i if 0 < self[2].to_i
+        self[2].to_i if self[2].to_i > 0
       end
 
       def round_hundred?
@@ -82,9 +82,8 @@ module NumbersAndWords
 
       def ordinal_capacity
         count = ordinal_index / FIGURES_IN_CAPACITY
-        0 == count ? nil : count
+        count == 0 ? nil : count
       end
     end
   end
 end
-

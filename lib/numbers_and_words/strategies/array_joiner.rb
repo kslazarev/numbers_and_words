@@ -4,10 +4,9 @@ module NumbersAndWords
   module Strategies
     module ArrayJoiner
       class Base
-
         attr_accessor :options, :elements, :translations, :language
 
-        def initialize elements, options = {}
+        def initialize(elements, options = {})
           @elements = elements
           @options = options
           @translations = Translations.factory

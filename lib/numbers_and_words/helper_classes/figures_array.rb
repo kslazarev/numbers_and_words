@@ -6,7 +6,7 @@ module NumbersAndWords
     include ArrayExtensions::Helpers
     include ArrayExtensions::Validations
 
-    def to_words options = {}
+    def to_words(options = {})
       validate_figure_array!
       local_language { Strategies.figures_converter.new(self, options).run }
     end

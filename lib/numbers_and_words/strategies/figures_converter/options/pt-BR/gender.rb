@@ -6,14 +6,14 @@ module NumbersAndWords
           class Gender
             attr_accessor :strategy, :options
 
-            def initialize proxy, *args, &block
+            def initialize(proxy, *_args)
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
             def result
               gender = active? ? @options[:gender].to_sym : :male
-              [:male, :female].include?(gender) ? gender : :male
+              %i[male female].include?(gender) ? gender : :male
             end
 
             private

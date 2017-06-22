@@ -5,10 +5,10 @@ module NumbersAndWords
         class PtBr < Base
           include Families::Latin
 
-          [:teens, :tens, :tens_with_ones].each do |method_name|
-            define_method(method_name) {
+          %i[teens tens tens_with_ones].each do |method_name|
+            define_method(method_name) do
               super(internal_options)
-            }
+            end
           end
 
           def zero
@@ -20,7 +20,7 @@ module NumbersAndWords
           end
 
           def complex_number_to_words
-            super.reject { |x| x.nil? }
+            super.reject(&:nil?)
           end
 
           def capacity_iteration
@@ -31,26 +31,24 @@ module NumbersAndWords
           end
 
           def ones
-            super internal_options.merge({:is_one_thousand => is_one_thousand?})
+            super internal_options.merge(is_one_thousand: is_one_thousand?)
           end
 
           def hundreds
-            super(internal_options.merge({:is_hundred => is_hundred?, :is_one_hundred => is_one_hundred?, :gender => gender}))
+            super(internal_options.merge(is_hundred: is_hundred?, is_one_hundred: is_one_hundred?, gender: gender))
           end
 
           def megs
-            super(internal_options.merge({
-              :is_one => words_in_capacity(current_capacity) == [translations.ones(1, internal_options)],
-              :is_opaque => is_opaque?,
-              :is_without_connector => is_without_connector?,
-              :is_with_comma => is_with_comma?
-            }))
+            super(internal_options.merge(is_one: words_in_capacity(current_capacity) == [translations.ones(1, internal_options)],
+                                         is_opaque: is_opaque?,
+                                         is_without_connector: is_without_connector?,
+                                         is_with_comma: is_with_comma?))
           end
 
           private
 
           def internal_options
-            {:gender => gender, :prefix => maybe_ordinal}
+            { gender: gender, prefix: maybe_ordinal }
           end
 
           def maybe_ordinal
@@ -87,11 +85,11 @@ module NumbersAndWords
           def is_without_connector?
             return false if is_with_comma?
             # without connector when there is hundreds and tens_with_ones
-            return true if figures.hundreds and figures.tens_with_ones
+            return true if figures.hundreds && figures.tens_with_ones
             # without connector when there is hundreds and tens
-            return true if figures.hundreds and figures.tens
+            return true if figures.hundreds && figures.tens
             # without connector when there is hundreds and ones
-            return true if figures.hundreds and figures.ones
+            return true if figures.hundreds && figures.ones
             false
           end
 

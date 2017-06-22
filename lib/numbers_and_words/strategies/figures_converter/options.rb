@@ -12,12 +12,12 @@ module NumbersAndWords
         class Proxy
           attr_accessor :strategy, :options
 
-          def initialize strategy, options
+          def initialize(strategy, options)
             @strategy = strategy
             @options = options
           end
 
-          def method_missing method_name, *args, &block
+          def method_missing(method_name, *args, &block)
             Object.const_get(proxy_class_name(method_name)).new self, args, block
           rescue NameError
             return nil
@@ -25,7 +25,7 @@ module NumbersAndWords
 
           private
 
-          def proxy_class_name method_name
+          def proxy_class_name(method_name)
             "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
 

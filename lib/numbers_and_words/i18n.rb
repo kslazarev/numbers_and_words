@@ -9,7 +9,7 @@ module NumbersAndWords
       @languages ||= (locale_files.map { |path| path.split(/[\/.]/)[-2].to_sym })
     end
 
-    def local_language locale = ::I18n.locale
+    def local_language(locale = ::I18n.locale)
       if languages.include?(locale)
         locale
       else
@@ -26,7 +26,7 @@ module NumbersAndWords
       files 'locales', '*.*'
     end
 
-    def files directory, ext
+    def files(directory, ext)
       Dir[File.join File.dirname(__FILE__), "i18n/#{directory}", "**/#{ext}"]
     end
   end
