@@ -11,18 +11,12 @@ module NumbersAndWords
               @options = proxy.options
             end
 
-            def result
-              active? ? 'PRONOUNCED' : 'NOTPRONOUNCED'
-            end
-
             def active?
               @options[:pronounced]
             end
 
             def process(language, figures)
-              if figures.to_a.size > 4
-                language.number_without_capacity_to_words + language.complex_number_to_words
-              elsif figures.capacity_count
+              if figures.capacity_count
                 handle_thousands language, figures
               elsif figures.hundreds
                 handle_hundreds language, figures
