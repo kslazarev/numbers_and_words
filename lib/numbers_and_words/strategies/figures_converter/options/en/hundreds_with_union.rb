@@ -6,12 +6,12 @@ module NumbersAndWords
           class HundredsWithUnion
             attr_accessor :strategy, :options
 
-            def initialize proxy, *args, &block
+            def initialize(proxy, *_args)
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
-            def modify_or_leave hundreds
+            def modify_or_leave(hundreds)
               hundreds = "#{hundreds} #{translations.union}" if active? && !round_hundred?
               hundreds
             end

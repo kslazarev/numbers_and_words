@@ -11,12 +11,12 @@ module NumbersAndWords
             words = []
             capacity_words = words_in_capacity(@current_capacity)
             words.push(megs) unless capacity_words.empty?
-            words += capacity_words unless is_a_thousand? and is_a_one?
+            words += capacity_words unless is_a_thousand? && is_a_one?
             words
           end
 
           def is_a_one?
-            [translations.ones(1)] == words_in_capacity(@current_capacity)
+            words_in_capacity(@current_capacity) == [translations.ones(1)]
           end
 
           def is_a_thousand?
@@ -24,15 +24,13 @@ module NumbersAndWords
           end
 
           def hundreds
-            super({only_hundreds: figures[0, 2] == [0, 0]})
+            super({ only_hundreds: figures[0, 2] == [0, 0] })
           end
 
           def megs
-            if @figures.hundreds || @figures.tens || @figures.ones
-              prefix = :partials
-            else
-              prefix = nil
-            end
+            prefix = if @figures.hundreds || @figures.tens || @figures.ones
+                       :partials
+                     end
 
             super(prefix: prefix)
           end

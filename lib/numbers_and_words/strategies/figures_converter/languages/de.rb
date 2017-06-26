@@ -6,7 +6,7 @@ module NumbersAndWords
           include Families::Latin
 
           def print_words
-            1 < complex_part.count ? print_megs_words : @strings.flatten.reverse.join('')
+            complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join('')
           end
 
           def print_megs_words
@@ -14,14 +14,14 @@ module NumbersAndWords
           end
 
           def complex_number_to_words
-            (1..@figures.capacity_count).map { |capacity|
+            (1..@figures.capacity_count).map do |capacity|
               @current_capacity = capacity
               capacity_iteration
-            }
+            end
           end
 
           def ones
-            super(:postfix => postfix)
+            super(postfix: postfix)
           end
 
           def postfix
@@ -33,15 +33,15 @@ module NumbersAndWords
           end
 
           def megs
-            super({:number => @figures.number_in_capacity(@current_capacity)})
+            super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
           private
 
           def print_megs
-            complex_part[1..-1].map { |el|
+            complex_part[1..-1].map do |el|
               [el[1..-1].to_a.reverse.join(''), el.first].join(' ')
-            }.reject(&:empty?).reverse.join(' ')
+            end.reject(&:empty?).reverse.join(' ')
           end
 
           def print_other
@@ -53,7 +53,7 @@ module NumbersAndWords
           end
 
           def simple_part
-            @strings.select { |f| !f.is_a?(Array) }
+            @strings.reject { |f| f.is_a?(Array) }
           end
 
           def complex_part

@@ -23,7 +23,7 @@ module NumbersAndWords
 
       def tens(numbers, options = {})
         options[:alone] = true if options[:alone].nil?
-        (numbers == TENS_CASE && options[:alone]) ? t(:twenty) : super(numbers)
+        numbers == TENS_CASE && options[:alone] ? t(:twenty) : super(numbers)
       end
 
       def tens_with_ones(numbers, _options = {})

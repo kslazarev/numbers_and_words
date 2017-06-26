@@ -13,7 +13,7 @@ module NumbersAndWords
                 number_without_capacity_to_words + complex_number_to_words
               elsif @figures.hundreds
                 hundreds_number_to_words
-              elsif @figures.tens or @figures.ones
+              elsif @figures.tens || @figures.ones
                 simple_number_to_words
               else
                 []
@@ -21,10 +21,10 @@ module NumbersAndWords
             end
 
             def complex_number_to_words
-              (1..@figures.capacity_count).map { |capacity|
+              (1..@figures.capacity_count).map do |capacity|
                 @current_capacity = capacity
                 capacity_iteration
-              }.flatten
+              end.flatten
             end
 
             def capacity_iteration
@@ -34,14 +34,14 @@ module NumbersAndWords
               words + capacity_words
             end
 
-            def words_in_capacity capacity = 0
+            def words_in_capacity(capacity = 0)
               save_parent_figures do
                 @figures = @parent_figures.figures_array_in_capacity(capacity)
                 strings_logic
               end
             end
 
-            alias_method :number_without_capacity_to_words, :words_in_capacity
+            alias number_without_capacity_to_words words_in_capacity
 
             def hundreds_number_to_words
               simple_number_to_words + [hundreds]

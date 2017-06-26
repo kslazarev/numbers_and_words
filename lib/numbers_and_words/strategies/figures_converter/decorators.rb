@@ -11,23 +11,23 @@ module NumbersAndWords
     module FiguresConverter
       module Decorators
         class << self
-          AVAILABLE = [:integral, :fractional]
+          AVAILABLE = %i[integral fractional].freeze
 
-          def factory strategy, options
+          def factory(strategy, options)
             enabled_decorator(options).new strategy, options
           end
 
           private
 
-          def enabled_decorator options
-            decorator_class AVAILABLE.select { |name| !options[name].nil? }.first
+          def enabled_decorator(options)
+            decorator_class AVAILABLE.reject { |name| options[name].nil? }.first
           end
 
-          def decorator_class method_name
+          def decorator_class(method_name)
             method_name ? Object.const_get(decorator_class_name(method_name)) : Decorators::Base
           end
 
-          def decorator_class_name method_name
+          def decorator_class_name(method_name)
             "#{name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
         end

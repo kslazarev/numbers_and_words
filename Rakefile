@@ -30,10 +30,12 @@ Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
-RSpec::Core::RakeTask.new(:spec) { |spec| spec.pattern = FileList['spec/**/*_spec.rb'] }
+RuboCop::RakeTask.new
+RSpec::Core::RakeTask.new(:spec) { |t| t.ruby_opts = '-w' }
 
-task :default => :spec
+task default: %i[rubocop spec]
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|

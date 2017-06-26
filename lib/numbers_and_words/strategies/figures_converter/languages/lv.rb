@@ -16,11 +16,11 @@ module NumbersAndWords
           end
 
           def hundreds
-            super({:is_hundred => (figures[1,2] == [0,1] && simple_number_to_words.empty?)})
+            super({ is_hundred: (figures[1, 2] == [0, 1] && simple_number_to_words.empty?) })
           end
 
           def megs
-            super({:number => @figures.number_in_capacity(@current_capacity)})
+            super({ number: @figures.number_in_capacity(@current_capacity) })
           end
         end
       end

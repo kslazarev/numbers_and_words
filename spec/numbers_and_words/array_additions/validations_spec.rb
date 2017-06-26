@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-#describe NumbersAndWords::ArrayAdditions::Validations do
+# describe NumbersAndWords::ArrayAdditions::Validations do
 #  def figures str
 #    str.split(//).tap { |a| a.extend described_class }
 #  end
@@ -24,4 +24,4 @@ require 'spec_helper'
 #  it "invalidates multiple dots" do
 #    expect { validate_figures "1.2.3" }.to raise_error("Figures may contain only 1 `.` (2 found).")
 #  end
-#end
+# end

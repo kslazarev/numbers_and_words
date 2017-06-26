@@ -4,7 +4,6 @@ module NumbersAndWords
       module Decorators
         module Ua
           class Integral < Base
-
             def run
               @options[:gender] = :female
               "#{super} #{integral_significance}"

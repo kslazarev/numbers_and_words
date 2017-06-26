@@ -4,7 +4,6 @@ module NumbersAndWords
       module Decorators
         module Ru
           class Fractional < Base
-
             def run
               @options[:gender] = :female
               "#{super} #{fraction_significance}"
@@ -17,7 +16,7 @@ module NumbersAndWords
             end
 
             def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, el| result.unshift '0' }.to_figures
+              (0..zero_length).inject(figures.clone) { |result, _el| result.unshift '0' }.to_figures
             end
 
             def figures

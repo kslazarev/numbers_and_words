@@ -4,7 +4,6 @@ module NumbersAndWords
       module Decorators
         module PtBr
           class Fractional < Base
-
             def run
               "#{super} #{fraction_significance}"
             end
@@ -16,7 +15,7 @@ module NumbersAndWords
             end
 
             def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, el| result.unshift 0 }.to_figures
+              (0..zero_length).inject(figures.clone) { |result, _el| result.unshift 0 }.to_figures
             end
 
             def figures

@@ -38,7 +38,7 @@ module NumbersAndWords
           private
 
           def one?
-            [@translations.ones(1)] == words_in_capacity(@current_capacity)
+            words_in_capacity(@current_capacity) == [@translations.ones(1)]
           end
 
           def thousand?

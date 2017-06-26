@@ -4,7 +4,7 @@ module NumbersAndWords
       module Options
         module PtBr
           class Ordinal
-            def initialize proxy, *args, &block
+            def initialize(proxy, *_args)
               @strategy = proxy.strategy
               @options = proxy.options
             end

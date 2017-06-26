@@ -7,7 +7,7 @@ module NumbersAndWords
 
           attr_accessor :strategy, :elements, :translations, :strings, :options
 
-          def initialize strategy
+          def initialize(strategy)
             @strategy = strategy
             @elements = strategy.elements
             @translations = strategy.translations

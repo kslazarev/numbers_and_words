@@ -3,11 +3,11 @@ module NumbersAndWords
     class Integer
       attr_accessor :number
 
-      def initialize number
+      def initialize(number)
         @number = number
       end
 
-      def to_words options = {}
+      def to_words(options = {})
         to_figures_array.to_words options
       end
 

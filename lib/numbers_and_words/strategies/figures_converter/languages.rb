@@ -33,7 +33,7 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class << self
-          def factory strategy
+          def factory(strategy)
             Object.const_get("#{name}::#{I18n.language_class_name}").new strategy
           end
         end

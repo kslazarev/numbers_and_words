@@ -1,4 +1,5 @@
 # coding: utf-8
+
 require 'spec_helper'
 require 'shared_examples/correct_fixture_examples'
 
@@ -13,7 +14,6 @@ require 'shared_examples/correct_fixture_examples'
     end
   end
 end
-
 
 [Float].each do |type|
   describe type do

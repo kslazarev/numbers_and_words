@@ -22,7 +22,7 @@ module NumbersAndWords
               number_without_capacity_to_words + complex_number_to_words
             elsif @figures.hundreds
               [hundreds_number_to_words]
-            elsif @figures.tens or @figures.ones
+            elsif @figures.tens || @figures.ones
               [simple_number_to_words]
             else
               []
@@ -31,10 +31,10 @@ module NumbersAndWords
 
           def complex_number_to_words
             count = @figures.capacity_count
-            (1..count).map { |capacity|
+            (1..count).map do |capacity|
               @current_capacity = capacity
               capacity_iteration.flatten
-            }.reject(&:empty?)
+            end.reject(&:empty?)
           end
 
           def simple_number_to_words
@@ -47,13 +47,13 @@ module NumbersAndWords
             end
           end
 
-          [:zero, :ones, :teens, :tens, :tens_with_ones, :hundreds, :megs].each do |method_name|
-            define_method(method_name) {
-              super({:prefix => maybe_ordinal(method_name)})
-            }
+          %i[zero ones teens tens tens_with_ones hundreds megs].each do |method_name|
+            define_method(method_name) do
+              super({ prefix: maybe_ordinal(method_name) })
+            end
           end
 
-          def maybe_ordinal type
+          def maybe_ordinal(type)
             @options.ordinal.result type
           end
         end
