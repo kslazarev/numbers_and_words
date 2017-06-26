@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Kirill Lazarev".freeze]
-  s.date = "2017-06-20"
+  s.date = "2017-06-26"
   s.description = "Convert numbers to words using I18N.".freeze
   s.email = "k.s.lazarev@gmail.com".freeze
   s.extra_rdoc_files = [
