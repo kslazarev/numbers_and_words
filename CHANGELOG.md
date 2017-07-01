@@ -6,7 +6,7 @@
 ## 0.11.0 (June 26, 2017)
 
 ### Features
-  * Remove dependency on `ActiveSupport` gem. \[[#140](https://github.com/kslazarev/numbers_and_words/pull/140)\]
+  * Remove dependency on `ActiveSupport` gem. \[[#141](https://github.com/kslazarev/numbers_and_words/pull/141)\]
 
 ## 0.10.6 (June 11, 2017)
 
