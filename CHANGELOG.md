@@ -1,4 +1,5 @@
 ## 0.11.1 (Next)
+  * Add support for French floating numbers \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
 
 ### Features
   * Your contribution here.

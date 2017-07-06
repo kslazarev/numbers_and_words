@@ -64,6 +64,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/array_joiner/languages/en-GB.rb",
     "lib/numbers_and_words/strategies/array_joiner/languages/en.rb",
     "lib/numbers_and_words/strategies/array_joiner/languages/families/base.rb",
+    "lib/numbers_and_words/strategies/array_joiner/languages/fr.rb",
     "lib/numbers_and_words/strategies/array_joiner/languages/hu.rb",
     "lib/numbers_and_words/strategies/array_joiner/languages/pt-BR.rb",
     "lib/numbers_and_words/strategies/array_joiner/languages/ru.rb",
@@ -79,6 +80,10 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/fractional.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/en/integral.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/fr.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/fr/base.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/fr/fractional.rb",
+    "lib/numbers_and_words/strategies/figures_converter/decorators/fr/integral.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu/base.rb",
     "lib/numbers_and_words/strategies/figures_converter/decorators/hu/fractional.rb",
@@ -194,4 +199,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>.freeze, [">= 0"])
   end
 end
-

@@ -1,0 +1,17 @@
+to_words:
+  fractional:
+    0.1: zéro et un dixième
+    0.7: zéro et sept dixièmes
+    0.01: zéro et un centième
+    0.77: zéro et soixante-dix-sept centièmes
+    0.777: zéro et sept cent soixante-dix-sept millièmes
+    0.7777: zéro et sept mille sept cent soixante-dix-sept dix-millièmes
+    0.77777: zéro et soixante-dix-sept mille sept cent soixante-dix-sept cent-millièmes
+    0.777777: zéro et sept cent soixante-dix-sept mille sept cent soixante-dix-sept millionièmes
+    0.7777777: zéro et sept millions sept cent soixante-dix-sept mille sept cent soixante-dix-sept dix-millionièmes
+    0.77777777: zéro et soixante-dix-sept millions sept cent soixante-dix-sept mille sept cent soixante-dix-sept cent-millionièmes
+    0.777777777: zéro et sept cent soixante-dix-sept millions sept cent soixante-dix-sept mille sept cent soixante-dix-sept milliardièmes
+    0.2935174315119: zéro et deux billions neuf cent trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf dix-billionièmes
+    21.77: vingt et un et soixante-dix-sept centièmes
+    111.999: cent onze et neuf cent quatre-vingt-dix-neuf millièmes
+    4242.7463: quatre mille deux cent quarante-deux et sept mille quatre cent soixante-trois dix-millièmes

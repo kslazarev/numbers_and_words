@@ -2,6 +2,7 @@ module NumbersAndWords
   module Translations
     class Fr < Base
       include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Extensions::FractionSignificance
 
       SPECIAL_TENS_CASE = 8
 
@@ -23,6 +24,13 @@ module NumbersAndWords
         options[:pluralize] = false if options[:pluralize].nil?
         hundreds = t(:hundreds, count: options[:pluralize] ? number : 1)
         number == 1 ? hundreds : [t(:ones)[number], hundreds].join(' ')
+      end
+
+      def micro_prefix(capacity)
+        case capacity
+        when 2 then t(:hundreds, count: 1)
+        when 1 then tens(1)
+        end
       end
     end
   end
