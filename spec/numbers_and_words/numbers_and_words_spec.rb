@@ -17,7 +17,7 @@ end
 
 [Float].each do |type|
   describe type do
-    [:en, 'en-GB', 'pt-BR', :hu, :ru, :ua, :fr].each do |locale|
+    %i[en-GB en es fr hu pt-BR ru ua].each do |locale|
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
