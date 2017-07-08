@@ -1,5 +1,4 @@
 require 'numbers_and_words/helper_classes/array_extensions/helpers'
-require 'numbers_and_words/helper_classes/array_extensions/validations'
 
 module NumbersAndWords
   class WordsArray < Array
