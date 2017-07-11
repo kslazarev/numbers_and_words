@@ -39,6 +39,7 @@ pt-BR:
       hundreds:
         one: centésimo
         other: centésimos
+      separator: de
     tenths:
       one: décimo
       other: décimos

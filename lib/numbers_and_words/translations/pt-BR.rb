@@ -54,10 +54,10 @@ module NumbersAndWords
         (options[:is_one] ? t(:mega)[capacity] : t(:megas)[capacity]) + suffix
       end
 
-      def micros(capacity, number, separator = ' de ')
+      def micros(capacity, number, separator = t('micro_prefix.separator'))
         micro, prefix = capacity
         micros = number ? t(micro(micro), count: number) : micro(micro)
-        [micro_prefix(prefix, number), micros].compact.join separator
+        [micro_prefix(prefix, number), micros].compact.join(" #{separator} ")
       end
 
       def micro_prefix(capacity, number)
