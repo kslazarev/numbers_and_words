@@ -31,18 +31,18 @@ module NumbersAndWords
           end
 
           def ones
-            super internal_options.merge(is_one_thousand: is_one_thousand?)
+            super internal_options.merge(is_one_thousand: one_thousand?)
           end
 
           def hundreds
-            super(internal_options.merge(is_hundred: is_hundred?, is_one_hundred: is_one_hundred?, gender: gender))
+            super(internal_options.merge(is_hundred: hundred?, is_one_hundred: one_hundred?, gender: gender))
           end
 
           def megs
             super(internal_options.merge(is_one: words_in_capacity(current_capacity) == [translations.ones(1, internal_options)],
-                                         is_opaque: is_opaque?,
-                                         is_without_connector: is_without_connector?,
-                                         is_with_comma: is_with_comma?))
+                                         is_opaque: opaque?,
+                                         is_without_connector: without_connector?,
+                                         is_with_comma: with_comma?))
           end
 
           private
@@ -66,24 +66,24 @@ module NumbersAndWords
             end
           end
 
-          def is_hundred?
+          def hundred?
             figures[0] == 0 && figures[1] == 0 && simple_number_to_words.empty?
           end
 
-          def is_one_hundred?
-            is_hundred? && figures[2] == 1
+          def one_hundred?
+            hundred? && figures[2] == 1
           end
 
-          def is_opaque?
-            figures.is_opaque? current_capacity
+          def opaque?
+            figures.opaque? current_capacity
           end
 
-          def is_one_thousand?
+          def one_thousand?
             current_capacity == 1 && figures[0] == 1 && figures.hundreds.nil? && figures.tens.nil?
           end
 
-          def is_without_connector?
-            return false if is_with_comma?
+          def without_connector?
+            return false if with_comma?
             # without connector when there is hundreds and tens_with_ones
             return true if figures.hundreds && figures.tens_with_ones
             # without connector when there is hundreds and tens
@@ -93,7 +93,7 @@ module NumbersAndWords
             false
           end
 
-          def is_with_comma?
+          def with_comma?
             return false unless @current_capacity > 1
             # if any lower capacity is single word, in portuguese only tens are single words
             number_under_capacity = figures.number_under_capacity(@current_capacity)

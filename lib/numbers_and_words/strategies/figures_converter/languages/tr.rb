@@ -11,15 +11,15 @@ module NumbersAndWords
             words = []
             capacity_words = words_in_capacity(@current_capacity)
             words.push(megs) unless capacity_words.empty?
-            words += capacity_words unless is_a_thousand? && is_a_one?
+            words += capacity_words unless thousand? && one?
             words
           end
 
-          def is_a_one?
+          def one?
             words_in_capacity(@current_capacity) == [translations.ones(1)]
           end
 
-          def is_a_thousand?
+          def thousand?
             FiguresArray::THOUSAND_CAPACITY == @current_capacity
           end
         end

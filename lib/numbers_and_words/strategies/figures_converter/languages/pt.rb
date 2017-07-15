@@ -6,7 +6,7 @@ module NumbersAndWords
           include Families::Latin
 
           def hundreds
-            super({ is_hundred: is_hundred?, is_one_hundred: is_one_hundred? })
+            super({ is_hundred: hundred?, is_one_hundred: one_hundred? })
           end
 
           def megs
@@ -15,12 +15,12 @@ module NumbersAndWords
 
           private
 
-          def is_hundred?
+          def hundred?
             figures[0] == 0 && figures[1] == 0 && simple_number_to_words.empty?
           end
 
-          def is_one_hundred?
-            is_hundred? && figures[2] == 1
+          def one_hundred?
+            hundred? && figures[2] == 1
           end
         end
       end
