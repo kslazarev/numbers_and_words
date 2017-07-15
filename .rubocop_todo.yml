@@ -29,11 +29,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 8
 
-# Offense count: 1
-Performance/Caller:
-  Exclude:
-    - 'spec/support/helpers.rb'
-
 # Offense count: 93
 Style/Documentation:
   Enabled: false

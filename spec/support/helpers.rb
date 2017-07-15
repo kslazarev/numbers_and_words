@@ -1,5 +1,5 @@
 def fixture_examples(type, language)
-  caller.first =~ /(.*):(\d+)/
+  caller(1..1).first =~ /(.*):(\d+)/
   dir_name = File.dirname(Regexp.last_match(1))
   fixture_file = "#{language}.yml"
   YAML.safe_load(File.open(
