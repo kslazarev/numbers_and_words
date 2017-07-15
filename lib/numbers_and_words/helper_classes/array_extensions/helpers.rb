@@ -12,7 +12,7 @@ module NumbersAndWords
 
       def capacity_count
         count = capacity_length / FIGURES_IN_CAPACITY
-        count == 0 ? nil : count
+        count.zero? ? nil : count
       end
 
       def figures_array_in_capacity(capacity)
@@ -82,7 +82,7 @@ module NumbersAndWords
 
       def ordinal_capacity
         count = ordinal_index / FIGURES_IN_CAPACITY
-        count == 0 ? nil : count
+        count.zero? ? nil : count
       end
     end
   end

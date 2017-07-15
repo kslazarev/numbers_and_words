@@ -29,7 +29,7 @@ module NumbersAndWords
 
             def handle_thousands(language, figures)
               _units, _tens, hundreds, thousands = *figures.to_a.dup
-              if hundreds == 0
+              if hundreds.zero?
                 language.number_without_capacity_to_words + language.complex_number_to_words
               else
                 result = tens_with_oh language, figures
@@ -46,8 +46,8 @@ module NumbersAndWords
             def tens_with_oh(language, figures)
               units, tens = *figures.to_a.dup
               result = []
-              if tens == 0
-                if units == 0
+              if tens.zero?
+                if units.zero?
                   result.push 'hundred'
                 else
                   result.push language.ones

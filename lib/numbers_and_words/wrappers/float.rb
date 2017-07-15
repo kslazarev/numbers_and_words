@@ -53,7 +53,7 @@ module NumbersAndWords
       end
 
       def fractional_part_is_nil?
-        fractional_part.to_i == 0
+        fractional_part.to_i.zero?
       end
 
       def precision

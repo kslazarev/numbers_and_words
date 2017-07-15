@@ -63,17 +63,3 @@ Style/NestedTernaryOperator:
   Exclude:
     - 'lib/numbers_and_words/i18n/plurals/lt.rb'
     - 'lib/numbers_and_words/i18n/plurals/ru.rb'
-
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, EnforcedStyle, SupportedStyles.
-# SupportedStyles: predicate, comparison
-Style/NumericPredicate:
-  Exclude:
-    - 'spec/**/*'
-    - 'lib/numbers_and_words/helper_classes/array_extensions/helpers.rb'
-    - 'lib/numbers_and_words/i18n/plurals/ru.rb'
-    - 'lib/numbers_and_words/strategies/figures_converter/languages/pt-BR.rb'
-    - 'lib/numbers_and_words/strategies/figures_converter/languages/pt.rb'
-    - 'lib/numbers_and_words/strategies/figures_converter/options/en/pronounced.rb'
-    - 'lib/numbers_and_words/wrappers/float.rb'

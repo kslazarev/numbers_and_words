@@ -67,7 +67,7 @@ module NumbersAndWords
           end
 
           def hundred?
-            figures[0] == 0 && figures[1] == 0 && simple_number_to_words.empty?
+            figures[0].zero? && figures[1].zero? && simple_number_to_words.empty?
           end
 
           def one_hundred?
