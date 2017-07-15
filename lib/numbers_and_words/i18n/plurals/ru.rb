@@ -2,6 +2,8 @@ module NumbersAndWords
   module I18n
     module Plurals
       module Ru
+        module_function
+
         RULE = lambda do |n|
           if one_conditions(n)
             :one
@@ -13,8 +15,6 @@ module NumbersAndWords
             :other
           end
         end
-
-        extend self
 
         def one_conditions(n)
           n % 10 == 1 && n % 100 != 11

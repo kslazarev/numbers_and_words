@@ -3,7 +3,7 @@ require 'numbers_and_words/i18n/initialization'
 
 module NumbersAndWords
   module I18n
-    extend self
+    module_function
 
     def languages
       @languages ||= (locale_files.map { |path| path.split(%r{[/.]})[-2].to_sym })

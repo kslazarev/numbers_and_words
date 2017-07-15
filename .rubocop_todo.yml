@@ -37,17 +37,3 @@ Style/Documentation:
 Style/MethodMissing:
   Exclude:
     - 'lib/numbers_and_words/strategies/figures_converter/options.rb'
-
-# Offense count: 8
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: module_function, extend_self
-Style/ModuleFunction:
-  Exclude:
-    - 'lib/numbers_and_words/i18n.rb'
-    - 'lib/numbers_and_words/i18n/initialization.rb'
-    - 'lib/numbers_and_words/i18n/pluralization.rb'
-    - 'lib/numbers_and_words/i18n/plurals/fr.rb'
-    - 'lib/numbers_and_words/i18n/plurals/lt.rb'
-    - 'lib/numbers_and_words/i18n/plurals/lv.rb'
-    - 'lib/numbers_and_words/i18n/plurals/pt-BR.rb'
-    - 'lib/numbers_and_words/i18n/plurals/ru.rb'
