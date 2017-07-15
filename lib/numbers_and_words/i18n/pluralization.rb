@@ -27,7 +27,7 @@ module NumbersAndWords
       end
 
       def languages
-        plurals_files.map { |path| path.split(/[\/.]/)[-2] }
+        plurals_files.map { |path| path.split(%r{[/.]})[-2] }
       end
     end
   end

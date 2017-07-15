@@ -6,7 +6,7 @@ module NumbersAndWords
     extend self
 
     def languages
-      @languages ||= (locale_files.map { |path| path.split(/[\/.]/)[-2].to_sym })
+      @languages ||= (locale_files.map { |path| path.split(%r{[/.]})[-2].to_sym })
     end
 
     def local_language(locale = ::I18n.locale)
