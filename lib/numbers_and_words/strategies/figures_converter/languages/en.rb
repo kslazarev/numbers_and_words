@@ -29,16 +29,14 @@ module NumbersAndWords
           def strings_logic
             if @options.pronounced.active?
               @options.pronounced.process self, @figures
+            elsif @figures.capacity_count
+              number_without_capacity_to_words + complex_number_to_words
+            elsif @figures.hundreds
+              hundreds_number_to_words
+            elsif @figures.tens || @figures.ones
+              simple_number_to_words
             else
-              if @figures.capacity_count
-                number_without_capacity_to_words + complex_number_to_words
-              elsif @figures.hundreds
-                hundreds_number_to_words
-              elsif @figures.tens || @figures.ones
-                simple_number_to_words
-              else
-                []
-              end
+              []
             end
           end
 

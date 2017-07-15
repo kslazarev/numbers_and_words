@@ -53,12 +53,10 @@ module NumbersAndWords
                   result.push language.ones
                   result.push 'oh'
                 end
-              else
-                if figures.teens
-                  result.push language.teens
-                elsif figures.tens
-                  result.push language.complex_tens
-                end
+              elsif figures.teens
+                result.push language.teens
+              elsif figures.tens
+                result.push language.complex_tens
               end
             end
           end
