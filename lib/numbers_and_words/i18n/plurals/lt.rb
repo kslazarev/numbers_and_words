@@ -3,9 +3,13 @@ module NumbersAndWords
     module Plurals
       module Lt
         RULE = lambda do |n|
-          one_conditions(n) ?
-           :one : ones_conditions(n) ?
-             :ones : :other
+          if one_conditions(n)
+            :one
+          elsif ones_conditions(n)
+            :ones
+          else
+            :other
+          end
         end
 
         extend self

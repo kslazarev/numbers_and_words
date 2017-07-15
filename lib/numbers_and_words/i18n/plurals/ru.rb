@@ -3,10 +3,15 @@ module NumbersAndWords
     module Plurals
       module Ru
         RULE = lambda do |n|
-          one_conditions(n) ?
-           :one : few_conditions(n) ?
-             :few : many_conditions(n) ?
-               :many : :other
+          if one_conditions(n)
+            :one
+          elsif few_conditions(n)
+            :few
+          elsif many_conditions(n)
+            :many
+          else
+            :other
+          end
         end
 
         extend self
