@@ -8,7 +8,6 @@ pt-BR:
     ones:
       male: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
       female: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
-    ones_twenties: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
     one: um
     teens: [dez, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
     tens: [zero, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
