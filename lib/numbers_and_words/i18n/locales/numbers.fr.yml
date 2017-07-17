@@ -41,22 +41,22 @@ fr:
     octillionths:
       one: quadrilliardième
       other: quadrilliardièmes
-    nonillions:
+    nonillionths:
       one: quintillionième
       other: quintillionièmes
-    decillions:
+    decillionths:
       one: quintilliardième
       other: quintilliardièmes
     undecillionths:
       one: sextillionième
       other: sextillionièmes
-    duodecillion:
+    duodecillionths:
       one: sextilliardième
       other: sextilliardièmes
-    tredecillion:
+    tredecillionths:
       one: septillionième
       other: septillionièmes
-    quattuordecillion:
+    quattuordecillionths:
       one: septilliardième
       other: septilliardièmes
     hundreds:
