@@ -65,7 +65,6 @@ fr:
     thousands:
       one: mille
       other: mille
-      other: mille
     millions:
       one: million
       other: millions
