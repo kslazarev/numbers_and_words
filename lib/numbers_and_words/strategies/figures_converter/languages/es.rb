@@ -6,47 +6,72 @@ module NumbersAndWords
           include Families::Latin
 
           def capacity_iteration
-            words = []
-            capacity_words = words_in_capacity(@current_capacity)
-            words.push megs unless capacity_words.empty?
+            super.compact
+          end
 
-            capacity_words = capacity_words.map do |word|
-              if twenty_one?
-                word.gsub(@translations.ones(1), @translations.one_twenties)
-              elsif !thousand? || !one?
-                word.gsub(@translations.ones(1), @translations.one)
-              end
-            end.compact
+          def zero
+            super unless maybe_remove_zero
+          end
 
-            words + capacity_words
+          def ones
+            super({ gender: gender,
+                    is_one_thousand: one_thousand?,
+                    is_apocopated: one_apocopated? })
+          end
+
+          def tens_with_ones
+            if @figures.tens == 2
+              @translations
+                .twenties_with_ones(@figures, gender: gender,
+                                              is_apocopated: one_apocopated?)
+            else
+              super({ gender: gender,
+                      is_apocopated: one_apocopated? })
+            end
           end
 
           def hundreds
-            super({ is_hundred: (figures[1, 2] == [0, 1] &&
-                                 simple_number_to_words.empty?) })
+            super({ gender: gender,
+                    is_apocopated: hundred_apocopated? })
           end
 
           def megs
-            if thousand? &&
-               @figures.number_in_capacity(@current_capacity - 1) != 0
-              @translations.thousand
-            else
-              super({ number: @figures.number_in_capacity(@current_capacity) })
-            end
+            return @translations.megs(1, number: 1) if long_scale_thousand?
+            super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
           private
 
-          def one?
-            words_in_capacity(@current_capacity) == [@translations.ones(1)]
+          def one_thousand?
+            @current_capacity.odd? &&
+              @figures.ones == 1 &&
+              @figures.tens.nil? &&
+              @figures.hundreds.nil?
           end
 
-          def thousand?
-            @current_capacity.odd?
+          def long_scale_thousand?
+            @current_capacity.odd? &&
+              @figures.number_in_capacity(@current_capacity - 1) != 0
           end
 
-          def twenty_one?
-            figures.reverse[0..1] == [2, 1]
+          def one_apocopated?
+            true if @current_capacity > 0 && @figures.ones == 1 ||
+                    @options.apocopated.result
+          end
+
+          def hundred_apocopated?
+            @figures.hundreds == 1 && @figures.round_hundred?
+          end
+
+          def gender
+            @current_capacity ||= 0
+
+            return 'male'.to_sym if @current_capacity >= 2
+            @options.gender.result
+          end
+
+          def maybe_remove_zero
+            @options.remove_zero.result
           end
         end
       end

@@ -1,9 +1,10 @@
 require 'numbers_and_words/strategies/figures_converter/options/en'
 require 'numbers_and_words/strategies/figures_converter/options/en-GB'
-require 'numbers_and_words/strategies/figures_converter/options/ru'
-require 'numbers_and_words/strategies/figures_converter/options/pt-BR'
-require 'numbers_and_words/strategies/figures_converter/options/ua'
+require 'numbers_and_words/strategies/figures_converter/options/es'
 require 'numbers_and_words/strategies/figures_converter/options/hu'
+require 'numbers_and_words/strategies/figures_converter/options/pt-BR'
+require 'numbers_and_words/strategies/figures_converter/options/ru'
+require 'numbers_and_words/strategies/figures_converter/options/ua'
 
 module NumbersAndWords
   module Strategies

@@ -2,43 +2,48 @@ module NumbersAndWords
   module Translations
     class Es < Base
       include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Extensions::FractionSignificance
 
-      TENS_CASE = 2
-
-      def one
-        t(:one)
+      def zero(_options = {})
+        t(%i[ones male].join('.'))[0]
       end
 
-      def ones(number, _options = {})
-        t(:ones)[number]
+      def ones(number, options = {})
+        return if options[:is_one_thousand]
+        return t(%i[ones apocopated].join('.')) if options[:is_apocopated]
+        t([:ones, options[:gender]].join('.'))[number]
       end
 
-      def one_twenties
-        t(:one_twenties)
+      def twenties_with_ones(numbers, options = {})
+        return t(%i[twenties apocopated].join('.')) if options[:is_apocopated]
+        t([:twenties, options[:gender]].join('.'))[numbers[0]]
       end
 
-      def ones_twenties(number)
-        t(:ones_twenties)[number]
-      end
-
-      def tens(numbers, options = {})
-        options[:alone] = true if options[:alone].nil?
-        numbers == TENS_CASE && options[:alone] ? t(:twenty) : super(numbers)
-      end
-
-      def tens_with_ones(numbers, _options = {})
-        union = numbers[1] == TENS_CASE ? '' : " #{t(:union)} "
-        ones_number = numbers[1] == TENS_CASE ? ones_twenties(numbers[0]) : ones(numbers[0])
-        [tens(numbers[1], alone: false), union, ones_number].join
+      def tens_with_ones(numbers, options = {})
+        ones_number = if options[:is_apocopated] && numbers[0] == 1
+                        t(%i[ones apocopated].join('.'))
+                      else
+                        t([:ones, options[:gender]].join('.'))[numbers[0]]
+                      end
+        [tens(numbers[1], alone: false), t(:union), ones_number].join(' ')
       end
 
       def hundreds(number, options = {})
-        options[:is_hundred] = false if options[:is_hundred].nil?
-        options[:is_hundred] ? t(:one_hundred) : t(:hundreds)[number - 1]
+        return t(%i[hundreds apocopated].join('.')) if options[:is_apocopated]
+        t([:hundreds, options[:gender]].join('.'))[number]
       end
 
-      def thousand
-        t(:thousand)
+      def micros(capacity, number = nil)
+        micro, prefix = capacity
+        micros = number ? t(micro(micro), count: number) : micro(micro)
+        [micro_prefix(prefix), micros].compact.join
+      end
+
+      def micro_prefix(capacity)
+        case capacity
+        when 2 then t('micro_prefix.hundreds')
+        when 1 then t('micro_prefix.tens')
+        end
       end
     end
   end

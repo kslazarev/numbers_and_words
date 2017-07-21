@@ -1,8 +1,9 @@
 ## 0.11.1 (Next)
-  * Add support for French floating numbers \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
 
 ### Features
   * Your contribution here.
+  * Add support for Spanish floating-point numbers \[[#146](https://github.com/kslazarev/numbers_and_words/pull/146)\]
+  * Add support for French floating-point numbers \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
 
 ## 0.11.0 (June 26, 2017)
 

@@ -1,42 +1,103 @@
 es:
   numbers:
-    one: un
-    ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
-    one_twenties: ún
-    ones_twenties: [_, uno, dós, trés, cuatro, cinco, séis, siete, ocho, nueve]
-    teens: [diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
-    tens: [_, diez, veinti, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
-    twenty: veinte
-    hundreds: [ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
-    one_hundred: cien
-    mega: [_, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion, undecillion, duodecillion, tredecillion, quattuordecillion]
-    thousand: mil
-    million:
+    ones:
+      apocopated: un
+      male: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+      female: [cero, una, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    teens: [_, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve]
+    tens: [_, diez, veinte, treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa]
+    twenties:
+      apocopated: veintiún
+      male: [_, veintiuno, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+      female: [_, veintiuna, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+    hundreds:
+      apocopated: cien
+      male: [_, ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
+      female: [_, ciento, doscientas, trescientas, cuatrocientas, quinientas, seiscientas, setecientas, ochocientas, novecientas]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
+    thousands: mil
+    millions:
       one: millón
       other: millones
-    billion: mil millones
-    trillion:
+    billions: mil millones
+    trillions:
       one: billón
       other: billones
-    quadrillion: mil billones
-    quintillion:
+    quadrillions: mil billones
+    quintillions:
       one: trillón
       other: trillones
-    sextillion: mil trillones
-    septillion:
+    sextillions: mil trillones
+    septillions:
       one: cuatrillón
       other: cuatrillones
-    octillion: mil cuatrillones
-    nonillion:
+    octillions: mil cuatrillones
+    nonillions:
       one: quintillón
       other: quintillones
-    decillion: mil quintillones
-    undecillion:
+    decillions: mil quintillones
+    undecillions:
       one: sextillón
       other: sextillones
-    duodecillion: mil sextillones
-    tredecillion:
+    duodecillions: mil sextillones
+    tredecillions:
       one: septillón
       other: septillones
-    quattuordecillion: mil septillones
+    quattuordecillions: mil septillones
+    union_separator: con
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
+    micro_prefix:
+      tens: diez
+      hundreds: cien
+    tenths:
+      one: décima
+      other: décimas
+    hundredths:
+      one: centésima
+      other: centésimas
+    thousandths:
+      one: milésima
+      other: milésimas
+    millionths:
+      one: millonésima
+      other: millonésimas
+    billionths:
+      one: milmillonésima
+      other: milmillonésimas
+    trillionths:
+      one: billonésima
+      other: billonésimas
+    quadrillionths:
+      one: milbillonésima
+      other: milbillonésimas
+    quintillionths:
+      one: trillonésima
+      other: trillonésimas
+    sextillionths:
+      one: miltrillonésima
+      other: miltrillonésimas
+    septillionths:
+      one: cuatrillonésima
+      other: cuatrillonésimas
+    octillionths:
+      one: milcuatrillonésima
+      other: milcuatrillonésimas
+    nonillionths:
+      one: quintillonésima
+      other: quintillonésimas
+    decillionths:
+      one: milquintillonésima
+      other: milquintillonésimas
+    undecillionths:
+      one: sextillonésima
+      other: sextillonésimas
+    duodecillionths:
+      one: milsextillonésima
+      other: milsextillonésimas
+    tredecillionths:
+      one: septillonésima
+      other: septillonésimas
+    quattuordecillionths:
+      one: milseptillonésima
+      other: milseptillonésimas
     union: y

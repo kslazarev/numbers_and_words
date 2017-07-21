@@ -5,5 +5,8 @@ AllCops:
   Exclude:
     - 'numbers_and_words.gemspec'
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/FileName:
   Enabled: false
