@@ -1,7 +1,11 @@
-## 0.11.1 (Next)
+## 0.11.2 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.1 (July 23, 2017)
+
+### Features
   * Add support for Spanish floating-point numbers \[[#146](https://github.com/kslazarev/numbers_and_words/pull/146)\]
   * Add support for French floating-point numbers \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
 
