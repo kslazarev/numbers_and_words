@@ -97,6 +97,7 @@ to_words:
       :gender: female
     1: una
     21: veintiuna
+    31: treinta y una
     101: ciento una
     900: novecientas
     999: novecientas noventa y nueve
@@ -112,3 +113,8 @@ to_words:
     31: treinta y un
     100: cien
     101: ciento un
+  female and apocopated form:
+    options:
+      :gender: female
+      :apocopated: true
+    901: novecientas un

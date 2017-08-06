@@ -34,7 +34,8 @@ module NumbersAndWords
 
             def simple_numbers_condition
               current_capacity.nil? &&
-                (HUNDRED_TYPE != @type || (HUNDRED_TYPE == @type && simple_number_to_words.empty?))
+                (HUNDRED_TYPE != @type ||
+                 HUNDRED_TYPE == @type && simple_number_to_words.empty?)
             end
 
             def megs_numbers_condition

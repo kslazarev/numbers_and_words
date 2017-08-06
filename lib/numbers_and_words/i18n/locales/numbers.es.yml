@@ -44,7 +44,7 @@ es:
       one: septillón
       other: septillones
     quattuordecillions: mil septillones
-    union_separator: con
+    union: y
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
     micro_prefix:
       tens: diez
@@ -100,4 +100,4 @@ es:
     quattuordecillionths:
       one: milseptillonésima
       other: milseptillonésimas
-    union: y
+    union_separator: con

@@ -66,7 +66,7 @@ module NumbersAndWords
           def gender
             @current_capacity ||= 0
 
-            return 'male'.to_sym if @current_capacity >= 2
+            return :male if @current_capacity >= 2
             @options.gender.result
           end
 

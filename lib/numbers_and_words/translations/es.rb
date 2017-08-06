@@ -10,7 +10,8 @@ module NumbersAndWords
 
       def ones(number, options = {})
         return if options[:is_one_thousand]
-        return t(%i[ones apocopated].join('.')) if options[:is_apocopated]
+        return t(%i[ones apocopated].join('.')) if number == 1 &&
+                                                   options[:is_apocopated]
         t([:ones, options[:gender]].join('.'))[number]
       end
 
@@ -20,12 +21,9 @@ module NumbersAndWords
       end
 
       def tens_with_ones(numbers, options = {})
-        ones_number = if options[:is_apocopated] && numbers[0] == 1
-                        t(%i[ones apocopated].join('.'))
-                      else
-                        t([:ones, options[:gender]].join('.'))[numbers[0]]
-                      end
-        [tens(numbers[1], alone: false), t(:union), ones_number].join(' ')
+        [tens(numbers[1], alone: false),
+         t(:union),
+         ones(numbers[0], options)].join(' ')
       end
 
       def hundreds(number, options = {})
