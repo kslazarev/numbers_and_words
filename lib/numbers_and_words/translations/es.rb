@@ -2,40 +2,46 @@ module NumbersAndWords
   module Translations
     class Es < Base
       include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Extensions::FractionSignificance
 
-      TENS_CASE = 2
-
-      def one options = {}
-        t(:one)
+      def zero(_options = {})
+        t(%i[ones male].join('.'))[0]
       end
 
-      def ones number, options = {}
-        t(:ones)[number]
+      def ones(number, options = {})
+        return if options[:is_one_thousand]
+        return t(%i[ones apocopated].join('.')) if number == 1 &&
+                                                   options[:is_apocopated]
+        t([:ones, options[:gender]].join('.'))[number]
       end
 
-      def ones_twenties number, options = {}
-        t(:ones_twenties)[number]
+      def twenties_with_ones(numbers, options = {})
+        return t(%i[twenties apocopated].join('.')) if options[:is_apocopated]
+        t([:twenties, options[:gender]].join('.'))[numbers[0]]
       end
 
-      def tens numbers, options = {}
-        options[:alone] = true if options[:alone].nil?
-        (numbers == TENS_CASE && options[:alone]) ? t(:twenty) : super(numbers)
+      def tens_with_ones(numbers, options = {})
+        [tens(numbers[1], alone: false),
+         t(:union),
+         ones(numbers[0], options)].join(' ')
       end
 
-      def tens_with_ones numbers, options = {}
-        inter = numbers[1] == TENS_CASE ? "" : " y "
-        ones_number = numbers[1] == TENS_CASE ? ones_twenties(numbers[0]) : ones(numbers[0])
-        [tens(numbers[1], :alone => false), ones_number].join inter
+      def hundreds(number, options = {})
+        return t(%i[hundreds apocopated].join('.')) if options[:is_apocopated]
+        t([:hundreds, options[:gender]].join('.'))[number]
       end
 
-      def hundreds number, options = {}
-        options[:is_hundred] = false if options[:is_hundred].nil?
-        options[:is_hundred] ? t(:one_hundred) : t(:hundreds)[number - 1]
+      def micros(capacity, number = nil)
+        micro, prefix = capacity
+        micros = number ? t(micro(micro), count: number) : micro(micro)
+        [micro_prefix(prefix), micros].compact.join
       end
 
-      def megs capacity, options = {}
-        options[:is_one] = false if options[:is_one].nil?
-        options[:is_one] ? t(:mega)[capacity] : t(:megas)[capacity]
+      def micro_prefix(capacity)
+        case capacity
+        when 2 then t('micro_prefix.hundreds')
+        when 1 then t('micro_prefix.tens')
+        end
       end
     end
   end

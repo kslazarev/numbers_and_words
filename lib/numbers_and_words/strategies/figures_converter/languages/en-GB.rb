@@ -1,10 +1,8 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Options
-        module EnGb
-          class RemoveHyphen < En::RemoveHyphen
-          end
+      module Languages
+        class EnGb < En
         end
       end
     end

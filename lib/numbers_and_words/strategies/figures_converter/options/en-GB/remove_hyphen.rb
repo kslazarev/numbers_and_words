@@ -3,7 +3,7 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module EnGb
-          class HundredsWithUnion < En::HundredsWithUnion
+          class RemoveHyphen < En::RemoveHyphen
           end
         end
       end

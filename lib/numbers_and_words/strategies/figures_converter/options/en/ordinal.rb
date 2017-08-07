@@ -8,12 +8,12 @@ module NumbersAndWords
             HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
 
-            def initialize proxy, *args, &block
+            def initialize(proxy, *_args)
               @strategy = proxy.strategy
               @options = proxy.options
             end
 
-            def result type
+            def result(type)
               @type = type
               MEGS_TYPE != type ? check_simple_numbers : check_megs_numbers
             end
@@ -34,7 +34,8 @@ module NumbersAndWords
 
             def simple_numbers_condition
               current_capacity.nil? &&
-                (HUNDRED_TYPE != @type || (HUNDRED_TYPE == @type && simple_number_to_words.empty?))
+                (HUNDRED_TYPE != @type ||
+                 HUNDRED_TYPE == @type && simple_number_to_words.empty?)
             end
 
             def megs_numbers_condition

@@ -1,4 +1,5 @@
 # coding: utf-8
+
 require 'spec_helper'
 require 'shared_examples/correct_fixture_examples'
 
@@ -8,24 +9,20 @@ require 'shared_examples/correct_fixture_examples'
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
-        subject { fixture_examples type, locale }
-        it_behaves_like 'correct fixture examples'
+        it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end
     end
   end
 end
-
 
 [Float].each do |type|
   describe type do
-    [:en, 'en-GB', :hu, :ru, :ua].each do |locale|
+    %i[en-GB en es fr hu pt-BR ru ua].each do |locale|
       context locale do
         around(:each) { |example| ::I18n.with_locale(locale) { example.run } }
 
-        subject { fixture_examples type, locale }
-        it_behaves_like 'correct fixture examples'
+        it_behaves_like 'correct fixture examples', fixture_examples(type, locale)
       end
     end
   end
 end
-

@@ -6,38 +6,72 @@ module NumbersAndWords
           include Families::Latin
 
           def capacity_iteration
-            words = []
-            capacity_words = words_in_capacity(@current_capacity)
-            words.push megs(capacity_words) unless capacity_words.empty?
+            super.compact
+          end
 
-            if 0 < @current_capacity
-              # eg 1000000 should be "un millón" not "uno millón"
-              #    501000 should be "quinientos un mil" not "quinientos uno mil"
-              #    1000 should be "mil" not "uno mil"
-              # so we replace "uno" with "un" throughout or delete it if that is the case
+          def zero
+            super unless maybe_remove_zero
+          end
 
-              capacity_words = capacity_words.map { |word|
-                word.gsub(@translations.ones(1), @translations.one) unless is_a_thousand? and is_a_one?
-              }.compact
+          def ones
+            super({ gender: gender,
+                    is_one_thousand: one_thousand?,
+                    is_apocopated: one_apocopated? })
+          end
+
+          def tens_with_ones
+            if @figures.tens == 2
+              @translations
+                .twenties_with_ones(@figures, gender: gender,
+                                              is_apocopated: one_apocopated?)
+            else
+              super({ gender: gender,
+                      is_apocopated: one_apocopated? })
             end
-
-            words + capacity_words
-          end
-
-          def is_a_one?
-            [translations.ones(1)] == words_in_capacity(@current_capacity)
-          end
-
-          def is_a_thousand?
-            @current_capacity.odd?
           end
 
           def hundreds
-            super({:is_hundred => (figures[1,2] == [0,1] && simple_number_to_words.empty?)})
+            super({ gender: gender,
+                    is_apocopated: hundred_apocopated? })
           end
 
-          def megs capacity_words
-            super({:is_one => capacity_words == [@translations.ones(1)]})
+          def megs
+            return @translations.megs(1, number: 1) if long_scale_thousand?
+            super({ number: @figures.number_in_capacity(@current_capacity) })
+          end
+
+          private
+
+          def one_thousand?
+            @current_capacity.odd? &&
+              @figures.ones == 1 &&
+              @figures.tens.nil? &&
+              @figures.hundreds.nil?
+          end
+
+          def long_scale_thousand?
+            @current_capacity.odd? &&
+              @figures.number_in_capacity(@current_capacity - 1) != 0
+          end
+
+          def one_apocopated?
+            true if @current_capacity > 0 && @figures.ones == 1 ||
+                    @options.apocopated.result
+          end
+
+          def hundred_apocopated?
+            @figures.hundreds == 1 && @figures.round_hundred?
+          end
+
+          def gender
+            @current_capacity ||= 0
+
+            return :male if @current_capacity >= 2
+            @options.gender.result
+          end
+
+          def maybe_remove_zero
+            @options.remove_zero.result
           end
         end
       end

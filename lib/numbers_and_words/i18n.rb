@@ -3,13 +3,13 @@ require 'numbers_and_words/i18n/initialization'
 
 module NumbersAndWords
   module I18n
-    extend self
+    module_function
 
     def languages
-      @languages ||= (locale_files.map { |path| path.split(/[\/.]/)[-2].to_sym })
+      @languages ||= (locale_files.map { |path| path.split(%r{[/.]})[-2].to_sym })
     end
 
-    def local_language locale = ::I18n.locale
+    def local_language(locale = ::I18n.locale)
       if languages.include?(locale)
         locale
       else
@@ -19,14 +19,14 @@ module NumbersAndWords
     end
 
     def language_class_name
-      ::I18n.locale.to_s.titleize.gsub ' ', ''
+      ::I18n.locale.to_s.split('-').collect(&:capitalize).join
     end
 
     def locale_files
       files 'locales', '*.*'
     end
 
-    def files directory, ext
+    def files(directory, ext)
       Dir[File.join File.dirname(__FILE__), "i18n/#{directory}", "**/#{ext}"]
     end
   end

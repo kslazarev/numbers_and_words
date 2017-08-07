@@ -5,12 +5,65 @@ fr:
     tens: [zéro, dix, vingt, trente, quarante, cinquante, soixante, soixante-dix, quatre-vingt, quatre-vingt-dix]
     mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     eighty: quatre-vingts
+    union_separator: et
+    union: et
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
+    tenths:
+      one: dixième
+      other: dixièmes
+    hundredths:
+      one: centième
+      other: centièmes
+    thousandths:
+      one: millième
+      other: millièmes
+    millionths:
+      one: millionième
+      other: millionièmes
+    billionths:
+      one: milliardième
+      other: milliardièmes
+    trillionths:
+      one: billionième
+      other: billionièmes
+    quadrillionths:
+      one: billiardième
+      other: billiardièmes
+    quintillionths:
+      one: trillionième
+      other: trillionièmes
+    sextillionths:
+      one: trilliardième
+      other: trilliardièmes
+    septillionths:
+      one: quadrillionième
+      other: quadrillionièmes
+    octillionths:
+      one: quadrilliardième
+      other: quadrilliardièmes
+    nonillionths:
+      one: quintillionième
+      other: quintillionièmes
+    decillionths:
+      one: quintilliardième
+      other: quintilliardièmes
+    undecillionths:
+      one: sextillionième
+      other: sextillionièmes
+    duodecillionths:
+      one: sextilliardième
+      other: sextilliardièmes
+    tredecillionths:
+      one: septillionième
+      other: septillionièmes
+    quattuordecillionths:
+      one: septilliardième
+      other: septilliardièmes
     hundreds:
       one: cent
       other: cents
     thousands:
       one: mille
-      other: mille
       other: mille
     millions:
       one: million

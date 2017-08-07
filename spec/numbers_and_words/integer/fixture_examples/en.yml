@@ -115,3 +115,17 @@ to_words:
     100100: one hundred thousand one hundred
     100111: one hundred thousand one hundred and eleven
     111111: one hundred and eleven thousand one hundred and eleven
+  pronounced:
+    options:
+      :pronounced: true
+    101: one oh one
+    123: one twenty-three
+    200: two hundred
+    210: two ten
+    612: six twelve
+    1796: seventeen ninety-six
+    1900: nineteen hundred
+    1907: nineteen oh seven
+    2000: two thousand
+    2007: two thousand seven
+    2140: twenty-one forty

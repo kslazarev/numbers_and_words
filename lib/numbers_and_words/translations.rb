@@ -5,7 +5,7 @@ require 'numbers_and_words/translations/families/latin'
 require 'numbers_and_words/translations/extensions/fraction_significance'
 require 'numbers_and_words/translations/ru'
 require 'numbers_and_words/translations/en'
-require 'numbers_and_words/translations/en_gb'
+require 'numbers_and_words/translations/en-GB'
 require 'numbers_and_words/translations/ua'
 require 'numbers_and_words/translations/tr'
 require 'numbers_and_words/translations/fr'
@@ -19,6 +19,7 @@ require 'numbers_and_words/translations/lv'
 require 'numbers_and_words/translations/lt'
 require 'numbers_and_words/translations/de'
 require 'numbers_and_words/translations/pt'
+require 'numbers_and_words/translations/pt-BR'
 require 'numbers_and_words/translations/ka'
 require 'numbers_and_words/translations/cs'
 
@@ -26,7 +27,7 @@ module NumbersAndWords
   module Translations
     class << self
       def factory
-        "#{name}::#{I18n.language_class_name}".constantize.new
+        Object.const_get("#{name}::#{I18n.language_class_name}").new
       end
     end
   end

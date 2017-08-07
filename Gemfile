@@ -1,14 +1,14 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'i18n'
-gem 'activesupport'
 
 group :development do
-  gem 'rake'
   gem 'jeweler'
+  gem 'rake'
 end
 
 group :test do
-  gem 'rspec', '2.12.0'
-  gem 'coveralls', :require => false
+  gem 'coveralls', require: false
+  gem 'rspec', '~> 3.0'
+  gem 'rubocop', require: false
 end

@@ -8,7 +8,7 @@ require 'numbers_and_words/i18n/plurals/lt'
 module NumbersAndWords
   module I18n
     module Pluralization
-      extend self
+      module_function
 
       def init
         ::I18n.load_path << config_file
@@ -28,7 +28,7 @@ module NumbersAndWords
       end
 
       def languages
-        plurals_files.map{|path| path.split(/[\/.]/)[-2]}
+        plurals_files.map { |path| path.split(%r{[/.]})[-2] }
       end
     end
   end

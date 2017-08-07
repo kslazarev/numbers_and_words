@@ -3,8 +3,8 @@ module NumbersAndWords
     class Se < Base
       include NumbersAndWords::Translations::Families::Latin
 
-      def tens_with_ones numbers, options = {}
-        super numbers, :separator => '-'
+      def tens_with_ones(numbers, _options = {})
+        super numbers, separator: '-'
       end
     end
   end

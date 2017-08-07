@@ -1,9 +1,9 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Options
-        module EnGb
-          class Ordinal < En::Ordinal
+      module Decorators
+        module Fr
+          class Base < Decorators::Base
           end
         end
       end

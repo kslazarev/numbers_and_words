@@ -1,8 +1,10 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Languages
-        class EnGb < En
+      module Decorators
+        module PtBr
+          class Base < Decorators::Base
+          end
         end
       end
     end

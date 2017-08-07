@@ -4,17 +4,17 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
 
-      def tens_with_ones numbers, options = {}
+      def tens_with_ones(numbers, options = {})
         ones, tens = numbers
         [t(:tens_with_ones)[tens], t([options[:prefix], :ones_with_tens].join('.'))[ones]].join ''
       end
 
-      def hundreds number, options = {}
+      def hundreds(number, options = {})
         options[:separator] = ''
         super number, options
       end
 
-      def micros capacity, number = nil, separator = ''
+      def micros(capacity, _number = nil, separator = '')
         super capacity, nil, separator
       end
     end

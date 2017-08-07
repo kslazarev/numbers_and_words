@@ -1,3 +1,39 @@
+## 0.11.2 (Next)
+
+### Features
+  * Your contribution here.
+
+## 0.11.1 (July 23, 2017)
+
+### Features
+  * Add support for Spanish floating-point numbers \[[#146](https://github.com/kslazarev/numbers_and_words/pull/146)\]
+  * Add support for French floating-point numbers \[[#144](https://github.com/kslazarev/numbers_and_words/pull/144)\]
+
+## 0.11.0 (June 26, 2017)
+
+### Features
+  * Remove dependency on `ActiveSupport` gem. \[[#141](https://github.com/kslazarev/numbers_and_words/pull/141)\]
+
+## 0.10.6 (June 11, 2017)
+
+### Features
+  * Add full support for Brazilian Portuguese. \[[#139](https://github.com/kslazarev/numbers_and_words/pull/139)\]
+  * Add option `precision` to `to_words`. \[[#134](https://github.com/kslazarev/numbers_and_words/issues/134)\] \([@neodelf](https://github.com/neodelf)\) \(assignee: [@neodelf](https://github.com/neodelf)\)
+
+### Bugs
+  * Fix README typo for 231 in French. \(assignee: [@poilon](https://github.com/poilon)\)
+  * Fix big numbers in Spanish. \[[#129](https://github.com/kslazarev/numbers_and_words/pull/129)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
+  * Fix typo for number twenty-one in Spanish. \[[#127](https://github.com/kslazarev/numbers_and_words/pull/127)\] \([@jlduran](https://github.com/jlduran)\) \(assignee: [@jlduran](https://github.com/jlduran)\)
+
+## 0.10.5 (March 9, 2016)
+
+### Bugs
+  * Fix pluralization rules for Spanish. \[[#122](https://github.com/kslazarev/numbers_and_words/pull/122)\] \([@jlduran](https://github.com/jlduran)\)
+  * Fix long scale names in Spanish. \[[#112](https://github.com/kslazarev/numbers_and_words/pull/112)\] \([@jlduran](https://github.com/jlduran)\)
+  * Fix Turkish hundred and thousand numbers. \[[#113](https://github.com/kslazarev/numbers_and_words/pull/113)\] \([@cbilgili](https://github.com/cbilgili)\)
+  * Fix one/other convention in Spanish and French. \[[#116](https://github.com/kslazarev/numbers_and_words/pull/116)\] \([@joseramonc](https://github.com/joseramonc)\)
+  * Fix hundreds in Lithuanian. \[[#117](https://github.com/kslazarev/numbers_and_words/pull/117)\] \([@osegrums](https://github.com/osegrums)\)
+
 ## 0.10.4 (March 02, 2015)
 
 ### Bugs

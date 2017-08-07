@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: zero inteiros e um décimo
+    0.7: zero inteiros e sete décimos
+    0.01: zero inteiros e um centésimo
+    0.36: zero inteiros e trinta e seis centésimos
+    1.00: um inteiro
+    1.77: um inteiro e setenta e sete centésimos
+    2.10: dois inteiros e um décimo
+    14.6: quatorze inteiros e seis décimos
+    21.77: vinte e um inteiros e setenta e sete centésimos
+    111.999: cento e onze inteiros e novecentos e noventa e nove milésimos
+    0.0001: zero inteiros e um décimo de milésimo
+    0.2935174315119: zero inteiros e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove décimos de trilionésimo
+    4242.7463: quatro mil duzentos e quarenta e dois inteiros e sete mil quatrocentos e sessenta e três décimos de milésimos
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: um décimo
+    0.0001: um décimo de milésimo
+    0.10001: dez mil e um centésimos de milésimos
+    0.100001: cem mil e um milionésimos
+    0.0101001: cento e um mil e um décimos de milionésimos
+    0.100000010000001: cem trilhões, dez milhões e um quadrilionésimos
+    0.000110000000030000000001: onze bilhões e três centésimos de trilionésimo
+    1.0: um
+    0.7: sete décimos
+    3.5: três e cinco décimos
+    42.1: quarenta e dois e um décimo

@@ -16,10 +16,11 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 I18n kütüphanesi ile sayıları yazıya çevirir.
 
+Converte números em letras utilizando a biblioteca I18n.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English [en]
-* Česky [cs]
 * Spanish [es]
 * Русский [ru]
 * Français [fr]
@@ -35,6 +36,9 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 * Nederlands** [nl]
 * Swedish** [se]
 * English (British)** [en-GB]
+* Česky [cs]
+* Português [pt]
+* Português Brasileiro [pt-BR]
 
 ** Experimental
 
@@ -95,12 +99,13 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "éénentwintig"
     => "tjugo-en"
     => "dvacetjedna"
+    => "vinte e um"
 
     231.to_words
     => "two hundred thirty-one"
     => "doscientos treinta y uno"
     => "двести тридцать один"
-    => "deux cent trente-trois"
+    => "deux cent trente et un"
     => "двiстi тридцять один"
     => "kettőszázharmincegy"
     => "du šimtai trisdešimt vienas"
@@ -113,6 +118,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => "tweehonderdéénendertig"
     => "två hundra trettio-en"
     => "dvě stě třicetjedna"
+    => "duzentos e trinta e um"
 
     4030.to_words
     => "four thousand thirty"
@@ -195,7 +201,7 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
     => ["undici", "ventidue", "1 cento trentatre"]
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
-    => ["jedenáct", "dvacetdva", "jedno sto třicettři"] 
+    => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -251,6 +257,22 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 
     I18n.with_locale(:hu) { 21.to_words ordinal: true }
     => "huszonegyedik"
+
+* Brazilian Portuguese
+
+  Change gender form: (gender: [:female || :male || :neuter])
+
+    I18n.with_locale(:'pt-BR') { 1000000001.to_words gender: :female }
+    => "um bilhão e uma"
+
+== Other options / Другие опции
+
+* precision
+
+  You may pass argument :precision that added zeros to the end of float number:
+
+    I18n.with_locale(:ru) { 0.1.to_words precision: 3 }
+    => ноль целых и десять сотых
 
 == Requirements / Требования / Configuration Requise
 

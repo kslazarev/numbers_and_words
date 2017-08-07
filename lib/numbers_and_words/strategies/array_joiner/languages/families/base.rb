@@ -4,13 +4,12 @@ module NumbersAndWords
       module Languages
         module Families
           module Base
-
             def elements_logic
-              @elements.first.blank? ? @elements.last : @elements.join(union_element)
+              @elements.first.empty? ? @elements.last : @elements.join(union_element)
             end
 
             def union_element
-              union_separator.present? ? " #{union_separator} " : ' '
+              union_separator.empty? ? ' ' : " #{union_separator} "
             end
 
             def union_separator

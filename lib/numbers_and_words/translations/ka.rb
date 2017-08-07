@@ -22,12 +22,12 @@ module NumbersAndWords
           range: Range.new(0, 9, false),
           name: :eighty,
           multiplicative: 8
-        },
-      ]
+        }
+      ].freeze
 
-      def vigesimal_range number
+      def vigesimal_range(number)
         range = nil
-        TENS_VIGESIMAL_RANGES.each do|item|
+        TENS_VIGESIMAL_RANGES.each do |item|
           if item[:range].include? number
             range = item
             break
@@ -37,20 +37,20 @@ module NumbersAndWords
         range
       end
 
-      def tens_with_ones numbers, options = {}
+      def tens_with_ones(numbers, _options = {})
         range = vigesimal_range(numbers[1])
 
-        if numbers[1] - range[:multiplicative] > 0
-          minor = teens(numbers)
-        else
-          minor = ones(numbers[0])
-        end
+        minor = if numbers[1] - range[:multiplicative] > 0
+                  teens(numbers)
+                else
+                  ones(numbers[0])
+                end
 
         [t([:partials, range[:name]].join('.')), minor].join ''
       end
 
-      def hundreds number, options = {}
-        options[:prefix] ||= (options[:only_hundreds] == true) ? nil : :partials
+      def hundreds(number, options = {})
+        options[:prefix] ||= options[:only_hundreds] == true ? nil : :partials
 
         parts = [t([options[:prefix], :one_hundred].join('.'))]
         parts.unshift(ones(number, prefix: :partials)) if number > 1
@@ -58,7 +58,7 @@ module NumbersAndWords
         parts.join ''
       end
 
-      def megs capacity, options = {}
+      def megs(capacity, options = {})
         if capacity == 1
           t([options[:prefix], :one_thousand].join('.'))
         elsif capacity == 2

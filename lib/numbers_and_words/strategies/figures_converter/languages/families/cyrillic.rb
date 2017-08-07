@@ -19,14 +19,14 @@ module NumbersAndWords
               end
             end
 
-            [:ones, :tens_with_ones].each do |method_name|
-              define_method(method_name) {
-                super({:gender => gender})
-              }
+            %i[ones tens_with_ones].each do |method_name|
+              define_method(method_name) do
+                super({ gender: gender })
+              end
             end
 
             def megs
-              super({:number => @figures.number_in_capacity(@current_capacity)})
+              super({ number: @figures.number_in_capacity(@current_capacity) })
             end
           end
         end
