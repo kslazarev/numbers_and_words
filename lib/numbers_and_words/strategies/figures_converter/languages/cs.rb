@@ -5,30 +5,59 @@ module NumbersAndWords
         class Cs < Base
           include Families::Latin
 
-          def capacity_iteration
-            words = []
-            capacity_words = words_in_capacity(@current_capacity)
-            words.push megs unless capacity_words.empty?
-
-            if 0 < @current_capacity
-              capacity_words = capacity_words.map { |word|
-                word.gsub(@translations.ones(1), @translations.one) unless is_a_thousand? and is_a_one?
-              }.compact
+          # methods in translations/cs.rb which can work with :gender or :ordinal
+          %i[ones teens tens tens_with_ones hundreds].each do |method_name|
+            define_method(method_name) do
+              super(internal_options)
             end
-
-            words + capacity_words
           end
 
-          def is_a_one?
-            [translations.ones(1)] == words_in_capacity(@current_capacity)
+          %i[megs thousands].each do |method_name|
+            define_method(method_name) do
+              super(internal_options)
+            end
           end
 
-          def is_a_thousand?
-            @current_capacity.odd?
+          def zero
+            super(internal_options) unless maybe_remove_zero
           end
 
-          def megs
-            super({:number => @figures.number_in_capacity(@current_capacity)})
+          def megs(*args)
+            super({ number: @figures.number_in_capacity(@current_capacity) }.merge(args.first || {}))
+          end
+
+          def gender
+            @current_capacity ||= 0
+            # @current_capacity = order of block of 3 digits, backwards
+
+            case @current_capacity
+            when 0 # ones
+              options.gender.result
+            when 3 # miliardy
+              :female
+            when 5 # biliardy
+              :female
+            when 7 # triliardy
+              :female
+            when 9 # kvadriliardy
+              :female
+            else
+              :male
+            end
+          end
+
+          private
+
+          def internal_options
+            { gender: gender, prefix: maybe_ordinal }
+          end
+
+          def maybe_remove_zero
+            @options.remove_zero.result
+          end
+
+          def maybe_ordinal
+            @options.ordinal.result
           end
         end
       end

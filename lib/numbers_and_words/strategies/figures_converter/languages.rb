@@ -5,7 +5,6 @@ require 'numbers_and_words/strategies/figures_converter/languages/base'
 
 require 'numbers_and_words/strategies/figures_converter/languages/families/latin'
 
-require 'numbers_and_words/strategies/figures_converter/languages/cs'
 require 'numbers_and_words/strategies/figures_converter/languages/en'
 require 'numbers_and_words/strategies/figures_converter/languages/en-GB'
 require 'numbers_and_words/strategies/figures_converter/languages/fr'
@@ -26,6 +25,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/ru'
 require 'numbers_and_words/strategies/figures_converter/languages/ua'
 require 'numbers_and_words/strategies/figures_converter/languages/pt'
 require 'numbers_and_words/strategies/figures_converter/languages/pt-BR'
+require 'numbers_and_words/strategies/figures_converter/languages/cs'
 
 require 'numbers_and_words/strategies/figures_converter/languages/ka'
 
