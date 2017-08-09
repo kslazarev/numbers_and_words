@@ -12,12 +12,6 @@ module NumbersAndWords
             end
           end
 
-          %i[megs thousands].each do |method_name|
-            define_method(method_name) do
-              super(internal_options)
-            end
-          end
-
           def zero
             super(internal_options) unless maybe_remove_zero
           end
@@ -28,19 +22,12 @@ module NumbersAndWords
 
           def gender
             @current_capacity ||= 0
-            # @current_capacity = order of block of 3 digits, backwards
+            # @current_capacity = order of block of 3 digits, backwards (0 = hundreds tens ones)
 
-            case @current_capacity
-            when 0 # ones
+            if @current_capacity.zero?
               options.gender.result
-            when 3 # miliardy
-              :female
-            when 5 # biliardy
-              :female
-            when 7 # triliardy
-              :female
-            when 9 # kvadriliardy
-              :female
+            elsif @current_capacity > 2 && @current_capacity.odd?
+              :female # miliardy, biliardy, triliardy .....
             else
               :male
             end

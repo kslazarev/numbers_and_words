@@ -32,10 +32,6 @@ module NumbersAndWords
         t([options[:prefix], :hundreds, gender_to_use(options)].join('.'))[number]
       end
 
-      def thousands(number, options = {})
-        t([options[:prefix], :thousands, gender_to_use(options)].join('.'))[number]
-      end
-
       def megs(capacity, options = {})
         number = options[:number]
         mega_name = "#{options[:prefix]}.mega"

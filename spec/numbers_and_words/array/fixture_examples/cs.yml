@@ -1,13 +1,13 @@
 to_words:
-  # simple_example:
-  #   ?
-  #     - 1
-  #     - 2
-  #     - 3
-  #   :
-  #     - jedna
-  #     - dvě
-  #     - tři
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - jedna
+      - dvě
+      - tři
   complex_example:
     ?
       - 1001
@@ -19,14 +19,14 @@ to_words:
       - jedno sto jedna
       - dvacet jedna
       - třináct
-  # complex_example_with_options:
-  #   options:
-  #     :remove_zero: true
-  #   ?
-  #     - 0.1
-  #     - 0.31
-  #     - 0.12
-  #   :
-  #     - nula celá jedna desetina
-  #     - nula celá třicet jedna setina
-  #     - nula celá dvanáct setin
+  complex_example_with_options:
+    options:
+      :remove_zero: true
+    ?
+      - 0.1
+      - 0.31
+      - 0.12
+    :
+      - jedna desetina
+      - třicet jedna setina
+      - dvanáct setin
