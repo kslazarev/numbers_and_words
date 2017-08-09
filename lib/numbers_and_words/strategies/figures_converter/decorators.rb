@@ -7,6 +7,7 @@ require 'numbers_and_words/strategies/figures_converter/decorators/ru'
 require 'numbers_and_words/strategies/figures_converter/decorators/pt-BR'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu'
 require 'numbers_and_words/strategies/figures_converter/decorators/ua'
+require 'numbers_and_words/strategies/figures_converter/decorators/cs'
 
 module NumbersAndWords
   module Strategies

@@ -20,13 +20,13 @@ module NumbersAndWords
             end
 
             %i[ones tens_with_ones].each do |method_name|
-              define_method(method_name) do
-                super({ gender: gender })
+              define_method(method_name) do |*args|
+                super({ gender: gender }.merge(args.first || {}))
               end
             end
 
-            def megs
-              super({ number: @figures.number_in_capacity(@current_capacity) })
+            def megs(*args)
+              super({ number: @figures.number_in_capacity(@current_capacity) }.merge(args.first || {}))
             end
           end
         end

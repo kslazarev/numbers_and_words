@@ -1,0 +1,32 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - jedna
+      - dvě
+      - tři
+  complex_example:
+    ?
+      - 1001
+      - 101
+      - 21
+      - 13
+    :
+      - jeden tisíc jedna
+      - jedno sto jedna
+      - dvacet jedna
+      - třináct
+  complex_example_with_options:
+    options:
+      :remove_zero: true
+    ?
+      - 0.1
+      - 0.31
+      - 0.12
+    :
+      - jedna desetina
+      - třicet jedna setina
+      - dvanáct setin

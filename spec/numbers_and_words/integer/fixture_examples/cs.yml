@@ -1,0 +1,144 @@
+to_words:
+  ones:
+    0: nula
+    1: jedna
+    2: dvě
+    3: tři
+    4: čtyři
+    5: pět
+    6: šest
+    7: sedm
+    8: osm
+    9: devět
+  "female ones":
+    options:
+     :gender: female
+    0: nula
+    1: jedna
+    2: dvě
+    3: tři
+    4: čtyři
+    5: pět
+    6: šest
+    7: sedm
+    8: osm
+    9: devět
+  "male ones":
+    options:
+     :gender: male
+    0: nula
+    1: jeden
+    2: dva
+    3: tři
+    4: čtyři
+    5: pět
+    6: šest
+    7: sedm
+    8: osm
+    9: devět
+  "neuter ones":
+    options:
+     :gender: neuter
+    0: nula
+    1: jedno
+    2: dvě
+    3: tři
+    4: čtyři
+    5: pět
+    6: šest
+    7: sedm
+    8: osm
+    9: devět
+  teens:
+    10: deset
+    11: jedenáct
+    19: devatenáct
+    20: dvacet
+    21: dvacet jedna
+    80: osmdesát
+    90: devadesát
+    99: devadesát devět
+  hundreds:
+    100: jedno sto
+    101: jedno sto jedna
+    111: jedno sto jedenáct
+    120: jedno sto dvacet
+    121: jedno sto dvacet jedna
+    900: devět set
+    909: devět set devět
+    919: devět set devatenáct
+    990: devět set devadesát
+    999: devět set devadesát devět
+  thousands:
+    1_000: jeden tisíc
+    2_000: dva tisíce
+    4_000: čtyři tisíce
+    5_000: pět tisíc
+    11_000: jedenáct tisíc
+    21_000: dvacet jeden tisíc
+    21_345: dvacet jeden tisíc tři sta čtyřicet pět
+    999_999: devět set devadesát devět tisíc devět set devadesát devět
+  miliony:
+    1_000_000: jeden milión
+    2_000_000: dva milióny
+    4_000_000: čtyři milióny
+    5_000_000: pět miliónů
+    999_000_000: devět set devadesát devět miliónů
+    999_000_999: devět set devadesát devět miliónů devět set devadesát devět
+    999_999_000: devět set devadesát devět miliónů devět set devadesát devět tisíc
+    999_999_999: devět set devadesát devět miliónů devět set devadesát devět tisíc devět set devadesát devět
+    123_456_789: jedno sto dvacet tři milióny čtyři sta padesát šest tisíc sedm set osmdesát devět
+  miliardy:
+    1_174_315_110: jedna miliarda jedno sto sedmdesát čtyři milióny tři sta patnáct tisíc jedno sto deset
+    35_568_717_692: třicet pět miliard pět set šedesát osm miliónů sedm set sedmnáct tisíc šest set devadesát dvě
+  biliony:
+    2_935_174_315_119: dva biliony devět set třicet pět miliard jedno sto sedmdesát čtyři milióny tři sta patnáct tisíc jedno sto devatenáct
+
+  "male ordinals":
+    options:
+      :ordinal: true
+      :gender: male
+    0: nultý
+    1: první
+    2: druhý
+    3: třetí
+    4: čtvrtý
+    5: pátý
+    6: šestý
+    7: sedmý
+    8: osmý
+    9: devátý
+    10: desátý
+    11: jedenáctý
+    12: dvanáctý
+    13: třináctý
+    14: čtrnáctý
+    15: patnáctý
+    16: šestnáctý
+    17: sedmnáctý
+    18: osmnáctý
+    19: devatenáctý
+    20: dvacátý
+    30: třicátý
+    40: čtyřicátý
+    50: padesátý
+    60: šedesátý
+    70: sedmdesátý
+    80: osmdesátý
+    90: devadesátý
+    100: stý
+    21: dvacátý první
+    42: čtyřicátý druhý
+    133: stý třicátý třetí
+
+  "female ordinals":
+    options:
+      :ordinal: true
+      :gender: female
+    2: druhá
+    3: třetí
+    8: osmá
+    18: osmnáctá
+    36: třicátá šestá
+    100: stá
+    999: devítistá devadesátá devátá
