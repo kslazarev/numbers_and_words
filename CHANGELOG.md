@@ -1,7 +1,11 @@
-## 0.11.2 (Next)
+## 0.11.3 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.2 (August 14, 2017)
+
+### Features
   * Add full support for Czech language. \[[#148](https://github.com/kslazarev/numbers_and_words/pull/148)\]
 
 ## 0.11.1 (July 23, 2017)
