@@ -3,10 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Tr < Base
-          include Families::Latin
-
-          private
-
           def capacity_iteration
             words = []
             capacity_words = words_in_capacity(@current_capacity)
@@ -14,6 +10,8 @@ module NumbersAndWords
             words += capacity_words unless thousand? && one?
             words
           end
+
+          private
 
           def one?
             words_in_capacity(@current_capacity) == [translations.ones(1)]

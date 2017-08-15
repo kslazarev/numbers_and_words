@@ -3,8 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Cs < Base
-          include Families::Latin
-
           # methods in translations/cs.rb which can work with :gender or :ordinal
           %i[ones teens tens tens_with_ones hundreds].each do |method_name|
             define_method(method_name) do
@@ -21,13 +19,13 @@ module NumbersAndWords
           end
 
           def gender
-            @current_capacity ||= 0
             # @current_capacity = order of block of 3 digits, backwards (0 = hundreds tens ones)
+            @current_capacity ||= 0
 
             if @current_capacity.zero?
               options.gender.result
             elsif @current_capacity > 2 && @current_capacity.odd?
-              :female # miliardy, biliardy, triliardy .....
+              :female # miliardy, biliardy, triliardy...
             else
               :male
             end

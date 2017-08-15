@@ -3,7 +3,7 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Base
-          include Languages::Families::Base
+          include Families::Base
 
           attr_accessor :strategy, :figures, :translations, :strings, :options
 
@@ -20,7 +20,7 @@ module NumbersAndWords
           end
 
           def print_words
-            @strings.reverse.join ' '
+            @strings.reverse.join(' ')
           end
         end
       end

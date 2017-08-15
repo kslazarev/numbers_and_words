@@ -1,18 +1,17 @@
 en-GB:
   numbers:
     ones: [zero, one, two, three, four, five, six, seven, eight, nine]
-    teens: [ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
-    tens: [zero, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
+    teens: [_, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
+    tens: [_, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
     hundreds: hundred
-    mega: [ones, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
+    mega: [_, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion, undecillion, duodecillion, tredecillion, quattuordecillion]
     ordinal:
       ones: [zeroth, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
       teens: [tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth]
-      tens: [zeroth, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]
+      tens: [_, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]
       hundreds: hundredth
-      mega: [zeroth, thousandth, millionth, billionth, trillionth, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth]
-    union_separator: point
-    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths]
+      mega: [_, thousandth, millionth, billionth, trillionth, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth, undecillionth, duodecillionth, tredecillionth, quattuordecillionth]
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
     tenths:
       one: tenth
       other: tenths
@@ -52,4 +51,21 @@ en-GB:
     decillionths:
       one: decillionth
       other: decillionths
+    undecillionths:
+      one: undecillionth
+      other: undecillionths
+    duodecillionths:
+      one: duodecillionth
+      other: duodecillionths
+    tredecillionths:
+      one: tredecillionth
+      other: tredecillionths
+    quattuordecillionths:
+      one: quattuordecillionth
+      other: quattuordecillionths
+    micro_separator: point
+    micro_prefix:
+      tens: ten
+      hundreds: hundred
+      union: '-'
     union: and

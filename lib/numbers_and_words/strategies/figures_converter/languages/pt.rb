@@ -3,14 +3,12 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Pt < Base
-          include Families::Latin
-
           def hundreds
             super({ is_hundred: hundred?, is_one_hundred: one_hundred? })
           end
 
           def megs
-            super({ is_one: words_in_capacity(@current_capacity) == [@translations.ones(1)] })
+            super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
           private

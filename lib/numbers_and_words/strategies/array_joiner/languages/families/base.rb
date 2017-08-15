@@ -9,11 +9,11 @@ module NumbersAndWords
             end
 
             def union_element
-              union_separator.empty? ? ' ' : " #{union_separator} "
+              micro_separator.empty? ? ' ' : " #{micro_separator} "
             end
 
-            def union_separator
-              options[:union_separator] || @translations.union_separator || ''
+            def micro_separator
+              options[:micro_separator] || @translations.micro_separator || ''
             end
           end
         end

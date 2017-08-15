@@ -3,8 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Es < Base
-          include Families::Latin
-
           def capacity_iteration
             super.compact
           end

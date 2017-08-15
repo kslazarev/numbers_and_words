@@ -1,22 +1,13 @@
 cs:
   numbers:
-    union: ''
-    union_separator: ''
-    integral: celých
     ones:
       male: [nula, jeden, dva, tři, čtyři, pět, šest, sedm, osm, devět]
       female: [nula, jedna, dvě, tři, čtyři, pět, šest, sedm, osm, devět]
       neuter: [nula, jedno, dvě, tři, čtyři, pět, šest, sedm, osm, devět]
-    teens: [deset, jedenáct, dvanáct, třináct, čtrnáct, patnáct, šestnáct, sedmnáct, osmnáct, devatenáct]
+    teens: [_, jedenáct, dvanáct, třináct, čtrnáct, patnáct, šestnáct, sedmnáct, osmnáct, devatenáct]
     tens: [_, deset, dvacet, třicet, čtyřicet, padesát, šedesát, sedmdesát, osmdesát, devadesát]
     hundreds: [_, jedno sto, dvě stě, tři sta, čtyři sta, pět set, šest set, sedm set, osm set, devět set]
-# gem pouziva se deleni po 10^3, http://www.converter.cz/prevody/velka-cisla.htm
-#    mega: [ones, thousands, miliony, miliardy, biliony, biliardy, triliony, triliardy, quadriliony, quadriliardy]
-    micro:
-      one: [_, desetina, setina, tisícina, milióntina, miliardtina, bilióntina]
-      few: [_, desetiny, setiny, tisíciny, milióntiny, miliardtiny, bilióntiny]
-      many: [_, desetin, setin, tisícin, milióntin, miliardtin, bilióntin]
-    sub_micro: [_, deseti, sto]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions]
     thousands:
       one: tisíc
       few: tisíce
@@ -53,26 +44,15 @@ cs:
       one: kvadriliarda
       few: kvadriliardy
       many: kvadriliard
-    mega:
-      - ones
-      - thousands
-      - millions
-      - billions
-      - trillions
-      - quadrillions
-      - quintillion
-      - sextillions
-      - septillions
-      - octillions
     ordinal:
       ones:
         male: [nultý, první, druhý, třetí, čtvrtý, pátý, šestý, sedmý, osmý, devátý]
         female: [nultá, první, druhá, třetí, čtvrtá, pátá, šestá, sedmá, osmá, devátá]
         neuter: [nulté, první, druhé, třetí, čtvrté, páté, šesté, sedmé, osmé, deváté]
       teens:
-        male: [desátý, jedenáctý, dvanáctý, třináctý, čtrnáctý, patnáctý, šestnáctý, sedmnáctý, osmnáctý, devatenáctý]
-        female: [desátá, jedenáctá, dvanáctá, třináctá, čtrnáctá, patnáctá, šestnáctá, sedmnáctá, osmnáctá, devatenáctá]
-        neuter: [desáté, jedenácté, dvanácté, třinácté, čtrnácté, patnácté, šestnácté, sedmnácté, osmnácté, devatenácté]
+        male: [_, jedenáctý, dvanáctý, třináctý, čtrnáctý, patnáctý, šestnáctý, sedmnáctý, osmnáctý, devatenáctý]
+        female: [_, jedenáctá, dvanáctá, třináctá, čtrnáctá, patnáctá, šestnáctá, sedmnáctá, osmnáctá, devatenáctá]
+        neuter: [_, jedenácté, dvanácté, třinácté, čtrnácté, patnácté, šestnácté, sedmnácté, osmnácté, devatenácté]
       tens:
         male: [_, desátý, dvacátý, třicátý, čtyřicátý, padesátý, šedesátý, sedmdesátý, osmdesátý, devadesátý]
         female: [_, desátá, dvacátá, třicátá, čtyřicátá, padesátá, šedesátá, sedmdesátá, osmdesátá, devadesátá]
@@ -81,4 +61,35 @@ cs:
         male: [_, stý, dvoustý, třístý, čtyřstý, pětistý, šestistý, sedmistý, osmistý, devítistý]
         female: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
         neuter: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
-
+    integral: celých
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    tenths:
+      one: desetina
+      few: desetiny
+      many: desetin
+    hundredths:
+      one: setina
+      few: setiny
+      many: setin
+    thousandths:
+      one: tisícina
+      few: tisíciny
+      many: tisícin
+    millionths:
+      one: milióntina
+      few: milióntiny
+      many: milióntin
+    billionths:
+      one: miliardtina
+      few: miliardtiny
+      many: miliardtin
+    trillionths:
+      one: bilióntina
+      few: bilióntiny
+      many: bilióntin
+    micro_separator: ''
+    micro_prefix:
+      tens: deseti
+      hundreds: sto
+      union: ''
+    union: ''

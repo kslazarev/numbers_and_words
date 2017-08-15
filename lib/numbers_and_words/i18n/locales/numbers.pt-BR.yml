@@ -1,22 +1,46 @@
 pt-BR:
   numbers:
-    union: e
-    union_separator: e
-    integral:
-      one: inteiro
-      other: inteiros
     ones:
       male: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
       female: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
-    one: um
-    teens: [dez, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
-    tens: [zero, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
+    teens: [_, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
+    tens: [_, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
     hundreds:
-      male: [cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
-      female: [cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
+      male: [_, cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
+      female: [_, cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
     one_hundred: cem
-    mega: [_, mil, milhão, bilhão, trilhão, quadrilhão, quintilhão, sextilhão, septilhão, octilhão, nonilhão, decilhão]
-    megas: [_, mil, milhões, bilhões, trilhões, quadrilhões, quintilhões, sextilhões, septilhões, octilhões, nonilhões, decilhões]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: mil
+    millions:
+      one: milhão
+      other: milhões
+    billions:
+      one: bilhão
+      other: bilhões
+    trillions:
+      one: trilhão
+      other: trilhões
+    quadrillions:
+      one: quadrilhão
+      other: quadrilhões
+    quintillions:
+      one: quintilhão
+      other: quintilhões
+    sextillions:
+      one: sextilhão
+      other: sextilhões
+    septillions:
+      one: septilhão
+      other: septilhões
+    octillions:
+      one: octilhão
+      other: octilhões
+    nonillions:
+      one: nonilhão
+      other: nonilhões
+    decillions:
+      one: decilhão
+      other: decilhões
     ordinal:
       ones:
         male: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
@@ -25,20 +49,15 @@ pt-BR:
         male: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
         female: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
       hundreds:
-        male: [centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
-        female: [centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
+        male: [_, centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
+        female: [_, centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
       mega:
         male: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, sextilionésimo, septilionésimo, octilionésimo, nonilionésimo]
         female: [_, milésima, milionésima, bilionésima, trilionésima, quadrilionésima, sextilionésima, septilionésima, octilionésima, nonilionésima]
+    integral:
+      one: inteiro
+      other: inteiros
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
-    micro_prefix:
-      tens:
-        one: décimo
-        other: décimos
-      hundreds:
-        one: centésimo
-        other: centésimos
-      separator: de
     tenths:
       one: décimo
       other: décimos
@@ -90,3 +109,13 @@ pt-BR:
     quattuordecillionths:
       one: quadringentilionésimo
       other: quadringentilionésimos
+    micro_separator: e
+    micro_prefix:
+      tens:
+        one: décimo
+        other: décimos
+      hundreds:
+        one: centésimo
+        other: centésimos
+      union: ' de '
+    union: e

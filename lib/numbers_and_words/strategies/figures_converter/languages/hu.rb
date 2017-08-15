@@ -3,8 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Hu < Base
-          include Families::Latin
-
           def print_words
             inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
           end

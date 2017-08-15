@@ -3,8 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Nl < Base
-          include Families::Latin
-
           def hundreds_number_to_words
             [super.reverse.join]
           end
