@@ -1,7 +1,7 @@
 module NumbersAndWords
   module Translations
     class PtBr < Base
-      include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Families::Base
       include NumbersAndWords::Translations::Extensions::FractionSignificance
 
       def integral(number, _options = {})
@@ -18,11 +18,9 @@ module NumbersAndWords
       end
 
       def tens(number, options = {})
-        options[:alone] = true if options[:alone].nil?
         path = [options[:prefix], :tens]
-        path.push(options[:gender]) if ordinal? options
-        translated = t(path.join('.'))[number]
-        options[:alone] ? translated : "#{union} " + translated
+        path.push(options[:gender]) if ordinal?(options)
+        t(path.join('.'))[number]
       end
 
       def teens(number, options = {})
@@ -31,33 +29,28 @@ module NumbersAndWords
       end
 
       def tens_with_ones(numbers, options = {})
-        connector = ' '
-        connector = " #{union} " unless ordinal? options
+        connector = ordinal?(options) ? ' ' : " #{union} "
         [tens(numbers[1], options), connector, ones(numbers[0], options)].join
       end
 
       def hundreds(number, options = {})
-        return t(:one_hundred) if options[:is_one_hundred] && !(ordinal? options)
-        translated = t([options[:prefix], :hundreds, options[:gender]].join('.'))[number - 1]
-        return translated if ordinal? options
-        options[:is_hundred] ? translated : translated + " #{union}"
+        return t(:one_hundred) if options[:is_one_hundred] && !ordinal?(options)
+        hundreds = t([options[:prefix], :hundreds, options[:gender]].join('.'))[number]
+        return hundreds if ordinal?(options) || options[:is_hundred]
+        [hundreds, union].join(' ')
       end
 
       def megs(capacity, options = {})
-        return t([options[:prefix], :mega, options[:gender]].join('.'))[capacity] if ordinal? options
-
-        options[:is_one] = false if options[:is_one].nil?
-        connector = " #{union}"
-        connector = ',' if options[:is_with_comma]
-        suffix = options[:is_opaque] ? '' : connector
-        suffix = options[:is_without_connector] ? '' : suffix
-        (options[:is_one] ? t(:mega)[capacity] : t(:megas)[capacity]) + suffix
+        return t([options[:prefix], :mega, options[:gender]].join('.'))[capacity] if ordinal?(options)
+        return super(capacity, options) if options[:is_opaque] || options[:is_without_connector]
+        suffix = options[:is_with_comma] ? ',' : " #{union}"
+        super(capacity, options) + suffix
       end
 
-      def micros(capacity, number, separator = t('micro_prefix.separator'))
+      def micros(capacity, number = nil)
         micro, prefix = capacity
         micros = number ? t(micro(micro), count: number) : micro(micro)
-        [micro_prefix(prefix, number), micros].compact.join(" #{separator} ")
+        [micro_prefix(prefix, number), micros].compact.join(t('micro_prefix.union'))
       end
 
       def micro_prefix(capacity, number)

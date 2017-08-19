@@ -1,16 +1,20 @@
 hu:
   numbers:
     ones: [nulla, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
-    ones_with_tens: [nulla, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
-    tens: [nulla, tíz, húsz, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
-    tens_with_ones: [nulla, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
+    ones_with_tens: [_, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
+    tens: [_, tíz, húsz, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
+    tens_with_ones: [_, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
     hundreds: száz
-    mega: [egy, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
-    union_separator: egész
+    mega: [_, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
     ordinal:
       ones: [nulladik, első, második, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
       ones_with_tens: [nulladik, egyedik, kettedik, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
-      tens: [nulladik, tizedik, huszadik, harmincadik, negyvenedik, ötvenedik, hatvanadik, hetvenedik, nyolcvanadik, kilencvenedik]
+      tens: [_, tizedik, huszadik, harmincadik, negyvenedik, ötvenedik, hatvanadik, hetvenedik, nyolcvanadik, kilencvenedik]
       hundreds: századik
-      mega: [nulladik, ezredik, milliomodik, milliárdodik, billiomodik, billiárdodik, trilliomodik, trilliárdodik, kvadrilliomodik, kvadrilliárdodik, kvintilliomodik, kvintilliárdodik]
+      mega: [_, ezredik, milliomodik, milliárdodik, billiomodik, billiárdodik, trilliomodik, trilliárdodik, kvadrilliomodik, kvadrilliárdodik, kvintilliomodik, kvintilliárdodik]
     micro: [_, tized, század, ezred, milliomod, milliárdod, billiomod, billiárdod, trilliomod, trilliárdod, kvadrilliomod, kvadrilliárdod, kvintilliomod, kvintilliárdod]
+    micro_separator: egész
+    micro_prefix:
+      tens: tíz
+      hundreds: száz
+      union: ''

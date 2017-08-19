@@ -1,7 +1,7 @@
 module NumbersAndWords
   module Translations
     class De < Base
-      include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Families::Base
       DEFAULT_POSTFIX = :combine
 
       def ones(number, options = {})
@@ -9,11 +9,11 @@ module NumbersAndWords
       end
 
       def tens_with_ones(numbers, options = {})
-        [tens(numbers[1]), ones(numbers[0], options)].reverse.join 'und'
+        [tens(numbers[1]), ones(numbers[0], options)].reverse.join(union)
       end
 
       def hundreds(number, _options = {})
-        [ones(number), t(:hundreds)].join('')
+        [ones(number), t(:hundreds)].join
       end
 
       def zero(_options = {})

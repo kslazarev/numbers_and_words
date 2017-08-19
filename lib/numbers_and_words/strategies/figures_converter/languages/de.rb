@@ -3,14 +3,12 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class De < Base
-          include Families::Latin
-
           def print_words
-            complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join('')
+            complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join
           end
 
           def print_megs_words
-            [print_megs, print_other].reject(&:empty?).join ' '
+            [print_megs, print_other].reject(&:empty?).join(' ')
           end
 
           def complex_number_to_words
@@ -40,16 +38,16 @@ module NumbersAndWords
 
           def print_megs
             complex_part[1..-1].map do |el|
-              [el[1..-1].to_a.reverse.join(''), el.first].join(' ')
+              [el[1..-1].to_a.reverse.join, el.first].join(' ')
             end.reject(&:empty?).reverse.join(' ')
           end
 
           def print_other
-            [print_thousands, simple_part.reverse.join('')].join('')
+            [print_thousands, simple_part.reverse.join].join
           end
 
           def print_thousands
-            complex_part.first.reverse.join('')
+            complex_part.first.reverse.join
           end
 
           def simple_part

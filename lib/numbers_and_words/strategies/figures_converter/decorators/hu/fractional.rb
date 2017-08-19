@@ -11,7 +11,7 @@ module NumbersAndWords
             private
 
             def fraction_significance
-              @strategy.translations.micros full_fraction.fraction_capacity, figures.reverse.join.to_i
+              @strategy.translations.micros full_fraction.fraction_capacity
             end
 
             def full_fraction

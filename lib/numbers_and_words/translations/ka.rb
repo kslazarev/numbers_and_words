@@ -46,26 +46,16 @@ module NumbersAndWords
                   ones(numbers[0])
                 end
 
-        [t([:partials, range[:name]].join('.')), minor].join ''
+        [t([:partials, range[:name]].join('.')), minor].join
       end
 
       def hundreds(number, options = {})
         options[:prefix] ||= options[:only_hundreds] == true ? nil : :partials
 
-        parts = [t([options[:prefix], :one_hundred].join('.'))]
+        parts = [t([options[:prefix], :hundreds].join('.'))]
         parts.unshift(ones(number, prefix: :partials)) if number > 1
 
-        parts.join ''
-      end
-
-      def megs(capacity, options = {})
-        if capacity == 1
-          t([options[:prefix], :one_thousand].join('.'))
-        elsif capacity == 2
-          t([options[:prefix], :one_million].join('.'))
-        elsif capacity == 3
-          t([options[:prefix], :one_billion].join('.'))
-        end
+        parts.join
       end
     end
   end

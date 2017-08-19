@@ -1,7 +1,8 @@
 nl:
   numbers:
     ones: [nul, één, twee, drie, vier, vijf, zes, zeven, acht, negen]
-    teens: [tien, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
-    tens: [nul, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
+    teens: [_, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
+    tens: [_, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
     hundreds: honderd
-    mega: [degenen, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
+    mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
+    union: en

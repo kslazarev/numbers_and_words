@@ -4,20 +4,10 @@ ua:
       male: [нуль, один, два, три, чотири, п’ять, шiсть, сiм, вiсiм, дев’ять]
       female: [нуль, одна, двi, три, чотири, п’ять, шiсть, сiм, вiсiм, дев’ять]
       neuter: [нуль, одне, два, три, чотири, п’ять, шiсть, сiм, вiсiм, дев’ять]
-    teens: [десять, одинадцять, дванадцять, тринадцять, чотирнадцять, п’ятнадцять, шiстнадцять, сiмнадцять, вiсiмнадцять, дев’ятнадцять]
-    tens: [нуль, десять, двадцять, тридцять, сорок, п’ятдесят, шiстдесят, сiмдесят, вiсiмдесят, дев’яносто]
-    hundreds: [нуль, сто, двiстi, триста, чотириста, п’ятсот, шiстсот, сiмсот, вiсiмсот, дев’ятсот]
-    union_separator: 'i'
-    union: 'i'
-    micro:
-      one: [_, десята, сота, тысячна, мiльйонна, мiльярдна, трильйонна]
-      few: [_, десятих, сотих, тисячних, мiльйонних, мiльярдних, трильйонних]
-      many: [_, десятих, сотих, тисячних, мiльйонних, мiльярдних, трильйонних]
-    sub_micro: [_, десяти, сто]
-    integral:
-      one: цiла
-      few: цiлих
-      many: цiлих
+    teens: [_, одинадцять, дванадцять, тринадцять, чотирнадцять, п’ятнадцять, шiстнадцять, сiмнадцять, вiсiмнадцять, дев’ятнадцять]
+    tens: [_, десять, двадцять, тридцять, сорок, п’ятдесят, шiстдесят, сiмдесят, вiсiмдесят, дев’яносто]
+    hundreds: [_, сто, двiстi, триста, чотириста, п’ятсот, шiстсот, сiмсот, вiсiмсот, дев’ятсот]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: тисяча
       few: тисячi
@@ -62,4 +52,38 @@ ua:
       one: децильйон
       few: децильйона
       many: децильйонiв
-    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    integral:
+      one: цiла
+      few: цiлих
+      many: цiлих
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    tenths:
+      one: десята
+      few: десятих
+      many: десятих
+    hundredths:
+      one: сота
+      few: сотих
+      many: сотих
+    thousandths:
+      one: тысячна
+      few: тисячних
+      many: тисячних
+    millionths:
+      one: мiльйонна
+      few: мiльйонних
+      many: мiльйонних
+    billionths:
+      one: мiльярдна
+      few: мiльярдних
+      many: мiльярдних
+    trillionths:
+      one: трильйонна
+      few: трильйонних
+      many: трильйонних
+    micro_separator: 'i'
+    micro_prefix:
+      tens: десяти
+      hundreds: сто
+      union: ' '
+    union: 'i'

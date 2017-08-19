@@ -6,16 +6,11 @@ module NumbersAndWords
 
       def tens_with_ones(numbers, options = {})
         ones, tens = numbers
-        [t(:tens_with_ones)[tens], t([options[:prefix], :ones_with_tens].join('.'))[ones]].join ''
+        [t(:tens_with_ones)[tens], t([options[:prefix], :ones_with_tens].join('.'))[ones]].join
       end
 
       def hundreds(number, options = {})
-        options[:separator] = ''
-        super number, options
-      end
-
-      def micros(capacity, _number = nil, separator = '')
-        super capacity, nil, separator
+        super number, options.merge(separator: '')
       end
     end
   end

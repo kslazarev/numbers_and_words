@@ -3,8 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class PtBr < Base
-          include Families::Latin
-
           %i[teens tens tens_with_ones].each do |method_name|
             define_method(method_name) do
               super(internal_options)
@@ -39,7 +37,7 @@ module NumbersAndWords
           end
 
           def megs
-            super(internal_options.merge(is_one: words_in_capacity(current_capacity) == [translations.ones(1, internal_options)],
+            super(internal_options.merge(number: @figures.number_in_capacity(@current_capacity),
                                          is_opaque: opaque?,
                                          is_without_connector: without_connector?,
                                          is_with_comma: with_comma?))

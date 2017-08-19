@@ -3,7 +3,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class It < Base
-          include Families::Latin
         end
       end
     end

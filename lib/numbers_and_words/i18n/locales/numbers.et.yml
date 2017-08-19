@@ -1,10 +1,10 @@
 et:
   numbers:
-    ones: ["null", üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
-    teens: [kümme, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
-    tens: ["null", kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]
-    mega: [ones, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    ones: ['null', üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
+    teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
+    tens: [_, kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]
     hundreds: sada
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     thousands: tuhat
     millions:
       one: miljon

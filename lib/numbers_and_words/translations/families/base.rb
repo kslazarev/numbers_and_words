@@ -11,7 +11,7 @@ module NumbersAndWords
         end
 
         def tens_with_ones(numbers, options = {})
-          [tens(numbers[1]), ones(numbers[0], options)].join options[:separator]
+          [tens(numbers[1]), ones(numbers[0], options)].join options[:separator] || ' '
         end
 
         def megs(capacity, options = {})
@@ -28,8 +28,8 @@ module NumbersAndWords
           t :union
         end
 
-        def union_separator
-          t :union_separator
+        def micro_separator
+          t :micro_separator
         end
       end
     end
