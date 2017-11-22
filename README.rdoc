@@ -82,6 +82,9 @@ Converte números em letras utilizando a biblioteca I18n.
     I18n.with_locale(:cs) { 42.to_words }
     => "čtyřicetdva"
 
+    I18n.with_locale(:vi) { 42.to_words }
+    => "bốn mươi hai"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -100,6 +103,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "tjugo-en"
     => "dvacetjedna"
     => "vinte e um"
+    => "hai mươi mốt"
 
     231.to_words
     => "two hundred thirty-one"
@@ -119,6 +123,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "två hundra trettio-en"
     => "dvě stě třicetjedna"
     => "duzentos e trinta e um"
+    => "hai trăm ba mươi mốt"
 
     4030.to_words
     => "four thousand thirty"
@@ -137,6 +142,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "vierthousanddertig"
     => "fyra tusen trettio"
     => "čtyři tisíce třicet"
+    => "bốn nghìn không trăm ba mươi"
 
     1000100.to_words
     => "one million one hundred"
@@ -155,6 +161,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "één miljoen honderd"
     => "en miljoner en hundra"
     => "jeden milión jedno sto"
+    => "một triệu một trăm"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -184,6 +191,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => ["üks", "kaks", "kolm"]
     => ["ერთი", "ორი", "სამი"]
     => ["jedna", "dva", "tři"]
+    => ["một", "hai", "ba"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -202,6 +210,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => ["elf", "tweeentwintig", "honderddrieendertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
+    => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -209,6 +218,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "двадцять одна цiла i сiмдесят сiм сотих"
     => "huszonegy egész hetvenhét század"
     => "twenty-one point seven seven"
+    => "hai mươi mốt phẩy bảy mươi bảy"
 
 == Language options / Языковые опции
 

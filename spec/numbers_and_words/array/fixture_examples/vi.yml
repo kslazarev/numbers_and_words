@@ -1,0 +1,30 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - một
+      - hai
+      - ba
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+    :
+      - một trăm linh một
+      - hai mươi mốt
+      - mười ba
+  complex_example_with_options:
+    options:
+      :remove_zero: true
+    ?
+      - 0.1
+      - 0.31
+      - 0.012
+    :
+      - không phẩy một
+      - không phẩy ba mươi mốt
+      - không phẩy không một hai
