@@ -6,8 +6,8 @@ require File.expand_path('../lib/numbers_and_words/version', __FILE__)
 begin
   Bundler.setup :default, :development
 rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts 'Run `bundle install` to install missing gems'
+  warn e.message
+  warn 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 

@@ -8,5 +8,5 @@ AllCops:
 Style/AsciiComments:
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
   Enabled: false
