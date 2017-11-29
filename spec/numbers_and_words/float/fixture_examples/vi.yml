@@ -1,0 +1,19 @@
+to_words:
+  fractional:
+    0.1: không phẩy một
+    0.7: không phẩy bảy
+    0.01: không phẩy không một
+    0.012: không phẩy không một hai
+    0.77: không phẩy bảy mươi bảy
+    0.777: không phẩy bảy trăm bảy mươi bảy
+    0.7777: không phẩy bảy nghìn bảy trăm bảy mươi bảy
+    0.77777: không phẩy bảy mươi bảy nghìn bảy trăm bảy mươi bảy
+    0.777777: không phẩy bảy trăm bảy mươi bảy nghìn bảy trăm bảy mươi bảy
+    0.7777777: không phẩy bảy triệu bảy trăm bảy mươi bảy nghìn bảy trăm bảy mươi bảy
+    0.77777777: không phẩy bảy mươi bảy triệu bảy trăm bảy mươi bảy nghìn bảy trăm bảy mươi bảy
+    0.777777777: không phẩy bảy trăm bảy mươi bảy triệu bảy trăm bảy mươi bảy nghìn bảy trăm bảy mươi bảy
+    0.2935174315119: không phẩy hai nghìn chín trăm ba mươi lăm tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+    21.77: hai mươi mốt phẩy bảy mươi bảy
+    111.999: một trăm mười một phẩy chín trăm chín mươi chín
+    4242.7463: bốn nghìn hai trăm bốn mươi hai phẩy bảy nghìn bốn trăm sáu mươi ba
+    4242.07463: bốn nghìn hai trăm bốn mươi hai phẩy không bảy bốn sáu ba

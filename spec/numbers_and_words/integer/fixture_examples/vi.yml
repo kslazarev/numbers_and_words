@@ -1,0 +1,60 @@
+to_words:
+  ones:
+    0: không
+    1: một
+    9: chín
+  teens:
+    10: mười
+    11: mười một
+    19: mười chín
+    20: hai mươi
+    21: hai mươi mốt
+    80: tám mươi
+    90: chín mươi
+    99: chín mươi chín
+  hundreds:
+    100: một trăm
+    101: một trăm linh một
+    111: một trăm mười một
+    120: một trăm hai mươi
+    121: một trăm hai mươi mốt
+    900: chín trăm
+    909: chín trăm linh chín
+    919: chín trăm mười chín
+    990: chín trăm chín mươi
+    999: chín trăm chín mươi chín
+  thousands:
+    1000: một nghìn
+    2000: hai nghìn
+    4000: bốn nghìn
+    5000: năm nghìn
+    5010: năm nghìn không trăm mười
+    11000: mười một nghìn
+    21000: hai mươi mốt nghìn
+    999000: chín trăm chín mươi chín nghìn
+    999999: chín trăm chín mươi chín nghìn chín trăm chín mươi chín
+  millions:
+    1000000: một triệu
+    2000000: hai triệu
+    4000000: bốn triệu
+    5000000: năm triệu
+    999000000: chín trăm chín mươi chín triệu
+    999000999: chín trăm chín mươi chín triệu chín trăm chín mươi chín
+    999999000: chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn
+    999999999: chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn chín trăm chín mươi chín
+  billions:
+    1000000000: một tỷ
+    1500000000: một tỷ năm trăm triệu
+    1174315110: một tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười
+    1174315119: một tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+    15174315119: mười lăm tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+    35174315119: ba mươi lăm tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+    935174315119: chín trăm ba mươi lăm tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+  trillions:
+    2935174315119: hai nghìn chín trăm ba mươi lăm tỷ một trăm bảy mươi bốn triệu ba trăm mười lăm nghìn một trăm mười chín
+    2000000000000: hai nghìn tỷ
+    2100000000000: hai nghìn một trăm tỷ
+  quadrillionth:
+    1000000000000000: một triệu tỷ
+    1200000000000000: một triệu hai trăm nghìn tỷ
+    1200200000000000: một triệu hai trăm nghìn hai trăm tỷ

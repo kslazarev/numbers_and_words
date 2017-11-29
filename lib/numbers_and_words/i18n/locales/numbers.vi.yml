@@ -1,0 +1,13 @@
+vi:
+  numbers:
+    ones: ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín']
+    teens: [_, 'mười một', 'mười hai', 'mười ba', 'mười bốn', 'mười lăm', 'mười sáu', 'mười bảy', 'thứ mười tám', 'mười chín']
+    tens: [_, 'mười', 'hai mươi', 'ba mươi', 'bốn mươi', 'năm mươi', 'sáu mươi', 'bảy mươi', 'tám mươi', 'chín mươi']
+    hundreds: 'trăm'
+    mega: [_, 'nghìn', 'triệu', 'tỷ', 'nghìn tỷ', 'triệu tỷ']
+    units:
+      tens:
+        one: 'mốt'
+        five: 'lăm'
+    ones_union: 'linh'
+    micro_separator: 'phẩy'

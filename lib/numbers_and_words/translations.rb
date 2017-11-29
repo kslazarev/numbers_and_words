@@ -22,6 +22,7 @@ require 'numbers_and_words/translations/pt'
 require 'numbers_and_words/translations/pt-BR'
 require 'numbers_and_words/translations/ka'
 require 'numbers_and_words/translations/cs'
+require 'numbers_and_words/translations/vi'
 
 module NumbersAndWords
   module Translations
