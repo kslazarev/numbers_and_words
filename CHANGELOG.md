@@ -1,8 +1,12 @@
-## 0.11.3 (Next)
+## 0.11.4 (Next)
 
 ### Features
   * Your contribution here.
-  * Add support for Vietnamese language
+
+## 0.11.3 (December 3, 2017)
+
+### Features
+  * Add support for Vietnamese language. \[[#152](https://github.com/kslazarev/numbers_and_words/pull/152)\]
 
 ## 0.11.2 (August 14, 2017)
 
