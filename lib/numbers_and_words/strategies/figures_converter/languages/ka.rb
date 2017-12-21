@@ -16,9 +16,7 @@ module NumbersAndWords
           end
 
           def megs
-            prefix = if @figures.hundreds || @figures.tens || @figures.ones
-                       :partials
-                     end
+            prefix = (:partials if @figures.hundreds || @figures.tens || @figures.ones)
 
             super(prefix: prefix)
           end
