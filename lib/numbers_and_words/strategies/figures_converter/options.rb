@@ -22,7 +22,7 @@ module NumbersAndWords
           def method_missing(method_name, *args, &block)
             Object.const_get(proxy_class_name(method_name)).new self, args, block
           rescue NameError
-            return nil
+            nil
           end
 
           private

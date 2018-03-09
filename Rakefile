@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
 
-require File.expand_path('../lib/numbers_and_words/version', __FILE__)
+require File.expand_path('lib/numbers_and_words/version', __dir__)
 
 begin
   Bundler.setup :default, :development
