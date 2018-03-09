@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Array
   def to_words(options = {})
     map { |element| element.to_words options }

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Wrappers
     class Float
-      ZERO_SYMBOL = '0'.freeze
+      ZERO_SYMBOL = '0'
 
       attr_accessor :number
 

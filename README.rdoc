@@ -326,8 +326,7 @@ Converte números em letras utilizando a biblioteca I18n.
 
 == Requirements / Требования / Configuration Requise
 
-* 1.9.3 <= Ruby (compatible with/совместимость с/compatible avec Ruby 1.9, JRuby and/и/et Rubinius);
-* 1.8.7 <= Ruby <= 1.9.2 (-v 0.9.0)
+* 2.3 <= Ruby (compatible with/совместимость с/compatible avec Ruby 2.3 and/и/et JRuby);
 * 0.5.0 <= I18n (earlier versions not tested/ранние версии не тестировались/versions précédentes non testées);
 
 == Installation / Установка / Installation

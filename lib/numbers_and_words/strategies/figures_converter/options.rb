@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'numbers_and_words/strategies/figures_converter/options/en'
 require 'numbers_and_words/strategies/figures_converter/options/en-GB'
 require 'numbers_and_words/strategies/figures_converter/options/es'
