@@ -82,12 +82,10 @@ module NumbersAndWords
 
           def without_connector?
             return false if with_comma?
-            # without connector when there is hundreds and tens_with_ones
-            return true if figures.hundreds && figures.tens_with_ones
-            # without connector when there is hundreds and tens
-            return true if figures.hundreds && figures.tens
-            # without connector when there is hundreds and ones
-            return true if figures.hundreds && figures.ones
+            return true if figures.hundreds &&
+                           (figures.tens_with_ones ||
+                            figures.tens ||
+                            figures.ones)
             false
           end
 
