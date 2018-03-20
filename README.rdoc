@@ -39,6 +39,7 @@ Converte números em letras utilizando a biblioteca I18n.
 * Česky [cs]
 * Português [pt]
 * Português Brasileiro [pt-BR]
+* հայերեն (Armenian) [hy]
 
 ** Experimental
 
@@ -85,6 +86,9 @@ Converte números em letras utilizando a biblioteca I18n.
     I18n.with_locale(:vi) { 42.to_words }
     => "bốn mươi hai"
 
+    I18n.with_locale(:hy) { 42.to_words }
+    => "քառասուն երկու"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -104,6 +108,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "dvacetjedna"
     => "vinte e um"
     => "hai mươi mốt"
+    => "քսան մեկ"
 
     231.to_words
     => "two hundred thirty-one"
@@ -124,6 +129,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "dvě stě třicetjedna"
     => "duzentos e trinta e um"
     => "hai trăm ba mươi mốt"
+    => "երկու հարյուր երեսուն մեկ"
 
     4030.to_words
     => "four thousand thirty"
@@ -143,6 +149,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "fyra tusen trettio"
     => "čtyři tisíce třicet"
     => "bốn nghìn không trăm ba mươi"
+    => "չորս հազար երեսուն"
 
     1000100.to_words
     => "one million one hundred"
@@ -162,6 +169,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "en miljoner en hundra"
     => "jeden milión jedno sto"
     => "một triệu một trăm"
+    => "միլիոն հարյուր"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -192,6 +200,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => ["ერთი", "ორი", "სამი"]
     => ["jedna", "dva", "tři"]
     => ["một", "hai", "ba"]
+    => ["մեկ", "երկու", "երեք"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -211,6 +220,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
+    => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

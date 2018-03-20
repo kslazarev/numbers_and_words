@@ -1,7 +1,7 @@
 ## 0.11.4 (Next)
 
 ### Features
-  * Your contribution here.
+  * Add support for Armenian language. \[[#155](https://github.com/kslazarev/numbers_and_words/pull/155)\]
 
 ## 0.11.3 (December 3, 2017)
 
