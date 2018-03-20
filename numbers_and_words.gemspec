@@ -6,12 +6,12 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words".freeze
-  s.version = "0.11.3"
+  s.version = "0.11.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Kirill Lazarev".freeze]
-  s.date = "2017-12-03"
+  s.date = "2018-03-20"
   s.description = "Convert numbers to words using I18N.".freeze
   s.email = "k.s.lazarev@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/locales/numbers.tr.yml",
     "lib/numbers_and_words/i18n/locales/numbers.ua.yml",
     "lib/numbers_and_words/i18n/locales/numbers.vi.yml",
+    "lib/numbers_and_words/i18n/locales/numbers.hy.yml",
     "lib/numbers_and_words/i18n/pluralization.rb",
     "lib/numbers_and_words/i18n/plurals/cs.rb",
     "lib/numbers_and_words/i18n/plurals/fr.rb",
@@ -141,6 +142,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/languages/tr.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/ua.rb",
     "lib/numbers_and_words/strategies/figures_converter/languages/vi.rb",
+    "lib/numbers_and_words/strategies/figures_converter/languages/hy.rb",
     "lib/numbers_and_words/strategies/figures_converter/options.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/cs.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/cs/gender.rb",
@@ -198,6 +200,7 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/translations/tr.rb",
     "lib/numbers_and_words/translations/ua.rb",
     "lib/numbers_and_words/translations/vi.rb",
+    "lib/numbers_and_words/translations/hy.rb",
     "lib/numbers_and_words/version.rb",
     "lib/numbers_and_words/wrappers.rb",
     "lib/numbers_and_words/wrappers/float.rb",
