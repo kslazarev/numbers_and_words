@@ -1,8 +1,13 @@
-## 0.11.5 (Next)
+## 0.11.6 (Next)
 
 ### Features
 
   * Your contribution here.
+
+## 0.11.5 (March 22, 2018)
+
+### Features
+  * Fix Armenian megs capacity words
 
 ## 0.11.4 (March 20, 2018)
 
