@@ -169,7 +169,7 @@ Converte números em letras utilizando a biblioteca I18n.
     => "en miljoner en hundra"
     => "jeden milión jedno sto"
     => "một triệu một trăm"
-    => "միլիոն հարյուր"
+    => "մեկ միլիոն հարյուր"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
