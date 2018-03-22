@@ -6,7 +6,7 @@
 
 ## 0.11.5 (March 22, 2018)
 
-### Features
+### Bugs
   * Fix Armenian megs capacity words
 
 ## 0.11.4 (March 20, 2018)
