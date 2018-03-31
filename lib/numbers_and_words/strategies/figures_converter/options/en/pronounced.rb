@@ -47,12 +47,7 @@ module NumbersAndWords
               units, tens = *figures.to_a.dup
               result = []
               if tens.zero?
-                if units.zero?
-                  result.push 'hundred'
-                else
-                  result.push language.ones
-                  result.push 'oh'
-                end
+                result.push units.zero? ? 'hundred' : ['oh', language.ones]
               elsif figures.teens
                 result.push language.teens
               elsif figures.tens
