@@ -6,18 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
+# Offense count: 1
 Metrics/AbcSize:
   Exclude:
-    - 'lib/numbers_and_words/strategies/figures_converter/options/en/pronounced.rb'
     - 'lib/numbers_and_words/translations/fr.rb'
-
-# Offense count: 2
-# Configuration parameters: CountComments.
-Metrics/MethodLength:
-  Exclude:
-    - 'lib/numbers_and_words/strategies/figures_converter/options/en/pronounced.rb'
-    - 'lib/numbers_and_words/strategies/figures_converter/languages/en.rb'
 
 # Offense count: 104
 Style/Documentation:
