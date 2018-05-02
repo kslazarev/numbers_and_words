@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Translations
     class Ka < Base
@@ -40,7 +42,7 @@ module NumbersAndWords
       def tens_with_ones(numbers, _options = {})
         range = vigesimal_range(numbers[1])
 
-        minor = if numbers[1] - range[:multiplicative] > 0
+        minor = if (numbers[1] - range[:multiplicative]).positive?
                   teens(numbers)
                 else
                   ones(numbers[0])

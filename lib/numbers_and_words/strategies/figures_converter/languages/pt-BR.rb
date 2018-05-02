@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
@@ -57,7 +59,7 @@ module NumbersAndWords
             return (options.gender.result || :male) if maybe_ordinal
 
             @current_capacity ||= 0
-            if @current_capacity > 0 && figures[0] == 1
+            if @current_capacity.positive? && figures[0] == 1
               :male
             else
               options.gender.result

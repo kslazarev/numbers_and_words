@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module Strategies
     module FiguresConverter
@@ -49,11 +51,11 @@ module NumbersAndWords
 
           def long_scale_thousand?
             @current_capacity.odd? &&
-              @figures.number_in_capacity(@current_capacity - 1) != 0
+              !@figures.number_in_capacity(@current_capacity - 1).zero?
           end
 
           def one_apocopated?
-            true if @current_capacity > 0 && @figures.ones == 1 ||
+            true if @current_capacity.positive? && @figures.ones == 1 ||
                     @options.apocopated.result
           end
 

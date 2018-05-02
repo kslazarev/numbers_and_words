@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'numbers_and_words/helper_classes/array_extensions/helpers'
 
 module NumbersAndWords

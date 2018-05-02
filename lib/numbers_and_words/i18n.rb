@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'numbers_and_words/i18n/pluralization'
 require 'numbers_and_words/i18n/initialization'
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module ArrayExtensions
     module Helpers
@@ -37,7 +39,7 @@ module NumbersAndWords
       end
 
       def ones
-        self[0].to_i if self[0].to_i > 0
+        self[0].to_i if self[0].to_i.positive?
       end
 
       def teens
@@ -45,7 +47,7 @@ module NumbersAndWords
       end
 
       def tens
-        self[1].to_i if self[1] && self[1].to_i > 0
+        self[1].to_i if self[1].to_i.positive?
       end
 
       def tens_with_ones
@@ -53,7 +55,7 @@ module NumbersAndWords
       end
 
       def hundreds
-        self[2].to_i if self[2].to_i > 0
+        self[2].to_i if self[2].to_i.positive?
       end
 
       def round_hundred?
@@ -77,7 +79,7 @@ module NumbersAndWords
       end
 
       def ordinal_index
-        index { |figure| figure != 0 }
+        index(&:positive?)
       end
 
       def ordinal_capacity

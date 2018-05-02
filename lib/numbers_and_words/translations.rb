@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'numbers_and_words/translations/base'
 require 'numbers_and_words/translations/families/base'
 require 'numbers_and_words/translations/families/cyrillic'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Hash[
   NumbersAndWords::I18n::Pluralization.languages.map do |language|
     [language.to_sym, {

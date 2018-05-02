@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersAndWords
   module I18n
     module Plurals

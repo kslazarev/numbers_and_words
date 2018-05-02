@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples 'correct fixture examples' do |examples|
   examples.each_pair do |method_name, context_names|
     context "##{method_name}" do
