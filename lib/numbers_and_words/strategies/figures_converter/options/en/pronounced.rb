@@ -47,13 +47,12 @@ module NumbersAndWords
 
             def tens_with_oh(language, figures)
               units, tens = *figures.to_a.dup
-              result = []
               if tens.zero?
-                result.push units.zero? ? 'hundred' : ['oh', language.ones]
+                units.zero? ? ['hundred'] : [language.ones, 'oh']
               elsif figures.teens
-                result.push language.teens
+                [language.teens]
               elsif figures.tens
-                result.push language.complex_tens
+                [language.complex_tens]
               end
             end
           end
