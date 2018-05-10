@@ -47,13 +47,9 @@ module NumbersAndWords
 
             def tens_with_oh(language, figures)
               units, tens = *figures.to_a.dup
-              if tens.zero?
-                units.zero? ? ['hundred'] : [language.ones, 'oh']
-              elsif figures.teens
-                [language.teens]
-              elsif figures.tens
-                [language.complex_tens]
-              end
+              return (units.zero? ? ['hundred'] : [language.ones, 'oh']) if tens.zero?
+              return [language.teens] if figures.teens
+              [language.complex_tens] if figures.tens
             end
           end
         end
