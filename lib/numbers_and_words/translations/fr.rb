@@ -13,13 +13,11 @@ module NumbersAndWords
         super number, options
       end
 
-      def tens_with_ones(numbers, _options = {})
-        if [7, 9].include? numbers[1]
-          [tens(numbers[1] - 1, alone: false), teens(numbers)].join('-')
-        else
-          separator = numbers[0] == 1 ? " #{union} " : '-'
-          [tens(numbers[1], alone: false), ones(numbers[0])].join(separator)
-        end
+      def tens_with_ones(numbers, options = {})
+        return [tens(numbers[1] - 1, alone: false), teens(numbers)].join('-') if [7, 9].include? numbers[1]
+
+        separator = numbers[0] == 1 ? " #{union} " : '-'
+        super numbers, options.merge(separator: separator)
       end
 
       def hundreds(number, options = {})
