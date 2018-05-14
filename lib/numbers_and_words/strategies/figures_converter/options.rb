@@ -22,9 +22,19 @@ module NumbersAndWords
           end
 
           def method_missing(method_name, *args, &block)
-            Object.const_get(proxy_class_name(method_name)).new self, args, block
+            method = Object.const_get(proxy_class_name(method_name))
+
+            if method
+              method.new(self, args, block)
+            else
+              super
+            end
           rescue NameError
             nil
+          end
+
+          def respond_to_missing?(method_name, include_private = false)
+            Object.const_get(proxy_class_name(method_name)) || super
           end
 
           private
