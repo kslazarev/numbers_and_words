@@ -71,6 +71,7 @@ module NumbersAndWords
 
           def fraction_length
             return 0 unless @options.options[:fractional]
+
             @options.options[:fractional][:length]
           end
 
@@ -84,6 +85,7 @@ module NumbersAndWords
               parts.insert(-1, billion_unit).join(' ')
             else
               return value if parts.size <= 2
+
               parts.insert(-2, billion_unit).join(' ')
             end
           end

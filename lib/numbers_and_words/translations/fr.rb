@@ -10,6 +10,7 @@ module NumbersAndWords
 
       def tens(number, options = {})
         return t(:eighty) if number == SPECIAL_TENS_CASE && options[:alone].nil?
+
         super number, options
       end
 
@@ -25,6 +26,7 @@ module NumbersAndWords
         hundreds = t(:hundreds, count: count)
 
         return hundreds if number == 1
+
         [t(:ones)[number], hundreds].join(' ')
       end
     end

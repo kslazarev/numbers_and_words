@@ -49,6 +49,7 @@ module NumbersAndWords
               units, tens = *figures.to_a.dup
               return (units.zero? ? ['hundred'] : [language.ones, 'oh']) if tens.zero?
               return [language.teens] if figures.teens
+
               [language.complex_tens]
             end
           end

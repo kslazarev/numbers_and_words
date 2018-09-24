@@ -16,6 +16,7 @@ module NumbersAndWords
 
       def ones(number, options = {})
         return if options[:is_one_thousand]
+
         t([options[:prefix], :ones, options[:gender]].join('.'))[number]
       end
 
@@ -27,6 +28,7 @@ module NumbersAndWords
 
       def teens(number, options = {})
         return [tens(1, options), ' ', ones(number[0], options)].join if ordinal? options
+
         super(number, options)
       end
 
@@ -37,14 +39,17 @@ module NumbersAndWords
 
       def hundreds(number, options = {})
         return t(:one_hundred) if options[:is_one_hundred] && !ordinal?(options)
+
         hundreds = t([options[:prefix], :hundreds, options[:gender]].join('.'))[number]
         return hundreds if ordinal?(options) || options[:is_hundred]
+
         [hundreds, union].join(' ')
       end
 
       def megs(capacity, options = {})
         return t([options[:prefix], :mega, options[:gender]].join('.'))[capacity] if ordinal?(options)
         return super(capacity, options) if options[:is_opaque] || options[:is_without_connector]
+
         suffix = options[:is_with_comma] ? ',' : " #{union}"
         super(capacity, options) + suffix
       end

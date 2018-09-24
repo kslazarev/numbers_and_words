@@ -11,6 +11,7 @@ module NumbersAndWords
 
       def hundreds(number, _options = {})
         return t(:hundreds) if number == 1
+
         super number, separator: ''
       end
     end

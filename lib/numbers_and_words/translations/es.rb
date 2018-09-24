@@ -14,6 +14,7 @@ module NumbersAndWords
         return if options[:is_one_thousand]
         return t(%i[ones apocopated].join('.')) if number == 1 &&
                                                    options[:is_apocopated]
+
         t([:ones, options[:gender]].join('.'))[number]
       end
 
@@ -23,11 +24,13 @@ module NumbersAndWords
 
       def twenties_with_ones(numbers, options = {})
         return t(%i[twenties apocopated].join('.')) if options[:is_apocopated]
+
         t([:twenties, options[:gender]].join('.'))[numbers[0]]
       end
 
       def hundreds(number, options = {})
         return t(%i[hundreds apocopated].join('.')) if options[:is_apocopated]
+
         t([:hundreds, options[:gender]].join('.'))[number]
       end
     end

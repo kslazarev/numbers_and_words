@@ -37,6 +37,7 @@ module NumbersAndWords
 
           def megs
             return @translations.megs(1, number: 1) if long_scale_thousand?
+
             super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
@@ -67,6 +68,7 @@ module NumbersAndWords
             @current_capacity ||= 0
 
             return :male if @current_capacity >= 2
+
             @options.gender.result
           end
 

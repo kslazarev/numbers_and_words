@@ -16,6 +16,7 @@ module NumbersAndWords
             def integral_significance
               figs = figures.reverse.join.to_i
               return nil if @options[:remove_zero] && figs.zero?
+
               @strategy.translations.integral figs
             end
 

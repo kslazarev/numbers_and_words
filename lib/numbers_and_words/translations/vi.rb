@@ -8,6 +8,7 @@ module NumbersAndWords
       def ones_of_tens(number, options = {})
         return t(%i[units tens one].join('.')) if number == 1
         return t(%i[units tens five].join('.')) if number == 5
+
         ones(number, options)
       end
 

@@ -12,6 +12,7 @@ module NumbersAndWords
       def hundreds(number, options = {})
         return t(:one_hundred) if options[:is_one_hundred]
         return t(:hundreds)[number] if options[:is_hundred]
+
         [t(:hundreds)[number], union].join(' ')
       end
     end

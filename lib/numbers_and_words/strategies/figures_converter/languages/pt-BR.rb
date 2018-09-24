@@ -87,11 +87,13 @@ module NumbersAndWords
                            (figures.tens_with_ones ||
                             figures.tens ||
                             figures.ones)
+
             false
           end
 
           def with_comma?
             return false unless @current_capacity > 1
+
             # if any lower capacity is single word, in portuguese only tens are single words
             number_under_capacity = figures.number_under_capacity(@current_capacity)
             return false if number_under_capacity < 20
