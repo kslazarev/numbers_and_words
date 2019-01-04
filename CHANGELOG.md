@@ -2,12 +2,13 @@
 
 ### Features
   * Your contribution here.
+  * Add support for Ruby 2.6. \[[#161](https://github.com/kslazarev/numbers_and_words/pull/161)\]
   * Drop support for Ruby 2.2.
 
 ## 0.11.5 (March 22, 2018)
 
 ### Bugs
-  * Fix Armenian megs capacity words.
+  * Fix Armenian megs capacity words. \[[#156](https://github.com/kslazarev/numbers_and_words/pull/156)\]
 
 ## 0.11.4 (March 20, 2018)
 
