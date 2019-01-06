@@ -2,7 +2,7 @@ to_words:
   ones:
     0: 'null'
     1: eins
-    9: neun 
+    9: neun
   teens:
     10: zehn
     11: elf
