@@ -20,14 +20,10 @@ module NumbersAndWords
           end
 
           def tens_with_ones
-            if @figures.tens == 2
-              @translations
-                .twenties_with_ones(@figures, gender: gender,
-                                              is_apocopated: one_apocopated?)
-            else
-              super({ gender: gender,
-                      is_apocopated: one_apocopated? })
-            end
+            options = { gender: gender, is_apocopated: one_apocopated? }
+            return @translations.twenties_with_ones(@figures, options) if @figures.tens == 2
+
+            super(options)
           end
 
           def hundreds

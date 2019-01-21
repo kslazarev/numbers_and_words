@@ -5,24 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module PtBr
-          class Gender
-            attr_accessor :strategy, :options
-
-            def initialize(proxy, *_args)
-              @strategy = proxy.strategy
-              @options = proxy.options
-            end
-
-            def result
-              gender = active? ? @options[:gender].to_sym : :male
-              %i[male female].include?(gender) ? gender : :male
-            end
-
-            private
-
-            def active?
-              @options[:gender]
-            end
+          class Gender < Base::Gender
           end
         end
       end

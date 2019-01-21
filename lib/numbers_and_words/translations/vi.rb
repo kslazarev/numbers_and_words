@@ -6,8 +6,8 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
       def ones_of_tens(number, options = {})
-        return t(%i[units tens one].join('.')) if number == 1
-        return t(%i[units tens five].join('.')) if number == 5
+        return t('units.tens.one') if number == 1
+        return t('units.tens.five') if number == 5
 
         ones(number, options)
       end

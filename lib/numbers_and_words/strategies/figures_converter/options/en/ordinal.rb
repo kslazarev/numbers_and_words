@@ -5,15 +5,10 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module En
-          class Ordinal
+          class Ordinal < Base::Ordinal
             ZERO_TYPE = :zero
             HUNDRED_TYPE = :hundreds
             MEGS_TYPE = :megs
-
-            def initialize(proxy, *_args)
-              @strategy = proxy.strategy
-              @options = proxy.options
-            end
 
             def result(type)
               @type = type
@@ -21,10 +16,6 @@ module NumbersAndWords
             end
 
             private
-
-            def active?
-              @options[:ordinal]
-            end
 
             def check_simple_numbers
               :ordinal if simple_numbers_condition && active?

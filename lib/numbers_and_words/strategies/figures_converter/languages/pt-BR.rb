@@ -78,7 +78,10 @@ module NumbersAndWords
           end
 
           def one_thousand?
-            current_capacity == 1 && figures[0] == 1 && figures.hundreds.nil? && figures.tens.nil?
+            current_capacity == 1 &&
+              figures.ones == 1 &&
+              figures.tens.nil? &&
+              figures.hundreds.nil?
           end
 
           def without_connector?
