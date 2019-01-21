@@ -7,13 +7,13 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Extensions::FractionSignificance
 
       def zero(_options = {})
-        t(%i[ones male].join('.'))[0]
+        t('ones.male')[0]
       end
 
       def ones(number, options = {})
         return if options[:is_one_thousand]
-        return t(%i[ones apocopated].join('.')) if number == 1 &&
-                                                   options[:is_apocopated]
+        return t('ones.apocopated') if number == 1 &&
+                                       options[:is_apocopated]
 
         t([:ones, options[:gender]].join('.'))[number]
       end
@@ -23,13 +23,13 @@ module NumbersAndWords
       end
 
       def twenties_with_ones(numbers, options = {})
-        return t(%i[twenties apocopated].join('.')) if options[:is_apocopated]
+        return t('twenties.apocopated') if options[:is_apocopated]
 
         t([:twenties, options[:gender]].join('.'))[numbers[0]]
       end
 
       def hundreds(number, options = {})
-        return t(%i[hundreds apocopated].join('.')) if options[:is_apocopated]
+        return t('hundreds.apocopated') if options[:is_apocopated]
 
         t([:hundreds, options[:gender]].join('.'))[number]
       end

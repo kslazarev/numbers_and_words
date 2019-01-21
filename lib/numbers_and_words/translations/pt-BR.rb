@@ -27,14 +27,14 @@ module NumbersAndWords
       end
 
       def teens(number, options = {})
-        return [tens(1, options), ' ', ones(number[0], options)].join if ordinal? options
+        return [tens(1, options), ones(number[0], options)].join(' ') if ordinal? options
 
         super(number, options)
       end
 
       def tens_with_ones(numbers, options = {})
         connector = ordinal?(options) ? ' ' : " #{union} "
-        [tens(numbers[1], options), connector, ones(numbers[0], options)].join
+        [tens(numbers[1], options), ones(numbers[0], options)].join(connector)
       end
 
       def hundreds(number, options = {})
