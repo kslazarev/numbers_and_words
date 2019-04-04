@@ -52,8 +52,8 @@ module NumbersAndWords
           end
 
           def one_apocopated?
-            true if @current_capacity.positive? && @figures.ones == 1 ||
-                    @options.apocopated.result
+            @current_capacity.positive? && @figures.ones == 1 ||
+              @options.apocopated.result
           end
 
           def hundred_apocopated?
