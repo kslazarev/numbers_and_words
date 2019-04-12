@@ -22,7 +22,7 @@ module NumbersAndWords
             end
 
             def figures
-              @strategy.figures
+              @strategy.figures.reverse
             end
 
             def zero_length

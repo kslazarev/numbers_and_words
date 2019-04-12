@@ -25,3 +25,7 @@ to_words:
     0.7: siete décimas
     1.0: uno
     42.1: cuarenta y dos con una décima
+  fractions_with_precision:
+    options:
+      :precision: 2
+    0.1: cero con diez centésimas
