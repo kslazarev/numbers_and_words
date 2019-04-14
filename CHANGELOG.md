@@ -1,9 +1,17 @@
-## 0.11.6 (Next)
+## 0.11.7 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.6 (April 13, 2019)
+
+### Bugs
+  * Fix wrong spelling in Spanish with precision. \[[#165](https://github.com/kslazarev/numbers_and_words/pull/165)\]
+
+### Features
   * Add support for Ruby 2.6. \[[#161](https://github.com/kslazarev/numbers_and_words/pull/161)\]
   * Drop support for Ruby 2.2.
+  * Drop support for Ruby 2.3.
 
 ## 0.11.5 (March 22, 2018)
 
