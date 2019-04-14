@@ -3,7 +3,7 @@
 ### Features
   * Your contribution here.
 
-## 0.11.6 (April 13, 2019)
+## 0.11.6 (April 14, 2019)
 
 ### Bugs
   * Fix wrong spelling in Spanish with precision. \[[#165](https://github.com/kslazarev/numbers_and_words/pull/165)\]
