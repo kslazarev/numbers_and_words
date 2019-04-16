@@ -5,7 +5,7 @@
 {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.svg?branch=master" />}[http://travis-ci.org/kslazarev/numbers_and_words]
 {<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.svg?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
-Convert numbers to words using the I18n library.
+Spell out numbers in several languages using the I18n gem.
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
@@ -15,7 +15,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 I18n kütüphanesi ile sayıları yazıya çevirir.
 
-Converte números em letras utilizando a biblioteca I18n.
+Soletra números em vários idiomas utilizando a biblioteca I18n.
 
 == Supported Languages / Языки / Langues Supportées
 
