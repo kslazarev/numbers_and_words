@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe NumbersAndWords::VERSION, 'version' do
+describe NumbersAndWords::VERSION do
   let(:version_array) { subject.split '.' }
   let(:version_sum) { version_array.map(&:to_i).reduce :+ }
 
