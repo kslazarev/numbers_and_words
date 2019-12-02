@@ -6,7 +6,7 @@ gem 'i18n', '<= 2'
 
 group :development do
   gem 'jeweler', '~> 2'
-  gem 'rake', '~> 12'
+  gem 'rake', '>= 12'
 end
 
 group :test do
