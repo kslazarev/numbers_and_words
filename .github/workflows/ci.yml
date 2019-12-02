@@ -25,4 +25,4 @@ jobs:
           gem --version
           gem install -g
       - name: Run tests
-        run: rake
+        run: bundle exec rake
