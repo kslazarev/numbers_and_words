@@ -1,19 +1,9 @@
 # frozen_string_literal: true
 
+require 'rake'
 require 'rubygems'
-require 'bundler'
 
 require File.expand_path('lib/numbers_and_words/version', __dir__)
-
-begin
-  Bundler.setup :default, :development
-rescue Bundler::BundlerError => e
-  warn e.message
-  warn 'Run `bundle install` to install missing gems'
-  exit e.status_code
-end
-
-require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
