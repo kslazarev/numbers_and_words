@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
+require 'rake'
 require 'rubygems'
 
 require File.expand_path('lib/numbers_and_words/version', __dir__)
-
-require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
