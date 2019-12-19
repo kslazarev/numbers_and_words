@@ -1,0 +1,71 @@
+en:
+  numbers:
+    ones: [ศูน, หนึ่ง, สอง, สาม, สี่, ห้า, หก, เจ็ด, แปด, เก้า]
+    teens: [_, สิบเอ็ด, สิบสอง, สิบสาม, สิบสี่, สิบห้า, สิบหก, สิบเจ็ด, สิบแปด, สิบเก้า]
+    tens: [_, สิบ, ยี่สิบ, สามสิบ, สี่สิบ, ห้าสิบ, หกสิบ, เจ็ดสิบ, แปดสิบ, เก้าสิบ]
+    hundreds: ร้อย
+    mega: [_, พัน, ล้าน, พันล้าน, ล้านล้าน, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion, undecillion, duodecillion, tredecillion, quattuordecillion]
+    ordinal:
+      ones: [ที่ศูน, ที่หนึ่ง, ที่สอง, ที่สาม, ที่สี่, ที่ห้า, ที่หก, ที่เจ็ด, ที่แปด, ที่เก้า]
+      teens: [ที่สิบเอ็ด, ที่สิบสอง, ที่สิบสาม, ที่สิบสี่, ที่สิบห้า, ที่สิบหก, ที่สิบเจ็ด, ที่สิบแปด, ที่สิบเก้า]
+      tens: [_, ที่สิบ, ที่ยี่สิบ, ที่สามสิบ, ที่สี่สิบ, ที่ห้าสิบ, ที่หกสิบ, ที่เจ็ดสิบ, ที่แปดสิบ, ที่เก้าสิบ]
+      hundreds: ที่ร้อย
+      mega: [_, ที่พัน, ที่ล้าน, ที่พันล้าน, ที่ล้านล้าน, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth, undecillionth, duodecillionth, tredecillionth, quattuordecillionth]
+    micro: [_, ที่สิบ, ที่ร้อย, ที่พัน, ที่ล้าน, ที่พันล้าน, ที่ล้านล้าน, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
+    tenths:
+      one: ที่สิบ
+      other: สิบ
+    hundredths:
+      one: ที่ร้อย
+      other: ร้อย
+    thousandths:
+      one: thousandth
+      other: thousandths
+    millionths:
+      one: millionth
+      other: millionths
+    billionths:
+      one: billionth
+      other: billionths
+    trillionths:
+      one: trillionth
+      other: trillionths
+    quadrillionths:
+      one: quadrillionth
+      other: quadrillionths
+    quintillionths:
+      one: quintillionth
+      other: quintillionths
+    sextillionths:
+      one: sextillionth
+      other: sextillionths
+    septillionths:
+      one: septillionth
+      other: septillionths
+    octillionths:
+      one: octillionth
+      other: octillionths
+    nonillionths:
+      one: nonillionth
+      other: nonillionths
+    decillionths:
+      one: decillionth
+      other: decillionths
+    undecillionths:
+      one: undecillionth
+      other: undecillionths
+    duodecillionths:
+      one: duodecillionth
+      other: duodecillionths
+    tredecillionths:
+      one: tredecillionth
+      other: tredecillionths
+    quattuordecillionths:
+      one: quattuordecillionth
+      other: quattuordecillionths
+    micro_separator: and
+    micro_prefix:
+      tens: ten
+      hundreds: hundred
+      union: '-'
+    union: and
