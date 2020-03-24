@@ -5,7 +5,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - 'numbers_and_words.gemspec'
 
@@ -15,7 +15,16 @@ Style/AsciiComments:
 Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/LineLength:
   Enabled: false
 
 Naming/FileName:

@@ -14,9 +14,9 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - ruby:2.4
           - ruby:2.5
           - ruby:2.6
+          - ruby:2.7
           - jruby
         include:
           - image: ruby:rc

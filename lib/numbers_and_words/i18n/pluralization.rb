@@ -14,7 +14,7 @@ module NumbersAndWords
 
       def init
         ::I18n.load_path << config_file
-        ::I18n::Backend::Simple.send :include, ::I18n::Backend::Pluralization
+        ::I18n::Backend::Simple.include ::I18n::Backend::Pluralization
       end
 
       def files
