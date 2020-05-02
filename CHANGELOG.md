@@ -2,6 +2,8 @@
 
 ### Features
   * Your contribution here.
+  * Add support for Ruby 2.7. \[[#172](https://github.com/kslazarev/numbers_and_words/pull/172)\]
+  * Drop support for Ruby 2.4.
 
 ## 0.11.6 (April 14, 2019)
 
