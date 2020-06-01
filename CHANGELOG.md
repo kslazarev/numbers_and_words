@@ -1,7 +1,11 @@
-## 0.11.7 (Next)
+## 0.11.8 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.7 (June 1, 2020)
+
+### Features
   * Add support for Ruby 2.7. \[[#172](https://github.com/kslazarev/numbers_and_words/pull/172)\]
   * Drop support for Ruby 2.4.
 
