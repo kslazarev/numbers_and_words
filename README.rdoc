@@ -280,7 +280,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
 * Brazilian Portuguese
 
-  Change gender form: (gender: [:female || :male || :neuter])
+  Change gender form: (gender: [:female || :male])
 
     I18n.with_locale(:'pt-BR') { 1000000001.to_words gender: :female }
     => "um bilhão e uma"
