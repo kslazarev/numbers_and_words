@@ -17,6 +17,8 @@ I18n kütüphanesi ile sayıları yazıya çevirir.
 
 Soletra números em vários idiomas utilizando a biblioteca I18n.
 
+Deletrea números en varios idiomas utilizando la gema I18n.
+
 == Supported Languages / Языки / Langues Supportées
 
 * English [en]
@@ -343,7 +345,7 @@ Soletra números em vários idiomas utilizando a biblioteca I18n.
 
 == Other options / Другие опции
 
-* precision
+* Precision
 
   You may pass argument :precision that added zeros to the end of float number:
 
