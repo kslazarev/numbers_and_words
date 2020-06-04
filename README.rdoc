@@ -41,6 +41,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 * Português [pt]
 * Português Brasileiro [pt-BR]
 * հայերեն (Armenian) [hy]
+* Қазақша [kz]
 
 ** Experimental
 
@@ -89,6 +90,9 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     I18n.with_locale(:hy) { 42.to_words }
     => "քառասուն երկու"
 
+    I18n.with_locale(:kz) { 42.to_words }
+    => "қырық екi"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -109,6 +113,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "vinte e um"
     => "hai mươi mốt"
     => "քսան մեկ"
+    => "жиырма бiр"
 
     231.to_words
     => "two hundred thirty-one"
@@ -130,6 +135,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "duzentos e trinta e um"
     => "hai trăm ba mươi mốt"
     => "երկու հարյուր երեսուն մեկ"
+    => "екi жүз отыз бiр"
 
     4030.to_words
     => "four thousand thirty"
@@ -150,6 +156,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "čtyři tisíce třicet"
     => "bốn nghìn không trăm ba mươi"
     => "չորս հազար երեսուն"
+    => "төрт мың отыз"
 
     1000100.to_words
     => "one million one hundred"
@@ -170,6 +177,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "jeden milión jedno sto"
     => "một triệu một trăm"
     => "մեկ միլիոն հարյուր"
+    => "бiр миллион бiр жүз"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -187,6 +195,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "één decillion"
     => "en decillion"
     => "decilijon"
+    => "бiр дециллион"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -201,6 +210,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedna", "dva", "tři"]
     => ["một", "hai", "ba"]
     => ["մեկ", "երկու", "երեք"]
+    => ["бiр", "екi", "үш"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -221,6 +231,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
     => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
+    => ["он бiр", "жиырма екi", "бiр жүз отыз үш"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

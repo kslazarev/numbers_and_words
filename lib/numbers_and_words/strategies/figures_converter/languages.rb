@@ -22,6 +22,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/pt'
 require 'numbers_and_words/strategies/figures_converter/languages/se'
 require 'numbers_and_words/strategies/figures_converter/languages/tr'
 require 'numbers_and_words/strategies/figures_converter/languages/hy'
+require 'numbers_and_words/strategies/figures_converter/languages/kz'
 
 require 'numbers_and_words/strategies/figures_converter/languages/families/cyrillic'
 require 'numbers_and_words/strategies/figures_converter/languages/ru'
