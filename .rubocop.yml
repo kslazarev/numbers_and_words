@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 require:
   - rubocop-performance
   - rubocop-rspec
@@ -33,6 +31,12 @@ Lint/StructNewOverride:
 Naming/FileName:
   Enabled: false
 
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Style/AsciiComments:
   Enabled: false
 
@@ -59,4 +63,3 @@ Style/RedundantRegexpEscape:
 
 Style/SlicingWithRange:
   Enabled: true
-
