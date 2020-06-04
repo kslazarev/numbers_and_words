@@ -26,6 +26,7 @@ require 'numbers_and_words/translations/ka'
 require 'numbers_and_words/translations/cs'
 require 'numbers_and_words/translations/vi'
 require 'numbers_and_words/translations/hy'
+require 'numbers_and_words/translations/kz'
 
 module NumbersAndWords
   module Translations
