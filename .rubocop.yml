@@ -9,11 +9,38 @@ AllCops:
   Exclude:
     - 'numbers_and_words.gemspec'
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Naming/FileName:
+  Enabled: false
+
 Style/AsciiComments:
   Enabled: false
 
 Style/Documentation:
   Enabled: false
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/HashEachMethods:
   Enabled: true
@@ -24,14 +51,12 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
-Lint/RaiseException:
+Style/RedundantRegexpCharacterClass:
   Enabled: true
 
-Lint/StructNewOverride:
+Style/RedundantRegexpEscape:
   Enabled: true
 
-Layout/LineLength:
-  Enabled: false
+Style/SlicingWithRange:
+  Enabled: true
 
-Naming/FileName:
-  Enabled: false
