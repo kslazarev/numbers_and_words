@@ -1,7 +1,12 @@
-## 0.11.8 (Next)
+## 0.11.9 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.8 ()
+
+### Features
+  * Add support for Kazakh language. \[[#175](https://github.com/kslazarev/numbers_and_words/pull/175)\] \([@j8sus](https://github.com/j8sus)\)
 
 ## 0.11.7 (June 1, 2020)
 
