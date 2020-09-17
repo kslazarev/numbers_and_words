@@ -14,8 +14,8 @@ module NumbersAndWords
       super.to_figures
     end
 
-    def local_language
-      ::I18n.with_locale(I18n.local_language) { yield }
+    def local_language(&block)
+      ::I18n.with_locale(I18n.local_language, &block)
     end
   end
 end

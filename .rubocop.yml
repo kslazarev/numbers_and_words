@@ -3,6 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.5
   Exclude:
     - 'numbers_and_words.gemspec'
@@ -43,23 +44,6 @@ Style/AsciiComments:
 Style/Documentation:
   Enabled: false
 
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true
+# XXX: Disable Performance/Sum as it breaks RuboCop
+Performance/Sum:
+  Enabled: false
