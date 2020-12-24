@@ -22,11 +22,8 @@ jobs:
           - image: ruby:rc
             continue-on-error: true
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Ruby
-        run: |
-          gem update --system > /dev/null
-          gem --version
-          gem install -g
+        run: gem install -g
       - name: Run tests
         run: rake
