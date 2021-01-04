@@ -12,7 +12,7 @@ module NumbersAndWords
 
             def result(type)
               @type = type
-              MEGS_TYPE != type ? check_simple_numbers : check_megs_numbers
+              MEGS_TYPE == type ? check_megs_numbers : check_simple_numbers
             end
 
             private
