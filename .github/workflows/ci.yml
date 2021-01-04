@@ -9,21 +9,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ${{matrix.image}}
     strategy:
       fail-fast: false
       matrix:
         image:
-          - ruby:2.5
-          - ruby:2.6
-          - ruby:2.7
+          - 2.6
+          - 2.7
+          - 3.0
           - jruby
-        include:
-          - image: ruby:rc
-            continue-on-error: true
+          - head
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        run: gem install -g
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.image }}
       - name: Run tests
-        run: rake
+        run: |
+          gem install -g
+          rake
