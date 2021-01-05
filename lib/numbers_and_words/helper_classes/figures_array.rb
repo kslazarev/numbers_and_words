@@ -4,13 +4,17 @@ require 'numbers_and_words/helper_classes/array_extensions/helpers'
 
 module NumbersAndWords
   class FiguresArray < Array
-    Array.include ArrayExtensions::Helpers
+    include ArrayExtensions::Helpers
 
     def to_words(options = {})
       local_language { Strategies.figures_converter.new(self, options).run }
     end
 
     def reverse
+      super.to_figures
+    end
+
+    def figures_array_in_capacity(capacity)
       super.to_figures
     end
 
