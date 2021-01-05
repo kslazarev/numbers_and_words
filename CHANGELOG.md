@@ -1,7 +1,12 @@
-## 0.11.10 (Next)
+## 0.11.11 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.10 (January 5, 2021)
+
+### Bugs
+  * Avoid adding all array extensions to the standard Array class. \[[#179](https://github.com/kslazarev/numbers_and_words/pull/179)\]
 
 ## 0.11.9 (January 4, 2021)
 
