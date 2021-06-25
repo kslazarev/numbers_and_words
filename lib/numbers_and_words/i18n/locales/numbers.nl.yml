@@ -6,3 +6,4 @@ nl:
     hundreds: honderd
     mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
     union: en
+    union23: ën

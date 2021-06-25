@@ -9,11 +9,11 @@ to_words:
     19: negentien
     20: twintig
     21: éénentwintig
-    32: tweeëndertig
-    43: drieënveertig
+    22: tweeëntwintig
+    23: drieëntwintig
+    24: vierentwintig
     80: tachtig
     90: negentig
-    93: drieënnegentig
     99: negenennegentig
   hundreds:
     100: honderd
