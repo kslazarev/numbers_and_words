@@ -107,7 +107,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "ოცდაერთი"
     => "einundzwanzig"
     => "ventiuno"
-    => "éénentwintig"
+    => "eenentwintig"
     => "tjugo-en"
     => "dvacetjedna"
     => "vinte e um"
@@ -129,7 +129,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
     => "2 cento trentauno"
-    => "tweehonderdéénendertig"
+    => "tweehonderdrerendertig"
     => "två hundra trettio-en"
     => "dvě stě třicetjedna"
     => "duzentos e trinta e um"
@@ -172,7 +172,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "bir milyon yüz"
     => "eine Million einhundert"
     => "uno milione 1 cento"
-    => "één miljoen honderd"
+    => "een miljoen honderd"
     => "en miljoner en hundra"
     => "jeden milión jedno sto"
     => "một triệu một trăm"
@@ -192,7 +192,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "bir desilyon"
     => "eine Quintilliarde"
     => "uno decillion"
-    => "één decillion"
+    => "een decillion"
     => "en decillion"
     => "decilijon"
     => "бiр дециллион"
@@ -226,7 +226,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["on bir", "yirmi iki", "yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
     => ["undici", "ventidue", "1 cento trentatre"]
-    => ["elf", "tweeentwintig", "honderddrieendertig"]
+    => ["elf", "tweeëntwintig", "honderddrieëndertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]

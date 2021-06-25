@@ -1,9 +1,9 @@
 nl:
   numbers:
-    ones: [nul, één, twee, drie, vier, vijf, zes, zeven, acht, negen]
+    ones: [nul, een, twee, drie, vier, vijf, zes, zeven, acht, negen]
     teens: [_, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
     tens: [_, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
     hundreds: honderd
     mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
     union: en
-    union23: ën
+    union2or3: ën

@@ -17,8 +17,8 @@ module NumbersAndWords
 
       private
 
-      def union(unit)
-        return t :union23 if [2, 3].include?(unit)
+      def union(units)
+        return t :union2or3 if [2, 3].include?(units)
 
         t :union
       end
