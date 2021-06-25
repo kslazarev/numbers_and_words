@@ -36,7 +36,7 @@ to_words:
     999000: negenhonderdnegenennegentigduizend
     999999: negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
   millions:
-    1000000: een miljoen
+    1000000: één miljoen
     2000000: twee miljoen
     4000000: vier miljoen
     5000000: vijf miljoen
@@ -45,8 +45,8 @@ to_words:
     999999000: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend
     999999999: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
   billions:
-    1174315110: een miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdtien
-    1174315119: een miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
+    1174315110: één miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdtien
+    1174315119: één miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
     15174315119: vijftien miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
     35174315119: vijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
     935174315119: negenhonderdvijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien
