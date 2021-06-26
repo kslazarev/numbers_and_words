@@ -1,7 +1,7 @@
 to_words:
   ones:
     0: nul
-    1: een
+    1: één
     9: negen
   teens:
     10: tien
