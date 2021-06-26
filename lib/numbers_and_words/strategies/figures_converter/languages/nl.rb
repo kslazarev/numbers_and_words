@@ -23,9 +23,8 @@ module NumbersAndWords
           end
 
           def strings_logic
-            if @current_capacity != 1 && figures == [1]
-              return [@translations.t(:loose_one)]
-            end
+            return [@translations.t(:loose_one)] if @current_capacity != 1 && figures == [1]
+
             super
           end
         end
