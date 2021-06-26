@@ -34,7 +34,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 * Türkçe [tr]
 * Deutsch** [de]
 * Italiano** [it]
-* Nederlands** [nl]
+* Nederlands [nl]
 * Swedish** [se]
 * English (British)** [en-GB]
 * Česky [cs]
