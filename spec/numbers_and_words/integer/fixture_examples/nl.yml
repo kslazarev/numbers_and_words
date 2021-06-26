@@ -42,6 +42,7 @@ to_words:
     5000000: vijf miljoen
     999000000: negenhonderdnegenennegentig miljoen
     999000999: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentig
+    999001000: negenhonderdnegenennegentig miljoen duizend
     999999000: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend
     999999999: negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
   billions:
