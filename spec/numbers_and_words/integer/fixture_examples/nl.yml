@@ -27,7 +27,7 @@ to_words:
     990: negenhonderdnegentig
     999: negenhonderdnegenennegentig
   thousands:
-    1000: eenduizend
+    1000: duizend
     2000: tweeduizend
     4000: vierduizend
     5000: vijfduizend
