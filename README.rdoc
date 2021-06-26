@@ -129,7 +129,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
     => "2 cento trentauno"
-    => "tweehonderdrerendertig"
+    => "tweehonderdeenendertig"
     => "två hundra trettio-en"
     => "dvě stě třicetjedna"
     => "duzentos e trinta e um"
