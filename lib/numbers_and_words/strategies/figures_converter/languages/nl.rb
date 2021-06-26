@@ -22,10 +22,12 @@ module NumbersAndWords
             end
           end
 
-          def strings_logic
-            return [@translations.t(:loose_one)] if @current_capacity != 1 && figures == [1]
-
-            super
+          def simple_number_to_words
+            if @figures.only_ones && @figures.ones == 1
+              [@translations.t(:loose_one)]
+            else
+              super
+            end
           end
         end
       end
