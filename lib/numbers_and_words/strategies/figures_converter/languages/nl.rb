@@ -18,16 +18,12 @@ module NumbersAndWords
                 capacity_words.empty? ? [] : [capacity_words, megs].join
               end
             else
-              if figures.figures_array_in_capacity(@current_capacity) == [1]
-                [megs, @translations.t(:loose_one)]
-              else
-                super
-              end
+              super
             end
           end
 
           def strings_logic
-            if @current_capacity.nil? && figures == [1]
+            if @current_capacity != 1 && figures == [1]
               return [@translations.t(:loose_one)]
             end
             super
