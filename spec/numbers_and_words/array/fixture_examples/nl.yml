@@ -5,7 +5,7 @@ to_words:
       - 2
       - 3
     :
-      - een
+      - één
       - twee
       - drie
   complex_example:

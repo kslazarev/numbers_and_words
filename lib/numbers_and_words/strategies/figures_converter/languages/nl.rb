@@ -25,6 +25,13 @@ module NumbersAndWords
               end
             end
           end
+
+          def strings_logic
+            if @current_capacity.nil? && figures == [1]
+              return [@translations.t(:loose_one)]
+            end
+            super
+          end
         end
       end
     end
