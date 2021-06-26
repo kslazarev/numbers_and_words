@@ -11,10 +11,18 @@ module NumbersAndWords
 
           def capacity_iteration
             if FiguresArray::THOUSAND_CAPACITY == @current_capacity
-              capacity_words = words_in_capacity(@current_capacity)
-              capacity_words.empty? ? [] : [capacity_words, megs].join
+              if figures.figures_array_in_capacity(@current_capacity) == [1]
+                megs
+              else
+                capacity_words = words_in_capacity(@current_capacity)
+                capacity_words.empty? ? [] : [capacity_words, megs].join
+              end
             else
-              super
+              if figures.figures_array_in_capacity(@current_capacity) == [1]
+                [megs, @translations.t(:loose_one)]
+              else
+                super
+              end
             end
           end
         end
