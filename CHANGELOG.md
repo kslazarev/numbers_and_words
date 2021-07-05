@@ -1,10 +1,12 @@
-## 0.11.11 (Next)
-
-### Bugs
-  * Fix edge cases in Dutch. \[[#182](https://github.com/kslazarev/numbers_and_words/pull/182)\] \([@mvz](https://github.com/mvz)\)
+## 0.11.12 (Next)
 
 ### Features
   * Your contribution here.
+
+## 0.11.11 (July 5, 2021)
+
+### Bugs
+  * Fix edge cases in Dutch. \[[#182](https://github.com/kslazarev/numbers_and_words/pull/182)\] \([@mvz](https://github.com/mvz)\)
 
 ## 0.11.10 (January 5, 2021)
 
