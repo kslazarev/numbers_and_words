@@ -52,7 +52,7 @@ module NumbersAndWords
           end
 
           def one_apocopated?
-            @current_capacity.positive? && @figures.ones == 1 ||
+            (@current_capacity.positive? && @figures.ones == 1) ||
               @options.apocopated.result
           end
 

@@ -6,7 +6,7 @@ module NumbersAndWords
       module Languages
         class Hu < Base
           def print_words
-            inner_reverse_words.reverse.join(greater_than_2000? && '-' || '')
+            inner_reverse_words.reverse.join((greater_than_2000? && '-') || '')
           end
 
           def inner_reverse_words
