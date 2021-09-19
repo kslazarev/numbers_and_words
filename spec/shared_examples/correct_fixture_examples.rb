@@ -20,5 +20,5 @@ shared_examples 'correct fixture examples' do |examples|
 end
 
 def context_with_options(name, options)
-  name + ((options.any? && " (#{options.inspect})") || '')
+  name + (options.any? ? " (#{options.inspect})" : '')
 end
