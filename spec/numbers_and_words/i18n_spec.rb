@@ -9,7 +9,7 @@ describe NumbersAndWords::I18n do
     end
 
     context 'when string given instead of symbol' do
-      it 'correctly normalizes it ' do
+      it 'correctly normalizes it' do
         allow(I18n).to receive(:locale).and_return(' it ')
         expect(described_class.local_language).to eq(:it)
       end
