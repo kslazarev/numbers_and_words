@@ -11,7 +11,7 @@ module NumbersAndWords
 
           def capacity_iteration
             return super if FiguresArray::THOUSAND_CAPACITY != @current_capacity
-            return megs if figures.number_in_capacity(@current_capacity) == 1
+            return [] if figures.number_in_capacity(@current_capacity) == 1
 
             capacity_words = words_in_capacity(@current_capacity)
             capacity_words.empty? ? [] : [capacity_words, megs].join
@@ -22,6 +22,17 @@ module NumbersAndWords
               [@translations.t(:loose_one)]
             else
               super
+            end
+          end
+
+          def number_without_capacity_to_words
+            return super unless figures.number_in_capacity(1) == 1
+
+            if figures.hundreds
+              teen_hundreds = @figures[2, 2].to_figures
+              [([@translations.teens(teen_hundreds), translate(:hundreds, 1)] + simple_number_to_words).join]
+            else
+              simple_number_to_words + [translate(:mega, 1)]
             end
           end
         end

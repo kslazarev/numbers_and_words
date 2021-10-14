@@ -29,6 +29,7 @@ to_words:
   thousands:
     1000: duizend
     1001: duizend één
+    1984: negentienhonderdvierentachtig
     2000: tweeduizend
     4000: vierduizend
     5000: vijfduizend
