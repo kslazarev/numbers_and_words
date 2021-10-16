@@ -46,7 +46,8 @@ to_words:
     1001: duizend één
     1984: negentienhonderdvierentachtig
     2000: tweeduizend
-    2193: tweeduizend honderddrieënnegentig
+    2193: eenentwintighonderddrieënnegentig
+    9999: negenennegentighonderdnegenennegentig
     11984: elfduizend negenhonderdvierentachtig
   millions:
     1000000: één miljoen
