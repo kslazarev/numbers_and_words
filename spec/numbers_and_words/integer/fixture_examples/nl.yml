@@ -29,7 +29,7 @@ to_words:
   thousands:
     1000: duizend
     1001: duizend één
-    1984: negentienhonderdvierentachtig
+    1984: duizend negenhonderdvierentachtig
     2000: tweeduizend
     4000: vierduizend
     5000: vijfduizend
@@ -37,6 +37,17 @@ to_words:
     21000: eenentwintigduizend
     999000: negenhonderdnegenennegentigduizend
     999999: negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
+  teen_hundreds:
+    options:
+      :teen_hundreds: true
+    0: nul
+    100: honderd
+    1000: duizend
+    1001: duizend één
+    1984: negentienhonderdvierentachtig
+    2000: tweeduizend
+    2193: tweeduizend honderddrieënnegentig
+    11984: elfduizend negenhonderdvierentachtig
   millions:
     1000000: één miljoen
     2000000: twee miljoen

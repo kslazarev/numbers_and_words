@@ -28,11 +28,11 @@ module NumbersAndWords
           def number_without_capacity_to_words
             return super unless figures.number_in_capacity(1) == 1
 
-            if figures.hundreds
+            if @options.teen_hundreds.result && figures.hundreds
               teen_hundreds = @figures[2, 2].to_figures
               [([@translations.teens(teen_hundreds), translate(:hundreds, 1)] + simple_number_to_words).join]
             else
-              simple_number_to_words + [translate(:mega, 1)]
+              super + [translate(:mega, 1)]
             end
           end
         end
