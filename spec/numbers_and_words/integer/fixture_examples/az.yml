@@ -1,0 +1,51 @@
+spec/numbers_and_words/array/fixture_examples/az.ymlto_words:
+  ones:
+    0: sıfır
+    1: bir
+    9: doqquz
+  teens:
+    10: 'on'
+    11: on bir
+    19: on doqquz
+    20: iyirmi
+    21: iyirmi bir
+    80: seksen
+    90: doqsan
+    99: doqsan doqquz
+  hundreds:
+    100: yüz
+    101: yüz bir
+    111: yüz on bir
+    120: yüz iyirmi
+    121: yüz iyirmi bir
+    900: doqquz yüz
+    909: doqquz yüz doqquz
+    919: doqquz yüz on doqquz
+    990: doqquz yüz doqsan
+    999: doqquz yüz doqsan doqquz
+  thousands:
+    1000: min
+    2000: iki min
+    4000: dörd min
+    5000: beş min
+    11000: on bir min
+    21000: iyirmi bir min
+    999000: doqquz yüz doqsan doqquz min
+    999999: doqquz yüz doqsan doqquz min doqquz yüz doqsan doqquz
+  millions:
+    1000000: bir milyon
+    2000000: iki milyon
+    4000000: dörd milyon
+    5000000: beş milyon
+    999000000: doqquz yüz doqsan doqquz milyon
+    999000999: doqquz yüz doqsan doqquz milyon doqquz yüz doqsan doqquz
+    999999000: doqquz yüz doqsan doqquz milyon doqquz yüz doqsan doqquz min
+    999999999: doqquz yüz doqsan doqquz milyon doqquz yüz doqsan doqquz min doqquz yüz doqsan doqquz
+  billions:
+    1174315110: bir milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on
+    1174315119: bir milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    15174315119: on beş milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    35174315119: otuz beş milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    935174315119: doqquz yüz otuz beş milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+  trillions:
+    2935174315119: iki trilyon doqquz yüz otuz beş milyar yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz

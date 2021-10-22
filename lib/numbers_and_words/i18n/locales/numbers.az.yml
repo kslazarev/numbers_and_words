@@ -1,0 +1,7 @@
+az:
+  numbers:
+    ones: [sıfır, bir, iki, üç, dörd, beş, altı, yeddi, səkkiz, doqquz]
+    teens: [_, on bir, on iki, on üç, on dörd, on beş, on altı, on yeddi, on səkkiz, on doqquz]
+    tens: [_, 'on', iyirmi, otuz, qırx, elli, altmış, yetmiş, seksen, doqsan]
+    hundreds: yüz
+    mega: [_, min, milyon, milyar, trilyon, katrilyon, kentilyon, seksilyon, septilyon, oktilyon, nonilyon, desilyon]

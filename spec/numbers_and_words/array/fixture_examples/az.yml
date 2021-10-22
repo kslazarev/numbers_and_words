@@ -1,0 +1,24 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - bir
+      - iki
+      - üç
+  complex_example:
+    ?
+      - 101
+      - 21
+      - 13
+      - 1101
+      - 2101
+
+    :
+      - yüz bir
+      - iyirmi bir
+      - on üç
+      - min yüz bir
+      - iki min yüz bir
