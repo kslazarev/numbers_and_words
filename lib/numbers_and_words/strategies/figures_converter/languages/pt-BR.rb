@@ -20,7 +20,7 @@ module NumbersAndWords
           end
 
           def complex_number_to_words
-            super.reject(&:nil?)
+            super.compact
           end
 
           def capacity_iteration
