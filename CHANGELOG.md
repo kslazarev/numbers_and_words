@@ -1,6 +1,7 @@
 ## 0.11.12 (Next)
 
 ### Features
+  * Add support for Ruby 3.1. \[[#187](https://github.com/kslazarev/numbers_and_words/pull/187)\]
   * Your contribution here.
 
 ## 0.11.11 (July 5, 2021)
