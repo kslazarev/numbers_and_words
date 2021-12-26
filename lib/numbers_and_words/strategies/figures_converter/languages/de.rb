@@ -39,8 +39,8 @@ module NumbersAndWords
           private
 
           def print_megs
-            complex_part[1..-1].map do |el|
-              [el[1..-1].to_a.reverse.join, el.first].join(' ')
+            complex_part[1..].map do |el|
+              [el[1..].to_a.reverse.join, el.first].join(' ')
             end.reject(&:empty?).reverse.join(' ')
           end
 
