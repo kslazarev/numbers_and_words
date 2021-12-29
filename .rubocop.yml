@@ -44,7 +44,3 @@ Style/AsciiComments:
 
 Style/Documentation:
   Enabled: false
-
-# XXX: Disable Performance/Sum as it breaks RuboCop
-Performance/Sum:
-  Enabled: false
