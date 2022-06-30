@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-NumbersAndWords::I18n::Pluralization.languages.map do |language|
+NumbersAndWords::I18n::Pluralization.languages.to_h do |language|
   [language.to_sym, {
     i18n: {
       plural: {
@@ -8,4 +8,4 @@ NumbersAndWords::I18n::Pluralization.languages.map do |language|
       }
     }
   }]
-end.to_h
+end

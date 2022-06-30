@@ -1,3 +1,8 @@
+## Unreleased
+
+### Features
+  * Add polish language support \[[#189](https://github.com/kslazarev/numbers_and_words/pull/189)\]
+
 ## 0.11.12 (Next)
 
 ### Features
