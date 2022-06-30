@@ -1,0 +1,144 @@
+to_words:
+  ones:
+    0: zero
+    1: jeden
+    2: dwa
+    3: trzy
+    4: cztery
+    5: pięć
+    6: sześć
+    7: siedem
+    8: osiem
+    9: dziewięć
+  "female ones":
+    options:
+     :gender: female
+    0: zero
+    1: jedna
+    2: dwie
+    3: trzy
+    4: cztery
+    5: pięć
+    6: sześć
+    7: siedem
+    8: osiem
+    9: dziewięć
+  "male ones":
+    options:
+     :gender: male
+    0: zero
+    1: jeden
+    2: dwa
+    3: trzy
+    4: cztery
+    5: pięć
+    6: sześć
+    7: siedem
+    8: osiem
+    9: dziewięć
+  "neuter ones":
+    options:
+     :gender: neuter
+    0: zero
+    1: jedno
+    2: dwa
+    3: trzy
+    4: cztery
+    5: pięć
+    6: sześć
+    7: siedem
+    8: osiem
+    9: dziewięć
+  teens:
+    10: dziesięć
+    11: jedenaście
+    19: dziewiętnaście
+    20: dwadzieścia
+    21: dwadzieścia jeden
+    80: osiemdziesiąt
+    90: dziewięćdziesiąt
+    99: dziewięćdziesiąt dziewięć
+  hundreds:
+    100: sto
+    101: sto jeden
+    111: sto jedenaście
+    120: sto dwadzieścia
+    121: sto dwadzieścia jeden
+    900: dziewięćset
+    909: dziewięćset dziewięć
+    919: dziewięćset dziewiętnaście
+    990: dziewięćset dziewięćdziesiąt
+    999: dziewięćset dziewięćdziesiąt dziewięć
+  thousands:
+    1_000: tysiąc
+    2_000: dwa tysiące
+    4_000: cztery tysiące
+    5_000: pięć tysięcy
+    11_000: jedenaście tysięcy
+    21_000: dwadzieścia jeden tysięcy
+    21_345: dwadzieścia jeden tysięcy trzysta czterdzieści pięć
+    999_999: dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+  miliony:
+    1_000_000: milion
+    2_000_000: dwa miliony
+    4_000_000: cztery miliony
+    5_000_000: pięć milionów
+    999_000_000: dziewięćset dziewięćdziesiąt dziewięć milionów
+    999_000_999: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć
+    999_999_000: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy
+    999_999_999: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+    123_456_789: sto dwadzieścia trzy miliony czterysta pięćdziesiąt sześć tysięcy siedemset osiemdziesiąt dziewięć
+  miliardy:
+    1_174_315_110: miliard sto siedemdziesiąt cztery miliony trzysta pięćdziesiąt jeden tysięcy sto dziesięć
+    35_568_717_692: trzydzieści pięć miliardów pięcset sześćdziesiąt osiem milionów siedemset siedemnaście tysięcy sześćset dziewięćdziesiąt dwa
+  biliony:
+    2_935_174_315_119: dwa biliony dziewięćset trzydzieści pięć miliardów sto siedemdziesiąt cztery miliony trzysta piętnaście tysięcy sto dziewiętnaście
+
+  "male ordinals":
+    options:
+      :ordinal: true
+      :gender: male
+    0: zerowy
+    1: pierwszy
+    2: drugi
+    3: trzeci
+    4: czwarty
+    5: piąty
+    6: szósty
+    7: siódmy
+    8: ósmy
+    9: dziewiąty
+    10: dziesiąty
+    11: jedenasty
+    12: dwunasty
+    13: trzynasty
+    14: czternasty
+    15: piętnasty
+    16: szesnasty
+    17: siedemnasty
+    18: osiemnasty
+    19: dziewiętnasty
+    20: dwudziesty
+    30: trzydziesty
+    40: czterdziesty
+    50: pięćdziesiąty
+    60: sześćdziesiąty
+    70: siedemdziesiąty
+    80: osiemdziesiąty
+    90: dziewięćdziesiąty
+    100: setny
+    21: dwudziesty pierwszy
+    42: czterdziesty drugi
+    133: sto trzydziesty trzeci
+
+  "female ordinals":
+    options:
+      :ordinal: true
+      :gender: female
+    2: druga
+    3: trzecia
+    8: ósma
+    18: osiemnasta
+    36: trzydziesta szósta
+    100: setna
+    999: dziewięćset dziewięćdziesiąta dziewiąta

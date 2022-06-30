@@ -6,6 +6,7 @@ require 'numbers_and_words/i18n/plurals/ua'
 require 'numbers_and_words/i18n/plurals/fr'
 require 'numbers_and_words/i18n/plurals/lv'
 require 'numbers_and_words/i18n/plurals/lt'
+require 'numbers_and_words/i18n/plurals/pl'
 
 module NumbersAndWords
   module I18n

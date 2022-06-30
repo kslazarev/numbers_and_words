@@ -18,7 +18,7 @@ module NumbersAndWords
 
           def words
             @strings = strings_logic
-            (@strings.empty? && zero) || print_words
+            @strings.empty? && zero || print_words
           end
 
           def print_words
