@@ -1,0 +1,32 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - jeden
+      - dwa
+      - trzy
+  complex_example:
+    ?
+      - 1001
+      - 101
+      - 21
+      - 13
+    :
+      - tysiąc jeden
+      - sto jeden
+      - dwadzieścia jeden
+      - trzynaście
+  complex_example_with_options:
+    options:
+      :remove_zero: true
+    ?
+      - 0.1
+      - 0.31
+      - 0.12
+    :
+      - jedna dziesiętna
+      - trzydzieści i jedna setna
+      - dwanaście setnych

@@ -1,0 +1,92 @@
+pl:
+  numbers:
+    ones: [zero, jeden, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
+    teens: [_, jedenaście, dwanaście, trzynaście, czternaście, piętnaście, szesnaście, siedemnaście, osiemnaście, dziewiętnaście]
+    tens: [_, dziesięć, dwadzieścia, trzydzieści, czterdzieści, pięćdziesiąt, sześćdziesiąt, siedemdziesiąt, osiemdziesiąt, dziewięćdziesiąt]
+    hundreds: [_, sto, dwieście, trzysta, czterysta, pięćset, sześćset, siedemset, osiemset, dziewięćset]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions]
+    thousands:
+      one: tysiąc
+      few: tysiące
+      many: tysięcy
+    millions:
+      one: milion
+      few: miliony
+      many: milionów
+    billions:
+      one: miliard
+      few: miliardy
+      many: miliardów
+    trillions:
+      one: bilion
+      few: biliony
+      many: bilionów
+    quadrillions:
+      one: biliard
+      few: biliardy
+      many: biliardów
+    quintillion:
+      one: trylion
+      few: tryliony
+      many: trylionów
+    sextillions:
+      one: tryliard
+      few: tryliardy
+      many: tryliardów
+    septillions:
+      one: sekstilion
+      few: sekstiliony
+      many: sekstilionów
+    octillions:
+      one: kvadriliarda
+      few: kvadriliardy
+      many: kvadriliard
+    ordinal:
+      ones:
+        male: [zerowy, pierwszy, drugi, trzeci, czwarty, pięty, szósty, siódmy, ósmy, dziewiąty]
+        female: [zerowa, pierwsza, druga, trzecia, czwarta, piąta, szósta, siódma, ósma, dziewiąta]
+        neuter: [zerowe, pierwsze, drugie, trzecie, czwarte, piąte, szóste, siódme, ósme, dziewiąte]
+      teens:
+        male: [_, jedenasty, dwunasty, trzynasty, czternasty, piętnasty, szesnasty, siedemnasty, osiemnasty]
+        female: [_, jedenasta, dwunasta, trzynasta, czternasta, piętnasta, szesnasta, siedemnasta, osiemnasta]
+        neuter: [_, jedenaste, dwunaste, trzynaste, czternaste, piętnaste, szesnaste, siedemnaste, osiemnaste]
+      tens:
+        male: [_, dwudziesty, trzydziesty, czterdziesty, pięćdziesiąty, sześćdziesiąty, siedemdziesiąty, osiemdziesiąty, dziewięcdziesiąty]
+        female: [_, dwudziesta, trzydziesta, czterdziesta, pięćdziesiąta, sześćdziesiąta, siedemdziesiąta, osiemdziesiąta, dziewięcdziesiąta]
+        neuter: [_, dwudzieste, trzydzieste, czterdzieste, pięćdziesiąte, sześćdziesiąte, siedemdziesiąte, osiemdziesiąte, dziewięcdziesiąte]
+      hundreds:
+        male: [_, setny, dwusetny, trzysetny, czterysetny, pięćsetny, sześćsetny, siedemsetny, osiemsetny, dziewięćsetny]
+        female: [_, setna, dwuseta, trzysetna, czterysetna, pięćsetna, sześćsetna, siedemsetna, osiemsetna, dziewięćsetna]
+        neuter: [_, setne, dwusete, trzysetne, czterysetne, pięćsetne, sześćsetne, siedemsetne, osiemsetne, dziewięćsetne]
+    integral: całych
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    tenths:
+      one: dziesiętna
+      few: dziesiętnych
+      many: dziesiętnych
+    hundredths:
+      one: setna
+      few: setnych
+      many: setnych
+    thousandths:
+      one: tysięczna
+      few: tysięcznych
+      many: tysięcznych
+    millionths:
+      one: milionowa
+      few: milionowych
+      many: milionowych
+    billionths:
+      one: miliardowa
+      few: miliardowych
+      many: miliardowych
+    trillionths:
+      one: bilionowa
+      few: bilionowych
+      many: bilionowych
+    micro_separator: ''
+    micro_prefix:
+      tens: dziesięć
+      hundreds: sto
+      union: ''
+    union: 'i'

@@ -1,0 +1,19 @@
+to_words:
+  fractional:
+    0.1: jedna dziesiąta
+    0.7: siedem dziesiątych
+    0.01: jedna setna
+    0.77: siedemdesąt siedem setnych
+    0.777: siedemset siedemdesąt siedem tysięcznych
+    0.7777: siedem tysięcy siedemset siedemdesąt siedem dziesięciotysięcznych 
+    0.21021: nula celých dvacet jeden tisíc dvacet jedna stotisícina
+    0.293517431: zero dwa biliony dziewięćset trzydzieści pięć miliardów sto siedemdziesiąt cztery miliony trzysta piętnaście tysięcy sto dziewiętnaście dziesięciobilionowych 
+    21.77: dwadzieścia jeden całych i siedemdesąt siedem setnych
+    111.999: sto jedenaście całych dziewięćset dziewięćdziesiąt dziewięć tysięcznych
+    4242.7463: cztery tysiące dwieście czterdzieści dwa całych i siedem tysięcy czterysta sześćdziesiąt trzy dziesięciotysięcznych
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: jedna dziesiąta
+    0.7: siedem dziesiątych
+    42.1: czterdzieści dwie całe i jedna dziesiąta

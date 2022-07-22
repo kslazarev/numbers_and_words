@@ -28,6 +28,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/families/cyril
 require 'numbers_and_words/strategies/figures_converter/languages/ru'
 require 'numbers_and_words/strategies/figures_converter/languages/ua'
 require 'numbers_and_words/strategies/figures_converter/languages/vi'
+require 'numbers_and_words/strategies/figures_converter/languages/pl'
 
 module NumbersAndWords
   module Strategies
