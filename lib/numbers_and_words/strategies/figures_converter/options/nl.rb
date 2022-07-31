@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-require 'numbers_and_words/strategies/figures_converter/options/nl/teen_hundreds'
+require 'numbers_and_words/strategies/figures_converter/options/nl/tens_of_hundreds'

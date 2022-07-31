@@ -37,9 +37,9 @@ to_words:
     21000: eenentwintigduizend
     999000: negenhonderdnegenennegentigduizend
     999999: negenhonderdnegenennegentigduizend negenhonderdnegenennegentig
-  teen_hundreds:
+  tens_of_hundreds:
     options:
-      :teen_hundreds: true
+      :tens_of_hundreds: true
     0: nul
     100: honderd
     1000: duizend

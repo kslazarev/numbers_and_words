@@ -5,7 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module Nl
-          class TeenHundreds
+          class TensOfHundreds
             attr_accessor :strategy, :options
 
             def initialize(proxy, *_args)
@@ -20,7 +20,7 @@ module NumbersAndWords
             private
 
             def active?
-              @options[:teen_hundreds]
+              @options[:tens_of_hundreds]
             end
           end
         end
