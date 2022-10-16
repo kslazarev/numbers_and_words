@@ -3,6 +3,9 @@
 ### Features
   * Your contribution here.
 
+### Bugs
+  * Properly handle Dutch year numbers. \[[#183](https://github.com/kslazarev/numbers_and_words/pull/183)\] \([@mvz](https://github.com/mvz)\)
+
 ## 0.11.11 (July 5, 2021)
 
 ### Bugs
