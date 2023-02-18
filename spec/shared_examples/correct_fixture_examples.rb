@@ -2,7 +2,7 @@
 
 shared_examples 'correct fixture examples' do |examples|
   examples.each_pair do |method_name, context_names|
-    context "##{method_name}" do
+    describe "##{method_name}" do
       context_names.each do |context_name, tests|
         options = tests.delete('options') || {}
         context context_with_options(context_name, options) do
