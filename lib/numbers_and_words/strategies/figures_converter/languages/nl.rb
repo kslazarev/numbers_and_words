@@ -10,7 +10,7 @@ module NumbersAndWords
           end
 
           def capacity_iteration
-            return super if FiguresArray::THOUSAND_CAPACITY != @current_capacity
+            return super if @current_capacity != FiguresArray::THOUSAND_CAPACITY
             return [] if apply_tens_of_hundreds?
             return megs if figures.number_in_capacity(@current_capacity) == 1
 

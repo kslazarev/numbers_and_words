@@ -12,7 +12,7 @@ module NumbersAndWords
 
             def result(type)
               @type = type
-              MEGS_TYPE == type ? check_megs_numbers : check_simple_numbers
+              type == MEGS_TYPE ? check_megs_numbers : check_simple_numbers
             end
 
             private
@@ -27,8 +27,8 @@ module NumbersAndWords
 
             def simple_numbers_condition
               current_capacity.nil? &&
-                (HUNDRED_TYPE != @type ||
-                 (HUNDRED_TYPE == @type && simple_number_to_words.empty?))
+                (@type != HUNDRED_TYPE ||
+                 (@type == HUNDRED_TYPE && simple_number_to_words.empty?))
             end
 
             def megs_numbers_condition

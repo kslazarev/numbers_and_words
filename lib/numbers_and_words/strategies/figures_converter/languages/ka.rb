@@ -30,7 +30,7 @@ module NumbersAndWords
           end
 
           def thousand?
-            FiguresArray::THOUSAND_CAPACITY == @current_capacity
+            @current_capacity == FiguresArray::THOUSAND_CAPACITY
           end
         end
       end
