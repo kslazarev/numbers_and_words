@@ -54,7 +54,6 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/i18n/locales/numbers.vi.yml",
     "lib/numbers_and_words/i18n/pluralization.rb",
     "lib/numbers_and_words/i18n/plurals/cs.rb",
-    "lib/numbers_and_words/i18n/plurals/fr.rb",
     "lib/numbers_and_words/i18n/plurals/lt.rb",
     "lib/numbers_and_words/i18n/plurals/lv.rb",
     "lib/numbers_and_words/i18n/plurals/plurals.rb",
