@@ -5,6 +5,7 @@
   * Drop support for Ruby 2.5. \[[#180](https://github.com/kslazarev/numbers_and_words/pull/180)\]
   * Drop support for Ruby 2.6. \[[#190](https://github.com/kslazarev/numbers_and_words/pull/190)\]
   * Add support for Ruby 3.2. \[[#193](https://github.com/kslazarev/numbers_and_words/pull/193)\]
+  * Remove pluralization rules for French. \[[#195](https://github.com/kslazarev/numbers_and_words/pull/195)\]
   * Your contribution here.
 
 ### Bugs

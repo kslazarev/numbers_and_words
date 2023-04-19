@@ -37,6 +37,7 @@ to_words:
     2000000: deux millions
     4000000: quatre millions
     5000000: cinq millions
+    21000000: vingt et un millions
     999000000: neuf cent quatre-vingt-dix-neuf millions
     999000999: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf
     999999000: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf mille
@@ -44,6 +45,7 @@ to_words:
   billions:
     1174315110: un milliard cent soixante-quatorze millions trois cent quinze mille cent dix
     1174315119: un milliard cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
+    31151315119: trente et un milliards cent cinquante et un millions trois cent quinze mille cent dix-neuf
     15174315119: quinze milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
     35174315119: trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
     935174315119: neuf cent trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
