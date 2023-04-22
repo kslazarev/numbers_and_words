@@ -1,15 +1,19 @@
-## 0.11.12 (Next)
+## 0.11.13 (Next)
+
+### Features
+  * Your contribution here.
+
+## 0.11.12 (April 22, 2023)
 
 ### Features
   * Add support for Ruby 3.1. \[[#187](https://github.com/kslazarev/numbers_and_words/pull/187)\]
   * Drop support for Ruby 2.5. \[[#180](https://github.com/kslazarev/numbers_and_words/pull/180)\]
   * Drop support for Ruby 2.6. \[[#190](https://github.com/kslazarev/numbers_and_words/pull/190)\]
   * Add support for Ruby 3.2. \[[#193](https://github.com/kslazarev/numbers_and_words/pull/193)\]
-  * Remove pluralization rules for French. \[[#195](https://github.com/kslazarev/numbers_and_words/pull/195)\]
-  * Your contribution here.
 
 ### Bugs
   * Properly handle Dutch year numbers. \[[#183](https://github.com/kslazarev/numbers_and_words/pull/183)\] \([@mvz](https://github.com/mvz)\)
+  * Remove pluralization rules for French. \[[#195](https://github.com/kslazarev/numbers_and_words/pull/195)\]
 
 ## 0.11.11 (July 5, 2021)
 
