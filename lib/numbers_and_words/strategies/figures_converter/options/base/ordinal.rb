@@ -12,7 +12,7 @@ module NumbersAndWords
             end
 
             def result
-              return :ordinal if active?
+              :ordinal if active?
             end
 
             private
