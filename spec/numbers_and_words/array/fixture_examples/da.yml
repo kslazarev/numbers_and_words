@@ -1,0 +1,47 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - en
+      - to
+      - tre
+  complex_example:
+    ?
+      - 100
+      - 21
+      - 13
+    :
+      - hundrede
+      - enogtyve
+      - tretten
+  complex_example2:
+    ?
+      - 101
+      - 203
+      - 209
+    :
+      - hundrede og en
+      - tohundrede og tre
+      - tohundrede og ni
+  complex_example3:
+    ?
+      - 561
+      - 422
+      - 932
+    :
+      - femhundrede og enogtres
+      - firehundrede og toogtyve
+      - nihundrede og toogtredive
+  complex_example4:
+    ?
+      - 1111
+      - 2222
+      - 6398
+    :
+      - en tusind hundrede og elleve
+      - to tusind tohundrede og toogtyve
+      - seks tusind trehundrede og otteoghalvfems
+

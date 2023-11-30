@@ -1,0 +1,5 @@
+to_words:
+  ones:
+    0: nul
+    1: en
+    9: ni
