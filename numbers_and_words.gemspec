@@ -184,6 +184,8 @@ Gem::Specification.new do |s|
     "lib/numbers_and_words/strategies/figures_converter/options/ru/gender.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ua.rb",
     "lib/numbers_and_words/strategies/figures_converter/options/ua/gender.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/da/gender.rb",
+    "lib/numbers_and_words/strategies/figures_converter/options/da.rb",
     "lib/numbers_and_words/translations.rb",
     "lib/numbers_and_words/translations/base.rb",
     "lib/numbers_and_words/translations/cs.rb",

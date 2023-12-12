@@ -8,6 +8,9 @@ module NumbersAndWords
       DEFAULT_POSTFIX = nil
 
       def ones(number, options = {})
+        return t(:common)[number] if options[:gender] == :common
+        return t(:neuter)[number] if options[:gender] == :neuter
+
         t([options[:prefix], :ones, options[:postfix] || DEFAULT_POSTFIX].join('.'))[number]
       end
 

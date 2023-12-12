@@ -10,6 +10,10 @@ module NumbersAndWords
             complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join(' ')
           end
 
+          def ones
+            super({ gender: gender })
+          end
+
           def hundreds
             super({ is_hundred: hundred?, is_one_hundred: one_hundred? })
           end
@@ -42,6 +46,10 @@ module NumbersAndWords
 
           def one_hundred?
             hundred? && figures[2] == 1
+          end
+
+          def gender
+            @options.gender.result
           end
         end
       end

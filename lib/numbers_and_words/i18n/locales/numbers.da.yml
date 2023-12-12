@@ -1,6 +1,8 @@
 da:
   numbers:
-    ones: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
+    ones: [_, en, to, tre, fire, fem, seks, syv, otte, ni]
+    common: [_, en, to, tre, fire, fem, seks, syv, otte, ni]
+    neuter: [_, et, to, tre, fire, fem, seks, syv, otte, ni]
     teens: [_, elleve, tolv, tretten, fjorten, femten, seksten, sytten, atten, nitten]
     tens: [_, ti, tyve, tredive, fyrre, halvtreds, tres, halvfjerds, firs, halvfems]
     hundreds: [ _, 'hundrede', 'tohundrede', 'trehundrede', 'firehundrede', 'femhundrede', 'sekshundrede', 'syvhundrede', 'ottehundrede', 'nihundrede' ]
