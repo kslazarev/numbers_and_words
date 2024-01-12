@@ -14,7 +14,7 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.4.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.19, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.2.2, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coveralls (v0.8.23, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="descendants_tracker (v0.0.4, RVM: ruby-3.1.2) [gem]" level="application" />
@@ -34,18 +34,18 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.15.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.3.0, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.15.4, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.16.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth2 (v1.4.8, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.23.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.2.2.4, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.1.1, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.7.3, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.8, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.3, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rchardet (v1.8.0, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.6.0, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.8.2, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.6.2, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.8.3, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.6, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v3.12.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.12.2, RVM: ruby-3.1.2) [gem]" level="application" />
@@ -63,7 +63,7 @@
     <orderEntry type="library" scope="PROVIDED" name="semver2 (v3.4.2, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.16.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.10.2, RVM: ruby-3.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="stringio (v3.0.9, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sync (v0.5.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="term-ansicolor (v1.7.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.0, RVM: ruby-3.1.2) [gem]" level="application" />
