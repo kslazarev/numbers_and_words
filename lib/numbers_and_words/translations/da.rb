@@ -26,7 +26,7 @@ module NumbersAndWords
         return t(:one_hundred) if options[:is_one_hundred]
         return t(:hundreds)[number] if options[:is_hundred]
 
-        [t(:hundreds)[number], union].join(' ')
+        t(:hundreds)[number]
       end
 
       def zero(_options = {})
