@@ -24,14 +24,6 @@ module NumbersAndWords
 
           private
 
-          def print_other
-            [print_thousands, simple_part.reverse.join].join
-          end
-
-          def print_thousands
-            complex_part.first.reverse.join
-          end
-
           def simple_part
             @strings.reject { |f| f.is_a?(Array) }
           end
