@@ -41,7 +41,14 @@ module NumbersAndWords
           end
 
           def gender
-            @options.gender.result
+            @current_capacity ||= 0
+            if @current_capacity.zero?
+              @options.gender.result
+            elsif @current_capacity == 1
+              :neuter
+            else
+              :common
+            end
           end
         end
       end
