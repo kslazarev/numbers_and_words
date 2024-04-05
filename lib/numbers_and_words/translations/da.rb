@@ -18,8 +18,8 @@ module NumbersAndWords
         t(:tens)[number]
       end
 
-      def tens_with_ones(numbers, options = {})
-        [ones(numbers[0], options), tens(numbers[1])].join(union)
+      def tens_with_ones(numbers, _options = {})
+        [ones(numbers[0], { gender: :common }), tens(numbers[1])].join(union)
       end
 
       def hundreds(number, options = {})

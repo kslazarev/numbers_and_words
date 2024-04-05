@@ -5,7 +5,7 @@ to_words:
       - 2
       - 3
     :
-      - en
+      - et
       - to
       - tre
   complex_example:
@@ -14,7 +14,7 @@ to_words:
       - 21
       - 13
     :
-      - hundrede
+      - et hundrede
       - enogtyve
       - tretten
   complex_example2:
@@ -32,16 +32,16 @@ to_words:
       - 422
       - 932
     :
-      - femhundrede og enogtres
-      - firehundrede og toogtyve
-      - nihundrede og toogtredive
+      - fem hundrede enogtres
+      - fire hundrede toogtyve
+      - ni hundrede toogtredive
   complex_example4:
     ?
       - 1111
       - 2222
       - 6398
     :
-      - en tusind hundrede og elleve
-      - to tusind tohundrede og toogtyve
-      - seks tusind trehundrede og otteoghalvfems
+      - et tusinde et hundrede elleve
+      - to tusinde to hundrede toogtyve
+      - seks tusinde tre hundrede otteoghalvfems
 
