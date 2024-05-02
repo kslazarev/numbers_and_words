@@ -42,6 +42,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 * Português Brasileiro [pt-BR]
 * հայերեն (Armenian) [hy]
 * Қазақша [kz]
+* Dansk [da]
 
 ** Experimental
 
@@ -93,6 +94,9 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     I18n.with_locale(:kz) { 42.to_words }
     => "қырық екi"
 
+    I18n.with_locale(:da) { 42.to_words }
+    => "toogfyrre"
+
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -114,6 +118,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "hai mươi mốt"
     => "քսան մեկ"
     => "жиырма бiр"
+    => "enogtyve"
 
     231.to_words
     => "two hundred thirty-one"
@@ -136,6 +141,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "hai trăm ba mươi mốt"
     => "երկու հարյուր երեսուն մեկ"
     => "екi жүз отыз бiр"
+    => "to hundrede enogtredive"
 
     4030.to_words
     => "four thousand thirty"
@@ -157,6 +163,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "bốn nghìn không trăm ba mươi"
     => "չորս հազար երեսուն"
     => "төрт мың отыз"
+    => "fire tusinde tredive"
 
     1000100.to_words
     => "one million one hundred"
@@ -178,6 +185,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "một triệu một trăm"
     => "մեկ միլիոն հարյուր"
     => "бiр миллион бiр жүз"
+    => "en million et hundrede"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -211,6 +219,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["một", "hai", "ba"]
     => ["մեկ", "երկու", "երեք"]
     => ["бiр", "екi", "үш"]
+    => ["et", "to", "tre"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -232,6 +241,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
     => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
     => ["он бiр", "жиырма екi", "бiр жүз отыз үш"]
+    => ["elleve", "toogtyve", "et hundrede treogtredive"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -352,6 +362,16 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
     I18n.with_locale(:es) { 0.7.to_words remove_zero: true }
     => "siete décimas"
+
+* Danish
+
+    Change gender from: (gender: [:neuter || :common])
+
+      I18n.with_locale(:da) { 1.to_words gender: :common }
+      => "en"
+
+      I18n.with_locale(:da) { 1.to_words gender: :neuter }
+      => "et"
 
 == Other options / Другие опции
 
