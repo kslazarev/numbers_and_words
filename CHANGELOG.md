@@ -1,12 +1,8 @@
 ## 0.11.13 (Next)
 
 ### Features
-  * Your contribution here.
-
-## 0.11.13 (May 2, 2024)
-
-### Features
   * Add support for Danish language. \[[#197](https://github.com/kslazarev/numbers_and_words/pull/197)\] \([@franta](https://github.com/Franta1205)\)
+  * Your contribution here.
 
 ## 0.11.12 (April 22, 2023)
 

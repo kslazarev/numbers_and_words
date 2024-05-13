@@ -5,7 +5,7 @@ require 'spec_helper'
 describe NumbersAndWords::I18n do
   describe '.local_language' do
     it 'checks validity of given language and return it as symbol' do
-      expect(described_class.local_language(:en)).to eq(:en)
+      expect(described_class.local_language(:de)).to eq(:de)
     end
 
     context 'when string given instead of symbol' do

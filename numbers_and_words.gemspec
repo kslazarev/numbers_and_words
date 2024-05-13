@@ -6,7 +6,7 @@
 
 Gem::Specification.new do |s|
   s.name = "numbers_and_words".freeze
-  s.version = "0.11.13"
+  s.version = "0.11.12"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
@@ -226,18 +226,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = "3.3.7".freeze
   s.summary = "Spell out numbers in several languages".freeze
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 4
-  end
+  s.specification_version = 4
 
-  if s.respond_to? :add_runtime_dependency then
-    s.add_runtime_dependency(%q<i18n>.freeze, ["<= 2"])
-    s.add_development_dependency(%q<jeweler>.freeze, ["~> 2"])
-    s.add_development_dependency(%q<rake>.freeze, ["~> 12"])
-  else
-    s.add_dependency(%q<i18n>.freeze, ["<= 2"])
-    s.add_dependency(%q<jeweler>.freeze, ["~> 2"])
-    s.add_dependency(%q<rake>.freeze, ["~> 12"])
-  end
+  s.add_runtime_dependency(%q<i18n>.freeze, ["<= 2"])
+  s.add_development_dependency(%q<jeweler>.freeze, ["~> 2"])
+  s.add_development_dependency(%q<rake>.freeze, ["~> 12"])
 end
 
