@@ -11,14 +11,14 @@ module NumbersAndWords
       def tens(number, options = {})
         return t(:eighty) if number == SPECIAL_TENS_CASE && options[:alone].nil?
 
-        super number, options
+        super(number, options)
       end
 
       def tens_with_ones(numbers, options = {})
         return [tens(numbers[1] - 1, alone: false), teens(numbers)].join('-') if [7, 9].include? numbers[1]
 
         separator = numbers[0] == 1 ? " #{union} " : '-'
-        super numbers, options.merge(separator: separator)
+        super(numbers, options.merge(separator: separator))
       end
 
       def hundreds(number, options = {})

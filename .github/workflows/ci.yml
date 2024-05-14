@@ -25,7 +25,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.image }}
+          bundler-cache: true
       - name: Run tests
         run: |
-          gem install -g
-          rake
+          bundle install
+          bundle exec rake
