@@ -6,7 +6,7 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
 
       def tens_with_ones(numbers, _options = {})
-        super numbers, separator: " #{union} "
+        super(numbers, separator: " #{union} ")
       end
 
       def hundreds(number, options = {})

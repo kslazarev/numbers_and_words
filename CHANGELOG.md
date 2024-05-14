@@ -1,6 +1,7 @@
 ## 0.11.13 (Next)
 
 ### Features
+  * Upgrade RuboCop to 1.63.5. \[[#198](https://github.com/kslazarev/numbers_and_words/pull/198)\]
   * Your contribution here.
 
 ## 0.11.12 (April 22, 2023)

@@ -31,7 +31,7 @@ module NumbersAndWords
           end
 
           def ones
-            super internal_options.merge(is_one_thousand: one_thousand?)
+            super(internal_options.merge(is_one_thousand: one_thousand?))
           end
 
           def hundreds
@@ -56,7 +56,7 @@ module NumbersAndWords
           end
 
           def gender
-            return (options.gender.result || :male) if maybe_ordinal
+            return options.gender.result || :male if maybe_ordinal
 
             if current_capacity&.positive? && figures[0] == 1
               :male
