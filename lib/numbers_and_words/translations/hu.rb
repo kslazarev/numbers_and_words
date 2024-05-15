@@ -12,7 +12,7 @@ module NumbersAndWords
       end
 
       def hundreds(number, options = {})
-        super number, options.merge(separator: '')
+        super(number, options.merge(separator: ''))
       end
     end
   end

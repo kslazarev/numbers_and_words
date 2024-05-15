@@ -6,7 +6,7 @@ module NumbersAndWords
       module Languages
         class Lv < Base
           def tens_with_ones
-            super separator: ' '
+            super(separator: ' ')
           end
 
           def megs

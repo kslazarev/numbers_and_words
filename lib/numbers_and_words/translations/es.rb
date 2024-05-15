@@ -19,7 +19,7 @@ module NumbersAndWords
       end
 
       def tens_with_ones(numbers, options = {})
-        super numbers, options.merge(separator: " #{union} ")
+        super(numbers, options.merge(separator: " #{union} "))
       end
 
       def twenties_with_ones(numbers, options = {})
