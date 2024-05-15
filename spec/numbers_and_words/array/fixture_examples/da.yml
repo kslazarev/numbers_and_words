@@ -23,9 +23,9 @@ to_words:
       - 203
       - 209
     :
-      - hundrede og en
-      - tohundrede og tre
-      - tohundrede og ni
+      - et hundrede et
+      - to hundrede tre
+      - to hundrede ni
   complex_example3:
     ?
       - 561
