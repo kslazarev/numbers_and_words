@@ -14,7 +14,7 @@ module NumbersAndWords
         t([options[:prefix], :ones, options[:postfix] || DEFAULT_POSTFIX].join('.'))[number]
       end
 
-      def tens(number, options = {})
+      def tens(number, _options = {})
         t(:tens)[number]
       end
 

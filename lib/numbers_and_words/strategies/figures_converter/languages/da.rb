@@ -5,7 +5,6 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Da < Base
-
           def print_words
             complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join(' ')
           end
