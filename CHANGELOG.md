@@ -1,6 +1,7 @@
-## 0.11.13 (Next)
+## 0.12.0 (Next)
 
 ### Features
+  * Add support for Danish language. \[[#197](https://github.com/kslazarev/numbers_and_words/pull/197)\] \([@franta](https://github.com/Franta1205)\)
   * Upgrade RuboCop to 1.63.5. \[[#198](https://github.com/kslazarev/numbers_and_words/pull/198)\]
   * Your contribution here.
 

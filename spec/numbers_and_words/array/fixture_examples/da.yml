@@ -1,0 +1,47 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - et
+      - to
+      - tre
+  complex_example:
+    ?
+      - 100
+      - 21
+      - 13
+    :
+      - et hundrede
+      - enogtyve
+      - tretten
+  complex_example2:
+    ?
+      - 101
+      - 203
+      - 209
+    :
+      - et hundrede et
+      - to hundrede tre
+      - to hundrede ni
+  complex_example3:
+    ?
+      - 561
+      - 422
+      - 932
+    :
+      - fem hundrede enogtres
+      - fire hundrede toogtyve
+      - ni hundrede toogtredive
+  complex_example4:
+    ?
+      - 1111
+      - 2222
+      - 6398
+    :
+      - et tusinde et hundrede elleve
+      - to tusinde to hundrede toogtyve
+      - seks tusinde tre hundrede otteoghalvfems
+

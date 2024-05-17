@@ -1,0 +1,52 @@
+da:
+  numbers:
+    ones: [nul, et, to, tre, fire, fem, seks, syv, otte, ni]
+    common: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
+    neuter: [nul, et, to, tre, fire, fem, seks, syv, otte, ni]
+    teens: [_, elleve, tolv, tretten, fjorten, femten, seksten, sytten, atten, nitten]
+    tens: [_, ti, tyve, tredive, fyrre, halvtreds, tres, halvfjerds, firs, halvfems]
+    hundreds: [ _, et hundrede, to hundrede, tre hundrede, fire hundrede, fem hundrede, seks hundrede, syv hundrede, otte hundrede, ni hundrede ]
+    one_hundred: et hundrede
+    mega: [_, tusinde, million, milliard, billion, billiard, trillion]
+    tusinde:
+      one: tusinde
+      other: tusinde
+    million:
+      one: million
+      other: millioner
+    milliard:
+      one: milliard
+      other: milliarder
+    billion:
+      one: billion
+      other: billioner
+    billiard:
+      one: billiard
+      other: billiarder
+    trillion:
+      one: trillion
+      other: trillioner
+    ordinal:
+      ones: [nulte, første, anden, tredje, fjerde, femte, sjette, syvende, ottende, niende]
+      teens: [tiende, ellevte, tolvte, trettende, fjortende, femtende, sekstende, syttende, attende, nittende]
+      tens: [_, tiende, tyvende, tredive, fyrre, halvtreds, tres, halvfjerds, firs, halvfems]
+      hundreds: hundredende
+    micro: [_, tiendedele, hundrededele, tusindedele, milliontedele]
+    tenths:
+      one: tiendedel
+      other: tiendedele
+    hundredths:
+      one: hundrededel
+      other: hundrededele
+    thousandths:
+      one: tusindedel
+      other: tusindedele
+    millionths:
+      one: milliontedel
+      other: milliontedele
+    micro_separator: og
+    micro_prefix:
+      tens: ti
+      hundreds: hundrede
+      union: '-'
+    union: og
