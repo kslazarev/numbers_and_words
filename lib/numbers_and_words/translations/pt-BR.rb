@@ -29,7 +29,7 @@ module NumbersAndWords
       def teens(number, options = {})
         return [tens(1, options), ones(number[0], options)].join(' ') if ordinal? options
 
-        super(number, options)
+        super
       end
 
       def tens_with_ones(numbers, options = {})
@@ -48,10 +48,10 @@ module NumbersAndWords
 
       def megs(capacity, options = {})
         return t([options[:prefix], :mega, options[:gender]].join('.'))[capacity] if ordinal?(options)
-        return super(capacity, options) if options[:is_opaque] || options[:is_without_connector]
+        return super if options[:is_opaque] || options[:is_without_connector]
 
         suffix = options[:is_with_comma] ? ',' : " #{union}"
-        super(capacity, options) + suffix
+        super + suffix
       end
 
       def micros(capacity, number = nil)

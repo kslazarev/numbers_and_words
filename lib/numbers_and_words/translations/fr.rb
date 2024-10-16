@@ -11,7 +11,7 @@ module NumbersAndWords
       def tens(number, options = {})
         return t(:eighty) if number == SPECIAL_TENS_CASE && options[:alone].nil?
 
-        super(number, options)
+        super
       end
 
       def tens_with_ones(numbers, options = {})
