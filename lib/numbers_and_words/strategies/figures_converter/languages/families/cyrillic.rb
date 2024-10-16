@@ -23,7 +23,7 @@ module NumbersAndWords
 
             %i[ones tens_with_ones].each do |method_name|
               define_method(method_name) do |*args|
-                super({ gender: gender }.merge(args.first || {}))
+                super({ gender: }.merge(args.first || {}))
               end
             end
 

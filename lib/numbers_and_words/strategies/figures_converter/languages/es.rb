@@ -14,20 +14,20 @@ module NumbersAndWords
           end
 
           def ones
-            super({ gender: gender,
+            super({ gender:,
                     is_one_thousand: one_thousand?,
                     is_apocopated: one_apocopated? })
           end
 
           def tens_with_ones
-            options = { gender: gender, is_apocopated: one_apocopated? }
+            options = { gender:, is_apocopated: one_apocopated? }
             return @translations.twenties_with_ones(@figures, options) if @figures.tens == 2
 
             super(options)
           end
 
           def hundreds
-            super({ gender: gender,
+            super({ gender:,
                     is_apocopated: hundred_apocopated? })
           end
 

@@ -10,7 +10,7 @@ module NumbersAndWords
           end
 
           def ones
-            super({ gender: gender })
+            super({ gender: })
           end
 
           def hundreds

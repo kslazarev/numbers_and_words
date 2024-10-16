@@ -35,7 +35,7 @@ module NumbersAndWords
           end
 
           def hundreds
-            super(internal_options.merge(is_hundred: hundred?, is_one_hundred: one_hundred?, gender: gender))
+            super(internal_options.merge(is_hundred: hundred?, is_one_hundred: one_hundred?, gender:))
           end
 
           def megs
@@ -48,7 +48,7 @@ module NumbersAndWords
           private
 
           def internal_options
-            { gender: gender, prefix: maybe_ordinal }
+            { gender:, prefix: maybe_ordinal }
           end
 
           def maybe_ordinal
