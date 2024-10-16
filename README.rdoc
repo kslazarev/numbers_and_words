@@ -1,9 +1,9 @@
 == numbers_and_words
 
-{<img src="https://badge.fury.io/rb/numbers_and_words.svg?branch=master" alt="Gem Version" />}[http://badge.fury.io/rb/numbers_and_words]
-{<img src="https://codeclimate.com/github/kslazarev/numbers_and_words.svg?branch=master" />}[https://codeclimate.com/github/kslazarev/numbers_and_words]
-{<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.svg?branch=master" />}[http://travis-ci.org/kslazarev/numbers_and_words]
-{<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.svg?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
+{rdoc-image:https://badge.fury.io/rb/numbers_and_words.svg?branch=master}[https://badge.fury.io/rb/numbers_and_words]
+{rdoc-image:https://codeclimate.com/github/kslazarev/numbers_and_words.svg?branch=master}[https://codeclimate.com/github/kslazarev/numbers_and_words]
+{rdoc-image:https://github.com/kslazarev/numbers_and_words/actions/workflows/ci.yml/badge.svg?branch=master}[https://github.com/kslazarev/numbers_and_words/actions/workflows/ci.yml]
+{rdoc-image:https://coveralls.io/repos/kslazarev/numbers_and_words/badge.svg?branch=master}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
 Spell out numbers in several languages using the I18n gem.
 
