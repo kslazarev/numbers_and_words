@@ -1,4 +1,9 @@
-## 0.12.0 (Next)
+## 1.1.0 (Next)
+
+### Features
+  * Your contribution here.
+
+## 1.0.0 (October 17, 2024)
 
 ### Features
   * Add support for Danish language. \[[#197](https://github.com/kslazarev/numbers_and_words/pull/197)\] \([@franta](https://github.com/Franta1205)\)
@@ -6,7 +11,6 @@
   * Drop support for Ruby 2.7. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
   * Drop support for Ruby 3.0. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
   * Add support for Ruby 3.3. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
-  * Your contribution here.
 
 ## 0.11.12 (April 22, 2023)
 
