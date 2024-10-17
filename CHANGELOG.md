@@ -3,6 +3,9 @@
 ### Features
   * Add support for Danish language. \[[#197](https://github.com/kslazarev/numbers_and_words/pull/197)\] \([@franta](https://github.com/Franta1205)\)
   * Upgrade RuboCop to 1.63.5. \[[#198](https://github.com/kslazarev/numbers_and_words/pull/198)\]
+  * Drop support for Ruby 2.7. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
+  * Drop support for Ruby 3.0. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
+  * Add support for Ruby 3.3. \[[#202](https://github.com/kslazarev/numbers_and_words/pull/202)\]
   * Your contribution here.
 
 ## 0.11.12 (April 22, 2023)

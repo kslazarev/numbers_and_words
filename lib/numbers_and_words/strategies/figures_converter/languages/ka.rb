@@ -20,7 +20,7 @@ module NumbersAndWords
           def megs
             prefix = (:partials if @figures.hundreds || @figures.tens || @figures.ones)
 
-            super(prefix: prefix)
+            super(prefix:)
           end
 
           private

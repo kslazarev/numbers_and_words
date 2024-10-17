@@ -18,12 +18,12 @@ module NumbersAndWords
         return [tens(numbers[1] - 1, alone: false), teens(numbers)].join('-') if [7, 9].include? numbers[1]
 
         separator = numbers[0] == 1 ? " #{union} " : '-'
-        super(numbers, options.merge(separator: separator))
+        super(numbers, options.merge(separator:))
       end
 
       def hundreds(number, options = {})
         count = options[:pluralize] ? number : 1
-        hundreds = t(:hundreds, count: count)
+        hundreds = t(:hundreds, count:)
 
         return hundreds if number == 1
 

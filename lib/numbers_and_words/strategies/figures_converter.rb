@@ -25,8 +25,8 @@ module NumbersAndWords
 
         private
 
-        def around(&block)
-          decorator.run(&block)
+        def around(&)
+          decorator.run(&)
         end
       end
     end
