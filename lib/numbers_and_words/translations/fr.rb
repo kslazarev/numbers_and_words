@@ -14,10 +14,17 @@ module NumbersAndWords
         super
       end
 
-      def tens_with_ones(numbers, options = {})
-        return [tens(numbers[1] - 1, alone: false), teens(numbers)].join('-') if [7, 9].include? numbers[1]
+      def tens_with_teens(numbers)
+        separator = numbers[1] == 7 && numbers[0] == 1 ? "-#{union}-" : '-'
+        [tens(numbers[1] - 1, alone: false), teens(numbers)].join(separator)
+      end
 
-        separator = numbers[0] == 1 ? " #{union} " : '-'
+      def tens_with_ones(numbers, options = {})
+        return tens_with_teens(numbers) if [7, 9].include? numbers[1]
+
+        separator = numbers[0] == 1 && numbers[1] != 8 ? " #{union} " : '-'
+        return [tens(numbers[1], alone: false), ones(numbers[0], options)].join separator || ' ' if numbers[1] == 8
+
         super(numbers, options.merge(separator:))
       end
 
