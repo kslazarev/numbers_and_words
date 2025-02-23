@@ -9,7 +9,7 @@ Spell out numbers in several languages using the I18n gem.
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
-Converti les nombres en lettres en utilisant la librairie I18n.
+Convertit les nombres en lettres en utilisant la librairie I18n.
 
 Számok betűvel írva az I18n könyvtár segítségével.
 
