@@ -9,8 +9,16 @@ to_words:
     19: dix-neuf
     20: vingt
     21: vingt et un
+    70: soixante-dix
+    71: soixante-et-onze
+    72: soixante-douze
+    79: soixante-dix-neuf
     80: quatre-vingts
+    81: quatre-vingt-un
+    82: quatre-vingt-deux
     90: quatre-vingt-dix
+    91: quatre-vingt-onze
+    92: quatre-vingt-douze
     99: quatre-vingt-dix-neuf
   hundreds:
     100: cent
@@ -21,6 +29,7 @@ to_words:
     900: neuf cents
     909: neuf cent neuf
     919: neuf cent dix-neuf
+    980: neuf cent quatre-vingts
     990: neuf cent quatre-vingt-dix
     999: neuf cent quatre-vingt-dix-neuf
   thousands:
@@ -30,6 +39,8 @@ to_words:
     5000: cinq mille
     11000: onze mille
     21000: vingt et un mille
+    80000: quatre-vingt mille
+    200000: deux cent mille
     999000: neuf cent quatre-vingt-dix-neuf mille
     999999: neuf cent quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf
   millions:
@@ -38,6 +49,8 @@ to_words:
     4000000: quatre millions
     5000000: cinq millions
     21000000: vingt et un millions
+    80000000: quatre-vingt millions
+    200000000: deux cent millions
     999000000: neuf cent quatre-vingt-dix-neuf millions
     999000999: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf
     999999000: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf mille

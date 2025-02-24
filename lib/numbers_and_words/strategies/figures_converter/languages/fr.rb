@@ -14,7 +14,11 @@ module NumbersAndWords
           end
 
           def hundreds
-            super({ pluralize: simple_number_to_words.empty? })
+            super({ pluralize: simple_number_to_words.empty? && (@parent_figures.nil? || @parent_figures.size == 3) })
+          end
+
+          def tens
+            super({ alone: @current_capacity&.positive? ? false : nil })
           end
 
           def megs

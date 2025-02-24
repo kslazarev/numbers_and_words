@@ -4,6 +4,9 @@
   * Add support for Ruby 3.4. \[[#204](https://github.com/kslazarev/numbers_and_words/pull/204)\]
   * Your contribution here.
 
+### Bugs
+  * Fix a few cases in French concerning plurals and union word (mainly 71 and 81). \[[#203](https://github.com/kslazarev/numbers_and_words/pull/203)\]
+
 ## 1.0.0 (October 17, 2024)
 
 ### Features
