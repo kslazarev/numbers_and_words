@@ -3,3 +3,5 @@ to_words:
     0: nul
     1: et
     9: ni
+  millions:
+    1000000: en million
