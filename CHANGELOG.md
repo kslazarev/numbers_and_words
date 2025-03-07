@@ -1,8 +1,12 @@
-## 1.0.1 (Next)
+## 1.1.0 (Next)
+
+### Features
+  * Your contribution here.
+
+## 1.0.1 (March 7, 2025)
 
 ### Features
   * Add support for Ruby 3.4. \[[#204](https://github.com/kslazarev/numbers_and_words/pull/204)\]
-  * Your contribution here.
 
 ### Bugs
   * Fix a few cases in French concerning plurals and union word (mainly 71 and 81). \[[#203](https://github.com/kslazarev/numbers_and_words/pull/203)\]
