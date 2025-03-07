@@ -1,4 +1,4 @@
-## 1.1.0 (Next)
+## 1.0.2 (Next)
 
 ### Features
   * Your contribution here.
