@@ -7,19 +7,19 @@ module NumbersAndWords
         class Vi < Base
           def print_words
             value = super
-            remove_billion_noice(value)
+            remove_billion_noise(value)
           end
 
           def strings_logic
             if fractional?
               if fraction_number_zeros_leading.zero?
-                @options.options[:integeral] = true
-                integeral_string_logic
+                @options.options[:integral] = true
+                integral_string_logic
               else
                 fractional_with_zero_leading_string_logic
               end
             else
-              integeral_string_logic
+              integral_string_logic
             end
           end
 
@@ -28,7 +28,7 @@ module NumbersAndWords
             (@figures + leading_zeros).map(&:to_words)
           end
 
-          def integeral_string_logic
+          def integral_string_logic
             if @figures.capacity_count
               number_without_capacity_to_words + complex_number_to_words
             elsif hundreds?
@@ -66,7 +66,7 @@ module NumbersAndWords
           end
 
           def fractional?
-            !@options.options[:fractional].nil? && !@options.options[:integeral]
+            !@options.options[:fractional].nil? && !@options.options[:integral]
           end
 
           def fraction_length
@@ -79,7 +79,7 @@ module NumbersAndWords
             fraction_length - @figures.length
           end
 
-          def remove_billion_noice(value)
+          def remove_billion_noise(value)
             parts = value.split(billion_unit).map(&:strip)
             if value.end_with?(billion_unit)
               parts.insert(-1, billion_unit).join(' ')
