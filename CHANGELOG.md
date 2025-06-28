@@ -196,7 +196,7 @@
 ## 0.6.0 (March 25, 2013)
 
 ### Features
-  * Support fractional form for Ukranian. \[[#54](https://github.com/kslazarev/numbers_and_words/issues/54)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@Shk-Serji](https://github.com/Shk-Serji)\)
+  * Support fractional form for Ukrainian. \[[#54](https://github.com/kslazarev/numbers_and_words/issues/54)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@Shk-Serji](https://github.com/Shk-Serji)\)
   * Support fractional form for Russian. \[[#53](https://github.com/kslazarev/numbers_and_words/issues/53)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@kslazarev](https://github.com/kslazarev)\)
   * Added functionality for spanish . \[[#51](https://github.com/kslazarev/numbers_and_words/pull/51)\] \([@jaambros](https://github.com/jaambros)\) \(assignee: [@jaambros](https://github.com/jaambros)\)
   * Support ordinal form for English and Hungarian. \[[#50](https://github.com/kslazarev/numbers_and_words/issues/50)\] \([@eLod](https://github.com/eLod)\) \(assignee: [@eLod](https://github.com/eLod)\)
