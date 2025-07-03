@@ -1,0 +1,23 @@
+to_words:
+  fractional:
+    0.1: nul komma een tiende
+    0.7: nul komma zeven tienden
+    0.01: nul komma een honderdste
+    0.77: nul komma zevenenzeventig honderdsten
+    0.777: nul komma zevenhonderdzevenenzeventig duizendsten
+    0.7777: nul komma zevenduizend zevenhonderdzevenenzeventig tienduizendsten
+    0.77777: nul komma zevenenzeventigduizend zevenhonderdzevenenzeventig honderdduizendsten
+    0.777777: nul komma zevenhonderdzevenenzeventigduizend zevenhonderdzevenenzeventig miljoensten
+    0.7777777: nul komma zeven miljoen zevenhonderdzevenenzeventigduizend zevenhonderdzevenenzeventig tienmiljoensten
+    0.77777777: nul komma zevenenzeventig miljoen zevenhonderdzevenenzeventigduizend zevenhonderdzevenenzeventig honderdmiljoensten
+    0.777777777: nul komma zevenhonderdzevenenzeventig miljoen zevenhonderdzevenenzeventigduizend zevenhonderdzevenenzeventig miljardsten
+    0.2935174315119: nul komma twee biljoen negenhonderdvijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien tienbiljoensten
+    21.77: eenentwintig komma zevenenzeventig honderdsten
+    111.999: honderdelf komma negenhonderdnegenennegentig duizendsten
+    4242.7463: vierduizend tweehonderdtweeënveertig komma zevenduizend vierhonderddrieënzestig tienduizendsten
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: een tiende
+    0.7: zeven tienden
+    42.1: tweeënveertig komma een tiende

@@ -1,6 +1,7 @@
 ## 1.0.2 (Next)
 
 ### Features
+  * Add support for Dutch floating-point numbers. \[[#207](https://github.com/kslazarev/numbers_and_words/pull/207)\]
   * Your contribution here.
 
 ## 1.0.1 (March 7, 2025)

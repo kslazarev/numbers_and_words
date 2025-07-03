@@ -8,3 +8,48 @@ nl:
     mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
     union: en
     union2or3: ën
+    micro: [_, tienden, honderdsten, duizendsten, miljoensten, miljardsten, biljoensten, biljardsten, triljoensten, triljardsten, septiljoensten, octillionsten, noniljoensten, decillionsten]
+    tienden:
+      one: tiende
+      other: tienden
+    honderdsten:
+      one: honderdste
+      other: honderdsten
+    duizendsten:
+      one: duizendste
+      other: duizendsten
+    miljoensten:
+      one: miljoenste
+      other: miljoensten
+    miljardsten:
+      one: miljardste
+      other: miljardsten
+    biljoensten:
+      one: biljoenste
+      other: biljoensten
+    biljardsten:
+      one: biljardste
+      other: biljardsten
+    triljoensten:
+      one: triljoenste
+      other: triljoensten
+    triljardsten:
+      one: triljardste
+      other: triljardsten
+    septiljoensten:
+      one: septiljoenste
+      other: septiljoensten
+    octillionsten:
+      one: octillionste
+      other: octillionsten
+    noniljoensten:
+      one: noniljoenste
+      other: noniljoensten
+    decillionsten:
+      one: decillionste
+      other: decillionsten
+    micro_separator: komma
+    micro_prefix:
+      tens: tien
+      hundreds: honderd
+      union: ''
