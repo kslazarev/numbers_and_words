@@ -1,8 +1,12 @@
+## 1.0.3 (Next)
+
+### Features
+  * Your contribution here.
+
 ## 1.0.2 (Next)
 
 ### Features
   * Add support for Dutch floating-point numbers. \[[#207](https://github.com/kslazarev/numbers_and_words/pull/207)\]
-  * Your contribution here.
 
 ## 1.0.1 (March 7, 2025)
 
@@ -155,7 +159,7 @@
   * Add Lithuanian language. \[[#77](https://github.com/kslazarev/numbers_and_words/pull/77)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
 
 ### Bugs
-  * Fix latvian one hundread cases. \[[#81](https://github.com/kslazarev/numbers_and_words/pull/81)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
+  * Fix Latvian one hundred cases. \[[#81](https://github.com/kslazarev/numbers_and_words/pull/81)\] \([@miks](https://github.com/miks)\) \(assignee: [@miks](https://github.com/miks)\)
 
 ### Supports
   * Added @miks contacts to contributors list in README. \[[#79](https://github.com/kslazarev/numbers_and_words/issues/79)\] \([@kslazarev](https://github.com/kslazarev)\) \(assignee: [@miks](https://github.com/miks)\)
