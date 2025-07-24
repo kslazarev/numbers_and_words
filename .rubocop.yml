@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
@@ -32,6 +32,9 @@ Lint/StructNewOverride:
   Enabled: true
 
 Naming/FileName:
+  Enabled: false
+
+Naming/PredicateMethod:
   Enabled: false
 
 RSpec/ExampleLength:
