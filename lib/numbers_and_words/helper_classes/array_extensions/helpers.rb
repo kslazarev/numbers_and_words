@@ -35,7 +35,7 @@ module NumbersAndWords
       end
 
       def figures_array_under_capacity(capacity)
-        self[0..(capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT]
+        self[0..((capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT)]
       end
 
       def ones

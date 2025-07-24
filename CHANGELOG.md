@@ -1,6 +1,7 @@
 ## 1.0.3 (Next)
 
 ### Features
+  * Upgrade RuboCop to 1.78.0. \[[#208](https://github.com/kslazarev/numbers_and_words/pull/208)\]
   * Your contribution here.
 
 ## 1.0.2 (Next)
