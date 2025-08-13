@@ -4,6 +4,7 @@ module NumbersAndWords
   module Translations
     class De < Base
       include NumbersAndWords::Translations::Families::Base
+
       DEFAULT_POSTFIX = :combine
 
       def ones(number, options = {})

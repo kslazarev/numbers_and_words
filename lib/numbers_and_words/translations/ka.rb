@@ -4,6 +4,7 @@ module NumbersAndWords
   module Translations
     class Ka < Base
       include NumbersAndWords::Translations::Families::Latin
+
       TENS_VIGESIMAL_RANGES = [
         {
           range: Range.new(0, 4, true),

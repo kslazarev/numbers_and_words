@@ -5,6 +5,7 @@ module NumbersAndWords
     class Vi < Base
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
+
       def ones_of_tens(number, options = {})
         return t('units.tens.one') if number == 1
         return t('units.tens.five') if number == 5
