@@ -25,6 +25,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 * Spanish [es]
 * Русский [ru]
 * Français [fr]
+* Français (Suisse) [fr-CH]
 * Українська [ua]
 * Magyar [hu]
 * Lietuvių [lt]
@@ -47,7 +48,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 ** Experimental
 
 * {[en-AU], [en-CA], [en-IN], [en-US]}*** => [en]
-* {[fr-CA], [fr-CH]}*** => [fr]
+* {[fr-CA]}*** => [fr]
 * {[de], [de-AT], [de-CH]}*** => [de]
 * {[it-CH]}*** => [it]
 

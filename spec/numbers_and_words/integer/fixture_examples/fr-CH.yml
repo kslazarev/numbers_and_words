@@ -1,0 +1,66 @@
+to_words:
+  ones:
+    0: zéro
+    1: un
+    9: neuf
+  teens:
+    10: dix
+    11: onze
+    19: dix-neuf
+    20: vingt
+    21: vingt et un
+    70: septante
+    71: septante et un
+    72: septante-deux
+    79: septante-neuf
+    80: huitante
+    81: huitante et un
+    82: huitante-deux
+    90: nonante
+    91: nonante et un
+    92: nonante-deux
+    99: nonante-neuf
+  hundreds:
+    100: cent
+    101: cent un
+    111: cent onze
+    120: cent vingt
+    121: cent vingt et un
+    900: neuf cents
+    909: neuf cent neuf
+    919: neuf cent dix-neuf
+    980: neuf cent huitante
+    990: neuf cent nonante
+    999: neuf cent nonante-neuf
+  thousands:
+    1000: mille
+    2000: deux mille
+    4000: quatre mille
+    5000: cinq mille
+    11000: onze mille
+    21000: vingt et un mille
+    80000: huitante mille
+    200000: deux cent mille
+    999000: neuf cent nonante-neuf mille
+    999999: neuf cent nonante-neuf mille neuf cent nonante-neuf
+  millions:
+    1000000: un million
+    2000000: deux millions
+    4000000: quatre millions
+    5000000: cinq millions
+    21000000: vingt et un millions
+    80000000: huitante millions
+    200000000: deux cent millions
+    999000000: neuf cent nonante-neuf millions
+    999000999: neuf cent nonante-neuf millions neuf cent nonante-neuf
+    999999000: neuf cent nonante-neuf millions neuf cent nonante-neuf mille
+    999999999: neuf cent nonante-neuf millions neuf cent nonante-neuf mille neuf cent nonante-neuf
+  billions:
+    1174315110: un milliard cent septante-quatre millions trois cent quinze mille cent dix
+    1174315119: un milliard cent septante-quatre millions trois cent quinze mille cent dix-neuf
+    31151315119: trente et un milliards cent cinquante et un millions trois cent quinze mille cent dix-neuf
+    15174315119: quinze milliards cent septante-quatre millions trois cent quinze mille cent dix-neuf
+    35174315119: trente-cinq milliards cent septante-quatre millions trois cent quinze mille cent dix-neuf
+    935174315119: neuf cent trente-cinq milliards cent septante-quatre millions trois cent quinze mille cent dix-neuf
+  trillions:
+    2935174315119: deux billions neuf cent trente-cinq milliards cent septante-quatre millions trois cent quinze mille cent dix-neuf
