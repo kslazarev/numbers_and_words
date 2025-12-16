@@ -10,12 +10,6 @@ module NumbersAndWords
         super
       end
 
-      def tens_with_teens(numbers)
-        number_ones, number_tens = numbers.first(2)
-        separator = number_tens == 7 && number_ones == 1 ? "-#{union}-" : '-'
-        [tens(number_tens - 1, alone: false), teens(numbers)].join(separator)
-      end
-
       def tens_with_ones(numbers, options = {})
         separator = numbers.first == 1 ? " #{union} " : '-'
         super(numbers, options.merge(separator:))
