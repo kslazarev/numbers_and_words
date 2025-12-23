@@ -1,11 +1,15 @@
-## 1.0.3 (Next)
+## 1.0.4 (Next)
+
+### Features
+  * Your contribution here.
+
+## 1.0.3 (Dec 23, 2025)
 
 ### Features
   * Upgrade RuboCop to 1.78.0. \[[#208](https://github.com/kslazarev/numbers_and_words/pull/208)\]
-  * Your contribution here.
-  * Add support for Swiss-french language
+  * Add support for Swiss-French language. \[[#210](https://github.com/kslazarev/numbers_and_words/pull/210)\]
 
-## 1.0.2 (Next)
+## 1.0.2 (Jul 5, 2025)
 
 ### Features
   * Add support for Dutch floating-point numbers. \[[#207](https://github.com/kslazarev/numbers_and_words/pull/207)\]
