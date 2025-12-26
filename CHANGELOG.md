@@ -1,6 +1,7 @@
 ## 1.0.4 (Next)
 
 ### Features
+  * Add support for Ruby 4.0. \[[#211](https://github.com/kslazarev/numbers_and_words/pull/211)\]
   * Your contribution here.
 
 ## 1.0.3 (Dec 23, 2025)
