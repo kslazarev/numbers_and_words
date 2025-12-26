@@ -23,8 +23,8 @@ module NumbersAndWords
               translate :megs, @current_capacity, options
             end
 
-            def translate(method_name, *args)
-              translations.send method_name, *args
+            def translate(method_name, *)
+              translations.send(method_name, *)
             end
           end
         end

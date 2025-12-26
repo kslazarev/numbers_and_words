@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.version = NumbersAndWords::VERSION
   gem.authors = ['Kirill Lazarev']
   gem.files = Dir.glob('lib/**/*')
-  gem.required_ruby_version = '>= 3.1.0'
+  gem.required_ruby_version = '>= 3.2.0'
 end
 
 Jeweler::RubygemsDotOrgTasks.new

@@ -398,7 +398,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
 == Requirements / Требования / Configuration Requise
 
-* 3.1 <= Ruby (compatible with/совместимость с/compatible avec Ruby 3.1 and/и/et JRuby);
+* 3.2 <= Ruby (compatible with/совместимость с/compatible avec Ruby 3.2 and/и/et JRuby);
 * 1.14.3 <= I18n (earlier versions not tested/ранние версии не тестировались/versions précédentes non testées);
 
 == Installation / Установка / Installation
