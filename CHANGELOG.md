@@ -2,6 +2,7 @@
 
 ### Features
   * Add support for Ruby 4.0. \[[#211](https://github.com/kslazarev/numbers_and_words/pull/211)\]
+  * Improve Italian number conversion and floating-point support. \[[#215](https://github.com/kslazarev/numbers_and_words/pull/215)\]
   * Your contribution here.
 
 ## 1.0.3 (Dec 23, 2025)

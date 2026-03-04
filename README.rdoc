@@ -111,7 +111,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "yirmi bir"
     => "ოცდაერთი"
     => "einundzwanzig"
-    => "ventiuno"
+    => "ventuno"
     => "eenentwintig"
     => "tjugo-en"
     => "dvacetjedna"
@@ -134,7 +134,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "ორას ოცდათერთმეტი"
     => "iki yüz otuz bir"
     => "zweihunderteinunddreißig"
-    => "2 cento trentauno"
+    => "duecentotrentuno"
     => "tweehonderdeenendertig"
     => "två hundra trettio-en"
     => "dvě stě třicetjedna"
@@ -179,7 +179,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "ერთი მილიონ ასი"
     => "bir milyon yüz"
     => "eine Million einhundert"
-    => "uno milione 1 cento"
+    => "uno milione cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
     => "jeden milión jedno sto"
@@ -235,7 +235,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["თერთმეტი", "ოცდაორი", "ას ოცდაცამეტი"]
     => ["on bir", "yirmi iki", "yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
-    => ["undici", "ventidue", "1 cento trentatre"]
+    => ["undici", "ventidue", "centotrentatre"]
     => ["elf", "tweeëntwintig", "honderddrieëndertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
@@ -383,6 +383,16 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
       I18n.with_locale(:nl) { 0.7.to_words remove_zero: false }
       => "nul komma zeven tienden"
+
+* Italian
+
+  Remove 'zero' from integral part of float: (remove_zero: [true || false])
+
+    I18n.with_locale(:it) { 0.7.to_words }
+    => "zero e sette decimi"
+
+    I18n.with_locale(:it) { 0.7.to_words remove_zero: true }
+    => "sette decimi"
 
 == Other options / Другие опции
 

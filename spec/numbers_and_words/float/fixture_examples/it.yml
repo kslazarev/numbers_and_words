@@ -1,0 +1,33 @@
+to_words:
+  fractional:
+    0.1: zero e un decimo
+    0.7: zero e sette decimi
+    0.01: zero e un centesimo
+    0.21: zero e ventuno centesimi
+    0.31: zero e trentuno centesimi
+    0.77: zero e settantasette centesimi
+    0.777: zero e settecentosettantasette millesimi
+    0.7777: zero e settemilasettecentosettantasette decimillesimi
+    0.1001: zero e milleuno decimillesimi
+    0.1023: zero e milleventitre decimillesimi
+    0.21021: zero e ventunomilaventuno centomillesimi
+    0.77777: zero e settantasettemilasettecentosettantasette centomillesimi
+    0.777777: zero e settecentosettantasettemilasettecentosettantasette milionesimi
+    0.7777777: zero e sette milioni settecentosettantasettemilasettecentosettantasette decimilionesimi
+    0.77777777: zero e settantasette milioni settecentosettantasettemilasettecentosettantasette centomilionesimi
+    0.777777777: zero e settecentosettantasette milioni settecentosettantasettemilasettecentosettantasette miliardesimi
+    0.2935174315119: zero e due bilioni novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove decibilionesimi
+    21.77: ventuno e settantasette centesimi
+    111.999: centoundici e novecentonovantanove millesimi
+    4242.7463: quattromiladuecentoquarantadue e settemilaquattrocentosessantatre decimillesimi
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: un decimo
+    0.7: sette decimi
+    1.0: uno
+    42.1: quarantadue e un decimo
+  fractions_with_precision:
+    options:
+      :precision: 2
+    0.1: zero e dieci centesimi
