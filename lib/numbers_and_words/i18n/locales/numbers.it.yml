@@ -1,7 +1,111 @@
 it:
   numbers:
     ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
+    fractional_one: un
     teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciasette, diciotto, diciannove]
     tens: [_, dieci, venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta]
     hundreds: cento
-    mega: [_, mille, milione, miliardo, triliardo, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
+    thousands:
+      one: mille
+      other: mila
+    millions:
+      one: milione
+      other: milioni
+    billions:
+      one: miliardo
+      other: miliardi
+    trillions:
+      one: bilione
+      other: bilioni
+    quadrillions:
+      one: biliardo
+      other: biliardi
+    quintillions:
+      one: trilione
+      other: trilioni
+    sextillions:
+      one: triliardo
+      other: triliardi
+    septillions:
+      one: quadrilione
+      other: quadrilioni
+    octillions:
+      one: quadriliardo
+      other: quadriliardi
+    nonillions:
+      one: quintilione
+      other: quintilioni
+    decillions:
+      one: quintiliardo
+      other: quintiliardi
+    undecillions:
+      one: sestilione
+      other: sestilioni
+    duodecillions:
+      one: sestiliardo
+      other: sestiliardi
+    tredecillions:
+      one: settilione
+      other: settilioni
+    quattuordecillions:
+      one: settiliardo
+      other: settiliardi
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
+    tenths:
+      one: decimo
+      other: decimi
+    hundredths:
+      one: centesimo
+      other: centesimi
+    thousandths:
+      one: millesimo
+      other: millesimi
+    millionths:
+      one: milionesimo
+      other: milionesimi
+    billionths:
+      one: miliardesimo
+      other: miliardesimi
+    trillionths:
+      one: bilionesimo
+      other: bilionesimi
+    quadrillionths:
+      one: biliardesimo
+      other: biliardesimi
+    quintillionths:
+      one: trilionesimo
+      other: trilionesimi
+    sextillionths:
+      one: triliardesimo
+      other: triliardesimi
+    septillionths:
+      one: quadrilionesimo
+      other: quadrilionesimi
+    octillionths:
+      one: quadriliardesimo
+      other: quadriliardesimi
+    nonillionths:
+      one: quintilionesimo
+      other: quintilionesimi
+    decillionths:
+      one: quintiliardesimo
+      other: quintiliardesimi
+    undecillionths:
+      one: sestilionesimo
+      other: sestilionesimi
+    duodecillionths:
+      one: sestiliardesimo
+      other: sestiliardesimi
+    tredecillionths:
+      one: settilionesimo
+      other: settilionesimi
+    quattuordecillionths:
+      one: settiliardesimo
+      other: settiliardesimi
+    micro_separator: e
+    micro_prefix:
+      tens: deci
+      hundreds: cento
+      union: ''
+    union: e
