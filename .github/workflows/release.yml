@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Optional Version Overriding the Checked-In Version
+        type: string
+        required: false
+      dry-run:
+        description: Check Release Prerequisites Without Releasing
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    name: Release
+    if: github.repository == 'kslazarev/numbers_and_words'
+    uses: dblock/ruby-gem-release/.github/workflows/release.yml@fc9b2673899047f7cb021e4c7f6528d819d06f77 # v0.9.0
+    with:
+      ruby-version: '4.0'
+      version: ${{ inputs.version }}
+      dry-run: ${{ inputs.dry-run }}
+      test: bundle exec rake && bundle exec rake build && bundle exec ruby script/verify_package.rb

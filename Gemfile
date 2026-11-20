@@ -2,13 +2,15 @@
 
 source 'https://rubygems.org'
 
-gem 'i18n', '<= 2'
+gemspec
 
 group :development do
   gem 'benchmark-ips', '~> 2.15'
-  gem 'jeweler', '~> 2'
-  gem 'ostruct', '~> 0'
-  gem 'rake', '~> 12'
+  gem 'rake', '~> 13'
+  if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.3')
+    gem 'commonmarker', '~> 2.10', require: false
+    gem 'ruby-gem-release', '~> 0.9.0', require: false
+  end
 end
 
 group :test do
