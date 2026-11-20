@@ -43,6 +43,12 @@ Try to write a test that reproduces the problem you're trying to fix or describe
 
 We definitely appreciate pull requests that highlight or reproduce a problem, even without a fix.
 
+#### Locale Character Validation
+
+Locale specs validate decoded YAML strings against each locale's Unicode script, require NFC normalization, and reject invisible control/format characters. When adding a locale, register its script in `spec/numbers_and_words/i18n_spec.rb`. Accents, combining marks, punctuation, and spaces are allowed; English lookup identifiers in the Russian and Ukrainian `mega`/`micro` arrays are checked separately as Latin text. These checks do not replace spelling or translation review.
+
+Run the character validation specs with `bundle exec rspec spec/locale_characters_spec.rb spec/numbers_and_words/i18n_spec.rb`, or run `bundle exec rake` for the full lint and test suite.
+
 ### Write Code
 
 Implement your feature or bug fix.
