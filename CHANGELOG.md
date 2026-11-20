@@ -7,6 +7,7 @@
 
 ### Bugs
   * Fix Latin letters inside Cyrillic words in Russian, Ukrainian and Kazakh, and the Italian spelling of 17 (`diciassette`). \[[#216](https://github.com/kslazarev/numbers_and_words/pull/216)\]
+  * Fix Ukrainian separators using Latin letters and validate locale scripts, Unicode normalization and invisible characters. \[[#217](https://github.com/kslazarev/numbers_and_words/pull/217)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

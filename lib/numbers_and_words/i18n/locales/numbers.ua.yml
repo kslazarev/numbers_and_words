@@ -81,9 +81,9 @@ ua:
       one: трильйонна
       few: трильйонних
       many: трильйонних
-    micro_separator: 'i'
+    micro_separator: 'і'
     micro_prefix:
       tens: десяти
       hundreds: сто
       union: ' '
-    union: 'i'
+    union: 'і'

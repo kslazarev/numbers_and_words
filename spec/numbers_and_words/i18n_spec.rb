@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'support/locale_characters'
 
 describe NumbersAndWords::I18n do
   describe '.local_language' do
@@ -31,14 +32,26 @@ describe NumbersAndWords::I18n do
 
   describe 'locale files' do
     locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
+    lookup_locales = %w[ru ua]
+    scripts = {
+      'Latin' => %w[cs da de en en-GB es et fr fr-CH hu it lt lv nl pt pt-BR se tr vi],
+      'Cyrillic' => %w[kz ru ua],
+      'Armenian' => %w[hy],
+      'Georgian' => %w[ka]
+    }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|
-      it "has no words mixing Latin and Cyrillic letters in #{File.basename(path)}" do
-        mixed = File.read(path, encoding: 'UTF-8').scan(/[[:alpha:]]+/).select do |word|
-          word.match?(/\p{Latin}/) && word.match?(/\p{Cyrillic}/)
-        end
+      locale = File.basename(path, '.yml').delete_prefix('numbers.')
+      script = scripts.fetch(locale)
 
-        expect(mixed.uniq).to be_empty
+      it "uses normalized #{script} translations without invisible characters in #{File.basename(path)}" do
+        numbers = YAML.safe_load_file(path).fetch(locale).fetch('numbers')
+        # These arrays contain English lookup keys, not translated words.
+        references = lookup_locales.include?(locale) ? numbers.slice('mega', 'micro') : {}
+        translations = numbers.reject { |key, _value| references.key?(key) }
+
+        expect(LocaleCharacters.errors(references, 'Latin')).to be_empty
+        expect(LocaleCharacters.errors(translations, script)).to be_empty
       end
     end
   end
