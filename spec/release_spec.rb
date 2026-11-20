@@ -16,7 +16,7 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
       with_release_project do |project|
         project.copy_files(
           path: File.expand_path('..', __dir__),
-          files: %w[numbers_and_words.gemspec CHANGELOG.md README.md LICENSE.txt .gitignore tasks/*.rb lib/**/*]
+          files: %w[numbers_and_words.gemspec CHANGELOG.md README.md LICENSE.txt .gitignore tasks/*.rb bin/* lib/**/*]
         )
         project.configure_workflow(require: 'tasks/release', builder: 'NumbersAndWordsRelease.workflow')
         project.commit!
@@ -48,7 +48,7 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
       with_release_project do |project|
         project.copy_files(
           path: File.expand_path('..', __dir__),
-          files: %w[numbers_and_words.gemspec README.md LICENSE.txt .gitignore tasks/*.rb lib/**/*]
+          files: %w[numbers_and_words.gemspec README.md LICENSE.txt .gitignore tasks/*.rb bin/* lib/**/*]
         )
         project.write('CHANGELOG.md', <<~MARKDOWN)
           ## 1.0.4 (Next)

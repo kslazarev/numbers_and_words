@@ -68,6 +68,27 @@ I18n.with_locale(:en) { 0.00001.to_words }
 # => "zero and one hundred-thousandth"
 ```
 
+### Command Line
+
+The gem installs a `to_words` command that spells out each argument, or whitespace-separated numbers read from standard input, one per line.
+
+```
+$ to_words 42 1.5
+forty-two
+one and five tenths
+
+$ to_words --locale ru 2000
+две тысячи
+
+$ echo 21 | to_words --ordinal
+twenty-first
+
+$ to_words --locale es --gender female 21
+veintiuna
+```
+
+Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag: `--ordinal`, `--remove-zero` and other on/off options (with a `--no-` form), and `--gender VALUE`, `--precision N` and `--micro-separator VALUE`. `to_words --help` lists them with the languages that support each. Options a language does not support, invalid numbers, negative numbers and unknown locales are reported on standard error with exit status 1.
+
 ## Supported Languages / Языки / Langues Supportées
 
 Each language page has examples and the options that language supports.
