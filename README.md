@@ -86,7 +86,7 @@ Each language page has examples and the options that language supports.
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` | no | no |
 | [German](docs/languages/de.md)* | Deutsch | `de` | no | no |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` | yes | yes |
-| [Italian](docs/languages/it.md)* | Italiano | `it` | yes | no |
+| [Italian](docs/languages/it.md) | Italiano | `it` | yes | no |
 | [Kazakh](docs/languages/kz.md) | Қазақша | `kz` | no | no |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` | no | no |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` | no | no |

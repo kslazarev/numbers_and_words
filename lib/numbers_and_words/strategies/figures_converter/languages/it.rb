@@ -16,8 +16,10 @@ module NumbersAndWords
             words = []
             capacity_words = words_in_capacity(@current_capacity)
             words.push(megs) unless capacity_words.empty?
-            words += capacity_words unless thousand? && one?
-            words
+            return words if thousand? && one?
+
+            # "un milione", "un miliardo": "uno" is apocopated before scale nouns
+            words + (one? ? [@translations.t(:fractional_one)] : capacity_words)
           end
 
           def hundreds
@@ -52,7 +54,7 @@ module NumbersAndWords
             combined_words = [words.first]
 
             words.drop(1).each do |word|
-              if starters.include?(word) || starter_suffix?(combined_words.last, starters)
+              if joinable?(combined_words.last, word, starters)
                 combined_words[-1] = "#{combined_words.last}#{word}"
               else
                 combined_words << word
@@ -66,6 +68,19 @@ module NumbersAndWords
             starters = [@translations.t(:thousands, count: 1)]
             starters << @translations.t(:thousands, count: 2)
             starters
+          end
+
+          # Thousands join their neighbours ("duemilacento"), but stay apart from
+          # larger scale words ("un milione mille").
+          def joinable?(previous, word, starters)
+            return false if mega_word?(previous)
+
+            starters.include?(word) || starter_suffix?(previous, starters)
+          end
+
+          def mega_word?(word)
+            @mega_words ||= @translations.t(:mega).drop(2).flat_map { |key| @translations.t(key).values }
+            @mega_words.include?(word)
           end
 
           def starter_suffix?(word, starters)

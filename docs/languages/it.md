@@ -1,6 +1,6 @@
 # Italian (`it`)
 
-Italiano. This language is experimental: one million and larger scales read `uno milione` instead of `un milione`.
+Italiano.
 
 Aliases: `it-CH`.
 
@@ -20,10 +20,13 @@ I18n.with_locale(:it) { 4030.to_words }
 # => "quattromilatrenta"
 
 I18n.with_locale(:it) { 1_000_100.to_words }
-# => "uno milione cento"
+# => "un milione cento"
 
 I18n.with_locale(:it) { 2_000_000_000.to_words }
 # => "due miliardi"
+
+I18n.with_locale(:it) { 1_001_000.to_words }
+# => "un milione mille"
 
 I18n.with_locale(:it) { [1, 2, 3].to_words }
 # => ["uno", "due", "tre"]

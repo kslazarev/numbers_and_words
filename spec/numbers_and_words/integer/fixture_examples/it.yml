@@ -43,7 +43,13 @@ to_words:
     999000: novecentonovantanovemila
     999999: novecentonovantanovemilanovecentonovantanove
   millions:
-    1000000: uno milione
+    1000000: un milione
+    1000001: un milione uno
+    1000100: un milione cento
+    1001000: un milione mille
+    1001005: un milione millecinque
+    1740794: un milione settecentoquarantamilasettecentonovantaquattro
+    2001000: due milioni mille
     2000000: due milioni
     4000000: quattro milioni
     5000000: cinque milioni
@@ -52,10 +58,12 @@ to_words:
     999999000: novecentonovantanove milioni novecentonovantanovemila
     999999999: novecentonovantanove milioni novecentonovantanovemilanovecentonovantanove
   billions:
-    1174315110: uno miliardo centosettantaquattro milioni trecentoquindicimilacentodieci
-    1174315119: uno miliardo centosettantaquattro milioni trecentoquindicimilacentodiciannove
+    1174315110: un miliardo centosettantaquattro milioni trecentoquindicimilacentodieci
+    1174315119: un miliardo centosettantaquattro milioni trecentoquindicimilacentodiciannove
     15174315119: quindici miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
     35174315119: trentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
     935174315119: novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
+    1001000000: un miliardo un milione
   trillions:
+    1000000000000: un bilione
     2935174315119: due bilioni novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
