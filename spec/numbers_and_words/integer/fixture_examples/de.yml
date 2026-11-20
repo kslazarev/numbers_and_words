@@ -48,3 +48,56 @@ to_words:
     35174315119: fünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
     935174315119: neunhundertfünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
     2935174315119: zwei Billionen neunhundertfünfunddreißig Milliarden einhundertvierundsiebzig Millionen dreihundertfünfzehntausendeinhundertneunzehn
+  larger_scales:
+    1000000000: eine Milliarde
+    3000000000: drei Milliarden
+    1000000000000: eine Billion
+    1000000000001: eine Billion eins
+    1000001000: eine Milliarde eintausend
+    1000000000000000: eine Billiarde
+    2000000000000000: zwei Billiarden
+    1000000000000000000: eine Trillion
+    1000000000000000000000000: eine Quadrillion
+    1000000000000000000000000000000: eine Quintillion
+  ordinals:
+    options:
+      :ordinal: true
+    0: nullte
+    1: erste
+    2: zweite
+    3: dritte
+    4: vierte
+    5: fünfte
+    6: sechste
+    7: siebte
+    8: achte
+    9: neunte
+    10: zehnte
+    11: elfte
+    12: zwölfte
+    13: dreizehnte
+    16: sechzehnte
+    17: siebzehnte
+    19: neunzehnte
+    20: zwanzigste
+    21: einundzwanzigste
+    30: dreißigste
+    77: siebenundsiebzigste
+    90: neunzigste
+    100: einhundertste
+    101: einhunderterste
+    103: einhundertdritte
+    107: einhundertsiebte
+    108: einhundertachte
+    111: einhundertelfte
+    121: einhunderteinundzwanzigste
+    1000: eintausendste
+    1001: eintausenderste
+    2000: zweitausendste
+    21000: einundzwanzigtausendste
+    1000000: einmillionste
+    2000000: zweimillionste
+    1000001: eine Million erste
+    3000000000: dreimilliardste
+    2002000000: zwei Milliarden zweimillionste
+    1000000000000: einbillionste

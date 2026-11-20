@@ -14,6 +14,7 @@ require 'numbers_and_words/strategies/figures_converter/options/ua'
 require 'numbers_and_words/strategies/figures_converter/options/cs'
 require 'numbers_and_words/strategies/figures_converter/options/da'
 require 'numbers_and_words/strategies/figures_converter/options/pl'
+require 'numbers_and_words/strategies/figures_converter/options/de'
 
 module NumbersAndWords
   module Strategies

@@ -16,6 +16,7 @@
   * Run every example in the README and language pages as a spec. \[[#260](https://github.com/kslazarev/numbers_and_words/pull/260)\] \([@dblock](https://github.com/dblock)\)
   * Add AGENTS.md with commands, where each language lives, and the invariants specs enforce. \[[#261](https://github.com/kslazarev/numbers_and_words/pull/261)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Polish cardinal, gender, decimal and bounded ordinal support with corrected pluralization, completing #189. \[[#228](https://github.com/kslazarev/numbers_and_words/pull/228)\] \([@sectasy0](https://github.com/sectasy0), [@dblock](https://github.com/dblock)\)
+  * Add German ordinals and decimal ("Komma") conversion, and fix spacing and scale names for German milliards and larger. \[[#232](https://github.com/kslazarev/numbers_and_words/pull/232)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

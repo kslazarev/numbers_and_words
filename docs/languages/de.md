@@ -1,6 +1,6 @@
 # German (`de`)
 
-Deutsch. This language is experimental: ordinals and decimals are not supported yet, and exact large scales leave trailing spaces.
+Deutsch.
 
 Aliases: `de-AT`, `de-CH`.
 
@@ -23,13 +23,41 @@ I18n.with_locale(:de) { 1_000_100.to_words }
 # => "eine Million einhundert"
 
 I18n.with_locale(:de) { 2_000_000_000.to_words }
-# => "zwei Milliarden  "
+# => "zwei Milliarden"
 
 I18n.with_locale(:de) { [1, 2, 3].to_words }
 # => ["eins", "zwei", "drei"]
 
 I18n.with_locale(:de) { [11, 22, 133].to_words }
 # => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
+
+I18n.with_locale(:de) { 21.77.to_words }
+# => "einundzwanzig Komma sieben sieben"
 ```
 
-Decimals are not supported yet.
+## Ordinal
+
+`ordinal: true` gives the uninflected `-te`/`-ste` form; exact multiples of a million or larger are written as one word.
+
+```ruby
+I18n.with_locale(:de) { 21.to_words(ordinal: true) }
+# => "einundzwanzigste"
+
+I18n.with_locale(:de) { 101.to_words(ordinal: true) }
+# => "einhunderterste"
+
+I18n.with_locale(:de) { 2_000_000.to_words(ordinal: true) }
+# => "zweimillionste"
+```
+
+## Decimals
+
+Decimals are read with `Komma` followed by each fractional digit, including leading zeros.
+
+```ruby
+I18n.with_locale(:de) { 3.05.to_words }
+# => "drei Komma null fünf"
+
+I18n.with_locale(:de) { 3.14.to_words }
+# => "drei Komma eins vier"
+```

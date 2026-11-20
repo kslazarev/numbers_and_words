@@ -22,7 +22,7 @@ de:
       other: Billionen
     quadrillions:
       one: Billiarde
-      other: Billiaden
+      other: Billiarden
     quintillions:
       one: Trillion
       other: Trillionen
@@ -42,3 +42,4 @@ de:
       one: Quintilliarde
       other: Quintilliarden
     union: und
+    micro_separator: Komma
