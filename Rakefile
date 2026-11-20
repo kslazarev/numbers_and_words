@@ -2,24 +2,13 @@
 
 require 'rake'
 require 'rubygems'
+require_relative 'lib/numbers_and_words/version'
+require_relative 'tasks/build'
 
-require File.expand_path('lib/numbers_and_words/version', __dir__)
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  gem.name = 'numbers_and_words'
-  gem.homepage = 'http://github.com/kslazarev/numbers_and_words'
-  gem.license = 'MIT'
-  gem.summary = 'Spell out numbers in several languages'
-  gem.description = 'This gem spells out numbers in several languages using the I18n gem.'
-  gem.email = 'k.s.lazarev@gmail.com'
-  gem.version = NumbersAndWords::VERSION
-  gem.authors = ['Kirill Lazarev']
-  gem.files = Dir.glob('lib/**/*')
-  gem.required_ruby_version = '>= 3.2.0'
+if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.3')
+  require_relative 'tasks/release'
+  NumbersAndWordsRelease.workflow.install_tasks
 end
-
-Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
@@ -37,10 +26,8 @@ end
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ''
-
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "numbers_and_words #{version}"
+  rdoc.title = "numbers_and_words #{NumbersAndWords::VERSION}"
   rdoc.rdoc_files.include 'README*'
   rdoc.rdoc_files.include 'LICENSE*'
   rdoc.rdoc_files.include 'lib/**/*.rb'

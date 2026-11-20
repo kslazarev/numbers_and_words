@@ -6,6 +6,7 @@
   * Separate test, lint and installed-package CI with explicit Ruby and cross-platform coverage. \[[#218](https://github.com/kslazarev/numbers_and_words/pull/218)\] \([@dblock](https://github.com/dblock)\)
   * Add repeatable multilingual conversion throughput and allocation benchmarks. \[[#221](https://github.com/kslazarev/numbers_and_words/pull/221)\] \([@dblock](https://github.com/dblock)\)
   * Reduce conversion allocations with per-proxy option-name reuse, integer digit extraction and single-pass float splitting. \[[#222](https://github.com/kslazarev/numbers_and_words/pull/222)\] \([@dblock](https://github.com/dblock)\)
+  * Replace unmaintained Jeweler with a static gemspec and automate manually dispatched trusted-publisher releases with ruby-gem-release. \[[#219](https://github.com/kslazarev/numbers_and_words/pull/219)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

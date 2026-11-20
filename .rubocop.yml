@@ -7,8 +7,11 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
   Exclude:
-    - 'numbers_and_words.gemspec'
     - vendor/bundle/**/*
+
+# Requiring MFA changes the owners' RubyGems push policy; decide it separately from gemspec tooling.
+Gemspec/RequireMFA:
+  Enabled: false
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true

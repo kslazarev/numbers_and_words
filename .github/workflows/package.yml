@@ -32,7 +32,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.entry.ruby }}
           bundler-cache: true
-      - name: Build Gem With Jeweler
-        run: bundle exec rake gemspec build
+      - name: Build Gem
+        run: bundle exec rake build
       - name: Test Installed Gem
         run: bundle exec ruby script/verify_package.rb
