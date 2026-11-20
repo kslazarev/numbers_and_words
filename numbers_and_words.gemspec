@@ -12,7 +12,9 @@ Gem::Specification.new do |s|
   s.summary = 'Spell out numbers in several languages'
   s.description = 'This gem spells out numbers in several languages using the I18n gem.'
   s.required_ruby_version = '>= 3.2.0'
-  s.files = Dir['lib/**/*']
+  s.files = Dir['lib/**/*'] + ['bin/to_words']
+  s.bindir = 'bin'
+  s.executables = ['to_words']
   s.extra_rdoc_files = %w[CHANGELOG.md LICENSE.txt README.md]
   s.require_paths = ['lib']
   s.metadata = {

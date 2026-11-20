@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler'
+require 'open3'
 require 'rubygems/package'
 require 'tmpdir'
 
@@ -8,7 +9,8 @@ specification = Gem::Specification.load(File.expand_path('../numbers_and_words.g
 archive = File.expand_path("../pkg/#{specification.full_name}.gem", __dir__)
 packaged = Gem::Package.new(archive).spec
 expected_files = Dir.chdir(File.expand_path('..', __dir__)) { Dir['lib/**/*.rb', 'lib/**/*.yml'] }
-missing_files = expected_files - packaged.files
+missing_files = expected_files + ['bin/to_words'] - packaged.files
+abort 'Missing packaged executable' unless packaged.executables == ['to_words']
 abort "Missing package files: #{missing_files.join(', ')}" unless missing_files.empty?
 
 consumer = <<~'RUBY'
@@ -43,5 +45,12 @@ Dir.mktmpdir('numbers-and-words-consumer-') do |directory|
     environment = { 'GEM_HOME' => directory, 'GEM_PATH' => directory }
     system(environment, Gem.ruby, '-S', 'gem', 'install', archive, '--no-document', '--install-dir', directory, exception: true)
     system(environment, Gem.ruby, '-e', consumer, packaged.version.to_s, directory, chdir: directory, exception: true)
+
+    executable = File.join(directory, 'bin', 'to_words')
+    output, status = Open3.capture2(environment, Gem.ruby, executable, '--locale', 'ru', '2000', chdir: directory)
+    abort "Installed executable failed: #{output.inspect}" unless status.success? && output == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438\n"
+    _, errors, status = Open3.capture3(environment, Gem.ruby, executable, 'nope', chdir: directory)
+    abort 'Installed executable accepted invalid input' unless status.exitstatus == 1 && errors.include?('not a number')
+    puts 'Installed executable passed'
   end
 end

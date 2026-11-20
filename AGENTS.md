@@ -43,6 +43,7 @@ A new language needs all of these, an entry in the script map in `spec/numbers_a
 ## Packaging and Releases
 
 * `lib/numbers_and_words/version.rb` holds the only version. The gemspec loads it with `require_relative`; a load-path `require` can pick up another copy and breaks release preparation (`spec/release_spec.rb`).
+* The gem ships the `to_words` command (`bin/to_words`, `lib/numbers_and_words/cli.rb`). It generates one flag per option from `OptionsValidation`, so a new option class gets a flag automatically, and leaves validation for the selected locale to `to_words`; add a description to `CLI::DESCRIPTIONS`.
 * Consumers support Ruby 3.2 and later; release tooling needs CRuby 3.3+.
 * RuboCop and its plugins are pinned to exact versions, so new cops arrive only through deliberate upgrades.
 * Releases run only through the manually dispatched workflow described in [RELEASING](RELEASING.md).
