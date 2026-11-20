@@ -24,6 +24,9 @@ consumer = <<~'RUBY'
   abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
   abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due e cinque decimi'
   abort 'Portuguese decimal conversion failed' unless I18n.with_locale(:pt) { 4.5.to_words } == "quatro inteiros e cinco d\u00e9cimos"
+  abort 'Polish cardinal failed' unless I18n.with_locale(:pl) { 21_000.to_words } == 'dwadzieścia jeden tysięcy'
+  abort 'Polish decimal failed' unless I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) } == 'jedna dziesiąta'
+  abort 'Polish ordinal failed' unless I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) } == 'sto dwudziesta pierwsza'
   puts "Installed #{specification.full_name}: public APIs passed"
 RUBY
 
