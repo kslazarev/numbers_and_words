@@ -4,6 +4,7 @@ module NumbersAndWords
   module Translations
     class Pt < Base
       include NumbersAndWords::Translations::Families::Latin
+      include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
       def tens_with_ones(numbers, _options = {})
         super(numbers, separator: " #{union} ")

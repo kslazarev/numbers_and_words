@@ -4,11 +4,7 @@ module NumbersAndWords
   module Translations
     class PtBr < Base
       include NumbersAndWords::Translations::Families::Base
-      include NumbersAndWords::Translations::Extensions::FractionSignificance
-
-      def integral(number, _options = {})
-        t(:integral, count: number)
-      end
+      include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
       def zero(options = {})
         t([options[:prefix], :ones, :male].join('.'))[0]
@@ -52,22 +48,6 @@ module NumbersAndWords
 
         suffix = options[:is_with_comma] ? ',' : " #{union}"
         super + suffix
-      end
-
-      def micros(capacity, number = nil)
-        micro, prefix = capacity
-        prefix_words = micro_prefix(prefix, number)
-        # Only the prefix agrees in number: "décimos de milésimo", not "décimos de milésimos".
-        count = prefix_words ? 1 : number
-        micros = count ? t(micro(micro), count:) : micro(micro)
-        [prefix_words, micros].compact.join(t('micro_prefix.union'))
-      end
-
-      def micro_prefix(capacity, number)
-        case capacity
-        when 2 then t('micro_prefix.hundreds', count: number)
-        when 1 then t('micro_prefix.tens', count: number)
-        end
       end
 
       private

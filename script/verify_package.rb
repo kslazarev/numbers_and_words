@@ -22,6 +22,8 @@ consumer = <<~'RUBY'
   abort 'Scientific float conversion failed' unless I18n.with_locale(:en) { 1.0e-5.to_words } == 'zero and one hundred-thousandth'
   abort 'Russian conversion failed' unless I18n.with_locale(:ru) { 2000.to_words } == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438"
   abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
+  abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due e cinque decimi'
+  abort 'Portuguese decimal conversion failed' unless I18n.with_locale(:pt) { 4.5.to_words } == "quatro inteiros e cinco d\u00e9cimos"
   puts "Installed #{specification.full_name}: public APIs passed"
 RUBY
 
