@@ -29,6 +29,8 @@ CI runs tests, lint, and installed-package checks in separate workflows. Run `bu
 
 Build with Jeweler and validate the actual archive in a temporary consumer with `bundle exec rake gemspec build` followed by `bundle exec ruby script/verify_package.rb`. The consumer installs the built gem and its runtime dependencies from RubyGems into a disposable directory, checks packaged source files, and exercises public APIs without the source checkout or development bundle.
 
+Run `bundle exec rake benchmark` for throughput and allocation measurements; see [BENCHMARKS](BENCHMARKS.md) for workloads, controls, and comparison methodology.
+
 ## Contribute Code
 
 ### Create a Topic Branch

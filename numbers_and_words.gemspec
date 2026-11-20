@@ -242,6 +242,7 @@ Gem::Specification.new do |s|
   s.specification_version = 4
 
   s.add_runtime_dependency(%q<i18n>.freeze, ["<= 2".freeze])
+  s.add_development_dependency(%q<benchmark-ips>.freeze, ["~> 2.15".freeze])
   s.add_development_dependency(%q<jeweler>.freeze, ["~> 2".freeze])
   s.add_development_dependency(%q<ostruct>.freeze, ["~> 0".freeze])
   s.add_development_dependency(%q<rake>.freeze, ["~> 12".freeze])
