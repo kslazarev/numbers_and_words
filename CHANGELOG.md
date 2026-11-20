@@ -33,6 +33,7 @@
   * Say `and` after hundreds in British English by default (`one hundred and one`); see UPGRADING.md. \[[#251](https://github.com/kslazarev/numbers_and_words/pull/251)\] \([@dblock](https://github.com/dblock)\)
   * Read Dutch decimals as fractions joined with `en` (`eenentwintig en zevenenzeventig honderdsten`) instead of mixing `komma` with fraction words. \[[#252](https://github.com/kslazarev/numbers_and_words/pull/252)\] \([@dblock](https://github.com/dblock)\)
   * Fix Czech decimal agreement (`jedna celá`, `dvě celé`, `třicet jedna setin`) and spell `milion` consistently with `bilion`. \[[#253](https://github.com/kslazarev/numbers_and_words/pull/253)\] \([@dblock](https://github.com/dblock)\)
+  * Expand scientific-notation floats before conversion instead of losing their exponent and fractional value. \[[#227](https://github.com/kslazarev/numbers_and_words/pull/227)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

@@ -61,6 +61,13 @@ I18n.with_locale(:en) { 21.77.to_words }
 # => "twenty-one and seventy-seven hundredths"
 ```
 
+Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are expanded to their exact decimal value first.
+
+```ruby
+I18n.with_locale(:en) { 0.00001.to_words }
+# => "zero and one hundred-thousandth"
+```
+
 ## Supported Languages / Языки / Langues Supportées
 
 Each language page has examples and the options that language supports.
