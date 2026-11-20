@@ -5,6 +5,9 @@
   * Improve Italian number conversion and floating-point support. \[[#215](https://github.com/kslazarev/numbers_and_words/pull/215)\]
   * Your contribution here.
 
+### Bugs
+  * Fix Latin letters inside Cyrillic words in Russian, Ukrainian and Kazakh, and the Italian spelling of 17 (`diciassette`). \[[#216](https://github.com/kslazarev/numbers_and_words/pull/216)\]
+
 ## 1.0.3 (Dec 23, 2025)
 
 ### Features

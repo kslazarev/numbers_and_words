@@ -2,7 +2,7 @@ it:
   numbers:
     ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
     fractional_one: un
-    teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciasette, diciotto, diciannove]
+    teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciassette, diciotto, diciannove]
     tens: [_, dieci, venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta]
     hundreds: cento
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
