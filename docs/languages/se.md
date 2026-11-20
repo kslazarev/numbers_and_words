@@ -1,6 +1,6 @@
 # Swedish (`se`)
 
-Svenska. This language is experimental: compounds and scale words are not yet correct Swedish (`en miljoner en hundra`).
+Svenska. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ## Examples
 
@@ -9,25 +9,25 @@ I18n.with_locale(:se) { 0.to_words }
 # => "noll"
 
 I18n.with_locale(:se) { 21.to_words }
-# => "tjugo-en"
+# => "tjugoett"
 
 I18n.with_locale(:se) { 231.to_words }
-# => "två hundra trettio-en"
+# => "tvåhundratrettioett"
 
 I18n.with_locale(:se) { 4030.to_words }
-# => "fyra tusen trettio"
+# => "fyratusentrettio"
 
 I18n.with_locale(:se) { 1_000_100.to_words }
-# => "en miljoner en hundra"
+# => "en miljon etthundra"
 
 I18n.with_locale(:se) { 2_000_000_000.to_words }
 # => "två miljarder"
 
 I18n.with_locale(:se) { [1, 2, 3].to_words }
-# => ["en", "två", "tre"]
+# => ["ett", "två", "tre"]
 
 I18n.with_locale(:se) { [11, 22, 133].to_words }
-# => ["elva", "tjugo-två", "en hundra trettio-tre"]
+# => ["elva", "tjugotvå", "etthundratrettiotre"]
 ```
 
 Decimals are not supported yet.
