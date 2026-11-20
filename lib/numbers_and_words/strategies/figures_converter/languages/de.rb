@@ -5,6 +5,17 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class De < Base
+          # Ordinals take the -te (1-19) or -ste (20 and above) suffix on the
+          # final element; exact multiples of a million and above are written
+          # as one word, e.g. "zweimillionste".
+          ORDINAL_REPLACEMENTS = { 'eins' => 'erste', 'drei' => 'dritte', 'sieben' => 'siebte', 'acht' => 'achte' }.freeze
+          ORDINAL_STE_ENDINGS = %w[zig ßig hundert tausend].freeze
+
+          def words
+            result = super
+            @options.ordinal&.result ? ordinal(result) : result
+          end
+
           def print_words
             complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join
           end
@@ -38,10 +49,31 @@ module NumbersAndWords
 
           private
 
+          def ordinal(cardinal)
+            words = cardinal.split
+            last = words.pop
+            return [*words, ordinal_word(last)].join(' ') unless last.match?(/\A[[:upper:]]/)
+
+            count = words.pop.delete_suffix('e')
+            [*words, "#{count}#{meg_stem(last)}ste"].join(' ')
+          end
+
+          def ordinal_word(word)
+            ORDINAL_REPLACEMENTS.each do |ending, replacement|
+              return "#{word.delete_suffix(ending)}#{replacement}" if word.end_with?(ending)
+            end
+            word.end_with?(*ORDINAL_STE_ENDINGS) ? "#{word}ste" : "#{word}te"
+          end
+
+          def meg_stem(word)
+            word = word.downcase
+            word.end_with?('ionen') ? word.delete_suffix('en') : word.sub(/en?\z/, '')
+          end
+
           def print_megs
-            complex_part[1..].map do |el|
-              [el[1..].to_a.reverse.join, el.first].join(' ')
-            end.reject(&:empty?).reverse.join(' ')
+            complex_part[1..].reject(&:empty?).map do |el|
+              [el[1..].reverse.join, el.first].join(' ')
+            end.reverse.join(' ')
           end
 
           def print_other

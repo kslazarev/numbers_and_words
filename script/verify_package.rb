@@ -28,6 +28,7 @@ consumer = <<~'RUBY'
   abort 'Polish decimal failed' unless I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) } == 'jedna dziesiąta'
   abort 'Polish ordinal failed' unless I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) } == 'sto dwudziesta pierwsza'
   abort 'Swedish conversion failed' unless I18n.with_locale(:se) { 1_000_100.to_words } == 'en miljon etthundra'
+  abort 'German conversion failed' unless I18n.with_locale(:de) { [21.to_words(ordinal: true), 3.05.to_words] } == ['einundzwanzigste', "drei Komma null f\u00fcnf"]
   puts "Installed #{specification.full_name}: public APIs passed"
 RUBY
 

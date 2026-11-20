@@ -19,6 +19,7 @@ require 'numbers_and_words/strategies/array_joiner/languages/cs'
 require 'numbers_and_words/strategies/array_joiner/languages/vi'
 require 'numbers_and_words/strategies/array_joiner/languages/pl'
 require 'numbers_and_words/strategies/array_joiner/languages/nl'
+require 'numbers_and_words/strategies/array_joiner/languages/de'
 
 module NumbersAndWords
   module Strategies

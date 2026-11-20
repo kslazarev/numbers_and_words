@@ -1,0 +1,19 @@
+to_words:
+  fractional:
+    0.1: null Komma eins
+    0.7: null Komma sieben
+    0.01: null Komma null eins
+    0.77: null Komma sieben sieben
+    0.777: null Komma sieben sieben sieben
+    2.5: zwei Komma fünf
+    3.05: drei Komma null fünf
+    3.14: drei Komma eins vier
+    21.77: einundzwanzig Komma sieben sieben
+    111.999: einhundertelf Komma neun neun neun
+    4242.7463: viertausendzweihundertzweiundvierzig Komma sieben vier sechs drei
+    1000000.5: eine Million Komma fünf
+  precision:
+    options:
+      :precision: 3
+    2.5: zwei Komma fünf null null
+    0.01: null Komma null eins null
