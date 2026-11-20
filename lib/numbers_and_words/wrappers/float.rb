@@ -13,6 +13,7 @@ module NumbersAndWords
 
       def to_words(options = {})
         @options = options
+        @parts = number.to_s.split('.')
         words = []
         words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
@@ -23,9 +24,7 @@ module NumbersAndWords
 
       attr_accessor :options
 
-      def parts
-        number.to_s.split '.'
-      end
+      attr_reader :parts
 
       def integral_part
         parts.first

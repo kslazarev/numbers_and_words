@@ -23,6 +23,7 @@ module NumbersAndWords
           def initialize(strategy, options)
             @strategy = strategy
             @options = options
+            @proxy_class_names = {}
           end
 
           def method_missing(method_name, *args, &block)
@@ -44,11 +45,12 @@ module NumbersAndWords
           private
 
           def proxy_class_name(method_name)
-            "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
+            names = @proxy_class_names[::I18n.locale] ||= {}
+            names[method_name] ||= "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
 
           def module_name
-            self.class.name.split('::')[0..-2].join '::'
+            @module_name ||= self.class.name.split('::')[0..-2].join '::'
           end
         end
       end

@@ -16,7 +16,10 @@ module NumbersAndWords
       private
 
       def to_figures_array
-        number.to_s.chars.map(&:to_i).to_figures
+        figures = number.abs.digits.reverse
+        # Keep the legacy sign-as-zero layout for locale compatibility.
+        figures.unshift(0) if number.negative?
+        figures.to_figures
       end
     end
   end
