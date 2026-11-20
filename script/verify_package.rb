@@ -37,6 +37,9 @@ consumer = <<~'RUBY'
   rescue NumbersAndWords::UnsupportedOptionError
     nil
   end
+  NumbersAndWords.configure { |config| config.locales = [:en, :ru] }
+  abort 'Locale configuration failed' unless I18n.available_locales.sort == [:en, :ru]
+  abort 'Configured conversion failed' unless I18n.with_locale(:en) { 42.to_words } == 'forty-two'
   puts "Installed #{specification.full_name}: public APIs passed"
 RUBY
 

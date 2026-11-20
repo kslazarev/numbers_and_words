@@ -10,6 +10,7 @@ require 'numbers_and_words/core_ext'
 require 'numbers_and_words/wrappers'
 require 'numbers_and_words/i18n'
 require 'numbers_and_words/options_validation'
+require 'numbers_and_words/config'
 require 'numbers_and_words/version'
 
 NumbersAndWords::I18n::Initialization.init
