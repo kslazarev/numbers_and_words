@@ -28,4 +28,18 @@ describe NumbersAndWords::I18n do
       end
     end
   end
+
+  describe 'locale files' do
+    locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
+
+    Dir[File.join(locales_dir, '*.yml')].each do |path|
+      it "has no words mixing Latin and Cyrillic letters in #{File.basename(path)}" do
+        mixed = File.read(path, encoding: 'UTF-8').scan(/[[:alpha:]]+/).select do |word|
+          word.match?(/\p{Latin}/) && word.match?(/\p{Cyrillic}/)
+        end
+
+        expect(mixed.uniq).to be_empty
+      end
+    end
+  end
 end

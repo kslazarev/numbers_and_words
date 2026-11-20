@@ -6,6 +6,7 @@ to_words:
   teens:
     10: dieci
     11: undici
+    17: diciassette
     19: diciannove
     20: venti
     21: ventuno
@@ -23,6 +24,7 @@ to_words:
     919: novecentodiciannove
     990: novecentonovanta
     999: novecentonovantanove
+    117: centodiciassette
   thousands:
     1000: mille
     1001: milleuno

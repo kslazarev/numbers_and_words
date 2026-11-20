@@ -93,7 +93,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "քառասուն երկու"
 
     I18n.with_locale(:kz) { 42.to_words }
-    => "қырық екi"
+    => "қырық екі"
 
     I18n.with_locale(:da) { 42.to_words }
     => "toogfyrre"
@@ -118,7 +118,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "vinte e um"
     => "hai mươi mốt"
     => "քսան մեկ"
-    => "жиырма бiр"
+    => "жиырма бір"
     => "enogtyve"
 
     231.to_words
@@ -126,7 +126,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "doscientos treinta y uno"
     => "двести тридцать один"
     => "deux cent trente et un"
-    => "двiстi тридцять один"
+    => "двісті тридцять один"
     => "kettőszázharmincegy"
     => "du šimtai trisdešimt vienas"
     => "divi simti trīsdesmit viens"
@@ -141,7 +141,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "duzentos e trinta e um"
     => "hai trăm ba mươi mốt"
     => "երկու հարյուր երեսուն մեկ"
-    => "екi жүз отыз бiр"
+    => "екі жүз отыз бір"
     => "to hundrede enogtredive"
 
     4030.to_words
@@ -149,7 +149,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "cuatro mil treinta"
     => "четыре тысячи тридцать"
     => "quatre mille trente"
-    => "чотири тисячi тридцять"
+    => "чотири тисячі тридцять"
     => "négyezer-harminc"
     => "keturi tūkstančiai trisdešimt"
     => "četri tūkstoši trīsdesmit"
@@ -171,7 +171,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "un millón cien"
     => "один миллион сто"
     => "un million cent"
-    => "один мiльйон сто"
+    => "один мільйон сто"
     => "egymillió-egyszáz"
     => "milijonas šimtas"
     => "viens miljons simts"
@@ -185,7 +185,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "jeden milión jedno sto"
     => "một triệu một trăm"
     => "մեկ միլիոն հարյուր"
-    => "бiр миллион бiр жүз"
+    => "бір миллион бір жүз"
     => "en million et hundrede"
 
     1000000000000000000000000000000000.to_words
@@ -204,7 +204,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "één decillion"
     => "en decillion"
     => "decilijon"
-    => "бiр дециллион"
+    => "бір дециллион"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -219,7 +219,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedna", "dva", "tři"]
     => ["một", "hai", "ba"]
     => ["մեկ", "երկու", "երեք"]
-    => ["бiр", "екi", "үш"]
+    => ["бір", "екі", "үш"]
     => ["et", "to", "tre"]
 
     [11, 22, 133].to_words
@@ -241,13 +241,13 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
     => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
-    => ["он бiр", "жиырма екi", "бiр жүз отыз үш"]
+    => ["он бір", "жиырма екі", "бір жүз отыз үш"]
     => ["elleve", "toogtyve", "et hundrede treogtredive"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
     => "двадцать одна целая и семьдесят семь сотых"
-    => "двадцять одна цiла i сiмдесят сiм сотих"
+    => "двадцять одна ціла i сімдесят сім сотих"
     => "huszonegy egész hetvenhét század"
     => "twenty-one point seven seven"
     => "hai mươi mốt phẩy bảy mươi bảy"
