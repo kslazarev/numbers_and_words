@@ -1,0 +1,38 @@
+name: Package
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    name: Ruby ${{ matrix.entry.ruby }} / ${{ matrix.entry.os }}
+    runs-on: ${{ matrix.entry.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        entry:
+          - { ruby: '3.2', os: ubuntu-latest }
+          - { ruby: '4.0', os: ubuntu-latest }
+          - { ruby: '4.0', os: macos-latest }
+          - { ruby: '4.0', os: windows-latest }
+    steps:
+      - name: Check Out Source
+        uses: actions/checkout@v7
+      - name: Set Up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.entry.ruby }}
+          bundler-cache: true
+      - name: Build Gem With Jeweler
+        run: bundle exec rake gemspec build
+      - name: Test Installed Gem
+        run: bundle exec ruby script/verify_package.rb
