@@ -13,6 +13,10 @@ module NumbersAndWords
             super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
+          def zero
+            super unless @options.remove_zero&.result
+          end
+
           private
 
           def hundred?

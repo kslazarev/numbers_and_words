@@ -23,3 +23,40 @@ pt:
       one: quinquilhão
       other: quinquilhões
     union: e
+    integral:
+      one: inteiro
+      other: inteiros
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths]
+    tenths:
+      one: décimo
+      other: décimos
+    hundredths:
+      one: centésimo
+      other: centésimos
+    thousandths:
+      one: milésimo
+      other: milésimos
+    millionths:
+      one: milionésimo
+      other: milionésimos
+    billionths:
+      one: bilionésimo
+      other: bilionésimos
+    trillionths:
+      one: trilionésimo
+      other: trilionésimos
+    quadrillionths:
+      one: quadrilionésimo
+      other: quadrilionésimos
+    quintillionths:
+      one: quinquilionésimo
+      other: quinquilionésimos
+    micro_separator: e
+    micro_prefix:
+      tens:
+        one: décimo
+        other: décimos
+      hundreds:
+        one: centésimo
+        other: centésimos
+      union: ' de '

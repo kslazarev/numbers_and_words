@@ -28,6 +28,16 @@ I18n.with_locale(:pt) { [1, 2, 3].to_words }
 
 I18n.with_locale(:pt) { [11, 22, 133].to_words }
 # => ["onze", "vinte e dois", "cento e trinta e três"]
+
+I18n.with_locale(:pt) { 21.77.to_words }
+# => "vinte e um inteiros e setenta e sete centésimos"
 ```
 
-Decimals are not supported yet.
+## Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:pt) { 0.7.to_words(remove_zero: true) }
+# => "sete décimos"
+```
