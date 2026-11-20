@@ -13,7 +13,7 @@ module NumbersAndWords
 
       def to_words(options = {})
         @options = options
-        @parts = number.to_s.split('.')
+        @parts = decimal_string.split('.')
         words = []
         words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
@@ -25,6 +25,23 @@ module NumbersAndWords
       attr_accessor :options
 
       attr_reader :parts
+
+      def decimal_string
+        text = number.to_s
+        return text unless text.include?('e')
+
+        mantissa, exponent = text.split('e')
+        sign = mantissa.delete_prefix!('-') ? '-' : ''
+        integral, fraction = mantissa.split('.')
+        digits = (integral + fraction).sub(/0+\z/, '')
+        "#{sign}#{place_decimal_point(digits, integral.length + exponent.to_i)}"
+      end
+
+      def place_decimal_point(digits, position)
+        return "0.#{ZERO_SYMBOL * -position}#{digits}" if position <= 0
+
+        digits.ljust(position + 1, ZERO_SYMBOL).insert(position, '.')
+      end
 
       def integral_part
         parts.first

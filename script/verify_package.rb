@@ -19,6 +19,7 @@ consumer = <<~'RUBY'
   abort 'Wrong installed version' unless specification.version.to_s == expected_version
   abort 'Gem loaded outside the isolated consumer' unless File.realpath(specification.full_gem_path).start_with?("#{File.realpath(directory)}/")
   abort 'English conversion failed' unless I18n.with_locale(:en) { 42.to_words } == 'forty-two'
+  abort 'Scientific float conversion failed' unless I18n.with_locale(:en) { 1.0e-5.to_words } == 'zero and one hundred-thousandth'
   abort 'Russian conversion failed' unless I18n.with_locale(:ru) { 2000.to_words } == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438"
   abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
   puts "Installed #{specification.full_name}: public APIs passed"
