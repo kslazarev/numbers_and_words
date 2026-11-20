@@ -8,14 +8,32 @@ module NumbersAndWords
     module_function
 
     def languages
-      @languages ||= locale_files.map { |path| path.split(%r{[/.]})[-2].to_sym }
+      @languages ||= locale_files.map { |path| language_of(path) }
+    end
+
+    # The language a bundled file belongs to: numbers.pt-BR.yml and pt-BR.rb are :'pt-BR'.
+    def language_of(path)
+      File.basename(path, File.extname(path)).delete_prefix('numbers.').to_sym
+    end
+
+    # The given languages that the configuration enables (all when unconfigured).
+    def enabled(languages)
+      configured = NumbersAndWords.config.locales
+      configured.nil? ? languages : languages & configured
     end
 
     def local_language(locale = ::I18n.locale)
+      language = normalize_language(locale)
+      return language if enabled([language]).any?
+
+      raise 'Language not configured'
+    end
+
+    def normalize_language(locale)
       if languages.include?(locale)
         locale
       else
-        locale = locale.to_s.scan(/\w+/).first.to_sym
+        locale = locale.to_s.scan(/\w+/).first&.to_sym
         languages.include?(locale) ? locale : raise('Language not supported')
       end
     end

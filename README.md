@@ -160,6 +160,22 @@ For example, French has no ordinals, so `21.to_words(ordinal: true)` in the `fr`
 NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision
 ```
 
+## Configuration / Конфигурация
+
+All bundled locales are loaded by default. To load only some of them, configure the gem after requiring it:
+
+```ruby
+NumbersAndWords.configure do |config|
+  config.locales = [:en, :ru]
+end
+```
+
+Locale strings and aliases such as `"en-US"` are normalized to their bundled locale. Set `locales` to `nil` to restore all bundled locales, or `[]` to load none. Unsupported locales raise `ArgumentError` without applying the configuration.
+
+Configuration replaces only this gem's locale files in `I18n.load_path` and filters its pluralization rules. Application translation files and an explicitly assigned `I18n.available_locales` are preserved. Conversion in a disabled bundled locale raises `Language not configured`, even if the application has other translations for it.
+
+Require the gem before your application looks up any translations, as Rails does for gems; files added to `I18n.load_path` after translations are loaded are not picked up until I18n reloads. Configure during application initialization. Applying configuration reloads the configured I18n backend, just like assigning `I18n.load_path`, so store any runtime-only translations afterwards. Repeated configuration is supported and does not duplicate the gem's load paths. The gem does not change `I18n.locale` or `I18n.default_locale`: keep their translations available, or switch your application's current and default locales before removing their previous locale.
+
 ## Requirements / Требования / Configuration Requise
 
 * Ruby 3.2 or later, including JRuby.

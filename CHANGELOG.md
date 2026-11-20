@@ -20,6 +20,7 @@
   * Validate `to_words` options per language and raise `NumbersAndWords::UnsupportedOptionError` for unsupported options or values, and document the global `micro_separator` option; see UPGRADING.md. \[[#269](https://github.com/kslazarev/numbers_and_words/pull/269)\] \([@dblock](https://github.com/dblock)\)
   * Check that every language option is shown on its language page and every global option in the README. \[[#270](https://github.com/kslazarev/numbers_and_words/pull/270)\] \([@dblock](https://github.com/dblock)\)
   * Add a `to_words` command that converts numbers into words from the command line. \[[#231](https://github.com/kslazarev/numbers_and_words/pull/231)\] \([@dblock](https://github.com/dblock)\)
+  * Add locale selection through NumbersAndWords.configure, preserving application translation files and completing #136. \[[#226](https://github.com/kslazarev/numbers_and_words/pull/226)\] \([@seniorihor](https://github.com/seniorihor), [@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
