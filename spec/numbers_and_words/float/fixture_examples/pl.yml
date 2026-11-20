@@ -1,0 +1,27 @@
+to_words:
+  fractional:
+    0.1: zero całych i jedna dziesiąta
+    0.2: zero całych i dwie dziesiąte
+    0.7: zero całych i siedem dziesiątych
+    0.01: zero całych i jedna setna
+    0.21: zero całych i dwadzieścia jeden setnych
+    0.22: zero całych i dwadzieścia dwie setne
+    0.77: zero całych i siedemdziesiąt siedem setnych
+    0.777: zero całych i siedemset siedemdziesiąt siedem tysięcznych
+    0.7777: zero całych i siedem tysięcy siedemset siedemdziesiąt siedem dziesięciotysięcznych
+    0.21021: zero całych i dwadzieścia jeden tysięcy dwadzieścia jeden stutysięcznych
+    1.1: jedna cała i jedna dziesiąta
+    2.2: dwie całe i dwie dziesiąte
+    21.77: dwadzieścia jeden całych i siedemdziesiąt siedem setnych
+    111.999: sto jedenaście całych i dziewięćset dziewięćdziesiąt dziewięć tysięcznych
+    4242.7463: cztery tysiące dwieście czterdzieści dwie całe i siedem tysięcy czterysta sześćdziesiąt trzy dziesięciotysięczne
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: jedna dziesiąta
+    0.7: siedem dziesiątych
+    42.1: czterdzieści dwie całe i jedna dziesiąta
+  precision:
+    options:
+      :precision: 3
+    0.1: zero całych i sto tysięcznych

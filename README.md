@@ -90,6 +90,7 @@ Each language page has examples and the options that language supports.
 | [Kazakh](docs/languages/kz.md) | Қазақша | `kz` | no | no |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` | no | no |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` | no | no |
+| [Polish](docs/languages/pl.md)* | Polski | `pl` | yes | yes |
 | [Portuguese](docs/languages/pt.md) | Português | `pt` | yes | no |
 | [Russian](docs/languages/ru.md) | Русский | `ru` | yes | no |
 | [Spanish](docs/languages/es.md) | Español | `es` | yes | no |

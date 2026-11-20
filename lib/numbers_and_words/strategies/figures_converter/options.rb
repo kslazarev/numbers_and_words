@@ -13,6 +13,7 @@ require 'numbers_and_words/strategies/figures_converter/options/ru'
 require 'numbers_and_words/strategies/figures_converter/options/ua'
 require 'numbers_and_words/strategies/figures_converter/options/cs'
 require 'numbers_and_words/strategies/figures_converter/options/da'
+require 'numbers_and_words/strategies/figures_converter/options/pl'
 
 module NumbersAndWords
   module Strategies

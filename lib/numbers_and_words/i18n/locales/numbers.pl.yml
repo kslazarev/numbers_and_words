@@ -1,0 +1,65 @@
+pl:
+  numbers:
+    ones:
+      male: [zero, jeden, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
+      female: [zero, jedna, dwie, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
+      neuter: [zero, jedno, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
+    teens: [_, jedenaście, dwanaście, trzynaście, czternaście, piętnaście, szesnaście, siedemnaście, osiemnaście, dziewiętnaście]
+    tens: [_, dziesięć, dwadzieścia, trzydzieści, czterdzieści, pięćdziesiąt, sześćdziesiąt, siedemdziesiąt, osiemdziesiąt, dziewięćdziesiąt]
+    hundreds: [_, sto, dwieście, trzysta, czterysta, pięćset, sześćset, siedemset, osiemset, dziewięćset]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
+    thousands: { one: tysiąc, few: tysiące, many: tysięcy, other: tysiąca }
+    millions: { one: milion, few: miliony, many: milionów, other: miliona }
+    billions: { one: miliard, few: miliardy, many: miliardów, other: miliarda }
+    trillions: { one: bilion, few: biliony, many: bilionów, other: biliona }
+    quadrillions: { one: biliard, few: biliardy, many: biliardów, other: biliarda }
+    quintillions: { one: trylion, few: tryliony, many: trylionów, other: tryliona }
+    sextillions: { one: tryliard, few: tryliardy, many: tryliardów, other: tryliarda }
+    septillions: { one: kwadrylion, few: kwadryliony, many: kwadrylionów, other: kwadryliona }
+    octillions: { one: kwadryliard, few: kwadryliardy, many: kwadryliardów, other: kwadryliarda }
+    nonillions: { one: kwintylion, few: kwintyliony, many: kwintylionów, other: kwintyliona }
+    decillions: { one: kwintyliard, few: kwintyliardy, many: kwintyliardów, other: kwintyliarda }
+    undecillions: { one: sekstylion, few: sekstyliony, many: sekstylionów, other: sekstyliona }
+    duodecillions: { one: sekstyliard, few: sekstyliardy, many: sekstyliardów, other: sekstyliarda }
+    tredecillions: { one: septylion, few: septyliony, many: septylionów, other: septyliona }
+    quattuordecillions: { one: septyliard, few: septyliardy, many: septyliardów, other: septyliarda }
+    ordinal:
+      ones:
+        male: [zerowy, pierwszy, drugi, trzeci, czwarty, piąty, szósty, siódmy, ósmy, dziewiąty]
+        female: [zerowa, pierwsza, druga, trzecia, czwarta, piąta, szósta, siódma, ósma, dziewiąta]
+        neuter: [zerowe, pierwsze, drugie, trzecie, czwarte, piąte, szóste, siódme, ósme, dziewiąte]
+      teens:
+        male: [_, jedenasty, dwunasty, trzynasty, czternasty, piętnasty, szesnasty, siedemnasty, osiemnasty, dziewiętnasty]
+        female: [_, jedenasta, dwunasta, trzynasta, czternasta, piętnasta, szesnasta, siedemnasta, osiemnasta, dziewiętnasta]
+        neuter: [_, jedenaste, dwunaste, trzynaste, czternaste, piętnaste, szesnaste, siedemnaste, osiemnaste, dziewiętnaste]
+      tens:
+        male: [_, dziesiąty, dwudziesty, trzydziesty, czterdziesty, pięćdziesiąty, sześćdziesiąty, siedemdziesiąty, osiemdziesiąty, dziewięćdziesiąty]
+        female: [_, dziesiąta, dwudziesta, trzydziesta, czterdziesta, pięćdziesiąta, sześćdziesiąta, siedemdziesiąta, osiemdziesiąta, dziewięćdziesiąta]
+        neuter: [_, dziesiąte, dwudzieste, trzydzieste, czterdzieste, pięćdziesiąte, sześćdziesiąte, siedemdziesiąte, osiemdziesiąte, dziewięćdziesiąte]
+      hundreds:
+        male: [_, setny, dwusetny, trzechsetny, czterechsetny, pięćsetny, sześćsetny, siedemsetny, osiemsetny, dziewięćsetny]
+        female: [_, setna, dwusetna, trzechsetna, czterechsetna, pięćsetna, sześćsetna, siedemsetna, osiemsetna, dziewięćsetna]
+        neuter: [_, setne, dwusetne, trzechsetne, czterechsetne, pięćsetne, sześćsetne, siedemsetne, osiemsetne, dziewięćsetne]
+    integral: { one: cała, few: całe, many: całych, other: całej }
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths, quindecillionths]
+    tenths: { one: dziesiąta, few: dziesiąte, many: dziesiątych, other: dziesiątej }
+    hundredths: { one: setna, few: setne, many: setnych, other: setnej }
+    thousandths: { one: tysięczna, few: tysięczne, many: tysięcznych, other: tysięcznej }
+    millionths: { one: milionowa, few: milionowe, many: milionowych, other: milionowej }
+    billionths: { one: miliardowa, few: miliardowe, many: miliardowych, other: miliardowej }
+    trillionths: { one: bilionowa, few: bilionowe, many: bilionowych, other: bilionowej }
+    quadrillionths: { one: biliardowa, few: biliardowe, many: biliardowych, other: biliardowej }
+    quintillionths: { one: trylionowa, few: trylionowe, many: trylionowych, other: trylionowej }
+    sextillionths: { one: tryliardowa, few: tryliardowe, many: tryliardowych, other: tryliardowej }
+    septillionths: { one: kwadrylionowa, few: kwadrylionowe, many: kwadrylionowych, other: kwadrylionowej }
+    octillionths: { one: kwadryliardowa, few: kwadryliardowe, many: kwadryliardowych, other: kwadryliardowej }
+    nonillionths: { one: kwintylionowa, few: kwintylionowe, many: kwintylionowych, other: kwintylionowej }
+    decillionths: { one: kwintyliardowa, few: kwintyliardowe, many: kwintyliardowych, other: kwintyliardowej }
+    undecillionths: { one: sekstylionowa, few: sekstylionowe, many: sekstylionowych, other: sekstylionowej }
+    duodecillionths: { one: sekstyliardowa, few: sekstyliardowe, many: sekstyliardowych, other: sekstyliardowej }
+    tredecillionths: { one: septylionowa, few: septylionowe, many: septylionowych, other: septylionowej }
+    quattuordecillionths: { one: septyliardowa, few: septyliardowe, many: septyliardowych, other: septyliardowej }
+    quindecillionths: { one: oktylionowa, few: oktylionowe, many: oktylionowych, other: oktylionowej }
+    micro_separator: i
+    micro_prefix: { tens: dziesięcio, hundreds: stu, union: '' }
+    union: i
