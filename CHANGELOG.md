@@ -3,6 +3,7 @@
 ### Features
   * Add support for Ruby 4.0. \[[#211](https://github.com/kslazarev/numbers_and_words/pull/211)\]
   * Improve Italian number conversion and floating-point support. \[[#215](https://github.com/kslazarev/numbers_and_words/pull/215)\]
+  * Separate test, lint and installed-package CI with explicit Ruby and cross-platform coverage. \[[#218](https://github.com/kslazarev/numbers_and_words/pull/218)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

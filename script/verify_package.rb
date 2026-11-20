@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+require 'bundler'
+require 'rubygems/package'
+require 'tmpdir'
+
+specification = Gem::Specification.load(File.expand_path('../numbers_and_words.gemspec', __dir__))
+archive = File.expand_path("../pkg/#{specification.full_name}.gem", __dir__)
+packaged = Gem::Package.new(archive).spec
+expected_files = Dir.chdir(File.expand_path('..', __dir__)) { Dir['lib/**/*.rb', 'lib/**/*.yml'] }
+missing_files = expected_files - packaged.files
+abort "Missing package files: #{missing_files.join(', ')}" unless missing_files.empty?
+
+consumer = <<~'RUBY'
+  require 'numbers_and_words'
+
+  expected_version, directory = ARGV
+  specification = Gem.loaded_specs.fetch('numbers_and_words')
+  abort 'Wrong installed version' unless specification.version.to_s == expected_version
+  abort 'Gem loaded outside the isolated consumer' unless File.realpath(specification.full_gem_path).start_with?("#{File.realpath(directory)}/")
+  abort 'English conversion failed' unless I18n.with_locale(:en) { 42.to_words } == 'forty-two'
+  abort 'Russian conversion failed' unless I18n.with_locale(:ru) { 2000.to_words } == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438"
+  abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
+  puts "Installed #{specification.full_name}: public APIs passed"
+RUBY
+
+Dir.mktmpdir('numbers-and-words-consumer-') do |directory|
+  Bundler.with_unbundled_env do
+    environment = { 'GEM_HOME' => directory, 'GEM_PATH' => directory }
+    system(environment, Gem.ruby, '-S', 'gem', 'install', archive, '--no-document', '--install-dir', directory, exception: true)
+    system(environment, Gem.ruby, '-e', consumer, packaged.version.to_s, directory, chdir: directory, exception: true)
+  end
+end

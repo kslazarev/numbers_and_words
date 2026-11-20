@@ -2,7 +2,9 @@
 
 {rdoc-image:https://badge.fury.io/rb/numbers_and_words.svg?branch=master}[https://badge.fury.io/rb/numbers_and_words]
 {rdoc-image:https://codeclimate.com/github/kslazarev/numbers_and_words.svg?branch=master}[https://codeclimate.com/github/kslazarev/numbers_and_words]
-{rdoc-image:https://github.com/kslazarev/numbers_and_words/actions/workflows/ci.yml/badge.svg?branch=master}[https://github.com/kslazarev/numbers_and_words/actions/workflows/ci.yml]
+{rdoc-image:https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml/badge.svg?branch=master}[https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml]
+{rdoc-image:https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml/badge.svg?branch=master}[https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml]
+{rdoc-image:https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml/badge.svg?branch=master}[https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml]
 {rdoc-image:https://coveralls.io/repos/kslazarev/numbers_and_words/badge.svg?branch=master}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
 Spell out numbers in several languages using the I18n gem.
