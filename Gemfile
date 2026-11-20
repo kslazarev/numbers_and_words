@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'i18n', '<= 2'
 
 group :development do
+  gem 'benchmark-ips', '~> 2.15'
   gem 'jeweler', '~> 2'
   gem 'ostruct', '~> 0'
   gem 'rake', '~> 12'

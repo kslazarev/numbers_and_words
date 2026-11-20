@@ -39,3 +39,10 @@ jobs:
           bundler-cache: true
       - name: Run Tests
         run: bundle exec rake spec
+      - name: Smoke-Test Benchmarks
+        if: matrix.entry.ruby == '4.0' && matrix.entry.os == 'ubuntu-latest'
+        env:
+          BENCHMARK_TIME: '0.1'
+          BENCHMARK_WARMUP: '0.1'
+          BENCHMARK_ITERATIONS: '10'
+        run: bundle exec rake benchmark

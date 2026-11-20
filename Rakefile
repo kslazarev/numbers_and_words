@@ -30,6 +30,11 @@ RSpec::Core::RakeTask.new(:spec) { |t| t.ruby_opts = '-w' }
 
 task default: %i[rubocop spec]
 
+desc 'Benchmark conversion throughput and allocations'
+task :benchmark do
+  ruby 'benchmark/convert.rb'
+end
+
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ''
