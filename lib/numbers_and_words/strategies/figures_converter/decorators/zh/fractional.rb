@@ -8,9 +8,7 @@ module NumbersAndWords
           # Chinese reads the fractional part digit by digit: 3.14 is 三点一四.
           class Fractional < Base
             def run
-              length = @options[:fractional][:length].to_i
-              digits = @strategy.figures.reverse.join.rjust(length, '0')
-              digits.chars.map { |digit| @strategy.translations.ones(digit.to_i) }.join
+              @strategy.language.fractional_words(@options[:fractional][:length].to_i)
             end
           end
         end

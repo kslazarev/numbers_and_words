@@ -21,6 +21,7 @@ module NumbersAndWords
       pronounced: 'Read four-digit numbers as they are spoken',
       remove_hyphen: 'Remove the hyphen between tens and ones',
       remove_zero: 'Omit a zero integral part',
+      script: 'Writing system, e.g. Japanese kanji or kana',
       spelling: 'Spelling, e.g. French reformed (1990) or traditional',
       tens_of_hundreds: 'Read thousands as tens of hundreds',
       subunit: 'Spell the decimal places as a second unit, e.g. cents, under units.VALUE',

@@ -108,6 +108,8 @@ describe NumbersAndWords::Unit do
       I18n.backend.store_translations(:cs, units: { koruna: { one: 'koruna', few: 'koruny', many: 'korun', other: 'koruny', gender: :female } })
       I18n.backend.store_translations(:zh, units: { yuan: '元' })
       I18n.backend.store_translations(:th, units: { baht: 'บาท' })
+      I18n.backend.store_translations(:ja, units: { yen: '円' })
+      I18n.backend.store_translations(:ko, units: { won: '원' })
     end
 
     it 'spells Ukrainian' do
@@ -126,13 +128,17 @@ describe NumbersAndWords::Unit do
     end
 
     it 'writes the unit without a space in languages written without spaces' do
-      expect([words(:zh, 21, unit: :yuan), words(:th, 21, unit: :baht)]).to eq(%w[二十一元 ยี่สิบเอ็ดบาท])
+      expect([words(:zh, 21, unit: :yuan), words(:th, 21, unit: :baht), words(:ja, 21, unit: :yen)]).to eq(%w[二十一元 ยี่สิบเอ็ดบาท 二十一円])
+    end
+
+    it 'writes a Korean unit after a space' do
+      expect([words(:ko, 3, unit: :won), words(:ko, 12_345, unit: :won)]).to eq(['삼 원', '만 이천삼백사십오 원'])
     end
 
     it 'looks the unit up in the fallback locale' do
       available_locales = I18n.available_locales
-      I18n.available_locales = available_locales | [:ko]
-      expect(words(:ko, 3, unit: :dollar, fallback: :en)).to eq('three dollars')
+      I18n.available_locales = available_locales | [:am]
+      expect(words(:am, 3, unit: :dollar, fallback: :en)).to eq('three dollars')
     ensure
       I18n.available_locales = available_locales
     end

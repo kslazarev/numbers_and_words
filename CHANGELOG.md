@@ -42,6 +42,7 @@
   * Use the standard locale codes `sv`, `uk` and `kk` for Swedish, Ukrainian and Kazakh instead of `se`, `ua` and `kz` (breaking; see UPGRADING). \[[#300](https://github.com/kslazarev/numbers_and_words/pull/300)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Hindi (`hi`), Bengali (`bn`) and Urdu (`ur`), sharing the Indian numbering system (lakh and crore), with decimals, ordinals and `gender` for Hindi and Urdu ordinals. \[[#301](https://github.com/kslazarev/numbers_and_words/pull/301)\] \([@dblock](https://github.com/dblock)\)
   * Support decimals with `unit:` and amounts in two units with `subunit:` and `zero_subunit:` ("twenty-one dollars and fifty cents"). \[[#302](https://github.com/kslazarev/numbers_and_words/pull/302)\] \([@dblock](https://github.com/dblock)\)
+  * Add experimental Japanese (`ja`, with `script: :kana`) and Korean (`ko`), with decimals and ordinals, sharing the grouping by ten thousands with Chinese. \[[#304](https://github.com/kslazarev/numbers_and_words/pull/304)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

@@ -1,0 +1,7 @@
+ko:
+  numbers:
+    ones: [영, 일, 이, 삼, 사, 오, 육, 칠, 팔, 구]
+    places: [_, 십, 백, 천]
+    scales: [_, 만, 억, 조, 경, 해, 자, 양, 구, 간, 정, 재, 극]
+    ordinal_prefix: 제
+    micro_separator: 점

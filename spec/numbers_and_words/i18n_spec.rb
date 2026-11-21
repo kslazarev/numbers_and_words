@@ -57,6 +57,8 @@ describe NumbersAndWords::I18n do
       'Georgian' => %w[ka],
       'Thai' => %w[th],
       'Han' => %w[zh],
+      %w[Han Hiragana] => %w[ja],
+      'Hangul' => %w[ko],
       'Hebrew' => %w[he],
       'Arabic' => %w[ar ur],
       'Devanagari' => %w[hi],
@@ -67,7 +69,7 @@ describe NumbersAndWords::I18n do
       locale = File.basename(path, '.yml').delete_prefix('numbers.')
       script = scripts.fetch(locale)
 
-      it "uses normalized #{script} translations without invisible characters in #{File.basename(path)}" do
+      it "uses normalized #{Array(script).join(' and ')} translations without invisible characters in #{File.basename(path)}" do
         numbers = YAML.safe_load_file(path).fetch(locale).fetch('numbers')
         # These arrays contain English lookup keys, not translated words.
         references = lookup_locales.include?(locale) ? numbers.slice('mega', 'micro') : {}

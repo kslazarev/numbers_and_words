@@ -14,8 +14,9 @@ module LocaleCharacters
     end
   end
 
+  # script is a Unicode script name, or a list of them for a locale written in several (Japanese kanji and kana).
   def self.errors(value, script)
-    letter = Regexp.new("\\A\\p{#{script}}\\z")
+    letter = Regexp.new("\\A[#{Array(script).map { |name| "\\p{#{name}}" }.join}]\\z")
 
     strings(value).flat_map do |path, text|
       problems(text, letter).map { |problem| "#{path}: #{text.dump} (#{problem})" }

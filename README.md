@@ -115,7 +115,9 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Hindi](docs/languages/hi.md)* | हिन्दी | `hi` |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
+| [Japanese](docs/languages/ja.md)* | 日本語 | `ja` |
 | [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
+| [Korean](docs/languages/ko.md)* | 한국어 | `ko` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |
@@ -164,10 +166,10 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 `fallback` chooses what happens when the gem cannot convert in the current locale, because the locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set `fallback` to a bundled locale to convert in that locale instead, or to `true` to return the number's digits. There is no implicit fallback locale.
 
 ```ruby
-I18n.with_locale(:ko) { 42.to_words(fallback: :fr) }
+I18n.with_locale(:am) { 42.to_words(fallback: :fr) }
 # => "quarante-deux"
 
-I18n.with_locale(:ko) { 42.to_words(fallback: true) }
+I18n.with_locale(:am) { 42.to_words(fallback: true) }
 # => "42"
 ```
 
@@ -220,7 +222,7 @@ I18n.with_locale(:zh) { 21.to_words(unit: :yuan) }
 # => "二十一元"
 ```
 
-The unit follows the number after a space, or directly in languages written without spaces (Chinese and Thai). With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar.
+The unit follows the number after a space, or directly in languages written without spaces (Chinese, Japanese and Thai). With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar.
 
 ```ruby
 I18n.with_locale(:en) { 21.to_words(unit: :dollar, ordinal: true) }

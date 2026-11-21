@@ -1,0 +1,66 @@
+to_words:
+  fractional:
+    0.1: 零点一
+    0.01: 零点零一
+    0.5: 零点五
+    0.77: 零点七七
+  integral_and_fractional:
+    1.5: 一点五
+    3.14: 三点一四
+    6.5: 六点五
+    8.5: 八点五
+    10.5: 十点五
+    21.05: 二十一点零五
+    101.001: 百一点零零一
+    12345.6: 一万二千三百四十五点六
+  precision:
+    options:
+      :precision: 3
+    1.5: 一点五零零
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: 点一
+    0.7: 点七
+    0.05: 点零五
+    42.1: 四十二点一
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: 一点五
+  fractional_kana:
+    options:
+      :script: kana
+    0.1: れいてんいち
+    0.01: れいてんれいいち
+    0.5: れいてんご
+    0.77: れいてんなななな
+  integral_and_fractional_kana:
+    options:
+      :script: kana
+    1.5: いってんご
+    3.14: さんてんいちよん
+    6.5: ろくてんご
+    8.5: はってんご
+    10.5: じゅってんご
+    21.05: にじゅういってんれいご
+    101.001: ひゃくいってんれいれいいち
+    12345.6: いちまんにせんさんびゃくよんじゅうごてんろく
+  precision_kana:
+    options:
+      :script: kana
+      :precision: 3
+    1.5: いってんごれいれい
+  remove_zero_kana:
+    options:
+      :script: kana
+      :remove_zero: true
+    0.1: てんいち
+    0.7: てんなな
+    0.05: てんれいご
+    42.1: よんじゅうにてんいち
+  ordinal_kana:
+    options:
+      :script: kana
+      :ordinal: true
+    1.5: いってんご

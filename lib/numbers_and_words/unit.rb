@@ -7,7 +7,7 @@ module NumbersAndWords
   module Unit
     SCOPE = 'units'
     # Locales whose numbers are written without spaces, so the unit follows without one.
-    UNSPACED = %i[th zh].freeze
+    UNSPACED = %i[ja th zh].freeze
     SUBUNIT_PLACES = 2
     # After a decimal a unit takes its other form (1.5 dollars, 1,5 рубля, 1,5 koruny), except that French
     # and Portuguese use the singular below 2 (1,5 euro).
