@@ -143,7 +143,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "hai trăm ba mươi mốt"
     => "երկու հարյուր երեսուն մեկ"
     => "екі жүз отыз бір"
-    => "to hundrede enogtredive"
+    => "to hundrede og enogtredive"
 
     4030.to_words
     => "four thousand thirty"
@@ -243,7 +243,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
     => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
     => ["он бір", "жиырма екі", "бір жүз отыз үш"]
-    => ["elleve", "toogtyve", "et hundrede treogtredive"]
+    => ["elleve", "toogtyve", "et hundrede og treogtredive"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"

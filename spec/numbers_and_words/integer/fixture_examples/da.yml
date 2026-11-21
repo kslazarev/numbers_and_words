@@ -3,5 +3,18 @@ to_words:
     0: nul
     1: et
     9: ni
+  hundreds:
+    100: et hundrede
+    101: et hundrede og et
+    121: et hundrede og enogtyve
+    300: tre hundrede
+  thousands:
+    1001: et tusinde og et
+    1021: et tusinde og enogtyve
+    1100: et tusinde et hundrede
+    1101: et tusinde et hundrede og et
+    101000: et hundrede og et tusinde
   millions:
     1000000: en million
+    1000021: en million og enogtyve
+    1000100: en million et hundrede

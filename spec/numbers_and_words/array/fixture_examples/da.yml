@@ -23,25 +23,25 @@ to_words:
       - 203
       - 209
     :
-      - et hundrede et
-      - to hundrede tre
-      - to hundrede ni
+      - et hundrede og et
+      - to hundrede og tre
+      - to hundrede og ni
   complex_example3:
     ?
       - 561
       - 422
       - 932
     :
-      - fem hundrede enogtres
-      - fire hundrede toogtyve
-      - ni hundrede toogtredive
+      - fem hundrede og enogtres
+      - fire hundrede og toogtyve
+      - ni hundrede og toogtredive
   complex_example4:
     ?
       - 1111
       - 2222
       - 6398
     :
-      - et tusinde et hundrede elleve
-      - to tusinde to hundrede toogtyve
-      - seks tusinde tre hundrede otteoghalvfems
+      - et tusinde et hundrede og elleve
+      - to tusinde to hundrede og toogtyve
+      - seks tusinde tre hundrede og otteoghalvfems
 

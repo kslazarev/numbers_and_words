@@ -24,6 +24,7 @@
   * Write Russian and Ukrainian compound fraction names as one word (`десятитысячных`), and fix the Ukrainian spelling of `тисячна`. \[[#247](https://github.com/kslazarev/numbers_and_words/pull/247)\] \([@dblock](https://github.com/dblock)\)
   * Use the Lithuanian long scale (`milijardas` for 10^9, `bilijonas` for 10^12). \[[#248](https://github.com/kslazarev/numbers_and_words/pull/248)\] \([@dblock](https://github.com/dblock)\)
   * Use the Estonian long scale (`biljon` for 10^12, `triljon` for 10^18). \[[#249](https://github.com/kslazarev/numbers_and_words/pull/249)\] \([@dblock](https://github.com/dblock)\)
+  * Join Danish hundreds and final tens or ones with `og` (`et hundrede og et`, `et tusinde og et`). \[[#250](https://github.com/kslazarev/numbers_and_words/pull/250)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 
