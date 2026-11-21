@@ -9,7 +9,7 @@ to_words:
     0.777: zero e settecentosettantasette millesimi
     0.7777: zero e settemilasettecentosettantasette decimillesimi
     0.1001: zero e milleuno decimillesimi
-    0.1023: zero e milleventitre decimillesimi
+    0.1023: zero e milleventitré decimillesimi
     0.21021: zero e ventunomilaventuno centomillesimi
     0.77777: zero e settantasettemilasettecentosettantasette centomillesimi
     0.777777: zero e settecentosettantasettemilasettecentosettantasette milionesimi
@@ -19,7 +19,7 @@ to_words:
     0.2935174315119: zero e due bilioni novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove decibilionesimi
     21.77: ventuno e settantasette centesimi
     111.999: centoundici e novecentonovantanove millesimi
-    4242.7463: quattromiladuecentoquarantadue e settemilaquattrocentosessantatre decimillesimi
+    4242.7463: quattromiladuecentoquarantadue e settemilaquattrocentosessantatré decimillesimi
   fractions_without_zero:
     options:
       :remove_zero: true

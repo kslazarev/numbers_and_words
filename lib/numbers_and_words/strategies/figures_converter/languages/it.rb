@@ -5,8 +5,11 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class It < Base
+          # Compounds ending in "tre" are accented ("ventitré", "milletré"); a standalone "tre" is not.
+          COMPOUND_TRE = /(?<=\p{L})tre\b/
+
           def print_words
-            join_compound_words(@strings.reverse, compound_word_starters).join(' ')
+            join_compound_words(@strings.reverse, compound_word_starters).join(' ').gsub(COMPOUND_TRE, 'tré')
           end
 
           def capacity_iteration
