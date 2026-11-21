@@ -13,7 +13,7 @@ module NumbersAndWords
             private
 
             def integral_significance
-              " #{@strategy.translations.integral quantity}" if @options[:remove_zero].nil?
+              " #{@strategy.translations.integral quantity}" if @options[:remove_zero].nil? && @options[:fraction]
             end
 
             def quantity

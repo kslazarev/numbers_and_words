@@ -51,9 +51,10 @@ module NumbersAndWords
               !@figures.number_in_capacity(@current_capacity - 1).zero?
           end
 
+          # Apocope shortens the masculine "uno" ("veintiún", "novecientos un"); the feminine keeps "una".
           def one_apocopated?
             (@current_capacity.positive? && @figures.ones == 1) ||
-              @options.apocopated.result
+              (@options.apocopated.result && gender != :female)
           end
 
           def hundred_apocopated?

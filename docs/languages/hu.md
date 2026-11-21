@@ -12,22 +12,22 @@ I18n.with_locale(:hu) { 21.to_words }
 # => "huszonegy"
 
 I18n.with_locale(:hu) { 231.to_words }
-# => "kettőszázharmincegy"
+# => "kétszázharmincegy"
 
 I18n.with_locale(:hu) { 4030.to_words }
 # => "négyezer-harminc"
 
 I18n.with_locale(:hu) { 1_000_100.to_words }
-# => "egymillió-egyszáz"
+# => "egymillió-száz"
 
 I18n.with_locale(:hu) { 2_000_000_000.to_words }
-# => "kettőmilliárd"
+# => "kétmilliárd"
 
 I18n.with_locale(:hu) { [1, 2, 3].to_words }
 # => ["egy", "kettő", "három"]
 
 I18n.with_locale(:hu) { [11, 22, 133].to_words }
-# => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+# => ["tizenegy", "huszonkettő", "százharminchárom"]
 ```
 
 ## Decimals

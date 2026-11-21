@@ -26,7 +26,7 @@ describe NumbersAndWords::Fallback do
 
     it 'converts integers, floats and arrays in the fallback locale' do
       expect([42.to_words(fallback: :fr), 4.5.to_words(fallback: :en), [1, 2].to_words(fallback: :de)])
-        .to eq(['quarante-deux', 'four and five tenths', %w[eins zwei]])
+        .to eq(['quarante-deux', 'four point five', %w[eins zwei]])
     end
 
     it 'normalizes the fallback locale and accepts a string option name' do
@@ -85,7 +85,7 @@ describe NumbersAndWords::Fallback do
   context 'with a supported locale' do
     it 'ignores the fallback' do
       NumbersAndWords.config.fallback = true
-      expect(I18n.with_locale(:en) { [42.to_words(fallback: :fr), 4.5.to_words] }).to eq(['forty-two', 'four and five tenths'])
+      expect(I18n.with_locale(:en) { [42.to_words(fallback: :fr), 4.5.to_words] }).to eq(['forty-two', 'four point five'])
     end
   end
 

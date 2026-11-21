@@ -25,6 +25,6 @@ to_words:
       - 0.31
       - 0.12
     :
-      - un decimo
-      - trentuno centesimi
-      - dodici centesimi
+      - virgola uno
+      - virgola trentuno
+      - virgola dodici

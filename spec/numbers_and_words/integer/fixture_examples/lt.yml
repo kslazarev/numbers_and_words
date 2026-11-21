@@ -47,10 +47,10 @@ to_words:
     35174315119: trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
     935174315119: devyni šimtai trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
   trillions:
-    2935174315119: du bilijonai devyni šimtai trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
-  long_scale:
-    1000000000000: vienas bilijonas
-    1000000000000000: vienas bilijardas
-    1000000000000000000: vienas trilijonas
-    2000000000000000000: du trilijonai
+    2935174315119: du trilijonai devyni šimtai trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+  short_scale:
+    1000000000000: vienas trilijonas
+    1000000000000000: vienas kvadrilijonas
+    1000000000000000000: vienas kvintilijonas
+    2000000000000000000: du kvintilijonai
     21000000000: dvidešimt vienas milijardas

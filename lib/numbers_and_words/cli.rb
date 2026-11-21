@@ -10,6 +10,7 @@ module NumbersAndWords
 
     DESCRIPTIONS = {
       apocopated: 'Use the shortened form, e.g. Spanish "un"',
+      fraction: 'Read decimals as a fraction, e.g. "one and five tenths"',
       gender: 'Grammatical gender, e.g. male, female, neuter or common',
       hundreds_with_union: 'Say "and" after hundreds',
       micro_separator: 'Word between the integral and fractional parts',

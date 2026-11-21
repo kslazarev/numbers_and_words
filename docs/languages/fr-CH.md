@@ -32,9 +32,17 @@ I18n.with_locale(:'fr-CH') { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read with `virgule` followed by the fractional part: up to three decimal places as a number after one `zéro` for each leading zero, and longer ones digit by digit.
+
 ```ruby
 I18n.with_locale(:'fr-CH') { 21.77.to_words }
-# => "vingt-et-un et septante-sept centièmes"
+# => "vingt-et-un virgule septante-sept"
+
+I18n.with_locale(:'fr-CH') { 3.05.to_words }
+# => "trois virgule zéro cinq"
+
+I18n.with_locale(:'fr-CH') { 3.1416.to_words }
+# => "trois virgule un quatre un six"
 ```
 
 ## Options
@@ -45,7 +53,7 @@ I18n.with_locale(:'fr-CH') { 21.77.to_words }
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 0.1.to_words(precision: 2) }
-# => "zéro et dix centièmes"
+# => "zéro virgule dix"
 ```
 
 ### Micro Separator
@@ -54,7 +62,19 @@ I18n.with_locale(:'fr-CH') { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 21.77.to_words(micro_separator: "plus") }
-# => "vingt-et-un plus septante-sept centièmes"
+# => "vingt-et-un plus septante-sept"
+```
+
+### Fraction
+
+`fraction: true` reads decimals as a fraction instead of with `virgule`.
+
+```ruby
+I18n.with_locale(:'fr-CH') { 21.77.to_words(fraction: true) }
+# => "vingt-et-un et septante-sept centièmes"
+
+I18n.with_locale(:'fr-CH') { 0.1.to_words(fraction: true) }
+# => "zéro et un dixième"
 ```
 
 ### Ordinal
@@ -81,7 +101,7 @@ I18n.with_locale(:'fr-CH') { 200.to_words(ordinal: true) }
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 0.7.to_words(remove_zero: true) }
-# => "sept dixièmes"
+# => "virgule sept"
 ```
 
 ### Spelling

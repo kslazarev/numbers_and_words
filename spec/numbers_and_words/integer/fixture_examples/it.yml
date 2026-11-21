@@ -54,6 +54,10 @@ to_words:
     4000000: quattro milioni
     5000000: cinque milioni
     999000000: novecentonovantanove milioni
+    21000000: ventun milioni
+    31000021: trentun milioni ventuno
+    121000000: centoventun milioni
+    101000000: centouno milioni
     999000999: novecentonovantanove milioni novecentonovantanove
     999999000: novecentonovantanove milioni novecentonovantanovemila
     999999999: novecentonovantanove milioni novecentonovantanovemilanovecentonovantanove
@@ -64,6 +68,7 @@ to_words:
     35174315119: trentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
     935174315119: novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove
     1001000000: un miliardo un milione
+    21000000000: ventun miliardi
   trillions:
     1000000000000: un bilione
     2935174315119: due bilioni novecentotrentacinque miliardi centosettantaquattro milioni trecentoquindicimilacentodiciannove

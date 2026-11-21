@@ -13,22 +13,22 @@ to_words:
     90: kilencven
     99: kilencvenkilenc
   hundreds:
-    100: egyszáz
-    101: egyszázegy
-    111: egyszáztizenegy
-    120: egyszázhúsz
-    121: egyszázhuszonegy
+    100: száz
+    101: százegy
+    111: száztizenegy
+    120: százhúsz
+    121: százhuszonegy
     900: kilencszáz
     909: kilencszázkilenc
     919: kilencszáztizenkilenc
     990: kilencszázkilencven
     999: kilencszázkilencvenkilenc
   thousands:
-    1000: egyezer
-    1111: egyezeregyszáztizenegy
-    2000: kettőezer
-    2001: kettőezer-egy
-    2111: kettőezer-egyszáztizenegy
+    1000: ezer
+    1111: ezerszáztizenegy
+    2000: kétezer
+    2001: kétezer-egy
+    2111: kétezer-száztizenegy
     4000: négyezer
     5000: ötezer
     11000: tizenegyezer
@@ -37,7 +37,7 @@ to_words:
     999999: kilencszázkilencvenkilencezer-kilencszázkilencvenkilenc
   millions:
     1000000: egymillió
-    2000000: kettőmillió
+    2000000: kétmillió
     4000000: négymillió
     5000000: ötmillió
     999000000: kilencszázkilencvenkilencmillió
@@ -45,13 +45,13 @@ to_words:
     999999000: kilencszázkilencvenkilencmillió-kilencszázkilencvenkilencezer
     999999999: kilencszázkilencvenkilencmillió-kilencszázkilencvenkilencezer-kilencszázkilencvenkilenc
   billions:
-    1174315110: egymilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztíz
-    1174315119: egymilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
-    15174315119: tizenötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
-    35174315119: harmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
-    935174315119: kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+    1174315110: egymilliárd-százhetvennégymillió-háromszáztizenötezer-száztíz
+    1174315119: egymilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc
+    15174315119: tizenötmilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc
+    35174315119: harmincötmilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc
+    935174315119: kilencszázharmincötmilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc
   trillions:
-    2935174315119: kettőbillió-kilencszázharmincötmilliárd-egyszázhetvennégymillió-háromszáztizenötezer-egyszáztizenkilenc
+    2935174315119: kétbillió-kilencszázharmincötmilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc
   ordinals:
     options:
       :ordinal: true
@@ -83,8 +83,8 @@ to_words:
     70: hetvenedik
     80: nyolcvanadik
     90: kilencvenedik
-    100: egyszázadik
-    1000: egyezredik
+    100: századik
+    1000: ezredik
     1000000: egymilliomodik
     1000000000: egymilliárdodik
     1000000000000: egybilliomodik
@@ -97,10 +97,10 @@ to_words:
     1000000000000000000000000000000000: egykvintilliárdodik
     21: huszonegyedik
     42: negyvenkettedik
-    133: egyszázharmincharmadik
-    4256: négyezer-kettőszázötvenhatodik
-    4200: négyezer-kettőszázadik
-    42000: negyvenkettőezredik
+    133: százharmincharmadik
+    4256: négyezer-kétszázötvenhatodik
+    4200: négyezer-kétszázadik
+    42000: negyvenkétezredik
     420000: négyszázhúszezredik
-    4200000: négymillió-kettőszázezredik
-    42000000: negyvenkettőmilliomodik
+    4200000: négymillió-kétszázezredik
+    42000000: negyvenkétmilliomodik

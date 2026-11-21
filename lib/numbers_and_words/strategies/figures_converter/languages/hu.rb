@@ -29,6 +29,15 @@ module NumbersAndWords
             end
           end
 
+          # "ezer" rather than "egyezer", and "két" before a scale word ("kétezer", "huszonkétmillió").
+          def capacity_iteration
+            meg, words = super
+            return [] if meg.nil?
+            return [meg] if @current_capacity == FiguresArray::THOUSAND_CAPACITY && @figures.number_in_capacity(@current_capacity) == 1
+
+            [meg, [words.first.sub(/#{@translations.t(:ones)[2]}\z/o, @translations.t(:compound_two)), *words.drop(1)]]
+          end
+
           def complex_number_to_words
             count = @figures.capacity_count
             (1..count).map do |capacity|

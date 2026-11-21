@@ -45,7 +45,7 @@
   * Use Ukrainian nominative plurals after 2-4 (`два мільйони`) and fix the missing quintillion translation. \[[#245](https://github.com/kslazarev/numbers_and_words/pull/245)\] \([@dblock](https://github.com/dblock)\)
   * Fix `Translation missing` for 10^18 in Czech, German, Estonian, French, Swiss French, Lithuanian and Latvian, and test every scale word in every locale. \[[#246](https://github.com/kslazarev/numbers_and_words/pull/246)\] \([@dblock](https://github.com/dblock)\)
   * Write Russian and Ukrainian compound fraction names as one word (`десятитысячных`), and fix the Ukrainian spelling of `тисячна`. \[[#247](https://github.com/kslazarev/numbers_and_words/pull/247)\] \([@dblock](https://github.com/dblock)\)
-  * Use the Lithuanian long scale (`milijardas` for 10^9, `bilijonas` for 10^12). \[[#248](https://github.com/kslazarev/numbers_and_words/pull/248)\] \([@dblock](https://github.com/dblock)\)
+  * Use `milijardas` for Lithuanian 10^9 and the short scale above it (`trilijonas` for 10^12). \[[#248](https://github.com/kslazarev/numbers_and_words/pull/248), [#289](https://github.com/kslazarev/numbers_and_words/pull/289)\] \([@dblock](https://github.com/dblock)\)
   * Use the Estonian long scale (`biljon` for 10^12, `triljon` for 10^18). \[[#249](https://github.com/kslazarev/numbers_and_words/pull/249)\] \([@dblock](https://github.com/dblock)\)
   * Join Danish hundreds and final tens or ones with `og` (`et hundrede og et`, `et tusinde og et`). \[[#250](https://github.com/kslazarev/numbers_and_words/pull/250)\] \([@dblock](https://github.com/dblock)\)
   * Say `and` after hundreds in British English by default (`one hundred and one`); see UPGRADING.md. \[[#251](https://github.com/kslazarev/numbers_and_words/pull/251)\] \([@dblock](https://github.com/dblock)\)
@@ -56,6 +56,7 @@
   * Fix `NameError` when converting decimals in Portuguese (`pt`), with `remove_zero` support. \[[#233](https://github.com/kslazarev/numbers_and_words/pull/233)\] \([@dblock](https://github.com/dblock)\)
   * Correct Swedish compounds, grammatical gender and long-scale singular/plural names, completing #150. \[[#225](https://github.com/kslazarev/numbers_and_words/pull/225)\] \([@Liggliluff](https://github.com/Liggliluff), [@dblock](https://github.com/dblock)\)
   * Read English numbers of five or more digits normally with `pronounced: true` instead of dropping their leading digits. \[[#273](https://github.com/kslazarev/numbers_and_words/pull/273)\] \([@dblock](https://github.com/dblock)\)
+  * Use the usual forms reviewed in #255: Czech `sto` and `tisíc`, Danish `en` and `tusind`, Hungarian `száz`, `ezer` and `két-` in compounds, Italian `ventun milioni`, Kazakh `жүз` and `мың`, Armenian `հազար`, Spanish feminine `una` with `apocopated`, the Lithuanian short scale (`trilijonas` for 10^12), Czech ordinals of thousands (`tisící`), and a decimal point in English, French, Italian and Portuguese (`twenty-one point seven seven`), with `fraction: true` for the previous fraction reading. \[[#289](https://github.com/kslazarev/numbers_and_words/pull/289)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

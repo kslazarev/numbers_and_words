@@ -15,8 +15,8 @@ to_words:
       - 21
       - 13
     :
-      - jeden tisíc jedna
-      - jedno sto jedna
+      - tisíc jedna
+      - sto jedna
       - dvacet jedna
       - třináct
   complex_example_with_options:

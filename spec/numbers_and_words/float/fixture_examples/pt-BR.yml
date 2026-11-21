@@ -1,5 +1,37 @@
 to_words:
   fractional:
+    0.1: zero vírgula um
+    0.7: zero vírgula sete
+    0.01: zero vírgula zero um
+    0.36: zero vírgula trinta e seis
+    1.00: um
+    1.77: um vírgula setenta e sete
+    2.10: dois vírgula um
+    14.6: quatorze vírgula seis
+    21.77: vinte e um vírgula setenta e sete
+    111.999: cento e onze vírgula novecentos e noventa e nove
+    0.0001: zero vírgula zero zero zero um
+    0.00025: zero vírgula zero zero zero dois cinco
+    0.000000000005: zero vírgula zero zero zero zero zero zero zero zero zero zero zero cinco
+    0.2935174315119: zero vírgula dois nove três cinco um sete quatro três um cinco um um nove
+    4242.7463: quatro mil duzentos e quarenta e dois vírgula sete quatro seis três
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: vírgula um
+    0.0001: vírgula zero zero zero um
+    0.10001: vírgula um zero zero zero um
+    0.100001: vírgula um zero zero zero zero um
+    0.0101001: vírgula zero um zero um zero zero um
+    0.100000010000001: vírgula um zero zero zero zero zero zero um zero zero zero zero zero zero um
+    0.000110000000030000000001: vírgula zero zero zero um um zero zero zero zero zero zero zero zero três
+    1.0: um
+    0.7: vírgula sete
+    3.5: três vírgula cinco
+    42.1: quarenta e dois vírgula um
+  fractional_as_fraction:
+    options:
+      :fraction: true
     0.1: zero inteiros e um décimo
     0.7: zero inteiros e sete décimos
     0.01: zero inteiros e um centésimo
@@ -15,9 +47,10 @@ to_words:
     0.000000000005: zero inteiros e cinco trilionésimos
     0.2935174315119: zero inteiros e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove décimos de trilionésimo
     4242.7463: quatro mil duzentos e quarenta e dois inteiros e sete mil quatrocentos e sessenta e três décimos de milésimo
-  fractions_without_zero:
+  fractions_without_zero_as_fraction:
     options:
       :remove_zero: true
+      :fraction: true
     0.1: um décimo
     0.0001: um décimo de milésimo
     0.10001: dez mil e um centésimos de milésimo

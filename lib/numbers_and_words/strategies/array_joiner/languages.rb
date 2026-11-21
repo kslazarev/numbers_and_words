@@ -3,6 +3,7 @@
 require 'numbers_and_words/strategies/array_joiner/languages/families/base'
 
 require 'numbers_and_words/strategies/array_joiner/languages/base'
+require 'numbers_and_words/strategies/array_joiner/languages/decimal_point'
 
 require 'numbers_and_words/strategies/array_joiner/languages/en'
 require 'numbers_and_words/strategies/array_joiner/languages/en-GB'

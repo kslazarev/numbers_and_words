@@ -6,7 +6,11 @@ module NumbersAndWords
       module Decorators
         module It
           class Fractional < Base
+            include DecimalPoint
+
             def run
+              return decimal_point_words(super) unless fraction?
+
               words = normalize_singular_fraction_words(super)
               "#{words} #{fraction_significance}"
             end

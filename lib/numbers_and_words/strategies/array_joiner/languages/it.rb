@@ -5,6 +5,7 @@ module NumbersAndWords
     module ArrayJoiner
       module Languages
         class It < Base
+          include DecimalPoint
         end
       end
     end

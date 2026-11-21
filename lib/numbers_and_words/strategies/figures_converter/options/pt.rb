@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
+require 'numbers_and_words/strategies/figures_converter/options/pt/fraction'
 require 'numbers_and_words/strategies/figures_converter/options/pt/remove_zero'

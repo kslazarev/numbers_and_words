@@ -11,8 +11,17 @@ module NumbersAndWords
         [t(:tens_with_ones)[tens], t([options[:prefix], :ones_with_tens].join('.'))[ones]].join
       end
 
+      # "száz" and "kétszáz" rather than "egyszáz" and "kettőszáz".
       def hundreds(number, options = {})
-        super(number, options.merge(separator: ''))
+        [compound_ones(number), t([options[:prefix], :hundreds].join('.'))].join
+      end
+
+      # The form of a digit at the start of a compound: none for one, "két" for two.
+      def compound_ones(number)
+        return '' if number == 1
+        return t(:compound_two) if number == 2
+
+        t(:ones)[number]
       end
     end
   end

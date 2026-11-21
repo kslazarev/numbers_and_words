@@ -17,7 +17,7 @@ describe NumbersAndWords::CLI do
   around { |example| I18n.with_locale(:en) { example.run } }
 
   it 'spells out integers and decimals in English by default, one per line' do
-    expect(run_cli('42', '1.5')).to eq([0, "forty-two\none and five tenths\n", ''])
+    expect(run_cli('42', '1.5')).to eq([0, "forty-two\none point five\n", ''])
   end
 
   it 'reads whitespace-separated numbers from standard input when no arguments are given' do
@@ -39,8 +39,8 @@ describe NumbersAndWords::CLI do
   end
 
   it 'passes value options with their types' do
-    expect(run_cli('--precision', '2', '0.5')).to eq([0, "zero and fifty hundredths\n", ''])
-    expect(run_cli('--micro-separator', 'plus', '1.5')).to eq([0, "one plus five tenths\n", ''])
+    expect(run_cli('--precision', '2', '0.5')).to eq([0, "zero point five zero\n", ''])
+    expect(run_cli('--micro-separator', 'plus', '1.5')).to eq([0, "one plus five\n", ''])
   end
 
   it 'has a flag for every option any language accepts' do

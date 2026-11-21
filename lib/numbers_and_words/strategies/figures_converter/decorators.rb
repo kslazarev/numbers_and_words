@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'numbers_and_words/strategies/figures_converter/decorators/base'
+require 'numbers_and_words/strategies/figures_converter/decorators/decimal_point'
 require 'numbers_and_words/strategies/figures_converter/decorators/en'
 require 'numbers_and_words/strategies/figures_converter/decorators/en-GB'
 require 'numbers_and_words/strategies/figures_converter/decorators/es'

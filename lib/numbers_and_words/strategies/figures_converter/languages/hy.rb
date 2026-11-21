@@ -5,6 +5,12 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Hy < Base
+          # A thousands group of one is just the scale word ("հազար").
+          def capacity_iteration
+            return [megs] if @current_capacity == FiguresArray::THOUSAND_CAPACITY && @figures.number_in_capacity(@current_capacity) == 1
+
+            super
+          end
         end
       end
     end

@@ -93,7 +93,8 @@ fr-CH:
     quattuordecillionths:
       one: septilliardième
       other: septilliardièmes
-    micro_separator: et
+    micro_separator: virgule
+    fraction_separator: et
     micro_prefix:
       tens: dix
       hundreds: cent

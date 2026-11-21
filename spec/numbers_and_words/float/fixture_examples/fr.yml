@@ -1,5 +1,36 @@
 to_words:
   fractional:
+    0.1: zéro virgule un
+    0.7: zéro virgule sept
+    0.01: zéro virgule zéro un
+    0.77: zéro virgule soixante-dix-sept
+    0.777: zéro virgule sept-cent-soixante-dix-sept
+    0.7777: zéro virgule sept sept sept sept
+    0.77777: zéro virgule sept sept sept sept sept
+    0.777777: zéro virgule sept sept sept sept sept sept
+    0.7777777: zéro virgule sept sept sept sept sept sept sept
+    0.77777777: zéro virgule sept sept sept sept sept sept sept sept
+    0.777777777: zéro virgule sept sept sept sept sept sept sept sept sept
+    0.2935174315119: zéro virgule deux neuf trois cinq un sept quatre trois un cinq un un neuf
+    21.77: vingt-et-un virgule soixante-dix-sept
+    111.999: cent-onze virgule neuf-cent-quatre-vingt-dix-neuf
+    4242.7463: quatre-mille-deux-cent-quarante-deux virgule sept quatre six trois
+  traditional_spelling:
+    options:
+      :spelling: traditional
+    21.77: vingt et un virgule soixante-dix-sept
+    0.21: zéro virgule vingt et un
+    4242.7463: quatre mille deux cent quarante-deux virgule sept quatre six trois
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: "virgule un"
+    0.7: "virgule sept"
+    0.05: "virgule zéro cinq"
+    42.1: "quarante-deux virgule un"
+  fractional_as_fraction:
+    options:
+      :fraction: true
     0.1: zéro et un dixième
     0.7: zéro et sept dixièmes
     0.01: zéro et un centième
@@ -15,15 +46,17 @@ to_words:
     21.77: vingt-et-un et soixante-dix-sept centièmes
     111.999: cent-onze et neuf-cent-quatre-vingt-dix-neuf millièmes
     4242.7463: quatre-mille-deux-cent-quarante-deux et sept-mille-quatre-cent-soixante-trois dix-millièmes
-  traditional_spelling:
+  traditional_spelling_as_fraction:
     options:
       :spelling: traditional
+      :fraction: true
     21.77: vingt et un et soixante-dix-sept centièmes
     0.21: zéro et vingt et un centièmes
     4242.7463: quatre mille deux cent quarante-deux et sept mille quatre cent soixante-trois dix-millièmes
-  remove_zero:
+  remove_zero_as_fraction:
     options:
       :remove_zero: true
+      :fraction: true
     0.1: "un dixième"
     0.7: "sept dixièmes"
     0.05: "cinq centièmes"

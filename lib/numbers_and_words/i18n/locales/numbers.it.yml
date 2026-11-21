@@ -103,7 +103,8 @@ it:
     quattuordecillionths:
       one: settiliardesimo
       other: settiliardesimi
-    micro_separator: e
+    micro_separator: virgola
+    fraction_separator: e
     micro_prefix:
       tens: deci
       hundreds: cento

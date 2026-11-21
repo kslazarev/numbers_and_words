@@ -18,34 +18,34 @@ lt:
       ones: milijardai
       other: milijardų
     trillions:
-      one: bilijonas
-      ones: bilijonai
-      other: bilijonų
-    quadrillions:
-      one: bilijardas
-      ones: bilijardai
-      other: bilijardų
-    quintillions:
       one: trilijonas
       ones: trilijonai
       other: trilijonų
-    sextillions:
-      one: trilijardas
-      ones: trilijardai
-      other: trilijardų
-    septillions:
+    quadrillions:
       one: kvadrilijonas
       ones: kvadrilijonai
       other: kvadrilijonų
-    octillions:
-      one: kvadrilijardas
-      ones: kvadrilijardai
-      other: kvadrilijardų
-    nonillions:
+    quintillions:
       one: kvintilijonas
       ones: kvintilijonai
       other: kvintilijonų
+    sextillions:
+      one: sekstilijonas
+      ones: sekstilijonai
+      other: sekstilijonų
+    septillions:
+      one: septilijonas
+      ones: septilijonai
+      other: septilijonų
+    octillions:
+      one: oktilijonas
+      ones: oktilijonai
+      other: oktilijonų
+    nonillions:
+      one: nonilijonas
+      ones: nonilijonai
+      other: nonilijonų
     decillions:
-      one: kvintilijardas
-      ones: kvintilijardai
-      other: kvintilijardų
+      one: decilijonas
+      ones: decilijonai
+      other: decilijonų
