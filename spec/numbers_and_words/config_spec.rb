@@ -96,6 +96,35 @@ describe NumbersAndWords::Config do
     expect(I18n.with_locale(:en) { 2.to_words }).to eq('two')
   end
 
+  it 'applies locales assigned directly on NumbersAndWords.config' do
+    NumbersAndWords.config.locales = ['en-US', :ru]
+
+    expect(NumbersAndWords.config.locales).to eq(%i[en ru])
+    expect(I18n.available_locales).to contain_exactly(:en, :ru)
+    expect(I18n.with_locale(:ru) { 2000.to_words }).to eq('две тысячи')
+
+    NumbersAndWords.config.locales = nil
+    expect(I18n.with_locale(:fr) { 2.to_words }).to eq('deux')
+  end
+
+  it 'rejects an unsupported locale assigned directly without changing the configuration' do
+    NumbersAndWords.config.locales = [:en]
+    paths = I18n.load_path.dup
+
+    expect { NumbersAndWords.config.locales = %i[ru unknown] }.to raise_error(ArgumentError, /Unsupported locale/)
+    expect(NumbersAndWords.config.locales).to eq([:en])
+    expect(I18n.load_path).to eq(paths)
+  end
+
+  it 'does not apply settings collected in a configure block until it completes' do
+    NumbersAndWords.config.locales = [:en]
+    NumbersAndWords.configure do |config|
+      config.locales = [:ru]
+      expect(NumbersAndWords.config.locales).to eq([:en])
+    end
+    expect(NumbersAndWords.config.locales).to eq([:ru])
+  end
+
   it 'keeps the configured locales when initialized again' do
     NumbersAndWords.configure { |config| config.locales = %i[en ru] }
     NumbersAndWords::I18n::Initialization.init
@@ -111,7 +140,7 @@ describe NumbersAndWords::Config do
 
   it 'works in a real consumer subprocess with ordinary automatic loading' do
     code = <<~RUBY
-      NumbersAndWords.configure { |config| config.locales = [:en, :ru] }
+      NumbersAndWords.config.locales = [:en, :ru]
       puts I18n.with_locale(:en) { 42.to_words }
       puts I18n.available_locales.sort.join(',')
     RUBY

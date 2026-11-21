@@ -4,8 +4,18 @@ module NumbersAndWords
   class Config
     attr_reader :locales
 
+    # NumbersAndWords.config applies each setting as soon as it is assigned.
+    # The config that configure yields only collects settings until its block completes.
+    def initialize(apply: false)
+      @apply = apply
+      @locales = nil
+    end
+
+    # Validates every locale before changing anything, so an unsupported locale leaves the configuration as it was.
     def locales=(locales)
-      @locales = locales.nil? ? nil : Array(locales).map { |locale| normalize_locale(locale) }.uniq.freeze
+      normalized = locales.nil? ? nil : Array(locales).map { |locale| normalize_locale(locale) }.uniq.freeze
+      @locales = normalized
+      I18n::Initialization.load_locales(normalized) if @apply
     end
 
     private
@@ -21,14 +31,15 @@ module NumbersAndWords
 
   class << self
     def config
-      @config ||= Config.new.freeze
+      @config ||= Config.new(apply: true)
     end
 
+    # Collects the settings assigned in the block and applies them only if the block completes.
     def configure
-      candidate = config.dup
+      candidate = Config.new
+      candidate.locales = config.locales
       yield candidate
-      @config = candidate.freeze
-      I18n::Initialization.load_locales(candidate.locales)
+      config.locales = candidate.locales
     end
   end
 end
