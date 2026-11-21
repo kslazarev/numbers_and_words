@@ -89,7 +89,7 @@ $ to_words --locale es --gender female 21
 veintiuna
 ```
 
-Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag: `--ordinal`, `--remove-zero` and other on/off options (with a `--no-` form), and `--gender VALUE`, `--precision N` and `--micro-separator VALUE`. `to_words --help` lists them with the languages that support each. Options a language does not support, invalid numbers, negative numbers and unknown locales are reported on standard error with exit status 1.
+Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag: `--ordinal`, `--remove-zero` and other on/off options (with a `--no-` form), and `--gender VALUE`, `--precision N`, `--micro-separator VALUE` and `--unit VALUE`. `to_words --help` lists them with the languages that support each. Options a language does not support, invalid numbers, negative numbers and unknown locales are reported on standard error with exit status 1.
 
 ## Supported Languages / Языки / Langues Supportées
 
@@ -170,14 +170,68 @@ I18n.with_locale(:ko) { 42.to_words(fallback: true) }
 
 The other options are validated for the fallback locale. `I18n.with_locale` itself raises `I18n::InvalidLocale` for a locale missing from `I18n.available_locales`, before the gem is called. To set a fallback for every call, see [Configuration](#configuration--конфигурация); `fallback: false` disables it for one call.
 
+### Unit
+
+`unit` follows a whole number with a unit word, such as a currency, in the form the number takes. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations for the current locale, and a dotted key such as `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, chosen with the gem's plural rules (`one`, `few`, `many` and `other` in Russian and Ukrainian, `one` and `other` in English), or a single string for a unit that never changes. An optional `gender` sets the gender of the number in languages with a `gender` option; a `gender` passed to `to_words` overrides it.
+
+```yaml
+en:
+  units:
+    dollar: { one: dollar, other: dollars }
+ru:
+  units:
+    ruble: { one: рубль, few: рубля, many: рублей, other: рубля, gender: male }
+    kopeck: { one: копейка, few: копейки, many: копеек, other: копейки, gender: female }
+zh:
+  units:
+    yuan: 元
+```
+
+With these translations:
+
+```ruby
+I18n.with_locale(:en) { 1.to_words(unit: :dollar) }
+# => "one dollar"
+
+I18n.with_locale(:en) { 21.to_words(unit: :dollar) }
+# => "twenty-one dollars"
+
+I18n.with_locale(:ru) { 21.to_words(unit: :ruble) }
+# => "двадцать один рубль"
+
+I18n.with_locale(:ru) { 22.to_words(unit: :kopeck) }
+# => "двадцать две копейки"
+
+I18n.with_locale(:ru) { 11.to_words(unit: :kopeck) }
+# => "одиннадцать копеек"
+
+I18n.with_locale(:ru) { [1, 5].to_words(unit: :ruble) }
+# => ["один рубль", "пять рублей"]
+
+I18n.with_locale(:zh) { 21.to_words(unit: :yuan) }
+# => "二十一元"
+```
+
+The unit follows the number after a space, or directly in languages written without spaces (Chinese and Thai). With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar.
+
+```ruby
+I18n.with_locale(:en) { 21.to_words(unit: :dollar, ordinal: true) }
+# => "twenty-first dollar"
+
+I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
+# => "двадцать вторая копейка"
+```
+
+A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too. Units apply to whole numbers only for now: a float with `unit` raises `NumbersAndWords::UnsupportedOptionError` (see [#295](https://github.com/kslazarev/numbers_and_words/issues/295)).
+
 ### Unsupported Options
 
-Every language accepts `precision`, `micro_separator` and `fallback`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
+Every language accepts `precision`, `micro_separator`, `unit` and `fallback`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
 
 For example, Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in the `vi` locale raises:
 
 ```
-NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero
+NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :unit
 ```
 
 ## Configuration / Конфигурация

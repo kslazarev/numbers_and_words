@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'yaml'
+
 # Parses documented examples without evaluating them. An example is a line
 #   I18n.with_locale(:en) { 21.to_words(ordinal: true) }
 # followed by "# => <inspected result>". Only a locale, a number or an array
@@ -15,6 +17,14 @@ module DocumentationExamples
   Example = Struct.new(:path, :line, :code, :locale, :receiver, :options, :expected)
 
   module_function
+
+  # The application translations that unit examples use: the first YAML block after the README's ### Unit heading.
+  def unit_translations(path)
+    section = File.read(path)[/^### Unit$.*?^```yaml$\n(.*?)^```$/m, 1]
+    raise ArgumentError, "#{path}: no YAML block under ### Unit" unless section
+
+    YAML.safe_load(section)
+  end
 
   def from(path, relative_path)
     File.readlines(path, chomp: true).each_cons(2).with_index.filter_map do |(code, result), index|

@@ -22,7 +22,8 @@ module NumbersAndWords
       remove_hyphen: 'Remove the hyphen between tens and ones',
       remove_zero: 'Omit a zero integral part',
       spelling: 'Spelling, e.g. French reformed (1990) or traditional',
-      tens_of_hundreds: 'Read thousands as tens of hundreds'
+      tens_of_hundreds: 'Read thousands as tens of hundreds',
+      unit: 'Append a unit translated by the application under units.VALUE'
     }.freeze
 
     def self.start(argv = ARGV, stdin: $stdin, stdout: $stdout, stderr: $stderr)

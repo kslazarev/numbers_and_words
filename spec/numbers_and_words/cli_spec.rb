@@ -43,6 +43,15 @@ describe NumbersAndWords::CLI do
     expect(run_cli('--micro-separator', 'plus', '1.5')).to eq([0, "one plus five\n", ''])
   end
 
+  it 'appends a unit from the application translations' do
+    backend = I18n.backend
+    I18n.backend = I18n::Backend::Simple.new
+    I18n.backend.store_translations(:ru, units: { kopeck: { one: 'копейка', few: 'копейки', many: 'копеек', gender: :female } })
+    expect(run_cli('-l', 'ru', '--unit', 'kopeck', '21', '22')).to eq([0, "двадцать одна копейка\nдвадцать две копейки\n", ''])
+  ensure
+    I18n.backend = backend
+  end
+
   it 'has a flag for every option any language accepts' do
     _, help, = run_cli('--help')
     options = NumbersAndWords::I18n.languages.flat_map { |locale| NumbersAndWords::OptionsValidation.supported_options(locale).keys }.uniq
@@ -71,6 +80,8 @@ describe NumbersAndWords::CLI do
     %w[-l vi --gender female 1] => 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero',
     %w[-l es --gender neuter 1] => 'unsupported value "neuter" for option :gender in locale :es; supported: :male, :female',
     %w[--precision x 1] => 'invalid argument: --precision x',
+    %w[--unit dollar 1] => 'unit "dollar" has no translation for locale :en (expected units.dollar)',
+    %w[--unit dollar 1.5] => 'unit "dollar" cannot be used with decimals such as 1.5 yet',
     %w[--gender] => 'missing argument: --gender',
     %w[--bogus 1] => 'invalid option: --bogus',
     %w[--locale] => 'missing argument: --locale'
