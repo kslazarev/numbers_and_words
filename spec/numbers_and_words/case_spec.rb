@@ -10,7 +10,7 @@ describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers Russia
      2_025_000, 21_000_000, 1_000_000_000, 2_000_000_000, 123_456_789]
   end
 
-  %i[ru ua].each do |locale|
+  %i[ru uk].each do |locale|
     values = NumbersAndWords::Strategies::FiguresConverter::Options.const_get(locale.capitalize)::Case::VALUES
 
     values.product(%i[male female neuter]).each do |grammatical_case, gender|

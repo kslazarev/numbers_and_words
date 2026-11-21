@@ -98,7 +98,7 @@ describe NumbersAndWords::Unit do
 
   describe 'other languages' do
     before do
-      I18n.backend.store_translations(:ua, units: { hryvnia: { one: 'гривня', few: 'гривні', many: 'гривень', other: 'гривні', gender: :female } })
+      I18n.backend.store_translations(:uk, units: { hryvnia: { one: 'гривня', few: 'гривні', many: 'гривень', other: 'гривні', gender: :female } })
       I18n.backend.store_translations(:pl, units: { zloty: { one: 'złoty', few: 'złote', many: 'złotych', other: 'złotego' },
                                                     koruna: { one: 'korona', few: 'korony', many: 'koron', other: 'korony', gender: :female } })
       I18n.backend.store_translations(:cs, units: { koruna: { one: 'koruna', few: 'koruny', many: 'korun', other: 'koruny', gender: :female } })
@@ -107,7 +107,7 @@ describe NumbersAndWords::Unit do
     end
 
     it 'spells Ukrainian' do
-      expect([1, 2, 5, 11, 21, 22, 25].map { |number| words(:ua, number, unit: :hryvnia) })
+      expect([1, 2, 5, 11, 21, 22, 25].map { |number| words(:uk, number, unit: :hryvnia) })
         .to eq(['одна гривня', 'дві гривні', 'п’ять гривень', 'одинадцять гривень', 'двадцять одна гривня', 'двадцять дві гривні', 'двадцять п’ять гривень'])
     end
 

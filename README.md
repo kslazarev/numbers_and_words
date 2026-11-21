@@ -113,23 +113,23 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Hebrew](docs/languages/he.md)* | עברית | `he` |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
-| [Kazakh](docs/languages/kz.md) | Қазақша | `kz` |
+| [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |
 | [Portuguese](docs/languages/pt.md) | Português | `pt` |
 | [Russian](docs/languages/ru.md) | Русский | `ru` |
 | [Spanish](docs/languages/es.md) | Español | `es` |
-| [Swedish](docs/languages/se.md)* | Svenska | `se` |
+| [Swedish](docs/languages/sv.md)* | Svenska | `sv` |
 | [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` |
 | [Thai](docs/languages/th.md)* | ภาษาไทย | `th` |
 | [Turkish](docs/languages/tr.md) | Türkçe | `tr` |
-| [Ukrainian](docs/languages/ua.md) | Українська | `ua` |
+| [Ukrainian](docs/languages/uk.md) | Українська | `uk` |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 
 \* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 
-Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `zh-CN` and `zh-SG` use `zh`.
+Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `zh-CN` and `zh-SG` use `zh`. Swedish, Ukrainian and Kazakh use the standard codes `sv`, `uk` and `kk` (`se`, `ua` and `kz` before 2.0.0).
 
 ## Options / Опции / Options
 
