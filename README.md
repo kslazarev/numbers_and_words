@@ -117,6 +117,7 @@ Each language page has examples and the options that language supports.
 | [Spanish](docs/languages/es.md) | Español | `es` | yes | no |
 | [Swedish](docs/languages/se.md)* | Svenska | `se` | no | no |
 | [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` | yes | no |
+| [Thai](docs/languages/th.md)* | ภาษาไทย | `th` | yes | yes |
 | [Turkish](docs/languages/tr.md) | Türkçe | `tr` | no | no |
 | [Ukrainian](docs/languages/ua.md) | Українська | `ua` | yes | no |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` | yes | no |
