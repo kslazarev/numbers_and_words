@@ -5,7 +5,11 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module En
+          # pronounced: true reads numbers of up to four digits in pairs, as they are usually spoken;
+          # longer numbers are read as cardinals.
           class Pronounced
+            MAX_DIGITS = 4
+
             attr_accessor :strategy, :options
 
             def initialize(proxy, *_args)
@@ -47,10 +51,16 @@ module NumbersAndWords
 
             def tens_with_oh(language, figures)
               units, tens = *figures.to_a.dup
-              return (units.zero? ? ['hundred'] : [language.ones, 'oh']) if tens.zero?
+              return (units.zero? ? [translations.t(:hundreds)] : [language.ones, translations.t(:pronounced_zero)]) if tens.zero?
               return [language.teens] if figures.teens
 
               [language.complex_tens]
+            end
+
+            private
+
+            def translations
+              @strategy.translations
             end
           end
         end

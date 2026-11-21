@@ -26,8 +26,14 @@ module NumbersAndWords
             })
           end
 
+          def words
+            # Decided once for the whole number, since strings_logic also runs for each thousands group.
+            @pronounced = @options.pronounced.active? && @figures.size <= Options::En::Pronounced::MAX_DIGITS
+            super
+          end
+
           def strings_logic
-            if @options.pronounced.active?
+            if @pronounced
               @options.pronounced.process self, @figures
             else
               super

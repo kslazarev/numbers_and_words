@@ -43,6 +43,7 @@
   * Fix Italian scale words: `un milione` and `un miliardo` instead of `uno milione`, and keep `mille` apart from a preceding scale word (`un milione mille`). \[[#230](https://github.com/kslazarev/numbers_and_words/pull/230)\] \([@dblock](https://github.com/dblock)\)
   * Fix `NameError` when converting decimals in Portuguese (`pt`), with `remove_zero` support. \[[#233](https://github.com/kslazarev/numbers_and_words/pull/233)\] \([@dblock](https://github.com/dblock)\)
   * Correct Swedish compounds, grammatical gender and long-scale singular/plural names, completing #150. \[[#225](https://github.com/kslazarev/numbers_and_words/pull/225)\] \([@Liggliluff](https://github.com/Liggliluff), [@dblock](https://github.com/dblock)\)
+  * Read English numbers of five or more digits normally with `pronounced: true` instead of dropping their leading digits. \[[#273](https://github.com/kslazarev/numbers_and_words/pull/273)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

@@ -129,3 +129,7 @@ to_words:
     2000: two thousand
     2007: two thousand seven
     2140: twenty-one forty
+    9999: ninety-nine ninety-nine
+    10000: ten thousand
+    12345: twelve thousand three hundred forty-five
+    1234567: one million two hundred thirty-four thousand five hundred sixty-seven
