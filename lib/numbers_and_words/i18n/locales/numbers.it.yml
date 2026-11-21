@@ -105,6 +105,7 @@ it:
       other: settiliardesimi
     micro_separator: virgola
     subunit_separator: e
+    unit_scale_preposition: di
     fraction_separator: e
     micro_prefix:
       tens: deci

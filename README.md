@@ -243,6 +243,13 @@ I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
 
 A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
 
+In Spanish, French, Italian and Portuguese, a whole number that ends in a scale word of a million or more takes a preposition before the unit (`de`, or `di` in Italian), but one that ends in another word, such as `mil`, does not. French elides `de` to `d'` before a unit that starts with a vowel; a unit sets `elision: true` for a mute h (`d'hectares`) or `elision: false` for another exception. Romanian puts `de` in the unit forms, as it does for any number from 20.
+
+```ruby
+I18n.with_locale(:fr) { 2_000_000.to_words(unit: :euro) }
+# => "deux millions d'euros"
+```
+
 After a decimal, the unit takes its `other` form, which is the genitive singular in Russian and Czech; in French and Portuguese, amounts below 2 take the singular, and in Romanian the unit takes its `few` form. A float with no fractional part reads as a whole number.
 
 ```ruby

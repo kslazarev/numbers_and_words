@@ -33,7 +33,13 @@ module NumbersAndWords
       entry = lookup(unit, key)
       return join(Wrappers::Float.new(number).to_words(options), decimal_form(unit, key, entry, number)) if number.is_a?(::Float)
 
-      join(Wrappers.for(number).to_words(with_gender(options, entry)), form(unit, key, count(number, options)))
+      join(Wrappers.for(number).to_words(with_gender(options, entry)), whole_form(unit, key, entry, number, options))
+    end
+
+    # The unit form after a whole number, after a preposition where the number ends in a scale noun (de reais).
+    def whole_form(unit, key, entry, number, options)
+      form = form(unit, key, count(number, options))
+      options[:ordinal] ? form : ScalePreposition.apply(form, number, entry)
     end
 
     # Unit translations have one form per plural category, all in the nominative.
@@ -144,3 +150,5 @@ module NumbersAndWords
     end
   end
 end
+
+require 'numbers_and_words/unit/scale_preposition'

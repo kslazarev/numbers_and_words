@@ -51,6 +51,7 @@
   * Read English numbers of five or more digits normally with `pronounced: true` instead of dropping their leading digits. \[[#273](https://github.com/kslazarev/numbers_and_words/pull/273)\] \([@dblock](https://github.com/dblock)\)
   * Use the usual forms reviewed in #255: Czech `sto`, `tisíc` and ordinal `tisící`, Danish `en` and `tusind`, Hungarian `száz`, `ezer` and `kétezer`, Italian `ventun milioni`, Kazakh `жүз` and `мың`, Armenian `հազար`, and Spanish feminine `una`. \[[#289](https://github.com/kslazarev/numbers_and_words/pull/289)\] \([@dblock](https://github.com/dblock)\)
   * Use European Portuguese forms and the long scale in `pt` (`dezasseis`, `mil milhões`, `um bilião`), say `mil` instead of `um mil`, and join scale words with `e` (`um milhão e cem`); see UPGRADING.md. \[[#309](https://github.com/kslazarev/numbers_and_words/pull/309)\] \([@lomefin](https://github.com/lomefin), [@dblock](https://github.com/dblock)\)
+  * Put `de` (`di` in Italian, `d'` before a French vowel) between a unit and a number ending in a scale word of a million or more in Spanish, French, Italian and Portuguese (`um milhão de reais`, `un million d'euros`). \[[#310](https://github.com/kslazarev/numbers_and_words/pull/310)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

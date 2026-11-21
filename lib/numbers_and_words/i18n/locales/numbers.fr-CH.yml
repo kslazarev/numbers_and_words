@@ -95,6 +95,8 @@ fr-CH:
       other: septilliardièmes
     micro_separator: virgule
     subunit_separator: et
+    unit_scale_preposition: de
+    unit_scale_preposition_elided: "d'"
     fraction_separator: et
     micro_prefix:
       tens: dix
