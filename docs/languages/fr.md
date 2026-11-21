@@ -49,6 +49,15 @@ I18n.with_locale(:fr) { 3.1416.to_words }
 
 ## Options
 
+### Unit
+
+With application translations such as `units.euro.one: euro` and `units.euro.other: euros`, zero takes the singular unit, as do decimals below two. An explicit `zero` unit translation takes precedence.
+
+```ruby
+I18n.with_locale(:fr) { 0.to_words(unit: :euro) }
+# => "zéro euro"
+```
+
 ### Precision
 
 `precision` pads the fractional part with zeros to the given number of digits.

@@ -95,7 +95,7 @@ module NumbersAndWords
           def group_ordinal(group, power)
             return hundreds_ordinal(group) if power.zero?
 
-            multiplier = group == 1 ? '' : cardinal_words(group).delete(' ').sub(/uno\z/, 'un')
+            multiplier = group == 1 ? '' : cardinal_words(group, gender: :male, apocopated: false).gsub(' y ', 'i').delete(' ').tr('áéíóú', 'aeiou').sub(/uno\z/, 'un')
             "#{multiplier}#{ordinals[:mega][power]}"
           end
 

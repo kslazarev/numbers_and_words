@@ -94,13 +94,16 @@ module NumbersAndWords
             joined_scale_ordinal(words, scale)
           end
 
-          # A thousand of one in an ordinal is read without its one ("тысяча первый"), as the cardinal keeps it
-          # ("одна тысяча один"). Used by Russian and Ukrainian.
-          def without_one_before_thousand(text, number)
-            return text unless (number / 1000) % 1000 == 1
+          # A scale group of exactly one omits that one in ordinals ("миллион первый"), not cardinals.
+          def without_one_before_scales(text, number)
+            number.digits(1000).each_with_index do |group, capacity|
+              next unless capacity.positive? && group == 1
 
-            thousand = @translations.t(:thousands)[:one]
-            text.sub(/(?<!\S)#{@translations.t(:ones)[:female][1]} (?=#{thousand}(?: |\z))/, '')
+              scale = @translations.t(@translations.t(:mega)[capacity], count: 1)
+              one = @translations.t(:ones)[capacity == 1 ? :female : :male][1]
+              text = text.sub(/(?<!\S)#{Regexp.escape(one)} (?=#{Regexp.escape(scale)}(?: |\z))/, '')
+            end
+            text
           end
 
           # The words before a round scale word, with its multiplier joined to its ordinal.

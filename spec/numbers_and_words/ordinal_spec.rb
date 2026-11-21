@@ -14,8 +14,8 @@ GEORGIAN_ORDINALS = Class.new do
   end
 end
 # Ordinals of a scale word that don't start like its cardinal: Romanian builds "miilea" on the plural "mii", and
-# Hungarian "ezredik" drops the e of "ezer".
-ORDINAL_SCALE_STEM_EXCEPTIONS = [[:ro, 1000], [:hu, 1000]].freeze
+# Hungarian "ezredik" drops the e of "ezer" and "milliomodik" omits the cardinal's leading "egy".
+ORDINAL_SCALE_STEM_EXCEPTIONS = [[:ro, 1000], [:hu, 1000], [:hu, 1_000_000]].freeze
 SMALL_ORDINALS = [0, 1, 2].freeze
 ORDINAL_DECIMALS = [1.5, 21.25, -1.5, 2.0, [1.5, 2.25]].freeze
 ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ka: GEORGIAN_ORDINALS }.freeze

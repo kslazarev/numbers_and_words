@@ -26,11 +26,13 @@ module NumbersAndWords
           # Each group of six digits is followed by ล้าน once per million it is worth.
           def number_words(number)
             number.digits(MILLION).each_with_index.reverse_each.map do |group, millions|
-              group.zero? ? '' : "#{group_words(group)}#{@translations.t(:million) * millions}"
+              group.zero? ? '' : "#{group_words(group, final_group: millions.zero? && number > 1)}#{@translations.t(:million) * millions}"
             end.join
           end
 
-          def group_words(group)
+          def group_words(group, final_group: false)
+            return @translations.t(:final_one) if final_group && group == 1
+
             group.digits.each_with_index.reverse_each.map { |digit, power| digit_words(digit, power, group) }.join
           end
 

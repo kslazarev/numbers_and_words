@@ -11,6 +11,13 @@ module NumbersAndWords
             super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
+          def capacity_iteration
+            words = super
+            return [words.first] if @current_capacity == FiguresArray::THOUSAND_CAPACITY && @figures.number_in_capacity(@current_capacity) == 1
+
+            words
+          end
+
           private
 
           # The last word is ordinal and every word before it is genitive ("kahekümne esimene", "kahe miljoni

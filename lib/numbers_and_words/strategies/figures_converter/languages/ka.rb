@@ -20,7 +20,7 @@ module NumbersAndWords
           end
 
           def megs
-            prefix = (:partials if @figures.hundreds || @figures.tens || @figures.ones)
+            prefix = (:partials if @figures.number_under_capacity(@current_capacity).positive?)
 
             super(prefix:)
           end

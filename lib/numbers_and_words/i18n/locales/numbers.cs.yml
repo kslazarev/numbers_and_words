@@ -65,6 +65,7 @@ cs:
         female: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
         neuter: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
     integral:
+      zero: celá
       one: celá
       few: celé
       many: celých
@@ -91,9 +92,9 @@ cs:
       few: miliardtiny
       many: miliardtin
     trillionths:
-      one: bilióntina
-      few: bilióntiny
-      many: bilióntin
+      one: biliontina
+      few: biliontiny
+      many: biliontin
     quadrillionths:
       one: biliardtina
       few: biliardtiny

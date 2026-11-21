@@ -1,6 +1,6 @@
 # Georgian (`ka`)
 
-ქართული. Scale words are ათასი, მილიონი, მილიარდი and ტრილიონი. Numbers up to 10<sup>15</sup> - 1 are supported; larger numbers raise `RangeError`.
+ქართული. Scale words are ათასი, მილიონი, მილიარდი and ტრილიონი. A scale word drops its final ი when any lower group follows, including another scale group ("ერთი მილიონ ათასი"). Numbers up to 10<sup>15</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -20,6 +20,9 @@ I18n.with_locale(:ka) { 4030.to_words }
 I18n.with_locale(:ka) { 1_000_100.to_words }
 # => "ერთი მილიონ ასი"
 
+I18n.with_locale(:ka) { 1_001_000.to_words }
+# => "ერთი მილიონ ათასი"
+
 I18n.with_locale(:ka) { 2_000_000_000.to_words }
 # => "ორი მილიარდი"
 
@@ -32,17 +35,17 @@ I18n.with_locale(:ka) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :ka").
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :ka"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
 
 ### Ordinal
 
@@ -54,6 +57,9 @@ I18n.with_locale(:ka) { 1.to_words(ordinal: true) }
 
 I18n.with_locale(:ka) { 21.to_words(ordinal: true) }
 # => "ოცდამეერთე"
+
+I18n.with_locale(:ka) { 101.to_words(ordinal: true) }
+# => "ას მეერთე"
 
 I18n.with_locale(:ka) { 1_000.to_words(ordinal: true) }
 # => "მეათასე"

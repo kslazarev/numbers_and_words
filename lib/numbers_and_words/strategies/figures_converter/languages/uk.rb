@@ -20,7 +20,7 @@ module NumbersAndWords
           # Only the last word is ordinal ("двадцять перший"), and a round thousand or million joins its multiplier to the
           # scale word ("двохтисячний"). gender: :female and :neuter change the ending.
           def ordinal_words(text, number)
-            joined_scale_ordinal_words(without_one_before_thousand(text, number))
+            joined_scale_ordinal_words(without_one_before_scales(text, number))
           end
         end
       end
