@@ -58,3 +58,10 @@ I18n.with_locale(:tr) { 21.to_words(ordinal: true) }
 I18n.with_locale(:tr) { 2_000.to_words(ordinal: true) }
 # => "iki bininci"
 ```
+
+## Sources
+
+- [TDK: Writing Numbers](https://tdk.gov.tr/icerik/yazim-kurallari/sayilarin-yazilisi/): Official Turkish numeral spelling rules.
+- [Omniglot: Turkish Numbers](https://www.omniglot.com/language/numbers/turkish.htm): Cardinal and ordinal forms.
+- [Vikisözlük: milyonuncu](https://tr.wiktionary.org/wiki/milyonuncu): The millionth ordinal.
+- [Unicode CLDR: Turkish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/tr.xml): The spell-out rules ICU uses to write numbers in words.

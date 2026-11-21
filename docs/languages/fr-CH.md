@@ -137,3 +137,12 @@ I18n.with_locale(:'fr-CH') { 321.to_words(spelling: :traditional) }
 I18n.with_locale(:'fr-CH') { 2_000_021.to_words(spelling: :traditional) }
 # => "deux millions vingt et un"
 ```
+
+## Sources
+
+- [Le Robert: huitante](https://dictionnaire.lerobert.com/definition/huitante): The regional word for eighty.
+- [Larousse: cent](https://www.larousse.fr/dictionnaires/francais/cent/14089): Hundred forms and agreement.
+- [Larousse: billion](https://www.larousse.fr/dictionnaires/francais/billion/9314): The French long-scale number name.
+- [OQLF: Writing Numerals](https://vitrinelinguistique.oqlf.gouv.qc.ca/23494/la-typographie/nombres/ecriture-des-determinants-numeraux): Shared French spelling conventions.
+- [Le Robert: Agreement After Zero](https://dictionnaire.lerobert.com/guide/accord-du-nom-apres-zero): Singular zéro euro and accepted plural contexts.
+- [Unicode CLDR: Swiss French Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/fr_CH.xml): The spell-out rules ICU uses to write numbers in words.

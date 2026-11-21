@@ -114,3 +114,9 @@ I18n.with_locale(:el) { 2_000.to_words(ordinal: true, gender: :female) }
 I18n.with_locale(:el) { 0.7.to_words(remove_zero: true) }
 # => "κόμμα επτά"
 ```
+
+## Sources
+
+- [Eirmos: Greek Numbers](https://moderngreek.eirmosonline.com/foundation-vocabulary-shorts/numbers/): Cardinal forms and grammatical agreement.
+- [Elon.io: Greek Ordinal Numbers](https://elon.io/grammar/greek/numbers/ordinal-numbers): Ordinal formation and gender.
+- [Unicode CLDR: Greek Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/el.xml): The spell-out rules ICU uses to write numbers in words.

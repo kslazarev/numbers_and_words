@@ -108,3 +108,8 @@ I18n.with_locale(:sk) { 2000.to_words(ordinal: true) }
 I18n.with_locale(:sk) { 0.7.to_words(remove_zero: true) }
 # => "sedem desatín"
 ```
+
+## Sources
+
+- [Short Dictionary of the Slovak Language: nula](https://slovnik.aktuality.sk/pravopis/kratky-slovnik/?q=nula): The decimal reading nula celých.
+- [Unicode CLDR: Slovak Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/sk.xml): The spell-out rules ICU uses to write numbers in words.

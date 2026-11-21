@@ -129,3 +129,9 @@ I18n.with_locale(:pt) { 21.to_words(gender: :female, ordinal: true) }
 I18n.with_locale(:pt) { 0.7.to_words(remove_zero: true) }
 # => "vírgula sete"
 ```
+
+## Sources
+
+- [Collins: Cardinal and Ordinal Numbers](https://www.collinsdictionary.com/pt/grammar/aprendendo-gramática-português/cardinal-and-ordinal-numbers): Portuguese numeral forms.
+- [Ciberdúvidas: Writing Large Ordinals](https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/a-forma-por-extenso-de-2000font-facemicrosoft-sans-seriffont-e-de-outros-ordinais/16428): Large ordinal readings and accepted variants.
+- [Unicode CLDR: Portuguese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/pt_PT.xml): The spell-out rules ICU uses to write numbers in words.

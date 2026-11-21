@@ -70,3 +70,10 @@ I18n.with_locale(:et) { 1_001.to_words(ordinal: true) }
 I18n.with_locale(:et) { 2_000.to_words(ordinal: true) }
 # => "kahe tuhandes"
 ```
+
+## Sources
+
+- [EKI Sõnaveeb: sada](https://sonaveeb.ee/search/unif/dlall/dsall/sada/1/est): Hundred and its accepted variants.
+- [EKI Sõnaveeb: tuhat](https://sonaveeb.ee/search/unif/dlall/dsall/tuhat/1/est): Thousand and its accepted variants.
+- [EKI: Numeral Spelling](https://teatmik.eki.ee/teatmik/arvsonade-kokku-ja-lahkukirjutamine/): Joining and separating numeral components.
+- [Unicode CLDR: Estonian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/et.xml): The spell-out rules ICU uses to write numbers in words.

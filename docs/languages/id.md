@@ -90,3 +90,10 @@ I18n.with_locale(:id) { 100.to_words(ordinal: true) }
 I18n.with_locale(:id) { 0.7.to_words(remove_zero: true) }
 # => "koma tujuh"
 ```
+
+## Sources
+
+- [EYD: Numerals and Numbers](https://ejaan.kemendikdasmen.go.id/eyd/penulisan-kata/angka-dan-bilangan/): Official Indonesian numeral spelling rules.
+- [KBBI: miliar](https://kbbi.kemendikdasmen.go.id/entri/miliar): The billion scale word.
+- [KBBI: triliun](https://kbbi.kemendikdasmen.go.id/entri/triliun): The trillion scale word.
+- [Unicode CLDR: Indonesian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/id.xml): The spell-out rules ICU uses to write numbers in words.

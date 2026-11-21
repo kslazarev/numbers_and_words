@@ -135,3 +135,10 @@ I18n.with_locale(:en) { 0.7.to_words(remove_zero: true) }
 I18n.with_locale(:en) { [0.1, 0.31, 0.12].to_words(remove_zero: true) }
 # => ["point one", "point three one", "point one two"]
 ```
+
+## Sources
+
+- [Cambridge Grammar: Number](https://dictionary.cambridge.org/grammar/british-grammar/number): Cardinal and ordinal usage, including regional conventions.
+- [OpenStax: Decimals](https://openstax.org/books/prealgebra-2e/pages/5-1-decimals): Decimal place values and fraction-based readings.
+- [Merriam-Webster: quattuordecillion](https://www.merriam-webster.com/dictionary/quattuordecillion): A large short-scale number name.
+- [Unicode CLDR: English Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/en.xml): The spell-out rules ICU uses to write numbers in words.

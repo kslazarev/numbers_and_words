@@ -61,3 +61,10 @@ I18n.with_locale(:lv) { 2_000.to_words(ordinal: true) }
 I18n.with_locale(:lv) { 101.to_words(ordinal: true) }
 # => "simt pirmais"
 ```
+
+## Sources
+
+- [Latvian National Encyclopedia: Numerals](https://enciklopedija.lv/skirklis/107482-skait%C4%BCa-v%C4%81rds): Cardinal and ordinal grammar.
+- [Tēzaurs: triljons](https://tezaurs.lv/triljons): The large-scale number name.
+- [Uzdevumi.lv: Numeral Spelling](https://www.uzdevumi.lv/p/latviesu-valoda-pec-skola2030-paraugprogrammas/6-klase/kadas-ir-teksta-pazimes-ka-pareizi-pierakstit-pamata-un-kartas-skaitla-va_-95709/skaitla-vardi-to-saskanojums-ar-lietvardu-un-pareizrakstiba-60391/re-7ca2f1c0-8b39-4dec-be38-8a0a6d99616b): Agreement and spelling examples.
+- [Unicode CLDR: Latvian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/lv.xml): The spell-out rules ICU uses to write numbers in words.

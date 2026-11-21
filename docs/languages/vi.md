@@ -91,3 +91,10 @@ I18n.with_locale(:vi) { 21.to_words(ordinal: true) }
 I18n.with_locale(:vi) { 0.7.to_words(remove_zero: true) }
 # => "phẩy bảy"
 ```
+
+## Sources
+
+- [Mathnasium: Decimal Numbers](https://mathnasium.edu.vn/uu-dai/so-thap-phan-lop-5-cach-doc-viet-so-sanh-va-bai-tap/): Numeric fractional readings and leading zeros.
+- [Navi: Decimal Numbers](https://navi.edu.vn/goc-kham-pha/toan/don-vi-kien-thuc/60057170384781568/so-thap-phan): Numeric and digit-by-digit reading conventions.
+- [VietJack: Decimal Place Values](https://vietjack.me/ly-thuyet-hang-cua-so-thap-phan-doc-viet-so-thap-phan-moi-2024-bai-tap-229422.html): Place-value-based decimal readings.
+- [Unicode CLDR: Vietnamese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/vi.xml): The spell-out rules ICU uses to write numbers in words.

@@ -97,3 +97,9 @@ I18n.with_locale(:ar) { 11.to_words(ordinal: true) }
 I18n.with_locale(:ar) { 21.to_words(ordinal: true) }
 # => "الحادي والعشرون"
 ```
+
+## Sources
+
+- [Numbers in Arabic](https://numbersinarabic.com/big-numbers/): Hundreds and larger cardinal numbers.
+- [Kuwaiti Dinar](https://en.wikipedia.org/wiki/Kuwaiti_dinar): The 1,000-fils subdivision used in the currency example.
+- [Unicode CLDR: Arabic Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ar.xml): The spell-out rules ICU uses to write numbers in words.

@@ -95,3 +95,9 @@ I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) }
 I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) }
 # => "jedna dziesiąta"
 ```
+
+## Sources
+
+- [PWN: Compound Ordinals](https://sjp.pwn.pl/poradnia/haslo/sto-dwadziescia-tysiecy-dwutysieczny;16446.html): Ordinal structure and round thousands.
+- [PWN: Numerals in Mathematical Expressions](https://sjp.pwn.pl/poradnia/haslo/liczebnik-w-wyrazeniach-matematycznych;18755.html): Fraction readings and agreement.
+- [Unicode CLDR: Polish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/pl.xml): The spell-out rules ICU uses to write numbers in words.

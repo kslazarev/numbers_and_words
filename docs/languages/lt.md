@@ -58,3 +58,9 @@ I18n.with_locale(:lt) { 21.to_words(ordinal: true) }
 I18n.with_locale(:lt) { 2_000.to_words(ordinal: true) }
 # => "dutūkstantasis"
 ```
+
+## Sources
+
+- [Universal Lithuanian Encyclopedia: trilijonas](https://www.vle.lt/straipsnis/trilijonas/): The 10¹² scale word.
+- [EdTalk: Numerals](https://edtalk.lt/blog/skaitvardis): Numeral grammar and compound ordinals.
+- [Unicode CLDR: Lithuanian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/lt.xml): The spell-out rules ICU uses to write numbers in words.

@@ -128,3 +128,8 @@ I18n.with_locale(:he) { 21.to_words(unit: :shekel) }
 I18n.with_locale(:he) { 12.02.to_words(unit: :shekel, subunit: :agora) }
 # => "שנים עשר שקלים ושתי אגורות"
 ```
+
+## Sources
+
+- [Academy of the Hebrew Language: Use of Numerals](https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-3-%D7%94%D7%A9%D7%99%D7%9E%D7%95%D7%A9-%D7%91%D7%A9%D7%9D-%D7%94%D7%9E%D7%A1%D7%A4%D7%A8/): Gender, construct forms and definiteness in numeral phrases.
+- [Unicode CLDR: Hebrew Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/he.xml): The spell-out rules ICU uses to write numbers in words.

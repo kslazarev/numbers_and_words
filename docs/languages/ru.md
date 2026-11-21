@@ -160,3 +160,11 @@ I18n.with_locale(:ru) { 22.to_words(case: :accusative, animate: true) }
 I18n.with_locale(:ru) { 0.7.to_words(remove_zero: true) }
 # => "семь десятых"
 ```
+
+## Sources
+
+- [Gramota: Numerals](https://gramota.ru/biblioteka/spravochniki/imya-chislitelnoe): Cardinal and ordinal grammar and declension.
+- [Rosenthal: Compounds Without a Connecting Vowel](https://rus-yaz.niv.ru/doc/rules-rosental/articles/042-slozhnye-slova-bez-soedinitelnoj.htm): Combining stems, including девяносто.
+- [Wiktionary: девяностотысячный](https://ru.wiktionary.org/wiki/девяностотысячный): The ninety-thousandth ordinal.
+- [NumeralOnline: 1,000,001](https://numeralonline.ru/1000001): A compound ordinal variant retaining один before миллион.
+- [Unicode CLDR: Russian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ru.xml): The spell-out rules ICU uses to write numbers in words.

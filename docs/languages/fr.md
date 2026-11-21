@@ -141,3 +141,10 @@ I18n.with_locale(:fr) { 321.to_words(spelling: :traditional) }
 I18n.with_locale(:fr) { 2_000_021.to_words(spelling: :traditional) }
 # => "deux millions vingt et un"
 ```
+
+## Sources
+
+- [OQLF: Plurals of vingt, cent and mille](https://vitrinelinguistique.oqlf.gouv.qc.ca/21532/la-grammaire/les-determinants/determinants-numeraux/pluriel-de-vingt-de-cent-et-de-mille): Numeral agreement.
+- [OQLF: Writing Numerals](https://vitrinelinguistique.oqlf.gouv.qc.ca/23494/la-typographie/nombres/ecriture-des-determinants-numeraux): Numeral spelling conventions.
+- [Le Robert: Agreement After Zero](https://dictionnaire.lerobert.com/guide/accord-du-nom-apres-zero): Singular zéro euro and the contexts permitting a plural.
+- [Unicode CLDR: Plural Rules](https://unicode.org/cldr/charts/47/supplemental/language_plural_rules.html): French singular and plural categories for whole numbers and decimals.

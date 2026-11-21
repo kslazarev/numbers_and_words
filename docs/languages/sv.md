@@ -61,3 +61,9 @@ I18n.with_locale(:sv) { 2_000.to_words(ordinal: true) }
 I18n.with_locale(:sv) { 2_000_000.to_words(ordinal: true) }
 # => "två miljonte"
 ```
+
+## Sources
+
+- [Svenska Akademiens Grammatik, Volume 2](https://svenska.se/SAG_Volym_2.pdf): Cardinal and ordinal grammar, including miljon and miljonte.
+- [SVT: två miljonte](https://www.svt.se/sport/fotboll/allsvenskan-slog-rekord-tva-miljoner): An attested separated million ordinal.
+- [Unicode CLDR: Swedish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/sv.xml): The spell-out rules ICU uses to write numbers in words.

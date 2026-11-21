@@ -111,3 +111,9 @@ I18n.with_locale(:hi) { 2.to_words(ordinal: true, gender: :male) }
 I18n.with_locale(:hi) { 0.7.to_words(remove_zero: true) }
 # => "दशमलव सात"
 ```
+
+## Sources
+
+- [Wiktionary: बानबे](https://hi.wiktionary.org/wiki/बानबे): A dictionary spelling of ninety-two.
+- [Hindwi Dictionary: छिहत्तर](https://www.hindwidictionary.com/meaning-of-chhihattar): A dictionary spelling of seventy-six.
+- [Unicode CLDR: Hindi Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/hi.xml): The spell-out rules ICU uses to write numbers in words.

@@ -163,3 +163,11 @@ I18n.with_locale(:uk) { 22.to_words(case: :accusative, animate: true) }
 I18n.with_locale(:uk) { 0.7.to_words(remove_zero: true) }
 # => "сім десятих"
 ```
+
+## Sources
+
+- [2019 Ukrainian Orthography, §36](https://slovnyk.ua/pravopys.php?prav_par=36): Numeral combining stems, including дев’яносто.
+- [2019 Ukrainian Orthography, §38](https://slovnyk.ua/pravopys.php?prav_par=38&prav_swrd=1733): Joined and separate compound ordinal components.
+- [2019 Ukrainian Orthography, §106](https://slovnyk.ua/pravopys.php?prav_par=106): Declension of compound ordinals.
+- [Ukrainian Numeral Grammar](https://hramatyka.tpk-vnau.org/public_html/page44.html): Ordinal-compound stem rules.
+- [Unicode CLDR: Ukrainian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/uk.xml): The spell-out rules ICU uses to write numbers in words.

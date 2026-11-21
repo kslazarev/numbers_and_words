@@ -112,3 +112,10 @@ I18n.with_locale(:'pt-BR') { 1_000_001.to_words(ordinal: true) }
 I18n.with_locale(:'pt-BR') { 0.7.to_words(remove_zero: true) }
 # => "vírgula sete"
 ```
+
+## Sources
+
+- [Clube do Português: Commas in Written-Out Numbers](https://www.clubedoportugues.com.br/virgula-com-numeros-por-extenso/): The differing conventions for separating number classes.
+- [Estadão Style Manual: Written-Out Numbers](https://www.estadao.com.br/manualredacao/esclareca/numerosporextenso): Class separators and joining with e.
+- [Brasil Escola: Written-Out Numbers](https://brasilescola.uol.com.br/gramatica/numeros-por-extenso.htm): Cardinal spelling and conjunctions.
+- [Unicode CLDR: Brazilian Portuguese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/pt.xml): The spell-out rules ICU uses to write numbers in words.

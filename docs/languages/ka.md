@@ -67,3 +67,9 @@ I18n.with_locale(:ka) { 1_000.to_words(ordinal: true) }
 I18n.with_locale(:ka) { 2_021.to_words(ordinal: true) }
 # => "ორი ათას ოცდამეერთე"
 ```
+
+## Sources
+
+- [Georgian Numeral Grammar](https://ka.wikipedia.org/wiki/რიცხვითი_სახელი): Cardinal scale endings and compound ordinal formation.
+- [Wiktionary: ოცდამეერთე](https://en.wiktionary.org/wiki/ოცდამეერთე): The ერთ stem in compound ordinals.
+- [Unicode CLDR: Georgian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ka.xml): The spell-out rules ICU uses to write numbers in words.

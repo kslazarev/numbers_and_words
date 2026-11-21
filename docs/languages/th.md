@@ -88,3 +88,10 @@ I18n.with_locale(:th) { 21.to_words(ordinal: true) }
 I18n.with_locale(:th) { 0.7.to_words(remove_zero: true) }
 # => "จุดเจ็ด"
 ```
+
+## Sources
+
+- [Royal Society: Final One](http://legacy.orst.go.th/?knowledges=%E0%B8%AB%E0%B8%99%E0%B8%B6%E0%B9%88%E0%B8%87-%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD-%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%94-%E0%B9%95-%E0%B8%81%E0%B8%A3%E0%B8%81%E0%B8%8E%E0%B8%B2%E0%B8%84%E0%B8%A1): Use of เอ็ด at the end of numbers with at least two digits.
+- [Baht Text Examples](https://koishiai.com/en/tools/baht-text): Readings across million boundaries.
+- [Microsoft: BAHTTEXT Function](https://support.microsoft.com/en-us/office/bahttext-function-5ba4d0b4-abd3-4325-8d22-7a92d59aab9c): Excel's Thai amounts in words, which read a final one after a higher digit as เอ็ด.
+- [Unicode CLDR: Thai Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/th.xml): The spell-out rules ICU uses to write numbers in words.
