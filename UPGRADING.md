@@ -112,3 +112,17 @@ I18n.with_locale(:cs) { 1984.to_words(ordinal: true, gender: :male) }
 # 1.0.x => "první tisíc devítistý osmdesátý čtvrtý"
 # 2.0.0 => "tisící devítistý osmdesátý čtvrtý"
 ```
+
+### Unsupported Languages Raise `NumbersAndWords::UnsupportedLanguageError`
+
+Converting in a locale without bundled rules, or one that `NumbersAndWords.config.locales` disables, raises `NumbersAndWords::UnsupportedLanguageError`, with the same messages as before (`Language not supported`, `Language not configured`). In 1.0.x these were plain `RuntimeError`s. The new class is a `StandardError`, not a `RuntimeError`, so replace `rescue RuntimeError` with `rescue NumbersAndWords::UnsupportedLanguageError`. A bare `rescue` or `rescue StandardError` still catches it.
+
+```ruby
+begin
+  I18n.with_locale(:ko) { 42.to_words }
+rescue NumbersAndWords::UnsupportedLanguageError => e
+  e.message # => "Language not supported"
+end
+```
+
+See [#293](https://github.com/kslazarev/numbers_and_words/pull/293) for details.
