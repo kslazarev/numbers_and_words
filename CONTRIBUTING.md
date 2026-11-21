@@ -128,6 +128,19 @@ Go back to your pull request after a few minutes and see whether it passed muste
 
 It's likely that your change will not be merged and that the nitpicky maintainers will ask you to do more, or fix seemingly benign problems. Hang on there!
 
+## Updating the Logo
+
+The logo, [assets/logo.svg](assets/logo.svg), shows `42.to_words` returning `"forty-two"`: a red 42 tile speaks through a speech bubble. It was designed with Claude, an AI assistant, for this project. [script/logo.rb](script/logo.rb) is its editable source: [script/logo/layout.rb](script/logo/layout.rb) lays out the shapes, and the script converts the lettering, set in [IBM Plex Mono](https://github.com/IBM/plex) Medium and [Space Grotesk](https://github.com/floriankarsten/space-grotesk) Bold, to outlines so the SVG renders the same everywhere. It reads the fonts with the Ruby standard library only. Both fonts are licensed under the SIL Open Font License; the fonts themselves are not committed. To regenerate the logo, download the fonts and run the script.
+
+```sh
+fonts=$(mktemp -d)
+curl -sSfL -o "$fonts"/IBMPlexMono-Medium.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/IBMPlexMono-Medium.ttf
+curl -sSfL -o "$fonts"/SpaceGrotesk-Bold.ttf https://raw.githubusercontent.com/floriankarsten/space-grotesk/master/fonts/ttf/static/SpaceGrotesk-Bold.ttf
+ruby script/logo.rb "$fonts" assets/logo.svg
+```
+
+Check the result on light and dark backgrounds at full size and in the README, where it is displayed 160 pixels wide.
+
 ## Language Documentation
 
 Each supported language has a page in [docs/languages](docs/languages) with examples and the options it supports, linked from the table in the [README](README.md). When you change a language's output or add an option, update its page; `spec/numbers_and_words/documentation_spec.rb` checks every example in the README and the language pages and fails when one no longer matches. Examples are parsed, never evaluated: write each as `I18n.with_locale(:en) { 21.to_words(ordinal: true) }` on one line, with a number or an array of numbers and options whose values are `true`, `false`, integers or symbols, followed by a `# => value` line with the inspected result. Any other `I18n.with_locale` line fails the spec. Every option a language accepts must appear in at least one example on its page, and every global option in the README (`spec/numbers_and_words/option_documentation_spec.rb`). To add a language, add a page and a row to the README table.
