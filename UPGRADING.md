@@ -2,6 +2,24 @@
 
 ## Upgrading to 2.0.0
 
+### Unsupported Options Raise an Error
+
+`to_words` used to ignore options a language does not support, and invalid values could return wrong or garbage output. Each language now accepts only the global options `precision` and `micro_separator`, plus the options listed on its [language page](docs/languages). Anything else raises `NumbersAndWords::UnsupportedOptionError`, a subclass of `ArgumentError`, naming the supported alternatives.
+
+```ruby
+I18n.with_locale(:fr) { 21.to_words(ordinal: true) }
+# 1.0.x => "vingt et un"
+# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision
+
+I18n.with_locale(:es) { 1.to_words(gender: :neuter) }
+# 1.0.x => "r"
+# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported value :neuter for option :gender in locale :es; supported: :male, :female
+```
+
+Remove options that a language does not support, or pass options only for the locales that accept them. Flags such as `ordinal` accept only `true` or `false`, `precision` a non-negative integer, and `micro_separator` a string. Options are listed per language in [docs/languages](docs/languages).
+
+See [#269](https://github.com/kslazarev/numbers_and_words/pull/269) and [#266](https://github.com/kslazarev/numbers_and_words/issues/266) for details.
+
 ### British English Says "and" After Hundreds
 
 British English (`en-GB`) now adds "and" after hundreds by default, as British usage requires. Previously `en-GB` produced the American form unless `hundreds_with_union: true` was passed. American English (`en`) is unchanged.
