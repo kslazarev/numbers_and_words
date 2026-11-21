@@ -13,7 +13,7 @@ module NumbersAndWords
 
           def words
             number = @figures.to_a.reverse.join.to_i
-            raise RangeError, "Finnish numbers must be below 10**#{Math.log10(MAX).to_i}" if number >= MAX
+            raise Translations::Families::Base.range_error(Math.log10(MAX).to_i) if number >= MAX
             return zero_words if number.zero?
 
             number_words(number)

@@ -3,11 +3,11 @@
 require 'spec_helper'
 
 describe 'Indonesian, Malay, Romanian and Greek limits' do # rubocop:disable RSpec/DescribeClass -- covers four languages
-  { id: ['Indonesian', 15], ms: ['Malay', 15], ro: ['Romanian', 18], el: ['Greek', 15] }.each do |locale, (name, power)|
+  { id: 15, ms: 15, ro: 18, el: 15 }.each do |locale, power|
     it "raises for #{locale} numbers from 10**#{power}" do
       I18n.with_locale(locale) do
         expect(((10**power) - 1).to_words).not_to be_empty
-        expect { (10**power).to_words }.to raise_error(RangeError, "#{name} numbers must be below 10**#{power}")
+        expect { (10**power).to_words }.to raise_error(RangeError, "numbers must be below 10**#{power} in #{locale.inspect}")
       end
     end
   end

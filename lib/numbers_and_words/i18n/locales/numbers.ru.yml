@@ -57,7 +57,7 @@ ru:
       one: целая
       few: целых
       many: целых
-    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths]
     tenths:
       one: десятая
       few: десятых
@@ -82,6 +82,18 @@ ru:
       one: триллионная
       few: триллионных
       many: триллионных
+    quadrillionths:
+      one: квадриллионная
+      few: квадриллионных
+      many: квадриллионных
+    quintillionths:
+      one: квинтиллионная
+      few: квинтиллионных
+      many: квинтиллионных
+    sextillionths:
+      one: секстиллионная
+      few: секстиллионных
+      many: секстиллионных
     micro_separator: 'и'
     micro_prefix:
       tens: десяти

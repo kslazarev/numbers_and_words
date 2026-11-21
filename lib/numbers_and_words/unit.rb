@@ -8,7 +8,6 @@ module NumbersAndWords
     SCOPE = 'units'
     # Locales whose numbers are written without spaces, so the unit follows without one.
     UNSPACED = %i[ja th zh].freeze
-    SUBUNIT_PLACES = 2
     # After a decimal a unit takes its other form (1.5 dollars, 1,5 рубля, 1,5 koruny), except that French
     # and Portuguese use the singular below 2 (1,5 euro).
     SINGULAR_BELOW_TWO = %i[fr fr-CH pt pt-BR].freeze
@@ -19,11 +18,11 @@ module NumbersAndWords
 
     # Converts a number, or any array element, with options that are already validated.
     def convert(number, options)
-      unit, subunit, options = extract(options)
+      unit, subunit, options = extract(cardinal_decimal(number, options))
       return Wrappers.for(number).to_words(options) if unit.nil?
 
       nominative!(unit, options)
-      subunit ? amount(number, unit, subunit, options) : phrase(number, unit, options)
+      subunit ? Amount.words(number, unit, subunit, options) : phrase(number, unit, options)
     end
 
     # A number followed by its unit: "twenty-one dollars", "one point five dollars".
@@ -33,7 +32,24 @@ module NumbersAndWords
       entry = lookup(unit, key)
       return join(Wrappers::Float.new(number).to_words(options), decimal_form(unit, key, entry, number)) if number.is_a?(::Float)
 
-      join(Wrappers.for(number).to_words(Apocope.apply(with_gender(options, entry))), whole_form(unit, key, entry, number, options))
+      Wrappers::Sign.words(number, options) { |count| whole_phrase(count, unit, entry, options) }
+    end
+
+    # A whole number, at least zero, and its unit, in the form and order the language puts them in.
+    def whole_phrase(count, unit, entry, options)
+      gender = entry[:gender] if entry.is_a?(Hash)
+      Order.check_gender!(unit, gender)
+      number_options = Apocope.apply(with_gender(options, entry))
+      words = Wrappers::Integer.new(count).to_words(number_options)
+      words = BeforeNoun.apply(words, number_options[:gender] || gender) unless options[:ordinal]
+      Order.phrase(count, words, whole_form(unit, "#{SCOPE}.#{unit}", entry, count, options), options)
+    end
+
+    # Decimals keep the cardinal form: ordinal: true applies to whole numbers only.
+    def cardinal_decimal(number, options)
+      return options unless number.is_a?(::Float)
+
+      options.reject { |name, _value| name.respond_to?(:to_sym) && name.to_sym == :ordinal }
     end
 
     # The unit form after a whole number, after a preposition where the number ends in a scale noun (de reais).
@@ -48,34 +64,6 @@ module NumbersAndWords
       return if grammatical_case.nil? || grammatical_case.to_sym == :nominative
 
       raise UnsupportedOptionError, "unit #{unit.inspect} cannot be used with case: #{grammatical_case.inspect} yet; unit forms are nominative"
-    end
-
-    # An amount in a unit and a subunit: "twenty-one dollars and fifty cents". precision: sets how many
-    # decimal places make one subunit (2 by default), and the amount is rounded half to even to them.
-    # A zero subunit is left out unless zero_subunit: true, and a zero unit with remove_zero: true. A negative
-    # amount starts with the minus word, unless it rounds to zero.
-    def amount(number, unit, subunit, options)
-      raise UnsupportedOptionError, 'subunit cannot be used with ordinal: true' if options[:ordinal]
-
-      whole, part = split(number, options.fetch(:precision, SUBUNIT_PLACES))
-      conversion = options.except(:precision, :remove_zero, :zero_subunit)
-      words = amount_parts(whole, part, unit, subunit, options).map { |count, key| phrase(count, key, conversion) }.join(subunit_separator)
-      number.negative? && (whole + part).positive? ? Wrappers::Sign.prefix(words) : words
-    end
-
-    def amount_parts(whole, part, unit, subunit, options)
-      parts = []
-      parts << [whole, unit] unless whole.zero? && part.positive? && options[:remove_zero]
-      parts << [part, subunit] if part.positive? || options[:zero_subunit]
-      parts
-    end
-
-    def split(number, places)
-      raise UnsupportedOptionError, 'subunit needs precision: of at least 1' if places.zero?
-
-      value = Rational(number.to_s).abs.round(places, half: :even)
-      whole = value.to_i
-      [whole, ((value - whole) * (10**places)).to_i]
     end
 
     # The unit and subunit keys, or nil, and the options without them.
@@ -144,14 +132,11 @@ module NumbersAndWords
     def separator
       UNSPACED.include?(I18n.local_language) ? '' : ' '
     end
-
-    # The word between a unit and its subunit, from the locale ("and" in English), or a plain separator.
-    def subunit_separator
-      word = ::I18n.t('numbers.subunit_separator', locale: I18n.local_language, default: '')
-      word.empty? ? separator : " #{word} "
-    end
   end
 end
 
+require 'numbers_and_words/unit/amount'
 require 'numbers_and_words/unit/scale_preposition'
 require 'numbers_and_words/unit/apocope'
+require 'numbers_and_words/unit/before_noun'
+require 'numbers_and_words/unit/order'

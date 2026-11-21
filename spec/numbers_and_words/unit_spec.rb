@@ -173,6 +173,103 @@ describe NumbersAndWords::Unit do
     end
   end
 
+  describe 'the form of a number before its unit' do
+    before do
+      I18n.backend.store_translations(:de, units: { euro: { one: 'Euro', other: 'Euro' }, cent: { one: 'Cent', other: 'Cent' },
+                                                    mark: { one: 'Mark', other: 'Mark', gender: :female } })
+      I18n.backend.store_translations(:sv, units: { krona: { one: 'krona', other: 'kronor' }, ore: { one: 'öre', other: 'öre', gender: :neuter } })
+      I18n.backend.store_translations(:it, units: { euro: 'euro', centesimo: { one: 'centesimo', other: 'centesimi' },
+                                                    lira: { one: 'lira', other: 'lire', gender: :female } })
+      I18n.backend.store_translations(:ro, units: { leu: { one: 'leu', few: 'lei', other: 'de lei' }, ban: { one: 'ban', few: 'bani', other: 'de bani' },
+                                                    lira: { one: 'liră', few: 'lire', other: 'de lire', gender: :female } })
+      I18n.backend.store_translations(:pt, units: { libra: { one: 'libra', other: 'libras', gender: :female } })
+      I18n.backend.store_translations(:hu, units: { forint: 'forint', filler: 'fillér' })
+    end
+
+    it 'reads German eins as ein, or eine before a feminine unit' do
+      expect([1, 101, 2001, 21, -1].map { |number| words(:de, number, unit: :euro) })
+        .to eq(['ein Euro', 'einhundertein Euro', 'zweitausendein Euro', 'einundzwanzig Euro', 'minus ein Euro'])
+      expect([words(:de, 1, unit: :mark), words(:de, 1.01, unit: :euro, subunit: :cent), words(:de, 1, unit: :euro, ordinal: true), words(:de, 1.5, unit: :euro)])
+        .to eq(['eine Mark', 'ein Euro und ein Cent', 'erste Euro', 'eins Komma fünf Euro'])
+    end
+
+    it 'reads Swedish ett as en before a common unit, and joins a subunit with och' do
+      expect([1, 21, 101].map { |number| words(:sv, number, unit: :krona) }).to eq(['en krona', 'tjugoen kronor', 'etthundraen kronor'])
+      expect([words(:sv, 1, unit: :ore), words(:sv, 1.01, unit: :krona, subunit: :ore), words(:sv, 2, unit: :krona)])
+        .to eq(['ett öre', 'en krona och ett öre', 'två kronor'])
+    end
+
+    it 'reads Italian uno as un, or una before a feminine unit, and keeps compounds' do
+      expect([words(:it, 1, unit: :euro), words(:it, 1, unit: :centesimo), words(:it, 1, unit: :lira), words(:it, 21, unit: :euro), words(:it, 1.01, unit: :euro, subunit: :centesimo)])
+        .to eq(['un euro', 'un centesimo', 'una lira', 'ventuno euro', 'un euro e un centesimo'])
+    end
+
+    it 'reads Romanian unu as un, or o before a feminine unit, and keeps compounds' do
+      expect([words(:ro, 1, unit: :leu), words(:ro, 1, unit: :ban), words(:ro, 1, unit: :lira), words(:ro, 101, unit: :leu), words(:ro, 21, unit: :lira)])
+        .to eq(['un leu', 'un ban', 'o liră', 'o sută unu lei', 'douăzeci și una de lire'])
+      expect(words(:ro, 1.01, unit: :leu, subunit: :ban)).to eq('un leu și un ban')
+    end
+
+    it 'agrees with a feminine unit in European Portuguese below a million' do
+      expect([1, 2, 200, 21, 2_000, 2_000_000, 1.5].map { |number| words(:pt, number, unit: :libra) })
+        .to eq(['uma libra', 'duas libras', 'duzentas libras', 'vinte e uma libras', 'duas mil libras', 'dois milhões de libras', 'um vírgula cinco libra'])
+      expect(words(:pt, 21, unit: :libra, ordinal: true)).to eq('vigésima primeira libra')
+    end
+
+    it 'reads Hungarian kettő as két before a unit' do
+      expect([2, 22, 2_000_002, 12, 3].map { |number| words(:hu, number, unit: :forint) })
+        .to eq(['két forint', 'huszonkét forint', 'kétmillió-két forint', 'tizenkét forint', 'három forint'])
+      expect(words(:hu, 2.02, unit: :forint, subunit: :filler)).to eq('két forint két fillér')
+    end
+
+    it 'joins a subunit with the word for and in Danish, Norwegian, Finnish, Estonian and Georgian' do
+      I18n.backend.store_translations(:da, units: { krone: { one: 'krone', other: 'kroner' }, ore: 'øre' })
+      I18n.backend.store_translations(:nb, units: { krone: { one: 'krone', other: 'kroner' }, ore: 'øre' })
+      I18n.backend.store_translations(:fi, units: { euro: { one: 'euro', other: 'euroa' }, sentti: { one: 'sentti', other: 'senttiä' } })
+      I18n.backend.store_translations(:et, units: { euro: 'eurot', sent: 'senti' })
+      I18n.backend.store_translations(:ka, units: { lari: 'ლარი', tetri: 'თეთრი' })
+      expect([words(:da, 2.5, unit: :krone, subunit: :ore), words(:nb, 2.5, unit: :krone, subunit: :ore), words(:fi, 2.5, unit: :euro, subunit: :sentti),
+              words(:et, 2.5, unit: :euro, subunit: :sent), words(:ka, 2.5, unit: :lari, subunit: :tetri)])
+        .to eq(['to kroner og halvtreds øre', 'to kroner og femti øre', 'kaksi euroa ja viisikymmentä senttiä', 'kaks eurot ja viiskümmend senti',
+                'ორი ლარი და ორმოცდაათი თეთრი'])
+    end
+  end
+
+  describe 'Hebrew and Arabic' do
+    before do
+      I18n.backend.store_translations(:he, units: { shekel: { one: 'שקל', other: 'שקלים', gender: :male }, agora: { one: 'אגורה', other: 'אגורות', gender: :female } })
+      I18n.backend.store_translations(:ar, units: { dinar: { zero: 'دينار', one: 'دينار', two: 'ديناران', few: 'دنانير', many: 'دينارًا', other: 'دينار' },
+                                                    fils: { one: 'فلس', two: 'فلسان', few: 'فلوس', many: 'فلسًا', other: 'فلس' },
+                                                    lira: { one: 'ليرة', two: 'ليرتان', few: 'ليرات', many: 'ليرة', other: 'ليرة', gender: :female } })
+    end
+
+    it 'puts Hebrew one after its unit and the construct two before it' do
+      expect([1, 2, 3, 11, 21, 1_000, -1].map { |number| words(:he, number, unit: :shekel) })
+        .to eq(['שקל אחד', 'שני שקלים', 'שלושה שקלים', 'אחד עשר שקלים', 'עשרים ואחד שקלים', 'אלף שקלים', 'מינוס שקל אחד'])
+      expect([words(:he, 1, unit: :agora), words(:he, 2, unit: :agora), words(:he, 12, unit: :agora)]).to eq(['אגורה אחת', 'שתי אגורות', 'שתים עשרה אגורות'])
+    end
+
+    it 'attaches the Hebrew and Arabic word for and to the subunit' do
+      expect([words(:he, 1.5, unit: :shekel, subunit: :agora), words(:he, 12.02, unit: :shekel, subunit: :agora), words(:ar, 1.5, unit: :dinar, subunit: :fils)])
+        .to eq(['שקל אחד וחמישים אגורות', 'שנים עשר שקלים ושתי אגורות', 'دينار واحد وخمسون فلسًا'])
+    end
+
+    it 'gives an Arabic unit the form and place its count needs' do
+      expect([0, 1, 2, 3, 10, 11, 99, 100, 103, 111, 200, 1_000, 2_000, 3_000, 11_000].map { |number| words(:ar, number, unit: :dinar) })
+        .to eq(['صفر دينار', 'دينار واحد', 'ديناران', 'ثلاثة دنانير', 'عشرة دنانير', 'أحد عشر دينارًا', 'تسعة وتسعون دينارًا', 'مائة دينار',
+                'مائة وثلاثة دنانير', 'مائة وأحد عشر دينارًا', 'مائتا دينار', 'ألف دينار', 'ألفا دينار', 'ثلاثة آلاف دينار', 'أحد عشر ألف دينار'])
+    end
+
+    it 'raises for what Hebrew and Arabic units do not support yet' do
+      expect { words(:ar, 101, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'a unit after 101 is not supported in :ar yet')
+      expect { words(:ar, 2_002, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'a unit after 2002 is not supported in :ar yet')
+      expect { words(:ar, 3, unit: :lira) }
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :lira has gender :female; numbers in :ar agree only with male units yet')
+      expect { words(:he, 1, unit: :shekel, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit cannot be used with ordinal: true in :he yet')
+      expect { words(:ar, 1, unit: :dinar, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit cannot be used with ordinal: true in :ar yet')
+    end
+  end
+
   describe 'after a scale word' do
     before do
       I18n.backend.store_translations(:'pt-BR', units: { real: { one: 'real', other: 'reais' }, centavo: { one: 'centavo', other: 'centavos' } })
@@ -264,8 +361,9 @@ describe NumbersAndWords::Unit do
     end
 
     it 'raises for a subunit with ordinal: true or precision: 0' do
-      expect { words(:en, 1.5, unit: :dollar, subunit: :cent, ordinal: true) }
+      expect { words(:en, 1, unit: :dollar, subunit: :cent, ordinal: true) }
         .to raise_error(NumbersAndWords::UnsupportedOptionError, 'subunit cannot be used with ordinal: true')
+      expect(words(:en, 1.5, unit: :dollar, subunit: :cent, ordinal: true)).to eq('one dollar and fifty cents')
       expect { words(:en, 1.5, unit: :dollar, subunit: :cent, precision: 0) }
         .to raise_error(NumbersAndWords::UnsupportedOptionError, 'subunit needs precision: of at least 1')
     end

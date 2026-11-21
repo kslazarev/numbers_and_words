@@ -50,3 +50,4 @@ et:
       'scale_plural': 'it'
       'scale': ['i', 'es']
       'leading_one': ['üks']
+    subunit_separator: ja

@@ -110,3 +110,21 @@ I18n.with_locale(:he) { 3000.to_words(ordinal: true) }
 I18n.with_locale(:he) { 0.7.to_words(remove_zero: true) }
 # => "נקודה שבע"
 ```
+
+## Units
+
+With the [`unit`](../../README.md#unit) option, one follows its unit (שקל אחד, אגורה אחת) and two takes its construct form before it (שני שקלים, שתי אגורות); other numbers come first (שלושה שקלים, עשרים ואחד שקלים). A unit's `gender` sets the gender of the number, and a subunit is joined with ו attached to it. `unit` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`, because the ordinal follows its noun with an article.
+
+```ruby
+I18n.with_locale(:he) { 1.to_words(unit: :shekel) }
+# => "שקל אחד"
+
+I18n.with_locale(:he) { 2.to_words(unit: :shekel) }
+# => "שני שקלים"
+
+I18n.with_locale(:he) { 21.to_words(unit: :shekel) }
+# => "עשרים ואחד שקלים"
+
+I18n.with_locale(:he) { 12.02.to_words(unit: :shekel, subunit: :agora) }
+# => "שנים עשר שקלים ושתי אגורות"
+```

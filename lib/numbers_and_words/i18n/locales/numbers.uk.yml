@@ -57,7 +57,7 @@ uk:
       one: ціла
       few: цілих
       many: цілих
-    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths]
     tenths:
       one: десята
       few: десятих
@@ -82,6 +82,18 @@ uk:
       one: трильйонна
       few: трильйонних
       many: трильйонних
+    quadrillionths:
+      one: квадрильйонна
+      few: квадрильйонних
+      many: квадрильйонних
+    quintillionths:
+      one: квінтильйонна
+      few: квінтильйонних
+      many: квінтильйонних
+    sextillionths:
+      one: секстильйонна
+      few: секстильйонних
+      many: секстильйонних
     micro_separator: 'і'
     micro_prefix:
       tens: десяти

@@ -175,6 +175,24 @@ To keep the old output, convert the absolute value, `number.abs.to_words`.
 
 Numbers beyond a language's largest scale word used to print a bare multiplier ("en " in Danish for 10<sup>21</sup>, "un" in Spanish for 10<sup>48</sup>) and now raise `RangeError`; each language page gives its limit. Decimals in a language without decimals used to raise `NameError` and now raise `NumbersAndWords::UnsupportedNumberError` ("decimals are not supported in :da").
 
+Russian, Ukrainian and Czech decimals with more fractional digits than their fraction words name (23) also raise `RangeError` ("decimals support up to 23 fractional digits in :ru"); with 16 to 23 digits, such as `0.1 + 0.2`, they used to end in a bare prefix ("ноль целых и тридцать квадриллионов четыре сто") and now end in their fraction word ("... четыре стоквадриллионных").
+
+### Decimals Keep the Cardinal Form With `ordinal: true`
+
+`ordinal: true` used to turn parts of a decimal into ordinals in some languages and now applies to whole numbers only; a float, including one such as `2.0`, keeps its cardinal reading in every language.
+
+```ruby
+I18n.with_locale(:en) { 1.5.to_words(ordinal: true) }
+# 1.0.x => "first and fifth tenths"
+# 2.0.0 => "one point five"
+
+I18n.with_locale(:cs) { 1.5.to_words(ordinal: true) }
+# 1.0.x => "první celých pátá desetin"
+# 2.0.0 => "jedna celá pět desetin"
+```
+
+To get an ordinal, convert an integer, `1.5.to_i.to_words(ordinal: true)`.
+
 ### Swedish, Ukrainian and Kazakh Use Standard Locale Codes
 
 Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. They now use the ISO 639-1 codes, regional variants such as `sv-SE` included, and the old codes raise `NumbersAndWords::UnsupportedLanguageError`.

@@ -27,24 +27,6 @@ da:
     trillion:
       one: trillion
       other: trillioner
-    micro: [_, tiendedele, hundrededele, tusindedele, milliontedele]
-    tenths:
-      one: tiendedel
-      other: tiendedele
-    hundredths:
-      one: hundrededel
-      other: hundrededele
-    thousandths:
-      one: tusindedel
-      other: tusindedele
-    millionths:
-      one: milliontedel
-      other: milliontedele
-    micro_separator: og
-    micro_prefix:
-      tens: ti
-      hundreds: hundrede
-      union: '-'
     union: og
     ordinals:
       'words':
@@ -84,3 +66,4 @@ da:
       'plural': 'er'
       'scale_suffix': 'te'
       'leading_one': ['et', 'en']
+    subunit_separator: og

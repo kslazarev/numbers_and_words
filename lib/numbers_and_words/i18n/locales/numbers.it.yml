@@ -120,3 +120,7 @@ it:
       'thousandth': 'millesimo'
       'keep_vowel': ['sei']
       'leading_one': ['un', 'uno']
+    # Before a unit, one is "un", or "una" before a feminine unit (un euro, una lira); compounds keep "-uno".
+    before_unit:
+      whole:
+        uno: { other: un, female: una }

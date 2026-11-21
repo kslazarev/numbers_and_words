@@ -7,18 +7,22 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
       def ones(number, options = {})
-        super unless options[:is_one_thousand]
+        return if options[:is_one_thousand]
+
+        options[:gender] == :female ? t('female.ones')[number] : super
       end
 
-      def tens_with_ones(numbers, _options = {})
-        super(numbers, separator: " #{union} ")
+      def tens_with_ones(numbers, options = {})
+        super(numbers, options.merge(separator: " #{union} "))
       end
 
       def hundreds(number, options = {})
         return t(:one_hundred) if options[:is_one_hundred]
-        return t(:hundreds)[number] if options[:is_hundred]
 
-        [t(:hundreds)[number], union].join(' ')
+        hundreds = t(options[:gender] == :female ? 'female.hundreds' : :hundreds)[number]
+        return hundreds if options[:is_hundred]
+
+        [hundreds, union].join(' ')
       end
     end
   end

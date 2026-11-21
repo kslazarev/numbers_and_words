@@ -17,3 +17,4 @@ fi:
       tens: kymmenes
       hundred: sadas
       mega: [_, tuhannes, miljoonas, miljardis, biljoonas]
+    subunit_separator: ja
