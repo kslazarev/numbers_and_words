@@ -43,3 +43,18 @@ Decimals are not supported yet.
 ### Micro Separator
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Ordinal
+
+`ordinal: true` adds -inci to the last word, following vowel harmony ("yirmi birinci", "dokuzuncu").
+
+```ruby
+I18n.with_locale(:tr) { 1.to_words(ordinal: true) }
+# => "birinci"
+
+I18n.with_locale(:tr) { 21.to_words(ordinal: true) }
+# => "yirmi birinci"
+
+I18n.with_locale(:tr) { 2_000.to_words(ordinal: true) }
+# => "iki bininci"
+```

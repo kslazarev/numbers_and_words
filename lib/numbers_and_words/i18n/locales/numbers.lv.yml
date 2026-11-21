@@ -38,3 +38,24 @@ lv:
     decillions:
       one: deciljons
       other: deciljoni
+    ordinals:
+      'words':
+        'nulle': 'nultais'
+        'viens': 'pirmais'
+        'divi': 'otrais'
+        'trīs': 'trešais'
+        'četri': 'ceturtais'
+        'pieci': 'piektais'
+        'seši': 'sestais'
+        'septiņi': 'septītais'
+        'astoņi': 'astotais'
+        'deviņi': 'devītais'
+        'simts': 'simtais'
+        'simti': 'simtais'
+        'tūkstotis': 'tūkstošais'
+        'tūkstoši': 'tūkstošais'
+      'suffixes':
+        'padsmit': 'padsmitais'
+        'desmit': 'desmitais'
+      'scale_suffix': 'ais'
+      'leading_one': ['viens']

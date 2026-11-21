@@ -174,10 +174,10 @@ The other options are validated for the fallback locale. `I18n.with_locale` itse
 
 Every language accepts `precision`, `micro_separator` and `fallback`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
 
-For example, Vietnamese has no ordinals, so `21.to_words(ordinal: true)` in the `vi` locale raises:
+For example, Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in the `vi` locale raises:
 
 ```
-NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :vi; supported: :micro_separator, :precision, :remove_zero
+NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero
 ```
 
 ## Configuration / Конфигурация

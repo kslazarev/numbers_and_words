@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Vi < Base
+          prepend Ordinals
+
           # remove_zero: true omits a zero integral part.
           def zero(*args)
             super unless @options.remove_zero.result
@@ -97,6 +99,14 @@ module NumbersAndWords
 
           def billion_unit
             translate :mega, 3
+          end
+
+          private
+
+          # Vietnamese ordinals put thứ before the cardinal, with nhất for 1 and tư for 4 ("thứ hai mươi mốt").
+          def ordinal_words(text, number)
+            word = { 1 => ordinals[:first], 4 => ordinals[:fourth] }.fetch(number, text)
+            "#{ordinals[:prefix]} #{word}"
           end
         end
       end

@@ -57,6 +57,21 @@ I18n.with_locale(:vi) { 21.77.to_words(micro_separator: "plus") }
 # => "hai mươi mốt plus bảy mươi bảy"
 ```
 
+### Ordinal
+
+`ordinal: true` puts thứ before the number, with nhất for 1 and tư for 4.
+
+```ruby
+I18n.with_locale(:vi) { 1.to_words(ordinal: true) }
+# => "thứ nhất"
+
+I18n.with_locale(:vi) { 4.to_words(ordinal: true) }
+# => "thứ tư"
+
+I18n.with_locale(:vi) { 21.to_words(ordinal: true) }
+# => "thứ hai mươi mốt"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

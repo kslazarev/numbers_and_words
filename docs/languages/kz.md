@@ -43,3 +43,18 @@ Decimals are not supported yet.
 ### Micro Separator
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Ordinal
+
+`ordinal: true` adds -ыншы or -інші to the last word, following vowel harmony ("жиырма бірінші"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+
+```ruby
+I18n.with_locale(:kz) { 1.to_words(ordinal: true) }
+# => "бірінші"
+
+I18n.with_locale(:kz) { 21.to_words(ordinal: true) }
+# => "жиырма бірінші"
+
+I18n.with_locale(:kz) { 2_000.to_words(ordinal: true) }
+# => "екі мыңыншы"
+```

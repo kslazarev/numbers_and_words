@@ -43,3 +43,18 @@ Decimals are not supported yet.
 ### Micro Separator
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Ordinal
+
+`ordinal: true` makes the end of the last word ordinal ("tjugoförsta").
+
+```ruby
+I18n.with_locale(:se) { 1.to_words(ordinal: true) }
+# => "första"
+
+I18n.with_locale(:se) { 21.to_words(ordinal: true) }
+# => "tjugoförsta"
+
+I18n.with_locale(:se) { 2_000.to_words(ordinal: true) }
+# => "tvåtusende"
+```

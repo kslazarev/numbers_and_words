@@ -77,6 +77,21 @@ I18n.with_locale(:pt) { 0.1.to_words(fraction: true) }
 # => "zero inteiros e um décimo"
 ```
 
+### Ordinal
+
+`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Zero keeps its cardinal form.
+
+```ruby
+I18n.with_locale(:pt) { 1.to_words(ordinal: true) }
+# => "primeiro"
+
+I18n.with_locale(:pt) { 21.to_words(ordinal: true) }
+# => "vigésimo primeiro"
+
+I18n.with_locale(:pt) { 2_000.to_words(ordinal: true) }
+# => "segundo milésimo"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

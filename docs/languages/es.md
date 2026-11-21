@@ -84,6 +84,24 @@ I18n.with_locale(:es) { 1.to_words(gender: :male) }
 # => "uno"
 ```
 
+### Ordinal
+
+`ordinal: true` makes every part of the number ordinal ("vigésimo primero") and joins a scale word to its multiplier ("dosmilésimo"). `gender: :female` gives the feminine form. Zero keeps its cardinal form.
+
+```ruby
+I18n.with_locale(:es) { 1.to_words(ordinal: true) }
+# => "primero"
+
+I18n.with_locale(:es) { 21.to_words(ordinal: true) }
+# => "vigésimo primero"
+
+I18n.with_locale(:es) { 2_000.to_words(ordinal: true) }
+# => "dosmilésimo"
+
+I18n.with_locale(:es) { 21.to_words(ordinal: true, gender: :female) }
+# => "vigésima primera"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

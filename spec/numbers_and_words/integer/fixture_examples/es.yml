@@ -118,3 +118,57 @@ to_words:
       :gender: female
       :apocopated: true
     901: novecientas una
+  ordinal:
+    options:
+      :ordinal: true
+    0: 'cero'
+    1: 'primero'
+    2: 'segundo'
+    3: 'tercero'
+    4: 'cuarto'
+    5: 'quinto'
+    7: 'séptimo'
+    8: 'octavo'
+    9: 'noveno'
+    10: 'décimo'
+    11: 'undécimo'
+    12: 'duodécimo'
+    13: 'decimotercero'
+    19: 'decimonoveno'
+    20: 'vigésimo'
+    21: 'vigésimo primero'
+    22: 'vigésimo segundo'
+    23: 'vigésimo tercero'
+    26: 'vigésimo sexto'
+    30: 'trigésimo'
+    40: 'cuadragésimo'
+    45: 'cuadragésimo quinto'
+    80: 'octogésimo'
+    90: 'nonagésimo'
+    99: 'nonagésimo noveno'
+    100: 'centésimo'
+    101: 'centésimo primero'
+    111: 'centésimo undécimo'
+    121: 'centésimo vigésimo primero'
+    200: 'ducentésimo'
+    300: 'tricentésimo'
+    999: 'noningentésimo nonagésimo noveno'
+    1000: 'milésimo'
+    1001: 'milésimo primero'
+    2000: 'dosmilésimo'
+    2021: 'dosmilésimo vigésimo primero'
+    21000: 'veintiunmilésimo'
+    100000: 'cienmilésimo'
+    1000000: 'millonésimo'
+    2000000: 'dosmillonésimo'
+    2025000: 'dosmillonésimo veinticincomilésimo'
+    1000000000: 'milmillonésimo'
+  ordinal_female:
+    options:
+      :ordinal: true
+      :gender: female
+    1: 'primera'
+    3: 'tercera'
+    21: 'vigésima primera'
+    2000: 'dosmilésima'
+    1000000: 'millonésima'

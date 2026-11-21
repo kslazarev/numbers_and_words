@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class It < Base
+          prepend Ordinals
+
           # Compounds ending in "tre" are accented ("ventitré", "milletré"); a standalone "tre" is not.
           COMPOUND_TRE = /(?<=\p{L})tre\b/
 
@@ -101,6 +103,26 @@ module NumbersAndWords
 
           def maybe_remove_zero
             @options.remove_zero&.result
+          end
+
+          # Italian ordinals above ten are one word: the cardinal drops its final vowel and takes -esimo
+          # ("ventunesimo", "duemillesimo"); an accented final vowel loses its accent ("ventitreesimo").
+          def ordinal_words(text, number)
+            return text if number.zero?
+            return ordinals[:units][number] if number <= 10
+
+            word = without_leading_one(text).delete(' ')
+            thousands = ordinals[:thousands]
+            return "#{word.delete_suffix(thousands)}#{ordinals[:thousandth]}" if word.end_with?(thousands)
+
+            "#{ordinal_stem(word)}#{ordinals[:suffix]}"
+          end
+
+          def ordinal_stem(word)
+            return word if ordinals[:keep_vowel].any? { |ending| word.end_with?(ending) }
+            return word.unicode_normalize(:nfd).sub(/\p{Mn}\z/, '').unicode_normalize(:nfc) if word.match?(/[àèéìòù]\z/)
+
+            word[0..-2]
           end
         end
       end

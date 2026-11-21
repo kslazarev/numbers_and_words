@@ -33,7 +33,7 @@ consumer = <<~'RUBY'
   abort 'Swedish conversion failed' unless I18n.with_locale(:se) { 1_000_100.to_words } == 'en miljon etthundra'
   abort 'German conversion failed' unless I18n.with_locale(:de) { [21.to_words(ordinal: true), 3.05.to_words] } == ['einundzwanzigste', "drei Komma null f\u00fcnf"]
   begin
-    I18n.with_locale(:vi) { 21.to_words(ordinal: true) }
+    I18n.with_locale(:vi) { 21.to_words(gender: :female) }
     abort 'Unsupported option was accepted'
   rescue NumbersAndWords::UnsupportedOptionError
     nil

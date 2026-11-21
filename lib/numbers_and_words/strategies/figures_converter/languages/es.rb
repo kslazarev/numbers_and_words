@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Es < Base
+          prepend Ordinals
+
           def capacity_iteration
             super.compact
           end
@@ -71,6 +73,30 @@ module NumbersAndWords
 
           def maybe_remove_zero
             @options.remove_zero.result
+          end
+
+          # Every part of a Spanish ordinal is ordinal ("centésimo vigésimo primero"), and a multiplier of a scale
+          # word joins its cardinal to it ("dosmilésimo"). gender: :female gives the feminine forms.
+          def ordinal_words(text, number)
+            return text if number.zero?
+
+            words = number.digits(1000).each_with_index.reverse_each.filter_map do |group, power|
+              group_ordinal(group, power) unless group.zero?
+            end.join(' ')
+            ordinal_gender == :female ? words.gsub(/o\b/, 'a') : words
+          end
+
+          def group_ordinal(group, power)
+            return hundreds_ordinal(group) if power.zero?
+
+            multiplier = group == 1 ? '' : cardinal_words(group).delete(' ').sub(/uno\z/, 'un')
+            "#{multiplier}#{ordinals[:mega][power]}"
+          end
+
+          def hundreds_ordinal(group)
+            hundreds, tens, units = format('%03d', group).chars.map(&:to_i)
+            parts = tens == 1 ? [[:teens, units]] : [[:tens, tens], [:units, units]]
+            [[:hundreds, hundreds], *parts].filter_map { |key, digit| ordinal_part(key, digit) }.join(' ')
           end
         end
       end

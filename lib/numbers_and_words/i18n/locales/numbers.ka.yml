@@ -13,3 +13,9 @@ ka:
       eighty: ოთხმოცდა
       hundreds: ას
       mega: [_, ათას, მილიონ, მილიარდ]
+    ordinals:
+      'first': 'პირველი'
+      'prefix': 'მე'
+      'suffix': 'ე'
+      'compound': 'და'
+      'leading_one': ['ერთი']
