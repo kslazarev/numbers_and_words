@@ -94,6 +94,7 @@ fr-CH:
       one: septilliardième
       other: septilliardièmes
     micro_separator: virgule
+    subunit_separator: et
     fraction_separator: et
     micro_prefix:
       tens: dix

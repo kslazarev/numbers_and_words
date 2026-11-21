@@ -5,7 +5,7 @@ require 'support/documentation_examples'
 
 # Every option a language accepts is shown in a checked example on its page, including
 # precision and micro_separator where the language supports decimals, and every global option in the README.
-# unit needs application translations, so it is documented once, in the README. Documenting an unsupported option
+# unit, subunit and zero_subunit need application translations, so they are documented once, in the README. Documenting an unsupported option
 # already fails, because documented examples run through option validation.
 describe 'option documentation' do # rubocop:disable RSpec/DescribeClass -- checks Markdown files against option classes
   def documented_options(relative_path)
@@ -21,7 +21,7 @@ describe 'option documentation' do # rubocop:disable RSpec/DescribeClass -- chec
     it "shows every #{locale} option on docs/languages/#{locale}.md" do
       page = "docs/languages/#{locale}.md"
       options = NumbersAndWords::OptionsValidation.language_options(locale).keys
-      options += NumbersAndWords::OptionsValidation::GLOBAL.keys - [:unit] if decimals?(locale)
+      options += NumbersAndWords::OptionsValidation::GLOBAL.keys - %i[unit subunit zero_subunit] if decimals?(locale)
       expect(options - documented_options(page)).to eq([])
     end
 

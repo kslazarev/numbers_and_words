@@ -9,7 +9,7 @@
 ```ruby
 I18n.with_locale(:vi) { 21.to_words(gender: :female) }
 # 1.0.x => "hai mươi mốt"
-# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero
+# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit
 
 I18n.with_locale(:es) { 1.to_words(gender: :neuter) }
 # 1.0.x => "r"

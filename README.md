@@ -175,12 +175,17 @@ The other options are validated for the fallback locale. `I18n.with_locale` itse
 
 ### Unit
 
-`unit` follows a whole number with a unit word, such as a currency, in the form the number takes. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations for the current locale, and a dotted key such as `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, chosen with the gem's plural rules (`one`, `few`, `many` and `other` in Russian and Ukrainian, `one` and `other` in English), or a single string for a unit that never changes. An optional `gender` sets the gender of the number in languages with a `gender` option; a `gender` passed to `to_words` overrides it.
+`unit` follows a number with a unit word, such as a currency, in the form the number takes. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations for the current locale, and a dotted key such as `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, chosen with the gem's plural rules (`one`, `few`, `many` and `other` in Russian and Ukrainian, `one` and `other` in English), or a single string for a unit that never changes. An optional `gender` sets the gender of the number in languages with a `gender` option; a `gender` passed to `to_words` overrides it.
 
 ```yaml
 en:
   units:
     dollar: { one: dollar, other: dollars }
+    cent: { one: cent, other: cents }
+fr:
+  units:
+    euro: { one: euro, other: euros }
+    centime: { one: centime, other: centimes }
 ru:
   units:
     ruble: { one: рубль, few: рубля, many: рублей, other: рубля, gender: male }
@@ -225,7 +230,41 @@ I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
 # => "двадцать вторая копейка"
 ```
 
-A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too. Units apply to whole numbers only for now: a float with `unit` raises `NumbersAndWords::UnsupportedOptionError` (see [#295](https://github.com/kslazarev/numbers_and_words/issues/295)).
+A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
+
+After a decimal, the unit takes its `other` form, which is the genitive singular in Russian and Czech; in French and Portuguese, amounts below 2 take the singular. A float with no fractional part reads as a whole number.
+
+```ruby
+I18n.with_locale(:en) { 1.5.to_words(unit: :dollar) }
+# => "one point five dollars"
+
+I18n.with_locale(:ru) { 1.5.to_words(unit: :ruble) }
+# => "одна целая и пять десятых рубля"
+
+I18n.with_locale(:fr) { 1.5.to_words(unit: :euro) }
+# => "un virgule cinq euro"
+```
+
+`subunit` spells an amount in two units, such as dollars and cents: the decimal places become the subunit, rounded half to even. `precision` sets how many decimal places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`, and a zero unit is left out with `remove_zero: true` in languages that support it. The two parts are joined with the language's word for it (`and` in English, `et` in French) or a space.
+
+```ruby
+I18n.with_locale(:en) { 21.5.to_words(unit: :dollar, subunit: :cent) }
+# => "twenty-one dollars and fifty cents"
+
+I18n.with_locale(:ru) { 22.22.to_words(unit: :ruble, subunit: :kopeck) }
+# => "двадцать два рубля двадцать две копейки"
+
+I18n.with_locale(:fr) { 21.01.to_words(unit: :euro, subunit: :centime) }
+# => "vingt-et-un euros et un centime"
+
+I18n.with_locale(:en) { 21.to_words(unit: :dollar, subunit: :cent, zero_subunit: true) }
+# => "twenty-one dollars and zero cents"
+
+I18n.with_locale(:en) { 0.5.to_words(unit: :dollar, subunit: :cent, remove_zero: true) }
+# => "fifty cents"
+```
+
+`subunit` without `unit`, or with `ordinal: true`, raises `NumbersAndWords::UnsupportedOptionError`, and so does `zero_subunit` without `subunit`.
 
 ### Unsupported Options
 
@@ -234,7 +273,7 @@ Every language accepts `precision`, `micro_separator`, `unit` and `fallback`, pl
 For example, Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in the `vi` locale raises:
 
 ```
-NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :unit
+NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit
 ```
 
 ## Configuration / Конфигурация
