@@ -53,11 +53,12 @@ module NumbersAndWords
               @figures = @parent_figures[2, 2].to_figures
               simple_number_to_words
             end
-            [([base, translate(:hundreds, 1)] + simple_number_to_words).join]
+            remainder = simple_number_to_words.join
+            [[[base, translate(:hundreds, 1)].join, remainder].reject(&:empty?).join(@options.pronounced.result ? ' ' : '')]
           end
 
           def apply_tens_of_hundreds?
-            @options.tens_of_hundreds.result &&
+            (@options.tens_of_hundreds.result || @options.pronounced.result) &&
               (1..9).cover?(figures.number_in_capacity(FiguresArray::THOUSAND_CAPACITY)) &&
               figures.hundreds
           end
