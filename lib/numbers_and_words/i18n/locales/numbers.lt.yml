@@ -4,7 +4,7 @@ lt:
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
     tens: [_, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
     hundreds: [_, šimtas, du šimtai, trys šimtai, keturi šimtai, penki šimtai, šeši šimtai, septyni šimtai, aštuoni šimtai, devyni šimtai]
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tūkstantis
       ones: tūkstančiai
@@ -27,8 +27,8 @@ lt:
       other: kvadrilijonų
     quintillions:
       one: kvintilijonas
-      ones: kvadrilijonai
-      other: kvadrilijonų
+      ones: kvintilijonai
+      other: kvintilijonų
     sextillions:
       one: sekstilijonas
       ones: sekstilijonai

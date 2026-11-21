@@ -4,7 +4,7 @@ lv:
     teens: [_, vienpadsmit, divpadsmit, trīspadsmit, četrpadsmit, piecpadsmit, sešpadsmit, septiņpadsmit, astoņpadsmit, deviņpadsmit]
     tens: [_, desmit, divdesmit, trīsdesmit, četrdesmit, piecdesmit, sešdesmit, septiņdesmit, astoņdesmit, deviņdesmit]
     hundreds: [_, viens simts, divi simti, trīs simti, četri simti, pieci simti, seši simti, septiņi simti, astoņi simti, deviņi simti]
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tūkstotis
       other: tūkstoši

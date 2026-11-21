@@ -69,3 +69,6 @@ to_words:
     935174315119: neuf cent trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
   trillions:
     2935174315119: deux billions neuf cent trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf
+  quintillions:
+    1000000000000000000: un trillion
+    2000000000000000000: deux trillions

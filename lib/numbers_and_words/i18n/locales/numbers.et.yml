@@ -4,7 +4,7 @@ et:
     teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
     tens: [_, kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]
     hundreds: sada
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: tuhat
     millions:
       one: miljon
