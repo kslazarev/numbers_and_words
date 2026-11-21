@@ -10,7 +10,7 @@ to_words:
     20: vingt
     21: vingt et un
     70: soixante-dix
-    71: soixante-et-onze
+    71: soixante et onze
     72: soixante-douze
     79: soixante-dix-neuf
     80: quatre-vingts
@@ -41,6 +41,8 @@ to_words:
     21000: vingt et un mille
     80000: quatre-vingt mille
     200000: deux cent mille
+    200200: deux cent mille deux cents
+    1200: mille deux cents
     999000: neuf cent quatre-vingt-dix-neuf mille
     999999: neuf cent quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf
   millions:
@@ -49,8 +51,11 @@ to_words:
     4000000: quatre millions
     5000000: cinq millions
     21000000: vingt et un millions
-    80000000: quatre-vingt millions
-    200000000: deux cent millions
+    80000000: quatre-vingts millions
+    80080080: quatre-vingts millions quatre-vingt mille quatre-vingts
+    200000000: deux cents millions
+    200000200: deux cents millions deux cents
+    280000000: deux cent quatre-vingts millions
     999000000: neuf cent quatre-vingt-dix-neuf millions
     999000999: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf
     999999000: neuf cent quatre-vingt-dix-neuf millions neuf cent quatre-vingt-dix-neuf mille

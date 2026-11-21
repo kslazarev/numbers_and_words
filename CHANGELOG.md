@@ -16,6 +16,7 @@
   * Fix Latin letters inside Cyrillic words in Russian, Ukrainian and Kazakh, and the Italian spelling of 17 (`diciassette`). \[[#216](https://github.com/kslazarev/numbers_and_words/pull/216)\]
   * Fix Ukrainian separators using Latin letters and validate locale scripts, Unicode normalization and invisible characters. \[[#217](https://github.com/kslazarev/numbers_and_words/pull/217)\] \([@dblock](https://github.com/dblock)\)
   * Fix fixture examples that never ran because of duplicate YAML keys, and fail on duplicate fixture keys. \[[#241](https://github.com/kslazarev/numbers_and_words/pull/241)\] \([@dblock](https://github.com/dblock)\)
+  * Fix French plural agreement of `cents` and `quatre-vingts` at the end of a number and before scale nouns (`deux cents millions`), and spell 71 `soixante et onze`. \[[#242](https://github.com/kslazarev/numbers_and_words/pull/242)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

@@ -13,12 +13,14 @@ module NumbersAndWords
             words
           end
 
+          # "cents" and "quatre-vingts" take a plural -s when they end the number or
+          # precede a scale noun (millions, milliards), but not before "mille".
           def hundreds
-            super({ pluralize: simple_number_to_words.empty? && (@parent_figures.nil? || @parent_figures.size == 3) })
+            super({ pluralize: simple_number_to_words.empty? && !thousand? })
           end
 
           def tens
-            super({ alone: @current_capacity&.positive? ? false : nil })
+            super({ alone: thousand? ? false : nil })
           end
 
           def megs
