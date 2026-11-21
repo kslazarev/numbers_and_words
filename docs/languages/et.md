@@ -1,0 +1,33 @@
+# Estonian (`et`)
+
+Eesti.
+
+## Examples
+
+```ruby
+I18n.with_locale(:et) { 0.to_words }
+# => "null"
+
+I18n.with_locale(:et) { 21.to_words }
+# => "kakskümmend üks"
+
+I18n.with_locale(:et) { 231.to_words }
+# => "kakssada kolmkümmend üks"
+
+I18n.with_locale(:et) { 4030.to_words }
+# => "neli tuhat kolmkümmend"
+
+I18n.with_locale(:et) { 1_000_100.to_words }
+# => "üks miljon ükssada"
+
+I18n.with_locale(:et) { 2_000_000_000.to_words }
+# => "kaks miljardit"
+
+I18n.with_locale(:et) { [1, 2, 3].to_words }
+# => ["üks", "kaks", "kolm"]
+
+I18n.with_locale(:et) { [11, 22, 133].to_words }
+# => ["üksteist", "kakskümmend kaks", "ükssada kolmkümmend kolm"]
+```
+
+Decimals are not supported yet.
