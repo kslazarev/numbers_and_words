@@ -84,6 +84,21 @@ I18n.with_locale(:he) { 2.to_words(gender: :female) }
 # => "שתיים"
 ```
 
+### Ordinal
+
+`ordinal: true` gives the ordinal words for 1 to 10, in the requested gender, and the definite cardinal above 10, as Hebrew does (`היום העשרים ואחד`). 0 raises `RangeError`.
+
+```ruby
+I18n.with_locale(:he) { 1.to_words(ordinal: true) }
+# => "ראשונה"
+
+I18n.with_locale(:he) { 1.to_words(ordinal: true, gender: :male) }
+# => "ראשון"
+
+I18n.with_locale(:he) { 21.to_words(ordinal: true, gender: :male) }
+# => "העשרים ואחד"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

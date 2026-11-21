@@ -10,15 +10,44 @@ module NumbersAndWords
         # for 11 to 99 (أحد عشر ألفًا). After round hundreds it is a singular genitive (مائة ألف, مائتا ألف).
         class Ar < Base
           THOUSAND = 1000
+          ORDINALS = (1..99)
 
           def words
             number = @figures.to_a.reverse.join.to_i
+            return ordinal_words(number) if @options.ordinal.result
             return @translations.ones(0) if number.zero?
 
             join(groups(number).each_with_index.reverse_each.map { |group, capacity| group_with_scale(group, capacity) })
           end
 
           private
+
+          # The masculine definite ordinals: الأول, العاشر, الحادي عشر, الحادي والعشرون.
+          def ordinal_words(number)
+            raise RangeError, 'Arabic ordinals support 1 to 99' unless ORDINALS.cover?(number)
+
+            tens, ones = number.divmod(10)
+            return ordinal_below_twenty(number) if tens < 2
+            return ordinals[:tens][tens] if ones.zero?
+
+            join([ordinal_one(ones), ordinals[:tens][tens]])
+          end
+
+          def ordinal_below_twenty(number)
+            return ordinals[:ones][number] if number < 10
+            return ordinals[:ten] if number == 10
+
+            "#{ordinal_one(number - 10)} #{ordinals[:teen]}"
+          end
+
+          # One is الحادي rather than الأول in compounds (الحادي عشر, الحادي والعشرون).
+          def ordinal_one(ones)
+            ones == 1 ? ordinals[:compound_one] : ordinals[:ones][ones]
+          end
+
+          def ordinals
+            @translations.t(:ordinals)
+          end
 
           # Groups of three digits, lowest first. Only numbers below the largest scale word's next power are supported.
           def groups(number)
