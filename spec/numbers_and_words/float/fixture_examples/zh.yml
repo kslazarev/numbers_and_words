@@ -1,0 +1,21 @@
+to_words:
+  fractional:
+    0.1: 零点一
+    0.01: 零点零一
+    0.5: 零点五
+  integral_and_fractional:
+    1.5: 一点五
+    3.14: 三点一四
+    21.05: 二十一点零五
+    101.001: 一百零一点零零一
+  precision:
+    options:
+      :precision: 3
+    1.5: 一点五零零
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: 点一
+    0.7: 点七
+    0.05: 点零五
+    42.1: 四十二点一

@@ -1,0 +1,8 @@
+zh:
+  numbers:
+    ones: [零, 一, 二, 三, 四, 五, 六, 七, 八, 九]
+    places: [_, 十, 百, 千]
+    ten_thousand: 万
+    hundred_million: 亿
+    ordinal_prefix: 第
+    micro_separator: 点
