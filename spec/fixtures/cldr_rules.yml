@@ -1,0 +1,371 @@
+# Reviewed rules that turn the Unicode CLDR spell-out reading into this gem's
+# before the two are compared (see spec/cldr_comparison_spec.rb), each for a
+# known difference: a CLDR convention or error, or a variant both forms of
+# which are in use. "*" holds the rules shared by several locales, with their
+# arguments per locale. Rules apply in order, the shared ones first; see
+# spec/support/cldr_rules.rb for the operations and scopes.
+#
+# ticket: names the CLDR Jira ticket that reports a CLDR error a rule works
+# around, such as CLDR-19918 (https://unicode-org.atlassian.net/browse/CLDR-19918).
+#
+# affects: is the number of comparisons whose CLDR reading a rule changes;
+# `bundle exec ruby script/cldr_differences.rb` sets it.
+'*':
+  - reason: CLDR says the implicit one before a scale word (one hundred, one thousand, one million); the gem omits it, as is usual
+    drop_one:
+      az: { one: [bir], before: [yüz, min, bin, milyonuncu, milyarıncı], affects: 22 }
+      bg: { one: [един], before: [милионен, милионна, милионно, милиарден, милиардна, милиардно], affects: 6 }
+      cs: { one: [jedna], before: [tisíc], affects: 12 }
+      de: { one: [eine], before: [Millionste, Milliardeste], affects: 2 }
+      es: { one: [un], before: [millonésimo, millonésima], affects: 2 }
+      et: { one: [üks], before: [sada, tuhat], affects: 10 }
+      fi: { one: [yksi], before: [miljoona, miljardi], affects: 2 }
+      fr: { one: [un], before: [millionième, milliardième], affects: 2 }
+      hu: { one: [egy], before: [milliomodik], affects: 1 }
+      hy: { one: [մեկ], before: [հարյուր, հազար], affects: 10 }
+      nl: { one: [een], before: [miljoenste, miljardste], affects: 2 }
+      pt-BR: { one: [um, uma], before: [milionésimo, milionésima, bilionésimo, bilionésima], affects: 4 }
+      ru: { one: [одна], before: [тысяча], kinds: [ordinal, ordinal/female, ordinal/neuter], affects: 6 }
+      sk: { one: [jedna, jeden], before: [sto, tisíc, milión, miliarda], affects: 36 }
+      sv: { one: [en], before: [miljonte, miljardte], affects: 2 }
+      tr: { one: [bir], before: [milyonuncu, milyarıncı], affects: 2 }
+ar:
+  - reason: CLDR writes the hamza (إثنان); اثنان begins with a connecting hamzat wasl and is written without it
+    replace: { إثنان: اثنان, إثنا: اثنا }
+    ticket: CLDR-19918
+    affects: 11
+  - reason: CLDR uses the feminine إحدى عشر in the masculine rule set; masculine 11 is أحد عشر
+    replace_parts: { إحدى عشر: أحد عشر }
+    affects: 2
+  - reason: CLDR writes hundreds as two words (تسعة مائة); standard Arabic writes the compound تسعمائة
+    replace_parts: { أربعة مائة: أربعمائة, سبعة مائة: سبعمائة, تسعة مائة: تسعمائة }
+    affects: 3
+  - reason: the gem adds the accusative tanween required after 11-99 (ألفًا, مليونًا); CLDR leaves the counted noun bare
+    replace: { وعشرون ألف: وعشرون ألفًا, وعشرون مليون: وعشرون مليونًا, وخمسون ألف: وخمسون ألفًا }
+    affects: 4
+az:
+  - reason: CLDR misspells 60 as atmış; the standard spelling is altmış
+    replace: { atmış: altmış }
+    ticket: CLDR-19918
+    affects: 10
+  - reason: CLDR misspells 80 as səqsən; the standard spelling is səksən
+    replace_parts: { səqsən: səksən }
+    ticket: CLDR-19918
+    affects: 22
+  - reason: CLDR breaks vowel harmony (yetmişıncı); front-vowel stems take -inci
+    replace: { yetmişıncı: yetmişinci, səksənıncı: səksəninci }
+    affects: 2
+  - reason: CLDR uses the Turkish bin in Azerbaijani ordinals; Azerbaijani thousand is min
+    replace: { bin: min, bininci: mininci }
+    ticket: CLDR-19918
+    kinds: [ordinal]
+    affects: 8
+bg:
+  - reason: CLDR uses the colloquial contracted teens and tens (единайсет, двайсет); the gem uses the literary standard forms (единадесет, двадесет)
+    replace_parts: { найсет: надесет, двайсет: двадесет, трийсет: тридесет, четиресет: четиридесет, шейсет: шестдесет }
+    affects: 324
+  - reason: Bulgarian joins the last element with и (хиляда и сто); CLDR omits it
+    replace:
+      хиляда сто: хиляда и сто
+      хиляда стотен: хиляда и стотен
+      хиляда стотна: хиляда и стотна
+      хиляда стотно: хиляда и стотно
+      сто десет: сто и десет
+      сто десети: сто и десети
+      сто десета: сто и десета
+      сто десето: сто и десето
+      сто единадесет: сто и единадесет
+      сто единадесети: сто и единадесети
+      сто единадесета: сто и единадесета
+      сто единадесето: сто и единадесето
+    affects: 18
+  - reason: CLDR misspells the 200th stem as двестат-; the standard form is двестотен
+    replace_parts: { двестат: двестот }
+    affects: 3
+  - reason: CLDR writes compound ordinals as two words (две хиляден); Bulgarian writes them as one (двехиляден, двумилионен)
+    replace:
+      две хиляден: двехиляден
+      две хилядна: двехилядна
+      две хилядно: двехилядно
+      сто хиляден: стохиляден
+      сто хилядна: стохилядна
+      сто хилядно: стохилядно
+      една хиляден: еднохиляден
+      една хилядна: еднохилядна
+      една хилядно: еднохилядно
+      два милионен: двумилионен
+      два милионна: двумилионна
+      два милионно: двумилионно
+      един милионен: едномилионен
+      един милионна: едномилионна
+      един милионно: едномилионно
+    affects: 15
+cs:
+  - reason: 'the gem counts with jedna (raz, dva, tři: jedna, dvě, tři), the usual Czech counting form; CLDR spellout-numbering uses the masculine jeden'
+    replace: { jeden: jedna }
+    kinds: [cardinal]
+    below: 1000
+    affects: 10
+  - reason: CLDR treats tisíc as feminine (dvě tisíce, dvacet jedna tisíc); tisíc is masculine (dva tisíce, dvacet jeden tisíc)
+    replace: { dvě tisíce: dva tisíce, jedna tisíc: jeden tisíc }
+    affects: 8
+  - reason: CLDR spells milión; the gem uses the standard milion (both are accepted)
+    replace_parts: { milión: milion }
+    affects: 16
+  - reason: the gem makes the noun agree with the last numeral (sto dvacet tři tisíce); CLDR uses the genitive plural tisíc, also accepted
+    replace: { tři tisíc: tři tisíce }
+    affects: 4
+  - reason: the gem keeps the noun after the last numeral (dvacet jeden milion, sto dvacet tři miliony); CLDR uses the genitive plural miliónů, also accepted
+    replace: { jeden milionů: jeden milion, tři milionů: tři miliony }
+    affects: 8
+  - reason: CLDR says jeden miliarda; miliarda is feminine (jedna miliarda)
+    replace: { jeden miliarda: jedna miliarda }
+    affects: 4
+da:
+  - reason: CLDR doubles the ordinal ending (hundredede, tusindee); the ordinals are hundrede and tusinde
+    replace: { hundredede: hundrede, tusindee: tusinde }
+    affects: 7
+  - reason: CLDR shortens the 40s ordinal to fyrrende; the standard ordinal is fyrretyvende
+    replace_parts: { fyrrende: fyrretyvende }
+    ticket: CLDR-19918
+    affects: 20
+  - reason: CLDR builds ordinals with et (etogtyvende); Danish says enogtyvende
+    replace_parts: { etog: enog }
+    kinds: [ordinal, ordinal/neuter]
+    affects: 6
+  - reason: CLDR uses tusinde in cardinals; tusind is the usual cardinal form and tusinde the ordinal
+    replace: { tusinde: tusind }
+    kinds: [cardinal]
+    affects: 8
+  - reason: CLDR writes hundreds closed (firehundrede); the gem writes them open (fire hundrede); both are accepted
+    split_before: [hundrede]
+    affects: 10
+  - reason: the gem says et hundrede and et tusind; CLDR omits et, which is also usual
+    prefix: 'et '
+    before: [hundrede, tusind]
+    kinds: [cardinal, cardinal/neuter]
+    affects: 20
+  - reason: the gem says et hundrede and et tusind; CLDR omits et, which is also usual
+    prefix: 'et '
+    before: [hundrede, tusind]
+    kinds: [ordinal, ordinal/neuter]
+    above: 100
+    affects: 14
+  - reason: the gem says et hundrede and et tusind; CLDR omits et, which is also usual
+    replace: { tusind hundrede: tusind et hundrede }
+    affects: 3
+  - reason: CLDR omits en before million and milliard; Danish says en million
+    prefix: 'en '
+    before: [million, milliard]
+    kinds: [cardinal]
+    affects: 2
+de:
+  - reason: CLDR writes million ordinals as capitalized separate nouns (eine Millionste, zwei Millionenste); German ordinals are one lowercase word (millionste, zweimillionste)
+    replace: { Millionste: millionste, Millionenste: millionste, Milliardeste: milliardste, Millionen: millionen }
+    kinds: [ordinal]
+    affects: 5
+  - reason: CLDR writes million ordinals as capitalized separate nouns (eine Millionste, zwei Millionenste); German ordinals are one lowercase word (millionste, zweimillionste)
+    join_before: [millionste, millionen]
+    kinds: [ordinal]
+    affects: 3
+  - reason: CLDR writes million ordinals as capitalized separate nouns (eine Millionste, zwei Millionenste); German ordinals are one lowercase word (millionste, zweimillionste)
+    join_after: [millionen]
+    kinds: [ordinal]
+    affects: 1
+el:
+  - reason: CLDR misspells the 90s as εννενήντα, εννενηκοστό; the standard spelling is ενενήντα, ενενηκοστό
+    replace_parts: { εννενήντα: ενενήντα, εννενηκοστ: ενενηκοστ }
+    affects: 66
+  - reason: CLDR puts two accents on χίλιάδες; the word is χιλιάδες
+    replace: { χίλιάδες: χιλιάδες }
+    affects: 15
+  - reason: CLDR spells the neuter 8th όγδο; the neuter of όγδοος is όγδοο
+    replace: { όγδο: όγδοο }
+    kinds: [ordinal]
+    affects: 10
+  - reason: the gem uses εννιακοσιοστός, CLDR the learned εννεακοσιοστός; both are in use
+    replace_parts: { εννεακοσιοστ: εννιακοσιοστ }
+    affects: 3
+  - reason: CLDR leaves δεκατρεις unaccented; the word is δεκατρείς
+    replace: { δεκατρεις: δεκατρείς }
+    affects: 2
+  - reason: the gem reads the zero ordinal as the cardinal μηδέν, as its fixtures specify; CLDR forms the adjective μηδενικός
+    replace: { μηδενικό: μηδέν, μηδενικός: μηδέν, μηδενική: μηδέν }
+    affects: 3
+es:
+  - reason: the gem uses undécimo and duodécimo, CLDR decimoprimero and decimosegundo; the RAE accepts both
+    replace: { decimoprimero: undécimo, decimosegundo: duodécimo, decimoprimera: undécima, decimosegunda: duodécima }
+    affects: 6
+  - reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+    join_before: [milésim, millonésim]
+    affects: 16
+  - reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+    replace_parts: { veintiúnmil: veintiunmil }
+    affects: 4
+fi:
+  - reason: the gem uses yhdes for a final 1 inside compound ordinals (kahdeskymmenesyhdes miljoonas); CLDR uses ensimmäinen; both are in use
+    replace_parts: { ensimmäinentuhannes: yhdestuhannes, ensimmäinen miljoonas: yhdes miljoonas }
+    affects: 2
+fr:
+  - reason: the gem follows the 1990 reform by default and joins every number word with hyphens (deux-cents, cent-un); CLDR uses the traditional spaces around cent and mille
+    hyphenate: [million, millions, milliard, milliards]
+    affects: 23
+  - reason: CLDR inserts et in 81st, 91st, 101st and 1001st (quatre-vingt-et-unième, cent-et-unième); French uses et only in 21-71 (quatre-vingt-unième, cent-unième)
+    replace: { quatre-vingt-et-unième: quatre-vingt-unième, quatre-vingt-et-onzième: quatre-vingt-onzième, cent-et-unième: cent-unième, cent-et-onzième: cent-onzième, mille-et-unième: mille-unième }
+    affects: 5
+he:
+  - reason: Hebrew joins the last element with ו (אלף ומאה); CLDR omits it
+    replace: { אלף מאה: אלף ומאה }
+    affects: 4
+  - reason: CLDR writes שניים עשר; the compound is שנים עשר
+    replace: { שניים עשר: שנים עשר }
+    affects: 2
+  - reason: Hebrew ordinals above ten are cardinals; the gem gives them with the definite article (העשרים), CLDR without (עשרים)
+    prefix: ה
+    kinds: [ordinal, ordinal/male]
+    above: 10
+    affects: 214
+hi:
+  - reason: CLDR writes पन्द्रह with a half n; the gem uses the anusvara spelling पंद्रह; both are standard
+    replace_parts: { पन्द्रह: पंद्रह }
+    affects: 3
+  - reason: regional spelling variants of the same number (चवालीस/चौवालीस, तिरपन/तिरेपन, तिरसठ/तिरेसठ, उन्यासी/उनासी, पचानबे/पंचानबे)
+    replace_parts: { चौवालीस: चवालीस, तिरेपन: तिरपन, तिरेसठ: तिरसठ, उनासी: उन्यासी, पंचानबे: पचानबे }
+    affects: 15
+  - reason: CLDR drops the nasalization of the feminine ordinal ending (पाँचवी); the standard ending is -वीं (पाँचवीं)
+    replace_parts: { वी: वीं }
+    kinds: [ordinal/female]
+    affects: 113
+hu:
+  - reason: Hungarian hyphenates numbers above 2000 between groups of three digits (százhuszonháromezer-négyszázötvenhat); CLDR does not
+    replace_parts: { ezernégy: ezer-négy, milliónégy: millió-négy, ezerhét: ezer-hét }
+    above: 2000
+    affects: 4
+hy:
+  - reason: CLDR misspells the 90s as իննասուն; the standard spelling is իննսուն
+    replace_parts: { իննասուն: իննսուն }
+    ticket: CLDR-19918
+    affects: 11
+  - reason: CLDR writes hundreds closed (երկուհարյուր); Armenian writes them as two words (երկու հարյուր)
+    split_before: [հարյուր]
+    affects: 4
+  - reason: CLDR spells million with the classical օ (միլիօն); reformed Eastern Armenian spelling is միլիոն
+    replace: { միլիօն: միլիոն }
+    ticket: CLDR-19918
+    affects: 4
+  - reason: CLDR uses the bound form տասն for a final 10; standalone 10 is տասը
+    replace: { տասն: տասը }
+    affects: 2
+it:
+  - reason: the gem says ventunomila, CLDR ventunmila; both are in use
+    replace: { ventunmila: ventunomila, ventunmillesimo: ventunomillesimo }
+    affects: 2
+  - reason: CLDR keeps the accent of tré inside the word (centoventitrémila); Italian writes ventitré only at the end of a word (centoventitremila)
+    replace_parts: { trémil: tremil }
+    affects: 3
+ja:
+  - reason: the gem writes zero as 零, CLDR as 〇; both are used
+    replace_parts: { 〇: 零 }
+    affects: 2
+ka:
+  - reason: CLDR misspells 18 as თრვამეტი; the standard spelling is თვრამეტი
+    replace_parts: { თრვამეტი: თვრამეტი }
+    ticket: CLDR-19918
+    affects: 5
+kk:
+  - reason: the gem says бір миллион; CLDR omits бір
+    prefix: 'бір '
+    before: [миллион, миллиард]
+    affects: 2
+lt:
+  - reason: CLDR uses the genitive plural milijonų after every number; Lithuanian uses milijonai after 2-9 and milijonas after a final 1
+    replace: { du milijonų: du milijonai, vienas milijonų: vienas milijonas, trys milijonų: trys milijonai }
+    affects: 3
+lv:
+  - reason: the gem uses the full forms simts, divi simti; CLDR the short simt, divsimt; both are standard
+    replace: { divsimt: divi simti, četrsimt: četri simti, septiņsimt: septiņi simti, deviņsimt: deviņi simti }
+    affects: 4
+  - reason: the gem says viens tūkstotis, CLDR the short tūkstoš; both are standard
+    replace: { tūkstoš: viens tūkstotis, divtūkstoš: divi tūkstoši }
+    affects: 4
+  - reason: CLDR uses the plural after a final 1 (divdesmit viens tūkstoši); the noun agrees with viens (divdesmit viens tūkstotis)
+    replace: { viens tūkstoši: viens tūkstotis, viens miljoni: viens miljons }
+    affects: 2
+ms:
+  - reason: the gem says sifar for zero, CLDR kosong; both are used
+    replace: { kosong: sifar, kekosong: sifar }
+    affects: 2
+  - reason: the gem says satu juta, CLDR sejuta; both are used
+    replace: { sejuta: satu juta, kesejuta: kesatu juta }
+    affects: 2
+nl:
+  - reason: Dutch spelling puts a space after duizend and around miljoen (duizend honderd); CLDR joins them
+    replace_parts: { duizendeen: duizend een, duizendhonderd: duizend honderd, duizendeerste: duizend eerste, duizendvier: duizend vier, duizendzeven: duizend zeven }
+    affects: 8
+  - reason: Dutch spelling puts a space after duizend and around miljoen (duizend honderd); CLDR joins them
+    split_before: [miljoen]
+    affects: 3
+  - reason: the gem writes the numeral one with accents (één) to tell it from the article een; CLDR writes een
+    replace: { een: één }
+    kinds: [cardinal]
+    affects: 4
+pt-BR:
+  - reason: the gem says quatorze, CLDR catorze; both are Brazilian standard
+    replace: { catorze: quatorze }
+    affects: 2
+  - reason: the gem makes the multiplier of milésimo and milionésimo ordinal (segundo milésimo); CLDR keeps it cardinal (dois milésimo); grammars give both
+    replace:
+      dois milésimo: segundo milésimo
+      duas milésima: segunda milésima
+      dois milionésimo: segundo milionésimo
+      duas milionésima: segunda milionésima
+      vinte e um milésimo: vigésimo primeiro milésimo
+      vinte e uma milésima: vigésima primeira milésima
+      vinte e um milionésimo: vigésimo primeiro milionésimo
+      vinte e uma milionésima: vigésima primeira milionésima
+      cem milésimo: centésimo milésimo
+      cem milésima: centésima milésima
+    affects: 10
+ro:
+  - reason: CLDR uses the literary patrusprezece, șasesprezece, șasezeci; the gem the standard paisprezece, șaisprezece, șaizeci
+    replace: { patrusprezece: paisprezece, șasesprezece: șaisprezece, șasezeci: șaizeci }
+    affects: 36
+  - reason: CLDR says una sută, una mie; Romanian says o sută, o mie
+    replace: { una sută: o sută, una mie: o mie }
+    ticket: CLDR-19918
+    affects: 30
+  - reason: CLDR says unu milion; Romanian says un milion
+    replace: { unu milion: un milion, unu miliard: un miliard }
+    affects: 6
+  - reason: Romanian puts de between numbers from 20 and the counted noun (douăzeci și una de mii); CLDR omits it
+    replace: { și una mii: și una de mii, și trei mii: și trei de mii, și șase mii: și șase de mii, și unu milioane: și unu de milioane, și trei milioane: și trei de milioane, sută mii: sută de mii }
+    affects: 15
+sk:
+  - reason: CLDR says dvadsaťjedna tisíc; Slovak counts thousands after a final 1 with jeden (dvadsaťjedentisíc)
+    replace: { dvadsaťjedna tisíc: dvadsaťjeden tisíc }
+    affects: 3
+  - reason: Slovak writes a cardinal number as one word, split only after millions (stodvadsaťtritisícštyristopäťdesiatšesť); CLDR separates hundreds and thousands
+    join_after: [sto, tisíc]
+    affects: 27
+  - reason: Slovak writes a cardinal number as one word, split only after millions (stodvadsaťtritisícštyristopäťdesiatšesť); CLDR separates hundreds and thousands
+    join_before: [tisíc]
+    affects: 12
+sv:
+  - reason: the gem writes numbers below a million as one word (ettusenett, etthundraförsta), as Språkrådet recommends; CLDR breaks them after tusen and hundra
+    join_after: [tusen, hundra]
+    affects: 12
+th:
+  - reason: the gem says เอ็ด for a final 1 after a hundred or thousand (หนึ่งร้อยเอ็ด), CLDR หนึ่ง; both are used
+    replace_parts: { ร้อยหนึ่ง: ร้อยเอ็ด }
+    affects: 2
+vi:
+  - reason: the gem says bốn for 4 after tens, CLDR tư; both are used
+    replace: { mươi tư: mươi bốn }
+    affects: 16
+  - reason: the gem says linh (northern), CLDR lẻ (southern); both are used
+    replace: { lẻ: linh }
+    affects: 4
+zh:
+  - reason: the gem writes zero as 零, CLDR as 〇; both are used
+    replace_parts: { 〇: 零 }
+    affects: 3

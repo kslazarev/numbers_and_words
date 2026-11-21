@@ -20,6 +20,11 @@ RSpec/LeakyLocalVariable:
     - spec/numbers_and_words/i18n_spec.rb
     - spec/shared_examples/correct_fixture_examples.rb
 
+# The per-locale CLDR rule set mapping is data, not logic.
+Metrics/ModuleLength:
+  Exclude:
+    - spec/support/cldr_comparison.rb
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 

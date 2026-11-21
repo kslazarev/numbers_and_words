@@ -10,6 +10,7 @@ Guidance for AI agents and contributors working on numbers_and_words. See [CONTR
 * `I18N_VERSION=1.6.0 bundle exec rspec`: test against the oldest i18n release CI covers.
 * `bundle exec rake build` then `bundle exec ruby script/verify_package.rb`: build the gem and test the installed archive in an isolated consumer, as CI's Package workflow does.
 * `bundle exec rake benchmark`: throughput and allocation benchmarks, see [BENCHMARKS](BENCHMARKS.md).
+* `bundle exec rspec spec/cldr_comparison_spec.rb`: compare spelled-out integers with the Unicode CLDR spell-out rules (part of `rake spec`); `bundle exec ruby script/cldr_differences.rb` updates the rule counts in `spec/fixtures/cldr_rules.yml` and the exceptions in `spec/fixtures/cldr_exceptions.yml`, see [CONTRIBUTING](CONTRIBUTING.md#unicode-cldr-comparison).
 
 ## Where a Language Lives
 
@@ -38,6 +39,7 @@ A new language needs all of these, an entry in the script map in `spec/numbers_a
 ## Language Changes
 
 * Fixtures are the specification of correct language. Change an expectation only with a linguistic reason, give it in the PR, and add fixtures for the rule's boundaries, not only the reported number.
+* An output change can add, change or remove a difference from Unicode CLDR: run `script/cldr_differences.rb`, cover a repeated difference with a literal rule in `spec/fixtures/cldr_rules.yml` rather than many exceptions, give a specific reason for each new rule or exception, and explain every changed `affects` count. Rules may only use the operations in `spec/support/cldr_rules.rb`, never patterns. A difference where the gem is wrong is a bug to fix, not a rule or exception. Reference a CLDR error's Jira ticket (such as CLDR-19918) with `ticket:`.
 * Judgement calls go to native speakers; [#255](https://github.com/kslazarev/numbers_and_words/issues/255) collects them.
 * An output change that callers might depend on, or a changed option default, is breaking: document it in [UPGRADING](UPGRADING.md) with the old and new output and how to keep the old behavior.
 * Floats below `0.0001` print in scientific notation in Ruby; check such inputs separately.
