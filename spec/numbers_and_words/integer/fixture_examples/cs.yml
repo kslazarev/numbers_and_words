@@ -79,20 +79,20 @@ to_words:
     21_345: dvacet jeden tisíc tři sta čtyřicet pět
     999_999: devět set devadesát devět tisíc devět set devadesát devět
   miliony:
-    1_000_000: jeden milión
-    2_000_000: dva milióny
-    4_000_000: čtyři milióny
-    5_000_000: pět miliónů
-    999_000_000: devět set devadesát devět miliónů
-    999_000_999: devět set devadesát devět miliónů devět set devadesát devět
-    999_999_000: devět set devadesát devět miliónů devět set devadesát devět tisíc
-    999_999_999: devět set devadesát devět miliónů devět set devadesát devět tisíc devět set devadesát devět
-    123_456_789: jedno sto dvacet tři milióny čtyři sta padesát šest tisíc sedm set osmdesát devět
+    1_000_000: jeden milion
+    2_000_000: dva miliony
+    4_000_000: čtyři miliony
+    5_000_000: pět milionů
+    999_000_000: devět set devadesát devět milionů
+    999_000_999: devět set devadesát devět milionů devět set devadesát devět
+    999_999_000: devět set devadesát devět milionů devět set devadesát devět tisíc
+    999_999_999: devět set devadesát devět milionů devět set devadesát devět tisíc devět set devadesát devět
+    123_456_789: jedno sto dvacet tři miliony čtyři sta padesát šest tisíc sedm set osmdesát devět
   miliardy:
-    1_174_315_110: jedna miliarda jedno sto sedmdesát čtyři milióny tři sta patnáct tisíc jedno sto deset
-    35_568_717_692: třicet pět miliard pět set šedesát osm miliónů sedm set sedmnáct tisíc šest set devadesát dvě
+    1_174_315_110: jedna miliarda jedno sto sedmdesát čtyři miliony tři sta patnáct tisíc jedno sto deset
+    35_568_717_692: třicet pět miliard pět set šedesát osm milionů sedm set sedmnáct tisíc šest set devadesát dvě
   biliony:
-    2_935_174_315_119: dva biliony devět set třicet pět miliard jedno sto sedmdesát čtyři milióny tři sta patnáct tisíc jedno sto devatenáct
+    2_935_174_315_119: dva biliony devět set třicet pět miliard jedno sto sedmdesát čtyři miliony tři sta patnáct tisíc jedno sto devatenáct
 
   "male ordinals":
     options:

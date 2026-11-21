@@ -27,6 +27,7 @@
   * Join Danish hundreds and final tens or ones with `og` (`et hundrede og et`, `et tusinde og et`). \[[#250](https://github.com/kslazarev/numbers_and_words/pull/250)\] \([@dblock](https://github.com/dblock)\)
   * Say `and` after hundreds in British English by default (`one hundred and one`). \[[#251](https://github.com/kslazarev/numbers_and_words/pull/251)\] \([@dblock](https://github.com/dblock)\)
   * Read Dutch decimals as fractions joined with `en` (`eenentwintig en zevenenzeventig honderdsten`) instead of mixing `komma` with fraction words. \[[#252](https://github.com/kslazarev/numbers_and_words/pull/252)\] \([@dblock](https://github.com/dblock)\)
+  * Fix Czech decimal agreement (`jedna celá`, `dvě celé`, `třicet jedna setin`) and spell `milion` consistently with `bilion`. \[[#253](https://github.com/kslazarev/numbers_and_words/pull/253)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 

@@ -183,7 +183,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "uno milione cento"
     => "één miljoen honderd"
     => "en miljoner en hundra"
-    => "jeden milión jedno sto"
+    => "jeden milion jedno sto"
     => "một triệu một trăm"
     => "մեկ միլիոն հարյուր"
     => "бір миллион бір жүз"
