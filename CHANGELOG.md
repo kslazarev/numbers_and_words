@@ -22,6 +22,7 @@
   * Use Ukrainian nominative plurals after 2-4 (`два мільйони`) and fix the missing quintillion translation. \[[#245](https://github.com/kslazarev/numbers_and_words/pull/245)\] \([@dblock](https://github.com/dblock)\)
   * Fix `Translation missing` for 10^18 in Czech, German, Estonian, French, Swiss French, Lithuanian and Latvian, and test every scale word in every locale. \[[#246](https://github.com/kslazarev/numbers_and_words/pull/246)\] \([@dblock](https://github.com/dblock)\)
   * Write Russian and Ukrainian compound fraction names as one word (`десятитысячных`), and fix the Ukrainian spelling of `тисячна`. \[[#247](https://github.com/kslazarev/numbers_and_words/pull/247)\] \([@dblock](https://github.com/dblock)\)
+  * Use the Lithuanian long scale (`milijardas` for 10^9, `bilijonas` for 10^12). \[[#248](https://github.com/kslazarev/numbers_and_words/pull/248)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 
