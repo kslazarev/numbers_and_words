@@ -21,6 +21,19 @@ module NumbersAndWords
             super({ number: @figures.number_in_capacity(@current_capacity) })
           end
 
+          # "et tusinde og et": a final group below one hundred after a larger unit is joined with "og".
+          def number_without_capacity_to_words
+            words = words_in_capacity(0)
+            lowest = @figures.number_in_capacity(0)
+            lowest.positive? && lowest < 100 ? words + [@translations.union] : words
+          end
+
+          # "et hundrede og et": the remainder after hundreds is joined with "og".
+          def hundreds_number_to_words
+            remainder = simple_number_to_words
+            remainder.empty? ? [hundreds] : remainder + [@translations.union, hundreds]
+          end
+
           private
 
           def simple_part
