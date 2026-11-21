@@ -96,3 +96,15 @@ to_words:
     200000: deux cent mille
     2000021: deux millions vingt et un
     80000000: huitante millions
+  ordinal:
+    options:
+      :ordinal: true
+    1: premier
+    21: vingt-et-unième
+    70: septantième
+    71: septante-et-unième
+    80: huitantième
+    81: huitante-et-unième
+    90: nonantième
+    99: nonante-neuvième
+    200: deux-centième

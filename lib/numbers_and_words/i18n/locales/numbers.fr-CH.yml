@@ -99,3 +99,8 @@ fr-CH:
       hundreds: cent
       union: '-'
     union: et
+    ordinal_first: premier
+    ordinal_suffix: ième
+    ordinal_stems:
+      cinq: cinqu
+      neuf: neuv
