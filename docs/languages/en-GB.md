@@ -142,3 +142,9 @@ I18n.with_locale(:'en-GB') { 21.to_words(remove_hyphen: true) }
 I18n.with_locale(:'en-GB') { 0.7.to_words(remove_zero: true) }
 # => "point seven"
 ```
+
+## Sources
+
+- [Cambridge Grammar: Number](https://dictionary.cambridge.org/grammar/british-grammar/number): British cardinal and ordinal conventions.
+- [Oxford Learner's Dictionaries: hundred](https://www.oxfordlearnersdictionaries.com/definition/english/hundred): Examples of hundred compounds.
+- [Oxford Learner's Dictionaries: billion](https://www.oxfordlearnersdictionaries.com/definition/english/billion): The modern billion scale.

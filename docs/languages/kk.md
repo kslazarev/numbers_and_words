@@ -58,3 +58,9 @@ I18n.with_locale(:kk) { 21.to_words(ordinal: true) }
 I18n.with_locale(:kk) { 2_000.to_words(ordinal: true) }
 # => "екі мыңыншы"
 ```
+
+## Sources
+
+- [Wiktionary: екі](https://en.wiktionary.org/wiki/екі#Kazakh): Ordinal suffixing after a final vowel.
+- [Wiktionary: қырық](https://en.wiktionary.org/wiki/қырық#Kazakh): The exceptional ordinal stem in қырқыншы.
+- [Unicode CLDR: Kazakh Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/kk.xml): The spell-out rules ICU uses to write numbers in words.

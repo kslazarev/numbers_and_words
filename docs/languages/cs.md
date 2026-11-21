@@ -103,3 +103,11 @@ I18n.with_locale(:cs) { 21.to_words(gender: :female, ordinal: true) }
 I18n.with_locale(:cs) { 0.7.to_words(remove_zero: true) }
 # => "sedm desetin"
 ```
+
+## Sources
+
+- [Czech Language Institute: Numeral Agreement](https://prirucka.ujc.cas.cz/?id=791#nadpis3): Agreement when reading decimal numbers.
+- [Czech Language Institute: bilion](https://prirucka.ujc.cas.cz/?slovo=bilion): Accented and unaccented scale-word variants.
+- [Czech Language Institute: miliontina](https://prirucka.ujc.cas.cz/?slovo=miliontina): Corresponding spelling variants in fraction names.
+- [Biliontina](https://cs.wikipedia.org/wiki/Biliontina): The fraction name for one trillionth.
+- [Unicode CLDR: Czech Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/cs.xml): The spell-out rules ICU uses to write numbers in words.

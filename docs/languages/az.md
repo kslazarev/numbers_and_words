@@ -99,3 +99,9 @@ I18n.with_locale(:az) { 2_000.to_words(ordinal: true) }
 I18n.with_locale(:az) { 0.7.to_words(remove_zero: true) }
 # => "onda yeddi"
 ```
+
+## Sources
+
+- [Wiktionary: Azerbaijani Cardinal Numbers](https://en.wiktionary.org/wiki/Category:Azerbaijani_cardinal_numbers): Cardinal spellings.
+- [Wiktionary: -inci](https://en.wiktionary.org/wiki/-inci#Azerbaijani): Ordinal suffixes and vowel harmony.
+- [Unicode CLDR: Azerbaijani Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/az.xml): The spell-out rules ICU uses to write numbers in words.

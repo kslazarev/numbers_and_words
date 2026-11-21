@@ -87,3 +87,9 @@ I18n.with_locale(:fi) { 2000.to_words(ordinal: true) }
 I18n.with_locale(:fi) { 0.7.to_words(remove_zero: true) }
 # => "pilkku seitsemän"
 ```
+
+## Sources
+
+- [Finnish Language Office: Ordinals](https://kielitoimistonohjepankki.fi/ohje/luvut-ja-numerot-jarjestysluvut/): Ordinal usage and spelling.
+- [J. Korpela: Basic Finnish Numerals](https://www.jkorpela.fi/finnish/Basic_numerals.html): Cardinal and ordinal forms.
+- [Unicode CLDR: Finnish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/fi.xml): The spell-out rules ICU uses to write numbers in words.

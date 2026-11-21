@@ -85,3 +85,9 @@ I18n.with_locale(:zh) { 21.to_words(ordinal: true) }
 I18n.with_locale(:zh) { 0.7.to_words(remove_zero: true) }
 # => "点七"
 ```
+
+## Sources
+
+- [Tokyo University of Foreign Studies: Chinese Numbers](https://www.coelang.tufs.ac.jp/mt/zh/gmod/contents/explanation/013.html): Internal zeros and numeral formation.
+- [Open University: Beginner's Chinese](https://www.open.edu/openlearn/languages/beginners-chinese-taster-course/content-section-6/): Basic numeral readings.
+- [Unicode CLDR: Chinese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/zh.xml): The spell-out rules ICU uses to write numbers in words.

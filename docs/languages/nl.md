@@ -107,3 +107,9 @@ I18n.with_locale(:nl) { 0.7.to_words(remove_zero: true) }
 I18n.with_locale(:nl) { 1910.to_words(tens_of_hundreds: true) }
 # => "negentienhonderdtien"
 ```
+
+## Sources
+
+- [Taaladvies: Joining Numerals](https://taaladvies.net/aaneenschrijven-van-telwoorden-algemeen/): Cardinal and ordinal spacing, including separate miljoenste.
+- [Algemene Nederlandse Spraakkunst: Numerals](https://e-ans.ivdnt.org/topics/pid/topic-16976121812507965): Grammatical numeral structure and million-scale ordinal examples.
+- [Unicode CLDR: Dutch Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/nl.xml): The spell-out rules ICU uses to write numbers in words.

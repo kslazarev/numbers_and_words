@@ -64,3 +64,9 @@ I18n.with_locale(:hy) { 2_000.to_words(ordinal: true) }
 I18n.with_locale(:hy) { 1_000_000_000_000_000.to_words(ordinal: true) }
 # => "կվադրիլիոներորդ"
 ```
+
+## Sources
+
+- [Omniglot: Armenian Numbers](https://www.omniglot.com/language/numbers/armenian.htm): Cardinal and ordinal forms, including final-vowel changes.
+- [Wiktionary: Quadrillion](https://en.wiktionary.org/wiki/հազար_երկիլիոն): կվադրիլիոն and its ordinal կվադրիլիոներորդ.
+- [Unicode CLDR: Armenian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/hy.xml): The spell-out rules ICU uses to write numbers in words.

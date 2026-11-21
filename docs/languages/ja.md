@@ -109,3 +109,10 @@ I18n.with_locale(:ja) { 1_000_000_000_000.to_words(script: :kana) }
 I18n.with_locale(:ja) { 1.5.to_words(script: :kana) }
 # => "いってんご"
 ```
+
+## Sources
+
+- [Japanese Numeral Scale Table](https://greater-good.xyz/study/math/doc/digitJp-big): Large-number names and grouping.
+- [Kanshudo: Pronouncing the Decimal Point](https://www.kanshudo.com/poi/pronouncing_decimal_point): Decimal readings.
+- [Wiktionary: 京 Numeral Table](https://en.wiktionary.org/wiki/Template:ja-number-number:%E4%BA%AC): The reading of the 10¹⁶ scale word.
+- [Unicode CLDR: Japanese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ja.xml): The spell-out rules ICU uses to write numbers in words.

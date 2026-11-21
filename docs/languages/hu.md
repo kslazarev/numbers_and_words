@@ -88,3 +88,10 @@ I18n.with_locale(:hu) { 1_000_000.to_words(ordinal: true) }
 I18n.with_locale(:hu) { 0.7.to_words(remove_zero: true) }
 # => "hét tized"
 ```
+
+## Sources
+
+- [Hungarian Academy: Numeral Orthography](https://helyesiras.mta.hu/helyesiras/default/akh12#291): Numeral joining and hyphenation.
+- [Hungarian Academy: Numeral Converter](https://helyesiras.mta.hu/helyesiras/default/numerals?q=101.): Compound ordinal examples.
+- [Nyelv és Tudomány: Ordinal Analogies](https://www.nyest.hu/hirek/analogia-a-magyar-sorszamnevekben): Ordinal stems and forms such as milliomodik.
+- [Unicode CLDR: Hungarian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/hu.xml): The spell-out rules ICU uses to write numbers in words.

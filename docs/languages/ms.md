@@ -84,3 +84,10 @@ I18n.with_locale(:ms) { 21.to_words(ordinal: true) }
 I18n.with_locale(:ms) { 0.7.to_words(remove_zero: true) }
 # => "perpuluhan tujuh"
 ```
+
+## Sources
+
+- [DBP: kedua puluh satu](https://prpm.dbp.gov.my/Cari1?keyword=kedua%20puluh%20satu&d=175768): Compound ordinal formation.
+- [DBP: kesatu](https://prpm.dbp.gov.my/Cari1?keyword=kesatu&d=175768): The accepted alternative to pertama.
+- [DBP: bilion](https://prpm.dbp.gov.my/Cari1?keyword=bilion&d=175768): Scale definitions and usage.
+- [Unicode CLDR: Malay Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ms.xml): The spell-out rules ICU uses to write numbers in words.

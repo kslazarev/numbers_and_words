@@ -108,3 +108,9 @@ I18n.with_locale(:bg) { 2000.to_words(ordinal: true) }
 I18n.with_locale(:bg) { 0.7.to_words(remove_zero: true) }
 # => "седем десети"
 ```
+
+## Sources
+
+- [Chitanka Dictionary: двехиляден](https://rechnik.chitanka.info/w/двехиляден): The ordinal of two thousand.
+- [Dumite Dictionary: двехиляден](https://dumite-bg.com/words/двехиляден): Independent confirmation of the same spelling.
+- [Unicode CLDR: Bulgarian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/bg.xml): The spell-out rules ICU uses to write numbers in words.

@@ -119,3 +119,10 @@ I18n.with_locale(:ro) { 1000.to_words(ordinal: true) }
 I18n.with_locale(:ro) { 0.7.to_words(remove_zero: true) }
 # => "virgulă șapte"
 ```
+
+## Sources
+
+- [DEX/DOOM: unulea](https://dexonline.ro/definitie/unulea): An ordinal form of one.
+- [DEX/DOOM: sutălea](https://dexonline.ro/definitie/sut%C4%83lea): Hundredth forms.
+- [DEX/DOOM: miilea](https://dexonline.ro/definitie/miilea): Thousandth forms.
+- [Unicode CLDR: Romanian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ro.xml): The spell-out rules ICU uses to write numbers in words.

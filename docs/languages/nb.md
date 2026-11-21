@@ -105,3 +105,9 @@ I18n.with_locale(:nb) { 1_000_000.to_words(ordinal: true) }
 I18n.with_locale(:nb) { 0.7.to_words(remove_zero: true) }
 # => "komma sju"
 ```
+
+## Sources
+
+- [Språkrådet: Numbers, Time and Dates](https://sprakradet.no/godt-og-korrekt-sprak/rettskriving-og-grammatikk/tall-tid-dato/): Norwegian numeral conventions.
+- [Bokmålsordboka: tjueen](https://ordbokene.no/nob/bm/tjueen): Compound cardinal spelling.
+- [Unicode CLDR: Norwegian Bokmål Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/nb.xml): The spell-out rules ICU uses to write numbers in words.

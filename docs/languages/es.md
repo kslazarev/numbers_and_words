@@ -118,3 +118,10 @@ I18n.with_locale(:es) { 22_000.to_words(ordinal: true, gender: :female) }
 I18n.with_locale(:es) { 0.7.to_words(remove_zero: true) }
 # => "siete décimas"
 ```
+
+## Sources
+
+- [RAE: Ordinal Numeral Spelling](https://www.rae.es/ortograf%C3%ADa/ortograf%C3%ADa-de-los-numerales-ordinales): Ordinal formation and gender.
+- [RAE: Fused Compounds](https://www.rae.es/ortograf%C3%ADa/formas-complejas-escritas-en-una-sola-palabra): Accentuation when words are joined.
+- [RAE: Cardinal Numeral Spelling](https://www.rae.es/ortograf%C3%ADa/ortograf%C3%ADa-de-los-numerales-cardinales): Joined cardinal forms and internal i.
+- [Unicode CLDR: Spanish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/es.xml): The spell-out rules ICU uses to write numbers in words.

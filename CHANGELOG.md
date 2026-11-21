@@ -26,6 +26,7 @@
   * Add `unit:`, `subunit:` and `zero_subunit:` to spell amounts with units in the right plural form and gender ("двадцать один рубль", "twenty-one dollars and fifty cents"). \[[#299](https://github.com/kslazarev/numbers_and_words/pull/299), [#302](https://github.com/kslazarev/numbers_and_words/pull/302)\] \([@dblock](https://github.com/dblock)\)
   * Use the standard locale codes `sv`, `uk` and `kk` instead of `se`, `ua` and `kz`. \[[#300](https://github.com/kslazarev/numbers_and_words/pull/300)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Azerbaijani (`az`), with decimals read as fractions ("üç tam yüzdə on dörd"), ordinals and `remove_zero`, from the digitaz and hydra-billing forks. \[[#308](https://github.com/kslazarev/numbers_and_words/pull/308)\] \([@stager94](https://github.com/stager94), [@NatalieKor](https://github.com/NatalieKor), [@flash-gordon](https://github.com/flash-gordon), [@dblock](https://github.com/dblock)\)
+  * Add numeral spelling and grammar references in a Sources section on every language page. \[[#316](https://github.com/kslazarev/numbers_and_words/pull/316)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

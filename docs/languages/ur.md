@@ -113,3 +113,9 @@ I18n.with_locale(:ur) { 2.to_words(ordinal: true, gender: :male) }
 I18n.with_locale(:ur) { 0.7.to_words(remove_zero: true) }
 # => "اعشاریہ سات"
 ```
+
+## Sources
+
+- [Urdu-English: Numbers](https://www.urdu-english.com/lessons/beginner/numbers): Basic cardinal spellings and readings.
+- [Wikiversity: Urdu Numbers](https://en.wikiversity.org/wiki/Urdu_Numbers): Numeral tables.
+- [Unicode CLDR: Urdu Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ur.xml): The spell-out rules ICU uses to write numbers in words.

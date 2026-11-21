@@ -91,3 +91,8 @@ I18n.with_locale(:ko) { 21.to_words(ordinal: true) }
 I18n.with_locale(:ko) { 0.7.to_words(remove_zero: true) }
 # => "점 칠"
 ```
+
+## Sources
+
+- [How to Study Korean: Numbers](https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/unit-1-lesson-10/): Sino-Korean and native Korean cardinal systems.
+- [Unicode CLDR: Korean Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ko.xml): The spell-out rules ICU uses to write numbers in words.

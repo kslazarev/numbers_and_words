@@ -111,3 +111,9 @@ I18n.with_locale(:it) { 3_000_003.to_words(ordinal: true) }
 I18n.with_locale(:it) { 0.7.to_words(remove_zero: true) }
 # => "virgola sette"
 ```
+
+## Sources
+
+- [Treccani: Ordinal Numeral Adjectives](https://www.treccani.it/enciclopedia/aggettivi-numerali-ordinali_%28La-grammatica-italiana%29/): Ordinal suffixes and preservation of final vowels in tre and sei.
+- [Treccani: Numeral Reference Guide](https://www.treccani.it/enciclopedia/numerali-prontuario_%28Enciclopedia-dell%27Italiano%29/): Cardinal and ordinal formation.
+- [Unicode CLDR: Italian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/it.xml): The spell-out rules ICU uses to write numbers in words.

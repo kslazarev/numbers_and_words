@@ -73,3 +73,8 @@ I18n.with_locale(:da) { 2_000.to_words(ordinal: true) }
 I18n.with_locale(:da) { 2.to_words(ordinal: true, gender: :neuter) }
 # => "andet"
 ```
+
+## Sources
+
+- [Dansk Sprognævn: Numeral Inflection](https://sproget.dk/sprogviden/spoergsmaal-og-svar/dansk-sprognaevn/sv00004961/): Common-gender anden and neuter andet.
+- [Unicode CLDR: Danish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/da.xml): The spell-out rules ICU uses to write numbers in words.

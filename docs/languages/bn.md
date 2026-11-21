@@ -96,3 +96,9 @@ I18n.with_locale(:bn) { 100.to_words(ordinal: true) }
 I18n.with_locale(:bn) { 0.7.to_words(remove_zero: true) }
 # => "দশমিক সাত"
 ```
+
+## Sources
+
+- [Wiktionary: Bengali Numerals](https://en.wiktionary.org/wiki/Appendix:Bengali_numerals): Cardinal and ordinal forms.
+- [Omniglot: Bengali Numbers](https://www.omniglot.com/language/numbers/bengali.htm): Numeral spellings and the Indian grouping system.
+- [Unicode CLDR: Bengali Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/bn.xml): The spell-out rules ICU uses to write numbers in words.

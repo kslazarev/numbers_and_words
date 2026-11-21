@@ -96,3 +96,10 @@ I18n.with_locale(:de) { 2_002_000_000.to_words(ordinal: true) }
 I18n.with_locale(:de) { 0.7.to_words(remove_zero: true) }
 # => "Komma sieben"
 ```
+
+## Sources
+
+- [Duden: Joining Numerals (D65)](https://www.duden.de/sprachwissen/rechtschreibregeln/getrennt-und-zusammenschreibung#D65): Compound ordinal spelling.
+- [Duden: millionste](https://www.duden.de/rechtschreibung/millionste): The bare millionth form.
+- [DWDS: einmillionste](https://www.dwds.de/wb/einmillionste): An alternative form retaining the multiplier.
+- [Unicode CLDR: German Number Formatting](https://github.com/unicode-org/cldr/blob/main/common/rbnf/de.xml): Cardinal and ordinal formatting rules.
