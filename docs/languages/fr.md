@@ -59,6 +59,24 @@ I18n.with_locale(:fr) { 21.77.to_words(micro_separator: "plus") }
 # => "vingt-et-un plus soixante-dix-sept centièmes"
 ```
 
+### Ordinal
+
+`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux-centième"). Decimals keep the cardinal form.
+
+```ruby
+I18n.with_locale(:fr) { 1.to_words(ordinal: true) }
+# => "premier"
+
+I18n.with_locale(:fr) { 21.to_words(ordinal: true) }
+# => "vingt-et-unième"
+
+I18n.with_locale(:fr) { 80.to_words(ordinal: true) }
+# => "quatre-vingtième"
+
+I18n.with_locale(:fr) { 200.to_words(ordinal: true) }
+# => "deux-centième"
+```
+
 ### Spelling
 
 French follows the 1990 spelling reform by default (`spelling: :reformed`), hyphenating every numeral in a compound number except the nouns million, milliard and larger. `spelling: :traditional` gives the earlier spelling, with spaces and without hyphens around `et`, `cent` and `mille`.

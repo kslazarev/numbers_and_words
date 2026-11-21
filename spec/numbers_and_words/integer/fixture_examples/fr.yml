@@ -107,3 +107,39 @@ to_words:
     321: trois-cent-vingt-et-un
     200000: deux-cent-mille
     2000021: deux millions vingt-et-un
+  ordinal:
+    options:
+      :ordinal: true
+    0: zéroième
+    1: premier
+    2: deuxième
+    3: troisième
+    4: quatrième
+    5: cinquième
+    9: neuvième
+    11: onzième
+    17: dix-septième
+    19: dix-neuvième
+    20: vingtième
+    21: vingt-et-unième
+    71: soixante-et-onzième
+    80: quatre-vingtième
+    81: quatre-vingt-unième
+    99: quatre-vingt-dix-neuvième
+    100: centième
+    101: cent-unième
+    200: deux-centième
+    1000: millième
+    1001: mille-unième
+    2000: deux-millième
+    1000000: millionième
+    1000000000: milliardième
+  traditional_ordinal:
+    options:
+      :ordinal: true
+      :spelling: traditional
+    1: premier
+    21: vingt et unième
+    200: deux centième
+    321: trois cent vingt et unième
+    2000000: deux millionième

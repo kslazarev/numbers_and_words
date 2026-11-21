@@ -23,6 +23,10 @@ module NumbersAndWords
             super({ alone: thousand? ? false : nil })
           end
 
+          def zero
+            ordinal? ? ordinal(super) : super
+          end
+
           def megs
             super({ number: @figures.number_in_capacity(@current_capacity) })
           end
@@ -32,13 +36,37 @@ module NumbersAndWords
           # milliard and larger ("deux millions vingt-et-un"). spelling: :traditional keeps
           # the earlier spelling ("trois cent vingt et un").
           def print_words
-            words = super
-            return words if @options.spelling.traditional?
-
-            words.split.slice_when { |a, b| scale_noun?(a) || scale_noun?(b) }.map { |run| run.join('-') }.join(' ')
+            words = @options.spelling.traditional? ? super : hyphenate(super)
+            ordinal? ? ordinal(words) : words
           end
 
           private
+
+          def hyphenate(words)
+            words.split.slice_when { |a, b| scale_noun?(a) || scale_noun?(b) }.map { |run| run.join('-') }.join(' ')
+          end
+
+          # Only the last word of an ordinal changes ("vingt-et-unième", "deux-centième"), except 1 alone ("premier").
+          # A round scale noun drops its "un" ("millionième").
+          def ordinal(words)
+            return translations.t(:ordinal_first) if words == translations.ones(1)
+
+            words = words.delete_prefix("#{translations.ones(1)} ") if words.count(' ') == 1
+            *head, last = words.split(/(?<=[- ])/)
+            [*head, ordinal_word(last)].join
+          end
+
+          # Plurals ("vingts", "cents", "millions") become singular, a final "e" is dropped, and
+          # "cinq" and "neuf" become "cinqu" and "neuv" before the suffix.
+          def ordinal_word(word)
+            word = word.delete_suffix('s') unless word == translations.ones(3)
+            stem = translations.t(:ordinal_stems).fetch(word.to_sym) { word.delete_suffix('e') }
+            "#{stem}#{translations.t(:ordinal_suffix)}"
+          end
+
+          def ordinal?
+            @options.ordinal.result && @options.options[:integral].nil? && @options.options[:fractional].nil?
+          end
 
           def scale_noun?(word)
             @scale_nouns ||= translations.t(:mega).drop(2).flat_map { |key| Array(translations.t(key).values) }
