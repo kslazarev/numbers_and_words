@@ -19,10 +19,11 @@ end
 
 group :test do
   gem 'rspec'
-  gem 'rubocop', '~> 1.78.0', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', require: false
+  # No lockfile is committed; lock lint tools so new cops arrive only through upgrades.
+  gem 'rubocop', '1.92.3', require: false
+  gem 'rubocop-performance', '1.27.0', require: false
+  gem 'rubocop-rake', '0.7.1', require: false
+  gem 'rubocop-rspec', '3.10.2', require: false
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
 end

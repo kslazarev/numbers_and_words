@@ -13,6 +13,12 @@ AllCops:
 Gemspec/RequireMFA:
   Enabled: false
 
+# These specs generate one example per YAML fixture or locale file; the loop values are the test data.
+RSpec/LeakyLocalVariable:
+  Exclude:
+    - spec/numbers_and_words/i18n_spec.rb
+    - spec/shared_examples/correct_fixture_examples.rb
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 

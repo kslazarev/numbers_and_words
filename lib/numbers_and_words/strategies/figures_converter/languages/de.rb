@@ -53,7 +53,7 @@ module NumbersAndWords
           end
 
           def simple_part
-            @strings.reject { |f| f.is_a?(Array) }
+            @strings.grep_v(Array)
           end
 
           def complex_part
