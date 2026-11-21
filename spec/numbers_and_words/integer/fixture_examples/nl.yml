@@ -49,6 +49,23 @@ to_words:
     2193: eenentwintighonderddrieënnegentig
     9999: negenennegentighonderdnegenennegentig
     11984: elfduizend negenhonderdvierentachtig
+  pronounced:
+    options:
+      :pronounced: true
+    1000: duizend
+    1099: duizend negenennegentig
+    1100: elfhonderd
+    1101: elfhonderd een
+    1111: elfhonderd elf
+    1910: negentienhonderd tien
+    1984: negentienhonderd vierentachtig
+    2000: tweeduizend
+    2001: tweeduizend één
+    2101: eenentwintighonderd een
+    3013: drieduizend dertien
+    9999: negenennegentighonderd negenennegentig
+    10000: tienduizend
+    12345: twaalfduizend driehonderdvijfenveertig
   millions:
     1000000: één miljoen
     2000000: twee miljoen

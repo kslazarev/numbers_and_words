@@ -42,6 +42,21 @@ I18n.with_locale(:nl) { 1910.to_words(tens_of_hundreds: true) }
 # => "negentienhonderdtien"
 ```
 
+## Pronounced
+
+`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as they are usually spoken, with a space before the remainder. Other numbers are read as usual.
+
+```ruby
+I18n.with_locale(:nl) { 1910.to_words(pronounced: true) }
+# => "negentienhonderd tien"
+
+I18n.with_locale(:nl) { 1100.to_words(pronounced: true) }
+# => "elfhonderd"
+
+I18n.with_locale(:nl) { 2001.to_words(pronounced: true) }
+# => "tweeduizend één"
+```
+
 ## Remove Zero
 
 `remove_zero: true` omits a zero integral part.
