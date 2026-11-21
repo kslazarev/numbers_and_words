@@ -1,0 +1,277 @@
+# Differences between this gem and the Unicode CLDR spell-out rules that no rule
+# in spec/fixtures/cldr_rules.yml covers (see spec/cldr_comparison_spec.rb), by
+# locale, kind and number. Each exception gives the gem's and CLDR's readings and
+# the reason the difference that remains after the rules is accepted.
+#
+# Regenerate with `bundle exec ruby script/cldr_differences.rb`, then write a rule
+# for a repeated difference or replace each TODO with a reason; differences that
+# are gem bugs are fixed instead.
+ar:
+  cardinal:
+    2000:
+      gem: ألفان
+      cldr: ألفي
+      reason: CLDR uses the oblique dual ألفي; the standalone nominative dual is ألفان
+    2000000:
+      gem: مليونان
+      cldr: إثنان مليون
+      reason: CLDR says إثنان مليون; Arabic uses the dual مليونان for two million
+az:
+  ordinal:
+    1000000000:
+      gem: milyardıncı
+      cldr: bir milyarıncı
+      reason: CLDR drops the d of milyard in the ordinal (milyarıncı)
+bg:
+  ordinal:
+    0:
+      gem: нулев
+      cldr: нула
+      reason: CLDR has no zero ordinal and falls back to the cardinal нула
+  ordinal/female:
+    0:
+      gem: нулева
+      cldr: нула
+      reason: CLDR has no zero ordinal and falls back to the cardinal нула
+  ordinal/neuter:
+    0:
+      gem: нулево
+      cldr: нула
+      reason: CLDR has no zero ordinal and falls back to the cardinal нула
+cs:
+  cardinal:
+    1001:
+      gem: tisíc jedna
+      cldr: jedna tisíc jeden
+      reason: 'the gem counts with jedna (raz, dva, tři: jedna, dvě, tři), the usual Czech counting form; CLDR spellout-numbering uses the masculine jeden'
+da:
+  ordinal/neuter:
+    1001:
+      gem: et tusind og første
+      cldr: tusinde og første
+      reason: the gem says et hundrede and et tusind; CLDR omits et, which is also usual; CLDR uses tusinde in cardinals; tusind is the usual cardinal form and tusinde the ordinal
+    1100:
+      gem: et tusind et hundrede
+      cldr: tusinde hundredede
+      reason: the gem says et hundrede and et tusind; CLDR omits et, which is also usual; CLDR uses tusinde in cardinals; tusind is the usual cardinal form and tusinde the ordinal
+es:
+  ordinal:
+    123456:
+      gem: cientoveintitresmilésimo cuadringentésimo quincuagésimo sexto
+      cldr: ciento veintitrés milésimo cuadringentésimo quincuagésimo sexto
+      reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+    123456789:
+      gem: cientoveintitresmillonésimo cuatrocientoscincuentaiseismilésimo septingentésimo octogésimo noveno
+      cldr: ciento veintitrés millonésimo cuatrocientos cincuenta y seis milésimo septingentésimo octogésimo noveno
+      reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+  cardinal/female:
+    123456789:
+      gem: ciento veintitrés millones cuatrocientas cincuenta y seis mil setecientas ochenta y nueve
+      cldr: ciento veintitrés millones cuatrocientos cincuenta y seis mil setecientas ochenta y nueve
+      reason: the gem makes hundreds before mil agree with a feminine noun (cuatrocientas cincuenta y seis mil), as the RAE recommends; CLDR keeps them masculine
+  ordinal/female:
+    123456:
+      gem: cientoveintitresmilésima cuadringentésima quincuagésima sexta
+      cldr: ciento veintitrés milésima cuadringentésima quincuagésima sexta
+      reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+    123456789:
+      gem: cientoveintitresmillonésima cuatrocientoscincuentaiseismilésima septingentésima octogésima novena
+      cldr: ciento veintitrés millonésima cuatrocientos cincuenta y seis milésima septingentésima octogésima novena
+      reason: the gem writes compound ordinals of mil and millón as one word, as the RAE recommends (dosmilésimo, veintiunmilésimo, cienmilésimo); CLDR writes them apart
+fi:
+  ordinal:
+    123456789:
+      gem: sadaskahdeskymmeneskolmas miljoonas neljässadasviideskymmeneskuudestuhannesseitsemässadaskahdeksaskymmenesyhdeksäs
+      cldr: sadaskahdeskymmeneskolmas miljoonasneljässadasviideskymmeneskuudestuhannesseitsemässadaskahdeksaskymmenesyhdeksäs
+      reason: the gem separates the words after miljoonas with a space; CLDR writes the whole ordinal as one word
+fr:
+  ordinal:
+    123456789:
+      gem: cent-vingt-trois millions quatre-cent-cinquante-six-mille-sept-cent-quatre-vingt-neuvième
+      cldr: cent vingt-trois million quatre cent cinquante-six mille sept cent quatre-vingt-neuvième
+      reason: CLDR leaves million singular in cent vingt-trois million; it takes the plural millions
+he:
+  ordinal:
+    2:
+      gem: שנייה
+      cldr: שניה
+      reason: CLDR uses the defective spelling שניה; the Academy full spelling is שנייה
+    999:
+      gem: תשע המאות תשעים ותשע
+      cldr: תשע מאות תשעים ותשע
+      reason: Hebrew ordinals above ten are cardinals; the gem gives them with the definite article (העשרים), CLDR without (עשרים)
+    2000000:
+      gem: שני המיליון
+      cldr: שני מיליון
+      reason: Hebrew ordinals above ten are cardinals; the gem gives them with the definite article (העשרים), CLDR without (עשרים)
+  ordinal/male:
+    999:
+      gem: תשע המאות תשעים ותשעה
+      cldr: תשע מאות תשעים ותשעה
+      reason: Hebrew ordinals above ten are cardinals; the gem gives them with the definite article (העשרים), CLDR without (עשרים)
+    2000000:
+      gem: שני המיליון
+      cldr: שני מיליון
+      reason: Hebrew ordinals above ten are cardinals; the gem gives them with the definite article (העשרים), CLDR without (עשרים)
+hu:
+  ordinal:
+    0:
+      gem: nulladik
+      cldr: nulla
+      reason: CLDR has no zero ordinal and falls back to the cardinal nulla; the ordinal is nulladik
+    123456789:
+      gem: százhuszonhárommillió-négyszázötvenhatezer-hétszáznyolcvankilencedik
+      cldr: százhuszonhárommilliomnégyszázötvenhatezerhétszáznyolcvankilencedik
+      reason: CLDR uses milliom inside the ordinal; the gem keeps millió before the hyphen
+hy:
+  cardinal:
+    1000000000:
+      gem: մեկ միլիարդ
+      cldr: մեկ միլիար
+      reason: CLDR says միլիար; the Eastern Armenian word is միլիարդ (reported as CLDR-19918)
+id:
+  ordinal:
+    0:
+      gem: nol
+      cldr: kenol
+      reason: the gem reads the zero ordinal as the cardinal nol; CLDR forms kenol
+it:
+  ordinal:
+    0:
+      gem: zero
+      cldr: zeresimo
+      reason: the gem reads the zero ordinal as the cardinal zero, as its fixtures specify; CLDR forms zeresimo
+    101:
+      gem: centounesimo
+      cldr: centunesimo
+      reason: the gem says centounesimo, CLDR centunesimo; both are in use
+    110:
+      gem: centodiecesimo
+      cldr: centodecimo
+      reason: the gem says centodiecesimo, CLDR centodecimo; both are in use
+    123456789:
+      gem: centoventitremilioniquattrocentocinquantaseimilasettecentottantanovesimo
+      cldr: centoventitrémilionequattrocentocinquantaseimilasettecentoottantanovesimo
+      reason: the gem uses the plural milioni inside the ordinal and elides settecentottanta, as cento drops its o before ottanta; CLDR uses the singular milione and settecentoottanta
+ka:
+  cardinal:
+    101:
+      gem: ას ერთი
+      cldr: ასერთი
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+    110:
+      gem: ას ათი
+      cldr: ასათი
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+    111:
+      gem: ას თერთმეტი
+      cldr: ასთერთმეტი
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+    999:
+      gem: ცხრაას ოთხმოცდაცხრამეტი
+      cldr: ცხრაასოთხმოცდაცხრამეტი
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+    123456:
+      gem: ას ოცდასამი ათას ოთხას ორმოცდათექვსმეტი
+      cldr: ასოცდასამი ათას ოთხასორმოცდათექვსმეტი
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+    123456789:
+      gem: ას ოცდასამი მილიონ ოთხას ორმოცდათექვსმეტი ათას შვიდას ოთხმოცდაცხრა
+      cldr: ასოცდასამი მილიონ ოთხასორმოცდათექვსმეტი ათას შვიდასოთხმოცდაცხრა
+      reason: the gem writes a hundred apart from the rest (ას ერთი); CLDR joins them (ასერთი)
+kk:
+  ordinal:
+    40:
+      gem: қырқыншы
+      cldr: қырықыншы
+      reason: 'CLDR keeps the stem vowel (қырықыншы); 40th drops it: қырқыншы'
+lv:
+  cardinal:
+    100:
+      gem: simts
+      cldr: simt
+      reason: the gem uses the full forms simts, divi simti; CLDR the short simt, divsimt; both are standard
+    1100:
+      gem: viens tūkstotis simts
+      cldr: tūkstoš simt
+      reason: the gem uses the full forms simts, divi simti; CLDR the short simt, divsimt; both are standard
+nl:
+  ordinal:
+    0:
+      gem: nulde
+      cldr: nulste
+      reason: the gem says nulde, the usual Dutch zero ordinal; CLDR says nulste
+    123456789:
+      gem: honderddrieëntwintig miljoen vierhonderdzesenvijftigduizend zevenhonderdnegenentachtigste
+      cldr: honderddrieëntwintigmiljoenvierhonderdzesenvijftigduizendzevenhonderdnegenentachtigste
+      reason: Dutch spelling puts a space after duizend and around miljoen (duizend honderd); CLDR joins them
+pt-BR:
+  cardinal:
+    123456789:
+      gem: cento e vinte e três milhões, quatrocentos e cinquenta e seis mil setecentos e oitenta e nove
+      cldr: cento e vinte e três milhões quatrocentos e cinquenta e seis mil setecentos e oitenta e nove
+      reason: the gem separates the millions with a comma, a documented Brazilian convention; CLDR has none
+  ordinal:
+    123456:
+      gem: centésimo vigésimo terceiro milésimo quadringentésimo quinquagésimo sexto
+      cldr: cento e vinte e três milésimo quadringentésimo quinquagésimo sexto
+      reason: the gem makes the multiplier of milésimo and milionésimo ordinal (segundo milésimo); CLDR keeps it cardinal (dois milésimo); grammars give both
+    123456789:
+      gem: centésimo vigésimo terceiro milionésimo quadringentésimo quinquagésimo sexto milésimo septingentésimo octogésimo nono
+      cldr: cento e vinte e três milionésimo quatrocentos e cinquenta e seis milésimo septingentésimo octogésimo nono
+      reason: the gem makes the multiplier of milésimo and milionésimo ordinal (segundo milésimo); CLDR keeps it cardinal (dois milésimo); grammars give both
+  cardinal/female:
+    123456789:
+      gem: cento e vinte e três milhões, quatrocentas e cinquenta e seis mil setecentas e oitenta e nove
+      cldr: cento e vinte e três milhões quatrocentas e cinquenta e seis mil setecentas e oitenta e nove
+      reason: the gem separates the millions with a comma, a documented Brazilian convention; CLDR has none
+  ordinal/female:
+    123456:
+      gem: centésima vigésima terceira milésima quadringentésima quinquagésima sexta
+      cldr: cento e vinte e três milésima quadringentésima quinquagésima sexta
+      reason: the gem makes the multiplier of milésimo and milionésimo ordinal (segundo milésimo); CLDR keeps it cardinal (dois milésimo); grammars give both
+    123456789:
+      gem: centésima vigésima terceira milionésima quadringentésima quinquagésima sexta milésima septingentésima octogésima nona
+      cldr: cento e vinte e três milionésima quatrocentas e cinquenta e seis milésima septingentésima octogésima nona
+      reason: the gem makes the multiplier of milésimo and milionésimo ordinal (segundo milésimo); CLDR keeps it cardinal (dois milésimo); grammars give both
+ru:
+  ordinal:
+    200:
+      gem: двухсотый
+      cldr: двести
+      reason: CLDR reads 200th as the cardinal двести; the ordinal is двухсотый
+  ordinal/female:
+    0:
+      gem: нулевая
+      cldr: ноль
+      reason: CLDR has no feminine zero ordinal and falls back to the cardinal ноль
+    200:
+      gem: двухсотая
+      cldr: двести
+      reason: CLDR reads 200th as the cardinal двести; the ordinal is двухсотый
+  ordinal/neuter:
+    80:
+      gem: восьмидесятое
+      cldr: восемьдесятое
+      reason: CLDR misspells the neuter 80th as восемьдесятое; it is восьмидесятое
+    200:
+      gem: двухсотое
+      cldr: двести
+      reason: CLDR reads 200th as the cardinal двести; the ordinal is двухсотый
+th:
+  cardinal:
+    1001:
+      gem: หนึ่งพันเอ็ด
+      cldr: หนึ่งพันหนึ่ง
+      reason: the gem says เอ็ด for a final 1 after a hundred or thousand (หนึ่งร้อยเอ็ด), CLDR หนึ่ง; both are used
+  ordinal:
+    1001:
+      gem: ที่หนึ่งพันเอ็ด
+      cldr: ที่หนึ่งพันหนึ่ง
+      reason: the gem says เอ็ด for a final 1 after a hundred or thousand (หนึ่งร้อยเอ็ด), CLDR หนึ่ง; both are used
+vi:
+  ordinal:
+    2:
+      gem: thứ hai
+      cldr: thứ nhì
+      reason: the gem says thứ hai, CLDR thứ nhì; both are used

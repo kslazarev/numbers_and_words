@@ -9,6 +9,8 @@ module NumbersAndWords
 
           # Compounds ending in "tre" are accented ("ventitré", "milletré"); a standalone "tre" is not.
           COMPOUND_TRE = /(?<=\p{L})tre\b/
+          # Fusing words into an ordinal moves "tré" inside a word, where it loses its accent ("ventitremilionesimo").
+          INNER_TRE = /tré(?=\p{L})/
 
           def print_words
             join_compound_words(@strings.reverse, compound_word_starters).join(' ').gsub(COMPOUND_TRE, 'tré')
@@ -113,11 +115,20 @@ module NumbersAndWords
             return text if number.zero?
             return ordinals[:units][number] if number <= 10
 
-            word = without_leading_one(text).delete(' ')
+            word = without_one_before_scale(text).delete(' ').gsub(INNER_TRE, 'tre')
             thousands = ordinals[:thousands]
             return "#{word.delete_suffix(thousands)}#{ordinals[:thousandth]}" if word.end_with?(thousands)
 
             "#{ordinal_stem(word)}#{ordinals[:suffix]}"
+          end
+
+          # "milioneventitreesimo", not "unmilioneventitreesimo": a leading un before a scale word is dropped
+          # in every ordinal, not only for an exact million ("milionesimo").
+          def without_one_before_scale(text)
+            first, second, *rest = text.split
+            return without_leading_one(text) unless second && ordinals[:leading_one].include?(first) && mega_word?(second)
+
+            [second, *rest].join(' ')
           end
 
           def ordinal_stem(word)

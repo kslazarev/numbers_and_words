@@ -121,6 +121,13 @@ to_words:
     3000003: 'tremilionitreesimo'
     3000006: 'tremilioniseiesimo'
     3000023: 'tremilioniventitreesimo'
+    23000000: 'ventitremilionesimo'
+    1000001: 'milioneunesimo'
+    1000023: 'milioneventitreesimo'
+    1001000: 'milionemillesimo'
+    1000000023: 'miliardoventitreesimo'
+    2000023: 'duemilioniventitreesimo'
+    123456789: 'centoventitremilioniquattrocentocinquantaseimilasettecentottantanovesimo'
     2025000: 'duemilioniventicinquemillesimo'
     1000000000: 'miliardesimo'
   cento_elision:

@@ -26,4 +26,8 @@ group :test do
   gem 'rubocop-rspec', '3.10.2', require: false
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
+  # Unicode CLDR spell-out rules for spec/cldr_comparison_spec.rb, pinned because new CLDR data changes the reviewed
+  # differences in spec/fixtures/cldr_differences.yml; twitter_cldr needs bigdecimal but doesn't declare it.
+  gem 'bigdecimal', require: false
+  gem 'twitter_cldr', '6.14.0', require: false
 end
