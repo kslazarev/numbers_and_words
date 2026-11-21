@@ -48,7 +48,7 @@ nl:
     decillionsten:
       one: decillionste
       other: decillionsten
-    micro_separator: komma
+    micro_separator: en
     micro_prefix:
       tens: tien
       hundreds: honderd
