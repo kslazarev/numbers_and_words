@@ -8,8 +8,9 @@ module NumbersAndWords
           class Gender < Base::Gender
             VALUES = %i[male female neuter].freeze
 
+            # Without gender: numbers use the counting forms (jedna, dva, tři), which only cardinals have.
             def result
-              active? ? @options[:gender].to_sym : :female
+              active? ? @options[:gender].to_sym : :counting
             end
           end
         end

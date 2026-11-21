@@ -172,3 +172,20 @@ to_words:
     21: 'vigésima primera'
     2000: 'dosmilésima'
     1000000: 'millonésima'
+  apocopated_ordinal:
+    options:
+      :ordinal: true
+      :apocopated: true
+    1: 'primer'
+    2: 'segundo'
+    3: 'tercer'
+    13: 'decimotercer'
+    21: 'vigésimo primer'
+    23: 'vigésimo tercer'
+  apocopated_tens:
+    options:
+      :apocopated: true
+    21: 'veintiún'
+    25: 'veinticinco'
+    31: 'treinta y un'
+    35: 'treinta y cinco'

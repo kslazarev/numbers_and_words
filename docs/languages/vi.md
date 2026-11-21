@@ -32,7 +32,12 @@ I18n.with_locale(:vi) { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read with `phẩy` followed by the fractional part read as a number, after a `không` for each leading zero.
+
 ```ruby
+I18n.with_locale(:vi) { 0.05.to_words }
+# => "không phẩy không năm"
+
 I18n.with_locale(:vi) { 21.77.to_words }
 # => "hai mươi mốt phẩy bảy mươi bảy"
 ```

@@ -1,6 +1,6 @@
 # Italian (`it`)
 
-Italiano. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+Italiano. Cento drops its final o before otto and ottanta (centotto, duecentottanta). Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Aliases: `it-CH`.
 
@@ -95,6 +95,9 @@ I18n.with_locale(:it) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:it) { 2_000.to_words(ordinal: true) }
 # => "duemillesimo"
+
+I18n.with_locale(:it) { 180.to_words(ordinal: true) }
+# => "centottantesimo"
 ```
 
 ### Remove Zero

@@ -22,12 +22,16 @@ See [#269](https://github.com/kslazarev/numbers_and_words/pull/269) and [#266](h
 
 ### British English Says "and" After Hundreds
 
-British English (`en-GB`) now adds "and" after hundreds by default. American English (`en`) is unchanged.
+British English (`en-GB`) now adds "and" after hundreds, and before a final part below one hundred after thousand, million or a larger scale, by default. American English (`en`) is unchanged.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 101.to_words }
 # 1.0.x => "one hundred one"
 # 2.0.0 => "one hundred and one"
+
+I18n.with_locale(:'en-GB') { 1001.to_words }
+# 1.0.x => "one thousand one"
+# 2.0.0 => "one thousand and one"
 ```
 
 To keep the previous output, pass `hundreds_with_union: false`:
@@ -69,8 +73,12 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 | Language | Number | 1.0.x | 2.0.0 |
 | --- | --- | --- | --- |
 | Czech (`cs`) | 100, 1000 | `jedno sto`, `jeden tisíc` | `sto`, `tisíc` |
+| Czech (`cs`) | 2, 22 without `gender` | `dvě`, `dvacet dvě` | `dva`, `dvacet dva` |
+| Dutch (`nl`) | 10²⁴, 10²⁷ | `één septiljoen`, `één octillion` | `één quadriljoen`, `één quadriljard` |
 | Danish (`da`) | 1, 1000 | `et`, `et tusinde` | `en`, `et tusind` |
 | Hungarian (`hu`) | 100, 1000, 2000 | `egyszáz`, `egyezer`, `kettőezer` | `száz`, `ezer`, `kétezer` |
+| Hungarian (`hu`) | 2.2 | `kettő egész kettő tized` | `két egész két tized` |
+| Italian (`it`) | 108, 180 | `centootto`, `centoottanta` | `centotto`, `centottanta` |
 | Italian (`it`) | 21,000,000 | `ventuno milioni` | `ventun milioni` |
 | Kazakh (`kk`) | 100, 1000 | `бір жүз`, `бір мың` | `жүз`, `мың` |
 | Armenian (`hy`) | 1000 | `մեկ հազար` | `հազար` |
@@ -78,10 +86,14 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 | Latvian (`lv`) | 100, 133 | `viens simts`, `viens simts trīsdesmit trīs` | `simts`, `simt trīsdesmit trīs` |
 | Russian (`ru`) | 2 × 10²⁴ | `два секстиллиона` | `два септиллиона` |
 | Spanish (`es`) | 901, feminine and apocopated | `novecientas un` | `novecientas una` |
+| Spanish (`es`) | 25, apocopated | `veintiún` | `veinticinco` |
+| Brazilian Portuguese (`pt-BR`) | 2,000,000, feminine | `duas milhões` | `dois milhões` |
+| Vietnamese (`vi`) | 18 | `thứ mười tám` | `mười tám` |
 
 - **Danish:** 1 is the counting form `en`; `gender: :neuter` gives `et`.
 - **Hungarian:** `két` replaces `kettő` before hundreds and scale words (`huszonkétezer`), but not at the end (`huszonkettő`).
-- **Spanish:** `apocopated: true` shortens only the masculine `uno`.
+- **Spanish:** `apocopated: true` shortens only the masculine `uno`, and only a final one (`veintiún`, not `veinticinco`).
+- **Czech:** without `gender`, numbers use the counting forms (`jedna`, `dva`); pass `gender: :female` for the previous `dvě`.
 
 See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
 
@@ -101,7 +113,7 @@ Portuguese (`pt`) now uses the European Portuguese forms of the [Acordo Ortográ
 
 ### Decimals Are Read With a Decimal Point
 
-English, French, Swiss French, Italian and Portuguese now read decimals with a decimal point, as British English did, rather than as a fraction. English reads each digit; the others read up to three decimal places as a number and longer ones digit by digit.
+English, French, Swiss French, Italian and Portuguese now read decimals with a decimal point, as British English did, rather than as a fraction. English reads each digit; Brazilian Portuguese reads up to six decimal places as a number (`três vírgula mil quatrocentos e dezesseis`); the others read up to three decimal places as a number and longer ones digit by digit.
 
 | Language | Number | 1.0.x | 2.0.0 |
 | --- | --- | --- | --- |

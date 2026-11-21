@@ -30,8 +30,9 @@ module NumbersAndWords
             words = words_in_capacity(@current_capacity).reverse.join
             return ["#{words} #{megs}"] unless @current_capacity == FiguresArray::THOUSAND_CAPACITY
 
-            words = words.chop if number == 1
-            [[words, megs].join(separate_thousands?(number) ? ' ' : '')]
+            # Numbers below a million are one word, and ett drops a t before tusen (ettusen, tjugoettusen).
+            words = words.chop if words.end_with?('tt')
+            ["#{words}#{megs}"]
           end
 
           def strings_logic
@@ -46,15 +47,11 @@ module NumbersAndWords
           def join_lower_capacity(higher, lower)
             thousands = figures.number_in_capacity(FiguresArray::THOUSAND_CAPACITY)
             if thousands.positive?
-              higher[0] = [higher[0], lower].reject(&:empty?).join(separate_thousands?(thousands) ? ' ' : '')
+              higher[0] = "#{higher[0]}#{lower}"
             elsif !lower.empty?
               higher.unshift(lower)
             end
             higher
-          end
-
-          def separate_thousands?(number)
-            number >= 21 && number % 10 != 0
           end
 
           # Only the end of the last word is ordinal ("tjugoförsta", "etthundrade"); scale words take -te ("miljonte").

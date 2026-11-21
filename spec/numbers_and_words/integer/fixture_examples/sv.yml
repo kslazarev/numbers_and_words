@@ -32,12 +32,12 @@ to_words:
     5000: femtusen
     11000: elvatusen
     20000: tjugotusen
-    21000: tjugoett tusen
-    21021: tjugoett tusen tjugoett
+    21000: 'tjugoettusen'
+    21021: 'tjugoettusentjugoett'
     100000: etthundratusen
-    101000: etthundraett tusen
-    999000: niohundranittionio tusen
-    999999: niohundranittionio tusen niohundranittionio
+    101000: 'etthundraettusen'
+    999000: 'niohundranittioniotusen'
+    999999: 'niohundranittioniotusenniohundranittionio'
   millions:
     1000000: en miljon
     1000100: en miljon etthundra
@@ -47,16 +47,16 @@ to_words:
     21000000: tjugoen miljoner
     999000000: niohundranittionio miljoner
     999000999: niohundranittionio miljoner niohundranittionio
-    999999000: niohundranittionio miljoner niohundranittionio tusen
-    999999999: niohundranittionio miljoner niohundranittionio tusen niohundranittionio
+    999999000: 'niohundranittionio miljoner niohundranittioniotusen'
+    999999999: 'niohundranittionio miljoner niohundranittioniotusenniohundranittionio'
   billions:
-    1174315110: en miljard etthundrasjuttiofyra miljoner trehundrafemton tusen etthundratio
-    1174315119: en miljard etthundrasjuttiofyra miljoner trehundrafemton tusen etthundranitton
-    15174315119: femton miljarder etthundrasjuttiofyra miljoner trehundrafemton tusen etthundranitton
-    35174315119: trettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemton tusen etthundranitton
-    935174315119: niohundratrettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemton tusen etthundranitton
+    1174315110: 'en miljard etthundrasjuttiofyra miljoner trehundrafemtontusenetthundratio'
+    1174315119: 'en miljard etthundrasjuttiofyra miljoner trehundrafemtontusenetthundranitton'
+    15174315119: 'femton miljarder etthundrasjuttiofyra miljoner trehundrafemtontusenetthundranitton'
+    35174315119: 'trettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemtontusenetthundranitton'
+    935174315119: 'niohundratrettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemtontusenetthundranitton'
   trillions:
-    2935174315119: två biljoner niohundratrettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemton tusen etthundranitton
+    2935174315119: 'två biljoner niohundratrettiofem miljarder etthundrasjuttiofyra miljoner trehundrafemtontusenetthundranitton'
   long_scale:
     1000000000000000: en biljard
     2000000000000000: två biljarder
@@ -101,9 +101,9 @@ to_words:
     1001: 'ettusenförsta'
     2000: 'tvåtusende'
     2021: 'tvåtusentjugoförsta'
-    21000: 'tjugoett tusende'
+    21000: 'tjugoettusende'
     100000: 'etthundratusende'
     1000000: 'miljonte'
     2000000: 'två miljonte'
-    2025000: 'två miljoner tjugofem tusende'
+    2025000: 'två miljoner tjugofemtusende'
     1000000000: 'miljardte'

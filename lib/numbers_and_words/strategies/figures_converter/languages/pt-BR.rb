@@ -55,14 +55,17 @@ module NumbersAndWords
             @options.ordinal.result
           end
 
+          # Milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine whatever is counted
+          # ("duas mil", but "dois milhões" and "dois inteiros e dois décimos").
           def gender
             return options.gender.result || :male if maybe_ordinal
+            return :male if current_capacity.to_i > 1 || fraction_part?
 
-            if current_capacity&.positive? && figures[0] == 1
-              :male
-            else
-              options.gender.result
-            end
+            options.gender.result
+          end
+
+          def fraction_part?
+            options.options[:fraction] && (options.options[:integral] || options.options[:fractional])
           end
 
           def hundred?
@@ -77,8 +80,9 @@ module NumbersAndWords
             figures.opaque? current_capacity
           end
 
+          # One is left out before mil, and before an ordinal scale word ("milionésimo", not "primeiro milionésimo").
           def one_thousand?
-            current_capacity == 1 &&
+            (current_capacity == 1 || (maybe_ordinal && current_capacity.to_i > 1)) &&
               figures.ones == 1 &&
               figures.tens.nil? &&
               figures.hundreds.nil?

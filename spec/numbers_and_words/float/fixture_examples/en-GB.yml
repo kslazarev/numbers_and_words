@@ -28,3 +28,5 @@ to_words:
     21.77: twenty-one and seventy-seven hundredths
     111.999: one hundred and eleven and nine hundred and ninety-nine thousandths
     4242.7463: four thousand two hundred and forty-two and seven thousand four hundred and sixty-three ten-thousandths
+  and_after_scales:
+    1001.5: 'one thousand and one point five'

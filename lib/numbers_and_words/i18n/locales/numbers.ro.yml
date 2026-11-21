@@ -26,6 +26,9 @@ ro:
         female: prima
       male_suffix: lea
       male_consonant_suffix: ulea
+      # Masculine ordinals that don't add the suffix to the cardinal: al o miilea, not al o mielea.
+      male_words:
+        mie: miilea
       # Feminine ordinals of nouns: a doua suta, a doua mia, a milioana.
       female_nouns:
         sută: suta

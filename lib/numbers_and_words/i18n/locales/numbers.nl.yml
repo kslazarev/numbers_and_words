@@ -6,10 +6,10 @@ nl:
     teens: [_, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
     tens: [_, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
     hundreds: honderd
-    mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, septiljoen, octillion, noniljoen, decillion]
+    mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, quadriljoen, quadriljard, quintiljoen, quintiljard]
     union: en
     union2or3: ën
-    micro: [_, tienden, honderdsten, duizendsten, miljoensten, miljardsten, biljoensten, biljardsten, triljoensten, triljardsten, septiljoensten, octillionsten, noniljoensten, decillionsten]
+    micro: [_, tienden, honderdsten, duizendsten, miljoensten, miljardsten, biljoensten, biljardsten, triljoensten, triljardsten, quadriljoensten, quadriljardsten, quintiljoensten, quintiljardsten]
     tienden:
       one: tiende
       other: tienden
@@ -37,18 +37,18 @@ nl:
     triljardsten:
       one: triljardste
       other: triljardsten
-    septiljoensten:
-      one: septiljoenste
-      other: septiljoensten
-    octillionsten:
-      one: octillionste
-      other: octillionsten
-    noniljoensten:
-      one: noniljoenste
-      other: noniljoensten
-    decillionsten:
-      one: decillionste
-      other: decillionsten
+    quadriljoensten:
+      one: quadriljoenste
+      other: quadriljoensten
+    quadriljardsten:
+      one: quadriljardste
+      other: quadriljardsten
+    quintiljoensten:
+      one: quintiljoenste
+      other: quintiljoensten
+    quintiljardsten:
+      one: quintiljardste
+      other: quintiljardsten
     micro_separator: en
     subunit_separator: en
     micro_prefix:

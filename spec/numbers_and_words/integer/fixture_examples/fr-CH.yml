@@ -108,3 +108,7 @@ to_words:
     90: nonantième
     99: nonante-neuvième
     200: deux-centième
+  scale_ordinal:
+    options:
+      :ordinal: true
+    2000000: 'deux-millionième'

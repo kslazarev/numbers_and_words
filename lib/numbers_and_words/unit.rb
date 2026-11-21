@@ -33,7 +33,7 @@ module NumbersAndWords
       entry = lookup(unit, key)
       return join(Wrappers::Float.new(number).to_words(options), decimal_form(unit, key, entry, number)) if number.is_a?(::Float)
 
-      join(Wrappers.for(number).to_words(with_gender(options, entry)), whole_form(unit, key, entry, number, options))
+      join(Wrappers.for(number).to_words(Apocope.apply(with_gender(options, entry))), whole_form(unit, key, entry, number, options))
     end
 
     # The unit form after a whole number, after a preposition where the number ends in a scale noun (de reais).
@@ -154,3 +154,4 @@ module NumbersAndWords
 end
 
 require 'numbers_and_words/unit/scale_preposition'
+require 'numbers_and_words/unit/apocope'

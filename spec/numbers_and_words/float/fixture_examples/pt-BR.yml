@@ -1,5 +1,7 @@
 to_words:
   fractional:
+    0.123456: zero vírgula cento e vinte e três mil quatrocentos e cinquenta e seis
+    0.1234567: zero vírgula um dois três quatro cinco seis sete
     0.1: zero vírgula um
     0.7: zero vírgula sete
     0.01: zero vírgula zero um
@@ -11,17 +13,17 @@ to_words:
     21.77: vinte e um vírgula setenta e sete
     111.999: cento e onze vírgula novecentos e noventa e nove
     0.0001: zero vírgula zero zero zero um
-    0.00025: zero vírgula zero zero zero dois cinco
+    0.00025: 'zero vírgula zero zero zero vinte e cinco'
     0.000000000005: zero vírgula zero zero zero zero zero zero zero zero zero zero zero cinco
     0.2935174315119: zero vírgula dois nove três cinco um sete quatro três um cinco um um nove
-    4242.7463: quatro mil duzentos e quarenta e dois vírgula sete quatro seis três
+    4242.7463: 'quatro mil duzentos e quarenta e dois vírgula sete mil quatrocentos e sessenta e três'
   fractions_without_zero:
     options:
       :remove_zero: true
     0.1: vírgula um
     0.0001: vírgula zero zero zero um
-    0.10001: vírgula um zero zero zero um
-    0.100001: vírgula um zero zero zero zero um
+    0.10001: 'vírgula dez mil e um'
+    0.100001: 'vírgula cem mil e um'
     0.0101001: vírgula zero um zero um zero zero um
     0.100000010000001: vírgula um zero zero zero zero zero zero um zero zero zero zero zero zero um
     0.000110000000030000000001: vírgula zero zero zero um um zero zero zero zero zero zero zero zero três
@@ -62,3 +64,13 @@ to_words:
     0.7: sete décimos
     3.5: três e cinco décimos
     42.1: quarenta e dois e um décimo
+  female_fractions:
+    options:
+      :gender: female
+      :fraction: true
+    2.2: 'dois inteiros e dois décimos'
+    1.1: 'um inteiro e um décimo'
+  long_decimals_as_numbers:
+    3.1416: 'três vírgula mil quatrocentos e dezesseis'
+    3.05: 'três vírgula zero cinco'
+    3.0005: 'três vírgula zero zero zero cinco'

@@ -3,8 +3,17 @@
 require 'spec_helper'
 
 # Polish ordinals stop below 1,000, Czech and Greek ones below 10,000 and Arabic ones below 100; Hebrew and Arabic ones
-# start at 1. Each raises RangeError outside its range.
-ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.. }.freeze
+# start at 1. Georgian ones of a multiple of a thousand or more need a multiplier of one. Each raises RangeError outside
+# its range.
+GEORGIAN_ORDINALS = Class.new do
+  def self.cover?(number)
+    return true if number.zero? || !(number % 1000).zero?
+
+    number /= 1000 while (number % 1000).zero?
+    number % 1000 == 1
+  end
+end
+ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ka: GEORGIAN_ORDINALS }.freeze
 
 # Every language spells ordinals (#263); the fixtures check exact words, and this checks that no number
 # falls through a gap in a language's ordinal tables.
@@ -24,7 +33,7 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
     end
   end
 
-  { he: [0], ar: [0, 100] }.each do |locale, numbers|
+  { he: [0], ar: [0, 100], ka: [2000, 21_000, 100_000, 2_000_000, 2_025_000] }.each do |locale, numbers|
     it "raises RangeError for #{locale} ordinals of #{numbers.join(' and ')}" do
       numbers.each { |number| expect { I18n.with_locale(locale) { number.to_words(ordinal: true) } }.to raise_error(RangeError) }
     end

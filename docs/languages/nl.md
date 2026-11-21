@@ -1,6 +1,6 @@
 # Dutch (`nl`)
 
-Nederlands. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Nederlands. Dutch uses the long scale: miljoen, miljard, biljoen, biljard, triljoen, triljard, quadriljoen, quadriljard, quintiljoen and quintiljard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

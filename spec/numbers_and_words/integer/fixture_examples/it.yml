@@ -117,3 +117,17 @@ to_words:
     2000000: 'duemilionesimo'
     2025000: 'duemilioniventicinquemillesimo'
     1000000000: 'miliardesimo'
+  cento_elision:
+    108: 'centotto'
+    180: 'centottanta'
+    188: 'centottantotto'
+    280: 'duecentottanta'
+    1180: 'millecentottanta'
+    1080: 'milleottanta'
+    180000: 'centottantamila'
+    800: 'ottocento'
+  cento_elision_ordinal:
+    options:
+      :ordinal: true
+    108: 'centottesimo'
+    180: 'centottantesimo'

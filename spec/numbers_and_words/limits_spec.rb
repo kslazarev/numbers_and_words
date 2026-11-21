@@ -29,7 +29,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
   end
 
   it 'raises RangeError past the last scale word' do
-    { da: 21, de: 36, sv: 36, et: 36, ka: 12, vi: 18, en: 48, es: 48, fr: 36, hu: 36, 'pt-BR': 36 }.each do |locale, power|
+    { da: 21, de: 36, sv: 36, et: 36, ka: 15, vi: 18, en: 48, es: 48, fr: 36, hu: 36, 'pt-BR': 36 }.each do |locale, power|
       expect(words(locale, (10**power) - 1)).not_to be_empty
       expect { words(locale, 10**power) }.to raise_error(RangeError, "numbers must be below 10**#{power} in #{locale.inspect}")
     end

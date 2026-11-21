@@ -23,11 +23,22 @@ module NumbersAndWords
           private
 
           # Ordinal words exist for 1 to 10 (ראשון, עשירית); larger ordinals are the definite cardinal (העשרים ואחד).
+          # A one-word multiplier before a scale noun takes the article on the noun (שלושת האלפים, שלוש המאות).
           def ordinal_words(number)
             raise RangeError, 'Hebrew ordinals start at 1' if number.zero?
             return @translations.t(:ordinals)[gender][number] if number <= 10
 
-            "#{@translations.t(:definite)}#{number_words(number)}"
+            first, second, *rest = number_words(number).split
+            return [first, "#{@translations.t(:definite)}#{second}", *rest].join(' ') if scale_noun?(second)
+
+            "#{@translations.t(:definite)}#{[first, second, *rest].compact.join(' ')}"
+          end
+
+          # The nouns a one-word multiplier counts: מאות, אלפים, מיליון and larger.
+          def scale_noun?(word)
+            hundreds = @translations.t(:hundreds).last.split.last
+            thousands = @translations.t(:thousands).last.split.last
+            [hundreds, thousands, *@translations.t(:mega).drop(2)].include?(word)
           end
 
           # Decimals, and either part of one, keep the cardinal form.

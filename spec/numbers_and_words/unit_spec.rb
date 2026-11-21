@@ -202,6 +202,15 @@ describe NumbersAndWords::Unit do
         .to eq(['un millón de euros', 'dos millones de euros', 'mil millones de euros', 'un millón cien euros', 'mil euros'])
     end
 
+    it 'shortens a Spanish number before a masculine unit or subunit, and agrees with a feminine one' do
+      I18n.backend.store_translations(:es, units: { peseta: { one: 'peseta', other: 'pesetas', gender: :female } })
+      expect([words(:es, 2_000_000.01, unit: :euro, subunit: :centimo), words(:es, 21.21, unit: :euro, subunit: :centimo),
+              words(:es, 101, unit: :euro), words(:es, 21, unit: :euro, ordinal: true), words(:es, 1.21, unit: :euro, subunit: :peseta),
+              words(:es, 1, unit: :euro, apocopated: false), words(:es, 1.5, unit: :euro)])
+        .to eq(['dos millones de euros con un céntimo', 'veintiún euros con veintiún céntimos', 'ciento un euros', 'vigésimo primer euro',
+                'un euro con veintiuna pesetas', 'uno euro', 'uno con cinco décimas euros'])
+    end
+
     it 'puts di before the unit in Italian' do
       expect([1_000_000, 2_000_000, 1_000_000_000, 1_000_100, 1_000].map { |number| words(:it, number, unit: :euro) })
         .to eq(['un milione di euro', 'due milioni di euro', 'un miliardo di euro', 'un milione cento euro', 'mille euro'])

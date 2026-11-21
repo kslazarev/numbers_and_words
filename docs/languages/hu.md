@@ -32,7 +32,12 @@ I18n.with_locale(:hu) { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read as the integral part, `egész`, and the fractional part as a number of tized, század, ezred and so on. Both parts come before a noun, so a final two is két.
+
 ```ruby
+I18n.with_locale(:hu) { 2.2.to_words }
+# => "két egész két tized"
+
 I18n.with_locale(:hu) { 21.77.to_words }
 # => "huszonegy egész hetvenhét század"
 ```

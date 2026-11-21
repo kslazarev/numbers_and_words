@@ -1,6 +1,8 @@
 pt-BR:
   numbers:
     minus: menos
+    # Up to six decimal places are read as a number after vírgula (três vírgula mil quatrocentos e dezesseis); longer ones digit by digit.
+    decimal_number_places: 6
     ones:
       male: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
       female: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]

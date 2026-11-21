@@ -129,3 +129,15 @@ to_words:
     2000000: 'twee miljoenste'
     2025000: 'twee miljoen vijfentwintigduizendste'
     1000000000: 'miljardste'
+  long_scale:
+    1000000000000000000000: 'één triljard'
+    1000000000000000000000000: 'één quadriljoen'
+    2000000000000000000000000000: 'twee quadriljard'
+    1000000000000000000000000000000: 'één quintiljoen'
+    1000000000000000000000000000000000: 'één quintiljard'
+    999999999999999999999999999999999999: 'negenhonderdnegenennegentig quintiljard negenhonderdnegenennegentig quintiljoen negenhonderdnegenennegentig quadriljard negenhonderdnegenennegentig quadriljoen negenhonderdnegenennegentig triljard negenhonderdnegenennegentig triljoen negenhonderdnegenennegentig biljard negenhonderdnegenennegentig biljoen negenhonderdnegenennegentig miljard negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend negenhonderdnegenennegentig'
+  long_scale_ordinal:
+    options:
+      :ordinal: true
+    1000000000000000000000000: 'quadriljoenste'
+    1000000000000000000000000000000000: 'quintiljardste'

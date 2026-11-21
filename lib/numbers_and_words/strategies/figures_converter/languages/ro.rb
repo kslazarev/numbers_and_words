@@ -94,6 +94,8 @@ module NumbersAndWords
           end
 
           def male_ordinal(word, ordinals)
+            return ordinals[:male_words][word.to_sym] if ordinals[:male_words].key?(word.to_sym)
+
             word.match?(/[aeiouăâî]\z/) ? "#{word}#{ordinals[:male_suffix]}" : "#{word}#{ordinals[:male_consonant_suffix]}"
           end
 

@@ -86,7 +86,7 @@ I18n.with_locale(:he) { 2.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal words for 1 to 10, in the requested gender, and the definite cardinal above 10, as Hebrew does (`היום העשרים ואחד`). 0 raises `RangeError`.
+`ordinal: true` gives the ordinal words for 1 to 10, in the requested gender, and the definite cardinal above 10, as Hebrew does (`היום העשרים ואחד`). After a one-word multiplier the article goes on the noun it counts (שלוש המאות, שלושת האלפים, שני המיליון). 0 raises `RangeError`.
 
 ```ruby
 I18n.with_locale(:he) { 1.to_words(ordinal: true) }
@@ -97,6 +97,9 @@ I18n.with_locale(:he) { 1.to_words(ordinal: true, gender: :male) }
 
 I18n.with_locale(:he) { 21.to_words(ordinal: true, gender: :male) }
 # => "העשרים ואחד"
+
+I18n.with_locale(:he) { 3000.to_words(ordinal: true) }
+# => "שלושת האלפים"
 ```
 
 ### Remove Zero

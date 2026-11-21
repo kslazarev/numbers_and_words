@@ -40,7 +40,7 @@ module NumbersAndWords
 
           def scale_words(group, capacity, first)
             if capacity == 1
-              group == 1 ? one_scale(t(:mega)[1], first) : "#{group_words(group, first)} #{t(:mega)[1]}"
+              group == 1 ? one_scale(t(:mega)[1], first) : "#{group_words(group, first, neuter: true)} #{t(:mega)[1]}"
             else
               group == 1 ? "#{t(:ones)[1]} #{t(:mega)[capacity]}" : "#{group_words(group, first)} #{t(:megas)[capacity]}"
             end
@@ -51,12 +51,13 @@ module NumbersAndWords
             first ? word : "#{t(:one)[:neuter]} #{word}"
           end
 
-          def group_words(group, first, last: false)
+          # tusen is neuter, so a final one before it is ett ("hundre og ett tusen").
+          def group_words(group, first, last: false, neuter: false)
             hundreds, rest = group.divmod(100)
             parts = []
             parts << hundreds_words(hundreds, first) unless hundreds.zero?
             parts << t(:union) if hundreds.positive? && rest.positive?
-            parts << rest_words(rest, last) if rest.positive?
+            parts << (rest == 1 && neuter ? t(:one)[:neuter] : rest_words(rest, last)) if rest.positive?
             parts.join(' ')
           end
 

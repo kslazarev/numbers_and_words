@@ -6,7 +6,7 @@ to_words:
       - 3
     :
       - jedna
-      - dvě
+      - dva
       - tři
   complex_example:
     ?

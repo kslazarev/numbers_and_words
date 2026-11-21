@@ -50,13 +50,20 @@ module NumbersAndWords
           end
 
           # Only the last word of an ordinal changes ("vingt-et-unième", "deux-centième"), except 1 alone ("premier").
-          # A round scale noun drops its "un" ("millionième").
+          # A round scale noun drops its "un" ("millionième"), and its ordinal is a numeral that the 1990 reform
+          # hyphenates to its multiplier ("deux-millionième"; traditional "deux millionième").
           def ordinal(words)
             return translations.t(:ordinal_first) if words == translations.ones(1)
 
             words = words.delete_prefix("#{translations.ones(1)} ") if words.count(' ') == 1
             *head, last = words.split(/(?<=[- ])/)
-            [*head, ordinal_word(last)].join
+            [*hyphenate_scale_ordinal(head, last), ordinal_word(last)].join
+          end
+
+          def hyphenate_scale_ordinal(head, last)
+            return head if head.empty? || !scale_noun?(last) || @options.spelling.traditional?
+
+            [*head[0...-1], head.last.sub(/ \z/, '-')]
           end
 
           # Plurals ("vingts", "cents", "millions") become singular, a final "e" is dropped, and

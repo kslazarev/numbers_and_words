@@ -127,5 +127,29 @@ to_words:
     1100: eleven hundred
     1101: eleven oh one
     1984: nineteen eighty-four
-    2007: two thousand seven
+    2007: 'two thousand and seven'
     12345: twelve thousand three hundred and forty-five
+  and_after_scales:
+    1001: 'one thousand and one'
+    2001: 'two thousand and one'
+    4030: 'four thousand and thirty'
+    2000001: 'two million and one'
+    21000030: 'twenty-one million and thirty'
+    1000000001: 'one billion and one'
+    1000101: 'one million one hundred and one'
+    1100: 'one thousand one hundred'
+  and_after_scales_ordinal:
+    options:
+      :ordinal: true
+    1001: 'one thousand and first'
+    2000030: 'two million and thirtieth'
+  and_after_scales_pronounced:
+    options:
+      :pronounced: true
+    2005: 'two thousand and five'
+    1984: 'nineteen eighty-four'
+  without_union:
+    options:
+      :hundreds_with_union: false
+    1001: 'one thousand one'
+    101: 'one hundred one'
