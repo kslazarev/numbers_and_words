@@ -133,3 +133,8 @@ to_words:
     10000: ten thousand
     12345: twelve thousand three hundred forty-five
     1234567: one million two hundred thirty-four thousand five hundred sixty-seven
+  negative:
+    -1: minus one
+    -42: minus forty-two
+    -1001: minus one thousand one
+    -2000000: minus two million

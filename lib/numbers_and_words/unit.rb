@@ -52,13 +52,15 @@ module NumbersAndWords
 
     # An amount in a unit and a subunit: "twenty-one dollars and fifty cents". precision: sets how many
     # decimal places make one subunit (2 by default), and the amount is rounded half to even to them.
-    # A zero subunit is left out unless zero_subunit: true, and a zero unit with remove_zero: true.
+    # A zero subunit is left out unless zero_subunit: true, and a zero unit with remove_zero: true. A negative
+    # amount starts with the minus word, unless it rounds to zero.
     def amount(number, unit, subunit, options)
       raise UnsupportedOptionError, 'subunit cannot be used with ordinal: true' if options[:ordinal]
 
       whole, part = split(number, options.fetch(:precision, SUBUNIT_PLACES))
       conversion = options.except(:precision, :remove_zero, :zero_subunit)
-      amount_parts(whole, part, unit, subunit, options).map { |count, key| phrase(count, key, conversion) }.join(subunit_separator)
+      words = amount_parts(whole, part, unit, subunit, options).map { |count, key| phrase(count, key, conversion) }.join(subunit_separator)
+      number.negative? && (whole + part).positive? ? Wrappers::Sign.prefix(words) : words
     end
 
     def amount_parts(whole, part, unit, subunit, options)

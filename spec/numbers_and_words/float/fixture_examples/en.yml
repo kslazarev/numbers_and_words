@@ -46,3 +46,6 @@ to_words:
     0.1: one tenth
     0.7: seven tenths
     42.1: forty-two and one tenth
+  negative:
+    -0.5: minus zero point five
+    -1.25: minus one point two five

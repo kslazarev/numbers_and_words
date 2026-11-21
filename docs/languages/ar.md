@@ -43,17 +43,17 @@ I18n.with_locale(:ar) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet.
+Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :ar").
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal, so it has no effect until decimals are supported.
+`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
 
 ### Ordinal
 

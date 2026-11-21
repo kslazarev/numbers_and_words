@@ -10,16 +10,7 @@ module NumbersAndWords
       end
 
       def to_words(options = {})
-        to_figures_array.to_words options
-      end
-
-      private
-
-      def to_figures_array
-        figures = number.abs.digits.reverse
-        # Keep the legacy sign-as-zero layout for locale compatibility.
-        figures.unshift(0) if number.negative?
-        figures.to_figures
+        Sign.words(number, options) { |value| value.digits.reverse.to_figures.to_words options }
       end
     end
   end

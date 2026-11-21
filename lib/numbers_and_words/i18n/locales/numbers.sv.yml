@@ -1,5 +1,6 @@
 sv:
   numbers:
+    minus: minus
     ones: [noll, ett, två, tre, fyra, fem, sex, sju, åtta, nio]
     common_one: en
     teens: [_, elva, tolv, tretton, fjorton, femton, sexton, sjutton, arton, nitton]

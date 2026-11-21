@@ -1,6 +1,6 @@
 # Vietnamese (`vi`)
 
-Tiếng Việt.
+Tiếng Việt. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

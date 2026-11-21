@@ -1,5 +1,6 @@
 fi:
   numbers:
+    minus: miinus
     ones: [nolla, yksi, kaksi, kolme, neljä, viisi, kuusi, seitsemän, kahdeksan, yhdeksän]
     ten: kymmenen
     teens: toista

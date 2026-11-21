@@ -2,7 +2,7 @@
 
 Português europeu. Brazilian Portuguese is [`pt-BR`](pt-BR.md).
 
-European Portuguese uses the long scale: a new scale word every million (`milhão` 10⁶, `bilião` 10¹², `trilião` 10¹⁸, `quatrilião` 10²⁴, `quintilião` 10³⁰), with `mil` for the thousands in between (`mil milhões` is 10⁹, `mil biliões` 10¹⁵). `e` joins the last group of three digits to the rest when it is below one hundred or a round hundred (`mil e trinta`, `um milhão e duzentos mil`, but `mil cento e vinte`).
+European Portuguese uses the long scale: a new scale word every million (`milhão` 10⁶, `bilião` 10¹², `trilião` 10¹⁸, `quatrilião` 10²⁴, `quintilião` 10³⁰), with `mil` for the thousands in between (`mil milhões` is 10⁹, `mil biliões` 10¹⁵). `e` joins the last group of three digits to the rest when it is below one hundred or a round hundred (`mil e trinta`, `um milhão e duzentos mil`, but `mil cento e vinte`). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

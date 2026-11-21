@@ -2,7 +2,7 @@
 
 Azərbaycan dili, in the Latin alphabet. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Azerbaijani counts like Turkish: one hundred and one thousand are "yüz" and "min" alone, and larger scales keep "bir" (bir milyon). The scale words are milyon, milyard, trilyon, kvadrilyon and so on, in the short scale.
+Azerbaijani counts like Turkish: one hundred and one thousand are "yüz" and "min" alone, and larger scales keep "bir" (bir milyon). The scale words are milyon, milyard, trilyon, kvadrilyon and so on, in the short scale. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

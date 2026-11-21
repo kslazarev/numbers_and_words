@@ -1,5 +1,6 @@
 fr:
   numbers:
+    minus: moins
     ones: [zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf]
     teens: [_, onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf]
     tens: [_, dix, vingt, trente, quarante, cinquante, soixante, soixante-dix, quatre-vingt, quatre-vingt-dix]

@@ -6,19 +6,17 @@ describe NumbersAndWords::Wrappers do
   around { |example| I18n.with_locale(:en) { example.run } }
 
   describe NumbersAndWords::Wrappers::Integer do
-    it 'handles zero and negative magnitudes without changing digit order' do
+    it 'handles zero and negative numbers without changing digit order' do
       expect(described_class.new(0).to_words).to eq('zero')
-      expect(described_class.new(-1001).to_words).to eq('one thousand one')
+      expect(described_class.new(-1001).to_words).to eq('minus one thousand one')
     end
 
     it 'keeps all digits of integers beyond machine word size' do
       expect(described_class.new((10**30) + 123).to_words).to eq('one nonillion one hundred twenty-three')
     end
 
-    it 'preserves the leading zero used by Vietnamese negative magnitudes' do
-      I18n.with_locale(:vi) do
-        expect(described_class.new(-42).to_words).to eq("kh\u00f4ng tr\u0103m b\u1ed1n m\u01b0\u01a1i hai")
-      end
+    it 'reads a Vietnamese negative number with âm, not as a zero hundred' do
+      I18n.with_locale(:vi) { expect(described_class.new(-42).to_words).to eq('âm bốn mươi hai') }
     end
   end
 
@@ -39,8 +37,14 @@ describe NumbersAndWords::Wrappers do
       expect(described_class.new(1.0e20).to_words).to eq('one hundred quintillion')
     end
 
-    it 'preserves existing negative-magnitude handling after scientific expansion' do
-      expect(described_class.new(-1.0e20).to_words).to eq('one hundred quintillion')
+    it 'keeps the minus word after scientific expansion' do
+      expect([described_class.new(-1.0e20).to_words, described_class.new(-1.0e-5).to_words(fraction: true)])
+        .to eq(['minus one hundred quintillion', 'minus zero and one hundred-thousandth'])
+    end
+
+    it 'leaves the number unchanged when a wrapper is reused for a negative number' do
+      wrapper = described_class.new(-1.5)
+      expect([wrapper.to_words, wrapper.to_words, wrapper.number]).to eq(['minus one point five', 'minus one point five', -1.5])
     end
 
     it 'refreshes split parts and precision when a wrapper is reused' do

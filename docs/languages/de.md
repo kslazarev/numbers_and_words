@@ -1,6 +1,6 @@
 # German (`de`)
 
-Deutsch.
+Deutsch. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Aliases: `de-AT`, `de-CH`.
 

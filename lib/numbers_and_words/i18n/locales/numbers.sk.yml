@@ -1,5 +1,6 @@
 sk:
   numbers:
+    minus: mínus
     ones: [nula, jeden, dva, tri, štyri, päť, šesť, sedem, osem, deväť]
     gender:
       female: [nula, jedna, dve]

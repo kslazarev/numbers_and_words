@@ -1,5 +1,6 @@
 et:
   numbers:
+    minus: miinus
     ones: ['null', üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
     teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
     tens: [_, kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]

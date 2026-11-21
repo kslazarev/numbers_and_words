@@ -1,5 +1,6 @@
 lt:
   numbers:
+    minus: minus
     ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
     tens: [_, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
@@ -71,4 +72,32 @@ lt:
         'dešimt': 'dešimtas'
       'scale_endings': ['as', 'ai', 'ų']
       'scale_suffix': 'inis'
+      'combining':
+        'du': 'du'
+        'trys': 'tri'
+        'keturi': 'ketur'
+        'penki': 'penkia'
+        'šeši': 'šešia'
+        'septyni': 'septynia'
+        'aštuoni': 'aštuonia'
+        'devyni': 'devynia'
+        'dešimt': 'dešimt'
+        'vienuolika': 'vienuolika'
+        'dvylika': 'dvylika'
+        'trylika': 'trylika'
+        'keturiolika': 'keturiolika'
+        'penkiolika': 'penkiolika'
+        'šešiolika': 'šešiolika'
+        'septyniolika': 'septyniolika'
+        'aštuoniolika': 'aštuoniolika'
+        'devyniolika': 'devyniolika'
+        'dvidešimt': 'dvidešimt'
+        'trisdešimt': 'trisdešimt'
+        'keturiasdešimt': 'keturiasdešimt'
+        'penkiasdešimt': 'penkiasdešimt'
+        'šešiasdešimt': 'šešiasdešimt'
+        'septyniasdešimt': 'septyniasdešimt'
+        'aštuoniasdešimt': 'aštuoniasdešimt'
+        'devyniasdešimt': 'devyniasdešimt'
+        'šimtas': 'šimt'
       'leading_one': ['vienas']

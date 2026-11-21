@@ -1,5 +1,6 @@
 pt:
   numbers:
+    minus: menos
     ones: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
     teens: [_, onze, doze, treze, catorze, quinze, dezasseis, dezassete, dezoito, dezanove]
     tens: [_, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]

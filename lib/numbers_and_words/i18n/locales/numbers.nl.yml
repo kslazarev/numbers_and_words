@@ -1,5 +1,6 @@
 nl:
   numbers:
+    minus: min
     ones: [nul, een, twee, drie, vier, vijf, zes, zeven, acht, negen]
     loose_one: één
     teens: [_, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]

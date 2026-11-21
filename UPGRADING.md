@@ -75,6 +75,8 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 | Kazakh (`kk`) | 100, 1000 | `бір жүз`, `бір мың` | `жүз`, `мың` |
 | Armenian (`hy`) | 1000 | `մեկ հազար` | `հազար` |
 | Lithuanian (`lt`) | 10⁹, 10¹² | `bilijonas`, `trilijonas` | `milijardas`, `trilijonas` |
+| Latvian (`lv`) | 100, 133 | `viens simts`, `viens simts trīsdesmit trīs` | `simts`, `simt trīsdesmit trīs` |
+| Russian (`ru`) | 2 × 10²⁴ | `два секстиллиона` | `два септиллиона` |
 | Spanish (`es`) | 901, feminine and apocopated | `novecientas un` | `novecientas una` |
 
 - **Danish:** 1 is the counting form `en`; `gender: :neuter` gives `et`.
@@ -140,6 +142,26 @@ end
 ```
 
 See [#293](https://github.com/kslazarev/numbers_and_words/pull/293) for details.
+
+### Negative Numbers Are Read With a Minus Word
+
+Negative numbers used to lose their sign, or read as a garbled number in some languages. They now start with the language's word for minus, joined without a space in Chinese, Japanese and Thai. Ordinals of negative numbers raise `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`.
+
+```ruby
+I18n.with_locale(:en) { -5.to_words }
+# 1.0.x => "five"
+# 2.0.0 => "minus five"
+
+I18n.with_locale(:vi) { -42.to_words }
+# 1.0.x => "không trăm bốn mươi hai"
+# 2.0.0 => "âm bốn mươi hai"
+```
+
+To keep the old output, convert the absolute value, `number.abs.to_words`.
+
+### Out-of-Range Numbers and Unsupported Decimals Raise Errors
+
+Numbers beyond a language's largest scale word used to print a bare multiplier ("en " in Danish for 10<sup>21</sup>, "un" in Spanish for 10<sup>48</sup>) and now raise `RangeError`; each language page gives its limit. Decimals in a language without decimals used to raise `NameError` and now raise `NumbersAndWords::UnsupportedNumberError` ("decimals are not supported in :da").
 
 ### Swedish, Ukrainian and Kazakh Use Standard Locale Codes
 

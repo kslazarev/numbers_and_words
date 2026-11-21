@@ -15,7 +15,7 @@ Guidance for AI agents and contributors working on numbers_and_words. See [CONTR
 
 For a locale such as `fr`:
 
-* `lib/numbers_and_words/i18n/locales/numbers.fr.yml`: the words. `mega` and `micro` list the keys of scale and fraction words by power of 1000.
+* `lib/numbers_and_words/i18n/locales/numbers.fr.yml`: the words. `mega` and `micro` list the keys of scale and fraction words by power of 1000. A number past the last `mega` entry raises `RangeError`, and `minus` is the word read before a negative number.
 * `lib/numbers_and_words/translations/fr.rb`: how individual words are chosen (tens with ones, hundreds, scale words, fractions).
 * `lib/numbers_and_words/strategies/figures_converter/languages/fr.rb`: how a number is assembled and printed.
 * `lib/numbers_and_words/strategies/figures_converter/decorators/fr/`: integral and fractional parts of floats; a locale without decorators cannot convert decimals.

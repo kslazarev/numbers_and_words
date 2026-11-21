@@ -1,5 +1,6 @@
 bn:
   numbers:
+    minus: ঋণাত্মক
     # Every number from 0 to 99 is its own word.
     ones:
       - শূন্য
