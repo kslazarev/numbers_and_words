@@ -83,6 +83,20 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 
 See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
 
+### Portuguese Uses European Forms and the Long Scale
+
+Portuguese (`pt`) now uses the European Portuguese forms of the [Acordo Ortográfico](https://en.wikipedia.org/wiki/Portuguese_Language_Orthographic_Agreement_of_1990) and the long scale, as in Portugal, and joins scale words with `e` as Brazilian Portuguese does. Brazilian Portuguese (`pt-BR`) is unchanged; use it for the Brazilian forms. The previous forms can't be restored in `pt`.
+
+| Number | 1.0.x | 2.0.0 |
+| --- | --- | --- |
+| 14, 16, 17, 19 | `quatorze`, `dezesseis`, `dezessete`, `dezenove` | `catorze`, `dezasseis`, `dezassete`, `dezanove` |
+| 1000, 1030 | `um mil`, `um mil trinta` | `mil`, `mil e trinta` |
+| 1,000,100 | `um milhão cem` | `um milhão e cem` |
+| 10⁹, 2 × 10⁹ | `um bilhão`, `dois bilhões` | `mil milhões`, `dois mil milhões` |
+| 10¹², 10¹⁵, 10¹⁸ | `um trilhão`, `um quadrilhão`, `um quinquilhão` | `um bilião`, `mil biliões`, `um trilião` |
+| 10⁹, ordinal | `bilionésimo` | `milésimo milionésimo` |
+| 10⁻⁹, `fraction: true` | `um bilionésimo` | `um milésimo de milionésimo` |
+
 ### Decimals Are Read With a Decimal Point
 
 English, French, Swiss French, Italian and Portuguese now read decimals with a decimal point, as British English did, rather than as a fraction. English reads each digit; the others read up to three decimal places as a number and longer ones digit by digit.

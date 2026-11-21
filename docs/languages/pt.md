@@ -1,12 +1,17 @@
 # Portuguese (`pt`)
 
-Português.
+Português europeu. Brazilian Portuguese is [`pt-BR`](pt-BR.md).
+
+European Portuguese uses the long scale: a new scale word every million (`milhão` 10⁶, `bilião` 10¹², `trilião` 10¹⁸, `quatrilião` 10²⁴, `quintilião` 10³⁰), with `mil` for the thousands in between (`mil milhões` is 10⁹, `mil biliões` 10¹⁵). `e` joins the last group of three digits to the rest when it is below one hundred or a round hundred (`mil e trinta`, `um milhão e duzentos mil`, but `mil cento e vinte`).
 
 ## Examples
 
 ```ruby
 I18n.with_locale(:pt) { 0.to_words }
 # => "zero"
+
+I18n.with_locale(:pt) { 16.to_words }
+# => "dezasseis"
 
 I18n.with_locale(:pt) { 21.to_words }
 # => "vinte e um"
@@ -15,13 +20,19 @@ I18n.with_locale(:pt) { 231.to_words }
 # => "duzentos e trinta e um"
 
 I18n.with_locale(:pt) { 4030.to_words }
-# => "quatro mil trinta"
+# => "quatro mil e trinta"
 
 I18n.with_locale(:pt) { 1_000_100.to_words }
-# => "um milhão cem"
+# => "um milhão e cem"
 
 I18n.with_locale(:pt) { 2_000_000_000.to_words }
-# => "dois bilhões"
+# => "dois mil milhões"
+
+I18n.with_locale(:pt) { 1_174_315_110.to_words }
+# => "mil cento e setenta e quatro milhões trezentos e quinze mil cento e dez"
+
+I18n.with_locale(:pt) { 2_000_000_000_000.to_words }
+# => "dois biliões"
 
 I18n.with_locale(:pt) { [1, 2, 3].to_words }
 # => ["um", "dois", "três"]
@@ -75,11 +86,14 @@ I18n.with_locale(:pt) { 21.77.to_words(fraction: true) }
 
 I18n.with_locale(:pt) { 0.1.to_words(fraction: true) }
 # => "zero inteiros e um décimo"
+
+I18n.with_locale(:pt) { 0.000000001.to_words(fraction: true) }
+# => "zero inteiros e um milésimo de milionésimo"
 ```
 
 ### Ordinal
 
-`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Zero keeps its cardinal form.
+`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Scale ordinals follow the long scale: `milésimo milionésimo` is 10⁹ and `bilionésimo` 10¹². Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:pt) { 1.to_words(ordinal: true) }
@@ -90,6 +104,9 @@ I18n.with_locale(:pt) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:pt) { 2_000.to_words(ordinal: true) }
 # => "segundo milésimo"
+
+I18n.with_locale(:pt) { 1_000_000_000_000.to_words(ordinal: true) }
+# => "bilionésimo"
 ```
 
 ### Remove Zero

@@ -6,6 +6,10 @@ module NumbersAndWords
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
+      def ones(number, options = {})
+        super unless options[:is_one_thousand]
+      end
+
       def tens_with_ones(numbers, _options = {})
         super(numbers, separator: " #{union} ")
       end

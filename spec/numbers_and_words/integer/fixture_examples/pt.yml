@@ -6,7 +6,12 @@ to_words:
   teens:
     10: dez
     11: onze
-    19: dezenove
+    14: catorze
+    15: quinze
+    16: dezasseis
+    17: dezassete
+    18: dezoito
+    19: dezanove
     20: vinte
     21: vinte e um
     80: oitenta
@@ -22,13 +27,19 @@ to_words:
     800: oitocentos
     900: novecentos
     909: novecentos e nove
-    919: novecentos e dezenove
+    919: novecentos e dezanove
     990: novecentos e noventa
     999: novecentos e noventa e nove
   thousands:
-    1000: um mil
+    1000: mil
+    1001: mil e um
+    1030: mil e trinta
+    1100: mil e cem
+    1120: mil cento e vinte
+    1200: mil e duzentos
     2000: dois mil
     4000: quatro mil
+    4030: quatro mil e trinta
     5000: cinco mil
     11000: onze mil
     21000: vinte e um mil
@@ -39,20 +50,50 @@ to_words:
     2000000: dois milhões
     4000000: quatro milhões
     5000000: cinco milhões
+    1000100: um milhão e cem
+    1001000: um milhão e mil
+    1021000: um milhão e vinte e um mil
+    1200000: um milhão e duzentos mil
+    1200300: um milhão duzentos mil e trezentos
+    1205000: um milhão duzentos e cinco mil
+    2001500: dois milhões mil e quinhentos
     999000000: novecentos e noventa e nove milhões
     999000999: novecentos e noventa e nove milhões novecentos e noventa e nove
     999999000: novecentos e noventa e nove milhões novecentos e noventa e nove mil
     999999999: novecentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove
+  thousand_millions:
+    1000000000: mil milhões
+    2000000000: dois mil milhões
+    21000000000: vinte e um mil milhões
+    1000001000: mil milhões e mil
+    1000021000: mil milhões e vinte e um mil
+    1001000000: mil e um milhões
+    1100000000: mil e cem milhões
+    1001001001: mil e um milhões mil e um
+    2000000100: dois mil milhões e cem
+    1174315110: mil cento e setenta e quatro milhões trezentos e quinze mil cento e dez
+    1174315119: mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
+    15174315119: quinze mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
+    35174315119: trinta e cinco mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
+    935174315119: novecentos e trinta e cinco mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
   billions:
-    1174315110: um bilhão cento e setenta e quatro milhões trezentos e quinze mil cento e dez
-    1174315119: um bilhão cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
-    15174315119: quinze bilhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
-    35174315119: trinta e cinco bilhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
-    935174315119: novecentos e trinta e cinco bilhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
+    1000000000000: um bilião
+    2000000000000: dois biliões
+    1000001000000: um bilião e um milhão
+    1234567890123: um bilião duzentos e trinta e quatro mil quinhentos e sessenta e sete milhões oitocentos e noventa mil cento e vinte e três
+    2935174315119: dois biliões novecentos e trinta e cinco mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
+  thousand_billions:
+    1000000000000000: mil biliões
+    2000000000000000: dois mil biliões
+    5492935174315119: cinco mil quatrocentos e noventa e dois biliões novecentos e trinta e cinco mil cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove
   trillions:
-    2935174315119: dois trilhões novecentos e trinta e cinco bilhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
+    1000000000000000000: um trilião
+    2000000000000000000: dois triliões
+    1000000000000000000000: mil triliões
   quadrillions:
-    5492935174315119: cinco quadrilhões quatrocentos e noventa e dois trilhões novecentos e trinta e cinco bilhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezenove
+    1000000000000000000000000: um quatrilião
+    1000000000000000000000000000000: um quintilião
+    2000000000000000000000000000000000: dois mil quintiliões
   ordinal:
     options:
       :ordinal: true
@@ -69,6 +110,8 @@ to_words:
     11: 'décimo primeiro'
     12: 'décimo segundo'
     13: 'décimo terceiro'
+    14: 'décimo quarto'
+    16: 'décimo sexto'
     19: 'décimo nono'
     20: 'vigésimo'
     21: 'vigésimo primeiro'
@@ -97,4 +140,9 @@ to_words:
     1000000: 'milionésimo'
     2000000: 'segundo milionésimo'
     2025000: 'segundo milionésimo vigésimo quinto milésimo'
-    1000000000: 'bilionésimo'
+    1000000000: 'milésimo milionésimo'
+    2000000000: 'segundo milésimo milionésimo'
+    1174000000: 'milésimo centésimo septuagésimo quarto milionésimo'
+    1000000000000: 'bilionésimo'
+    2000000000000: 'segundo bilionésimo'
+    1000000000000000000: 'trilionésimo'
