@@ -37,6 +37,7 @@
   * Make `NumbersAndWords::UnsupportedLanguageError` a `StandardError` rather than a `RuntimeError`. \[[#293](https://github.com/kslazarev/numbers_and_words/pull/293)\] \([@dblock](https://github.com/dblock)\)
   * Add `case:` and `animate:` to Russian and Ukrainian ordinals, declining the last word by grammatical case ("двадцать первого"). \[[#296](https://github.com/kslazarev/numbers_and_words/pull/296)\] \([@dblock](https://github.com/dblock)\)
   * Add Hebrew and Arabic ordinals: Hebrew ordinal words for 1 to 10 in both genders and the definite cardinal above (`העשרים ואחד`), and the masculine Arabic definite ordinals from 1 to 99 (`الحادي والعشرون`). \[[#297](https://github.com/kslazarev/numbers_and_words/pull/297)\] \([@dblock](https://github.com/dblock)\)
+  * Decline Russian and Ukrainian cardinals by `case:`, with scale words agreeing with their numeral ("двадцати одной тысячи") and `animate:` accusatives. \[[#298](https://github.com/kslazarev/numbers_and_words/pull/298)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
