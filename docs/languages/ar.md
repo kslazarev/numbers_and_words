@@ -54,3 +54,18 @@ Decimals are not supported yet.
 ### Micro Separator
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Ordinal
+
+`ordinal: true` gives the masculine definite ordinal from 1 to 99. One is `الحادي` in compounds. Other numbers raise `RangeError`, and the feminine forms are not supported yet.
+
+```ruby
+I18n.with_locale(:ar) { 1.to_words(ordinal: true) }
+# => "الأول"
+
+I18n.with_locale(:ar) { 11.to_words(ordinal: true) }
+# => "الحادي عشر"
+
+I18n.with_locale(:ar) { 21.to_words(ordinal: true) }
+# => "الحادي والعشرون"
+```

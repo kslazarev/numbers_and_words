@@ -14,12 +14,26 @@ module NumbersAndWords
           def words
             number = @figures.to_a.reverse.join.to_i
             raise RangeError, "Hebrew numbers must be below 10**#{Math.log10(MAX).to_i}" if number >= MAX
+            return ordinal_words(number) if ordinal?
             return zero_words if number.zero?
 
             number_words(number)
           end
 
           private
+
+          # Ordinal words exist for 1 to 10 (ראשון, עשירית); larger ordinals are the definite cardinal (העשרים ואחד).
+          def ordinal_words(number)
+            raise RangeError, 'Hebrew ordinals start at 1' if number.zero?
+            return @translations.t(:ordinals)[gender][number] if number <= 10
+
+            "#{@translations.t(:definite)}#{number_words(number)}"
+          end
+
+          # Decimals, and either part of one, keep the cardinal form.
+          def ordinal?
+            @options.ordinal.result && @options.options[:integral].nil? && @options.options[:fractional].nil?
+          end
 
           def zero_words
             @options.remove_zero.result ? '' : @translations.ones(0, gender)
