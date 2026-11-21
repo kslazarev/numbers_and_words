@@ -110,3 +110,237 @@ to_words:
     3: 'третье'
     21: 'двадцать первое'
     2000: 'двухтысячное'
+  ordinal_genitive:
+    options:
+      :ordinal: true
+      :case: genitive
+    1: 'первого'
+    2: 'второго'
+    3: 'третьего'
+    23: 'двадцать третьего'
+    40: 'сорокового'
+    100: 'сотого'
+    1000: 'тысячного'
+    2000: 'двухтысячного'
+    1000000: 'миллионного'
+  ordinal_genitive_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: genitive
+    1: 'первой'
+    2: 'второй'
+    3: 'третьей'
+    23: 'двадцать третьей'
+    40: 'сороковой'
+    100: 'сотой'
+    1000: 'тысячной'
+    2000: 'двухтысячной'
+    1000000: 'миллионной'
+  ordinal_genitive_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: genitive
+    1: 'первого'
+    2: 'второго'
+    3: 'третьего'
+    23: 'двадцать третьего'
+    40: 'сорокового'
+    100: 'сотого'
+    1000: 'тысячного'
+    2000: 'двухтысячного'
+    1000000: 'миллионного'
+  ordinal_dative:
+    options:
+      :ordinal: true
+      :case: dative
+    1: 'первому'
+    2: 'второму'
+    3: 'третьему'
+    23: 'двадцать третьему'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тысячному'
+    2000: 'двухтысячному'
+    1000000: 'миллионному'
+  ordinal_dative_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: dative
+    1: 'первой'
+    2: 'второй'
+    3: 'третьей'
+    23: 'двадцать третьей'
+    40: 'сороковой'
+    100: 'сотой'
+    1000: 'тысячной'
+    2000: 'двухтысячной'
+    1000000: 'миллионной'
+  ordinal_dative_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: dative
+    1: 'первому'
+    2: 'второму'
+    3: 'третьему'
+    23: 'двадцать третьему'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тысячному'
+    2000: 'двухтысячному'
+    1000000: 'миллионному'
+  ordinal_accusative:
+    options:
+      :ordinal: true
+      :case: accusative
+    1: 'первый'
+    2: 'второй'
+    3: 'третий'
+    23: 'двадцать третий'
+    40: 'сороковой'
+    100: 'сотый'
+    1000: 'тысячный'
+    2000: 'двухтысячный'
+    1000000: 'миллионный'
+  ordinal_accusative_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: accusative
+    1: 'первую'
+    2: 'вторую'
+    3: 'третью'
+    23: 'двадцать третью'
+    40: 'сороковую'
+    100: 'сотую'
+    1000: 'тысячную'
+    2000: 'двухтысячную'
+    1000000: 'миллионную'
+  ordinal_accusative_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: accusative
+    1: 'первое'
+    2: 'второе'
+    3: 'третье'
+    23: 'двадцать третье'
+    40: 'сороковое'
+    100: 'сотое'
+    1000: 'тысячное'
+    2000: 'двухтысячное'
+    1000000: 'миллионное'
+  ordinal_instrumental:
+    options:
+      :ordinal: true
+      :case: instrumental
+    1: 'первым'
+    2: 'вторым'
+    3: 'третьим'
+    23: 'двадцать третьим'
+    40: 'сороковым'
+    100: 'сотым'
+    1000: 'тысячным'
+    2000: 'двухтысячным'
+    1000000: 'миллионным'
+  ordinal_instrumental_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: instrumental
+    1: 'первой'
+    2: 'второй'
+    3: 'третьей'
+    23: 'двадцать третьей'
+    40: 'сороковой'
+    100: 'сотой'
+    1000: 'тысячной'
+    2000: 'двухтысячной'
+    1000000: 'миллионной'
+  ordinal_instrumental_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: instrumental
+    1: 'первым'
+    2: 'вторым'
+    3: 'третьим'
+    23: 'двадцать третьим'
+    40: 'сороковым'
+    100: 'сотым'
+    1000: 'тысячным'
+    2000: 'двухтысячным'
+    1000000: 'миллионным'
+  ordinal_prepositional:
+    options:
+      :ordinal: true
+      :case: prepositional
+    1: 'первом'
+    2: 'втором'
+    3: 'третьем'
+    23: 'двадцать третьем'
+    40: 'сороковом'
+    100: 'сотом'
+    1000: 'тысячном'
+    2000: 'двухтысячном'
+    1000000: 'миллионном'
+  ordinal_prepositional_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: prepositional
+    1: 'первой'
+    2: 'второй'
+    3: 'третьей'
+    23: 'двадцать третьей'
+    40: 'сороковой'
+    100: 'сотой'
+    1000: 'тысячной'
+    2000: 'двухтысячной'
+    1000000: 'миллионной'
+  ordinal_prepositional_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: prepositional
+    1: 'первом'
+    2: 'втором'
+    3: 'третьем'
+    23: 'двадцать третьем'
+    40: 'сороковом'
+    100: 'сотом'
+    1000: 'тысячном'
+    2000: 'двухтысячном'
+    1000000: 'миллионном'
+  ordinal_accusative_animate:
+    options:
+      :ordinal: true
+      :case: accusative
+      :animate: true
+    1: 'первого'
+    3: 'третьего'
+    21: 'двадцать первого'
+    1000: 'тысячного'
+  ordinal_accusative_animate_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: accusative
+      :animate: true
+    1: 'первую'
+    3: 'третью'
+    21: 'двадцать первую'
+    1000: 'тысячную'
+  ordinal_accusative_animate_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: accusative
+      :animate: true
+    1: 'первое'
+    3: 'третье'
+    21: 'двадцать первое'
+    1000: 'тысячное'

@@ -114,3 +114,278 @@ to_words:
     3: 'третє'
     21: 'двадцять перше'
     2000: 'двохтисячне'
+  ordinal_genitive:
+    options:
+      :ordinal: true
+      :case: genitive
+    1: 'першого'
+    2: 'другого'
+    3: 'третього'
+    23: 'двадцять третього'
+    40: 'сорокового'
+    100: 'сотого'
+    1000: 'тисячного'
+    2000: 'двохтисячного'
+    1000000: 'мільйонного'
+  ordinal_genitive_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: genitive
+    1: 'першої'
+    2: 'другої'
+    3: 'третьої'
+    23: 'двадцять третьої'
+    40: 'сорокової'
+    100: 'сотої'
+    1000: 'тисячної'
+    2000: 'двохтисячної'
+    1000000: 'мільйонної'
+  ordinal_genitive_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: genitive
+    1: 'першого'
+    2: 'другого'
+    3: 'третього'
+    23: 'двадцять третього'
+    40: 'сорокового'
+    100: 'сотого'
+    1000: 'тисячного'
+    2000: 'двохтисячного'
+    1000000: 'мільйонного'
+  ordinal_dative:
+    options:
+      :ordinal: true
+      :case: dative
+    1: 'першому'
+    2: 'другому'
+    3: 'третьому'
+    23: 'двадцять третьому'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тисячному'
+    2000: 'двохтисячному'
+    1000000: 'мільйонному'
+  ordinal_dative_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: dative
+    1: 'першій'
+    2: 'другій'
+    3: 'третій'
+    23: 'двадцять третій'
+    40: 'сороковій'
+    100: 'сотій'
+    1000: 'тисячній'
+    2000: 'двохтисячній'
+    1000000: 'мільйонній'
+  ordinal_dative_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: dative
+    1: 'першому'
+    2: 'другому'
+    3: 'третьому'
+    23: 'двадцять третьому'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тисячному'
+    2000: 'двохтисячному'
+    1000000: 'мільйонному'
+  ordinal_accusative:
+    options:
+      :ordinal: true
+      :case: accusative
+    1: 'перший'
+    2: 'другий'
+    3: 'третій'
+    23: 'двадцять третій'
+    40: 'сороковий'
+    100: 'сотий'
+    1000: 'тисячний'
+    2000: 'двохтисячний'
+    1000000: 'мільйонний'
+  ordinal_accusative_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: accusative
+    1: 'першу'
+    2: 'другу'
+    3: 'третю'
+    23: 'двадцять третю'
+    40: 'сорокову'
+    100: 'соту'
+    1000: 'тисячну'
+    2000: 'двохтисячну'
+    1000000: 'мільйонну'
+  ordinal_accusative_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: accusative
+    1: 'перше'
+    2: 'друге'
+    3: 'третє'
+    23: 'двадцять третє'
+    40: 'сорокове'
+    100: 'соте'
+    1000: 'тисячне'
+    2000: 'двохтисячне'
+    1000000: 'мільйонне'
+  ordinal_instrumental:
+    options:
+      :ordinal: true
+      :case: instrumental
+    1: 'першим'
+    2: 'другим'
+    3: 'третім'
+    23: 'двадцять третім'
+    40: 'сороковим'
+    100: 'сотим'
+    1000: 'тисячним'
+    2000: 'двохтисячним'
+    1000000: 'мільйонним'
+  ordinal_instrumental_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: instrumental
+    1: 'першою'
+    2: 'другою'
+    3: 'третьою'
+    23: 'двадцять третьою'
+    40: 'сороковою'
+    100: 'сотою'
+    1000: 'тисячною'
+    2000: 'двохтисячною'
+    1000000: 'мільйонною'
+  ordinal_instrumental_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: instrumental
+    1: 'першим'
+    2: 'другим'
+    3: 'третім'
+    23: 'двадцять третім'
+    40: 'сороковим'
+    100: 'сотим'
+    1000: 'тисячним'
+    2000: 'двохтисячним'
+    1000000: 'мільйонним'
+  ordinal_prepositional:
+    options:
+      :ordinal: true
+      :case: prepositional
+    1: 'першому'
+    2: 'другому'
+    3: 'третьому'
+    23: 'двадцять третьому'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тисячному'
+    2000: 'двохтисячному'
+    1000000: 'мільйонному'
+  ordinal_prepositional_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: prepositional
+    1: 'першій'
+    2: 'другій'
+    3: 'третій'
+    23: 'двадцять третій'
+    40: 'сороковій'
+    100: 'сотій'
+    1000: 'тисячній'
+    2000: 'двохтисячній'
+    1000000: 'мільйонній'
+  ordinal_prepositional_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: prepositional
+    1: 'першому'
+    2: 'другому'
+    3: 'третьому'
+    23: 'двадцять третьому'
+    40: 'сороковому'
+    100: 'сотому'
+    1000: 'тисячному'
+    2000: 'двохтисячному'
+    1000000: 'мільйонному'
+  ordinal_vocative:
+    options:
+      :ordinal: true
+      :case: vocative
+    1: 'перший'
+    2: 'другий'
+    3: 'третій'
+    23: 'двадцять третій'
+    40: 'сороковий'
+    100: 'сотий'
+    1000: 'тисячний'
+    2000: 'двохтисячний'
+    1000000: 'мільйонний'
+  ordinal_vocative_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: vocative
+    1: 'перша'
+    2: 'друга'
+    3: 'третя'
+    23: 'двадцять третя'
+    40: 'сорокова'
+    100: 'сота'
+    1000: 'тисячна'
+    2000: 'двохтисячна'
+    1000000: 'мільйонна'
+  ordinal_vocative_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: vocative
+    1: 'перше'
+    2: 'друге'
+    3: 'третє'
+    23: 'двадцять третє'
+    40: 'сорокове'
+    100: 'соте'
+    1000: 'тисячне'
+    2000: 'двохтисячне'
+    1000000: 'мільйонне'
+  ordinal_accusative_animate:
+    options:
+      :ordinal: true
+      :case: accusative
+      :animate: true
+    1: 'першого'
+    3: 'третього'
+    21: 'двадцять першого'
+    1000: 'тисячного'
+  ordinal_accusative_animate_female:
+    options:
+      :ordinal: true
+      :gender: female
+      :case: accusative
+      :animate: true
+    1: 'першу'
+    3: 'третю'
+    21: 'двадцять першу'
+    1000: 'тисячну'
+  ordinal_accusative_animate_neuter:
+    options:
+      :ordinal: true
+      :gender: neuter
+      :case: accusative
+      :animate: true
+    1: 'перше'
+    3: 'третє'
+    21: 'двадцять перше'
+    1000: 'тисячне'

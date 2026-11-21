@@ -87,6 +87,44 @@ I18n.with_locale(:ua) { 21.to_words(ordinal: true, gender: :female) }
 # => "двадцять перша"
 ```
 
+### Case
+
+`case:` declines an ordinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental`, `:prepositional` (місцевий) or `:vocative`. Only the last word declines ("двадцять першого"), in the ending `gender:` selects; the vocative of an ordinal is the same as its nominative.
+
+```ruby
+I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :genitive) }
+# => "двадцять першого"
+
+I18n.with_locale(:ua) { 123.to_words(ordinal: true, case: :dative) }
+# => "сто двадцять третьому"
+
+I18n.with_locale(:ua) { 21.to_words(ordinal: true, gender: :female, case: :genitive) }
+# => "двадцять першої"
+
+I18n.with_locale(:ua) { 3.to_words(ordinal: true, gender: :female, case: :instrumental) }
+# => "третьою"
+
+I18n.with_locale(:ua) { 2_000.to_words(ordinal: true, case: :prepositional) }
+# => "двохтисячному"
+
+I18n.with_locale(:ua) { 1.to_words(ordinal: true, case: :vocative) }
+# => "перший"
+```
+
+Cardinals and decimals are not declined yet: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` without `ordinal: true`.
+
+### Animate
+
+`animate: true` gives the masculine accusative the genitive form, as for an animate noun ("бачу двадцять першого"); the default is the inanimate form, the same as the nominative.
+
+```ruby
+I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :accusative) }
+# => "двадцять перший"
+
+I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :accusative, animate: true) }
+# => "двадцять першого"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
