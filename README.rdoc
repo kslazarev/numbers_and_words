@@ -421,6 +421,10 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
     gem install numbers_and_words
 
+== Upgrading / Обновление / Mise à jour
+
+See UPGRADING.md for breaking changes and how to upgrade.
+
 == License / Лицензия / Licence
 
 MIT License

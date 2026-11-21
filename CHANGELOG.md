@@ -10,6 +10,7 @@
   * Remove the i18n version constraint, test i18n 1.6 in CI, and relax development dependency constraints. \[[#237](https://github.com/kslazarev/numbers_and_words/pull/237)\] \([@dblock](https://github.com/dblock)\)
   * Report coverage to Coveralls with SimpleCov and the Coveralls GitHub Action, replacing the unmaintained coveralls gem and the Code Climate badge. \[[#239](https://github.com/kslazarev/numbers_and_words/pull/239)\] \([@dblock](https://github.com/dblock)\)
   * Upgrade RuboCop to 1.92.3 with exact lint tool versions. \[[#238](https://github.com/kslazarev/numbers_and_words/pull/238)\] \([@dblock](https://github.com/dblock)\)
+  * Document breaking changes and how to upgrade in UPGRADING.md, linked from the README. \[[#256](https://github.com/kslazarev/numbers_and_words/pull/256)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
@@ -25,7 +26,7 @@
   * Use the Lithuanian long scale (`milijardas` for 10^9, `bilijonas` for 10^12). \[[#248](https://github.com/kslazarev/numbers_and_words/pull/248)\] \([@dblock](https://github.com/dblock)\)
   * Use the Estonian long scale (`biljon` for 10^12, `triljon` for 10^18). \[[#249](https://github.com/kslazarev/numbers_and_words/pull/249)\] \([@dblock](https://github.com/dblock)\)
   * Join Danish hundreds and final tens or ones with `og` (`et hundrede og et`, `et tusinde og et`). \[[#250](https://github.com/kslazarev/numbers_and_words/pull/250)\] \([@dblock](https://github.com/dblock)\)
-  * Say `and` after hundreds in British English by default (`one hundred and one`). \[[#251](https://github.com/kslazarev/numbers_and_words/pull/251)\] \([@dblock](https://github.com/dblock)\)
+  * Say `and` after hundreds in British English by default (`one hundred and one`); see UPGRADING.md. \[[#251](https://github.com/kslazarev/numbers_and_words/pull/251)\] \([@dblock](https://github.com/dblock)\)
   * Read Dutch decimals as fractions joined with `en` (`eenentwintig en zevenenzeventig honderdsten`) instead of mixing `komma` with fraction words. \[[#252](https://github.com/kslazarev/numbers_and_words/pull/252)\] \([@dblock](https://github.com/dblock)\)
   * Fix Czech decimal agreement (`jedna celá`, `dvě celé`, `třicet jedna setin`) and spell `milion` consistently with `bilion`. \[[#253](https://github.com/kslazarev/numbers_and_words/pull/253)\] \([@dblock](https://github.com/dblock)\)
 
