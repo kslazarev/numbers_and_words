@@ -87,3 +87,23 @@ to_words:
     1001000000: un milliard un million
     2000000000: deux milliards
     999999: neuf-cent-quatre-vingt-dix-neuf-mille-neuf-cent-quatre-vingt-dix-neuf
+  traditional_spelling:
+    options:
+      :spelling: traditional
+    21: vingt et un
+    71: soixante et onze
+    81: quatre-vingt-un
+    101: cent un
+    200: deux cents
+    321: trois cent vingt et un
+    1200: mille deux cents
+    200000: deux cent mille
+    2000021: deux millions vingt et un
+    80000000: quatre-vingts millions
+  reformed_spelling:
+    options:
+      :spelling: reformed
+    21: vingt-et-un
+    321: trois-cent-vingt-et-un
+    200000: deux-cent-mille
+    2000021: deux millions vingt-et-un

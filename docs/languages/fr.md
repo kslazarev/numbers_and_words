@@ -32,21 +32,6 @@ I18n.with_locale(:fr) { [11, 22, 133].to_words }
 # => ["onze", "vingt-deux", "cent-trente-trois"]
 ```
 
-## Spelling
-
-French follows the 1990 spelling reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. The traditional spelling is not supported yet, see [#264](https://github.com/kslazarev/numbers_and_words/issues/264).
-
-```ruby
-I18n.with_locale(:fr) { 321.to_words }
-# => "trois-cent-vingt-et-un"
-
-I18n.with_locale(:fr) { 2_000_021.to_words }
-# => "deux millions vingt-et-un"
-
-I18n.with_locale(:fr) { 280_000_000.to_words }
-# => "deux-cent-quatre-vingts millions"
-```
-
 ## Decimals
 
 ```ruby
@@ -72,4 +57,25 @@ I18n.with_locale(:fr) { 0.1.to_words(precision: 2) }
 ```ruby
 I18n.with_locale(:fr) { 21.77.to_words(micro_separator: "plus") }
 # => "vingt-et-un plus soixante-dix-sept centièmes"
+```
+
+### Spelling
+
+French follows the 1990 spelling reform by default (`spelling: :reformed`), hyphenating every numeral in a compound number except the nouns million, milliard and larger. `spelling: :traditional` gives the earlier spelling, with spaces and without hyphens around `et`, `cent` and `mille`.
+
+```ruby
+I18n.with_locale(:fr) { 321.to_words }
+# => "trois-cent-vingt-et-un"
+
+I18n.with_locale(:fr) { 2_000_021.to_words }
+# => "deux millions vingt-et-un"
+
+I18n.with_locale(:fr) { 280_000_000.to_words }
+# => "deux-cent-quatre-vingts millions"
+
+I18n.with_locale(:fr) { 321.to_words(spelling: :traditional) }
+# => "trois cent vingt et un"
+
+I18n.with_locale(:fr) { 2_000_021.to_words(spelling: :traditional) }
+# => "deux millions vingt et un"
 ```
