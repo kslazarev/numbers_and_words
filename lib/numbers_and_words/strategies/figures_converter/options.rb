@@ -20,6 +20,7 @@ require 'numbers_and_words/strategies/figures_converter/options/fr'
 require 'numbers_and_words/strategies/figures_converter/options/fr-CH'
 require 'numbers_and_words/strategies/figures_converter/options/vi'
 require 'numbers_and_words/strategies/figures_converter/options/zh'
+require 'numbers_and_words/strategies/figures_converter/options/he'
 
 module NumbersAndWords
   module Strategies

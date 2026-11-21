@@ -109,6 +109,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | [French](docs/languages/fr.md) | Français | `fr` |
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` |
 | [German](docs/languages/de.md) | Deutsch | `de` |
+| [Hebrew](docs/languages/he.md)* | עברית | `he` |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
 | [Kazakh](docs/languages/kz.md) | Қазақша | `kz` |
