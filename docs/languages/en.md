@@ -67,7 +67,7 @@ I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
 
 ## Pronounced
 
-`pronounced: true` reads four-digit numbers as they are usually spoken.
+`pronounced: true` reads numbers of up to four digits in pairs, as they are usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:en) { 1984.to_words(pronounced: true) }
@@ -75,6 +75,9 @@ I18n.with_locale(:en) { 1984.to_words(pronounced: true) }
 
 I18n.with_locale(:en) { 1101.to_words(pronounced: true) }
 # => "eleven oh one"
+
+I18n.with_locale(:en) { 12_345.to_words(pronounced: true) }
+# => "twelve thousand three hundred forty-five"
 ```
 
 ## Remove Zero

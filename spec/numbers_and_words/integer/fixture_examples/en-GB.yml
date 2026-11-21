@@ -120,3 +120,12 @@ to_words:
       :hundreds_with_union: false
     101: one hundred one
     1111: one thousand one hundred eleven
+  pronounced:
+    options:
+      :pronounced: true
+    101: one oh one
+    1100: eleven hundred
+    1101: eleven oh one
+    1984: nineteen eighty-four
+    2007: two thousand seven
+    12345: twelve thousand three hundred and forty-five

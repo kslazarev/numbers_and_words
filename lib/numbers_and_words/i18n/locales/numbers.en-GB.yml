@@ -64,6 +64,7 @@ en-GB:
       one: quattuordecillionth
       other: quattuordecillionths
     micro_separator: point
+    pronounced_zero: oh
     micro_prefix:
       tens: ten
       hundreds: hundred

@@ -65,11 +65,17 @@ I18n.with_locale(:'en-GB') { 21.to_words(remove_hyphen: true) }
 
 ## Pronounced
 
-`pronounced: true` reads four-digit numbers as they are usually spoken.
+`pronounced: true` reads numbers of up to four digits in pairs, as they are usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 1984.to_words(pronounced: true) }
 # => "nineteen eighty-four"
+
+I18n.with_locale(:'en-GB') { 1101.to_words(pronounced: true) }
+# => "eleven oh one"
+
+I18n.with_locale(:'en-GB') { 12_345.to_words(pronounced: true) }
+# => "twelve thousand three hundred and forty-five"
 ```
 
 ## Remove Zero
