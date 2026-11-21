@@ -7,50 +7,50 @@ ua:
     teens: [_, одинадцять, дванадцять, тринадцять, чотирнадцять, п’ятнадцять, шістнадцять, сімнадцять, вісімнадцять, дев’ятнадцять]
     tens: [_, десять, двадцять, тридцять, сорок, п’ятдесят, шістдесят, сімдесят, вісімдесят, дев’яносто]
     hundreds: [_, сто, двісті, триста, чотириста, п’ятсот, шістсот, сімсот, вісімсот, дев’ятсот]
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: тисяча
       few: тисячі
       many: тисяч
     millions:
       one: мільйон
-      few: мільйона
+      few: мільйони
       many: мільйонів
     billions:
       one: мільярд
-      few: мільярда
+      few: мільярди
       many: мільярдів
     trillions:
       one: трильйон
-      few: трильйона
+      few: трильйони
       many: трильйонів
     quadrillions:
       one: квадрильйон
-      few: квадрильйона
+      few: квадрильйони
       many: квадрильйонів
     quintillions:
       one: квінтильйон
-      few: квінтильйона
+      few: квінтильйони
       many: квінтильйонів
     sextillions:
       one: секстильйон
-      few: секстильйона
+      few: секстильйони
       many: секстильйонів
     septillions:
       one: септильйон
-      few: септильйона
+      few: септильйони
       many: септильйонів
     octillions:
       one: октильйон
-      few: октильйона
+      few: октильйони
       many: октильйонів
     nonillions:
       one: нонильйон
-      few: нонильйона
+      few: нонильйони
       many: нонильйонів
     decillions:
       one: децильйон
-      few: децильйона
+      few: децильйони
       many: децильйонів
     integral:
       one: ціла

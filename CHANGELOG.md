@@ -19,6 +19,7 @@
   * Fix French plural agreement of `cents` and `quatre-vingts` at the end of a number and before scale nouns (`deux cents millions`), and spell 71 `soixante et onze`. \[[#242](https://github.com/kslazarev/numbers_and_words/pull/242)\] \([@dblock](https://github.com/dblock)\)
   * Accent Italian compounds ending in -tre (`ventitré`, `milletré`). \[[#243](https://github.com/kslazarev/numbers_and_words/pull/243)\] \([@dblock](https://github.com/dblock)\)
   * Join a Brazilian Portuguese remainder below one hundred with `e` (`um bilhão e vinte e um`), and keep the scale word singular in compound fractions (`décimos de milésimo`). \[[#244](https://github.com/kslazarev/numbers_and_words/pull/244)\] \([@dblock](https://github.com/dblock)\)
+  * Use Ukrainian nominative plurals after 2-4 (`два мільйони`) and fix the missing quintillion translation. \[[#245](https://github.com/kslazarev/numbers_and_words/pull/245)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 
