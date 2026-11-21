@@ -1,0 +1,37 @@
+to_words:
+  fractional:
+    0.1: sifar perpuluhan satu
+    0.5: sifar perpuluhan lima
+    0.01: sifar perpuluhan sifar satu
+    0.05: sifar perpuluhan sifar lima
+    0.001: sifar perpuluhan sifar sifar satu
+    0.21: sifar perpuluhan dua satu
+    0.77: sifar perpuluhan tujuh tujuh
+    0.777: sifar perpuluhan tujuh tujuh tujuh
+    0.7777: sifar perpuluhan tujuh tujuh tujuh tujuh
+    0.1001: sifar perpuluhan satu sifar sifar satu
+  integral_and_fractional:
+    1.5: satu perpuluhan lima
+    2.5: dua perpuluhan lima
+    3.14: tiga perpuluhan satu empat
+    21.05: dua puluh satu perpuluhan sifar lima
+    21.77: dua puluh satu perpuluhan tujuh tujuh
+    101.001: seratus satu perpuluhan sifar sifar satu
+    1000.5: seribu perpuluhan lima
+    4242.7463: empat ribu dua ratus empat puluh dua perpuluhan tujuh empat enam tiga
+  precision:
+    options:
+      :precision: 3
+    1.5: satu perpuluhan lima sifar sifar
+    0.1: sifar perpuluhan satu sifar sifar
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: perpuluhan tujuh
+    0.05: perpuluhan sifar lima
+    1.5: satu perpuluhan lima
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: satu perpuluhan lima
+    2.25: dua perpuluhan dua lima

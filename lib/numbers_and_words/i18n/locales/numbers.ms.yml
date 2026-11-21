@@ -1,0 +1,15 @@
+ms:
+  numbers:
+    ones: [sifar, satu, dua, tiga, empat, lima, enam, tujuh, lapan, sembilan]
+    ten: sepuluh
+    eleven: sebelas
+    teen: belas
+    tens: puluh
+    hundreds: ratus
+    one_prefix: se
+    mega: [_, ribu, juta, bilion, trilion]
+    ordinals:
+      first: pertama
+      prefix: ke
+    micro_separator: perpuluhan
+    subunit_separator: dan

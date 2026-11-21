@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - satu
+      - dua
+      - tiga
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - sebelas
+      - dua puluh dua
+      - seratus tiga puluh tiga

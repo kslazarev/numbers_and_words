@@ -1,0 +1,118 @@
+# Romanian (`ro`)
+
+Română. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+
+Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or from 20 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). The last group uses the masculine counting form by default (unu, doi, douăzeci și unu); see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
+
+For the [`unit`](../../README.md#unit) option, Romanian chooses the plural form `one` for 1, `few` for 0 and counts ending in 01 to 19, and `other` for counts ending in 00 or from 20, so a unit's `other` form includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei"; after a decimal a unit takes its `few` form ("douăzeci și unu virgulă cinci lei"). A unit after 1 follows the counting form `unu` or `una`, not `un` or `o` as before a noun.
+
+## Examples
+
+```ruby
+I18n.with_locale(:ro) { 0.to_words }
+# => "zero"
+
+I18n.with_locale(:ro) { 12.to_words }
+# => "doisprezece"
+
+I18n.with_locale(:ro) { 21.to_words }
+# => "douăzeci și unu"
+
+I18n.with_locale(:ro) { 101.to_words }
+# => "o sută unu"
+
+I18n.with_locale(:ro) { 2_000.to_words }
+# => "două mii"
+
+I18n.with_locale(:ro) { 21_000.to_words }
+# => "douăzeci și una de mii"
+
+I18n.with_locale(:ro) { 1_000_000.to_words }
+# => "un milion"
+
+I18n.with_locale(:ro) { 2_000_000.to_words }
+# => "două milioane"
+
+I18n.with_locale(:ro) { 123_456_789.to_words }
+# => "o sută douăzeci și trei de milioane patru sute cincizeci și șase de mii șapte sute optzeci și nouă"
+
+I18n.with_locale(:ro) { [1, 2, 3].to_words }
+# => ["unu", "doi", "trei"]
+```
+
+## Decimals
+
+Decimals are read with `virgulă` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. The fractional part uses the masculine counting form.
+
+```ruby
+I18n.with_locale(:ro) { 3.14.to_words }
+# => "trei virgulă paisprezece"
+
+I18n.with_locale(:ro) { 21.05.to_words }
+# => "douăzeci și unu virgulă zero cinci"
+
+I18n.with_locale(:ro) { 3.1416.to_words }
+# => "trei virgulă unu patru unu șase"
+```
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:ro) { 0.1.to_words(precision: 2) }
+# => "zero virgulă zece"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:ro) { 21.77.to_words(micro_separator: "punct") }
+# => "douăzeci și unu punct șaptezeci și șapte"
+```
+
+### Gender
+
+`gender: :male` (the default), `gender: :female` or `gender: :neuter`, the gender of what is counted. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune). It applies to the last group of digits.
+
+```ruby
+I18n.with_locale(:ro) { 1.to_words(gender: :female) }
+# => "una"
+
+I18n.with_locale(:ro) { 22.to_words(gender: :female) }
+# => "douăzeci și două"
+
+I18n.with_locale(:ro) { 12.to_words(gender: :neuter) }
+# => "douăsprezece"
+```
+
+### Ordinal
+
+`ordinal: true` gives the ordinal with its article, masculine by default (primul, al doilea, al douăzeci și unulea) and feminine with `gender: :female` (prima, a doua, a douăzeci și una); neuter nouns take the masculine ordinal. Only the last word changes (al două miilea), and a leading un before a scale is dropped (al milionulea). Zero keeps its cardinal form.
+
+```ruby
+I18n.with_locale(:ro) { 2.to_words(ordinal: true) }
+# => "al doilea"
+
+I18n.with_locale(:ro) { 21.to_words(ordinal: true) }
+# => "al douăzeci și unulea"
+
+I18n.with_locale(:ro) { 2.to_words(ordinal: true, gender: :female) }
+# => "a doua"
+
+I18n.with_locale(:ro) { 100.to_words(ordinal: true) }
+# => "al o sutălea"
+```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:ro) { 0.7.to_words(remove_zero: true) }
+# => "virgulă șapte"
+```

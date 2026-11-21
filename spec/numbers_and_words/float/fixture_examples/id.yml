@@ -1,0 +1,37 @@
+to_words:
+  fractional:
+    0.1: nol koma satu
+    0.5: nol koma lima
+    0.01: nol koma nol satu
+    0.05: nol koma nol lima
+    0.001: nol koma nol nol satu
+    0.21: nol koma dua satu
+    0.77: nol koma tujuh tujuh
+    0.777: nol koma tujuh tujuh tujuh
+    0.7777: nol koma tujuh tujuh tujuh tujuh
+    0.1001: nol koma satu nol nol satu
+  integral_and_fractional:
+    1.5: satu koma lima
+    2.5: dua koma lima
+    3.14: tiga koma satu empat
+    21.05: dua puluh satu koma nol lima
+    21.77: dua puluh satu koma tujuh tujuh
+    101.001: seratus satu koma nol nol satu
+    1000.5: seribu koma lima
+    4242.7463: empat ribu dua ratus empat puluh dua koma tujuh empat enam tiga
+  precision:
+    options:
+      :precision: 3
+    1.5: satu koma lima nol nol
+    0.1: nol koma satu nol nol
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: koma tujuh
+    0.05: koma nol lima
+    1.5: satu koma lima
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: satu koma lima
+    2.25: dua koma dua lima

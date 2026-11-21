@@ -1,0 +1,15 @@
+id:
+  numbers:
+    ones: [nol, satu, dua, tiga, empat, lima, enam, tujuh, delapan, sembilan]
+    ten: sepuluh
+    eleven: sebelas
+    teen: belas
+    tens: puluh
+    hundreds: ratus
+    one_prefix: se
+    mega: [_, ribu, juta, miliar, triliun]
+    ordinals:
+      first: pertama
+      prefix: ke
+    micro_separator: koma
+    subunit_separator: dan

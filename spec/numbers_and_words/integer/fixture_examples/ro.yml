@@ -1,0 +1,281 @@
+to_words:
+  ones:
+    0: zero
+    1: unu
+    2: doi
+    3: trei
+    4: patru
+    5: cinci
+    6: șase
+    7: șapte
+    8: opt
+    9: nouă
+  tens:
+    10: zece
+    11: unsprezece
+    12: doisprezece
+    13: treisprezece
+    14: paisprezece
+    15: cincisprezece
+    16: șaisprezece
+    17: șaptesprezece
+    18: optsprezece
+    19: nouăsprezece
+    20: douăzeci
+    21: douăzeci și unu
+    22: douăzeci și doi
+    30: treizeci
+    40: patruzeci
+    50: cincizeci
+    60: șaizeci
+    70: șaptezeci
+    80: optzeci
+    90: nouăzeci
+    99: nouăzeci și nouă
+  hundreds:
+    100: o sută
+    101: o sută unu
+    110: o sută zece
+    111: o sută unsprezece
+    120: o sută douăzeci
+    121: o sută douăzeci și unu
+    200: două sute
+    300: trei sute
+    400: patru sute
+    500: cinci sute
+    600: șase sute
+    700: șapte sute
+    800: opt sute
+    900: nouă sute
+    999: nouă sute nouăzeci și nouă
+  thousands:
+    1000: o mie
+    1001: o mie unu
+    1100: o mie o sută
+    1999: o mie nouă sute nouăzeci și nouă
+    2000: două mii
+    2001: două mii unu
+    3000: trei mii
+    4000: patru mii
+    10000: zece mii
+    11000: unsprezece mii
+    12000: douăsprezece mii
+    19000: nouăsprezece mii
+    20000: douăzeci de mii
+    21000: douăzeci și una de mii
+    22000: douăzeci și două de mii
+    100000: o sută de mii
+    101000: o sută una mii
+    120000: o sută douăzeci de mii
+    200000: două sute de mii
+    999999: nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+  millions:
+    1000000: un milion
+    1000001: un milion unu
+    1001000: un milion o mie
+    2000000: două milioane
+    3000000: trei milioane
+    4000000: patru milioane
+    12000000: douăsprezece milioane
+    21000000: douăzeci și unu de milioane
+    22000000: douăzeci și două de milioane
+    100000000: o sută de milioane
+    200000000: două sute de milioane
+    123456789: o sută douăzeci și trei de milioane patru sute cincizeci și șase de mii șapte sute optzeci și nouă
+  billions:
+    1000000000: un miliard
+    2000000000: două miliarde
+    1000000000000: un bilion
+    2000000000000: două bilioane
+    999999999999999: nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+    999999999999999999: nouă sute nouăzeci și nouă de biliarde nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+  ordinal:
+    options:
+      :ordinal: true
+    0: zero
+    1: primul
+    2: al doilea
+    3: al treilea
+    4: al patrulea
+    5: al cincilea
+    6: al șaselea
+    7: al șaptelea
+    8: al optulea
+    9: al nouălea
+    10: al zecelea
+    11: al unsprezecelea
+    12: al doisprezecelea
+    13: al treisprezecelea
+    19: al nouăsprezecelea
+    20: al douăzecilea
+    21: al douăzeci și unulea
+    22: al douăzeci și doilea
+    99: al nouăzeci și nouălea
+    100: al o sutălea
+    101: al o sută unulea
+    111: al o sută unsprezecelea
+    200: al două sutelea
+    999: al nouă sute nouăzeci și nouălea
+    1000: al o mielea
+    1001: al o mie unulea
+    2000: al două miilea
+    2021: al două mii douăzeci și unulea
+    9999: al nouă mii nouă sute nouăzeci și nouălea
+    21000: al douăzeci și una de miilea
+    100000: al o sută de miilea
+    1000000: al milionulea
+    2000000: al două milioanelea
+    1000000000: al miliardulea
+  male gender:
+    options:
+      :gender: male
+    1: unu
+    2: doi
+    3: trei
+    4: patru
+    12: doisprezece
+    13: treisprezece
+    14: paisprezece
+    21: douăzeci și unu
+    22: douăzeci și doi
+    101: o sută unu
+    200: două sute
+    300: trei sute
+    1000: o mie
+    1001: o mie unu
+    1002: o mie doi
+    1500: o mie cinci sute
+    2000: două mii
+    21000: douăzeci și una de mii
+    1000001: un milion unu
+    2000002: două milioane doi
+  male ordinal:
+    options:
+      :ordinal: true
+      :gender: male
+    1: primul
+    2: al doilea
+    3: al treilea
+    4: al patrulea
+    5: al cincilea
+    6: al șaselea
+    7: al șaptelea
+    8: al optulea
+    9: al nouălea
+    10: al zecelea
+    11: al unsprezecelea
+    12: al doisprezecelea
+    13: al treisprezecelea
+    19: al nouăsprezecelea
+    20: al douăzecilea
+    21: al douăzeci și unulea
+    22: al douăzeci și doilea
+    99: al nouăzeci și nouălea
+    100: al o sutălea
+    101: al o sută unulea
+    111: al o sută unsprezecelea
+    200: al două sutelea
+    1000: al o mielea
+    2000: al două miilea
+  female gender:
+    options:
+      :gender: female
+    1: una
+    2: două
+    3: trei
+    4: patru
+    12: douăsprezece
+    13: treisprezece
+    14: paisprezece
+    21: douăzeci și una
+    22: douăzeci și două
+    101: o sută una
+    200: două sute
+    300: trei sute
+    1000: o mie
+    1001: o mie una
+    1002: o mie două
+    1500: o mie cinci sute
+    2000: două mii
+    21000: douăzeci și una de mii
+    1000001: un milion una
+    2000002: două milioane două
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: prima
+    2: a doua
+    3: a treia
+    4: a patra
+    5: a cincea
+    6: a șasea
+    7: a șaptea
+    8: a opta
+    9: a noua
+    10: a zecea
+    11: a unsprezecea
+    12: a douăsprezecea
+    13: a treisprezecea
+    19: a nouăsprezecea
+    20: a douăzecea
+    21: a douăzeci și una
+    22: a douăzeci și doua
+    99: a nouăzeci și noua
+    100: a o suta
+    101: a o sută una
+    111: a o sută unsprezecea
+    200: a două suta
+    1000: a o mia
+    2000: a două mia
+  neuter gender:
+    options:
+      :gender: neuter
+    1: unu
+    2: două
+    3: trei
+    4: patru
+    12: douăsprezece
+    13: treisprezece
+    14: paisprezece
+    21: douăzeci și unu
+    22: douăzeci și două
+    101: o sută unu
+    200: două sute
+    300: trei sute
+    1000: o mie
+    1001: o mie unu
+    1002: o mie două
+    1500: o mie cinci sute
+    2000: două mii
+    21000: douăzeci și una de mii
+    1000001: un milion unu
+    2000002: două milioane două
+  neuter ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    1: primul
+    2: al doilea
+    3: al treilea
+    4: al patrulea
+    5: al cincilea
+    6: al șaselea
+    7: al șaptelea
+    8: al optulea
+    9: al nouălea
+    10: al zecelea
+    11: al unsprezecelea
+    12: al doisprezecelea
+    13: al treisprezecelea
+    19: al nouăsprezecelea
+    20: al douăzecilea
+    21: al douăzeci și unulea
+    22: al douăzeci și doilea
+    99: al nouăzeci și nouălea
+    100: al o sutălea
+    101: al o sută unulea
+    111: al o sută unsprezecelea
+    200: al două sutelea
+    1000: al o mielea
+    2000: al două miilea

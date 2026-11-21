@@ -44,6 +44,7 @@
   * Support decimals with `unit:` and amounts in two units with `subunit:` and `zero_subunit:` ("twenty-one dollars and fifty cents"). \[[#302](https://github.com/kslazarev/numbers_and_words/pull/302)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Japanese (`ja`, with `script: :kana`) and Korean (`ko`), with decimals and ordinals, sharing the grouping by ten thousands with Chinese. \[[#304](https://github.com/kslazarev/numbers_and_words/pull/304)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Norwegian Bokmål (`nb`), Finnish (`fi`), Bulgarian (`bg`) and Slovak (`sk`), with decimals, ordinals, `remove_zero` and, except in Finnish, `gender`. \[[#305](https://github.com/kslazarev/numbers_and_words/pull/305)\] \([@dblock](https://github.com/dblock)\)
+  * Add Indonesian (`id`), and experimental Malay (`ms`), Romanian (`ro`) and Greek (`el`), with decimals, ordinals, `remove_zero`, and `gender` in Romanian and Greek, and the Romanian plural rule for `unit` ("douăzeci de lei") and `subunit` separators. \[[#306](https://github.com/kslazarev/numbers_and_words/pull/306)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
