@@ -56,8 +56,11 @@ module NumbersAndWords
 
       def micros(capacity, number = nil)
         micro, prefix = capacity
-        micros = number ? t(micro(micro), count: number) : micro(micro)
-        [micro_prefix(prefix, number), micros].compact.join(t('micro_prefix.union'))
+        prefix_words = micro_prefix(prefix, number)
+        # Only the prefix agrees in number: "décimos de milésimo", not "décimos de milésimos".
+        count = prefix_words ? 1 : number
+        micros = count ? t(micro(micro), count:) : micro(micro)
+        [prefix_words, micros].compact.join(t('micro_prefix.union'))
       end
 
       def micro_prefix(capacity, number)
