@@ -37,7 +37,8 @@ describe NumbersAndWords::I18n do
       'Latin' => %w[cs da de en en-GB es et fr fr-CH hu it lt lv nl pl pt pt-BR se tr vi],
       'Cyrillic' => %w[kz ru ua],
       'Armenian' => %w[hy],
-      'Georgian' => %w[ka]
+      'Georgian' => %w[ka],
+      'Thai' => %w[th]
     }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|

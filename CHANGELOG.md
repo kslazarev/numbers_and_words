@@ -22,6 +22,7 @@
   * Add a `to_words` command that converts numbers into words from the command line. \[[#231](https://github.com/kslazarev/numbers_and_words/pull/231)\] \([@dblock](https://github.com/dblock)\)
   * Add locale selection through NumbersAndWords.configure, preserving application translation files and completing #136. \[[#226](https://github.com/kslazarev/numbers_and_words/pull/226)\] \([@seniorihor](https://github.com/seniorihor), [@dblock](https://github.com/dblock)\)
   * Add Dutch `pronounced: true`, which reads years such as 1910 as `negentienhonderd tien`. \[[#224](https://github.com/kslazarev/numbers_and_words/pull/224)\] \([@Wessel-Boers](https://github.com/Wessel-Boers), [@dblock](https://github.com/dblock)\)
+  * Add experimental Thai (`th`), with decimals and ordinals. \[[#276](https://github.com/kslazarev/numbers_and_words/pull/276)\] \([@brajo083](https://github.com/brajo083), [@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
