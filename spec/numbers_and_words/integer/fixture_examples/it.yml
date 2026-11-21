@@ -10,12 +10,15 @@ to_words:
     19: diciannove
     20: venti
     21: ventuno
+    23: ventitré
+    33: trentatré
     80: ottanta
     90: novanta
     99: novantanove
   hundreds:
     100: cento
     101: centouno
+    103: centotré
     111: centoundici
     120: centoventi
     121: centoventuno
@@ -28,6 +31,10 @@ to_words:
   thousands:
     1000: mille
     1001: milleuno
+    1003: milletré
+    2003: duemilatré
+    3000: tremila
+    23000: ventitremila
     2000: duemila
     4000: quattromila
     5000: cinquemila

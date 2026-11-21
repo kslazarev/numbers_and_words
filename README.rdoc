@@ -236,7 +236,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["თერთმეტი", "ოცდაორი", "ას ოცდაცამეტი"]
     => ["on bir", "yirmi iki", "yüz otuz üç"]
     => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
-    => ["undici", "ventidue", "centotrentatre"]
+    => ["undici", "ventidue", "centotrentatré"]
     => ["elf", "tweeëntwintig", "honderddrieëndertig"]
     => ["elva", "tjugo-två", "en hundra trettio-tre"]
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
