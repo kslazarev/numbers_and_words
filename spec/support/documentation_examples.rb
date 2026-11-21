@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Parses documented examples without evaluating them. An example is a line
-#   I18n.with_locale(:fr) { 21.to_words(traditional: true) }
+#   I18n.with_locale(:en) { 21.to_words(ordinal: true) }
 # followed by "# => <inspected result>". Only a locale, a number or an array
 # of numbers, and options with literal values are accepted.
 module DocumentationExamples

@@ -15,9 +15,3 @@ to_words:
     21.77: vingt-et-un et soixante-dix-sept centièmes
     111.999: cent-onze et neuf-cent-quatre-vingt-dix-neuf millièmes
     4242.7463: quatre-mille-deux-cent-quarante-deux et sept-mille-quatre-cent-soixante-trois dix-millièmes
-  traditional_spelling:
-    options:
-      :traditional: true
-    21.77: vingt et un et soixante-dix-sept centièmes
-    0.21: zéro et vingt et un centièmes
-    4242.7463: quatre mille deux cent quarante-deux et sept mille quatre cent soixante-trois dix-millièmes

@@ -31,7 +31,7 @@ A new language needs all of these, an entry in the script map in `spec/numbers_a
 * Fixture files have no duplicate keys; YAML would silently drop all but the last.
 * Every scale word in every locale translates, for one and two of each power (no `Translation missing`).
 * Locale strings use the locale's script, are NFC-normalized and contain no invisible characters; Ukrainian contains no Russian-only letters.
-* Every documented example in the README and `docs/languages` is checked: a one-line `I18n.with_locale(:fr) { 21.to_words(traditional: true) }` with a number or array of numbers and literal options, followed by `# => <value>`. Examples are parsed, never evaluated, and any other `I18n.with_locale` line fails. Update the language page whenever output changes.
+* Every documented example in the README and `docs/languages` is checked: a one-line `I18n.with_locale(:en) { 21.to_words(ordinal: true) }` with a number or array of numbers and literal options, followed by `# => <value>`. Examples are parsed, never evaluated, and any other `I18n.with_locale` line fails. Update the language page whenever output changes.
 
 ## Language Changes
 
