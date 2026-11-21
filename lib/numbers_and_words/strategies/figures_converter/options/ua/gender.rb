@@ -6,6 +6,7 @@ module NumbersAndWords
       module Options
         module Ua
           class Gender < Base::Gender
+            VALUES = %i[male female neuter].freeze
           end
         end
       end

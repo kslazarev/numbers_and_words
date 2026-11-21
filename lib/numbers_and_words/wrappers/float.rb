@@ -54,11 +54,12 @@ module NumbersAndWords
       end
 
       def integral_part_with(options)
-        integral_part.to_i.to_words options.merge(integral_options)
+        # Internal options (integral, fractional) bypass the public option validation.
+        Wrappers::Integer.new(integral_part.to_i).to_words options.merge(integral_options)
       end
 
       def fractional_part_with(options)
-        fractional_part.to_i.to_words options.merge(fractional_options)
+        Wrappers::Integer.new(fractional_part.to_i).to_words options.merge(fractional_options)
       end
 
       def integral_options

@@ -120,6 +120,25 @@ I18n.with_locale(:es) { 0.2.to_words(precision: 2) }
 # => "cero con veinte centésimas"
 ```
 
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts of a float.
+
+```ruby
+I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
+# => "twenty-one plus seventy-seven hundredths"
+```
+
+### Unsupported Options
+
+Every language accepts `precision` and `micro_separator`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
+
+For example, French has no ordinals, so `21.to_words(ordinal: true)` in the `fr` locale raises:
+
+```
+NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision
+```
+
 ## Requirements / Требования / Configuration Requise
 
 * Ruby 3.2 or later, including JRuby.
