@@ -114,6 +114,7 @@ describe NumbersAndWords::Unit do
                                                     lira: { one: 'liră', few: 'lire', other: 'de lire', gender: :female } })
       I18n.backend.store_translations(:el, units: { drachma: { one: 'δραχμή', other: 'δραχμές', gender: :female }, euro: 'ευρώ', cent: { one: 'λεπτό', other: 'λεπτά' } })
       I18n.backend.store_translations(:id, units: { rupiah: 'rupiah' })
+      I18n.backend.store_translations(:az, units: { manat: 'manat', qapik: 'qəpik' })
     end
 
     it 'spells Ukrainian' do
@@ -146,6 +147,13 @@ describe NumbersAndWords::Unit do
       expect([1, 3, 200].map { |number| words(:el, number, unit: :drachma) }).to eq(['μία δραχμή', 'τρεις δραχμές', 'διακόσιες δραχμές'])
       expect(words(:id, 21, unit: :rupiah)).to eq('dua puluh satu rupiah')
       expect(words(:el, 21.5, unit: :euro, subunit: :cent)).to eq('είκοσι ένα ευρώ και πενήντα λεπτά')
+    end
+
+    it 'spells Azerbaijani with the singular unit and no subunit separator' do
+      expect([1, 21, 2_000].map { |number| words(:az, number, unit: :manat) }).to eq(['bir manat', 'iyirmi bir manat', 'iki min manat'])
+      expect(words(:az, 21.5, unit: :manat)).to eq('iyirmi bir tam onda beş manat')
+      expect(words(:az, 21.5, unit: :manat, subunit: :qapik)).to eq('iyirmi bir manat əlli qəpik')
+      expect(words(:az, 21, unit: :manat, ordinal: true)).to eq('iyirmi birinci manat')
     end
 
     it 'writes the unit without a space in languages written without spaces' do

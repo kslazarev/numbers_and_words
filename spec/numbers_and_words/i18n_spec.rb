@@ -51,7 +51,7 @@ describe NumbersAndWords::I18n do
     locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
     lookup_locales = %w[ru uk]
     scripts = {
-      'Latin' => %w[cs da de en en-GB es et fi fr fr-CH hu id it lt lv ms nb nl pl pt pt-BR ro sk sv tr vi],
+      'Latin' => %w[az cs da de en en-GB es et fi fr fr-CH hu id it lt lv ms nb nl pl pt pt-BR ro sk sv tr vi],
       'Cyrillic' => %w[bg kk ru uk],
       'Armenian' => %w[hy],
       'Georgian' => %w[ka],

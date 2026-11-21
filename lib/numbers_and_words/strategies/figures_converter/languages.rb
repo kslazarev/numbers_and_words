@@ -52,6 +52,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/id'
 require 'numbers_and_words/strategies/figures_converter/languages/ms'
 require 'numbers_and_words/strategies/figures_converter/languages/ro'
 require 'numbers_and_words/strategies/figures_converter/languages/el'
+require 'numbers_and_words/strategies/figures_converter/languages/az'
 
 module NumbersAndWords
   module Strategies

@@ -35,6 +35,7 @@ require 'numbers_and_words/strategies/figures_converter/decorators/id'
 require 'numbers_and_words/strategies/figures_converter/decorators/ms'
 require 'numbers_and_words/strategies/figures_converter/decorators/ro'
 require 'numbers_and_words/strategies/figures_converter/decorators/el'
+require 'numbers_and_words/strategies/figures_converter/decorators/az'
 
 module NumbersAndWords
   module Strategies

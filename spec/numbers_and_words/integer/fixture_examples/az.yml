@@ -1,0 +1,126 @@
+to_words:
+  ones:
+    0: sıfır
+    1: bir
+    2: iki
+    3: üç
+    4: dörd
+    5: beş
+    6: altı
+    7: yeddi
+    8: səkkiz
+    9: doqquz
+  teens:
+    10: 'on'
+    11: on bir
+    12: on iki
+    13: on üç
+    14: on dörd
+    15: on beş
+    16: on altı
+    17: on yeddi
+    18: on səkkiz
+    19: on doqquz
+    20: iyirmi
+    21: iyirmi bir
+  tens:
+    30: otuz
+    40: qırx
+    50: əlli
+    60: altmış
+    70: yetmiş
+    80: səksən
+    90: doxsan
+    99: doxsan doqquz
+  hundreds:
+    100: yüz
+    101: yüz bir
+    111: yüz on bir
+    120: yüz iyirmi
+    121: yüz iyirmi bir
+    200: iki yüz
+    900: doqquz yüz
+    909: doqquz yüz doqquz
+    919: doqquz yüz on doqquz
+    990: doqquz yüz doxsan
+    999: doqquz yüz doxsan doqquz
+  thousands:
+    1000: min
+    1001: min bir
+    1100: min yüz
+    2000: iki min
+    4000: dörd min
+    5000: beş min
+    11000: on bir min
+    21000: iyirmi bir min
+    100000: yüz min
+    999000: doqquz yüz doxsan doqquz min
+    999999: doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+  millions:
+    1000000: bir milyon
+    1001000: bir milyon min
+    2000000: iki milyon
+    4000000: dörd milyon
+    5000000: beş milyon
+    999000000: doqquz yüz doxsan doqquz milyon
+    999000999: doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz
+    999999000: doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz min
+    999999999: doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+  billions:
+    1000000000: bir milyard
+    2000000000: iki milyard
+    1174315110: bir milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on
+    1174315119: bir milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    15174315119: on beş milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    35174315119: otuz beş milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+    935174315119: doqquz yüz otuz beş milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+  trillions:
+    1000000000000: bir trilyon
+    2935174315119: iki trilyon doqquz yüz otuz beş milyard yüz yetmiş dörd milyon üç yüz on beş min yüz on doqquz
+  quadrillions:
+    1000000000000000: bir kvadrilyon
+    1000000000000000000: bir kvintilyon
+  ordinal:
+    options:
+      :ordinal: true
+    0: sıfırıncı
+    1: birinci
+    2: ikinci
+    3: üçüncü
+    4: dördüncü
+    5: beşinci
+    6: altıncı
+    7: yeddinci
+    8: səkkizinci
+    9: doqquzuncu
+    10: onuncu
+    11: on birinci
+    12: on ikinci
+    19: on doqquzuncu
+    20: iyirminci
+    21: iyirmi birinci
+    26: iyirmi altıncı
+    30: otuzuncu
+    40: qırxıncı
+    45: qırx beşinci
+    50: əllinci
+    60: altmışıncı
+    70: yetmişinci
+    80: səksəninci
+    90: doxsanıncı
+    99: doxsan doqquzuncu
+    100: yüzüncü
+    101: yüz birinci
+    200: iki yüzüncü
+    1000: mininci
+    1101: min yüz birinci
+    2000: iki mininci
+    1000000: milyonuncu
+    2000000: iki milyonuncu
+    1000000000: milyardıncı
+    1000000000000: trilyonuncu
+  remove_zero:
+    options:
+      :remove_zero: true
+    0: ''
+    21: iyirmi bir

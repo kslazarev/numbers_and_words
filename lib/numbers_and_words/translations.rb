@@ -49,6 +49,7 @@ require 'numbers_and_words/translations/id'
 require 'numbers_and_words/translations/ms'
 require 'numbers_and_words/translations/ro'
 require 'numbers_and_words/translations/el'
+require 'numbers_and_words/translations/az'
 
 module NumbersAndWords
   module Translations

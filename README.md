@@ -99,6 +99,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | --- | --- | --- |
 | [Arabic](docs/languages/ar.md)* | العربية | `ar` |
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
+| [Azerbaijani](docs/languages/az.md)* | Azərbaycan dili | `az` |
 | [Bengali](docs/languages/bn.md)* | বাংলা | `bn` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |

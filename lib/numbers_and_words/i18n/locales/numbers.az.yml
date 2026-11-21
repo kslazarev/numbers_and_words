@@ -1,0 +1,26 @@
+az:
+  numbers:
+    ones: [sıfır, bir, iki, üç, dörd, beş, altı, yeddi, səkkiz, doqquz]
+    teens: [_, on bir, on iki, on üç, on dörd, on beş, on altı, on yeddi, on səkkiz, on doqquz]
+    tens: [_, 'on', iyirmi, otuz, qırx, əlli, altmış, yetmiş, səksən, doxsan]
+    hundreds: yüz
+    mega: [_, min, milyon, milyard, trilyon, kvadrilyon, kvintilyon, sekstilyon, septilyon, oktilyon, nonilyon, desilyon]
+    micro: [_, onda, yüzdə, mində, milyonda, milyardda, trilyonda, kvadrilyonda, kvintilyonda]
+    micro_prefix:
+      tens: 'on'
+      hundreds: yüz
+      union: ' '
+    micro_separator: tam
+    ordinals:
+      'suffixes':
+        'a': 'ıncı'
+        'ı': 'ıncı'
+        'o': 'uncu'
+        'u': 'uncu'
+        'e': 'inci'
+        'ə': 'inci'
+        'i': 'inci'
+        'ö': 'üncü'
+        'ü': 'üncü'
+      'words': {}
+      'leading_one': ['bir']

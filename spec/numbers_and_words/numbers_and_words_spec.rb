@@ -15,7 +15,7 @@ require 'shared_examples/correct_fixture_examples'
   end
 end
 
-FLOAT_CAPABLE_LANGUAGES = %i[bg bn cs de el en-GB en es fi it fr fr-CH he hi hu id ja ko ms nb nl pl pt pt-BR ro ru sk th uk ur vi zh].freeze
+FLOAT_CAPABLE_LANGUAGES = %i[az bg bn cs de el en-GB en es fi it fr fr-CH he hi hu id ja ko ms nb nl pl pt pt-BR ro ru sk th uk ur vi zh].freeze
 [Float].each do |type|
   describe type do
     FLOAT_CAPABLE_LANGUAGES.each do |locale|

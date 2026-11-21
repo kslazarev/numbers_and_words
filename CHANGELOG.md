@@ -25,6 +25,7 @@
   * Decline Russian and Ukrainian numbers by `case:`, with `animate:` accusatives ("двадцать первого", "двадцати одной тысячи"). \[[#296](https://github.com/kslazarev/numbers_and_words/pull/296), [#298](https://github.com/kslazarev/numbers_and_words/pull/298)\] \([@dblock](https://github.com/dblock)\)
   * Add `unit:`, `subunit:` and `zero_subunit:` to spell amounts with units in the right plural form and gender ("двадцать один рубль", "twenty-one dollars and fifty cents"). \[[#299](https://github.com/kslazarev/numbers_and_words/pull/299), [#302](https://github.com/kslazarev/numbers_and_words/pull/302)\] \([@dblock](https://github.com/dblock)\)
   * Use the standard locale codes `sv`, `uk` and `kk` instead of `se`, `ua` and `kz`. \[[#300](https://github.com/kslazarev/numbers_and_words/pull/300)\] \([@dblock](https://github.com/dblock)\)
+  * Add experimental Azerbaijani (`az`), with decimals read as fractions ("üç tam yüzdə on dörd"), ordinals and `remove_zero`, from the digitaz and hydra-billing forks. \[[#308](https://github.com/kslazarev/numbers_and_words/pull/308)\] \([@stager94](https://github.com/stager94), [@NatalieKor](https://github.com/NatalieKor), [@flash-gordon](https://github.com/flash-gordon), [@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
