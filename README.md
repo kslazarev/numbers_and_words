@@ -99,6 +99,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | --- | --- | --- |
 | [Arabic](docs/languages/ar.md)* | العربية | `ar` |
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
+| [Bengali](docs/languages/bn.md)* | বাংলা | `bn` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
 | [Chinese](docs/languages/zh.md)* | 中文 | `zh` |
@@ -111,6 +112,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` |
 | [German](docs/languages/de.md) | Deutsch | `de` |
 | [Hebrew](docs/languages/he.md)* | עברית | `he` |
+| [Hindi](docs/languages/hi.md)* | हिन्दी | `hi` |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
 | [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
@@ -125,6 +127,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Thai](docs/languages/th.md)* | ภาษาไทย | `th` |
 | [Turkish](docs/languages/tr.md) | Türkçe | `tr` |
 | [Ukrainian](docs/languages/uk.md) | Українська | `uk` |
+| [Urdu](docs/languages/ur.md)* | اردو | `ur` |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 
 \* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.

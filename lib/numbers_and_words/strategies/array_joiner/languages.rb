@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'numbers_and_words/strategies/array_joiner/languages/families/base'
+require 'numbers_and_words/strategies/array_joiner/languages/families/indian'
 
 require 'numbers_and_words/strategies/array_joiner/languages/base'
 require 'numbers_and_words/strategies/array_joiner/languages/decimal_point'
@@ -20,6 +21,9 @@ require 'numbers_and_words/strategies/array_joiner/languages/cs'
 require 'numbers_and_words/strategies/array_joiner/languages/vi'
 require 'numbers_and_words/strategies/array_joiner/languages/th'
 require 'numbers_and_words/strategies/array_joiner/languages/zh'
+require 'numbers_and_words/strategies/array_joiner/languages/hi'
+require 'numbers_and_words/strategies/array_joiner/languages/bn'
+require 'numbers_and_words/strategies/array_joiner/languages/ur'
 require 'numbers_and_words/strategies/array_joiner/languages/he'
 require 'numbers_and_words/strategies/array_joiner/languages/pl'
 require 'numbers_and_words/strategies/array_joiner/languages/nl'

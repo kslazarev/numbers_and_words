@@ -1,0 +1,31 @@
+to_words:
+  fractional:
+    0.1: शून्य दशमलव एक
+    0.01: शून्य दशमलव शून्य एक
+    0.5: शून्य दशमलव पाँच
+    0.77: शून्य दशमलव सात सात
+  integral_and_fractional:
+    1.5: एक दशमलव पाँच
+    3.14: तीन दशमलव एक चार
+    21.05: इक्कीस दशमलव शून्य पाँच
+    101.001: एक सौ एक दशमलव शून्य शून्य एक
+    123456.78: एक लाख तेईस हज़ार चार सौ छप्पन दशमलव सात आठ
+  precision:
+    options:
+      :precision: 3
+    1.5: एक दशमलव पाँच शून्य शून्य
+    0.1: शून्य दशमलव एक शून्य शून्य
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: दशमलव सात
+    0.05: दशमलव शून्य पाँच
+    42.1: बयालीस दशमलव एक
+  micro_separator:
+    options:
+      :micro_separator: point
+    21.77: इक्कीस point सात सात
+  ordinal keeps the cardinal:
+    options:
+      :ordinal: true
+    1.5: एक दशमलव पाँच

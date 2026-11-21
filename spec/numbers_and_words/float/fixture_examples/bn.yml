@@ -1,0 +1,31 @@
+to_words:
+  fractional:
+    0.1: শূন্য দশমিক এক
+    0.01: শূন্য দশমিক শূন্য এক
+    0.5: শূন্য দশমিক পাঁচ
+    0.77: শূন্য দশমিক সাত সাত
+  integral_and_fractional:
+    1.5: এক দশমিক পাঁচ
+    3.14: তিন দশমিক এক চার
+    21.05: একুশ দশমিক শূন্য পাঁচ
+    101.001: একশ এক দশমিক শূন্য শূন্য এক
+    123456.78: এক লাখ তেইশ হাজার চারশ ছাপ্পান্ন দশমিক সাত আট
+  precision:
+    options:
+      :precision: 3
+    1.5: এক দশমিক পাঁচ শূন্য শূন্য
+    0.1: শূন্য দশমিক এক শূন্য শূন্য
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: দশমিক সাত
+    0.05: দশমিক শূন্য পাঁচ
+    42.1: বিয়াল্লিশ দশমিক এক
+  micro_separator:
+    options:
+      :micro_separator: point
+    21.77: একুশ point সাত সাত
+  ordinal keeps the cardinal:
+    options:
+      :ordinal: true
+    1.5: এক দশমিক পাঁচ

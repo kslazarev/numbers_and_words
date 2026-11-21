@@ -36,6 +36,10 @@ require 'numbers_and_words/strategies/figures_converter/languages/th'
 require 'numbers_and_words/strategies/figures_converter/languages/zh'
 require 'numbers_and_words/strategies/figures_converter/languages/he'
 require 'numbers_and_words/strategies/figures_converter/languages/ar'
+require 'numbers_and_words/strategies/figures_converter/languages/families/indian'
+require 'numbers_and_words/strategies/figures_converter/languages/hi'
+require 'numbers_and_words/strategies/figures_converter/languages/bn'
+require 'numbers_and_words/strategies/figures_converter/languages/ur'
 require 'numbers_and_words/strategies/figures_converter/languages/pl'
 
 module NumbersAndWords

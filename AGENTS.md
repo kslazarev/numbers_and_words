@@ -24,6 +24,8 @@ For a locale such as `fr`:
 * `spec/numbers_and_words/{integer,float,array}/fixture_examples/fr.yml`: expected output. Float fixtures only run for locales in `FLOAT_CAPABLE_LANGUAGES` in `spec/numbers_and_words/numbers_and_words_spec.rb`.
 * `docs/languages/fr.md` and its row in the [README](README.md) table.
 
+Languages that share a numbering system share its code in a `families` module. Hindi, Bengali and Urdu use the Indian system (lakh and crore) in `languages/families/indian.rb`, `translations/families/indian.rb`, `decorators/indian.rb` and `array_joiner/languages/families/indian.rb`; another such language, such as Marathi, needs its locale file with the same keys and subclasses that include those modules.
+
 A new language needs all of these, an entry in the script map in `spec/numbers_and_words/i18n_spec.rb`, and a CHANGELOG entry.
 
 ## Invariants Enforced by Specs
