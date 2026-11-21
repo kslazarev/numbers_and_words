@@ -11,7 +11,7 @@
   * Report coverage to Coveralls with SimpleCov and the Coveralls GitHub Action, replacing the unmaintained coveralls gem and the Code Climate badge. \[[#239](https://github.com/kslazarev/numbers_and_words/pull/239)\] \([@dblock](https://github.com/dblock)\)
   * Upgrade RuboCop to 1.92.3 with exact lint tool versions. \[[#238](https://github.com/kslazarev/numbers_and_words/pull/238)\] \([@dblock](https://github.com/dblock)\)
   * Document breaking changes and how to upgrade in UPGRADING.md, linked from the README. \[[#256](https://github.com/kslazarev/numbers_and_words/pull/256)\] \([@dblock](https://github.com/dblock)\)
-  * Spell French and Swiss French numbers with the 1990 reform by default (`trois-cent-vingt-et-un`) without a traditional-spelling option yet ([#264](https://github.com/kslazarev/numbers_and_words/issues/264)); see UPGRADING.md. \[[#257](https://github.com/kslazarev/numbers_and_words/pull/257)\] \([@dblock](https://github.com/dblock)\)
+  * Spell French and Swiss French numbers with the 1990 reform by default (`trois-cent-vingt-et-un`); see UPGRADING.md. \[[#257](https://github.com/kslazarev/numbers_and_words/pull/257)\] \([@dblock](https://github.com/dblock)\)
   * Convert the README to Markdown with a supported-language table, move per-language examples and options to generated pages in docs/languages, and link contributors to their GitHub profiles. \[[#259](https://github.com/kslazarev/numbers_and_words/pull/259)\] \([@dblock](https://github.com/dblock)\)
   * Run every example in the README and language pages as a spec. \[[#260](https://github.com/kslazarev/numbers_and_words/pull/260)\] \([@dblock](https://github.com/dblock)\)
   * Add AGENTS.md with commands, where each language lives, and the invariants specs enforce. \[[#261](https://github.com/kslazarev/numbers_and_words/pull/261)\] \([@dblock](https://github.com/dblock)\)
@@ -27,6 +27,7 @@
   * Add a project logo. \[[#274](https://github.com/kslazarev/numbers_and_words/pull/274)\] \([@dblock](https://github.com/dblock)\)
   * Add a `fallback` option and `NumbersAndWords.config.fallback` setting that convert in another locale, or return digits, when the current locale is unsupported, and raise `NumbersAndWords::UnsupportedLanguageError` otherwise. \[[#234](https://github.com/kslazarev/numbers_and_words/pull/234)\] \([@dblock](https://github.com/dblock)\)
   * Document every option, including `precision` and `micro_separator`, and decimal support on each language page, replacing the decimals and ordinals columns in the README. \[[#278](https://github.com/kslazarev/numbers_and_words/pull/278)\] \([@dblock](https://github.com/dblock)\)
+  * Add `spelling: :traditional` (and the default `spelling: :reformed`) to French and Swiss French for the pre-1990 spelling (`trois cent vingt et un`). \[[#282](https://github.com/kslazarev/numbers_and_words/pull/282)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
