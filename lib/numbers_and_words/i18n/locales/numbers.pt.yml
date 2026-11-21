@@ -51,7 +51,8 @@ pt:
     quintillionths:
       one: quinquilionésimo
       other: quinquilionésimos
-    micro_separator: e
+    micro_separator: vírgula
+    fraction_separator: e
     micro_prefix:
       tens:
         one: décimo

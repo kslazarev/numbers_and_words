@@ -21,12 +21,12 @@ consumer = <<~'RUBY'
   abort 'Wrong installed version' unless specification.version.to_s == expected_version
   abort 'Gem loaded outside the isolated consumer' unless File.realpath(specification.full_gem_path).start_with?("#{File.realpath(directory)}/")
   abort 'English conversion failed' unless I18n.with_locale(:en) { 42.to_words } == 'forty-two'
-  abort 'Scientific float conversion failed' unless I18n.with_locale(:en) { 1.0e-5.to_words } == 'zero and one hundred-thousandth'
+  abort 'Scientific float conversion failed' unless I18n.with_locale(:en) { 1.0e-5.to_words(fraction: true) } == 'zero and one hundred-thousandth'
   abort 'Russian conversion failed' unless I18n.with_locale(:ru) { 2000.to_words } == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438"
   abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
   abort 'Dutch pronounced conversion failed' unless I18n.with_locale(:nl) { 1910.to_words(pronounced: true) } == 'negentienhonderd tien'
-  abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due e cinque decimi'
-  abort 'Portuguese decimal conversion failed' unless I18n.with_locale(:pt) { 4.5.to_words } == "quatro inteiros e cinco d\u00e9cimos"
+  abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due virgola cinque'
+  abort 'Portuguese decimal conversion failed' unless I18n.with_locale(:pt) { 4.5.to_words(fraction: true) } == "quatro inteiros e cinco d\u00e9cimos"
   abort 'Polish cardinal failed' unless I18n.with_locale(:pl) { 21_000.to_words } == 'dwadzieścia jeden tysięcy'
   abort 'Polish decimal failed' unless I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) } == 'jedna dziesiąta'
   abort 'Polish ordinal failed' unless I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) } == 'sto dwudziesta pierwsza'

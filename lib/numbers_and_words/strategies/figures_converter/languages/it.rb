@@ -19,7 +19,11 @@ module NumbersAndWords
             return words if thousand? && one?
 
             # "un milione", "un miliardo": "uno" is apocopated before scale nouns
-            words + (one? ? [@translations.t(:fractional_one)] : capacity_words)
+            return words + [@translations.t(:fractional_one)] if one?
+
+            # "ventun milioni": a final "uno" drops its "o" before the plural scale nouns
+            capacity_words = [*capacity_words[0...-1], capacity_words.last.sub(/tuno\z/, 'tun')] unless thousand? || capacity_words.empty?
+            words + capacity_words
           end
 
           def hundreds

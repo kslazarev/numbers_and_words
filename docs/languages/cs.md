@@ -18,7 +18,7 @@ I18n.with_locale(:cs) { 4030.to_words }
 # => "čtyři tisíce třicet"
 
 I18n.with_locale(:cs) { 1_000_100.to_words }
-# => "jeden milion jedno sto"
+# => "jeden milion sto"
 
 I18n.with_locale(:cs) { 2_000_000_000.to_words }
 # => "dvě miliardy"
@@ -27,7 +27,7 @@ I18n.with_locale(:cs) { [1, 2, 3].to_words }
 # => ["jedna", "dvě", "tři"]
 
 I18n.with_locale(:cs) { [11, 22, 133].to_words }
-# => ["jedenáct", "dvacet dvě", "jedno sto třicet tři"]
+# => ["jedenáct", "dvacet dvě", "sto třicet tři"]
 ```
 
 ## Decimals

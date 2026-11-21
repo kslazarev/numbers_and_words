@@ -1,5 +1,32 @@
 to_words:
   fractional:
+    0.1: zero vírgula um
+    0.7: zero vírgula sete
+    0.01: zero vírgula zero um
+    0.36: zero vírgula trinta e seis
+    1.00: um
+    1.77: um vírgula setenta e sete
+    2.10: dois vírgula um
+    4.5: quatro vírgula cinco
+    14.3: quatorze vírgula três
+    21.77: vinte e um vírgula setenta e sete
+    111.999: cento e onze vírgula novecentos e noventa e nove
+    0.0001: zero vírgula zero zero zero um
+    0.00025: zero vírgula zero zero zero dois cinco
+    0.123456789: zero vírgula um dois três quatro cinco seis sete oito nove
+    4242.7463: quatro mil duzentos e quarenta e dois vírgula sete quatro seis três
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: vírgula um
+    0.0001: vírgula zero zero zero um
+    1.0: um
+    0.7: vírgula sete
+    3.5: três vírgula cinco
+    42.1: quarenta e dois vírgula um
+  fractional_as_fraction:
+    options:
+      :fraction: true
     0.1: zero inteiros e um décimo
     0.7: zero inteiros e sete décimos
     0.01: zero inteiros e um centésimo
@@ -15,9 +42,10 @@ to_words:
     0.00025: zero inteiros e vinte e cinco centésimos de milésimo
     0.123456789: zero inteiros e cento e vinte e três milhões quatrocentos e cinquenta e seis mil setecentos e oitenta e nove bilionésimos
     4242.7463: quatro mil duzentos e quarenta e dois inteiros e sete mil quatrocentos e sessenta e três décimos de milésimo
-  fractions_without_zero:
+  fractions_without_zero_as_fraction:
     options:
       :remove_zero: true
+      :fraction: true
     0.1: um décimo
     0.0001: um décimo de milésimo
     1.0: um

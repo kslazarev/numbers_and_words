@@ -32,9 +32,17 @@ I18n.with_locale(:'en-GB') { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read with `point` followed by each fractional digit, including leading zeros.
+
 ```ruby
 I18n.with_locale(:'en-GB') { 21.77.to_words }
 # => "twenty-one point seven seven"
+
+I18n.with_locale(:'en-GB') { 3.05.to_words }
+# => "three point zero five"
+
+I18n.with_locale(:'en-GB') { 3.1416.to_words }
+# => "three point one four one six"
 ```
 
 ## Options
@@ -55,6 +63,18 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(precision: 2) }
 ```ruby
 I18n.with_locale(:'en-GB') { 21.77.to_words(micro_separator: "plus") }
 # => "twenty-one plus seven seven"
+```
+
+### Fraction
+
+`fraction: true` reads decimals as a fraction instead of with `point`.
+
+```ruby
+I18n.with_locale(:'en-GB') { 21.77.to_words(fraction: true) }
+# => "twenty-one and seventy-seven hundredths"
+
+I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
+# => "zero and one tenth"
 ```
 
 ### Hundreds With Union

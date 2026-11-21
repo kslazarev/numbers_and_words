@@ -6,7 +6,11 @@ module NumbersAndWords
       module Decorators
         module Fr
           class Fractional < Base
+            include DecimalPoint
+
             def run
+              return decimal_point_words(super) unless fraction?
+
               "#{super} #{fraction_significance}"
             end
 

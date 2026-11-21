@@ -63,7 +63,8 @@ en:
     quattuordecillionths:
       one: quattuordecillionth
       other: quattuordecillionths
-    micro_separator: and
+    micro_separator: point
+    fraction_separator: and
     pronounced_zero: oh
     micro_prefix:
       tens: ten

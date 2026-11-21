@@ -37,9 +37,17 @@ I18n.with_locale(:it) { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read with `virgola` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit.
+
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words }
-# => "ventuno e settantasette centesimi"
+# => "ventuno virgola settantasette"
+
+I18n.with_locale(:it) { 3.05.to_words }
+# => "tre virgola zero cinque"
+
+I18n.with_locale(:it) { 3.1416.to_words }
+# => "tre virgola uno quattro uno sei"
 ```
 
 ## Options
@@ -50,7 +58,7 @@ I18n.with_locale(:it) { 21.77.to_words }
 
 ```ruby
 I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
-# => "zero e dieci centesimi"
+# => "zero virgola dieci"
 ```
 
 ### Micro Separator
@@ -59,7 +67,19 @@ I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
-# => "ventuno plus settantasette centesimi"
+# => "ventuno plus settantasette"
+```
+
+### Fraction
+
+`fraction: true` reads decimals as a fraction instead of with `virgola`.
+
+```ruby
+I18n.with_locale(:it) { 21.77.to_words(fraction: true) }
+# => "ventuno e settantasette centesimi"
+
+I18n.with_locale(:it) { 0.1.to_words(fraction: true) }
+# => "zero e un decimo"
 ```
 
 ### Remove Zero
@@ -68,5 +88,5 @@ I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
 
 ```ruby
 I18n.with_locale(:it) { 0.7.to_words(remove_zero: true) }
-# => "sette decimi"
+# => "virgola sette"
 ```

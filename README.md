@@ -60,14 +60,14 @@ I18n.with_locale(:en) { [1, 2, 3].to_words }
 # => ["one", "two", "three"]
 
 I18n.with_locale(:en) { 21.77.to_words }
-# => "twenty-one and seventy-seven hundredths"
+# => "twenty-one point seven seven"
 ```
 
 Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are expanded to their exact decimal value first.
 
 ```ruby
 I18n.with_locale(:en) { 0.00001.to_words }
-# => "zero and one hundred-thousandth"
+# => "zero point zero zero zero zero one"
 ```
 
 ### Command Line
@@ -153,7 +153,7 @@ I18n.with_locale(:es) { 0.2.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
-# => "twenty-one plus seventy-seven hundredths"
+# => "twenty-one plus seven seven"
 ```
 
 ### Fallback

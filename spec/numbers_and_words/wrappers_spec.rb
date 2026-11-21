@@ -24,15 +24,15 @@ describe NumbersAndWords::Wrappers do
 
   describe NumbersAndWords::Wrappers::Float do
     it 'expands small scientific notation without retaining the artificial mantissa zero' do
-      expect(described_class.new(1.0e-5).to_words).to eq('zero and one hundred-thousandth')
+      expect(described_class.new(1.0e-5).to_words(fraction: true)).to eq('zero and one hundred-thousandth')
     end
 
     it 'keeps all significant mantissa digits in scientific notation' do
-      expect(described_class.new(1.2e-5).to_words).to eq('zero and twelve millionths')
+      expect(described_class.new(1.2e-5).to_words(fraction: true)).to eq('zero and twelve millionths')
     end
 
     it 'applies precision after expanding scientific notation' do
-      expect(described_class.new(1.0e-5).to_words(precision: 6)).to eq('zero and ten millionths')
+      expect(described_class.new(1.0e-5).to_words(precision: 6, fraction: true)).to eq('zero and ten millionths')
     end
 
     it 'expands large scientific notation into the full integral magnitude' do
@@ -45,11 +45,11 @@ describe NumbersAndWords::Wrappers do
 
     it 'refreshes split parts and precision when a wrapper is reused' do
       wrapper = described_class.new(1.25)
-      expect(wrapper.to_words(precision: 3)).to eq('one and two hundred fifty thousandths')
-      expect(wrapper.to_words).to eq('one and twenty-five hundredths')
+      expect(wrapper.to_words(precision: 3, fraction: true)).to eq('one and two hundred fifty thousandths')
+      expect(wrapper.to_words(fraction: true)).to eq('one and twenty-five hundredths')
 
       wrapper.number = 0.1
-      expect(wrapper.to_words).to eq('zero and one tenth')
+      expect(wrapper.to_words).to eq('zero point one')
       wrapper.number = 1.0
       expect(wrapper.to_words(precision: 3)).to eq('one')
     end

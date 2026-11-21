@@ -1,5 +1,39 @@
 to_words:
   fractional:
+    0.1: zero virgola uno
+    0.7: zero virgola sette
+    0.01: zero virgola zero uno
+    0.21: zero virgola ventuno
+    0.31: zero virgola trentuno
+    0.77: zero virgola settantasette
+    0.777: zero virgola settecentosettantasette
+    0.7777: zero virgola sette sette sette sette
+    0.1001: zero virgola uno zero zero uno
+    0.1023: zero virgola uno zero due tre
+    0.21021: zero virgola due uno zero due uno
+    0.77777: zero virgola sette sette sette sette sette
+    0.777777: zero virgola sette sette sette sette sette sette
+    0.7777777: zero virgola sette sette sette sette sette sette sette
+    0.77777777: zero virgola sette sette sette sette sette sette sette sette
+    0.777777777: zero virgola sette sette sette sette sette sette sette sette sette
+    0.2935174315119: zero virgola due nove tre cinque uno sette quattro tre uno cinque uno uno nove
+    21.77: ventuno virgola settantasette
+    111.999: centoundici virgola novecentonovantanove
+    4242.7463: quattromiladuecentoquarantadue virgola sette quattro sei tre
+  fractions_without_zero:
+    options:
+      :remove_zero: true
+    0.1: virgola uno
+    0.7: virgola sette
+    1.0: uno
+    42.1: quarantadue virgola uno
+  fractions_with_precision:
+    options:
+      :precision: 2
+    0.1: zero virgola dieci
+  fractional_as_fraction:
+    options:
+      :fraction: true
     0.1: zero e un decimo
     0.7: zero e sette decimi
     0.01: zero e un centesimo
@@ -20,14 +54,16 @@ to_words:
     21.77: ventuno e settantasette centesimi
     111.999: centoundici e novecentonovantanove millesimi
     4242.7463: quattromiladuecentoquarantadue e settemilaquattrocentosessantatré decimillesimi
-  fractions_without_zero:
+  fractions_without_zero_as_fraction:
     options:
       :remove_zero: true
+      :fraction: true
     0.1: un decimo
     0.7: sette decimi
     1.0: uno
     42.1: quarantadue e un decimo
-  fractions_with_precision:
+  fractions_with_precision_as_fraction:
     options:
       :precision: 2
+      :fraction: true
     0.1: zero e dieci centesimi

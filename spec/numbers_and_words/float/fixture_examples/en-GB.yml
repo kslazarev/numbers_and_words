@@ -21,3 +21,10 @@ to_words:
     0.1: point one
     0.7: point seven
     42.1: forty-two point one
+  fractional_as_fraction:
+    options:
+      :fraction: true
+    0.1: zero and one tenth
+    21.77: twenty-one and seventy-seven hundredths
+    111.999: one hundred and eleven and nine hundred and ninety-nine thousandths
+    4242.7463: four thousand two hundred and forty-two and seven thousand four hundred and sixty-three ten-thousandths

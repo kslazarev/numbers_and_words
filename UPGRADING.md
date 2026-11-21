@@ -61,3 +61,54 @@ I18n.with_locale(:fr) { 321.to_words(spelling: :traditional) }
 ```
 
 See [#257](https://github.com/kslazarev/numbers_and_words/pull/257) and [#264](https://github.com/kslazarev/numbers_and_words/issues/264) for details.
+
+### More Natural Forms in Several Languages
+
+Several languages now use the forms people usually say and write, as reviewed in [#255](https://github.com/kslazarev/numbers_and_words/issues/255). There are no options to restore the previous forms.
+
+| Language | Number | 1.0.x | 2.0.0 |
+| --- | --- | --- | --- |
+| Czech (`cs`) | 100, 1000 | `jedno sto`, `jeden tisíc` | `sto`, `tisíc` |
+| Danish (`da`) | 1, 1000 | `et`, `et tusinde` | `en`, `et tusind` |
+| Hungarian (`hu`) | 100, 1000, 2000 | `egyszáz`, `egyezer`, `kettőezer` | `száz`, `ezer`, `kétezer` |
+| Italian (`it`) | 21,000,000 | `ventuno milioni` | `ventun milioni` |
+| Kazakh (`kz`) | 100, 1000 | `бір жүз`, `бір мың` | `жүз`, `мың` |
+| Armenian (`hy`) | 1000 | `մեկ հազար` | `հազար` |
+| Lithuanian (`lt`) | 10⁹, 10¹² | `bilijonas`, `trilijonas` | `milijardas`, `trilijonas` |
+| Spanish (`es`) | 901, feminine and apocopated | `novecientas un` | `novecientas una` |
+
+- **Danish:** 1 is now the counting form `en`. `gender: :neuter` still gives `et`, and hundreds and thousands still take `et`.
+- **Hungarian:** `két` replaces `kettő` before a scale word or hundreds, as in `huszonkétezer`. A final `kettő` is unchanged, as in `huszonkettő`.
+- **Spanish:** `apocopated: true` now shortens only the masculine `uno`.
+
+See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
+
+### Decimals Are Read With a Decimal Point
+
+English, French, Swiss French, Italian, Portuguese and Brazilian Portuguese now read decimals with a decimal point, as British English already did, rather than as a fraction. English reads each fractional digit. The other languages read up to three decimal places as a number after one zero for each leading zero, and longer ones digit by digit.
+
+| Language | Number | 1.0.x | 2.0.0 |
+| --- | --- | --- | --- |
+| English (`en`) | 21.77 | `twenty-one and seventy-seven hundredths` | `twenty-one point seven seven` |
+| French (`fr`) | 3.05 | `trois et cinq centièmes` | `trois virgule zéro cinq` |
+| Italian (`it`) | 21.77 | `ventuno e settantasette centesimi` | `ventuno virgola settantasette` |
+| Portuguese (`pt`, `pt-BR`) | 21.77 | `vinte e um inteiros e setenta e sete centésimos` | `vinte e um vírgula setenta e sete` |
+
+To keep the fraction reading, pass `fraction: true`. British English accepts it too.
+
+```ruby
+I18n.with_locale(:en) { 21.77.to_words(fraction: true) }
+# => "twenty-one and seventy-seven hundredths"
+```
+
+With `remove_zero: true`, the decimal point stays: `0.7` is `point seven`, or `seven tenths` with `fraction: true`.
+
+### Czech Ordinals of Thousands
+
+Czech ordinals from 1,000 to 9,999 now start with a single word for the thousands (`tisící`, `dvoutisící`), and ordinals of 10,000 or more raise `RangeError` instead of returning wrong words.
+
+```ruby
+I18n.with_locale(:cs) { 1984.to_words(ordinal: true, gender: :male) }
+# 1.0.x => "první tisíc devítistý osmdesátý čtvrtý"
+# 2.0.0 => "tisící devítistý osmdesátý čtvrtý"
+```

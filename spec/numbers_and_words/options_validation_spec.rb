@@ -95,7 +95,7 @@ describe NumbersAndWords::OptionsValidation do
   end
 
   it 'lists the options of each language' do
-    expect(described_class.supported_options(:fr).keys).to contain_exactly(:ordinal, :remove_zero, :spelling, :precision, :micro_separator)
+    expect(described_class.supported_options(:fr).keys).to contain_exactly(:fraction, :ordinal, :remove_zero, :spelling, :precision, :micro_separator)
     expect(described_class.supported_options(:es).keys).to contain_exactly(:apocopated, :gender, :remove_zero, :precision, :micro_separator)
   end
 end

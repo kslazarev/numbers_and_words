@@ -59,14 +59,17 @@ I18n.with_locale(:es) { 21.77.to_words(micro_separator: "plus") }
 
 ### Apocopated
 
-`apocopated: true` uses the shortened form, alone or with gender.
+`apocopated: true` shortens a final masculine `uno` to `un`, as before a masculine noun. The feminine `una` is not shortened.
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(apocopated: true) }
 # => "un"
 
+I18n.with_locale(:es) { 201.to_words(apocopated: true) }
+# => "doscientos un"
+
 I18n.with_locale(:es) { 201.to_words(gender: :female, apocopated: true) }
-# => "doscientas un"
+# => "doscientas una"
 ```
 
 ### Gender
