@@ -82,6 +82,21 @@ I18n.with_locale(:it) { 0.1.to_words(fraction: true) }
 # => "zero e un decimo"
 ```
 
+### Ordinal
+
+`ordinal: true` gives the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Zero keeps its cardinal form.
+
+```ruby
+I18n.with_locale(:it) { 1.to_words(ordinal: true) }
+# => "primo"
+
+I18n.with_locale(:it) { 21.to_words(ordinal: true) }
+# => "ventunesimo"
+
+I18n.with_locale(:it) { 2_000.to_words(ordinal: true) }
+# => "duemillesimo"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

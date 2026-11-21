@@ -53,3 +53,14 @@ nl:
       tens: tien
       hundreds: honderd
       union: ''
+    ordinals:
+      'words':
+        'één': 'eerste'
+        'een': 'eerste'
+        'drie': 'derde'
+        'acht': 'achtste'
+        'nul': 'nulde'
+      'ste_endings': ['tig', 'honderd', 'duizend', 'joen', 'jard']
+      'ste': 'ste'
+      'de': 'de'
+      'leading_one': ['één']

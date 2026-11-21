@@ -26,11 +26,6 @@ da:
     trillion:
       one: trillion
       other: trillioner
-    ordinal:
-      ones: [nulte, første, anden, tredje, fjerde, femte, sjette, syvende, ottende, niende]
-      teens: [tiende, ellevte, tolvte, trettende, fjortende, femtende, sekstende, syttende, attende, nittende]
-      tens: [_, tiende, tyvende, tredive, fyrre, halvtreds, tres, halvfjerds, firs, halvfems]
-      hundreds: hundredende
     micro: [_, tiendedele, hundrededele, tusindedele, milliontedele]
     tenths:
       one: tiendedel
@@ -50,3 +45,41 @@ da:
       hundreds: hundrede
       union: '-'
     union: og
+    ordinals:
+      'words':
+        'nul': 'nulte'
+        'et': 'første'
+        'en': 'første'
+        'to': 'anden'
+        'tre': 'tredje'
+        'fire': 'fjerde'
+        'fem': 'femte'
+        'seks': 'sjette'
+        'syv': 'syvende'
+        'otte': 'ottende'
+        'ni': 'niende'
+        'ti': 'tiende'
+        'elleve': 'ellevte'
+        'tolv': 'tolvte'
+        'tretten': 'trettende'
+        'fjorten': 'fjortende'
+        'femten': 'femtende'
+        'seksten': 'sekstende'
+        'sytten': 'syttende'
+        'atten': 'attende'
+        'nitten': 'nittende'
+        'tyve': 'tyvende'
+        'tredive': 'tredivte'
+        'fyrre': 'fyrretyvende'
+        'halvtreds': 'halvtredsindstyvende'
+        'tres': 'tresindstyvende'
+        'halvfjerds': 'halvfjerdsindstyvende'
+        'firs': 'firsindstyvende'
+        'halvfems': 'halvfemsindstyvende'
+        'hundrede': 'hundrede'
+        'tusinde': 'tusinde'
+        'tusind': 'tusinde'
+      'compound': 'og'
+      'plural': 'er'
+      'scale_suffix': 'te'
+      'leading_one': ['et', 'en']

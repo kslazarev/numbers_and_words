@@ -36,3 +36,16 @@ et:
     decillions:
       one: kvintiljard
       other: kvintiljardit
+    ordinals:
+      'genitive': ['nulli', 'ühe', 'kahe', 'kolme', 'nelja', 'viie', 'kuue', 'seitsme', 'kaheksa', 'üheksa']
+      'ordinal': ['nullis', 'esimene', 'teine', 'kolmas', 'neljas', 'viies', 'kuues', 'seitsmes', 'kaheksas', 'üheksas']
+      'words':
+        'kümme': ['kümne', 'kümnes']
+        'tuhat': ['tuhande', 'tuhandes']
+      'compounds':
+        'teist': ['teistkümne', 'teistkümnes']
+        'kümmend': ['kümne', 'kümnes']
+        'sada': ['saja', 'sajas']
+      'scale_plural': 'it'
+      'scale': ['i', 'es']
+      'leading_one': ['üks']

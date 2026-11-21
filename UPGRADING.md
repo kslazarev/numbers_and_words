@@ -7,9 +7,9 @@
 `to_words` used to ignore options a language does not support, and invalid values could return wrong or garbage output. Each language now accepts only the global options `precision` and `micro_separator`, plus the options listed on its [language page](docs/languages). Anything else raises `NumbersAndWords::UnsupportedOptionError`, a subclass of `ArgumentError`, naming the supported alternatives.
 
 ```ruby
-I18n.with_locale(:vi) { 21.to_words(ordinal: true) }
+I18n.with_locale(:vi) { 21.to_words(gender: :female) }
 # 1.0.x => "hai mươi mốt"
-# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :vi; supported: :micro_separator, :precision
+# 2.0.0 => NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero
 
 I18n.with_locale(:es) { 1.to_words(gender: :neuter) }
 # 1.0.x => "r"

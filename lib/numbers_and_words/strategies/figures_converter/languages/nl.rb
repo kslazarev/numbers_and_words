@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Nl < Base
+          prepend Ordinals
+
           def hundreds_number_to_words
             [super.reverse.join]
           end
@@ -61,6 +63,15 @@ module NumbersAndWords
             (@options.tens_of_hundreds.result || @options.pronounced.result) &&
               (1..9).cover?(figures.number_in_capacity(FiguresArray::THOUSAND_CAPACITY)) &&
               figures.hundreds
+          end
+
+          # Only the last word is ordinal: -ste after -tig, honderd, duizend and scale words, -de otherwise,
+          # with eerste, derde and achtste ("eenentwintigste", "honderdeerste").
+          def ordinal_words(text, _number)
+            with_last_word(without_leading_one(text)) do |word|
+              replace_suffix(word, ordinals[:words]) ||
+                "#{word}#{ordinals[:ste_endings].any? { |ending| word.end_with?(ending) } ? ordinals[:ste] : ordinals[:de]}"
+            end
           end
         end
       end

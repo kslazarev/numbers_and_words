@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Ka < Base
+          prepend Ordinals
+
           def capacity_iteration
             words = []
             capacity_words = words_in_capacity(@current_capacity)
@@ -31,6 +33,17 @@ module NumbersAndWords
 
           def thousand?
             @current_capacity == FiguresArray::THOUSAND_CAPACITY
+          end
+
+          # 1 is პირველი; otherwise the last word, or the last part of a compound with და, takes მე- and its
+          # final vowel becomes -ე ("მეორე", "ოცდამეერთე").
+          def ordinal_words(text, number)
+            return ordinals[:first] if number == 1
+
+            with_last_word(without_leading_one(text)) do |word|
+              head, separator, tail = word.rpartition(ordinals[:compound])
+              "#{head}#{separator}#{ordinals[:prefix]}#{tail[0..-2]}#{ordinals[:suffix]}"
+            end
           end
         end
       end

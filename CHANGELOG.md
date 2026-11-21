@@ -33,6 +33,7 @@
   * Add experimental Chinese (`zh`), with decimals and ordinals. \[[#286](https://github.com/kslazarev/numbers_and_words/pull/286)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Hebrew (`he`), with decimals and `gender`, returning right-to-left words in logical order without bidirectional control characters. \[[#287](https://github.com/kslazarev/numbers_and_words/pull/287)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Arabic (`ar`) for integers. \[[#288](https://github.com/kslazarev/numbers_and_words/pull/288)\] \([@dblock](https://github.com/dblock)\)
+  * Add ordinals to every remaining language: Spanish, Italian, Portuguese, Russian, Ukrainian, Dutch, Danish, Swedish, Turkish and Vietnamese, and experimental Estonian, Lithuanian, Latvian, Georgian, Armenian and Kazakh. \[[#291](https://github.com/kslazarev/numbers_and_words/pull/291)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

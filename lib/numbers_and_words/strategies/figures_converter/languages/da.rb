@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Da < Base
+          prepend Ordinals
+
           def print_words
             complex_part.count > 1 ? print_megs_words : @strings.flatten.reverse.join(' ')
           end
@@ -60,6 +62,15 @@ module NumbersAndWords
               :neuter
             else
               :common
+            end
+          end
+
+          # Only the last word is ordinal, and in a compound such as "enogtyve" only its last part ("enogtyvende").
+          def ordinal_words(text, _number)
+            with_last_word(without_leading_one(text)) do |word|
+              *head, last = word.split(ordinals[:compound], -1)
+              ordinal = lookup(ordinals[:words], last) || "#{last.delete_suffix(ordinals[:plural])}#{ordinals[:scale_suffix]}"
+              [*head, ordinal].join(ordinals[:compound])
             end
           end
         end

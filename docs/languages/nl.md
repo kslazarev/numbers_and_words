@@ -57,6 +57,21 @@ I18n.with_locale(:nl) { 21.77.to_words(micro_separator: "plus") }
 # => "eenentwintig plus zevenenzeventig honderdsten"
 ```
 
+### Ordinal
+
+`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste").
+
+```ruby
+I18n.with_locale(:nl) { 1.to_words(ordinal: true) }
+# => "eerste"
+
+I18n.with_locale(:nl) { 21.to_words(ordinal: true) }
+# => "eenentwintigste"
+
+I18n.with_locale(:nl) { 2_000.to_words(ordinal: true) }
+# => "tweeduizendste"
+```
+
 ### Pronounced
 
 `pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as they are usually spoken, with a space before the remainder. Other numbers are read as usual.

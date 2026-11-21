@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Lt < Base
+          prepend Ordinals
+
           def capacity_iteration
             words = []
             capacity_words = words_in_capacity(@current_capacity)
@@ -25,6 +27,14 @@ module NumbersAndWords
 
           def thousand?
             @current_capacity == FiguresArray::THOUSAND_CAPACITY
+          end
+
+          # Only the last word is ordinal ("dvidešimt pirmas"); scale words take -inis ("milijoninis").
+          def ordinal_words(text, _number)
+            with_last_word(without_leading_one(text)) do |word|
+              lookup(ordinals[:words], word) || replace_suffix(word, ordinals[:suffixes]) ||
+                "#{ordinals[:scale_endings].reduce(word) { |stem, ending| stem.delete_suffix(ending) }}#{ordinals[:scale_suffix]}"
+            end
           end
         end
       end

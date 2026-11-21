@@ -49,3 +49,26 @@ lt:
       one: decilijonas
       ones: decilijonai
       other: decilijonų
+    ordinals:
+      'words':
+        'nulis': 'nulinis'
+        'vienas': 'pirmas'
+        'du': 'antras'
+        'trys': 'trečias'
+        'keturi': 'ketvirtas'
+        'penki': 'penktas'
+        'šeši': 'šeštas'
+        'septyni': 'septintas'
+        'aštuoni': 'aštuntas'
+        'devyni': 'devintas'
+        'šimtas': 'šimtasis'
+        'šimtai': 'šimtasis'
+        'tūkstantis': 'tūkstantasis'
+        'tūkstančiai': 'tūkstantasis'
+        'tūkstančių': 'tūkstantasis'
+      'suffixes':
+        'lika': 'liktas'
+        'dešimt': 'dešimtas'
+      'scale_endings': ['as', 'ai', 'ų']
+      'scale_suffix': 'inis'
+      'leading_one': ['vienas']

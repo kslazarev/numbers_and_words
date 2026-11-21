@@ -11,3 +11,7 @@ vi:
         five: 'lăm'
     ones_union: 'linh'
     micro_separator: 'phẩy'
+    ordinals:
+      'prefix': 'thứ'
+      'first': 'nhất'
+      'fourth': 'tư'

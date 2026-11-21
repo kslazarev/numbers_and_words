@@ -55,3 +55,18 @@ I18n.with_locale(:da) { 1.to_words(gender: :common) }
 I18n.with_locale(:da) { 1.to_words(gender: :neuter) }
 # => "et"
 ```
+
+### Ordinal
+
+`ordinal: true` makes the last word ordinal, or the last part of a compound ("enogtyvende").
+
+```ruby
+I18n.with_locale(:da) { 1.to_words(ordinal: true) }
+# => "første"
+
+I18n.with_locale(:da) { 21.to_words(ordinal: true) }
+# => "enogtyvende"
+
+I18n.with_locale(:da) { 2_000.to_words(ordinal: true) }
+# => "to tusinde"
+```

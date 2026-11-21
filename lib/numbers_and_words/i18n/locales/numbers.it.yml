@@ -110,3 +110,10 @@ it:
       hundreds: cento
       union: ''
     union: e
+    ordinals:
+      'units': ['_', 'primo', 'secondo', 'terzo', 'quarto', 'quinto', 'sesto', 'settimo', 'ottavo', 'nono', 'decimo']
+      'suffix': 'esimo'
+      'thousands': 'mila'
+      'thousandth': 'millesimo'
+      'keep_vowel': ['sei']
+      'leading_one': ['un', 'uno']

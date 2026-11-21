@@ -17,3 +17,32 @@ se:
     octillions: { one: kvadriljard, other: kvadriljarder }
     nonillions: { one: kvintiljon, other: kvintiljoner }
     decillions: { one: kvintiljard, other: kvintiljarder }
+    ordinals:
+      'suffixes':
+        'noll': 'nollte'
+        'ett': 'första'
+        'en': 'första'
+        'två': 'andra'
+        'tre': 'tredje'
+        'fyra': 'fjärde'
+        'fem': 'femte'
+        'sex': 'sjätte'
+        'sju': 'sjunde'
+        'åtta': 'åttonde'
+        'nio': 'nionde'
+        'tio': 'tionde'
+        'elva': 'elfte'
+        'tolv': 'tolfte'
+        'tretton': 'trettonde'
+        'fjorton': 'fjortonde'
+        'femton': 'femtonde'
+        'sexton': 'sextonde'
+        'sjutton': 'sjuttonde'
+        'arton': 'artonde'
+        'nitton': 'nittonde'
+        'tjugo': 'tjugonde'
+        'hundra': 'hundrade'
+        'tusen': 'tusende'
+      'plural': 'er'
+      'scale_suffix': 'te'
+      'leading_one': ['en', 'ett']

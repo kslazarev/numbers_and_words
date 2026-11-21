@@ -59,7 +59,7 @@ describe NumbersAndWords::CLI do
     expect(run_cli('--version')).to eq([0, "#{NumbersAndWords::VERSION}\n", ''])
     status, stdout, = run_cli('-h')
     expect(status).to eq(0)
-    expect(stdout).to include('Usage: to_words [options] [NUMBER...]', '--locale LOCALE', '--[no-]ordinal', '--gender VALUE', 'Spell ordinal numbers (cs, de, en, en-GB, fr, fr-CH, hu, pl, pt-BR, th, zh)')
+    expect(stdout).to include('Usage: to_words [options] [NUMBER...]', '--locale LOCALE', '--[no-]ordinal', '--gender VALUE', 'Spell ordinal numbers (cs, da, de, en, en-GB, es, et, fr, fr-CH, hu, hy, it, ka, kz, lt, lv, nl, pl, pt, pt-BR, ru, se, th, tr, ua, vi, zh)')
   end
 
   {
@@ -68,7 +68,7 @@ describe NumbersAndWords::CLI do
     %w[1.] => 'not a number: "1."',
     %w[-- -5] => 'negative numbers are not supported: -5',
     %w[-l xx 1] => ':xx is not a valid locale',
-    %w[-l vi --ordinal 1] => 'unsupported option :ordinal for locale :vi; supported: :micro_separator, :precision, :remove_zero',
+    %w[-l vi --gender female 1] => 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero',
     %w[-l es --gender neuter 1] => 'unsupported value "neuter" for option :gender in locale :es; supported: :male, :female',
     %w[--precision x 1] => 'invalid argument: --precision x',
     %w[--gender] => 'missing argument: --gender',

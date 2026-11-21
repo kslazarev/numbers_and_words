@@ -5,6 +5,8 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Se < Base
+          prepend Ordinals
+
           def ones
             super(common: @current_capacity.to_i > FiguresArray::THOUSAND_CAPACITY)
           end
@@ -53,6 +55,13 @@ module NumbersAndWords
 
           def separate_thousands?(number)
             number >= 21 && number % 10 != 0
+          end
+
+          # Only the end of the last word is ordinal ("tjugoförsta", "etthundrade"); scale words take -te ("miljonte").
+          def ordinal_words(text, _number)
+            with_last_word(without_leading_one(text)) do |word|
+              replace_suffix(word, ordinals[:suffixes]) || "#{word.delete_suffix(ordinals[:plural])}#{ordinals[:scale_suffix]}"
+            end
           end
         end
       end

@@ -21,6 +21,14 @@ require 'numbers_and_words/strategies/figures_converter/options/fr-CH'
 require 'numbers_and_words/strategies/figures_converter/options/vi'
 require 'numbers_and_words/strategies/figures_converter/options/zh'
 require 'numbers_and_words/strategies/figures_converter/options/he'
+require 'numbers_and_words/strategies/figures_converter/options/se'
+require 'numbers_and_words/strategies/figures_converter/options/tr'
+require 'numbers_and_words/strategies/figures_converter/options/kz'
+require 'numbers_and_words/strategies/figures_converter/options/hy'
+require 'numbers_and_words/strategies/figures_converter/options/ka'
+require 'numbers_and_words/strategies/figures_converter/options/lv'
+require 'numbers_and_words/strategies/figures_converter/options/lt'
+require 'numbers_and_words/strategies/figures_converter/options/et'
 
 module NumbersAndWords
   module Strategies

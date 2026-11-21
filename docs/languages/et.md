@@ -43,3 +43,18 @@ Decimals are not supported yet.
 ### Micro Separator
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Ordinal
+
+`ordinal: true` makes the last word ordinal and puts the words before it in the genitive ("kahekümne esimene"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+
+```ruby
+I18n.with_locale(:et) { 1.to_words(ordinal: true) }
+# => "esimene"
+
+I18n.with_locale(:et) { 21.to_words(ordinal: true) }
+# => "kahekümne esimene"
+
+I18n.with_locale(:et) { 2_000.to_words(ordinal: true) }
+# => "kahe tuhandes"
+```
