@@ -41,10 +41,16 @@ to_words:
     999999000: devyni šimtai devyniasdešimt devyni milijonai devyni šimtai devyniasdešimt devyni tūkstančiai
     999999999: devyni šimtai devyniasdešimt devyni milijonai devyni šimtai devyniasdešimt devyni tūkstančiai devyni šimtai devyniasdešimt devyni
   billions:
-    1174315110: vienas bilijonas šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas dešimt
-    1174315119: vienas bilijonas šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
-    15174315110: penkiolika bilijonų šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas dešimt
-    35174315119: trisdešimt penki bilijonai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
-    935174315119: devyni šimtai trisdešimt penki bilijonai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+    1174315110: vienas milijardas šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas dešimt
+    1174315119: vienas milijardas šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+    15174315110: penkiolika milijardų šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas dešimt
+    35174315119: trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+    935174315119: devyni šimtai trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
   trillions:
-    2935174315119: du trilijonai devyni šimtai trisdešimt penki bilijonai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+    2935174315119: du bilijonai devyni šimtai trisdešimt penki milijardai šimtas septyniasdešimt keturi milijonai trys šimtai penkiolika tūkstančių šimtas devyniolika
+  long_scale:
+    1000000000000: vienas bilijonas
+    1000000000000000: vienas bilijardas
+    1000000000000000000: vienas trilijonas
+    2000000000000000000: du trilijonai
+    21000000000: dvidešimt vienas milijardas
