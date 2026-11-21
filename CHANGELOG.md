@@ -35,6 +35,7 @@
   * Add experimental Arabic (`ar`) for integers. \[[#288](https://github.com/kslazarev/numbers_and_words/pull/288)\] \([@dblock](https://github.com/dblock)\)
   * Add ordinals to every remaining language: Spanish, Italian, Portuguese, Russian, Ukrainian, Dutch, Danish, Swedish, Turkish and Vietnamese, and experimental Estonian, Lithuanian, Latvian, Georgian, Armenian and Kazakh. \[[#291](https://github.com/kslazarev/numbers_and_words/pull/291)\] \([@dblock](https://github.com/dblock)\)
   * Make `NumbersAndWords::UnsupportedLanguageError` a `StandardError` rather than a `RuntimeError`. \[[#293](https://github.com/kslazarev/numbers_and_words/pull/293)\] \([@dblock](https://github.com/dblock)\)
+  * Add `case:` and `animate:` to Russian and Ukrainian ordinals, declining the last word by grammatical case ("двадцать первого"). \[[#296](https://github.com/kslazarev/numbers_and_words/pull/296)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

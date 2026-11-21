@@ -9,6 +9,8 @@ module NumbersAndWords
         # numbers.ordinals. Decimals, and either part of one, keep the cardinal form.
         module Ordinals
           def words
+            raise UnsupportedOptionError, 'case: is supported only with ordinal: true' if cardinal_case?
+
             text = super
             ordinal_number? ? ordinal_words(text, ordinal_integer) : text
           end
@@ -17,6 +19,11 @@ module NumbersAndWords
 
           def ordinal_number?
             @options.ordinal&.result && @options.options[:integral].nil? && @options.options[:fractional].nil?
+          end
+
+          # Russian and Ukrainian decline ordinals only; cardinals and decimals stay nominative.
+          def cardinal_case?
+            !ordinal_number? && @options.options.fetch(:case, :nominative).to_sym != :nominative
           end
 
           def ordinal_integer
@@ -72,7 +79,7 @@ module NumbersAndWords
           def joined_scale_ordinal_words(text)
             *words, last = text.split
             scale = scale_ordinal(last)
-            return [*words, gendered(lookup(ordinals[:words], last))].join(' ') unless scale
+            return [*words, declined(lookup(ordinals[:words], last))].join(' ') unless scale
 
             joined_scale_ordinal(words, scale)
           end
@@ -80,7 +87,7 @@ module NumbersAndWords
           # The words before a round scale word, with its multiplier joined to its ordinal.
           def joined_scale_ordinal(words, scale)
             multiplier = words.reverse.take_while { |word| !scale_ordinal(word) }.reverse
-            [*words.first(words.size - multiplier.size), gendered("#{combining(multiplier)}#{scale}")].join(' ')
+            [*words.first(words.size - multiplier.size), declined("#{combining(multiplier)}#{scale}")].join(' ')
           end
 
           def combining(multiplier)
@@ -97,9 +104,18 @@ module NumbersAndWords
             nil
           end
 
-          def gendered(ordinal)
-            endings = ordinals[ordinal_gender] if %i[female neuter].include?(ordinal_gender)
+          # The ordinal adjective in the gender and case asked for: gender: and case: pick an ending table from
+          # numbers.ordinals.endings, and a missing table keeps the masculine nominative form.
+          def declined(ordinal)
+            endings = ordinals.dig(:endings, ordinal_gender || :male, ordinal_case)
             (endings && replace_suffix(ordinal, endings)) || ordinal
+          end
+
+          # The masculine accusative of an animate noun is its genitive ("вижу двадцать первого").
+          def ordinal_case
+            grammatical_case = @options.options.fetch(:case, :nominative).to_sym
+            animate = @options.animate&.result && grammatical_case == :accusative && [nil, :male].include?(ordinal_gender)
+            animate ? :genitive : grammatical_case
           end
 
           # The cardinal words of another number in the current language, with the same options.

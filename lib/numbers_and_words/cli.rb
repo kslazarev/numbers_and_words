@@ -9,7 +9,9 @@ module NumbersAndWords
     class Error < StandardError; end
 
     DESCRIPTIONS = {
+      animate: 'Use the animate accusative, e.g. Russian "первого"',
       apocopated: 'Use the shortened form, e.g. Spanish "un"',
+      case: 'Grammatical case, e.g. genitive or dative',
       fraction: 'Read decimals as a fraction, e.g. "one and five tenths"',
       gender: 'Grammatical gender, e.g. male, female, neuter or common',
       hundreds_with_union: 'Say "and" after hundreds',

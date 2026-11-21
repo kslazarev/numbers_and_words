@@ -87,6 +87,41 @@ I18n.with_locale(:ru) { 21.to_words(ordinal: true, gender: :female) }
 # => "двадцать первая"
 ```
 
+### Case
+
+`case:` declines an ordinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Only the last word declines ("двадцать первого"), in the ending `gender:` selects.
+
+```ruby
+I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :genitive) }
+# => "двадцать первого"
+
+I18n.with_locale(:ru) { 123.to_words(ordinal: true, case: :dative) }
+# => "сто двадцать третьему"
+
+I18n.with_locale(:ru) { 21.to_words(ordinal: true, gender: :female, case: :dative) }
+# => "двадцать первой"
+
+I18n.with_locale(:ru) { 3.to_words(ordinal: true, gender: :female, case: :accusative) }
+# => "третью"
+
+I18n.with_locale(:ru) { 2_000.to_words(ordinal: true, case: :prepositional) }
+# => "двухтысячном"
+```
+
+Cardinals and decimals are not declined yet: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` without `ordinal: true`.
+
+### Animate
+
+`animate: true` gives the masculine accusative the genitive form, as for an animate noun ("вижу двадцать первого"); the default is the inanimate form, the same as the nominative.
+
+```ruby
+I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative) }
+# => "двадцать первый"
+
+I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative, animate: true) }
+# => "двадцать первого"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
