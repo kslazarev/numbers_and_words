@@ -59,7 +59,7 @@ I18n.with_locale(:nl) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste").
+`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste"). As in cardinal numbers, million and larger scales stay separate ("twee miljoenste"), not joined to their multiplier.
 
 ```ruby
 I18n.with_locale(:nl) { 1.to_words(ordinal: true) }
@@ -70,6 +70,9 @@ I18n.with_locale(:nl) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:nl) { 2_000.to_words(ordinal: true) }
 # => "tweeduizendste"
+
+I18n.with_locale(:nl) { 2_000_000.to_words(ordinal: true) }
+# => "twee miljoenste"
 ```
 
 ### Pronounced

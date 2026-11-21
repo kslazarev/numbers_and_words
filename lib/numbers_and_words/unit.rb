@@ -54,8 +54,14 @@ module NumbersAndWords
 
     # The unit form after a whole number, after a preposition where the number ends in a scale noun (de reais).
     def whole_form(unit, key, entry, number, options)
+      key = "#{key}.one" if singular_zero?(entry, number)
       form = form(unit, key, count(number, options))
       options[:ordinal] ? form : ScalePreposition.apply(form, number, entry)
+    end
+
+    def singular_zero?(entry, number)
+      number.zero? && %i[fr fr-CH].include?(I18n.local_language) &&
+        entry.is_a?(Hash) && entry.key?(:one) && !entry.key?(:zero)
     end
 
     # Unit translations have one form per plural category, all in the nominative.

@@ -43,23 +43,25 @@ I18n.with_locale(:ar) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :ar").
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :ar"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
 
 ### Unit
 
 With the [`unit`](../../README.md#unit) option, a unit takes the form its count requires, chosen with the Arabic plural rule: `one` for 1, after which the number follows the unit (دينار واحد), `two` for 2, the dual said alone (ديناران), `few` for counts ending in 03 to 10, the plural (ثلاثة دنانير), `many` for counts ending in 11 to 99, the accusative singular (أحد عشر دينارًا), `zero` for 0, and `other` for the rest, the genitive singular (مائة دينار). Before the unit a dual scale word or hundred takes its construct form (ألفا دينار, مائتا دينار), and an accusative one drops its ending (أحد عشر ألف دينار). A subunit is joined with و attached to it.
 
 A count above 100 ending in 01 or 02, such as 101, repeats the unit (مائة دينار ودينار) and raises `NumbersAndWords::UnsupportedNumberError`. Numbers use the masculine form, so a unit with `gender: female`, and `unit` with `ordinal: true`, raise `NumbersAndWords::UnsupportedOptionError`.
+
+For a Kuwaiti dinar, which has 1,000 fils, pass `precision: 3`.
 
 ```ruby
 I18n.with_locale(:ar) { 1.to_words(unit: :dinar) }
@@ -77,8 +79,8 @@ I18n.with_locale(:ar) { 11.to_words(unit: :dinar) }
 I18n.with_locale(:ar) { 2_000.to_words(unit: :dinar) }
 # => "ألفا دينار"
 
-I18n.with_locale(:ar) { 1.5.to_words(unit: :dinar, subunit: :fils) }
-# => "دينار واحد وخمسون فلسًا"
+I18n.with_locale(:ar) { 1.5.to_words(unit: :dinar, subunit: :fils, precision: 3) }
+# => "دينار واحد وخمسمائة فلس"
 ```
 
 ### Ordinal

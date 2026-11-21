@@ -85,7 +85,8 @@ to_words:
     90: kilencvenedik
     100: századik
     1000: ezredik
-    1000000: egymilliomodik
+    1000000: milliomodik
+    2000000: kétmilliomodik
     1000000000: egymilliárdodik
     1000000000000: egybilliomodik
     1000000000000000: egybilliárdodik
@@ -96,6 +97,15 @@ to_words:
     1000000000000000000000000000000: egykvintilliomodik
     1000000000000000000000000000000000: egykvintilliárdodik
     21: huszonegyedik
+    101: százegyedik
+    102: százkettedik
+    1001: ezeregyedik
+    1002: ezerkettedik
+    2001: kétezer-egyedik
+    1000001: egymillió-egyedik
+    1000002: egymillió-kettedik
+    1001000: egymillió-ezredik
+    1000000001: egymilliárd-egyedik
     42: negyvenkettedik
     133: százharmincharmadik
     4256: négyezer-kétszázötvenhatodik

@@ -32,21 +32,21 @@ I18n.with_locale(:kk) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :kk").
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :kk"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
 
 ### Ordinal
 
-`ordinal: true` adds -ыншы or -інші to the last word, following vowel harmony ("жиырма бірінші"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` makes the last word ordinal, following vowel harmony with -ыншы or -інші after consonants and -ншы or -нші after vowels ("екінші"). Some stems change ("қырық" becomes "қырқыншы"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:kk) { 1.to_words(ordinal: true) }

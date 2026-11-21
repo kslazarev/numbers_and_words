@@ -84,7 +84,7 @@ I18n.with_locale(:it) { 0.1.to_words(fraction: true) }
 
 ### Ordinal
 
-`ordinal: true` gives the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Zero keeps its cardinal form.
+`ordinal: true` gives the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Final tre and sei keep their vowel before the suffix ("ventitreesimo", "ventiseiesimo"). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:it) { 1.to_words(ordinal: true) }
@@ -98,6 +98,9 @@ I18n.with_locale(:it) { 2_000.to_words(ordinal: true) }
 
 I18n.with_locale(:it) { 180.to_words(ordinal: true) }
 # => "centottantesimo"
+
+I18n.with_locale(:it) { 3_000_003.to_words(ordinal: true) }
+# => "tremilionitreesimo"
 ```
 
 ### Remove Zero

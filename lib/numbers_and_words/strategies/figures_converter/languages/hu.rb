@@ -33,7 +33,7 @@ module NumbersAndWords
           def capacity_iteration
             meg, words = super
             return [] if meg.nil?
-            return [meg] if @current_capacity == FiguresArray::THOUSAND_CAPACITY && @figures.number_in_capacity(@current_capacity) == 1
+            return [meg] if bare_scale?
 
             [meg, [words.first.sub(/#{@translations.t(:ones)[2]}\z/o, @translations.t(:compound_two)), *words.drop(1)]]
           end
@@ -56,7 +56,14 @@ module NumbersAndWords
             end
           end
 
-          %i[ones teens tens tens_with_ones hundreds megs].each do |method_name|
+          def ones
+            prefix = maybe_ordinal(:ones)
+            return @translations.t(:'ordinal.ones_with_tens')[@figures.ones] if prefix && @figures.length > 1
+
+            super(prefix:)
+          end
+
+          %i[teens tens tens_with_ones hundreds megs].each do |method_name|
             define_method(method_name) do
               super({ prefix: maybe_ordinal(method_name) })
             end
@@ -69,6 +76,15 @@ module NumbersAndWords
 
           def maybe_ordinal(type)
             @options.ordinal.result type
+          end
+
+          private
+
+          def bare_scale?
+            return false unless @figures.number_in_capacity(@current_capacity) == 1
+            return true if @current_capacity == FiguresArray::THOUSAND_CAPACITY
+
+            @current_capacity == 2 && @figures.capacity_count == 2 && maybe_ordinal(:megs)
           end
         end
       end

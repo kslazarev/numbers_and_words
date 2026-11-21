@@ -69,7 +69,7 @@ I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` gives the uninflected `-te`/`-ste` form; exact multiples of a million or larger are written as one word.
+`ordinal: true` gives the uninflected `-te`/`-ste` form. Ordinals, including compounds with million or larger scales, are written as one lowercase word. Exact single scales omit the multiplier ("millionste", "milliardste"); a multiplier of two or more stays ("zweimillionste").
 
 ```ruby
 I18n.with_locale(:de) { 21.to_words(ordinal: true) }
@@ -80,6 +80,12 @@ I18n.with_locale(:de) { 101.to_words(ordinal: true) }
 
 I18n.with_locale(:de) { 2_000_000.to_words(ordinal: true) }
 # => "zweimillionste"
+
+I18n.with_locale(:de) { 1_000_000.to_words(ordinal: true) }
+# => "millionste"
+
+I18n.with_locale(:de) { 2_002_000_000.to_words(ordinal: true) }
+# => "zweimilliardenzweimillionste"
 ```
 
 ### Remove Zero

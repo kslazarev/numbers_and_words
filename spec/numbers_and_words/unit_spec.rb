@@ -9,6 +9,7 @@ describe NumbersAndWords::Unit do
     I18n.backend = I18n::Backend::Simple.new
     I18n.backend.store_translations(:en, units: { dollar: { one: 'dollar', other: 'dollars' }, cent: { one: 'cent', other: 'cents' }, metre: 'm' })
     I18n.backend.store_translations(:fr, units: { euro: { one: 'euro', other: 'euros' }, centime: { one: 'centime', other: 'centimes' } })
+    I18n.backend.store_translations(:'fr-CH', units: { euro: { one: 'euro', other: 'euros' }, centime: { one: 'centime', other: 'centimes' } })
     I18n.backend.store_translations(:pt, units: { euro: { one: 'euro', other: 'euros' }, centimo: { one: 'cêntimo', other: 'cêntimos' } })
     I18n.backend.store_translations(:cs, units: { koruna: { one: 'koruna', few: 'koruny', many: 'korun', other: 'koruny', gender: :female } })
     I18n.backend.store_translations(:th, units: { baht: 'บาท', satang: 'สตางค์' })
@@ -55,6 +56,41 @@ describe NumbersAndWords::Unit do
     it 'ignores a gender in a language without genders' do
       I18n.backend.store_translations(:en, units: { coin: { one: 'coin', other: 'coins', gender: :female } })
       expect(words(:en, 1, unit: :coin)).to eq('one coin')
+    end
+  end
+
+  %i[fr fr-CH].each do |locale|
+    describe "French units in #{locale}" do
+      it 'uses the singular for zero and decimals below two, not for two' do
+        expect((0..2).map { |number| words(locale, number, unit: :euro) }).to eq(['zéro euro', 'un euro', 'deux euros'])
+        expect([words(locale, 0.0, unit: :euro), words(locale, 0.5, unit: :euro), words(locale, 1.5, unit: :euro), words(locale, 2.0, unit: :euro)])
+          .to eq(['zéro euro', 'zéro virgule cinq euro', 'un virgule cinq euro', 'deux euros'])
+        expect(words(locale, 0)).to eq('zéro')
+      end
+
+      it 'uses singular zero units and subunits in amounts' do
+        expect([words(locale, 0, unit: :euro, subunit: :centime), words(locale, 0.5, unit: :euro, subunit: :centime),
+                words(locale, 2, unit: :euro, subunit: :centime, zero_subunit: true)])
+          .to eq(['zéro euro', 'zéro euro et cinquante centimes', 'deux euros et zéro centime'])
+      end
+
+      it 'preserves an explicit application zero form' do
+        I18n.backend.store_translations(locale, units: { euro: { zero: 'aucun euro' } })
+        expect((0..2).map { |number| words(locale, number, unit: :euro) }).to eq(['zéro aucun euro', 'un euro', 'deux euros'])
+      end
+
+      it 'interpolates the actual count when selecting the singular zero form' do
+        I18n.backend.store_translations(locale, units: { ticket: { one: 'ticket (%<count>d)', other: 'tickets (%<count>d)' } })
+        expect((0..2).map { |number| words(locale, number, unit: :ticket) })
+          .to eq(['zéro ticket (0)', 'un ticket (1)', 'deux tickets (2)'])
+      end
+
+      it 'preserves other-only and scalar translations and missing-form errors' do
+        I18n.backend.store_translations(locale, units: { other_only: { other: 'euros' }, label: 'EUR', broken: { few: 'euros' } })
+        expect(words(locale, 0, unit: :other_only)).to eq('zéro euros')
+        expect(words(locale, 0, unit: :label)).to eq('zéro EUR')
+        expect { words(locale, 0, unit: :broken) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /has no form for count 0/)
+      end
     end
   end
 
@@ -250,8 +286,9 @@ describe NumbersAndWords::Unit do
     end
 
     it 'attaches the Hebrew and Arabic word for and to the subunit' do
-      expect([words(:he, 1.5, unit: :shekel, subunit: :agora), words(:he, 12.02, unit: :shekel, subunit: :agora), words(:ar, 1.5, unit: :dinar, subunit: :fils)])
-        .to eq(['שקל אחד וחמישים אגורות', 'שנים עשר שקלים ושתי אגורות', 'دينار واحد وخمسون فلسًا'])
+      expect([words(:he, 1.5, unit: :shekel, subunit: :agora), words(:he, 12.02, unit: :shekel, subunit: :agora), words(:ar, 1.5, unit: :dinar, subunit: :fils, precision: 3)])
+        .to eq(['שקל אחד וחמישים אגורות', 'שנים עשר שקלים ושתי אגורות', 'دينار واحد وخمسمائة فلس'])
+      expect(words(:ar, 1.005, unit: :dinar, subunit: :fils, precision: 3)).to eq('دينار واحد وخمسة فلوس')
     end
 
     it 'gives an Arabic unit the form and place its count needs' do

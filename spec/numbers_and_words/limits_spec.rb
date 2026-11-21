@@ -57,7 +57,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
       expect { words(locale, 10.0**-(digits + 1)) }.to raise_error(RangeError, "decimals support up to #{digits} fractional digits in #{locale.inspect}")
     end
     expect([words(:ru, 0.1 + 0.2), words(:uk, 1.0e-15), words(:cs, 1.0e-17)])
-      .to eq(['ноль целых и тридцать квадриллионов четыре стоквадриллионных', 'нуль цілих і одна квадрильйонна', 'nula celých jedna stobiliardtina'])
+      .to eq(['ноль целых и тридцать квадриллионов четыре стоквадриллионных', 'нуль цілих і одна квадрильйонна', 'nula celá jedna stobiliardtina'])
   end
 
   it 'raises RangeError past the last scale word' do

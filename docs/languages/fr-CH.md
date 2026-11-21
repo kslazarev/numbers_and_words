@@ -47,6 +47,10 @@ I18n.with_locale(:'fr-CH') { 3.1416.to_words }
 
 ## Options
 
+### Unit
+
+As in French, zero takes the singular unit when application translations provide `one` and `other` forms ("zéro euro"). An explicit `zero` unit translation takes precedence.
+
 ### Precision
 
 `precision` pads the fractional part with zeros to the given number of digits.

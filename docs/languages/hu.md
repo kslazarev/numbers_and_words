@@ -64,11 +64,20 @@ I18n.with_locale(:hu) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true`
+`ordinal: true` uses első and második only for standalone 1 and 2; compounds use egyedik and kettedik ("százegyedik", "ezeregyedik"). Exactly one millionth is read as milliomodik rather than the also-valid egymilliomodik; compound readings keep egy ("egymillió-egyedik").
 
 ```ruby
 I18n.with_locale(:hu) { 21.to_words(ordinal: true) }
 # => "huszonegyedik"
+
+I18n.with_locale(:hu) { 101.to_words(ordinal: true) }
+# => "százegyedik"
+
+I18n.with_locale(:hu) { 1_001.to_words(ordinal: true) }
+# => "ezeregyedik"
+
+I18n.with_locale(:hu) { 1_000_000.to_words(ordinal: true) }
+# => "milliomodik"
 ```
 
 ### Remove Zero

@@ -1,9 +1,9 @@
 to_words:
   fractional:
-    0.1: nula celá jedna desatina
-    0.01: nula celá jedna stotina
-    0.05: nula celá päť stotín
-    0.77: nula celá sedemdesiatsedem stotín
+    0.1: nula celých jedna desatina
+    0.01: nula celých jedna stotina
+    0.05: nula celých päť stotín
+    0.77: nula celých sedemdesiatsedem stotín
   integral_and_fractional:
     1.5: jedna celá päť desatín
     2.5: dve celé päť desatín
@@ -16,7 +16,7 @@ to_words:
     options:
       :precision: 3
     1.5: jedna celá päťsto tisícin
-    0.1: nula celá sto tisícin
+    0.1: nula celých sto tisícin
   remove_zero:
     options:
       :remove_zero: true

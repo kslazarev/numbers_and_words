@@ -48,6 +48,7 @@ to_words:
     99: 'nioghalvfemsindstyvende'
     100: 'hundrede'
     101: 'et hundrede og første'
+    102: 'et hundrede og anden'
     111: 'et hundrede og ellevte'
     121: 'et hundrede og enogtyvende'
     200: 'to hundrede'
@@ -55,6 +56,7 @@ to_words:
     999: 'ni hundrede og nioghalvfemsindstyvende'
     1000: 'tusinde'
     1001: 'et tusind og første'
+    1002: 'et tusind og anden'
     2000: 'to tusinde'
     2021: 'to tusind og enogtyvende'
     21000: 'enogtyve tusinde'
@@ -63,3 +65,12 @@ to_words:
     2000000: 'to millionte'
     2025000: 'to millioner femogtyve tusinde'
     1000000000: 'milliardte'
+  neuter_ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    2: 'andet'
+    22: 'toogtyvende'
+    102: 'et hundrede og andet'
+    200: 'to hundrede'
+    1002: 'et tusind og andet'

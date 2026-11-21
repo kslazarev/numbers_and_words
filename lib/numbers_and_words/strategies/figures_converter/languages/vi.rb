@@ -18,21 +18,11 @@ module NumbersAndWords
           end
 
           def strings_logic
-            if fractional?
-              if fraction_number_zeros_leading.zero?
-                @options.options[:integral] = true
-                integral_string_logic
-              else
-                fractional_with_zero_leading_string_logic
-              end
-            else
-              integral_string_logic
-            end
-          end
+            return integral_string_logic unless fractional?
 
-          def fractional_with_zero_leading_string_logic
-            leading_zeros = [0] * fraction_number_zeros_leading
-            (@figures + leading_zeros).map(&:to_words)
+            leading_zeros = fraction_number_zeros_leading
+            @options.options[:integral] = true
+            integral_string_logic + ([translate(:zero)] * leading_zeros)
           end
 
           def integral_string_logic

@@ -8,7 +8,7 @@ module NumbersAndWords
         # "сто и пет") and a last group of one part to the rest of the number ("хиляда и един", "две хиляди и
         # триста"). The last group takes the gender asked for; хиляда is feminine ("две хиляди", "двадесет и една
         # хиляди") and larger scale words are masculine ("два милиона"). Ordinals make the last word ordinal
-        # ("двадесет и първи"), and a round scale joins its multiplier ("двухиляден").
+        # ("двадесет и първи"), and a round scale joins its multiplier ("двехиляден").
         class Bg < Base
           MAX = 10**21
 
@@ -81,7 +81,7 @@ module NumbersAndWords
             [*words[0..-2], declined(ordinals[:words][words.last.to_sym])].join(' ')
           end
 
-          # "хиляден", "милионен", or the multiplier joined to the scale ordinal ("двухиляден", "петмилионен").
+          # "хиляден", "милионен", or the multiplier joined to the scale ordinal ("двехиляден", "петмилионен").
           def scale_ordinal(words, scale)
             return scale if words.size == 1
 

@@ -32,9 +32,14 @@ I18n.with_locale(:cs) { [11, 22, 133].to_words }
 
 ## Decimals
 
+Fraction names use the unaccented spelling consistently with scale words: biliontina, biliontiny and biliontin, matching bilion. Accented variants are also valid Czech.
+
 ```ruby
 I18n.with_locale(:cs) { 21.77.to_words }
 # => "dvacet jedna celých sedmdesát sedm setin"
+
+I18n.with_locale(:cs) { 0.000000000001.to_words(precision: 12) }
+# => "nula celá jedna biliontina"
 ```
 
 ## Options
@@ -45,7 +50,7 @@ I18n.with_locale(:cs) { 21.77.to_words }
 
 ```ruby
 I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
-# => "nula celých deset setin"
+# => "nula celá deset setin"
 ```
 
 ### Micro Separator

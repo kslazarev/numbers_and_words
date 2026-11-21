@@ -71,7 +71,7 @@ I18n.with_locale(:uk) { 1001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("двадцять перший") and joins a round thousand or million to its multiplier ("двохтисячний"). A thousand of one is read without одна ("тисяча перший"), as the cardinal keeps it ("одна тисяча один"). `gender:` selects the masculine, feminine or neuter ending.
+`ordinal: true` makes the last word ordinal ("двадцять перший") and joins a round thousand or million to its multiplier ("двохтисячний", "дев’яностотисячний"). A scale group of exactly one omits its one ("тисяча перший", "мільйон перший"), while cardinals keep it ("одна тисяча один", "один мільйон один"). Omission before million and larger scales is the chosen concise reading, not a claim that every form retaining один is incorrect. `gender:` selects the masculine, feminine or neuter ending.
 
 ```ruby
 I18n.with_locale(:uk) { 1.to_words(ordinal: true) }
@@ -88,6 +88,12 @@ I18n.with_locale(:uk) { 1001.to_words(ordinal: true) }
 
 I18n.with_locale(:uk) { 21.to_words(ordinal: true, gender: :female) }
 # => "двадцять перша"
+
+I18n.with_locale(:uk) { 90_000.to_words(ordinal: true) }
+# => "дев’яностотисячний"
+
+I18n.with_locale(:uk) { 1_000_001.to_words(ordinal: true) }
+# => "мільйон перший"
 ```
 
 ### Case

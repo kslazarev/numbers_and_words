@@ -91,7 +91,7 @@ I18n.with_locale(:es) { 1.to_words(gender: :male) }
 
 ### Ordinal
 
-`ordinal: true` makes every part of the number ordinal ("vigésimo primero") and joins a scale word to its multiplier ("dosmilésimo"). `gender: :female` gives the feminine form. Zero keeps its cardinal form.
+`ordinal: true` makes every part of the number ordinal ("vigésimo primero") and joins a scale word to its multiplier ("dosmilésimo"). A joined multiplier loses its accent, changes internal `y` to `i`, and stays masculine; `gender: :female` changes the ordinal ending only ("veintidosmilésima"). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(ordinal: true) }
@@ -105,6 +105,9 @@ I18n.with_locale(:es) { 2_000.to_words(ordinal: true) }
 
 I18n.with_locale(:es) { 21.to_words(ordinal: true, gender: :female) }
 # => "vigésima primera"
+
+I18n.with_locale(:es) { 22_000.to_words(ordinal: true, gender: :female) }
+# => "veintidosmilésima"
 ```
 
 ### Remove Zero

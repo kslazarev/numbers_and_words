@@ -41,6 +41,7 @@ et:
       'genitive': ['nulli', 'ühe', 'kahe', 'kolme', 'nelja', 'viie', 'kuue', 'seitsme', 'kaheksa', 'üheksa']
       'ordinal': ['nullis', 'esimene', 'teine', 'kolmas', 'neljas', 'viies', 'kuues', 'seitsmes', 'kaheksas', 'üheksas']
       'words':
+        'sada': ['saja', 'sajas']
         'kümme': ['kümne', 'kümnes']
         'tuhat': ['tuhande', 'tuhandes']
       'compounds':

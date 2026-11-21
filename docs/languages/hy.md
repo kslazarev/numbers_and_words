@@ -23,6 +23,9 @@ I18n.with_locale(:hy) { 1_000_100.to_words }
 I18n.with_locale(:hy) { 2_000_000_000.to_words }
 # => "երկու միլիարդ"
 
+I18n.with_locale(:hy) { 1_000_000_000_000_000.to_words }
+# => "մեկ կվադրիլիոն"
+
 I18n.with_locale(:hy) { [1, 2, 3].to_words }
 # => ["մեկ", "երկու", "երեք"]
 
@@ -32,21 +35,21 @@ I18n.with_locale(:hy) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :hy").
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :hy"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
 
 ### Ordinal
 
-`ordinal: true` gives առաջին to չորրորդ for 1 to 4, and otherwise adds -երորդ to the last word ("քսանմեկերորդ"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` gives առաջին to չորրորդ for 1 to 4, and otherwise adds -երորդ to the last word ("քսանմեկերորդ"), changing a final ը to ն first ("իններորդ", "տասներորդ"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:hy) { 1.to_words(ordinal: true) }
@@ -57,4 +60,7 @@ I18n.with_locale(:hy) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:hy) { 2_000.to_words(ordinal: true) }
 # => "երկու հազարերորդ"
+
+I18n.with_locale(:hy) { 1_000_000_000_000_000.to_words(ordinal: true) }
+# => "կվադրիլիոներորդ"
 ```

@@ -13,30 +13,33 @@ to_words:
     90: üheksakümmend
     99: üheksakümmend üheksa
   hundreds:
-    100: ükssada
-    101: ükssada üks
-    111: ükssada üksteist
-    120: ükssada kakskümmend
-    121: ükssada kakskümmend üks
+    100: sada
+    101: sada üks
+    111: sada üksteist
+    120: sada kakskümmend
+    121: sada kakskümmend üks
     900: üheksasada
     909: üheksasada üheksa
     919: üheksasada üheksateist
     990: üheksasada üheksakümmend
     999: üheksasada üheksakümmend üheksa
   thousands:
-    1000: üks tuhat
-    1111: üks tuhat ükssada üksteist
+    1000: tuhat
+    1001: tuhat üks
+    1111: tuhat sada üksteist
     2000: kaks tuhat
     2001: kaks tuhat üks
-    2111: kaks tuhat ükssada üksteist
+    2111: kaks tuhat sada üksteist
     4000: neli tuhat
     5000: viis tuhat
     11000: üksteist tuhat
     21000: kakskümmend üks tuhat
+    100100: sada tuhat sada
     999000: üheksasada üheksakümmend üheksa tuhat
     999999: üheksasada üheksakümmend üheksa tuhat üheksasada üheksakümmend üheksa
   millions:
     1000000: üks miljon
+    1000100: üks miljon sada
     2000000: kaks miljonit
     4000000: neli miljonit
     5000000: viis miljonit
@@ -45,14 +48,14 @@ to_words:
     999999000: üheksasada üheksakümmend üheksa miljonit üheksasada üheksakümmend üheksa tuhat
     999999999: üheksasada üheksakümmend üheksa miljonit üheksasada üheksakümmend üheksa tuhat üheksasada üheksakümmend üheksa
   billions:
-    1174315110: üks miljard ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada kümme
-    1174315119: üks miljard ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
-    15174315119: viisteist miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
-    35174315119: kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
-    935174315119: üheksasada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
+    1174315110: üks miljard sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada kümme
+    1174315119: üks miljard sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada üheksateist
+    15174315119: viisteist miljardit sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada üheksateist
+    35174315119: kolmkümmend viis miljardit sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada üheksateist
+    935174315119: üheksasada kolmkümmend viis miljardit sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada üheksateist
   trillions:
-    1135174313119: üks biljon ükssada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada kolmteist tuhat ükssada üheksateist
-    2935174315119: kaks biljonit üheksasada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
+    1135174313119: üks biljon sada kolmkümmend viis miljardit sada seitsekümmend neli miljonit kolmsada kolmteist tuhat sada üheksateist
+    2935174315119: kaks biljonit üheksasada kolmkümmend viis miljardit sada seitsekümmend neli miljonit kolmsada viisteist tuhat sada üheksateist
   long_scale:
     1000000000000000: üks biljard
     1000000000000000000: üks triljon
@@ -85,19 +88,19 @@ to_words:
     80: 'kaheksakümnes'
     90: 'üheksakümnes'
     99: 'üheksakümne üheksas'
-    100: 'ühesajas'
-    101: 'ühesaja esimene'
-    111: 'ühesaja üheteistkümnes'
-    121: 'ühesaja kahekümne esimene'
+    100: 'sajas'
+    101: 'saja esimene'
+    111: 'saja üheteistkümnes'
+    121: 'saja kahekümne esimene'
     200: 'kahesajas'
     300: 'kolmesajas'
     999: 'üheksasaja üheksakümne üheksas'
     1000: 'tuhandes'
-    1001: 'ühe tuhande esimene'
+    1001: 'tuhande esimene'
     2000: 'kahe tuhandes'
     2021: 'kahe tuhande kahekümne esimene'
     21000: 'kahekümne ühe tuhandes'
-    100000: 'ühesaja tuhandes'
+    100000: 'saja tuhandes'
     1000000: 'miljones'
     2000000: 'kahe miljones'
     2025000: 'kahe miljoni kahekümne viie tuhandes'
