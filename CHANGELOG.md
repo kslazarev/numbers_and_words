@@ -18,6 +18,7 @@
   * Fix fixture examples that never ran because of duplicate YAML keys, and fail on duplicate fixture keys. \[[#241](https://github.com/kslazarev/numbers_and_words/pull/241)\] \([@dblock](https://github.com/dblock)\)
   * Fix French plural agreement of `cents` and `quatre-vingts` at the end of a number and before scale nouns (`deux cents millions`), and spell 71 `soixante et onze`. \[[#242](https://github.com/kslazarev/numbers_and_words/pull/242)\] \([@dblock](https://github.com/dblock)\)
   * Accent Italian compounds ending in -tre (`ventitré`, `milletré`). \[[#243](https://github.com/kslazarev/numbers_and_words/pull/243)\] \([@dblock](https://github.com/dblock)\)
+  * Join a Brazilian Portuguese remainder below one hundred with `e` (`um bilhão e vinte e um`), and keep the scale word singular in compound fractions (`décimos de milésimo`). \[[#244](https://github.com/kslazarev/numbers_and_words/pull/244)\] \([@dblock](https://github.com/dblock)\)
 
 ## 1.0.3 (Dec 23, 2025)
 
