@@ -1,6 +1,6 @@
 # Upgrading
 
-## Upgrading to 1.1.0
+## Upgrading to 2.0.0
 
 ### British English Says "and" After Hundreds
 
@@ -9,7 +9,7 @@ British English (`en-GB`) now adds "and" after hundreds by default, as British u
 ```ruby
 I18n.with_locale(:'en-GB') { 101.to_words }
 # 1.0.x => "one hundred one"
-# 1.1.0 => "one hundred and one"
+# 2.0.0 => "one hundred and one"
 ```
 
 To keep the previous output, pass `hundreds_with_union: false`:
@@ -28,11 +28,11 @@ French (`fr`) and Swiss French (`fr-CH`) now follow the 1990 spelling reform (*r
 ```ruby
 I18n.with_locale(:fr) { 321.to_words }
 # 1.0.x => "trois cent vingt et un"
-# 1.1.0 => "trois-cent-vingt-et-un"
+# 2.0.0 => "trois-cent-vingt-et-un"
 
 I18n.with_locale(:fr) { 2_000_021.to_words }
 # 1.0.x => "deux millions vingt et un"
-# 1.1.0 => "deux millions vingt-et-un"
+# 2.0.0 => "deux millions vingt-et-un"
 ```
 
 See [#257](https://github.com/kslazarev/numbers_and_words/pull/257) for details.
