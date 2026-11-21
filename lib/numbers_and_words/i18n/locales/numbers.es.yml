@@ -97,6 +97,7 @@ es:
       one: milseptillonésima
       other: milseptillonésimas
     micro_separator: con
+    subunit_separator: con
     micro_prefix:
       tens: diez
       hundreds: cien

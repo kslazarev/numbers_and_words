@@ -52,6 +52,7 @@ pt:
       one: quinquilionésimo
       other: quinquilionésimos
     micro_separator: vírgula
+    subunit_separator: e
     fraction_separator: e
     micro_prefix:
       tens:

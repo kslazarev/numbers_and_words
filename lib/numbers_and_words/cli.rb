@@ -23,7 +23,9 @@ module NumbersAndWords
       remove_zero: 'Omit a zero integral part',
       spelling: 'Spelling, e.g. French reformed (1990) or traditional',
       tens_of_hundreds: 'Read thousands as tens of hundreds',
-      unit: 'Append a unit translated by the application under units.VALUE'
+      subunit: 'Spell the decimal places as a second unit, e.g. cents, under units.VALUE',
+      unit: 'Append a unit translated by the application under units.VALUE',
+      zero_subunit: 'Spell a zero subunit, e.g. "zero cents"'
     }.freeze
 
     def self.start(argv = ARGV, stdin: $stdin, stdout: $stdout, stderr: $stderr)

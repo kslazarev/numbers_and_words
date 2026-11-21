@@ -19,7 +19,9 @@ module NumbersAndWords
     GLOBAL = {
       precision: Rule.new('a non-negative integer', ->(value) { value.is_a?(::Integer) && !value.negative? }),
       micro_separator: Rule.new('a string', ->(value) { value.is_a?(::String) }),
-      unit: Rule.new('a unit translation key', ->(value) { (value.is_a?(::Symbol) || value.is_a?(::String)) && !value.empty? })
+      unit: Rule.new('a unit translation key', ->(value) { (value.is_a?(::Symbol) || value.is_a?(::String)) && !value.empty? }),
+      subunit: Rule.new('a unit translation key', ->(value) { (value.is_a?(::Symbol) || value.is_a?(::String)) && !value.empty? }),
+      zero_subunit: BOOLEAN
     }.freeze
 
     module_function

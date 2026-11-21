@@ -81,7 +81,7 @@ describe NumbersAndWords::CLI do
     %w[-l es --gender neuter 1] => 'unsupported value "neuter" for option :gender in locale :es; supported: :male, :female',
     %w[--precision x 1] => 'invalid argument: --precision x',
     %w[--unit dollar 1] => 'unit "dollar" has no translation for locale :en (expected units.dollar)',
-    %w[--unit dollar 1.5] => 'unit "dollar" cannot be used with decimals such as 1.5 yet',
+    %w[--subunit cent 1] => 'subunit needs a unit',
     %w[--gender] => 'missing argument: --gender',
     %w[--bogus 1] => 'invalid option: --bogus',
     %w[--locale] => 'missing argument: --locale'

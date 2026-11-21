@@ -64,6 +64,7 @@ en:
       one: quattuordecillionth
       other: quattuordecillionths
     micro_separator: point
+    subunit_separator: and
     fraction_separator: and
     pronounced_zero: oh
     micro_prefix:

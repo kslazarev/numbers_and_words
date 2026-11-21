@@ -110,6 +110,7 @@ pt-BR:
       one: quadringentilionésimo
       other: quadringentilionésimos
     micro_separator: vírgula
+    subunit_separator: e
     fraction_separator: e
     micro_prefix:
       tens:
