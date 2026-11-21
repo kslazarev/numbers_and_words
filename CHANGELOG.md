@@ -11,13 +11,14 @@
   * Report coverage to Coveralls with SimpleCov and the Coveralls GitHub Action, replacing the unmaintained coveralls gem and the Code Climate badge. \[[#239](https://github.com/kslazarev/numbers_and_words/pull/239)\] \([@dblock](https://github.com/dblock)\)
   * Upgrade RuboCop to 1.92.3 with exact lint tool versions. \[[#238](https://github.com/kslazarev/numbers_and_words/pull/238)\] \([@dblock](https://github.com/dblock)\)
   * Document breaking changes and how to upgrade in UPGRADING.md, linked from the README. \[[#256](https://github.com/kslazarev/numbers_and_words/pull/256)\] \([@dblock](https://github.com/dblock)\)
+  * Spell French and Swiss French numbers with the 1990 reform by default (`trois-cent-vingt-et-un`) and add `traditional: true` for the earlier spelling; see UPGRADING.md. \[[#257](https://github.com/kslazarev/numbers_and_words/pull/257)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
   * Fix Latin letters inside Cyrillic words in Russian, Ukrainian and Kazakh, and the Italian spelling of 17 (`diciassette`). \[[#216](https://github.com/kslazarev/numbers_and_words/pull/216)\]
   * Fix Ukrainian separators using Latin letters and validate locale scripts, Unicode normalization and invisible characters. \[[#217](https://github.com/kslazarev/numbers_and_words/pull/217)\] \([@dblock](https://github.com/dblock)\)
   * Fix fixture examples that never ran because of duplicate YAML keys, and fail on duplicate fixture keys. \[[#241](https://github.com/kslazarev/numbers_and_words/pull/241)\] \([@dblock](https://github.com/dblock)\)
-  * Fix French plural agreement of `cents` and `quatre-vingts` at the end of a number and before scale nouns (`deux cents millions`), and spell 71 `soixante et onze`. \[[#242](https://github.com/kslazarev/numbers_and_words/pull/242)\] \([@dblock](https://github.com/dblock)\)
+  * Fix French plural agreement of `cents` and `quatre-vingts` at the end of a number and before scale nouns (`deux-cents millions`). \[[#242](https://github.com/kslazarev/numbers_and_words/pull/242)\] \([@dblock](https://github.com/dblock)\)
   * Accent Italian compounds ending in -tre (`ventitré`, `milletré`). \[[#243](https://github.com/kslazarev/numbers_and_words/pull/243)\] \([@dblock](https://github.com/dblock)\)
   * Join a Brazilian Portuguese remainder below one hundred with `e` (`um bilhão e vinte e um`), and keep the scale word singular in compound fractions (`décimos de milésimo`). \[[#244](https://github.com/kslazarev/numbers_and_words/pull/244)\] \([@dblock](https://github.com/dblock)\)
   * Use Ukrainian nominative plurals after 2-4 (`два мільйони`) and fix the missing quintillion translation. \[[#245](https://github.com/kslazarev/numbers_and_words/pull/245)\] \([@dblock](https://github.com/dblock)\)

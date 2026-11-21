@@ -103,7 +103,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "twenty-one"
     => "veintiuno"
     => "двадцать один"
-    => "vingt et un"
+    => "vingt-et-un"
     => "двадцять один"
     => "huszonegy"
     => "dvidešimt vienas"
@@ -126,7 +126,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "two hundred thirty-one"
     => "doscientos treinta y uno"
     => "двести тридцать один"
-    => "deux cent trente et un"
+    => "deux-cent-trente-et-un"
     => "двісті тридцять один"
     => "kettőszázharmincegy"
     => "du šimtai trisdešimt vienas"
@@ -149,7 +149,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "four thousand thirty"
     => "cuatro mil treinta"
     => "четыре тысячи тридцать"
-    => "quatre mille trente"
+    => "quatre-mille-trente"
     => "чотири тисячі тридцять"
     => "négyezer-harminc"
     => "keturi tūkstančiai trisdešimt"
@@ -227,7 +227,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["eleven", "twenty-two", "one hundred thirty-three"]
     => ["once", "veintidós", "ciento treinta y tres"]
     => ["одиннадцать", "двадцать два", "сто тридцать три"]
-    => ["onze", "vingt-deux", "cent trente-trois"]
+    => ["onze", "vingt-deux", "cent-trente-trois"]
     => ["одинадцять", "двадцять два", "сто тридцять три"]
     => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
     => ["vienuolika", "dvidešimt du", "šimtas trisdešimt trys"]
@@ -284,6 +284,19 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
     I18n.with_locale(:en) { [0.1, 0.31, 0.12].to_words remove_zero: true }
     => ["one tenth", "thirty-one hundredths", "twelve hundredths"]
+
+* French / Swiss French
+
+  French uses the 1990 spelling reform by default, hyphenating every numeral in a compound number except the nouns million, milliard and larger. Pass traditional: true for the earlier spelling: (traditional: [true || false])
+
+    I18n.with_locale(:fr) { 321.to_words }
+    => "trois-cent-vingt-et-un"
+
+    I18n.with_locale(:fr) { 2_000_021.to_words }
+    => "deux millions vingt-et-un"
+
+    I18n.with_locale(:fr) { 321.to_words traditional: true }
+    => "trois cent vingt et un"
 
 * Russian
 
