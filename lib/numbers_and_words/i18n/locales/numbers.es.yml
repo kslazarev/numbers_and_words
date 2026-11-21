@@ -1,5 +1,6 @@
 es:
   numbers:
+    minus: menos
     ones:
       apocopated: un
       male: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]

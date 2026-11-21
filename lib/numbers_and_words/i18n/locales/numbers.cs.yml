@@ -1,5 +1,6 @@
 cs:
   numbers:
+    minus: mínus
     ones:
       male: [nula, jeden, dva, tři, čtyři, pět, šest, sedm, osm, devět]
       female: [nula, jedna, dvě, tři, čtyři, pět, šest, sedm, osm, devět]

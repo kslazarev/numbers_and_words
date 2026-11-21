@@ -1,6 +1,6 @@
 # Spanish (`es`)
 
-Español.
+Español. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

@@ -1,5 +1,6 @@
 da:
   numbers:
+    minus: minus
     ones: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
     common: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
     neuter: [nul, et, to, tre, fire, fem, seks, syv, otte, ni]

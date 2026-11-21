@@ -1,5 +1,6 @@
 ro:
   numbers:
+    minus: minus
     ones:
       male: [zero, unu, doi, trei, patru, cinci, șase, șapte, opt, nouă]
       female: [zero, una, două, trei, patru, cinci, șase, șapte, opt, nouă]

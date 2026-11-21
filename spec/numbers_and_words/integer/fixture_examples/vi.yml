@@ -103,3 +103,7 @@ to_words:
     2000000: 'thứ hai triệu'
     2025000: 'thứ hai triệu không trăm hai mươi lăm nghìn'
     1000000000: 'thứ một tỷ'
+  negative:
+    -1: âm một
+    -42: âm bốn mươi hai
+    -1005: âm một nghìn không trăm linh năm

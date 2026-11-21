@@ -1,5 +1,6 @@
 pl:
   numbers:
+    minus: minus
     ones:
       male: [zero, jeden, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
       female: [zero, jedna, dwie, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]

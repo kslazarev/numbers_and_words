@@ -143,3 +143,6 @@ to_words:
     200: deux centième
     321: trois cent vingt et unième
     2000000: deux millionième
+  negative:
+    -1: moins un
+    -80: moins quatre-vingts

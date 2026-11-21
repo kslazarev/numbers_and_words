@@ -1,6 +1,6 @@
 # Italian (`it`)
 
-Italiano.
+Italiano. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Aliases: `it-CH`.
 

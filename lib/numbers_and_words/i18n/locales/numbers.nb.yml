@@ -1,5 +1,6 @@
 nb:
   numbers:
+    minus: minus
     ones: ["null", en, to, tre, fire, fem, seks, sju, åtte, ni]
     one:
       male: en

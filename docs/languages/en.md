@@ -1,6 +1,6 @@
 # English (`en`)
 
-English.
+English. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Aliases: `en-AU`, `en-CA`, `en-IN`, `en-US`.
 

@@ -12,29 +12,32 @@ module NumbersAndWords
       end
 
       def to_words(options = {})
+        Sign.words(number, options) { |value| unsigned_words(value, options) }
+      end
+
+      private
+
+      def unsigned_words(value, options)
         @options = options
-        @parts = decimal_string.split('.')
+        @parts = decimal_string(value).split('.')
         words = []
         words << integral_part_with(options)
         words << fractional_part_with(options) unless fractional_part_is_nil?
         NumbersAndWords::WordsArray.new(words).join options
       end
 
-      private
-
       attr_accessor :options
 
       attr_reader :parts
 
-      def decimal_string
-        text = number.to_s
+      def decimal_string(value)
+        text = value.to_s
         return text unless text.include?('e')
 
         mantissa, exponent = text.split('e')
-        sign = mantissa.delete_prefix!('-') ? '-' : ''
         integral, fraction = mantissa.split('.')
         digits = (integral + fraction).sub(/0+\z/, '')
-        "#{sign}#{place_decimal_point(digits, integral.length + exponent.to_i)}"
+        place_decimal_point(digits, integral.length + exponent.to_i)
       end
 
       def place_decimal_point(digits, position)

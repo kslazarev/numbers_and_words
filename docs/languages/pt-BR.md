@@ -1,6 +1,6 @@
 # Brazilian Portuguese (`pt-BR`)
 
-Português Brasileiro.
+Português Brasileiro. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

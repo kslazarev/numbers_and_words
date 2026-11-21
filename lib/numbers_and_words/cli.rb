@@ -118,9 +118,8 @@ module NumbersAndWords
     end
 
     def parse_number(text)
-      raise Error, "negative numbers are not supported: #{text}" if /\A-\d+(\.\d+)?\z/.match?(text)
-      return Integer(text, 10) if /\A\+?\d+\z/.match?(text)
-      return Float(text) if /\A\+?\d+\.\d+\z/.match?(text)
+      return Integer(text, 10) if /\A[+-]?\d+\z/.match?(text)
+      return Float(text) if /\A[+-]?\d+\.\d+\z/.match?(text)
 
       raise Error, "not a number: #{text.inspect}"
     end

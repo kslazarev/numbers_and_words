@@ -18,12 +18,16 @@ module NumbersAndWords
 
         def megs(capacity, options = {})
           number = options[:number]
-          mega_name = "#{options[:prefix]}.mega"
-          number ? t(mega(capacity), count: number) : t(mega_name)[capacity]
+          number ? t(mega(capacity), count: number) : scale(t("#{options[:prefix]}.mega"), capacity)
         end
 
         def mega(capacity)
-          t(:mega)[capacity]
+          scale(t(:mega), capacity)
+        end
+
+        # The scale word or key for 1000**capacity, or a RangeError past the last one the locale has.
+        def scale(scales, capacity)
+          scales[capacity] || raise(RangeError, "numbers must be below 10**#{scales.size * 3} in #{::I18n.locale.inspect}")
         end
 
         def union

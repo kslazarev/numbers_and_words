@@ -55,11 +55,15 @@ module NumbersAndWords
           end
 
           def decorator_class(method_name)
-            method_name ? Object.const_get(decorator_class_name(method_name)) : Decorators::Base
+            method_name ? language_decorators.const_get(method_name.to_s.capitalize, false) : Decorators::Base
           end
 
-          def decorator_class_name(method_name)
-            "#{name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
+          # The decorators of the current language, which a language without decimals does not have.
+          def language_decorators
+            language = I18n.language_class_name
+            return const_get(language, false) if const_defined?(language, false)
+
+            raise UnsupportedNumberError, "decimals are not supported in #{::I18n.locale.inspect}"
           end
         end
       end

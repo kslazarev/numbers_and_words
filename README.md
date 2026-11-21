@@ -70,6 +70,16 @@ I18n.with_locale(:en) { 0.00001.to_words }
 # => "zero point zero zero zero zero one"
 ```
 
+Negative numbers start with the language's word for minus. They have no ordinal, so `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`, which is also raised for decimals in a language without decimals. Numbers beyond a language's largest scale word raise `RangeError`; each language page gives its limit.
+
+```ruby
+I18n.with_locale(:en) { -42.to_words }
+# => "minus forty-two"
+
+I18n.with_locale(:fr) { -1.5.to_words }
+# => "moins un virgule cinq"
+```
+
 ### Command Line
 
 The `to_words` command spells out each argument, or each number read from standard input, one per line.

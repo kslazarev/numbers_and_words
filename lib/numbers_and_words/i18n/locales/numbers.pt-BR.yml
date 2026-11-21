@@ -1,5 +1,6 @@
 pt-BR:
   numbers:
+    minus: menos
     ones:
       male: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
       female: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]

@@ -57,7 +57,7 @@ describe NumbersAndWords::I18n do
       'Georgian' => %w[ka],
       'Thai' => %w[th],
       'Han' => %w[zh],
-      %w[Han Hiragana] => %w[ja],
+      %w[Han Hiragana Katakana] => %w[ja],
       'Hangul' => %w[ko],
       'Hebrew' => %w[he],
       'Arabic' => %w[ar ur],

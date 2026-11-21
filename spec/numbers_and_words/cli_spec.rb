@@ -64,6 +64,16 @@ describe NumbersAndWords::CLI do
     expect(run_cli('+3')).to eq([0, "three\n", ''])
   end
 
+  it 'spells negative numbers after --' do
+    expect(run_cli('--', '-5', '-1.5')).to eq([0, "minus five\nminus one point five\n", ''])
+  end
+
+  it 'rejects the ordinal of a negative number' do
+    status, stdout, stderr = run_cli('--ordinal', '--', '-5')
+    expect([status, stdout]).to eq([1, ''])
+    expect(stderr).to start_with('to_words: negative numbers have no ordinal: -5')
+  end
+
   it 'prints the version and help' do
     expect(run_cli('--version')).to eq([0, "#{NumbersAndWords::VERSION}\n", ''])
     status, stdout, = run_cli('-h')
@@ -75,7 +85,6 @@ describe NumbersAndWords::CLI do
     %w[abc] => 'not a number: "abc"',
     %w[1e5] => 'not a number: "1e5"',
     %w[1.] => 'not a number: "1."',
-    %w[-- -5] => 'negative numbers are not supported: -5',
     %w[-l xx 1] => ':xx is not a valid locale',
     %w[-l vi --gender female 1] => 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero',
     %w[-l es --gender neuter 1] => 'unsupported value "neuter" for option :gender in locale :es; supported: :male, :female',

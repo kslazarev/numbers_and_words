@@ -1,5 +1,6 @@
 hu:
   numbers:
+    minus: mínusz
     ones: [nulla, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
     ones_with_tens: [_, egy, kettő, három, négy, öt, hat, hét, nyolc, kilenc]
     tens: [_, tíz, húsz, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]

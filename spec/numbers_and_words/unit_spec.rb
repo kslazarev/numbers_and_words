@@ -40,8 +40,8 @@ describe NumbersAndWords::Unit do
       expect([words(:en, 2, unit: 'dollar'), words(:en, 5, unit: :metre)]).to eq(['two dollars', 'five m'])
     end
 
-    it 'chooses the form of a negative number by its absolute value, as the number is spelled' do
-      expect([words(:en, -1, unit: :dollar), words(:en, -2, unit: :dollar)]).to eq(['one dollar', 'two dollars'])
+    it 'chooses the form of a negative number by its absolute value, after the minus word' do
+      expect([words(:en, -1, unit: :dollar), words(:en, -2, unit: :dollar)]).to eq(['minus one dollar', 'minus two dollars'])
     end
 
     it 'uses the singular form for ordinals' do
@@ -187,7 +187,7 @@ describe NumbersAndWords::Unit do
 
     it 'puts de before the unit in Brazilian Portuguese, only when the number ends in a scale word of a million or more' do
       expect([1_000_000, 2_000_000, 1_000_000_000, 3_000_000_000_000, -1_000_000].map { |number| words(:'pt-BR', number, unit: :real) })
-        .to eq(['um milhão de reais', 'dois milhões de reais', 'um bilhão de reais', 'três trilhões de reais', 'um milhão de reais'])
+        .to eq(['um milhão de reais', 'dois milhões de reais', 'um bilhão de reais', 'três trilhões de reais', 'menos um milhão de reais'])
       expect([1_000, 2_000, 1_000_100, 1_001_000, 21].map { |number| words(:'pt-BR', number, unit: :real) })
         .to eq(['mil reais', 'dois mil reais', 'um milhão e cem reais', 'um milhão e mil reais', 'vinte e um reais'])
     end
@@ -325,8 +325,10 @@ describe NumbersAndWords::Unit do
         .to eq(['twenty-one dollars', 'twenty-one dollars and zero cents', 'fifty cents', 'одна копейка', 'zero dollars'])
     end
 
-    it 'spells negative amounts by their absolute value, as numbers are spelled' do
-      expect(words(:en, -3.5, unit: :dollar, subunit: :cent)).to eq('three dollars and fifty cents')
+    it 'starts negative amounts with the minus word, unless they round to zero' do
+      expect([words(:en, -3.5, unit: :dollar, subunit: :cent), words(:en, -0.5, unit: :dollar, subunit: :cent, remove_zero: true),
+              words(:en, -0.001, unit: :dollar, subunit: :cent)])
+        .to eq(['minus three dollars and fifty cents', 'minus fifty cents', 'zero dollars'])
     end
   end
 

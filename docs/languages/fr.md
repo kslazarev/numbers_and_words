@@ -1,6 +1,6 @@
 # French (`fr`)
 
-Français.
+Français. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Aliases: `fr-CA`.
 

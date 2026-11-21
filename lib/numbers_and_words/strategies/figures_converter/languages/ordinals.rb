@@ -67,6 +67,23 @@ module NumbersAndWords
             word unless word == '_'
           end
 
+          # A round hundred or scale ordinal joined to the combining form (numbers.ordinals.combining) of a multiplier
+          # that is one word ("dušimtasis", "divtūkstošais"); a multiplier of several words stays separate.
+          def fused_multiplier(text, number)
+            *head, last = text.split
+            stem = one_word_multiplier?(number) && head.last && lookup(ordinals[:combining], head.last)
+            stem ? [*head[0...-1], "#{stem}#{last}"].join(' ') : text
+          end
+
+          def one_word_multiplier?(number)
+            return false if number.zero?
+            return number % 1000 >= 200 && (number % 100).zero? unless (number % 1000).zero?
+
+            number /= 1000 while (number % 1000).zero?
+            group = number % 1000
+            group > 1 && cardinal_words(group).split.size == 1
+          end
+
           # The last word is ordinal, and a round scale word joins the combining forms of its multiplier into
           # one word ("двухтысячный"); a lone "one" is omitted ("тысячный"). Used by Russian and Ukrainian.
           def joined_scale_ordinal_words(text)

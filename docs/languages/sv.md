@@ -1,6 +1,6 @@
 # Swedish (`sv`)
 
-Svenska. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Svenska. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -32,17 +32,17 @@ I18n.with_locale(:sv) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet.
+Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :sv").
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal, so it has no effect until decimals are supported.
+`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
 
 ### Ordinal
 

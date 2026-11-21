@@ -1,5 +1,6 @@
 az:
   numbers:
+    minus: mənfi
     ones: [sıfır, bir, iki, üç, dörd, beş, altı, yeddi, səkkiz, doqquz]
     teens: [_, on bir, on iki, on üç, on dörd, on beş, on altı, on yeddi, on səkkiz, on doqquz]
     tens: [_, 'on', iyirmi, otuz, qırx, əlli, altmış, yetmiş, səksən, doxsan]

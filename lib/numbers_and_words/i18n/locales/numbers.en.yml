@@ -1,5 +1,6 @@
 en:
   numbers:
+    minus: minus
     ones: [zero, one, two, three, four, five, six, seven, eight, nine]
     teens: [_, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
     tens: [_, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]

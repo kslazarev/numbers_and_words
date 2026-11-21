@@ -1,9 +1,11 @@
 lv:
   numbers:
+    minus: mīnus
     ones: [nulle, viens, divi, trīs, četri, pieci, seši, septiņi, astoņi, deviņi]
     teens: [_, vienpadsmit, divpadsmit, trīspadsmit, četrpadsmit, piecpadsmit, sešpadsmit, septiņpadsmit, astoņpadsmit, deviņpadsmit]
     tens: [_, desmit, divdesmit, trīsdesmit, četrdesmit, piecdesmit, sešdesmit, septiņdesmit, astoņdesmit, deviņdesmit]
-    hundreds: [_, viens simts, divi simti, trīs simti, četri simti, pieci simti, seši simti, septiņi simti, astoņi simti, deviņi simti]
+    hundreds: [_, simts, divi simti, trīs simti, četri simti, pieci simti, seši simti, septiņi simti, astoņi simti, deviņi simti]
+    hundred_before_words: simt
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tūkstotis
@@ -58,4 +60,33 @@ lv:
         'padsmit': 'padsmitais'
         'desmit': 'desmitais'
       'scale_suffix': 'ais'
+      'combining':
+        'divi': 'div'
+        'trīs': 'trīs'
+        'četri': 'četr'
+        'pieci': 'piec'
+        'seši': 'seš'
+        'septiņi': 'septiņ'
+        'astoņi': 'astoņ'
+        'deviņi': 'deviņ'
+        'desmit': 'desmit'
+        'vienpadsmit': 'vienpadsmit'
+        'divpadsmit': 'divpadsmit'
+        'trīspadsmit': 'trīspadsmit'
+        'četrpadsmit': 'četrpadsmit'
+        'piecpadsmit': 'piecpadsmit'
+        'sešpadsmit': 'sešpadsmit'
+        'septiņpadsmit': 'septiņpadsmit'
+        'astoņpadsmit': 'astoņpadsmit'
+        'deviņpadsmit': 'deviņpadsmit'
+        'divdesmit': 'divdesmit'
+        'trīsdesmit': 'trīsdesmit'
+        'četrdesmit': 'četrdesmit'
+        'piecdesmit': 'piecdesmit'
+        'sešdesmit': 'sešdesmit'
+        'septiņdesmit': 'septiņdesmit'
+        'astoņdesmit': 'astoņdesmit'
+        'deviņdesmit': 'deviņdesmit'
+        'simt': 'simt'
+        'simts': 'simt'
       'leading_one': ['viens']

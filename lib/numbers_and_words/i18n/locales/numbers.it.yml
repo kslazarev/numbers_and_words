@@ -1,5 +1,6 @@
 it:
   numbers:
+    minus: meno
     ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
     fractional_one: un
     teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciassette, diciotto, diciannove]
