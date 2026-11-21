@@ -14,15 +14,15 @@ to_words:
     99: ninety-nine
   hundreds:
     100: one hundred
-    101: one hundred one
-    111: one hundred eleven
-    120: one hundred twenty
-    121: one hundred twenty-one
+    101: one hundred and one
+    111: one hundred and eleven
+    120: one hundred and twenty
+    121: one hundred and twenty-one
     900: nine hundred
-    909: nine hundred nine
-    919: nine hundred nineteen
-    990: nine hundred ninety
-    999: nine hundred ninety-nine
+    909: nine hundred and nine
+    919: nine hundred and nineteen
+    990: nine hundred and ninety
+    999: nine hundred and ninety-nine
   thousands:
     1000: one thousand
     2000: two thousand
@@ -30,25 +30,25 @@ to_words:
     5000: five thousand
     11000: eleven thousand
     21000: twenty-one thousand
-    999000: nine hundred ninety-nine thousand
-    999999: nine hundred ninety-nine thousand nine hundred ninety-nine
+    999000: nine hundred and ninety-nine thousand
+    999999: nine hundred and ninety-nine thousand nine hundred and ninety-nine
   millions:
     1000000: one million
     2000000: two million
     4000000: four million
     5000000: five million
-    999000000: nine hundred ninety-nine million
-    999000999: nine hundred ninety-nine million nine hundred ninety-nine
-    999999000: nine hundred ninety-nine million nine hundred ninety-nine thousand
-    999999999: nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+    999000000: nine hundred and ninety-nine million
+    999000999: nine hundred and ninety-nine million nine hundred and ninety-nine
+    999999000: nine hundred and ninety-nine million nine hundred and ninety-nine thousand
+    999999999: nine hundred and ninety-nine million nine hundred and ninety-nine thousand nine hundred and ninety-nine
   billions:
-    1174315110: one billion one hundred seventy-four million three hundred fifteen thousand one hundred ten
-    1174315119: one billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
-    15174315119: fifteen billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
-    35174315119: thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
-    935174315119: nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    1174315110: one billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and ten
+    1174315119: one billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and nineteen
+    15174315119: fifteen billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and nineteen
+    35174315119: thirty-five billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and nineteen
+    935174315119: nine hundred and thirty-five billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and nineteen
   trillions:
-    2935174315119: two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen
+    2935174315119: two trillion nine hundred and thirty-five billion one hundred and seventy-four million three hundred and fifteen thousand one hundred and nineteen
   ordinals:
     options:
       :ordinal: true
@@ -98,11 +98,11 @@ to_words:
     1000000000000000000000000000000000000000000000: one quattuordecillionth
     21: twenty-first
     42: forty-second
-    133: one hundred thirty-third
-    4256: four thousand two hundred fifty-sixth
+    133: one hundred and thirty-third
+    4256: four thousand two hundred and fifty-sixth
     4200: four thousand two hundredth
     42000: forty-two thousandth
-    420000: four hundred twenty thousandth
+    420000: four hundred and twenty thousandth
     4200000: four million two hundred thousandth
     42000000: forty-two millionth
   hundred_with_union:
@@ -115,3 +115,8 @@ to_words:
     100100: one hundred thousand one hundred
     100111: one hundred thousand one hundred and eleven
     111111: one hundred and eleven thousand one hundred and eleven
+  hundred_without_union:
+    options:
+      :hundreds_with_union: false
+    101: one hundred one
+    1111: one thousand one hundred eleven

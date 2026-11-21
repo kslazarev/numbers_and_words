@@ -13,8 +13,8 @@ to_words:
     0.777777777: zero point seven seven seven seven seven seven seven seven seven
     0.2935174315119: zero point two nine three five one seven four three one five one one nine
     21.77: twenty-one point seven seven
-    111.999: one hundred eleven point nine nine nine
-    4242.7463: four thousand two hundred forty-two point seven four six three
+    111.999: one hundred and eleven point nine nine nine
+    4242.7463: four thousand two hundred and forty-two point seven four six three
   fractions_without_zero:
     options:
       :remove_zero: true
