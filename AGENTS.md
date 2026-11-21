@@ -19,7 +19,7 @@ For a locale such as `fr`:
 * `lib/numbers_and_words/translations/fr.rb`: how individual words are chosen (tens with ones, hundreds, scale words, fractions).
 * `lib/numbers_and_words/strategies/figures_converter/languages/fr.rb`: how a number is assembled and printed.
 * `lib/numbers_and_words/strategies/figures_converter/decorators/fr/`: integral and fractional parts of floats; a locale without decorators cannot convert decimals.
-* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: locale-specific options such as `gender` or `ordinal`.
+* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: locale-specific options such as `gender` or `ordinal`. These classes are the list of options the language accepts: `to_words` rejects any other option with `NumbersAndWords::UnsupportedOptionError`, besides the global `precision` and `micro_separator`. An option class with a `VALUES` constant (such as `Gender`) accepts only those values; any other option is a `true`/`false` flag. Options read only internally, such as `integral` or `fractional`, must not be passed through `Integer#to_words`; call the wrappers directly.
 * `lib/numbers_and_words/strategies/array_joiner/languages/fr.rb` and `lib/numbers_and_words/i18n/plurals/` where needed.
 * `spec/numbers_and_words/{integer,float,array}/fixture_examples/fr.yml`: expected output. Float fixtures only run for locales in `FLOAT_CAPABLE_LANGUAGES` in `spec/numbers_and_words/numbers_and_words_spec.rb`.
 * `docs/languages/fr.md` and its row in the [README](README.md) table.

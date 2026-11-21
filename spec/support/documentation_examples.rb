@@ -3,11 +3,12 @@
 # Parses documented examples without evaluating them. An example is a line
 #   I18n.with_locale(:en) { 21.to_words(ordinal: true) }
 # followed by "# => <inspected result>". Only a locale, a number or an array
-# of numbers, and options with literal values are accepted.
+# of numbers, and options with literal values (true, false, integers, symbols
+# and plain double-quoted strings) are accepted.
 module DocumentationExamples
   NUMBER = /-?\d[\d_]*(?:\.\d+)?/
   RECEIVER = /#{NUMBER}|\[#{NUMBER}(?:, #{NUMBER})*\]/
-  VALUE = /true|false|:\w+|-?\d+/
+  VALUE = /true|false|:\w+|-?\d+|"[^"\\#]*"/
   OPTION = /\w+: #{VALUE}/
   CALL = /\AI18n\.with_locale\(:(?:(?<locale>[a-z]{2})|'(?<locale>[a-z]{2}-[A-Z]{2})')\) \{ (?<receiver>#{RECEIVER})\.to_words(?:\((?<options>#{OPTION}(?:, #{OPTION})*)\))? \}\z/
 
@@ -53,6 +54,7 @@ module DocumentationExamples
     when 'true' then true
     when 'false' then false
     when /\A:(\w+)\z/ then Regexp.last_match(1).to_sym
+    when /\A"(.*)"\z/ then Regexp.last_match(1)
     else Integer(text, 10)
     end
   end

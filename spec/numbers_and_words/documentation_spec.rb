@@ -30,6 +30,10 @@ describe 'documentation examples' do # rubocop:disable RSpec/DescribeClass -- ch
       expect(example.to_h.slice(:locale, :receiver, :options)).to eq(locale: :'en-GB', receiver: 1001, options: { gender: :female, precision: 2, ordinal: true })
     end
 
+    it 'parses plain string option values' do
+      expect(described_class.parse('doc.md', 1, 'I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }', '# => ""').options).to eq(micro_separator: 'plus')
+    end
+
     it 'parses floats and arrays' do
       expect(described_class.parse('doc.md', 1, 'I18n.with_locale(:en) { [0.1, 21].to_words }', '# => []').receiver).to eq([0.1, 21])
     end
@@ -39,7 +43,9 @@ describe 'documentation examples' do # rubocop:disable RSpec/DescribeClass -- ch
        'I18n.with_locale(:en) { 1.to_words(gender: File.read("x")) }',
        'I18n.with_locale(:en) { 1.to_words; exit }',
        'I18n.with_locale(:en) { `ls`.to_words }',
-       'I18n.with_locale(:en) { 1.send(:to_words) }'].each do |code|
+       'I18n.with_locale(:en) { 1.send(:to_words) }',
+       'I18n.with_locale(:en) { 1.to_words(micro_separator: "#{exit}") }', # rubocop:disable Lint/InterpolationCheck -- literal input that must be rejected
+       'I18n.with_locale(:en) { 1.to_words(micro_separator: "\\" + x) }'].each do |code|
         expect { described_class.parse('doc.md', 1, code, '# => ""') }.to raise_error(ArgumentError, /unsupported example/)
       end
     end

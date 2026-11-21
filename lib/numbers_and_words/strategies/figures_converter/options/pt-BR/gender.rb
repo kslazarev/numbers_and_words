@@ -6,6 +6,7 @@ module NumbersAndWords
       module Options
         module PtBr
           class Gender < Base::Gender
+            VALUES = %i[male female].freeze
           end
         end
       end

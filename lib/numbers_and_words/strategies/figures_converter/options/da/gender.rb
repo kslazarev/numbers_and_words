@@ -6,6 +6,7 @@ module NumbersAndWords
       module Options
         module Da
           class Gender < Base::Gender
+            VALUES = %i[common neuter].freeze
           end
         end
       end
