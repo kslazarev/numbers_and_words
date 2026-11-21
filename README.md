@@ -97,6 +97,7 @@ Each language page has examples, says whether decimals are supported, and docume
 
 | Language | Name | Code |
 | --- | --- | --- |
+| [Arabic](docs/languages/ar.md)* | العربية | `ar` |
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
