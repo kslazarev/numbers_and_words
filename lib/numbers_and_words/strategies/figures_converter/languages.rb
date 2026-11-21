@@ -48,6 +48,10 @@ require 'numbers_and_words/strategies/figures_converter/languages/hi'
 require 'numbers_and_words/strategies/figures_converter/languages/bn'
 require 'numbers_and_words/strategies/figures_converter/languages/ur'
 require 'numbers_and_words/strategies/figures_converter/languages/pl'
+require 'numbers_and_words/strategies/figures_converter/languages/id'
+require 'numbers_and_words/strategies/figures_converter/languages/ms'
+require 'numbers_and_words/strategies/figures_converter/languages/ro'
+require 'numbers_and_words/strategies/figures_converter/languages/el'
 
 module NumbersAndWords
   module Strategies

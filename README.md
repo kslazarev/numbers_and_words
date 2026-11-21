@@ -113,18 +113,22 @@ Each language page has examples, says whether decimals are supported, and docume
 | [French](docs/languages/fr.md) | Français | `fr` |
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` |
 | [German](docs/languages/de.md) | Deutsch | `de` |
+| [Greek](docs/languages/el.md)* | Ελληνικά | `el` |
 | [Hebrew](docs/languages/he.md)* | עברית | `he` |
 | [Hindi](docs/languages/hi.md)* | हिन्दी | `hi` |
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
+| [Indonesian](docs/languages/id.md) | Bahasa Indonesia | `id` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
 | [Japanese](docs/languages/ja.md)* | 日本語 | `ja` |
 | [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
 | [Korean](docs/languages/ko.md)* | 한국어 | `ko` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
+| [Malay](docs/languages/ms.md)* | Bahasa Melayu | `ms` |
 | [Norwegian Bokmål](docs/languages/nb.md)* | Norsk bokmål | `nb` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |
 | [Portuguese](docs/languages/pt.md) | Português | `pt` |
+| [Romanian](docs/languages/ro.md)* | Română | `ro` |
 | [Russian](docs/languages/ru.md) | Русский | `ru` |
 | [Slovak](docs/languages/sk.md)* | Slovenčina | `sk` |
 | [Spanish](docs/languages/es.md) | Español | `es` |
@@ -238,7 +242,7 @@ I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
 
 A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
 
-After a decimal, the unit takes its `other` form, which is the genitive singular in Russian and Czech; in French and Portuguese, amounts below 2 take the singular. A float with no fractional part reads as a whole number.
+After a decimal, the unit takes its `other` form, which is the genitive singular in Russian and Czech; in French and Portuguese, amounts below 2 take the singular, and in Romanian the unit takes its `few` form. A float with no fractional part reads as a whole number.
 
 ```ruby
 I18n.with_locale(:en) { 1.5.to_words(unit: :dollar) }

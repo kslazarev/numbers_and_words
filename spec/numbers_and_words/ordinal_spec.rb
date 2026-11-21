@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-# Polish ordinals stop below 1,000, Czech ones below 10,000 and Arabic ones below 100; Hebrew and Arabic ones
+# Polish ordinals stop below 1,000, Czech and Greek ones below 10,000 and Arabic ones below 100; Hebrew and Arabic ones
 # start at 1. Each raises RangeError outside its range.
-ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, ar: 1...100, he: 1.. }.freeze
+ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.. }.freeze
 
 # Every language spells ordinals (#263); the fixtures check exact words, and this checks that no number
 # falls through a gap in a language's ordinal tables.

@@ -1,0 +1,127 @@
+to_words:
+  ones:
+    0: sifar
+    1: satu
+    2: dua
+    3: tiga
+    4: empat
+    5: lima
+    6: enam
+    7: tujuh
+    8: lapan
+    9: sembilan
+  tens:
+    10: sepuluh
+    11: sebelas
+    12: dua belas
+    13: tiga belas
+    14: empat belas
+    15: lima belas
+    16: enam belas
+    17: tujuh belas
+    18: lapan belas
+    19: sembilan belas
+    20: dua puluh
+    21: dua puluh satu
+    22: dua puluh dua
+    30: tiga puluh
+    40: empat puluh
+    50: lima puluh
+    60: enam puluh
+    70: tujuh puluh
+    80: lapan puluh
+    90: sembilan puluh
+    99: sembilan puluh sembilan
+  hundreds:
+    100: seratus
+    101: seratus satu
+    110: seratus sepuluh
+    111: seratus sebelas
+    120: seratus dua puluh
+    121: seratus dua puluh satu
+    200: dua ratus
+    300: tiga ratus
+    400: empat ratus
+    500: lima ratus
+    600: enam ratus
+    700: tujuh ratus
+    800: lapan ratus
+    900: sembilan ratus
+    999: sembilan ratus sembilan puluh sembilan
+  thousands:
+    1000: seribu
+    1001: seribu satu
+    1100: seribu seratus
+    1999: seribu sembilan ratus sembilan puluh sembilan
+    2000: dua ribu
+    2001: dua ribu satu
+    3000: tiga ribu
+    4000: empat ribu
+    10000: sepuluh ribu
+    11000: sebelas ribu
+    12000: dua belas ribu
+    19000: sembilan belas ribu
+    20000: dua puluh ribu
+    21000: dua puluh satu ribu
+    22000: dua puluh dua ribu
+    100000: seratus ribu
+    101000: seratus satu ribu
+    120000: seratus dua puluh ribu
+    200000: dua ratus ribu
+    999999: sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan
+  millions:
+    1000000: satu juta
+    1000001: satu juta satu
+    1001000: satu juta seribu
+    2000000: dua juta
+    3000000: tiga juta
+    4000000: empat juta
+    12000000: dua belas juta
+    21000000: dua puluh satu juta
+    22000000: dua puluh dua juta
+    100000000: seratus juta
+    200000000: dua ratus juta
+    123456789: seratus dua puluh tiga juta empat ratus lima puluh enam ribu tujuh ratus lapan puluh sembilan
+  billions:
+    1000000000: satu bilion
+    2000000000: dua bilion
+    1000000000000: satu trilion
+    2000000000000: dua trilion
+    999999999999999: sembilan ratus sembilan puluh sembilan trilion sembilan ratus sembilan puluh sembilan bilion sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan
+  ordinal:
+    options:
+      :ordinal: true
+    0: sifar
+    1: pertama
+    2: kedua
+    3: ketiga
+    4: keempat
+    5: kelima
+    6: keenam
+    7: ketujuh
+    8: kelapan
+    9: kesembilan
+    10: kesepuluh
+    11: kesebelas
+    12: kedua belas
+    13: ketiga belas
+    19: kesembilan belas
+    20: kedua puluh
+    21: kedua puluh satu
+    22: kedua puluh dua
+    99: kesembilan puluh sembilan
+    100: keseratus
+    101: keseratus satu
+    111: keseratus sebelas
+    200: kedua ratus
+    999: kesembilan ratus sembilan puluh sembilan
+    1000: keseribu
+    1001: keseribu satu
+    2000: kedua ribu
+    2021: kedua ribu dua puluh satu
+    9999: kesembilan ribu sembilan ratus sembilan puluh sembilan
+    21000: kedua puluh satu ribu
+    100000: keseratus ribu
+    1000000: kesatu juta
+    2000000: kedua juta
+    1000000000: kesatu bilion

@@ -34,6 +34,10 @@ require 'numbers_and_words/strategies/array_joiner/languages/sk'
 require 'numbers_and_words/strategies/array_joiner/languages/pl'
 require 'numbers_and_words/strategies/array_joiner/languages/nl'
 require 'numbers_and_words/strategies/array_joiner/languages/de'
+require 'numbers_and_words/strategies/array_joiner/languages/id'
+require 'numbers_and_words/strategies/array_joiner/languages/ms'
+require 'numbers_and_words/strategies/array_joiner/languages/ro'
+require 'numbers_and_words/strategies/array_joiner/languages/el'
 
 module NumbersAndWords
   module Strategies

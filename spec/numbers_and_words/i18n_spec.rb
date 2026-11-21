@@ -51,7 +51,7 @@ describe NumbersAndWords::I18n do
     locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
     lookup_locales = %w[ru uk]
     scripts = {
-      'Latin' => %w[cs da de en en-GB es et fi fr fr-CH hu it lt lv nb nl pl pt pt-BR sk sv tr vi],
+      'Latin' => %w[cs da de en en-GB es et fi fr fr-CH hu id it lt lv ms nb nl pl pt pt-BR ro sk sv tr vi],
       'Cyrillic' => %w[bg kk ru uk],
       'Armenian' => %w[hy],
       'Georgian' => %w[ka],
@@ -62,7 +62,8 @@ describe NumbersAndWords::I18n do
       'Hebrew' => %w[he],
       'Arabic' => %w[ar ur],
       'Devanagari' => %w[hi],
-      'Bengali' => %w[bn]
+      'Bengali' => %w[bn],
+      'Greek' => %w[el]
     }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|

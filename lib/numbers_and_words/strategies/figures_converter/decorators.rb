@@ -31,6 +31,10 @@ require 'numbers_and_words/strategies/figures_converter/decorators/sk'
 require 'numbers_and_words/strategies/figures_converter/decorators/nl'
 require 'numbers_and_words/strategies/figures_converter/decorators/pl'
 require 'numbers_and_words/strategies/figures_converter/decorators/de'
+require 'numbers_and_words/strategies/figures_converter/decorators/id'
+require 'numbers_and_words/strategies/figures_converter/decorators/ms'
+require 'numbers_and_words/strategies/figures_converter/decorators/ro'
+require 'numbers_and_words/strategies/figures_converter/decorators/el'
 
 module NumbersAndWords
   module Strategies

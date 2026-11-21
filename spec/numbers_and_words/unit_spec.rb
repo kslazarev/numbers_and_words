@@ -110,6 +110,10 @@ describe NumbersAndWords::Unit do
       I18n.backend.store_translations(:th, units: { baht: 'บาท' })
       I18n.backend.store_translations(:ja, units: { yen: '円' })
       I18n.backend.store_translations(:ko, units: { won: '원' })
+      I18n.backend.store_translations(:ro, units: { leu: { one: 'leu', few: 'lei', other: 'de lei' }, ban: { one: 'ban', few: 'bani', other: 'de bani' },
+                                                    lira: { one: 'liră', few: 'lire', other: 'de lire', gender: :female } })
+      I18n.backend.store_translations(:el, units: { drachma: { one: 'δραχμή', other: 'δραχμές', gender: :female }, euro: 'ευρώ', cent: { one: 'λεπτό', other: 'λεπτά' } })
+      I18n.backend.store_translations(:id, units: { rupiah: 'rupiah' })
     end
 
     it 'spells Ukrainian' do
@@ -125,6 +129,23 @@ describe NumbersAndWords::Unit do
 
     it 'spells Czech' do
       expect([1, 2, 5].map { |number| words(:cs, number, unit: :koruna) }).to eq(['jedna koruna', 'dvě koruny', 'pět korun'])
+    end
+
+    it 'spells Romanian with "de" before the unit from 20' do
+      expect([2, 19, 20, 21, 101, 120].map { |number| words(:ro, number, unit: :leu) })
+        .to eq(['doi lei', 'nouăsprezece lei', 'douăzeci de lei', 'douăzeci și unu de lei', 'o sută unu lei', 'o sută douăzeci de lei'])
+      expect(words(:ro, 22, unit: :lira)).to eq('douăzeci și două de lire')
+    end
+
+    it 'spells Romanian decimals with the few form and amounts joined with și' do
+      expect(words(:ro, 21.5, unit: :leu)).to eq('douăzeci și unu virgulă cinci lei')
+      expect(words(:ro, 21.5, unit: :leu, subunit: :ban)).to eq('douăzeci și unu de lei și cincizeci de bani')
+    end
+
+    it 'spells Greek and Indonesian' do
+      expect([1, 3, 200].map { |number| words(:el, number, unit: :drachma) }).to eq(['μία δραχμή', 'τρεις δραχμές', 'διακόσιες δραχμές'])
+      expect(words(:id, 21, unit: :rupiah)).to eq('dua puluh satu rupiah')
+      expect(words(:el, 21.5, unit: :euro, subunit: :cent)).to eq('είκοσι ένα ευρώ και πενήντα λεπτά')
     end
 
     it 'writes the unit without a space in languages written without spaces' do

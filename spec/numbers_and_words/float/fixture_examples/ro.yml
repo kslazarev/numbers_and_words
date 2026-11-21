@@ -1,0 +1,55 @@
+to_words:
+  fractional:
+    0.1: zero virgulă unu
+    0.5: zero virgulă cinci
+    0.01: zero virgulă zero unu
+    0.05: zero virgulă zero cinci
+    0.001: zero virgulă zero zero unu
+    0.21: zero virgulă douăzeci și unu
+    0.77: zero virgulă șaptezeci și șapte
+    0.777: zero virgulă șapte sute șaptezeci și șapte
+    0.7777: zero virgulă șapte șapte șapte șapte
+    0.1001: zero virgulă unu zero zero unu
+  integral_and_fractional:
+    1.5: unu virgulă cinci
+    2.5: doi virgulă cinci
+    3.14: trei virgulă paisprezece
+    21.05: douăzeci și unu virgulă zero cinci
+    21.77: douăzeci și unu virgulă șaptezeci și șapte
+    101.001: o sută unu virgulă zero zero unu
+    1000.5: o mie virgulă cinci
+    4242.7463: patru mii două sute patruzeci și doi virgulă șapte patru șase trei
+  precision:
+    options:
+      :precision: 3
+    1.5: unu virgulă cinci sute
+    0.1: zero virgulă o sută
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: virgulă șapte
+    0.05: virgulă zero cinci
+    1.5: unu virgulă cinci
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: unu virgulă cinci
+    2.25: doi virgulă douăzeci și cinci
+  male gender:
+    options:
+      :gender: male
+    1.5: unu virgulă cinci
+    2.2: doi virgulă doi
+    21.12: douăzeci și unu virgulă doisprezece
+  female gender:
+    options:
+      :gender: female
+    1.5: una virgulă cinci
+    2.2: două virgulă doi
+    21.12: douăzeci și una virgulă doisprezece
+  neuter gender:
+    options:
+      :gender: neuter
+    1.5: unu virgulă cinci
+    2.2: două virgulă doi
+    21.12: douăzeci și unu virgulă doisprezece
