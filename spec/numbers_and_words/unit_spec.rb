@@ -9,7 +9,7 @@ describe NumbersAndWords::Unit do
     I18n.backend = I18n::Backend::Simple.new
     I18n.backend.store_translations(:en, units: { dollar: { one: 'dollar', other: 'dollars' }, cent: { one: 'cent', other: 'cents' }, metre: 'm' })
     I18n.backend.store_translations(:fr, units: { euro: { one: 'euro', other: 'euros' }, centime: { one: 'centime', other: 'centimes' } })
-    I18n.backend.store_translations(:pt, units: { euro: { one: 'euro', other: 'euros' } })
+    I18n.backend.store_translations(:pt, units: { euro: { one: 'euro', other: 'euros' }, centimo: { one: 'cêntimo', other: 'cêntimos' } })
     I18n.backend.store_translations(:cs, units: { koruna: { one: 'koruna', few: 'koruny', many: 'korun', other: 'koruny', gender: :female } })
     I18n.backend.store_translations(:th, units: { baht: 'บาท', satang: 'สตางค์' })
     I18n.backend.store_translations(:ru, units: {
@@ -238,6 +238,11 @@ describe NumbersAndWords::Unit do
               words(:th, 21.5, unit: :baht, subunit: :satang)])
         .to eq(['twenty-one dollars and fifty cents', 'двадцать один рубль пятьдесят копеек', 'двадцать два рубля двадцать две копейки',
                 'vingt-et-un euros et un centime', 'ยี่สิบเอ็ดบาทห้าสิบสตางค์'])
+    end
+
+    it 'joins a European Portuguese subunit with e' do
+      expect([words(:pt, 16.17, unit: :euro, subunit: :centimo), words(:pt, 1001.01, unit: :euro, subunit: :centimo)])
+        .to eq(['dezasseis euros e dezassete cêntimos', 'mil e um euros e um cêntimo'])
     end
 
     it 'rounds to the subunit half to even, exactly' do

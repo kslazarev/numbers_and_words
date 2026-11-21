@@ -8,7 +8,9 @@ to_words:
     1.77: um vírgula setenta e sete
     2.10: dois vírgula um
     4.5: quatro vírgula cinco
-    14.3: quatorze vírgula três
+    14.3: catorze vírgula três
+    16.19: dezasseis vírgula dezanove
+    1234.5: mil duzentos e trinta e quatro vírgula cinco
     21.77: vinte e um vírgula setenta e sete
     111.999: cento e onze vírgula novecentos e noventa e nove
     0.0001: zero vírgula zero zero zero um
@@ -35,12 +37,18 @@ to_words:
     1.77: um inteiro e setenta e sete centésimos
     2.10: dois inteiros e um décimo
     4.5: quatro inteiros e cinco décimos
-    14.3: quatorze inteiros e três décimos
+    14.3: catorze inteiros e três décimos
+    17.18: dezassete inteiros e dezoito centésimos
+    0.000001: zero inteiros e um milionésimo
+    0.0000001: zero inteiros e um décimo de milionésimo
+    0.000000001: zero inteiros e um milésimo de milionésimo
+    0.000000002: zero inteiros e dois milésimos de milionésimo
+    0.000000000001: zero inteiros e um bilionésimo
     21.77: vinte e um inteiros e setenta e sete centésimos
     111.999: cento e onze inteiros e novecentos e noventa e nove milésimos
     0.0001: zero inteiros e um décimo de milésimo
     0.00025: zero inteiros e vinte e cinco centésimos de milésimo
-    0.123456789: zero inteiros e cento e vinte e três milhões quatrocentos e cinquenta e seis mil setecentos e oitenta e nove bilionésimos
+    0.123456789: zero inteiros e cento e vinte e três milhões quatrocentos e cinquenta e seis mil setecentos e oitenta e nove milésimos de milionésimo
     4242.7463: quatro mil duzentos e quarenta e dois inteiros e sete mil quatrocentos e sessenta e três décimos de milésimo
   fractions_without_zero_as_fraction:
     options:

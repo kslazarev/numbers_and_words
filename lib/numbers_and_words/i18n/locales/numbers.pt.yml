@@ -1,27 +1,32 @@
 pt:
   numbers:
     ones: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
-    teens: [_, onze, doze, treze, quatorze, quinze, dezesseis, dezessete, dezoito, dezenove]
+    teens: [_, onze, doze, treze, catorze, quinze, dezasseis, dezassete, dezoito, dezanove]
     tens: [_, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
     hundreds: [_, cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
     one_hundred: cem
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: mil
     millions:
       one: milhão
       other: milhões
-    billions:
-      one: bilhão
-      other: bilhões
+    billions: mil milhões
     trillions:
-      one: trilhão
-      other: trilhões
-    quadrillions:
-      one: quadrilhão
-      other: quadrilhões
+      one: bilião
+      other: biliões
+    quadrillions: mil biliões
     quintillions:
-      one: quinquilhão
-      other: quinquilhões
+      one: trilião
+      other: triliões
+    sextillions: mil triliões
+    septillions:
+      one: quatrilião
+      other: quatriliões
+    octillions: mil quatriliões
+    nonillions:
+      one: quintilião
+      other: quintiliões
+    decillions: mil quintiliões
     union: e
     integral:
       one: inteiro
@@ -40,17 +45,17 @@ pt:
       one: milionésimo
       other: milionésimos
     billionths:
+      one: milésimo de milionésimo
+      other: milésimos de milionésimo
+    trillionths:
       one: bilionésimo
       other: bilionésimos
-    trillionths:
+    quadrillionths:
+      one: milésimo de bilionésimo
+      other: milésimos de bilionésimo
+    quintillionths:
       one: trilionésimo
       other: trilionésimos
-    quadrillionths:
-      one: quadrilionésimo
-      other: quadrilionésimos
-    quintillionths:
-      one: quinquilionésimo
-      other: quinquilionésimos
     micro_separator: vírgula
     subunit_separator: e
     fraction_separator: e
@@ -66,4 +71,5 @@ pt:
       'units': ['_', 'primeiro', 'segundo', 'terceiro', 'quarto', 'quinto', 'sexto', 'sétimo', 'oitavo', 'nono']
       'tens': ['_', 'décimo', 'vigésimo', 'trigésimo', 'quadragésimo', 'quinquagésimo', 'sexagésimo', 'septuagésimo', 'octogésimo', 'nonagésimo']
       'hundreds': ['_', 'centésimo', 'ducentésimo', 'trecentésimo', 'quadringentésimo', 'quingentésimo', 'sexcentésimo', 'septingentésimo', 'octingentésimo', 'noningentésimo']
-      'mega': ['_', 'milésimo', 'milionésimo', 'bilionésimo', 'trilionésimo', 'quatrilionésimo', 'quintilionésimo']
+      'thousand': 'milésimo'
+      'mega': ['_', 'milionésimo', 'bilionésimo', 'trilionésimo', 'quatrilionésimo', 'quintilionésimo']
