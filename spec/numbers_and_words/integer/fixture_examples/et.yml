@@ -51,5 +51,9 @@ to_words:
     35174315119: kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
     935174315119: üheksasada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
   trillions:
-    1135174313119: üks triljon ükssada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada kolmteist tuhat ükssada üheksateist
-    2935174315119: kaks triljonit üheksasada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
+    1135174313119: üks biljon ükssada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada kolmteist tuhat ükssada üheksateist
+    2935174315119: kaks biljonit üheksasada kolmkümmend viis miljardit ükssada seitsekümmend neli miljonit kolmsada viisteist tuhat ükssada üheksateist
+  long_scale:
+    1000000000000000: üks biljard
+    1000000000000000000: üks triljon
+    2000000000000000000: kaks triljonit

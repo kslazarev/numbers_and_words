@@ -13,26 +13,26 @@ et:
       one: miljard
       other: miljardit
     trillions:
+      one: biljon
+      other: biljonit
+    quadrillions:
+      one: biljard
+      other: biljardit
+    quintillions:
       one: triljon
       other: triljonit
-    quadrillions:
+    sextillions:
+      one: triljard
+      other: triljardit
+    septillions:
       one: kvadriljon
       other: kvadriljonit
-    quintillions:
+    octillions:
+      one: kvadriljard
+      other: kvadriljardit
+    nonillions:
       one: kvintiljon
       other: kvintiljonit
-    sextillions:
-      one: sekstiljon
-      other: sekstiljonit
-    septillions:
-      one: septiljon
-      other: septiljonit
-    octillions:
-      one: oktiljon
-      other: oktiljonit
-    nonillions:
-      one: noniljon
-      other: noniljonit
     decillions:
-      one: dekiljon
-      other: dekiljonit
+      one: kvintiljard
+      other: kvintiljardit
