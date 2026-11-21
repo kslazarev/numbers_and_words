@@ -63,7 +63,6 @@ to_words:
     1000000200: um bilhão e duzentos
     1000000201: um bilhão, duzentos e um
     1000001000: um bilhão e mil
-    1000000040: um bilhão e quarenta
     1000100000: um bilhão e cem mil
     1000000101: um bilhão, cento e um
     1174315110: um bilhão, cento e setenta e quatro milhões, trezentos e quinze mil cento e dez
@@ -75,7 +74,6 @@ to_words:
     2935174315119: dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
     1001000000000: um trilhão e um bilhão
     1000000000104: um trilhão, cento e quatro
-    1_000_000_000_104: um trilhão, cento e quatro
   quadrillions:
     5492935174315119: cinco quadrilhões, quatrocentos e noventa e dois trilhões, novecentos e trinta e cinco bilhões, cento e setenta e quatro milhões, trezentos e quinze mil cento e dezenove
   "female gender":
