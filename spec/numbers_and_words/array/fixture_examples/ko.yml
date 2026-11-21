@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - 일
+      - 이
+      - 삼
+  complex_example:
+    ?
+      - 11
+      - 22
+      - 133
+    :
+      - 십일
+      - 이십이
+      - 백삼십삼

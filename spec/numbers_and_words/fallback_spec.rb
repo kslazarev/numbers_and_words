@@ -7,7 +7,7 @@ describe NumbersAndWords::Fallback do
     available_locales = I18n.available_locales
     locales = NumbersAndWords.config.locales
     fallback = NumbersAndWords.config.fallback
-    I18n.available_locales = available_locales + [:ko]
+    I18n.available_locales = available_locales + [:am]
     example.run
   ensure
     NumbersAndWords.configure do |config|
@@ -18,7 +18,7 @@ describe NumbersAndWords::Fallback do
   end
 
   context 'with a locale that has no bundled rules' do
-    around { |example| I18n.with_locale(:ko) { example.run } }
+    around { |example| I18n.with_locale(:am) { example.run } }
 
     it 'raises without a fallback' do
       expect { 42.to_words }.to raise_error(NumbersAndWords::UnsupportedLanguageError, 'Language not supported')
@@ -48,7 +48,7 @@ describe NumbersAndWords::Fallback do
       expect { 42.to_words(fallback: nil) }.to raise_error(NumbersAndWords::UnsupportedLanguageError)
     end
 
-    [:xx, '', 5, :ko].each do |value|
+    [:xx, '', 5, :am].each do |value|
       it "rejects fallback: #{value.inspect}" do
         expect { 42.to_words(fallback: value) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /unsupported fallback/)
       end

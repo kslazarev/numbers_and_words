@@ -11,7 +11,9 @@ describe LocaleCharacters do
       %w[Latin cаt],
       %w[Latin ο],
       %w[Armenian աa],
-      %w[Georgian აa]
+      %w[Georgian აa],
+      %w[Hangul 일a],
+      [%w[Han Hiragana], 'いちイチ']
     ].each do |script, word|
       it "rejects wrong-script letters in #{word.dump} for #{script}" do
         expect(described_class.errors({ 'word' => word }, script)).not_to be_empty
@@ -48,7 +50,9 @@ describe LocaleCharacters do
         'Latin' => ["\u00e9", "q\u0301", 'twenty-one', "l\u2019un", ' ', '', '_', 1, nil],
         'Cyrillic' => ["\u0456", "\u043f\u2019\u044f\u0442\u044c"],
         'Armenian' => ["\u0574\u0565\u056f"],
-        'Georgian' => ["\u10d4\u10e0\u10d7\u10d8"]
+        'Georgian' => ["\u10d4\u10e0\u10d7\u10d8"],
+        'Hangul' => ['이십일'],
+        %w[Han Hiragana] => %w[三百 さんびゃく]
       }.each do |script, words|
         expect(described_class.errors(words, script)).to be_empty
       end

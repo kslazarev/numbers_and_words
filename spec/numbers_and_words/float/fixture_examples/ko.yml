@@ -1,0 +1,30 @@
+to_words:
+  fractional:
+    0.1: 영 점 일
+    0.01: 영 점 영일
+    0.5: 영 점 오
+    0.77: 영 점 칠칠
+  integral_and_fractional:
+    1.5: 일 점 오
+    3.14: 삼 점 일사
+    6.5: 육 점 오
+    8.5: 팔 점 오
+    10.5: 십 점 오
+    21.05: 이십일 점 영오
+    101.001: 백일 점 영영일
+    12345.6: 만 이천삼백사십오 점 육
+  precision:
+    options:
+      :precision: 3
+    1.5: 일 점 오영영
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: 점 일
+    0.7: 점 칠
+    0.05: 점 영오
+    42.1: 사십이 점 일
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: 일 점 오

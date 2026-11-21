@@ -119,7 +119,7 @@ Converting in a locale without bundled rules, or one that `NumbersAndWords.confi
 
 ```ruby
 begin
-  I18n.with_locale(:ko) { 42.to_words }
+  I18n.with_locale(:am) { 42.to_words }
 rescue NumbersAndWords::UnsupportedLanguageError => e
   e.message # => "Language not supported"
 end
