@@ -32,11 +32,15 @@ module NumbersAndWords
       raise UnsupportedLanguageError, 'Language not configured'
     end
 
+    # Other codes for a bundled language: Norwegian (no) is written in Bokmål (nb).
+    ALIASES = { no: :nb }.freeze
+
     def normalize_language(locale)
       if languages.include?(locale)
         locale
       else
         locale = locale.to_s.scan(/\w+/).first&.to_sym
+        locale = ALIASES.fetch(locale, locale)
         languages.include?(locale) ? locale : raise(UnsupportedLanguageError, 'Language not supported')
       end
     end

@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: nolla pilkku yksi
+    0.01: nolla pilkku nolla yksi
+    0.05: nolla pilkku nolla viisi
+    0.77: nolla pilkku seitsemän seitsemän
+  integral_and_fractional:
+    1.5: yksi pilkku viisi
+    2.5: kaksi pilkku viisi
+    3.14: kolme pilkku yksi neljä
+    21.05: kaksikymmentäyksi pilkku nolla viisi
+    21.77: kaksikymmentäyksi pilkku seitsemän seitsemän
+    101.001: satayksi pilkku nolla nolla yksi
+    5.123: viisi pilkku yksi kaksi kolme
+  precision:
+    options:
+      :precision: 3
+    1.5: yksi pilkku viisi nolla nolla
+    0.1: nolla pilkku yksi nolla nolla
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: pilkku seitsemän
+    0.05: pilkku nolla viisi
+    1.5: yksi pilkku viisi
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: kaksikymmentäyksi x seitsemän seitsemän

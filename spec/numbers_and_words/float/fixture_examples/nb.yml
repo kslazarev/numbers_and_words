@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: null komma en
+    0.01: null komma null en
+    0.05: null komma null fem
+    0.77: null komma sju sju
+  integral_and_fractional:
+    1.5: en komma fem
+    2.5: to komma fem
+    3.14: tre komma en fire
+    21.05: tjueen komma null fem
+    21.77: tjueen komma sju sju
+    101.001: hundre og en komma null null en
+    5.123: fem komma en to tre
+  precision:
+    options:
+      :precision: 3
+    1.5: en komma fem null null
+    0.1: null komma en null null
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komma sju
+    0.05: komma null fem
+    1.5: en komma fem
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: tjueen x sju sju
