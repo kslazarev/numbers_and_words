@@ -5,8 +5,7 @@ require 'numbers_and_words/i18n/initialization'
 
 module NumbersAndWords
   # Raised when the current locale has no bundled rules, or its bundled locale is not enabled by the configuration.
-  # It subclasses RuntimeError, which these errors were before, so existing rescue clauses keep working.
-  class UnsupportedLanguageError < RuntimeError; end
+  class UnsupportedLanguageError < StandardError; end
 
   module I18n
     module_function
