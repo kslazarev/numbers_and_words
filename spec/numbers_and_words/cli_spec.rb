@@ -59,7 +59,7 @@ describe NumbersAndWords::CLI do
     expect(run_cli('--version')).to eq([0, "#{NumbersAndWords::VERSION}\n", ''])
     status, stdout, = run_cli('-h')
     expect(status).to eq(0)
-    expect(stdout).to include('Usage: to_words [options] [NUMBER...]', '--locale LOCALE', '--[no-]ordinal', '--gender VALUE', 'Spell ordinal numbers (cs, de, en, en-GB, fr, fr-CH, hu, pl, pt-BR, th)')
+    expect(stdout).to include('Usage: to_words [options] [NUMBER...]', '--locale LOCALE', '--[no-]ordinal', '--gender VALUE', 'Spell ordinal numbers (cs, de, en, en-GB, fr, fr-CH, hu, pl, pt-BR, th, zh)')
   end
 
   {

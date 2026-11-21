@@ -1,0 +1,19 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - 一
+      - 二
+      - 三
+  complex_example:
+    ?
+      - 11
+      - 22
+      - 133
+    :
+      - 十一
+      - 二十二
+      - 一百三十三

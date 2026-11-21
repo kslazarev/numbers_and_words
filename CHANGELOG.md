@@ -30,6 +30,7 @@
   * Add `spelling: :traditional` (and the default `spelling: :reformed`) to French and Swiss French for the pre-1990 spelling (`trois cent vingt et un`). \[[#282](https://github.com/kslazarev/numbers_and_words/pull/282)\] \([@dblock](https://github.com/dblock)\)
   * Add French and Swiss French ordinals (`premier`, `vingt-et-unième`, `deux-centième`). \[[#283](https://github.com/kslazarev/numbers_and_words/pull/283)\] \([@dblock](https://github.com/dblock)\)
   * Support `remove_zero` in every language with decimals, adding German, French, Swiss French, Hungarian, Russian, Thai, Ukrainian and Vietnamese. \[[#284](https://github.com/kslazarev/numbers_and_words/pull/284)\] \([@dblock](https://github.com/dblock)\)
+  * Add experimental Chinese (`zh`), with decimals and ordinals. \[[#286](https://github.com/kslazarev/numbers_and_words/pull/286)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

@@ -38,7 +38,8 @@ describe NumbersAndWords::I18n do
       'Cyrillic' => %w[kz ru ua],
       'Armenian' => %w[hy],
       'Georgian' => %w[ka],
-      'Thai' => %w[th]
+      'Thai' => %w[th],
+      'Han' => %w[zh]
     }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|

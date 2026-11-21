@@ -100,6 +100,7 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
+| [Chinese](docs/languages/zh.md)* | 中文 | `zh` |
 | [Czech](docs/languages/cs.md) | Čeština | `cs` |
 | [Danish](docs/languages/da.md) | Dansk | `da` |
 | [Dutch](docs/languages/nl.md) | Nederlands | `nl` |
@@ -126,7 +127,7 @@ Each language page has examples, says whether decimals are supported, and docume
 
 \* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 
-Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`.
+Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `zh-CN` and `zh-SG` use `zh`.
 
 ## Options / Опции / Options
 
@@ -158,10 +159,10 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 `fallback` chooses what happens when the gem cannot convert in the current locale, because the locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set `fallback` to a bundled locale to convert in that locale instead, or to `true` to return the number's digits. There is no implicit fallback locale.
 
 ```ruby
-I18n.with_locale(:zh) { 42.to_words(fallback: :fr) }
+I18n.with_locale(:ko) { 42.to_words(fallback: :fr) }
 # => "quarante-deux"
 
-I18n.with_locale(:zh) { 42.to_words(fallback: true) }
+I18n.with_locale(:ko) { 42.to_words(fallback: true) }
 # => "42"
 ```
 
