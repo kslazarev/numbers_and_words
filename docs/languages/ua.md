@@ -89,9 +89,24 @@ I18n.with_locale(:ua) { 21.to_words(ordinal: true, gender: :female) }
 
 ### Case
 
-`case:` declines an ordinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental`, `:prepositional` (місцевий) or `:vocative`. Only the last word declines ("двадцять першого"), in the ending `gender:` selects; the vocative of an ordinal is the same as its nominative.
+`case:` declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental`, `:prepositional` (місцевий) or `:vocative`. Every word of a cardinal declines, and a scale word agrees with its numeral ("двадцяти однієї тисячі", "двох тисяч"). Only the last word of an ordinal declines ("двадцять першого"), in the ending `gender:` selects. The vocative is the same as the nominative.
 
 ```ruby
+I18n.with_locale(:ua) { 21.to_words(case: :genitive) }
+# => "двадцяти одного"
+
+I18n.with_locale(:ua) { 21_000.to_words(case: :genitive) }
+# => "двадцяти однієї тисячі"
+
+I18n.with_locale(:ua) { 2_000.to_words(case: :dative) }
+# => "двом тисячам"
+
+I18n.with_locale(:ua) { 123_456.to_words(case: :instrumental) }
+# => "ста двадцятьма трьома тисячами чотирмастами п’ятдесятьма шістьма"
+
+I18n.with_locale(:ua) { 1_000.to_words(case: :accusative) }
+# => "одну тисячу"
+
 I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :genitive) }
 # => "двадцять першого"
 
@@ -111,11 +126,11 @@ I18n.with_locale(:ua) { 1.to_words(ordinal: true, case: :vocative) }
 # => "перший"
 ```
 
-Cardinals and decimals are not declined yet: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` without `ordinal: true`.
+Decimals are not declined: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` for a decimal.
 
 ### Animate
 
-`animate: true` gives the masculine accusative the genitive form, as for an animate noun ("бачу двадцять першого"); the default is the inanimate form, the same as the nominative.
+`animate: true` gives the accusative the genitive form, as for an animate noun: for a masculine ordinal ("бачу двадцять першого"), for "один" ("двадцять одного"), and for "два", "три" and "чотири" alone ("двох"), while compound numbers ending in them keep the nominative ("двадцять два"). The default is the inanimate form.
 
 ```ruby
 I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :accusative) }
@@ -123,6 +138,12 @@ I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :accusative) }
 
 I18n.with_locale(:ua) { 21.to_words(ordinal: true, case: :accusative, animate: true) }
 # => "двадцять першого"
+
+I18n.with_locale(:ua) { 2.to_words(case: :accusative, animate: true) }
+# => "двох"
+
+I18n.with_locale(:ua) { 22.to_words(case: :accusative, animate: true) }
+# => "двадцять два"
 ```
 
 ### Remove Zero

@@ -9,8 +9,6 @@ module NumbersAndWords
         # numbers.ordinals. Decimals, and either part of one, keep the cardinal form.
         module Ordinals
           def words
-            raise UnsupportedOptionError, 'case: is supported only with ordinal: true' if cardinal_case?
-
             text = super
             ordinal_number? ? ordinal_words(text, ordinal_integer) : text
           end
@@ -19,11 +17,6 @@ module NumbersAndWords
 
           def ordinal_number?
             @options.ordinal&.result && @options.options[:integral].nil? && @options.options[:fractional].nil?
-          end
-
-          # Russian and Ukrainian decline ordinals only; cardinals and decimals stay nominative.
-          def cardinal_case?
-            !ordinal_number? && @options.options.fetch(:case, :nominative).to_sym != :nominative
           end
 
           def ordinal_integer

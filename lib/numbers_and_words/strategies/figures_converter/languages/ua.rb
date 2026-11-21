@@ -5,6 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Ua < Base
+          prepend Cases
           prepend Ordinals
 
           # remove_zero: true omits a zero integral part.

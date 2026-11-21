@@ -4,6 +4,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/families/helpe
 require 'numbers_and_words/strategies/figures_converter/languages/families/base'
 require 'numbers_and_words/strategies/figures_converter/languages/base'
 require 'numbers_and_words/strategies/figures_converter/languages/ordinals'
+require 'numbers_and_words/strategies/figures_converter/languages/cases'
 
 require 'numbers_and_words/strategies/figures_converter/languages/cs'
 require 'numbers_and_words/strategies/figures_converter/languages/de'

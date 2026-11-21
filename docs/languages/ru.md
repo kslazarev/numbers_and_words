@@ -89,9 +89,24 @@ I18n.with_locale(:ru) { 21.to_words(ordinal: true, gender: :female) }
 
 ### Case
 
-`case:` declines an ordinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Only the last word declines ("двадцать первого"), in the ending `gender:` selects.
+`case:` declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Every word of a cardinal declines, and a scale word agrees with its numeral ("двадцати одной тысячи", "двух тысяч"). Only the last word of an ordinal declines ("двадцать первого"), in the ending `gender:` selects.
 
 ```ruby
+I18n.with_locale(:ru) { 21.to_words(case: :genitive) }
+# => "двадцати одного"
+
+I18n.with_locale(:ru) { 21_000.to_words(case: :genitive) }
+# => "двадцати одной тысячи"
+
+I18n.with_locale(:ru) { 2_000.to_words(case: :dative) }
+# => "двум тысячам"
+
+I18n.with_locale(:ru) { 123_456.to_words(case: :instrumental) }
+# => "ста двадцатью тремя тысячами четырьмястами пятьюдесятью шестью"
+
+I18n.with_locale(:ru) { 1_000.to_words(case: :accusative) }
+# => "одну тысячу"
+
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :genitive) }
 # => "двадцать первого"
 
@@ -108,11 +123,11 @@ I18n.with_locale(:ru) { 2_000.to_words(ordinal: true, case: :prepositional) }
 # => "двухтысячном"
 ```
 
-Cardinals and decimals are not declined yet: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` without `ordinal: true`.
+Decimals are not declined: `case:` other than `:nominative` raises `NumbersAndWords::UnsupportedOptionError` for a decimal.
 
 ### Animate
 
-`animate: true` gives the masculine accusative the genitive form, as for an animate noun ("вижу двадцать первого"); the default is the inanimate form, the same as the nominative.
+`animate: true` gives the accusative the genitive form, as for an animate noun: for a masculine ordinal ("вижу двадцать первого"), for "один" ("двадцать одного"), and for "два", "три" and "четыре" alone ("двух"), while compound numbers ending in them keep the nominative ("двадцать два"). The default is the inanimate form.
 
 ```ruby
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative) }
@@ -120,6 +135,12 @@ I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative) }
 
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative, animate: true) }
 # => "двадцать первого"
+
+I18n.with_locale(:ru) { 2.to_words(case: :accusative, animate: true) }
+# => "двух"
+
+I18n.with_locale(:ru) { 22.to_words(case: :accusative, animate: true) }
+# => "двадцать два"
 ```
 
 ### Remove Zero
