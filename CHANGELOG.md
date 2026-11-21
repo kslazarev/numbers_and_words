@@ -31,6 +31,7 @@
   * Add French and Swiss French ordinals (`premier`, `vingt-et-unième`, `deux-centième`). \[[#283](https://github.com/kslazarev/numbers_and_words/pull/283)\] \([@dblock](https://github.com/dblock)\)
   * Support `remove_zero` in every language with decimals, adding German, French, Swiss French, Hungarian, Russian, Thai, Ukrainian and Vietnamese. \[[#284](https://github.com/kslazarev/numbers_and_words/pull/284)\] \([@dblock](https://github.com/dblock)\)
   * Add experimental Chinese (`zh`), with decimals and ordinals. \[[#286](https://github.com/kslazarev/numbers_and_words/pull/286)\] \([@dblock](https://github.com/dblock)\)
+  * Add experimental Hebrew (`he`), with decimals and `gender`, returning right-to-left words in logical order without bidirectional control characters. \[[#287](https://github.com/kslazarev/numbers_and_words/pull/287)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
