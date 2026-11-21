@@ -54,5 +54,12 @@ describe NumbersAndWords::I18n do
         expect(LocaleCharacters.errors(translations, script)).to be_empty
       end
     end
+
+    it 'uses no Russian-only letters in Ukrainian translations' do
+      numbers = YAML.safe_load_file(File.join(locales_dir, 'numbers.ua.yml')).fetch('ua').fetch('numbers')
+      russian = LocaleCharacters.strings(numbers).select { |_path, text| text.match?(/[ыэъё]/i) }
+
+      expect(russian).to be_empty
+    end
   end
 end

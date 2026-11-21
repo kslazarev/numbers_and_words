@@ -66,7 +66,7 @@ ua:
       few: сотих
       many: сотих
     thousandths:
-      one: тысячна
+      one: тисячна
       few: тисячних
       many: тисячних
     millionths:
@@ -85,5 +85,5 @@ ua:
     micro_prefix:
       tens: десяти
       hundreds: сто
-      union: ' '
+      union: ''
     union: 'і'
