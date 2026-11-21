@@ -1,6 +1,6 @@
 # Contributing
 
-This project is work of [many contributors](https://github.com/kslazarev/numbers_and_words/graphs/contributors).
+This project is the work of [many contributors](https://github.com/kslazarev/numbers_and_words/graphs/contributors).
 
 You're encouraged to submit [pull requests](https://github.com/kslazarev/numbers_and_words/pulls), [propose features and discuss issues](https://github.com/kslazarev/numbers_and_words/issues).
 
@@ -25,13 +25,11 @@ bundle install
 bundle exec rake
 ```
 
-CI runs tests, lint, and installed-package checks in separate workflows. Run `bundle exec rake spec` for tests or `bundle exec rake rubocop` for lint. Test jobs cover the supported Ruby 3.2 floor, current Ruby releases, JRuby, and macOS/Windows; Ruby head is experimental. Existing coverage reporting runs with the test suite.
+Run `bundle exec rake spec` for tests only or `bundle exec rake rubocop` for lint only. CI runs tests on Ruby 3.2 and later, JRuby, macOS and Windows.
 
-Build the gem from `numbers_and_words.gemspec` and validate the actual archive in a temporary consumer with `bundle exec rake build` followed by `bundle exec ruby script/verify_package.rb`. The consumer installs the built gem and its runtime dependencies from RubyGems into a disposable directory, checks packaged source files, and exercises public APIs without the source checkout or development bundle.
+`bundle exec rake build` followed by `bundle exec ruby script/verify_package.rb` installs the built gem in a throwaway directory and exercises it there, without the source checkout.
 
-Run `bundle exec rake benchmark` for throughput and allocation measurements; see [BENCHMARKS](BENCHMARKS.md) for workloads, controls, and comparison methodology.
-
-Release automation, required setup, and safe local release tests are documented in [RELEASING](RELEASING.md). Release tooling requires CRuby 3.3+, independently of the Ruby 3.2 consumer minimum.
+See [BENCHMARKS](BENCHMARKS.md) for performance measurements and [RELEASING](RELEASING.md) for releases.
 
 ## Contribute Code
 
@@ -53,9 +51,7 @@ We definitely appreciate pull requests that highlight or reproduce a problem, ev
 
 #### Locale Character Validation
 
-Locale specs validate decoded YAML strings against each locale's Unicode script, require NFC normalization, and reject invisible control/format characters. When adding a locale, register its script in `spec/numbers_and_words/i18n_spec.rb`. Accents, combining marks, punctuation, and spaces are allowed; English lookup identifiers in the Russian and Ukrainian `mega`/`micro` arrays are checked separately as Latin text. These checks do not replace spelling or translation review.
-
-Run the character validation specs with `bundle exec rspec spec/locale_characters_spec.rb spec/numbers_and_words/i18n_spec.rb`, or run `bundle exec rake` for the full lint and test suite.
+Locale strings must use the locale's script, be NFC-normalized, and contain no invisible characters. When adding a locale, register its script in `spec/numbers_and_words/i18n_spec.rb`. Run these checks with `bundle exec rspec spec/locale_characters_spec.rb spec/numbers_and_words/i18n_spec.rb`.
 
 ### Write Code
 
@@ -69,9 +65,7 @@ Document any external behavior in the [README](README.md) or the relevant [langu
 
 ### Update Changelog
 
-Add a line to [CHANGELOG](CHANGELOG.md) under *Next Release*. Don't remove *Your contribution here*.
-
-Make it look like every other line, including a link to the issue being fixed, your name and link to your Github account.
+Add a line to [CHANGELOG](CHANGELOG.md) in the *(Next)* section, formatted like the others, with a link to your pull request and your GitHub account. Don't remove *Your contribution here*.
 
 ### Commit Changes
 
@@ -130,7 +124,7 @@ It's likely that your change will not be merged and that the nitpicky maintainer
 
 ## Updating the Logo
 
-The logo, [assets/logo.svg](assets/logo.svg), shows `42.to_words` returning `"forty-two"`: a red 42 tile speaks through a speech bubble. It was designed with Claude, an AI assistant, for this project. [script/logo.rb](script/logo.rb) is its editable source: [script/logo/layout.rb](script/logo/layout.rb) lays out the shapes, and the script converts the lettering, set in [IBM Plex Mono](https://github.com/IBM/plex) Medium and [Space Grotesk](https://github.com/floriankarsten/space-grotesk) Bold, to outlines so the SVG renders the same everywhere. It reads the fonts with the Ruby standard library only. Both fonts are licensed under the SIL Open Font License; the fonts themselves are not committed. To regenerate the logo, download the fonts and run the script.
+The logo, [assets/logo.svg](assets/logo.svg), shows `42.to_words` returning `"forty-two"`. It was designed with Claude, an AI assistant. Its source is [script/logo.rb](script/logo.rb), which lays out the shapes ([script/logo/layout.rb](script/logo/layout.rb)) and converts the [IBM Plex Mono](https://github.com/IBM/plex) and [Space Grotesk](https://github.com/floriankarsten/space-grotesk) lettering to outlines. The fonts are under the SIL Open Font License and aren't committed. To regenerate the logo, download them and run the script.
 
 ```sh
 fonts=$(mktemp -d)
@@ -143,9 +137,9 @@ Check the result on light and dark backgrounds at full size and in the README, w
 
 ## Language Documentation
 
-Each supported language has a page in [docs/languages](docs/languages) with examples and the options it supports, linked from the table in the [README](README.md). When you change a language's output or add an option, update its page; `spec/numbers_and_words/documentation_spec.rb` checks every example in the README and the language pages and fails when one no longer matches. Examples are parsed, never evaluated: write each as `I18n.with_locale(:en) { 21.to_words(ordinal: true) }` on one line, with a number or an array of numbers and options whose values are `true`, `false`, integers or symbols, followed by a `# => value` line with the inspected result. Any other `I18n.with_locale` line fails the spec. Every option a language accepts must appear in at least one example on its page, and every global option in the README (`spec/numbers_and_words/option_documentation_spec.rb`). To add a language, add a page and a row to the README table.
+Each language has a page in [docs/languages](docs/languages), linked from the [README](README.md) table. Update it when a language's output or options change: specs check every example and require each option to appear in one. Write examples as `I18n.with_locale(:en) { 21.to_words(ordinal: true) }` on one line, followed by `# => "twenty-first"`. [AGENTS](AGENTS.md) has the details.
 
-Native speakers are especially welcome to review the examples and report or fix anything that reads wrong. A language is marked experimental in the README while it has known gaps or no native-speaker review; its page explains why. Remove the mark, and the explanation, in the PR that closes the last gap.
+Native speakers are especially welcome to review the examples and fix anything that reads wrong. A language is marked experimental while it has known gaps or no native-speaker review; remove the mark in the PR that closes the last gap.
 
 ## Contributors
 
