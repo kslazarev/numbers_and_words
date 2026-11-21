@@ -13,8 +13,8 @@ describe NumbersAndWords::OptionsValidation do
 
   context 'with an option the language does not define' do
     it 'raises and lists the supported options' do
-      expect { words(:fr, 21, ordinal: true) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision, :spelling')
+      expect { words(:vi, 21, ordinal: true) }
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported option :ordinal for locale :vi; supported: :micro_separator, :precision')
     end
 
     it 'rejects misspelled options' do
@@ -71,8 +71,8 @@ describe NumbersAndWords::OptionsValidation do
   end
 
   it 'validates floats and arrays' do
-    expect { words(:fr, 0.5, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError)
-    expect { words(:fr, [1, 2], ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError)
+    expect { words(:vi, 0.5, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError)
+    expect { words(:vi, [1, 2], ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError)
   end
 
   it 'resolves regional aliases to their language' do
@@ -95,7 +95,7 @@ describe NumbersAndWords::OptionsValidation do
   end
 
   it 'lists the options of each language' do
-    expect(described_class.supported_options(:fr).keys).to contain_exactly(:spelling, :precision, :micro_separator)
+    expect(described_class.supported_options(:fr).keys).to contain_exactly(:ordinal, :spelling, :precision, :micro_separator)
     expect(described_class.supported_options(:es).keys).to contain_exactly(:apocopated, :gender, :remove_zero, :precision, :micro_separator)
   end
 end
