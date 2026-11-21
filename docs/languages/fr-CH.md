@@ -33,14 +33,17 @@ I18n.with_locale(:'fr-CH') { 21.77.to_words }
 # => "vingt-et-un et septante-sept centièmes"
 ```
 
-## Traditional Spelling
+## Spelling
 
-Swiss French follows the 1990 spelling reform by default; `traditional: true` gives the earlier spelling.
+Swiss French follows the 1990 spelling reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. The traditional spelling is not supported yet, see [#264](https://github.com/kslazarev/numbers_and_words/issues/264).
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 71.to_words }
 # => "septante-et-un"
 
-I18n.with_locale(:'fr-CH') { 71.to_words(traditional: true) }
-# => "septante et un"
+I18n.with_locale(:'fr-CH') { 321.to_words }
+# => "trois-cent-vingt-et-un"
+
+I18n.with_locale(:'fr-CH') { 2_000_021.to_words }
+# => "deux millions vingt-et-un"
 ```
