@@ -5,6 +5,11 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Vi < Base
+          # remove_zero: true omits a zero integral part.
+          def zero(*args)
+            super unless @options.remove_zero.result
+          end
+
           def print_words
             value = super
             remove_billion_noise(value)

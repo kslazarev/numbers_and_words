@@ -73,3 +73,12 @@ I18n.with_locale(:fr) { 0.1.to_words(precision: 2) }
 I18n.with_locale(:fr) { 21.77.to_words(micro_separator: "plus") }
 # => "vingt-et-un plus soixante-dix-sept centièmes"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:fr) { 0.7.to_words(remove_zero: true) }
+# => "sept dixièmes"
+```

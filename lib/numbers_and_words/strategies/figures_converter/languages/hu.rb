@@ -47,10 +47,15 @@ module NumbersAndWords
             end
           end
 
-          %i[zero ones teens tens tens_with_ones hundreds megs].each do |method_name|
+          %i[ones teens tens tens_with_ones hundreds megs].each do |method_name|
             define_method(method_name) do
               super({ prefix: maybe_ordinal(method_name) })
             end
+          end
+
+          # remove_zero: true omits a zero integral part.
+          def zero
+            super({ prefix: maybe_ordinal(:zero) }) unless @options.remove_zero.result
           end
 
           def maybe_ordinal(type)

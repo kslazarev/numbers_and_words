@@ -5,6 +5,11 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class Fr < Base
+          # remove_zero: true omits a zero integral part.
+          def zero(*args)
+            super unless @options.remove_zero.result
+          end
+
           def capacity_iteration
             words = []
             capacity_words = words_in_capacity(@current_capacity)

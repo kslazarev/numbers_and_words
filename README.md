@@ -174,7 +174,7 @@ Every language accepts `precision`, `micro_separator` and `fallback`, plus the o
 For example, French has no ordinals, so `21.to_words(ordinal: true)` in the `fr` locale raises:
 
 ```
-NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision
+NumbersAndWords::UnsupportedOptionError: unsupported option :ordinal for locale :fr; supported: :micro_separator, :precision, :remove_zero
 ```
 
 ## Configuration / Конфигурация

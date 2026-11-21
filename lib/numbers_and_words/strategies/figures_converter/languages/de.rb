@@ -5,6 +5,11 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         class De < Base
+          # remove_zero: true omits a zero integral part.
+          def zero(*args)
+            super unless @options.remove_zero.result
+          end
+
           # Ordinals take the -te (1-19) or -ste (20 and above) suffix on the
           # final element; exact multiples of a million and above are written
           # as one word, e.g. "zweimillionste".
