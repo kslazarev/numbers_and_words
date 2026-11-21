@@ -72,7 +72,7 @@ Several languages now use the forms people usually say and write, as reviewed in
 | Danish (`da`) | 1, 1000 | `et`, `et tusinde` | `en`, `et tusind` |
 | Hungarian (`hu`) | 100, 1000, 2000 | `egyszáz`, `egyezer`, `kettőezer` | `száz`, `ezer`, `kétezer` |
 | Italian (`it`) | 21,000,000 | `ventuno milioni` | `ventun milioni` |
-| Kazakh (`kz`) | 100, 1000 | `бір жүз`, `бір мың` | `жүз`, `мың` |
+| Kazakh (`kk`) | 100, 1000 | `бір жүз`, `бір мың` | `жүз`, `мың` |
 | Armenian (`hy`) | 1000 | `մեկ հազար` | `հազար` |
 | Lithuanian (`lt`) | 10⁹, 10¹² | `bilijonas`, `trilijonas` | `milijardas`, `trilijonas` |
 | Spanish (`es`) | 901, feminine and apocopated | `novecientas un` | `novecientas una` |
@@ -126,3 +126,27 @@ end
 ```
 
 See [#293](https://github.com/kslazarev/numbers_and_words/pull/293) for details.
+
+### Swedish, Ukrainian and Kazakh Use Standard Locale Codes
+
+Three languages were bundled under non-standard codes: `se` is actually Northern Sami, and `ua` and `kz` are country codes. They now use the standard ISO 639-1 codes, so an application whose `I18n.locale` is `:sv`, `:uk` or `:kk` (or a regional variant such as `sv-SE`, `uk-UA` or `kk-KZ`) converts numbers. The old codes are no longer accepted and raise `NumbersAndWords::UnsupportedLanguageError` like any unsupported locale.
+
+| Language | 1.0.x | 2.0.0 |
+| --- | --- | --- |
+| Swedish | `se` | `sv` |
+| Ukrainian | `ua` | `uk` |
+| Kazakh | `kz` | `kk` |
+
+```ruby
+I18n.with_locale(:uk) { 21.to_words }
+# 1.0.x => raises "Language not supported" (and :ua => "двадцять один")
+# 2.0.0 => "двадцять один"
+```
+
+To migrate, replace the old codes wherever your application uses them:
+
+- `I18n.with_locale`, `I18n.locale` and `I18n.available_locales`;
+- `NumbersAndWords.config.locales` and `fallback:`;
+- any application translations that override the gem's locale files: the files are now `numbers.sv.yml`, `numbers.uk.yml` and `numbers.kk.yml`, with top-level keys `sv:`, `uk:` and `kk:`.
+
+See [#300](https://github.com/kslazarev/numbers_and_words/pull/300) for details.

@@ -30,7 +30,7 @@ consumer = <<~'RUBY'
   abort 'Polish cardinal failed' unless I18n.with_locale(:pl) { 21_000.to_words } == 'dwadzieścia jeden tysięcy'
   abort 'Polish decimal failed' unless I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) } == 'jedna dziesiąta'
   abort 'Polish ordinal failed' unless I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) } == 'sto dwudziesta pierwsza'
-  abort 'Swedish conversion failed' unless I18n.with_locale(:se) { 1_000_100.to_words } == 'en miljon etthundra'
+  abort 'Swedish conversion failed' unless I18n.with_locale(:sv) { 1_000_100.to_words } == 'en miljon etthundra'
   abort 'German conversion failed' unless I18n.with_locale(:de) { [21.to_words(ordinal: true), 3.05.to_words] } == ['einundzwanzigste', "drei Komma null f\u00fcnf"]
   I18n.backend.store_translations(:ru, units: { kopeck: { one: "\u043a\u043e\u043f\u0435\u0439\u043a\u0430", few: "\u043a\u043e\u043f\u0435\u0439\u043a\u0438", many: "\u043a\u043e\u043f\u0435\u0435\u043a", gender: :female } })
   abort 'Unit conversion failed' unless I18n.with_locale(:ru) { [21, 22].to_words(unit: :kopeck) } == ["\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044c \u043e\u0434\u043d\u0430 \u043a\u043e\u043f\u0435\u0439\u043a\u0430", "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044c \u0434\u0432\u0435 \u043a\u043e\u043f\u0435\u0439\u043a\u0438"]

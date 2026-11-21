@@ -1,0 +1,48 @@
+sv:
+  numbers:
+    ones: [noll, ett, två, tre, fyra, fem, sex, sju, åtta, nio]
+    common_one: en
+    teens: [_, elva, tolv, tretton, fjorton, femton, sexton, sjutton, arton, nitton]
+    tens: [_, tio, tjugo, trettio, fyrtio, femtio, sextio, sjuttio, åttio, nittio]
+    hundreds: hundra
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: { one: tusen, other: tusen }
+    millions: { one: miljon, other: miljoner }
+    billions: { one: miljard, other: miljarder }
+    trillions: { one: biljon, other: biljoner }
+    quadrillions: { one: biljard, other: biljarder }
+    quintillions: { one: triljon, other: triljoner }
+    sextillions: { one: triljard, other: triljarder }
+    septillions: { one: kvadriljon, other: kvadriljoner }
+    octillions: { one: kvadriljard, other: kvadriljarder }
+    nonillions: { one: kvintiljon, other: kvintiljoner }
+    decillions: { one: kvintiljard, other: kvintiljarder }
+    ordinals:
+      'suffixes':
+        'noll': 'nollte'
+        'ett': 'första'
+        'en': 'första'
+        'två': 'andra'
+        'tre': 'tredje'
+        'fyra': 'fjärde'
+        'fem': 'femte'
+        'sex': 'sjätte'
+        'sju': 'sjunde'
+        'åtta': 'åttonde'
+        'nio': 'nionde'
+        'tio': 'tionde'
+        'elva': 'elfte'
+        'tolv': 'tolfte'
+        'tretton': 'trettonde'
+        'fjorton': 'fjortonde'
+        'femton': 'femtonde'
+        'sexton': 'sextonde'
+        'sjutton': 'sjuttonde'
+        'arton': 'artonde'
+        'nitton': 'nittonde'
+        'tjugo': 'tjugonde'
+        'hundra': 'hundrade'
+        'tusen': 'tusende'
+      'plural': 'er'
+      'scale_suffix': 'te'
+      'leading_one': ['en', 'ett']

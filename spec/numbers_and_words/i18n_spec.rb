@@ -23,6 +23,23 @@ describe NumbersAndWords::I18n do
       end
     end
 
+    context 'when a regional variant of a standard code is given' do
+      { 'sv-SE': :sv, 'sv-FI': :sv, 'uk-UA': :uk, 'kk-KZ': :kk }.each do |code, language|
+        it "maps #{code} to #{language}" do
+          expect(described_class.local_language(code)).to eq(language)
+        end
+      end
+    end
+
+    context 'when a locale code used before 2.0.0 is given' do
+      # se is Northern Sami; ua and kz are country codes. Swedish, Ukrainian and Kazakh are sv, uk and kk.
+      %i[se ua kz].each do |code|
+        it "rejects #{code}" do
+          expect { described_class.local_language(code) }.to raise_error(NumbersAndWords::UnsupportedLanguageError, 'Language not supported')
+        end
+      end
+    end
+
     context 'when unsupported language given' do
       it 'raises error' do
         expect { described_class.local_language('xxx') }.to raise_error('Language not supported')
@@ -32,10 +49,10 @@ describe NumbersAndWords::I18n do
 
   describe 'locale files' do
     locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
-    lookup_locales = %w[ru ua]
+    lookup_locales = %w[ru uk]
     scripts = {
-      'Latin' => %w[cs da de en en-GB es et fr fr-CH hu it lt lv nl pl pt pt-BR se tr vi],
-      'Cyrillic' => %w[kz ru ua],
+      'Latin' => %w[cs da de en en-GB es et fr fr-CH hu it lt lv nl pl pt pt-BR sv tr vi],
+      'Cyrillic' => %w[kk ru uk],
       'Armenian' => %w[hy],
       'Georgian' => %w[ka],
       'Thai' => %w[th],
@@ -60,7 +77,7 @@ describe NumbersAndWords::I18n do
     end
 
     it 'uses no Russian-only letters in Ukrainian translations' do
-      numbers = YAML.safe_load_file(File.join(locales_dir, 'numbers.ua.yml')).fetch('ua').fetch('numbers')
+      numbers = YAML.safe_load_file(File.join(locales_dir, 'numbers.uk.yml')).fetch('uk').fetch('numbers')
       russian = LocaleCharacters.strings(numbers).select { |_path, text| text.match?(/[ыэъё]/i) }
 
       expect(russian).to be_empty

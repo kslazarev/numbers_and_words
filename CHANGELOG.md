@@ -39,6 +39,7 @@
   * Add Hebrew and Arabic ordinals: Hebrew ordinal words for 1 to 10 in both genders and the definite cardinal above (`העשרים ואחד`), and the masculine Arabic definite ordinals from 1 to 99 (`الحادي والعشرون`). \[[#297](https://github.com/kslazarev/numbers_and_words/pull/297)\] \([@dblock](https://github.com/dblock)\)
   * Decline Russian and Ukrainian cardinals by `case:`, with scale words agreeing with their numeral ("двадцати одной тысячи") and `animate:` accusatives. \[[#298](https://github.com/kslazarev/numbers_and_words/pull/298)\] \([@dblock](https://github.com/dblock)\)
   * Add a `unit:` option that follows a whole number with a unit word from the application's translations (`units.<key>`), in the plural form and gender the number takes, e.g. `21.to_words(unit: :ruble)` is "двадцать один рубль". \[[#299](https://github.com/kslazarev/numbers_and_words/pull/299)\] \([@dblock](https://github.com/dblock)\)
+  * Use the standard locale codes `sv`, `uk` and `kk` for Swedish, Ukrainian and Kazakh instead of `se`, `ua` and `kz` (breaking; see UPGRADING). \[[#300](https://github.com/kslazarev/numbers_and_words/pull/300)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
