@@ -87,7 +87,7 @@ I18n.with_locale(:bg) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (двадесет и първи) in the requested gender (двадесет и първа). A round scale joins its multiplier, with дву for two (двухиляден, петмилионен).
+`ordinal: true` makes the last word ordinal (двадесет и първи) in the requested gender (двадесет и първа). A round scale joins its multiplier, with две before хиляден (двехиляден) and дву before larger scale ordinals (двумилионен).
 
 ```ruby
 I18n.with_locale(:bg) { 21.to_words(ordinal: true) }
@@ -97,7 +97,7 @@ I18n.with_locale(:bg) { 21.to_words(ordinal: true, gender: :female) }
 # => "двадесет и първа"
 
 I18n.with_locale(:bg) { 2000.to_words(ordinal: true) }
-# => "двухиляден"
+# => "двехиляден"
 ```
 
 ### Remove Zero

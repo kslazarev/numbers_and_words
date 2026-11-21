@@ -65,6 +65,7 @@ cs:
         female: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
         neuter: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
     integral:
+      zero: celá
       one: celá
       few: celé
       many: celých

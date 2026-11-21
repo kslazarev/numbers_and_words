@@ -29,7 +29,7 @@ describe 'option documentation' do # rubocop:disable RSpec/DescribeClass -- chec
       text = File.read(File.expand_path("../../docs/languages/#{locale}.md", __dir__))
       headings = text.scan(/^##+ .+$/)
       expect(headings).to include('## Decimals', '## Options', '### Precision', '### Micro Separator')
-      expect(text.include?('Decimals are not supported yet.')).to eq(!decimals?(locale))
+      expect(text.include?('Ordinary decimal readings are not supported yet.')).to eq(!decimals?(locale))
     end
   end
 

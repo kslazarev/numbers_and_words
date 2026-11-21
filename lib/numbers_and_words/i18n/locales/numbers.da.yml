@@ -62,6 +62,8 @@ da:
         'hundrede': 'hundrede'
         'tusinde': 'tusinde'
         'tusind': 'tusinde'
+      'neuter_words':
+        'to': 'andet'
       'compound': 'og'
       'plural': 'er'
       'scale_suffix': 'te'

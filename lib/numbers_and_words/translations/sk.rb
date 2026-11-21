@@ -8,9 +8,9 @@ module NumbersAndWords
         t(:micro_separator)
       end
 
-      # "nula celá", "jedna celá", "dve celé", "päť celých".
+      # "nula celých", "jedna celá", "dve celé", "päť celých".
       def integral(number)
-        t(:integral)[number.zero? ? :one : form(number)]
+        t(:integral)[form(number)]
       end
 
       # The fraction noun for a number of decimal places: "jedna desatina", "dve desatiny", "päť desatín".
