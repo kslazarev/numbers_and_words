@@ -65,3 +65,12 @@ I18n.with_locale(:hu) { 21.77.to_words(micro_separator: "plus") }
 I18n.with_locale(:hu) { 21.to_words(ordinal: true) }
 # => "huszonegyedik"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:hu) { 0.7.to_words(remove_zero: true) }
+# => "hét tized"
+```

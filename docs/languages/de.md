@@ -81,3 +81,12 @@ I18n.with_locale(:de) { 101.to_words(ordinal: true) }
 I18n.with_locale(:de) { 2_000_000.to_words(ordinal: true) }
 # => "zweimillionste"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:de) { 0.7.to_words(remove_zero: true) }
+# => "Komma sieben"
+```

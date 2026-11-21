@@ -17,3 +17,10 @@ to_words:
     111.999: một trăm mười một phẩy chín trăm chín mươi chín
     4242.7463: bốn nghìn hai trăm bốn mươi hai phẩy bảy nghìn bốn trăm sáu mươi ba
     4242.07463: bốn nghìn hai trăm bốn mươi hai phẩy không bảy bốn sáu ba
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: "phẩy một"
+    0.7: "phẩy bảy"
+    0.05: "phẩy không năm"
+    42.1: "bốn mươi hai phẩy một"

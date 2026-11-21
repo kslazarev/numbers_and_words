@@ -68,3 +68,12 @@ I18n.with_locale(:ru) { 1001.to_words(gender: :female) }
 I18n.with_locale(:ru) { 1001.to_words(gender: :neuter) }
 # => "одна тысяча одно"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:ru) { 0.7.to_words(remove_zero: true) }
+# => "семь десятых"
+```

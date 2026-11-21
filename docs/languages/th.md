@@ -76,3 +76,12 @@ I18n.with_locale(:th) { 1.to_words(ordinal: true) }
 I18n.with_locale(:th) { 21.to_words(ordinal: true) }
 # => "ที่ยี่สิบเอ็ด"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:th) { 0.7.to_words(remove_zero: true) }
+# => "จุดเจ็ด"
+```

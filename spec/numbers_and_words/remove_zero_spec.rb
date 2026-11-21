@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+
+describe 'remove_zero option' do # rubocop:disable RSpec/DescribeClass -- checks every language's option classes
+  decorators = NumbersAndWords::Strategies::FiguresConverter::Decorators
+  with_decimals = NumbersAndWords::I18n.languages.select do |locale|
+    decorators.const_defined?(locale.to_s.split('-').map(&:capitalize).join, false)
+  end
+
+  with_decimals.each do |locale|
+    it "is supported in #{locale}, which converts decimals" do
+      expect(NumbersAndWords::OptionsValidation.supported_options(locale)).to include(:remove_zero)
+    end
+
+    it "omits the zero integral part in #{locale}" do
+      I18n.with_locale(locale) do
+        expect(0.7.to_words(remove_zero: true)).not_to include(0.to_words)
+      end
+    end
+  end
+end

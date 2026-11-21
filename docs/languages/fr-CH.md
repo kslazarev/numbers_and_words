@@ -75,6 +75,15 @@ I18n.with_locale(:'fr-CH') { 200.to_words(ordinal: true) }
 # => "deux-centième"
 ```
 
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:'fr-CH') { 0.7.to_words(remove_zero: true) }
+# => "sept dixièmes"
+```
+
 ### Spelling
 
 Swiss French follows the 1990 spelling reform by default (`spelling: :reformed`), hyphenating every numeral in a compound number except the nouns million, milliard and larger. `spelling: :traditional` gives the earlier spelling, with spaces and without hyphens around `et`, `cent` and `mille`.
