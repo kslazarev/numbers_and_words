@@ -74,9 +74,10 @@ describe NumbersAndWords::I18n do
 
       it "uses normalized #{Array(script).join(' and ')} translations without invisible characters in #{File.basename(path)}" do
         numbers = YAML.safe_load_file(path).fetch(locale).fetch('numbers')
-        # These arrays contain English lookup keys, not translated words.
+        # These arrays contain English lookup keys, not translated words, and rule templates (NumbersAndWords::Rules)
+        # refer to them by key.
         references = lookup_locales.include?(locale) ? numbers.slice('mega', 'micro') : {}
-        translations = numbers.reject { |key, _value| references.key?(key) }
+        translations = numbers.reject { |key, _value| references.key?(key) || key == 'rules' }
 
         expect(LocaleCharacters.errors(references, 'Latin')).to be_empty
         expect(LocaleCharacters.errors(translations, script)).to be_empty

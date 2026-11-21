@@ -1,7 +1,8 @@
-## 1.1.2 (Next)
+## 1.2.0 (Next)
 
 ### Features
 
+  * Spell Russian and Ukrainian whole numbers, including their cases, animate forms and ordinals, from rule sets in `numbers.ru.yml` and `numbers.uk.yml` with a small rule engine, `NumbersAndWords::Rules`, modeled on Unicode CLDR rule-based number formatting. \[[#318](https://github.com/kslazarev/numbers_and_words/pull/318)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

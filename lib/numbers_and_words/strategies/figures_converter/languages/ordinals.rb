@@ -84,48 +84,6 @@ module NumbersAndWords
             group > 1 && cardinal_words(group).split.size == 1
           end
 
-          # The last word is ordinal, and a round scale word joins the combining forms of its multiplier into
-          # one word ("двухтысячный"); a lone "one" is omitted ("тысячный"). Used by Russian and Ukrainian.
-          def joined_scale_ordinal_words(text)
-            *words, last = text.split
-            scale = scale_ordinal(last)
-            return [*words, declined(lookup(ordinals[:words], last))].join(' ') unless scale
-
-            joined_scale_ordinal(words, scale)
-          end
-
-          # A scale group of exactly one omits that one in ordinals ("миллион первый"), not cardinals.
-          def without_one_before_scales(text, number)
-            number.digits(1000).each_with_index do |group, capacity|
-              next unless capacity.positive? && group == 1
-
-              scale = @translations.t(@translations.t(:mega)[capacity], count: 1)
-              one = @translations.t(:ones)[capacity == 1 ? :female : :male][1]
-              text = text.sub(/(?<!\S)#{Regexp.escape(one)} (?=#{Regexp.escape(scale)}(?: |\z))/, '')
-            end
-            text
-          end
-
-          # The words before a round scale word, with its multiplier joined to its ordinal.
-          def joined_scale_ordinal(words, scale)
-            multiplier = words.reverse.take_while { |word| !scale_ordinal(word) }.reverse
-            [*words.first(words.size - multiplier.size), declined("#{combining(multiplier)}#{scale}")].join(' ')
-          end
-
-          def combining(multiplier)
-            prefix = multiplier.map { |word| lookup(ordinals[:combining], word) }.join
-            prefix unless prefix == ordinals[:one]
-          end
-
-          # The ordinal of a scale word such as "тысячи" or "миллионов", or nil.
-          def scale_ordinal(word)
-            ordinals[:scales].each do |stem, ordinal|
-              index = word.index(stem.to_s)
-              return "#{word[0...index]}#{ordinal}" if index
-            end
-            nil
-          end
-
           # The ordinal adjective in the gender and case asked for: gender: and case: pick an ending table from
           # numbers.ordinals.endings, and a missing table keeps the masculine nominative form.
           def declined(ordinal)
