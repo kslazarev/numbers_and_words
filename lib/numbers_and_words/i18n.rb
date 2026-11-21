@@ -4,6 +4,10 @@ require 'numbers_and_words/i18n/pluralization'
 require 'numbers_and_words/i18n/initialization'
 
 module NumbersAndWords
+  # Raised when the current locale has no bundled rules, or its bundled locale is not enabled by the configuration.
+  # It subclasses RuntimeError, which these errors were before, so existing rescue clauses keep working.
+  class UnsupportedLanguageError < RuntimeError; end
+
   module I18n
     module_function
 
@@ -26,7 +30,7 @@ module NumbersAndWords
       language = normalize_language(locale)
       return language if enabled([language]).any?
 
-      raise 'Language not configured'
+      raise UnsupportedLanguageError, 'Language not configured'
     end
 
     def normalize_language(locale)
@@ -34,7 +38,7 @@ module NumbersAndWords
         locale
       else
         locale = locale.to_s.scan(/\w+/).first&.to_sym
-        languages.include?(locale) ? locale : raise('Language not supported')
+        languages.include?(locale) ? locale : raise(UnsupportedLanguageError, 'Language not supported')
       end
     end
 
