@@ -1,0 +1,45 @@
+to_words:
+  fractional:
+    0.1: sıfır tam onda bir
+    0.5: sıfır tam onda beş
+    0.01: sıfır tam yüzdə bir
+    0.05: sıfır tam yüzdə beş
+    0.001: sıfır tam mində bir
+    0.0001: sıfır tam on mində bir
+    0.21: sıfır tam yüzdə iyirmi bir
+    0.77: sıfır tam yüzdə yetmiş yeddi
+    0.777: sıfır tam mində yeddi yüz yetmiş yeddi
+    0.7777: sıfır tam on mində yeddi min yeddi yüz yetmiş yeddi
+    0.77777: sıfır tam yüz mində yetmiş yeddi min yeddi yüz yetmiş yeddi
+    0.777777: sıfır tam milyonda yeddi yüz yetmiş yeddi min yeddi yüz yetmiş yeddi
+    0.1001: sıfır tam on mində min bir
+    0.123456789: sıfır tam milyardda yüz iyirmi üç milyon dörd yüz əlli altı min yeddi yüz səksən doqquz
+  integral_and_fractional:
+    1.5: bir tam onda beş
+    2.25: iki tam yüzdə iyirmi beş
+    3.14: üç tam yüzdə on dörd
+    21.05: iyirmi bir tam yüzdə beş
+    21.77: iyirmi bir tam yüzdə yetmiş yeddi
+    101.001: yüz bir tam mində bir
+    1000.5: min tam onda beş
+    4242.7463: dörd min iki yüz qırx iki tam on mində yeddi min dörd yüz altmış üç
+  precision:
+    options:
+      :precision: 2
+    0.1: sıfır tam yüzdə on
+    1.5: bir tam yüzdə əlli
+  micro_separator:
+    options:
+      :micro_separator: vergül
+    21.77: iyirmi bir vergül yüzdə yetmiş yeddi
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: onda yeddi
+    0.05: yüzdə beş
+    42.1: qırx iki tam onda bir
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: bir tam onda beş
+    2.25: iki tam yüzdə iyirmi beş

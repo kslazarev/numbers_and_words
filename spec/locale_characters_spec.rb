@@ -47,7 +47,7 @@ describe LocaleCharacters do
 
     it 'allows native scripts, accents, combining marks, punctuation and spaces' do
       {
-        'Latin' => ["\u00e9", "q\u0301", 'twenty-one', "l\u2019un", ' ', '', '_', 1, nil],
+        'Latin' => ["\u00e9", "q\u0301", 'twenty-one', "l\u2019un", 'səksən', 'qırx', 'üçüncü', 'beş', ' ', '', '_', 1, nil],
         'Cyrillic' => ["\u0456", "\u043f\u2019\u044f\u0442\u044c"],
         'Armenian' => ["\u0574\u0565\u056f"],
         'Georgian' => ["\u10d4\u10e0\u10d7\u10d8"],

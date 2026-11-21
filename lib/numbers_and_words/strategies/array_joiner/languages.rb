@@ -38,6 +38,7 @@ require 'numbers_and_words/strategies/array_joiner/languages/id'
 require 'numbers_and_words/strategies/array_joiner/languages/ms'
 require 'numbers_and_words/strategies/array_joiner/languages/ro'
 require 'numbers_and_words/strategies/array_joiner/languages/el'
+require 'numbers_and_words/strategies/array_joiner/languages/az'
 
 module NumbersAndWords
   module Strategies
