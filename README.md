@@ -123,7 +123,7 @@ See [UPGRADING](UPGRADING.md) for breaking changes and how to upgrade.
 
 ## Contributing / Участие / Contribuer
 
-See [CONTRIBUTING](CONTRIBUTING.md), [CHANGELOG](CHANGELOG.md), [UPGRADING](UPGRADING.md), [BENCHMARKS](BENCHMARKS.md) and [RELEASING](RELEASING.md).
+See [CONTRIBUTING](CONTRIBUTING.md), [AGENTS](AGENTS.md), [CHANGELOG](CHANGELOG.md), [UPGRADING](UPGRADING.md), [BENCHMARKS](BENCHMARKS.md) and [RELEASING](RELEASING.md).
 
 ## License / Лицензия / Licence
 

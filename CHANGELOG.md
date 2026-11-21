@@ -14,6 +14,7 @@
   * Spell French and Swiss French numbers with the 1990 reform by default (`trois-cent-vingt-et-un`) and add `traditional: true` for the earlier spelling; see UPGRADING.md. \[[#257](https://github.com/kslazarev/numbers_and_words/pull/257)\] \([@dblock](https://github.com/dblock)\)
   * Convert the README to Markdown with a supported-language table, move per-language examples and options to generated pages in docs/languages, and link contributors to their GitHub profiles. \[[#259](https://github.com/kslazarev/numbers_and_words/pull/259)\] \([@dblock](https://github.com/dblock)\)
   * Run every example in the README and language pages as a spec. \[[#260](https://github.com/kslazarev/numbers_and_words/pull/260)\] \([@dblock](https://github.com/dblock)\)
+  * Add AGENTS.md with commands, where each language lives, and the invariants specs enforce. \[[#261](https://github.com/kslazarev/numbers_and_words/pull/261)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
