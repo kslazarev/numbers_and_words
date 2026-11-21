@@ -13,6 +13,11 @@ GEORGIAN_ORDINALS = Class.new do
     number % 1000 == 1
   end
 end
+# Ordinals of a scale word that don't start like its cardinal: Romanian builds "miilea" on the plural "mii", and
+# Hungarian "ezredik" drops the e of "ezer".
+ORDINAL_SCALE_STEM_EXCEPTIONS = [[:ro, 1000], [:hu, 1000]].freeze
+SMALL_ORDINALS = [0, 1, 2].freeze
+ORDINAL_DECIMALS = [1.5, 21.25, -1.5, 2.0, [1.5, 2.25]].freeze
 ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ka: GEORGIAN_ORDINALS }.freeze
 
 # Every language spells ordinals (#263); the fixtures check exact words, and this checks that no number
@@ -39,7 +44,37 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
     end
   end
 
-  it 'keeps the cardinal form for decimals' do
-    expect(I18n.with_locale(:es) { [1.5.to_words(ordinal: true), 1.5.to_words] }.uniq.size).to eq(1)
+  # The ordinal of every power of a thousand, once and twice, up to the last cardinal scale word: a scale table
+  # shorter than or out of step with the cardinal mega list gives an empty, repeated or wrong scale word.
+  NumbersAndWords::I18n.languages.each do |locale|
+    it "spells the #{locale} ordinal of every scale word" do
+      I18n.with_locale(locale) do
+        scales = (1..50).map { |power| 10**(3 * power) }.take_while { |number| number.to_words && true rescue false } # rubocop:disable Style/RescueModifier -- stops at the cardinal limit
+        numbers = scales.flat_map { |number| [number, 2 * number] }.select { |number| ORDINAL_RANGES.fetch(locale, 0..).cover?(number) }
+        ordinals = numbers.map { |number| number.to_words(ordinal: true) }
+        expect(ordinals.grep(/translation missing|\A\s*\z|\b_\b/i)).to eq([])
+        expect(ordinals.uniq.size).to eq(numbers.size)
+        small = SMALL_ORDINALS.select { |number| ORDINAL_RANGES.fetch(locale, 0..).cover?(number) }
+        expect(ordinals).not_to include(*small.map { |number| number.to_words(ordinal: true) })
+        mismatched = numbers.zip(ordinals).reject do |number, ordinal|
+          number.to_s[0] == '2' || plain(ordinal).include?(plain(number.to_words.split.last)[0, 3]) || ORDINAL_SCALE_STEM_EXCEPTIONS.include?([locale, number])
+        end
+        expect(mismatched).to eq([])
+      end
+    end
+  end
+
+  def plain(text)
+    text.unicode_normalize(:nfd).gsub(/\p{Mn}/, '').downcase
+  end
+
+  it 'keeps the cardinal form for decimals in every language' do
+    decimal_languages.each do |locale|
+      I18n.with_locale(locale) do
+        ORDINAL_DECIMALS.each do |number|
+          expect(number.to_words(ordinal: true)).to eq(number.to_words), "#{locale} #{number}"
+        end
+      end
+    end
   end
 end

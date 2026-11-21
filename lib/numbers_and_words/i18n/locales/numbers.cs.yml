@@ -69,7 +69,7 @@ cs:
       few: celé
       many: celých
       other: celých
-    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths]
     tenths:
       one: desetina
       few: desetiny
@@ -94,6 +94,18 @@ cs:
       one: bilióntina
       few: bilióntiny
       many: bilióntin
+    quadrillionths:
+      one: biliardtina
+      few: biliardtiny
+      many: biliardtin
+    quintillionths:
+      one: triliontina
+      few: triliontiny
+      many: triliontin
+    sextillionths:
+      one: triliardtina
+      few: triliardtiny
+      many: triliardtin
     micro_separator: ''
     micro_prefix:
       tens: deseti

@@ -52,7 +52,7 @@ module NumbersAndWords
           # Groups of three digits, lowest first. Only numbers below the largest scale word's next power are supported.
           def groups(number)
             limit = @translations.scales + 1
-            raise RangeError, "Arabic numbers must be below 1000**#{limit}" if number >= THOUSAND**limit
+            raise Translations::Families::Base.range_error(3 * limit) if number >= THOUSAND**limit
 
             number.digits(THOUSAND)
           end

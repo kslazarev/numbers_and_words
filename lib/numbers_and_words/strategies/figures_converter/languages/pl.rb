@@ -6,7 +6,7 @@ module NumbersAndWords
       module Languages
         class Pl < Cs
           def words
-            raise RangeError, 'Polish numbers must have magnitude below 10**48' if figures.drop(48).any?(&:positive?)
+            raise Translations::Families::Base.range_error(48) if figures.drop(48).any?(&:positive?)
 
             @options.ordinal.result
             @options.gender.result

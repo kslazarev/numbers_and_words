@@ -47,7 +47,7 @@ pt-BR:
     ordinal:
       ones:
         male: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
-        female: [zera, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
+        female: [zero, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
       tens:
         male: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
         female: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
@@ -55,8 +55,8 @@ pt-BR:
         male: [_, centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
         female: [_, centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
       mega:
-        male: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, sextilionésimo, septilionésimo, octilionésimo, nonilionésimo]
-        female: [_, milésima, milionésima, bilionésima, trilionésima, quadrilionésima, sextilionésima, septilionésima, octilionésima, nonilionésima]
+        male: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, quintilionésimo, sextilionésimo, septilionésimo, octilionésimo, nonilionésimo, decilionésimo]
+        female: [_, milésima, milionésima, bilionésima, trilionésima, quadrilionésima, quintilionésima, sextilionésima, septilionésima, octilionésima, nonilionésima, decilionésima]
     integral:
       one: inteiro
       other: inteiros
@@ -107,11 +107,11 @@ pt-BR:
       one: duodecilionésimo
       other: duodecilionésimos
     tredecillionths:
-      one: trecentilionésimo
-      other: trecentilionésimos
+      one: tredecilionésimo
+      other: tredecilionésimos
     quattuordecillionths:
-      one: quadringentilionésimo
-      other: quadringentilionésimos
+      one: quatuordecilionésimo
+      other: quatuordecilionésimos
     micro_separator: vírgula
     subunit_separator: e
     unit_scale_preposition: de

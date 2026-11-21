@@ -45,3 +45,8 @@ ro:
         biliarde: biliarda
     micro_separator: virgulă
     subunit_separator: și
+    # Before a unit, one is "un", or "o" before a feminine unit (un leu, o liră); compounds keep "unu" and "una".
+    before_unit:
+      whole:
+        unu: un
+        una: o

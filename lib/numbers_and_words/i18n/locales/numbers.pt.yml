@@ -6,6 +6,10 @@ pt:
     tens: [_, dez, vinte, trinta, quarenta, cinquenta, sessenta, setenta, oitenta, noventa]
     hundreds: [_, cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
     one_hundred: cem
+    # gender: :female, for the groups below a million (duas mil libras, but dois milhões).
+    female:
+      ones: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
+      hundreds: [_, cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: mil
     millions:

@@ -54,7 +54,8 @@ module NumbersAndWords
             # A few small ordinals are their own words; the rest add a suffix to the last word of the cardinal.
             def ordinal_words(number)
               forms = ordinal_forms
-              forms[:irregular][number] || "#{number.zero? ? @translations.ones(0) : number_words(number)}#{forms[:suffix]}"
+              irregular = forms[:irregular]
+              (irregular[number] if number < irregular.size) || "#{number.zero? ? @translations.ones(0) : number_words(number)}#{forms[:suffix]}"
             end
 
             # Decimals, and either part of one, keep the cardinal form.

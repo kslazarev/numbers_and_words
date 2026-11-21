@@ -214,6 +214,14 @@ ru:
 zh:
   units:
     yuan: 元
+he:
+  units:
+    shekel: { one: שקל, other: שקלים, gender: male }
+    agora: { one: אגורה, other: אגורות, gender: female }
+ar:
+  units:
+    dinar: { zero: دينار, one: دينار, two: ديناران, few: دنانير, many: دينارًا, other: دينار }
+    fils: { one: فلس, two: فلسان, few: فلوس, many: فلسًا, other: فلس }
 ```
 
 With these translations:
@@ -241,7 +249,7 @@ I18n.with_locale(:zh) { 21.to_words(unit: :yuan) }
 # => "二十一元"
 ```
 
-The unit follows the number after a space, or directly in languages written without spaces (Chinese, Japanese and Thai). With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar.
+The unit follows the number after a space, or directly in languages written without spaces (Chinese, Japanese and Thai). Hebrew and Arabic put one after its unit, and Arabic says two with the unit's dual form alone, as their language pages describe. Before a unit, a number takes the form a language uses before a noun, which its locale file lists under `numbers.before_unit`: German "ein Euro" and "eine Mark", Swedish "en krona", Italian "un euro", Romanian "un leu" and "o liră", Hungarian "két forint", Spanish "un euro" (see `apocopated` on its page). The unit's `gender` chooses between the forms where they differ. With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar. Decimals keep their cardinal form with `ordinal: true`.
 
 ```ruby
 I18n.with_locale(:en) { 21.to_words(unit: :dollar, ordinal: true) }
@@ -273,7 +281,7 @@ I18n.with_locale(:fr) { 1.5.to_words(unit: :euro) }
 # => "un virgule cinq euro"
 ```
 
-`subunit` spells an amount in two units, such as dollars and cents: the decimal places become the subunit, rounded half to even. `precision` sets how many decimal places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`, and a zero unit is left out with `remove_zero: true` in languages that support it. The two parts are joined with the language's word for it (`and` in English, `et` in French) or a space.
+`subunit` spells an amount in two units, such as dollars and cents: the decimal places become the subunit, rounded half to even. `precision` sets how many decimal places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`, and a zero unit is left out with `remove_zero: true` in languages that support it. The two parts are joined with the language's word for it (`and` in English, `et` in French), attached to the subunit in Hebrew and Arabic (`ו`, `و`), or a space.
 
 ```ruby
 I18n.with_locale(:en) { 21.5.to_words(unit: :dollar, subunit: :cent) }

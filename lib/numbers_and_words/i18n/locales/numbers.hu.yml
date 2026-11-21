@@ -20,3 +20,7 @@ hu:
       tens: tíz
       hundreds: száz
       union: ''
+    # Before a unit, "kettő" at the end of a number is "két" (két forint, huszonkét forint).
+    before_unit:
+      endings:
+        kettő: két

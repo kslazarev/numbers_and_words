@@ -5,9 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Languages
         # Malay counts like Indonesian: sebelas, seratus, seribu, satu juta.
-        class Ms < Id
-          LANGUAGE = 'Malay'
-        end
+        class Ms < Id; end
       end
     end
   end

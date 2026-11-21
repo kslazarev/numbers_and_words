@@ -60,3 +60,12 @@ to_words:
     0.7: sete décimos
     3.5: três e cinco décimos
     42.1: quarenta e dois e um décimo
+  female:
+    options:
+      :gender: female
+    2.2: 'duas vírgula duas'
+  female_as_fraction:
+    options:
+      :gender: female
+      :fraction: true
+    2.2: 'dois inteiros e dois décimos'

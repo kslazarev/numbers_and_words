@@ -9,12 +9,11 @@ module NumbersAndWords
         # tens "<digit> puluh" and hundreds "<digit> ratus". Ordinals add the prefix ke- (kedua puluh satu),
         # except pertama for 1. Malay uses the same rules with its own words.
         class Id < Base
-          LANGUAGE = 'Indonesian'
           MAX = 10**15
 
           def words
             number = @figures.to_a.reverse.join.to_i
-            raise RangeError, "#{self.class::LANGUAGE} numbers must be below 10**15" if number >= MAX
+            raise Translations::Families::Base.range_error(Math.log10(MAX).to_i) if number >= MAX
             return zero_words if number.zero?
 
             text = number_words(number)

@@ -16,7 +16,7 @@ module NumbersAndWords
       # The fraction noun for a number of decimal places: "една десета", "пет десети".
       def fraction(length, number)
         nouns = t(:fractions)[number == 1 ? :one : :many]
-        raise RangeError, "Bulgarian decimals support up to #{nouns.size - 1} fractional digits" if length >= nouns.size
+        raise Families::Base.decimal_range_error(nouns.size - 1) if length >= nouns.size
 
         nouns[length]
       end

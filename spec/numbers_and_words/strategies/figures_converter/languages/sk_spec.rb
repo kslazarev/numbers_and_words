@@ -6,11 +6,11 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Sk do
   around { |example| I18n.with_locale(:sk) { example.run } }
 
   it 'raises for numbers from 10**21' do
-    expect { (10**21).to_words }.to raise_error(RangeError, 'Slovak numbers must be below 10**21')
+    expect { (10**21).to_words }.to raise_error(RangeError, 'numbers must be below 10**21 in :sk')
   end
 
   it 'raises for more than nine fractional digits' do
-    expect { 0.5.to_words(precision: 10) }.to raise_error(RangeError, 'Slovak decimals support up to 9 fractional digits')
+    expect { 0.5.to_words(precision: 10) }.to raise_error(RangeError, 'decimals support up to 9 fractional digits in :sk')
   end
 
   it 'chooses the singular, the nominative plural or the genitive plural of a unit' do

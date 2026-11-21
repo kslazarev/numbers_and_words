@@ -20,3 +20,18 @@ ar:
       - { singular: تريليون, dual: تريليونان, plural: تريليونات, accusative: تريليونًا }
       - { singular: كوادريليون, dual: كوادريليونان, plural: كوادريليونات, accusative: كوادريليونًا }
       - { singular: كوينتليون, dual: كوينتليونان, plural: كوينتليونات, accusative: كوينتليونًا }
+    subunit_separator: و
+    subunit_separator_attached: true
+    # One follows its unit (دينار واحد) and two is the unit's dual alone (ديناران). A count above 100 ending in 01
+    # or 02 repeats the unit (مائة دينار ودينار), which isn't supported, and numbers agree only with masculine units.
+    unit_order:
+      after: [1]
+      alone: [2]
+      unsupported_after_hundred: [1, 2]
+    unit_masculine_only: true
+    # Before a unit, a dual scale word or hundred takes its construct form (ألفا دينار, مائتا دينار) and an
+    # accusative scale word loses its ending (أحد عشر ألف دينار).
+    before_unit:
+      endings:
+        ان: ا
+        ًا: ''

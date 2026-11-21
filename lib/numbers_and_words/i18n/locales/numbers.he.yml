@@ -18,3 +18,12 @@ he:
       male: [_, ראשון, שני, שלישי, רביעי, חמישי, שישי, שביעי, שמיני, תשיעי, עשירי]
       female: [_, ראשונה, שנייה, שלישית, רביעית, חמישית, שישית, שביעית, שמינית, תשיעית, עשירית]
     micro_separator: נקודה
+    subunit_separator: ו
+    subunit_separator_attached: true
+    # One follows its unit (שקל אחד) and two takes its construct form before it (שני שקלים, שתי אגורות).
+    unit_order:
+      after: [1]
+    before_unit:
+      whole:
+        שניים: שני
+        שתיים: שתי

@@ -47,3 +47,8 @@ sv:
       'plural': 'er'
       'scale_suffix': 'te'
       'leading_one': ['en', 'ett']
+    subunit_separator: och
+    # Before a unit, "ett" at the end of a number is "en", the common gender, or "ett" before a neuter unit.
+    before_unit:
+      endings:
+        ett: { other: en, neuter: ett }

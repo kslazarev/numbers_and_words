@@ -149,3 +149,19 @@ to_words:
     1000000000: 'bilionésimo'
     1000000000000: 'trilionésimo'
     1000001: 'milionésimo primeiro'
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000: 'quadrilionésimo'
+    1000000000000000000: 'quintilionésimo'
+    1000000000000000000000: 'sextilionésimo'
+    1000000000000000000000000000000: 'nonilionésimo'
+    1000000000000000000000000000000000: 'decilionésimo'
+    2000000000000000000000000000000000: 'segundo decilionésimo'
+  large_scale_female_ordinals:
+    options:
+      :ordinal: true
+      :gender: female
+    0: 'zero'
+    1000000000000000000: 'quintilionésima'
+    1000000000000000000000000000000000: 'decilionésima'

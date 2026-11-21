@@ -3,6 +3,9 @@
 require 'spec_helper'
 
 LIMIT_MULTIPLIERS = [1, 2].freeze
+LONG_DECIMALS = [0.1 + 0.2, 1.0e-15, 0.1234567891234567, 123.45678901234568, *(1..20).map { |digits| 10.0**-digits },
+                 *(1..17).map { |digits| "0.#{'1' * digits}".to_f }].freeze
+MICRO_PREFIX_KEYS = %w[tens hundreds].freeze
 UNSUPPORTED_DECIMALS = [1.5, -1.5, 2.0, [1, 1.5]].freeze
 
 describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers every language
@@ -26,6 +29,35 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
         end
       end
     end
+  end
+
+  # Floats with 1 to 20 fractional digits, as Float#to_s prints them: each reads completely, ending in its
+  # denominator rather than a bare prefix ("одна сто"), or raises RangeError. Readings of 10**-k differ for every k.
+  decimal_languages.each do |locale|
+    it "reads #{locale} decimals with up to 20 fractional digits completely or raises RangeError" do
+      prefixes = I18n.with_locale(locale) { MICRO_PREFIX_KEYS.map { |key| I18n.t("numbers.micro_prefix.#{key}", default: nil) } }.grep(String)
+      readings = LONG_DECIMALS.filter_map do |number|
+        words(locale, number)
+      rescue RangeError => e
+        expect(e.message).to match(/\Adecimals support up to \d+ fractional digits in #{locale.inspect}\z|\Anumbers must be below 10\*\*\d+ in #{locale.inspect}\z/)
+        nil
+      end
+      readings.each do |reading|
+        expect(reading).to eq(reading.strip).and(satisfy { |text| !text.include?('  ') && !text.include?('missing') })
+        expect(prefixes).not_to include(reading.split.last)
+      end
+      powers = (1..20).filter_map { |digits| words(locale, 10.0**-digits) rescue nil } # rubocop:disable Style/RescueModifier -- skips RangeError
+      expect(powers.uniq.size).to eq(powers.size)
+    end
+  end
+
+  it 'raises RangeError past the last fraction word' do
+    { ru: 23, uk: 23, cs: 23 }.each do |locale, digits|
+      expect(words(locale, 10.0**-digits)).not_to be_empty
+      expect { words(locale, 10.0**-(digits + 1)) }.to raise_error(RangeError, "decimals support up to #{digits} fractional digits in #{locale.inspect}")
+    end
+    expect([words(:ru, 0.1 + 0.2), words(:uk, 1.0e-15), words(:cs, 1.0e-17)])
+      .to eq(['ноль целых и тридцать квадриллионов четыре стоквадриллионных', 'нуль цілих і одна квадрильйонна', 'nula celých jedna stobiliardtina'])
   end
 
   it 'raises RangeError past the last scale word' do

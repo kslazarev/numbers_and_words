@@ -189,3 +189,12 @@ to_words:
     25: 'veinticinco'
     31: 'treinta y un'
     35: 'treinta y cinco'
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000000000000: 'cuatrillonésimo'
+    1000000000000000000000000000: 'milcuatrillonésimo'
+    1000000000000000000000000000000: 'quintillonésimo'
+    2000000000000000000000000000000: 'dosquintillonésimo'
+    1000000000000000000000000000000000000: 'sextillonésimo'
+    1000000000000000000000000000000000000000000000: 'milseptillonésimo'

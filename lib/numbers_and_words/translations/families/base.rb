@@ -4,6 +4,16 @@ module NumbersAndWords
   module Translations
     module Families
       module Base
+        # The RangeError for a number of 10**power or more in the current locale.
+        def self.range_error(power)
+          RangeError.new("numbers must be below 10**#{power} in #{::I18n.locale.inspect}")
+        end
+
+        # The RangeError for a decimal with more fractional digits than the current locale can name.
+        def self.decimal_range_error(digits)
+          RangeError.new("decimals support up to #{digits} fractional digits in #{::I18n.locale.inspect}")
+        end
+
         def teens(numbers, options = {})
           t("#{options[:prefix]}.teens")[numbers[0]]
         end
@@ -27,7 +37,7 @@ module NumbersAndWords
 
         # The scale word or key for 1000**capacity, or a RangeError past the last one the locale has.
         def scale(scales, capacity)
-          scales[capacity] || raise(RangeError, "numbers must be below 10**#{scales.size * 3} in #{::I18n.locale.inspect}")
+          scales[capacity] || raise(Base.range_error(scales.size * 3))
         end
 
         def union

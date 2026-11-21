@@ -23,11 +23,15 @@ module NumbersAndWords
           end
 
           def ones
-            super({ is_one_thousand: one_thousand? })
+            super({ is_one_thousand: one_thousand?, gender: })
+          end
+
+          def tens_with_ones
+            super({ gender: })
           end
 
           def hundreds
-            super({ is_hundred: hundred?, is_one_hundred: one_hundred? })
+            super({ is_hundred: hundred?, is_one_hundred: one_hundred?, gender: })
           end
 
           def megs
@@ -75,6 +79,14 @@ module NumbersAndWords
             number + (1000 * @figures.number_in_capacity(@current_capacity + 1))
           end
 
+          # gender: :female applies below a million (duzentas mil); milhão and larger scale nouns, and inteiro and
+          # décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos).
+          def gender
+            return if @current_capacity.to_i > 1 || (@options.options[:fraction] && (@options.options[:integral] || @options.options[:fractional]))
+
+            @options.gender.result
+          end
+
           def hundred?
             figures[0].zero? && figures[1].zero? && simple_number_to_words.empty?
           end
@@ -89,9 +101,10 @@ module NumbersAndWords
           def ordinal_words(text, number)
             return text if number.zero?
 
-            number.digits(1_000_000).each_with_index.reverse_each.filter_map do |group, power|
+            words = number.digits(1_000_000).each_with_index.reverse_each.filter_map do |group, power|
               million_ordinal(group, power) unless group.zero?
             end.join(' ')
+            ordinal_gender == :female ? words.gsub(/o\b/, 'a') : words
           end
 
           def million_ordinal(group, power)
