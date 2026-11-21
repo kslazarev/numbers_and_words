@@ -1,4 +1,4 @@
-## 1.1.0 (Next)
+## 2.0.0 (Next)
 
 ### Features
   * Add support for Ruby 4.0. \[[#211](https://github.com/kslazarev/numbers_and_words/pull/211)\]
