@@ -134,3 +134,18 @@ to_words:
     100: centésima
     9999: nona milésima noningentésima nonagésima nona
     73421: septuagésima terceira milésima quadringentésima vigésima primeira
+  female_scales:
+    options:
+      :gender: female
+    2000000: 'dois milhões'
+    21000: 'vinte e uma mil'
+    200000: 'duzentas mil'
+    2200000: 'dois milhões e duzentas mil'
+    1000000: 'um milhão'
+  scale_ordinals:
+    options:
+      :ordinal: true
+    1000000: 'milionésimo'
+    1000000000: 'bilionésimo'
+    1000000000000: 'trilionésimo'
+    1000001: 'milionésimo primeiro'

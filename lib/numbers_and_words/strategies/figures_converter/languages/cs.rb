@@ -45,7 +45,7 @@ module NumbersAndWords
             @current_capacity ||= 0
 
             if @current_capacity.zero?
-              options.gender.result
+              last_group_gender
             elsif @current_capacity > 2 && @current_capacity.odd?
               :female # miliardy, biliardy, triliardy...
             else
@@ -54,6 +54,13 @@ module NumbersAndWords
           end
 
           private
+
+          # Without a gender, ordinals are feminine (druhá) and cardinals use the counting forms (dvacet dva); the
+          # decimal decorators choose the feminine for both parts (dvě celé dvě desetiny).
+          def last_group_gender
+            gender = options.gender.result
+            gender == :counting && maybe_ordinal ? :female : gender
+          end
 
           def internal_options
             { gender:, prefix: maybe_ordinal }

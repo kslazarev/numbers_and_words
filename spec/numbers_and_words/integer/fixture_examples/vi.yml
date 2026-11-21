@@ -107,3 +107,11 @@ to_words:
     -1: âm một
     -42: âm bốn mươi hai
     -1005: âm một nghìn không trăm linh năm
+  eighteen:
+    18: 'mười tám'
+    118: 'một trăm mười tám'
+    18000: 'mười tám nghìn'
+  eighteen_ordinal:
+    options:
+      :ordinal: true
+    18: 'thứ mười tám'

@@ -2,7 +2,7 @@ to_words:
   ones:
     0: nula
     1: jedna
-    2: dvě
+    2: 'dva'
     3: tři
     4: čtyři
     5: pět
@@ -90,7 +90,7 @@ to_words:
     123_456_789: sto dvacet tři miliony čtyři sta padesát šest tisíc sedm set osmdesát devět
   miliardy:
     1_174_315_110: jedna miliarda sto sedmdesát čtyři miliony tři sta patnáct tisíc sto deset
-    35_568_717_692: třicet pět miliard pět set šedesát osm milionů sedm set sedmnáct tisíc šest set devadesát dvě
+    35_568_717_692: třicet pět miliard pět set šedesát osm milionů sedm set sedmnáct tisíc šest set devadesát dva
   biliony:
     2_935_174_315_119: dva biliony devět set třicet pět miliard sto sedmdesát čtyři miliony tři sta patnáct tisíc sto devatenáct
 
@@ -153,3 +153,13 @@ to_words:
     2021: dvoutisící dvacátý první
     5100: pětitisící stý
     9999: devítitisící devítistý devadesátý devátý
+  counting:
+    22: 'dvacet dva'
+    32: 'třicet dva'
+    1002: 'tisíc dva'
+    2000002: 'dva miliony dva'
+  counting_female:
+    options:
+      :gender: female
+    22: 'dvacet dvě'
+    1002: 'tisíc dvě'

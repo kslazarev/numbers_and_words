@@ -14,7 +14,7 @@ to_words:
     0.2935174315119: nulla egész kétbillió-kilencszázharmincötmilliárd-százhetvennégymillió-háromszáztizenötezer-száztizenkilenc tízbilliomod
     21.77: huszonegy egész hetvenhét század
     111.999: száztizenegy egész kilencszázkilencvenkilenc ezred
-    4242.7463: négyezer-kétszáznegyvenkettő egész hétezer-négyszázhatvanhárom tízezred
+    4242.7463: 'négyezer-kétszáznegyvenkét egész hétezer-négyszázhatvanhárom tízezred'
     1111.4444: ezerszáztizenegy egész négyezer-négyszáznegyvennégy tízezred
     4444.1111: négyezer-négyszáznegyvennégy egész ezerszáztizenegy tízezred
   remove_zero:
@@ -23,4 +23,9 @@ to_words:
     0.1: "egy tized"
     0.7: "hét tized"
     0.05: "öt század"
-    42.1: "negyvenkettő egész egy tized"
+    42.1: 'negyvenkét egész egy tized'
+  two_before_nouns:
+    2.2: 'két egész két tized'
+    0.02: 'nulla egész két század'
+    22.22: 'huszonkét egész huszonkét század'
+    2.0: 'kettő'

@@ -32,6 +32,8 @@ I18n.with_locale(:es) { [11, 22, 133].to_words }
 
 ## Decimals
 
+Decimals are read as the integral part, `con`, and the fractional part as a number of décimas, centésimas, milésimas and so on, counted in the feminine.
+
 ```ruby
 I18n.with_locale(:es) { 21.77.to_words }
 # => "veintiuno con setenta y siete centésimas"
@@ -59,7 +61,7 @@ I18n.with_locale(:es) { 21.77.to_words(micro_separator: "plus") }
 
 ### Apocopated
 
-`apocopated: true` shortens a final masculine `uno` to `un`, as before a masculine noun. The feminine `una` is not shortened.
+`apocopated: true` shortens a final masculine `uno` to `un`, and the ordinals `primero` and `tercero` to `primer` and `tercer`, as before a masculine noun. The feminine `una` is not shortened. With a [`unit`](../../README.md#unit) that isn't feminine, the number is shortened unless `apocopated: false` is given (un euro, veintiún céntimos).
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(apocopated: true) }
@@ -70,11 +72,14 @@ I18n.with_locale(:es) { 201.to_words(apocopated: true) }
 
 I18n.with_locale(:es) { 201.to_words(gender: :female, apocopated: true) }
 # => "doscientas una"
+
+I18n.with_locale(:es) { 21.to_words(ordinal: true, apocopated: true) }
+# => "vigésimo primer"
 ```
 
 ### Gender
 
-`gender: :male` (default) or :female
+`gender: :male` (default) or `gender: :female`
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(gender: :female) }

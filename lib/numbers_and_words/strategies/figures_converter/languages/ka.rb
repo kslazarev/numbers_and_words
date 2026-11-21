@@ -40,10 +40,23 @@ module NumbersAndWords
           def ordinal_words(text, number)
             return ordinals[:first] if number == 1
 
+            check_scale_ordinal!(number)
+
             with_last_word(without_leading_one(text)) do |word|
               head, separator, tail = word.rpartition(ordinals[:compound])
               "#{head}#{separator}#{ordinals[:prefix]}#{tail[0..-2]}#{ordinals[:suffix]}"
             end
+          end
+
+          # A multiple of a thousand or more with a multiplier other than one ("ორი მეათასე") would read as a
+          # fraction, and its ordinal form needs a native speaker's review, so it raises instead.
+          def check_scale_ordinal!(number)
+            return if number.zero? || !(number % 1000).zero?
+
+            number /= 1000 while (number % 1000).zero?
+            return if number % 1000 == 1
+
+            raise RangeError, 'Georgian ordinals of multiples of a thousand or more are supported only for one (მეათასე, მემილიონე)'
           end
         end
       end

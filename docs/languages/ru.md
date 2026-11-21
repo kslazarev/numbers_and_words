@@ -71,7 +71,7 @@ I18n.with_locale(:ru) { 1001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). `gender:` selects the masculine, feminine or neuter ending.
+`ordinal: true` makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). A thousand of one is read without одна ("тысяча первый"), as the cardinal keeps it ("одна тысяча один"). `gender:` selects the masculine, feminine or neuter ending.
 
 ```ruby
 I18n.with_locale(:ru) { 1.to_words(ordinal: true) }
@@ -82,6 +82,9 @@ I18n.with_locale(:ru) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:ru) { 2_000.to_words(ordinal: true) }
 # => "двухтысячный"
+
+I18n.with_locale(:ru) { 1001.to_words(ordinal: true) }
+# => "тысяча первый"
 
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, gender: :female) }
 # => "двадцать первая"

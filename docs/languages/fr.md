@@ -81,7 +81,7 @@ I18n.with_locale(:fr) { 0.1.to_words(fraction: true) }
 
 ### Ordinal
 
-`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux-centième"). Decimals keep the cardinal form.
+`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux-centième"). The ordinal of a round million or larger is a numeral, so the 1990 spelling joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:fr) { 1.to_words(ordinal: true) }
@@ -95,6 +95,12 @@ I18n.with_locale(:fr) { 80.to_words(ordinal: true) }
 
 I18n.with_locale(:fr) { 200.to_words(ordinal: true) }
 # => "deux-centième"
+
+I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true) }
+# => "deux-millionième"
+
+I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true, spelling: :traditional) }
+# => "deux millionième"
 ```
 
 ### Remove Zero

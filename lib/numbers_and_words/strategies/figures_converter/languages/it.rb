@@ -41,7 +41,9 @@ module NumbersAndWords
           def hundreds_number_to_words
             # Join hundreds with simple numbers without space (e.g., "centouno" not "cento uno")
             # Return as single element array so it doesn't get re-joined with spaces
-            [[hundreds, simple_number_to_words.join].join]
+            rest = simple_number_to_words.join
+            # "cento" drops its final o before otto and ottanta ("centotto", "duecentottanta")
+            [[rest.start_with?('o') ? hundreds.delete_suffix('o') : hundreds, rest].join]
           end
 
           def megs

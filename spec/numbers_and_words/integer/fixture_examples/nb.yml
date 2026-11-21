@@ -141,3 +141,8 @@ to_words:
     1000: tusende
     2000: to tusende
     1000000: millionte
+  neuter_thousand:
+    101000: 'hundre og ett tusen'
+    201000: 'to hundre og ett tusen'
+    101001: 'hundre og ett tusen og en'
+    21000: 'tjueen tusen'

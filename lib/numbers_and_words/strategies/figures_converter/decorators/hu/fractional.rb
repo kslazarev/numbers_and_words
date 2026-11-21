@@ -7,7 +7,7 @@ module NumbersAndWords
         module Hu
           class Fractional < Base
             def run
-              "#{super} #{fraction_significance}"
+              "#{before_noun(super)} #{fraction_significance}"
             end
 
             private

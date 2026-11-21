@@ -116,7 +116,7 @@ to_words:
     111: al o sută unsprezecelea
     200: al două sutelea
     999: al nouă sute nouăzeci și nouălea
-    1000: al o mielea
+    1000: 'al o miilea'
     1001: al o mie unulea
     2000: al două miilea
     2021: al două mii douăzeci și unulea
@@ -175,7 +175,7 @@ to_words:
     101: al o sută unulea
     111: al o sută unsprezecelea
     200: al două sutelea
-    1000: al o mielea
+    1000: al o miilea
     2000: al două miilea
   female gender:
     options:
@@ -277,5 +277,11 @@ to_words:
     101: al o sută unulea
     111: al o sută unsprezecelea
     200: al două sutelea
-    1000: al o mielea
+    1000: al o miilea
     2000: al două miilea
+  thousand_ordinal:
+    options:
+      :ordinal: true
+    1000: 'al o miilea'
+    2000: 'al două miilea'
+    3000: 'al trei miilea'

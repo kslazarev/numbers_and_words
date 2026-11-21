@@ -2,7 +2,7 @@
 
 Norsk bokmål. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the modern counting system (tjueen, not en og tjue) and the forms sju and tretti rather than syv and tredve. "og" joins tens and ones to hundreds (hundre og en) and a last part below one hundred to the rest of the number (tusen og en). A leading hundred or thousand is read without "ett" (hundre, tusen), and "ett hundre" or "ett tusen" after a larger part. Million and larger scale words are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
+Numbers use the modern counting system (tjueen, not en og tjue) and the forms sju and tretti rather than syv and tredve. "og" joins tens and ones to hundreds (hundre og en) and a last part below one hundred to the rest of the number (tusen og en). Tusen is neuter, so a final one before it is ett (hundre og ett tusen). A leading hundred or thousand is read without "ett" (hundre, tusen), and "ett hundre" or "ett tusen" after a larger part. Million and larger scale words are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
 
 ## Examples
 

@@ -106,6 +106,9 @@ I18n.with_locale(:ro) { 2.to_words(ordinal: true, gender: :female) }
 
 I18n.with_locale(:ro) { 100.to_words(ordinal: true) }
 # => "al o sutălea"
+
+I18n.with_locale(:ro) { 1000.to_words(ordinal: true) }
+# => "al o miilea"
 ```
 
 ### Remove Zero

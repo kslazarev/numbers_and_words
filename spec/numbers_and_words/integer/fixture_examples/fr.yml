@@ -146,3 +146,14 @@ to_words:
   negative:
     -1: moins un
     -80: moins quatre-vingts
+  scale_ordinal:
+    options:
+      :ordinal: true
+    2000000: 'deux-millionième'
+    21000000: 'vingt-et-un-millionième'
+    1000000: 'millionième'
+  scale_ordinal_traditional:
+    options:
+      :ordinal: true
+      :spelling: traditional
+    2000000: 'deux millionième'

@@ -24,3 +24,5 @@ to_words:
     0.7: "phẩy bảy"
     0.05: "phẩy không năm"
     42.1: "bốn mươi hai phẩy một"
+  eighteen:
+    0.18: 'không phẩy mười tám'

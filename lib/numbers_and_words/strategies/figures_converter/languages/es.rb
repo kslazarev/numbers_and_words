@@ -55,8 +55,7 @@ module NumbersAndWords
 
           # Apocope shortens the masculine "uno" ("veintiún", "novecientos un"); the feminine keeps "una".
           def one_apocopated?
-            (@current_capacity.positive? && @figures.ones == 1) ||
-              (@options.apocopated.result && gender != :female)
+            @figures.ones == 1 && (@current_capacity.positive? || (@options.apocopated.result && gender != :female))
           end
 
           def hundred_apocopated?
@@ -83,7 +82,14 @@ module NumbersAndWords
             words = number.digits(1000).each_with_index.reverse_each.filter_map do |group, power|
               group_ordinal(group, power) unless group.zero?
             end.join(' ')
-            ordinal_gender == :female ? words.gsub(/o\b/, 'a') : words
+            return words.gsub(/o\b/, 'a') if ordinal_gender == :female
+
+            @options.apocopated.result ? apocopated_ordinal(words) : words
+          end
+
+          # Before a masculine noun primero and tercero drop their final o ("primer", "vigésimo tercer").
+          def apocopated_ordinal(words)
+            words.sub(/(primer|tercer)o\z/, '\\1')
           end
 
           def group_ordinal(group, power)

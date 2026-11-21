@@ -65,8 +65,9 @@ module NumbersAndWords
         Wrappers::Integer.new(fractional_part.to_i).to_words options.merge(fractional_options)
       end
 
+      # with_fraction: tells the integral part whether a fractional part follows it.
       def integral_options
-        { integral: {} }
+        { integral: { with_fraction: !fractional_part_is_nil? } }
       end
 
       def fractional_options
