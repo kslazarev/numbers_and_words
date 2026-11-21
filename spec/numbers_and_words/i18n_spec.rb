@@ -58,7 +58,9 @@ describe NumbersAndWords::I18n do
       'Thai' => %w[th],
       'Han' => %w[zh],
       'Hebrew' => %w[he],
-      'Arabic' => %w[ar]
+      'Arabic' => %w[ar ur],
+      'Devanagari' => %w[hi],
+      'Bengali' => %w[bn]
     }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|
