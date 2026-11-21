@@ -17,9 +17,14 @@ describe 'documentation examples' do # rubocop:disable RSpec/DescribeClass -- ch
 
   examples.each do |example|
     it "#{example.path}:#{example.line} #{example.code}" do
+      # An application renders pages in its own locales, including ones without bundled rules (see fallback).
+      available_locales = I18n.available_locales
+      I18n.available_locales = available_locales | [example.locale]
       words = I18n.with_locale(example.locale) { example.receiver.to_words(example.options) }
 
       expect(words.inspect).to eq(example.expected)
+    ensure
+      I18n.available_locales = available_locales
     end
   end
 

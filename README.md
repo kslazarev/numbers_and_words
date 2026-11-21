@@ -153,9 +153,23 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 # => "twenty-one plus seventy-seven hundredths"
 ```
 
+### Fallback
+
+`fallback` chooses what happens when the gem cannot convert in the current locale, because the locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set `fallback` to a bundled locale to convert in that locale instead, or to `true` to return the number's digits. There is no implicit fallback locale.
+
+```ruby
+I18n.with_locale(:zh) { 42.to_words(fallback: :fr) }
+# => "quarante-deux"
+
+I18n.with_locale(:zh) { 42.to_words(fallback: true) }
+# => "42"
+```
+
+The other options are validated for the fallback locale. `I18n.with_locale` itself raises `I18n::InvalidLocale` for a locale missing from `I18n.available_locales`, before the gem is called. To set a fallback for every call, see [Configuration](#configuration--конфигурация); `fallback: false` disables it for one call.
+
 ### Unsupported Options
 
-Every language accepts `precision` and `micro_separator`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
+Every language accepts `precision`, `micro_separator` and `fallback`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
 
 For example, French has no ordinals, so `21.to_words(ordinal: true)` in the `fr` locale raises:
 
@@ -181,7 +195,13 @@ NumbersAndWords.config.locales = [:en, :ru]
 
 Locale strings and aliases such as `"en-US"` are normalized to their bundled locale. Set `locales` to `nil` to restore all bundled locales, or `[]` to load none. Unsupported locales raise `ArgumentError` without changing the configuration. A direct assignment takes effect immediately; settings in a `configure` block take effect when the block completes, and not at all if it raises.
 
-Configuration replaces only this gem's locale files in `I18n.load_path` and filters its pluralization rules. Application translation files and an explicitly assigned `I18n.available_locales` are preserved. Conversion in a disabled bundled locale raises `Language not configured`, even if the application has other translations for it.
+Set `fallback` to convert in another locale, or to return digits, when the gem cannot convert in the current locale (see [Fallback](#fallback)). The `fallback` option of `to_words` overrides it for one call.
+
+```ruby
+NumbersAndWords.config.fallback = :en
+```
+
+Configuration replaces only this gem's locale files in `I18n.load_path` and filters its pluralization rules. Application translation files and an explicitly assigned `I18n.available_locales` are preserved. Conversion in a disabled bundled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set, even if the application has other translations for it.
 
 Require the gem before your application looks up any translations, as Rails does for gems; files added to `I18n.load_path` after translations are loaded are not picked up until I18n reloads. Configure during application initialization. Applying configuration reloads the configured I18n backend, just like assigning `I18n.load_path`, so store any runtime-only translations afterwards. Repeated configuration is supported and does not duplicate the gem's load paths. The gem does not change `I18n.locale` or `I18n.default_locale`: keep their translations available, or switch your application's current and default locales before removing their previous locale.
 

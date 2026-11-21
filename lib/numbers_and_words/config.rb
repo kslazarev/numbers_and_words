@@ -2,13 +2,14 @@
 
 module NumbersAndWords
   class Config
-    attr_reader :locales
+    attr_reader :locales, :fallback
 
     # NumbersAndWords.config applies each setting as soon as it is assigned.
     # The config that configure yields only collects settings until its block completes.
     def initialize(apply: false)
       @apply = apply
       @locales = nil
+      @fallback = nil
     end
 
     # Validates every locale before changing anything, so an unsupported locale leaves the configuration as it was.
@@ -18,13 +19,19 @@ module NumbersAndWords
       I18n::Initialization.load_locales(normalized) if @apply
     end
 
+    # What to_words does when the gem cannot convert in the current locale: nil or false raises,
+    # a bundled locale converts in that locale, and true returns the number's digits.
+    def fallback=(fallback)
+      @fallback = Fallback.normalize(fallback)
+    end
+
     private
 
     def normalize_locale(locale)
       raise ArgumentError, "Unsupported locale: #{locale.inspect}" unless locale.is_a?(String) || locale.is_a?(Symbol)
 
       I18n.normalize_language(locale.to_sym)
-    rescue RuntimeError
+    rescue UnsupportedLanguageError
       raise ArgumentError, "Unsupported locale: #{locale.inspect}"
     end
   end
@@ -38,8 +45,10 @@ module NumbersAndWords
     def configure
       candidate = Config.new
       candidate.locales = config.locales
+      candidate.fallback = config.fallback
       yield candidate
       config.locales = candidate.locales
+      config.fallback = candidate.fallback
     end
   end
 end
