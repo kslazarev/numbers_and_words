@@ -98,6 +98,7 @@ es:
       other: milseptillonésimas
     micro_separator: con
     subunit_separator: con
+    unit_scale_preposition: de
     micro_prefix:
       tens: diez
       hundreds: cien

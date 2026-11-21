@@ -173,6 +173,70 @@ describe NumbersAndWords::Unit do
     end
   end
 
+  describe 'after a scale word' do
+    before do
+      I18n.backend.store_translations(:'pt-BR', units: { real: { one: 'real', other: 'reais' }, centavo: { one: 'centavo', other: 'centavos' } })
+      I18n.backend.store_translations(:es, units: { euro: { one: 'euro', other: 'euros' }, centimo: { one: 'céntimo', other: 'céntimos' } })
+      I18n.backend.store_translations(:it, units: { euro: 'euro', centesimo: { one: 'centesimo', other: 'centesimi' } })
+      I18n.backend.store_translations(:'fr-CH', units: { franc: { one: 'franc', other: 'francs' } })
+      I18n.backend.store_translations(:fr, units: { dollar: { one: 'dollar', other: 'dollars' }, ecu: { one: 'écu', other: 'écus' },
+                                                    hectare: { one: 'hectare', other: 'hectares', elision: true },
+                                                    hertz: { one: 'hertz', other: 'hertz' }, ohm: { one: 'ohm', other: 'ohms', elision: false } })
+      I18n.backend.store_translations(:ro, units: { leu: { one: 'leu', few: 'lei', other: 'de lei' } })
+    end
+
+    it 'puts de before the unit in Brazilian Portuguese, only when the number ends in a scale word of a million or more' do
+      expect([1_000_000, 2_000_000, 1_000_000_000, 3_000_000_000_000, -1_000_000].map { |number| words(:'pt-BR', number, unit: :real) })
+        .to eq(['um milhão de reais', 'dois milhões de reais', 'um bilhão de reais', 'três trilhões de reais', 'um milhão de reais'])
+      expect([1_000, 2_000, 1_000_100, 1_001_000, 21].map { |number| words(:'pt-BR', number, unit: :real) })
+        .to eq(['mil reais', 'dois mil reais', 'um milhão e cem reais', 'um milhão e mil reais', 'vinte e um reais'])
+    end
+
+    it 'counts mil milhões as ending in a scale word in the European Portuguese long scale' do
+      expect([1_000_000, 1_000_000_000, 2_000_000_000_000, 1_000_000_001].map { |number| words(:pt, number, unit: :euro) })
+        .to eq(['um milhão de euros', 'mil milhões de euros', 'dois biliões de euros', 'mil milhões e um euros'])
+    end
+
+    it 'puts de before the unit in Spanish' do
+      expect([1_000_000, 2_000_000, 1_000_000_000, 1_000_100, 1_000].map { |number| words(:es, number, unit: :euro) })
+        .to eq(['un millón de euros', 'dos millones de euros', 'mil millones de euros', 'un millón cien euros', 'mil euros'])
+    end
+
+    it 'puts di before the unit in Italian' do
+      expect([1_000_000, 2_000_000, 1_000_000_000, 1_000_100, 1_000].map { |number| words(:it, number, unit: :euro) })
+        .to eq(['un milione di euro', 'due milioni di euro', 'un miliardo di euro', 'un milione cento euro', 'mille euro'])
+    end
+
+    it "elides de to d' before a vowel in French, and lets a unit choose for a word with h" do
+      expect([words(:fr, 1_000_000, unit: :euro), words(:fr, 2_000_000, unit: :ecu), words(:fr, 2_000_000, unit: :dollar),
+              words(:fr, 1_000_000_000, unit: :euro), words(:'fr-CH', 3_000_000, unit: :franc)])
+        .to eq(["un million d'euros", "deux millions d'écus", 'deux millions de dollars', "un milliard d'euros", 'trois millions de francs'])
+      expect([words(:fr, 2_000_000, unit: :hectare), words(:fr, 2_000_000, unit: :hertz), words(:fr, 2_000_000, unit: :ohm)])
+        .to eq(["deux millions d'hectares", 'deux millions de hertz', 'deux millions de ohms'])
+      expect([words(:fr, 1_000_100, unit: :euro), words(:fr, 1_000, unit: :euro)]).to eq(['un million cent euros', 'mille euros'])
+    end
+
+    it 'puts the preposition before the unit and not the subunit of an amount' do
+      expect([words(:'pt-BR', 1_000_000.5, unit: :real, subunit: :centavo), words(:es, 2_000_000.25, unit: :euro, subunit: :centimo),
+              words(:it, 1_000_000.5, unit: :euro, subunit: :centesimo), words(:fr, 1_000_000.5, unit: :euro, subunit: :centime),
+              words(:'pt-BR', 1_000_100.5, unit: :real, subunit: :centavo)])
+        .to eq(['um milhão de reais e cinquenta centavos', 'dos millones de euros con veinticinco céntimos', 'un milione di euro e cinquanta centesimi',
+                "un million d'euros et cinquante centimes", 'um milhão e cem reais e cinquenta centavos'])
+    end
+
+    it 'leaves decimals, ordinals, zero and other languages unchanged' do
+      expect([words(:'pt-BR', 1_000_000.5, unit: :real), words(:fr, 1_500_000.0, unit: :euro), words(:fr, 2_000_000.0, unit: :euro)])
+        .to eq(['um milhão vírgula cinco reais', 'un million cinq-cent-mille euros', "deux millions d'euros"])
+      expect([words(:es, 1_000_000, unit: :euro, ordinal: true), words(:'pt-BR', 0, unit: :real), words(:en, 1_000_000, unit: :dollar)])
+        .to eq(['millonésimo euro', 'zero reais', 'one million dollars'])
+    end
+
+    it 'keeps the Romanian de, which comes from the unit forms' do
+      expect([1_000, 1_000_000, 2_000_000, 1_000_100].map { |number| words(:ro, number, unit: :leu) })
+        .to eq(['o mie de lei', 'un milion de lei', 'două milioane de lei', 'un milion o sută de lei'])
+    end
+  end
+
   describe 'errors' do
     it 'raises for a unit without a translation' do
       expect { words(:ru, 1, unit: :dollar) }

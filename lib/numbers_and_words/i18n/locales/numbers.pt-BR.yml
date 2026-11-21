@@ -111,6 +111,7 @@ pt-BR:
       other: quadringentilionésimos
     micro_separator: vírgula
     subunit_separator: e
+    unit_scale_preposition: de
     fraction_separator: e
     micro_prefix:
       tens:
