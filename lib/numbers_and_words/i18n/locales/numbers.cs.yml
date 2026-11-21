@@ -13,9 +13,9 @@ cs:
       few: tisíce
       many: tisíc
     millions:
-      one: milión
-      few: milióny
-      many: miliónů
+      one: milion
+      few: miliony
+      many: milionů
     billions:
       one: miliarda
       few: miliardy
@@ -61,7 +61,11 @@ cs:
         male: [_, stý, dvoustý, třístý, čtyřstý, pětistý, šestistý, sedmistý, osmistý, devítistý]
         female: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
         neuter: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
-    integral: celých
+    integral:
+      one: celá
+      few: celé
+      many: celých
+      other: celých
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths]
     tenths:
       one: desetina
@@ -76,9 +80,9 @@ cs:
       few: tisíciny
       many: tisícin
     millionths:
-      one: milióntina
-      few: milióntiny
-      many: milióntin
+      one: miliontina
+      few: miliontiny
+      many: miliontin
     billionths:
       one: miliardtina
       few: miliardtiny

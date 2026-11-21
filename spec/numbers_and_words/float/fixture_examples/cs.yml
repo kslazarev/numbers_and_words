@@ -6,14 +6,19 @@ to_words:
     0.77: nula celých sedmdesát sedm setin
     0.777: nula celých sedm set sedmdesát sedm tisícin
     0.7777: nula celých sedm tisíc sedm set sedmdesát sedm desetitisícin
-    0.21021: nula celých dvacet jeden tisíc dvacet jedna stotisícina
-    0.293517431: nula celých dvě stě devadesát tři milióny pět set sedmnáct tisíc čtyři sta třicet jedna miliardtina
+    0.21021: nula celých dvacet jeden tisíc dvacet jedna stotisícin
+    0.293517431: nula celých dvě stě devadesát tři miliony pět set sedmnáct tisíc čtyři sta třicet jedna miliardtin
     21.77: dvacet jedna celých sedmdesát sedm setin
+    0.31: nula celých třicet jedna setin
+    0.22: nula celých dvacet dvě setiny
+    1.01: jedna celá jedna setina
+    2.5: dvě celé pět desetin
+    5.5: pět celých pět desetin
     111.999: jedno sto jedenáct celých devět set devadesát devět tisícin
-    4242.7463: čtyři tisíce dvě stě čtyřicet dvě celých sedm tisíc čtyři sta šedesát tři desetitisíciny
+    4242.7463: čtyři tisíce dvě stě čtyřicet dvě celé sedm tisíc čtyři sta šedesát tři desetitisíciny
   fractions_without_zero:
     options:
       :remove_zero: true
     0.1: jedna desetina
     0.7: sedm desetin
-    42.1: čtyřicet dvě celých jedna desetina
+    42.1: čtyřicet dvě celé jedna desetina
