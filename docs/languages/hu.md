@@ -1,0 +1,43 @@
+# Hungarian (`hu`)
+
+Magyar.
+
+## Examples
+
+```ruby
+I18n.with_locale(:hu) { 0.to_words }
+# => "nulla"
+
+I18n.with_locale(:hu) { 21.to_words }
+# => "huszonegy"
+
+I18n.with_locale(:hu) { 231.to_words }
+# => "kettőszázharmincegy"
+
+I18n.with_locale(:hu) { 4030.to_words }
+# => "négyezer-harminc"
+
+I18n.with_locale(:hu) { 1_000_100.to_words }
+# => "egymillió-egyszáz"
+
+I18n.with_locale(:hu) { 2_000_000_000.to_words }
+# => "kettőmilliárd"
+
+I18n.with_locale(:hu) { [1, 2, 3].to_words }
+# => ["egy", "kettő", "három"]
+
+I18n.with_locale(:hu) { [11, 22, 133].to_words }
+# => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+
+I18n.with_locale(:hu) { 21.77.to_words }
+# => "huszonegy egész hetvenhét század"
+```
+
+## Ordinal
+
+`ordinal: true`
+
+```ruby
+I18n.with_locale(:hu) { 21.to_words(ordinal: true) }
+# => "huszonegyedik"
+```

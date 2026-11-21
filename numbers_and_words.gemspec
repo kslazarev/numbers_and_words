@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = 'This gem spells out numbers in several languages using the I18n gem.'
   s.required_ruby_version = '>= 3.2.0'
   s.files = Dir['lib/**/*']
-  s.extra_rdoc_files = %w[CHANGELOG.md LICENSE.txt README.rdoc]
+  s.extra_rdoc_files = %w[CHANGELOG.md LICENSE.txt README.md]
   s.require_paths = ['lib']
   s.metadata = {
     'changelog_uri' => 'https://github.com/kslazarev/numbers_and_words/blob/master/CHANGELOG.md',

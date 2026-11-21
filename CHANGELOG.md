@@ -12,6 +12,7 @@
   * Upgrade RuboCop to 1.92.3 with exact lint tool versions. \[[#238](https://github.com/kslazarev/numbers_and_words/pull/238)\] \([@dblock](https://github.com/dblock)\)
   * Document breaking changes and how to upgrade in UPGRADING.md, linked from the README. \[[#256](https://github.com/kslazarev/numbers_and_words/pull/256)\] \([@dblock](https://github.com/dblock)\)
   * Spell French and Swiss French numbers with the 1990 reform by default (`trois-cent-vingt-et-un`) and add `traditional: true` for the earlier spelling; see UPGRADING.md. \[[#257](https://github.com/kslazarev/numbers_and_words/pull/257)\] \([@dblock](https://github.com/dblock)\)
+  * Convert the README to Markdown with a supported-language table, move per-language examples and options to generated pages in docs/languages, and link contributors to their GitHub profiles. \[[#259](https://github.com/kslazarev/numbers_and_words/pull/259)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

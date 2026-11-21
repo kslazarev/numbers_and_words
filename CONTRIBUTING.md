@@ -65,7 +65,7 @@ Make sure that `bundle exec rake` completes without errors.
 
 ### Write Documentation
 
-Document any external behavior in the [README](README.rdoc).
+Document any external behavior in the [README](README.md) or the relevant [language page](docs/languages).
 
 ### Update Changelog
 
@@ -122,11 +122,29 @@ git push origin my-feature-branch -f
 
 ### Check on Your Pull Request
 
-Go back to your pull request after a few minutes and see whether it passed muster with Travis-CI. Everything should look green, otherwise fix issues and amend your commit as described above.
+Go back to your pull request after a few minutes and see whether it passed muster with GitHub Actions. Everything should look green, otherwise fix issues and amend your commit as described above.
 
 ### Be Patient
 
 It's likely that your change will not be merged and that the nitpicky maintainers will ask you to do more, or fix seemingly benign problems. Hang on there!
+
+## Language Documentation
+
+Each supported language has a page in [docs/languages](docs/languages) with examples and the options it supports, linked from the table in the [README](README.md). When you change a language's output or add an option, update its page. To add a language, add a page and a row to the README table.
+
+Native speakers are especially welcome to review the examples and report or fix anything that reads wrong. A language is marked experimental in the README while it has known gaps or no native-speaker review; its page explains why. Remove the mark, and the explanation, in the PR that closes the last gap.
+
+## Contributors
+
+* [Kirill Lazarev](https://github.com/kslazarev)
+* [Daniel Doubrovkine](https://github.com/dblock)
+* [Sergey Shkirando](https://github.com/Shk-Serji)
+* [Ulrich Sossou](https://github.com/sorich87)
+* [eLod](https://github.com/eLod)
+* [Mārtiņš Spriņģis](https://github.com/martinsspringis)
+* [Miks Miķelsons](https://github.com/miks)
+
+See also [all contributors](https://github.com/kslazarev/numbers_and_words/graphs/contributors).
 
 ## Thank You
 
