@@ -93,36 +93,36 @@ Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option
 
 ## Supported Languages / Языки / Langues Supportées
 
-Each language page has examples and the options that language supports.
+Each language page has examples, says whether decimals are supported, and documents every option the language accepts, including the shared `precision` and `micro_separator`.
 
-| Language | Name | Code | Decimals | Ordinals |
-| --- | --- | --- | --- | --- |
-| [Armenian](docs/languages/hy.md) | Հայերեն | `hy` | no | no |
-| [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` | yes | yes |
-| [British English](docs/languages/en-GB.md) | English (British) | `en-GB` | yes | yes |
-| [Czech](docs/languages/cs.md) | Čeština | `cs` | yes | yes |
-| [Danish](docs/languages/da.md) | Dansk | `da` | no | no |
-| [Dutch](docs/languages/nl.md) | Nederlands | `nl` | yes | no |
-| [English](docs/languages/en.md) | English | `en` | yes | yes |
-| [Estonian](docs/languages/et.md) | Eesti | `et` | no | no |
-| [French](docs/languages/fr.md) | Français | `fr` | yes | no |
-| [Georgian](docs/languages/ka.md) | ქართული | `ka` | no | no |
-| [German](docs/languages/de.md) | Deutsch | `de` | yes | yes |
-| [Hungarian](docs/languages/hu.md) | Magyar | `hu` | yes | yes |
-| [Italian](docs/languages/it.md) | Italiano | `it` | yes | no |
-| [Kazakh](docs/languages/kz.md) | Қазақша | `kz` | no | no |
-| [Latvian](docs/languages/lv.md) | Latviešu | `lv` | no | no |
-| [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` | no | no |
-| [Polish](docs/languages/pl.md)* | Polski | `pl` | yes | yes |
-| [Portuguese](docs/languages/pt.md) | Português | `pt` | yes | no |
-| [Russian](docs/languages/ru.md) | Русский | `ru` | yes | no |
-| [Spanish](docs/languages/es.md) | Español | `es` | yes | no |
-| [Swedish](docs/languages/se.md)* | Svenska | `se` | no | no |
-| [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` | yes | no |
-| [Thai](docs/languages/th.md)* | ภาษาไทย | `th` | yes | yes |
-| [Turkish](docs/languages/tr.md) | Türkçe | `tr` | no | no |
-| [Ukrainian](docs/languages/ua.md) | Українська | `ua` | yes | no |
-| [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` | yes | no |
+| Language | Name | Code |
+| --- | --- | --- |
+| [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
+| [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
+| [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
+| [Czech](docs/languages/cs.md) | Čeština | `cs` |
+| [Danish](docs/languages/da.md) | Dansk | `da` |
+| [Dutch](docs/languages/nl.md) | Nederlands | `nl` |
+| [English](docs/languages/en.md) | English | `en` |
+| [Estonian](docs/languages/et.md) | Eesti | `et` |
+| [French](docs/languages/fr.md) | Français | `fr` |
+| [Georgian](docs/languages/ka.md) | ქართული | `ka` |
+| [German](docs/languages/de.md) | Deutsch | `de` |
+| [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
+| [Italian](docs/languages/it.md) | Italiano | `it` |
+| [Kazakh](docs/languages/kz.md) | Қазақша | `kz` |
+| [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
+| [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
+| [Polish](docs/languages/pl.md)* | Polski | `pl` |
+| [Portuguese](docs/languages/pt.md) | Português | `pt` |
+| [Russian](docs/languages/ru.md) | Русский | `ru` |
+| [Spanish](docs/languages/es.md) | Español | `es` |
+| [Swedish](docs/languages/se.md)* | Svenska | `se` |
+| [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` |
+| [Thai](docs/languages/th.md)* | ภาษาไทย | `th` |
+| [Turkish](docs/languages/tr.md) | Türkçe | `tr` |
+| [Ukrainian](docs/languages/ua.md) | Українська | `ua` |
+| [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 
 \* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 

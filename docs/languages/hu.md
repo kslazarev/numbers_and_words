@@ -28,12 +28,36 @@ I18n.with_locale(:hu) { [1, 2, 3].to_words }
 
 I18n.with_locale(:hu) { [11, 22, 133].to_words }
 # => ["tizenegy", "huszonkettő", "egyszázharminchárom"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:hu) { 21.77.to_words }
 # => "huszonegy egész hetvenhét század"
 ```
 
-## Ordinal
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:hu) { 0.1.to_words(precision: 2) }
+# => "nulla egész tíz század"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:hu) { 21.77.to_words(micro_separator: "plus") }
+# => "huszonegy plus hetvenhét század"
+```
+
+### Ordinal
 
 `ordinal: true`
 

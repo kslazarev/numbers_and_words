@@ -30,4 +30,16 @@ I18n.with_locale(:tr) { [11, 22, 133].to_words }
 # => ["on bir", "yirmi iki", "yüz otuz üç"]
 ```
 
+## Decimals
+
 Decimals are not supported yet.
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part of a decimal, so it has no effect until decimals are supported.
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.

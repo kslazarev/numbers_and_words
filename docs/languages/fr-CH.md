@@ -28,9 +28,6 @@ I18n.with_locale(:'fr-CH') { [1, 2, 3].to_words }
 
 I18n.with_locale(:'fr-CH') { [11, 22, 133].to_words }
 # => ["onze", "vingt-deux", "cent-trente-trois"]
-
-I18n.with_locale(:'fr-CH') { 21.77.to_words }
-# => "vingt-et-un et septante-sept centièmes"
 ```
 
 ## Spelling
@@ -46,4 +43,31 @@ I18n.with_locale(:'fr-CH') { 321.to_words }
 
 I18n.with_locale(:'fr-CH') { 2_000_021.to_words }
 # => "deux millions vingt-et-un"
+```
+
+## Decimals
+
+```ruby
+I18n.with_locale(:'fr-CH') { 21.77.to_words }
+# => "vingt-et-un et septante-sept centièmes"
+```
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:'fr-CH') { 0.1.to_words(precision: 2) }
+# => "zéro et dix centièmes"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:'fr-CH') { 21.77.to_words(micro_separator: "plus") }
+# => "vingt-et-un plus septante-sept centièmes"
 ```

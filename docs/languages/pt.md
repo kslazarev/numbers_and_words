@@ -28,12 +28,36 @@ I18n.with_locale(:pt) { [1, 2, 3].to_words }
 
 I18n.with_locale(:pt) { [11, 22, 133].to_words }
 # => ["onze", "vinte e dois", "cento e trinta e três"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:pt) { 21.77.to_words }
 # => "vinte e um inteiros e setenta e sete centésimos"
 ```
 
-## Remove Zero
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:pt) { 0.1.to_words(precision: 2) }
+# => "zero inteiros e dez centésimos"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:pt) { 21.77.to_words(micro_separator: "plus") }
+# => "vinte e um inteiros plus setenta e sete centésimos"
+```
+
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

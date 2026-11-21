@@ -28,12 +28,36 @@ I18n.with_locale(:ru) { [1, 2, 3].to_words }
 
 I18n.with_locale(:ru) { [11, 22, 133].to_words }
 # => ["одиннадцать", "двадцать два", "сто тридцать три"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:ru) { 21.77.to_words }
 # => "двадцать одна целая и семьдесят семь сотых"
 ```
 
-## Gender
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:ru) { 0.1.to_words(precision: 2) }
+# => "ноль целых и десять сотых"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:ru) { 21.77.to_words(micro_separator: "plus") }
+# => "двадцать одна целая plus семьдесят семь сотых"
+```
+
+### Gender
 
 `gender: :male` (default), :female or :neuter
 

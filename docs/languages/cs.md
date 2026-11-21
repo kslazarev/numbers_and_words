@@ -28,12 +28,36 @@ I18n.with_locale(:cs) { [1, 2, 3].to_words }
 
 I18n.with_locale(:cs) { [11, 22, 133].to_words }
 # => ["jedenáct", "dvacet dvě", "jedno sto třicet tři"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:cs) { 21.77.to_words }
 # => "dvacet jedna celých sedmdesát sedm setin"
 ```
 
-## Gender
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
+# => "nula celých deset setin"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:cs) { 21.77.to_words(micro_separator: "plus") }
+# => "dvacet jedna celých plus sedmdesát sedm setin"
+```
+
+### Gender
 
 `gender: :female` (default), :male or :neuter
 
@@ -48,7 +72,7 @@ I18n.with_locale(:cs) { 1.to_words(gender: :neuter) }
 # => "jedno"
 ```
 
-## Ordinal
+### Ordinal
 
 `ordinal: true`, optionally with gender
 
@@ -60,7 +84,7 @@ I18n.with_locale(:cs) { 21.to_words(gender: :female, ordinal: true) }
 # => "dvacátá první"
 ```
 
-## Remove Zero
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

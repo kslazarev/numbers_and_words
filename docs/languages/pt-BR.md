@@ -28,12 +28,36 @@ I18n.with_locale(:'pt-BR') { [1, 2, 3].to_words }
 
 I18n.with_locale(:'pt-BR') { [11, 22, 133].to_words }
 # => ["onze", "vinte e dois", "cento e trinta e três"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:'pt-BR') { 21.77.to_words }
 # => "vinte e um inteiros e setenta e sete centésimos"
 ```
 
-## Gender
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:'pt-BR') { 0.1.to_words(precision: 2) }
+# => "zero inteiros e dez centésimos"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:'pt-BR') { 21.77.to_words(micro_separator: "plus") }
+# => "vinte e um inteiros plus setenta e sete centésimos"
+```
+
+### Gender
 
 `gender: :male` (default) or :female
 
@@ -42,7 +66,7 @@ I18n.with_locale(:'pt-BR') { 1_000_000_001.to_words(gender: :female) }
 # => "um bilhão e uma"
 ```
 
-## Ordinal
+### Ordinal
 
 `ordinal: true`
 
@@ -51,7 +75,7 @@ I18n.with_locale(:'pt-BR') { 21.to_words(ordinal: true) }
 # => "vigésimo primeiro"
 ```
 
-## Remove Zero
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

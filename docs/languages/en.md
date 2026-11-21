@@ -30,12 +30,45 @@ I18n.with_locale(:en) { [1, 2, 3].to_words }
 
 I18n.with_locale(:en) { [11, 22, 133].to_words }
 # => ["eleven", "twenty-two", "one hundred thirty-three"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:en) { 21.77.to_words }
 # => "twenty-one and seventy-seven hundredths"
 ```
 
-## Ordinal
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
+# => "zero and ten hundredths"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
+# => "twenty-one plus seventy-seven hundredths"
+```
+
+### Hundreds With Union
+
+`hundreds_with_union: true` adds 'and' after hundreds.
+
+```ruby
+I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
+# => "one hundred and eleven"
+```
+
+### Ordinal
 
 `ordinal: true`
 
@@ -47,25 +80,7 @@ I18n.with_locale(:en) { 133.to_words(ordinal: true) }
 # => "one hundred thirty-third"
 ```
 
-## Remove Hyphen
-
-`remove_hyphen: true` removes the hyphen between tens and ones.
-
-```ruby
-I18n.with_locale(:en) { 21.to_words(remove_hyphen: true) }
-# => "twenty one"
-```
-
-## Hundreds With Union
-
-`hundreds_with_union: true` adds 'and' after hundreds.
-
-```ruby
-I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
-# => "one hundred and eleven"
-```
-
-## Pronounced
+### Pronounced
 
 `pronounced: true` reads numbers of up to four digits in pairs, as they are usually spoken. Longer numbers are read as usual.
 
@@ -80,7 +95,16 @@ I18n.with_locale(:en) { 12_345.to_words(pronounced: true) }
 # => "twelve thousand three hundred forty-five"
 ```
 
-## Remove Zero
+### Remove Hyphen
+
+`remove_hyphen: true` removes the hyphen between tens and ones.
+
+```ruby
+I18n.with_locale(:en) { 21.to_words(remove_hyphen: true) }
+# => "twenty one"
+```
+
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

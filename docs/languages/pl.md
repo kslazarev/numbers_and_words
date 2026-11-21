@@ -31,12 +31,36 @@ I18n.with_locale(:pl) { [1, 2, 3].to_words }
 
 I18n.with_locale(:pl) { [11, 22, 133].to_words }
 # => ["jedenaście", "dwadzieścia dwa", "sto trzydzieści trzy"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:pl) { 21.77.to_words }
 # => "dwadzieścia jeden całych i siedemdziesiąt siedem setnych"
 ```
 
-## Gender
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:pl) { 0.1.to_words(precision: 2) }
+# => "zero całych i dziesięć setnych"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:pl) { 21.77.to_words(micro_separator: "plus") }
+# => "dwadzieścia jeden całych plus siedemdziesiąt siedem setnych"
+```
+
+### Gender
 
 `gender: :male` (default), `:female` or `:neuter`
 
@@ -51,7 +75,7 @@ I18n.with_locale(:pl) { 2.to_words(gender: :neuter) }
 # => "dwa"
 ```
 
-## Ordinal
+### Ordinal
 
 `ordinal: true`, optionally with gender, for integers from 0 to 999. Larger ordinals raise `RangeError`.
 
@@ -63,7 +87,7 @@ I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) }
 # => "sto dwudziesta pierwsza"
 ```
 
-## Remove Zero
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 
