@@ -36,7 +36,7 @@ gem 'numbers_and_words'
 
 ## Usage / Использование / Utilisation
 
-Call `to_words` on an integer, a float or an array within the locale of your choice.
+Call `to_words` on an integer, a float or an array in the locale of your choice.
 
 ```ruby
 require 'numbers_and_words'
@@ -63,7 +63,7 @@ I18n.with_locale(:en) { 21.77.to_words }
 # => "twenty-one point seven seven"
 ```
 
-Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are expanded to their exact decimal value first.
+Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are converted from their exact decimal value.
 
 ```ruby
 I18n.with_locale(:en) { 0.00001.to_words }
@@ -72,12 +72,12 @@ I18n.with_locale(:en) { 0.00001.to_words }
 
 ### Command Line
 
-The gem installs a `to_words` command that spells out each argument, or whitespace-separated numbers read from standard input, one per line.
+The `to_words` command spells out each argument, or each number read from standard input, one per line.
 
 ```
 $ to_words 42 1.5
 forty-two
-one and five tenths
+one point five
 
 $ to_words --locale ru 2000
 две тысячи
@@ -89,11 +89,11 @@ $ to_words --locale es --gender female 21
 veintiuna
 ```
 
-Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag: `--ordinal`, `--remove-zero` and other on/off options (with a `--no-` form), and `--gender VALUE`, `--precision N`, `--micro-separator VALUE` and `--unit VALUE`. `to_words --help` lists them with the languages that support each. Options a language does not support, invalid numbers, negative numbers and unknown locales are reported on standard error with exit status 1.
+Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag, such as `--ordinal` (with a `--no-` form), `--gender VALUE` or `--precision N`; `to_words --help` lists them with the languages that support each. Errors go to standard error with exit status 1.
 
 ## Supported Languages / Языки / Langues Supportées
 
-Each language page has examples, says whether decimals are supported, and documents every option the language accepts, including the shared `precision` and `micro_separator`.
+Each language page has examples, says whether decimals are supported, and documents every option the language accepts.
 
 | Language | Name | Code |
 | --- | --- | --- |
@@ -140,13 +140,13 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Urdu](docs/languages/ur.md)* | اردو | `ur` |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 
-\* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
+\* Experimental: known gaps, or no native-speaker review yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 
-Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `nb-NO`, `no` and `no-NO` use `nb`; `zh-CN` and `zh-SG` use `zh`. Swedish, Ukrainian and Kazakh use the standard codes `sv`, `uk` and `kk` (`se`, `ua` and `kz` before 2.0.0).
+Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `nb-NO`, `no` and `no-NO` use `nb`; `zh-CN` and `zh-SG` use `zh`.
 
 ## Options / Опции / Options
 
-Options are passed to `to_words`. Language-specific options such as `gender`, `ordinal` or `remove_zero` are described on each language page linked from Supported Languages.
+Options are passed to `to_words`. Language-specific options, such as `gender`, `ordinal` or `remove_zero`, are described on each language page.
 
 ### Precision
 
@@ -171,7 +171,7 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fallback
 
-`fallback` chooses what happens when the gem cannot convert in the current locale, because the locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set `fallback` to a bundled locale to convert in that locale instead, or to `true` to return the number's digits. There is no implicit fallback locale.
+`fallback` decides what happens when the current locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set it to a bundled locale to convert in that locale, or to `true` to return the digits.
 
 ```ruby
 I18n.with_locale(:am) { 42.to_words(fallback: :fr) }
@@ -181,7 +181,7 @@ I18n.with_locale(:am) { 42.to_words(fallback: true) }
 # => "42"
 ```
 
-The other options are validated for the fallback locale. `I18n.with_locale` itself raises `I18n::InvalidLocale` for a locale missing from `I18n.available_locales`, before the gem is called. To set a fallback for every call, see [Configuration](#configuration--конфигурация); `fallback: false` disables it for one call.
+Other options are validated for the fallback locale. `I18n.with_locale` raises `I18n::InvalidLocale` for a locale missing from `I18n.available_locales` before the gem is called. To set a fallback for every call, see [Configuration](#configuration--конфигурация).
 
 ### Unit
 
@@ -278,9 +278,9 @@ I18n.with_locale(:en) { 0.5.to_words(unit: :dollar, subunit: :cent, remove_zero:
 
 ### Unsupported Options
 
-Every language accepts `precision`, `micro_separator`, `unit` and `fallback`, plus the options listed on its language page. Any other option, or an unsupported value, raises `NumbersAndWords::UnsupportedOptionError` (an `ArgumentError`) naming the supported alternatives.
+Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its language page. Any other option or value raises `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError` that names the supported alternatives.
 
-For example, Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in the `vi` locale raises:
+Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` raises:
 
 ```
 NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit
@@ -288,7 +288,7 @@ NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :
 
 ## Configuration / Конфигурация
 
-All bundled locales are loaded by default. To load only some of them, configure the gem after requiring it:
+All bundled locales are loaded by default. To load only some, configure the gem after requiring it:
 
 ```ruby
 NumbersAndWords.configure do |config|
@@ -302,17 +302,17 @@ Or set it directly:
 NumbersAndWords.config.locales = [:en, :ru]
 ```
 
-Locale strings and aliases such as `"en-US"` are normalized to their bundled locale. Set `locales` to `nil` to restore all bundled locales, or `[]` to load none. Unsupported locales raise `ArgumentError` without changing the configuration. A direct assignment takes effect immediately; settings in a `configure` block take effect when the block completes, and not at all if it raises.
+Regional locales such as `"en-US"` are normalized to their bundled locale. `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. A direct assignment takes effect immediately; a `configure` block takes effect when it completes, and not at all if it raises.
 
-Set `fallback` to convert in another locale, or to return digits, when the gem cannot convert in the current locale (see [Fallback](#fallback)). The `fallback` option of `to_words` overrides it for one call.
+`fallback` sets the default [fallback](#fallback); the `fallback` option of `to_words` overrides it.
 
 ```ruby
 NumbersAndWords.config.fallback = :en
 ```
 
-Configuration replaces only this gem's locale files in `I18n.load_path` and filters its pluralization rules. Application translation files and an explicitly assigned `I18n.available_locales` are preserved. Conversion in a disabled bundled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set, even if the application has other translations for it.
+Configuration changes only this gem's locale files in `I18n.load_path` and its pluralization rules; application translations and an explicitly assigned `I18n.available_locales` are kept. Converting in a disabled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set.
 
-Require the gem before your application looks up any translations, as Rails does for gems; files added to `I18n.load_path` after translations are loaded are not picked up until I18n reloads. Configure during application initialization. Applying configuration reloads the configured I18n backend, just like assigning `I18n.load_path`, so store any runtime-only translations afterwards. Repeated configuration is supported and does not duplicate the gem's load paths. The gem does not change `I18n.locale` or `I18n.default_locale`: keep their translations available, or switch your application's current and default locales before removing their previous locale.
+Require the gem before looking up any translations, as Rails does, and configure it during application initialization. Configuring reloads the I18n backend, as assigning `I18n.load_path` does, so store runtime-only translations afterwards. Configuring again doesn't duplicate load paths. The gem never changes `I18n.locale` or `I18n.default_locale`, so don't disable the locales they use.
 
 ## Requirements / Требования / Configuration Requise
 

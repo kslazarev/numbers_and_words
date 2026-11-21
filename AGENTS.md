@@ -19,7 +19,7 @@ For a locale such as `fr`:
 * `lib/numbers_and_words/translations/fr.rb`: how individual words are chosen (tens with ones, hundreds, scale words, fractions).
 * `lib/numbers_and_words/strategies/figures_converter/languages/fr.rb`: how a number is assembled and printed.
 * `lib/numbers_and_words/strategies/figures_converter/decorators/fr/`: integral and fractional parts of floats; a locale without decorators cannot convert decimals.
-* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: locale-specific options such as `gender` or `ordinal`. These classes are the list of options the language accepts: `to_words` rejects any other option with `NumbersAndWords::UnsupportedOptionError`, besides the global `precision`, `micro_separator`, `unit`, `subunit` and `zero_subunit` (`OptionsValidation::GLOBAL`). An option class with a `VALUES` constant (such as `Gender`) accepts only those values; any other option is a `true`/`false` flag. Options read only internally, such as `integral` or `fractional`, must not be passed through `Integer#to_words`; call the wrappers directly.
+* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: the options the language accepts, such as `gender` or `ordinal`; `to_words` rejects any other option except the global ones in `OptionsValidation::GLOBAL`. A class with a `VALUES` constant accepts only those values; the others are `true`/`false` flags. Internal options such as `integral` or `fractional` must not go through `Integer#to_words`; call the wrappers directly.
 * `lib/numbers_and_words/strategies/array_joiner/languages/fr.rb` and `lib/numbers_and_words/i18n/plurals/` where needed.
 * `spec/numbers_and_words/{integer,float,array}/fixture_examples/fr.yml`: expected output. Float fixtures only run for locales in `FLOAT_CAPABLE_LANGUAGES` in `spec/numbers_and_words/numbers_and_words_spec.rb`.
 * `docs/languages/fr.md` and its row in the [README](README.md) table.
@@ -33,7 +33,7 @@ A new language needs all of these, an entry in the script map in `spec/numbers_a
 * Fixture files have no duplicate keys; YAML would silently drop all but the last.
 * Every scale word in every locale translates, for one and two of each power (no `Translation missing`).
 * Locale strings use the locale's script, are NFC-normalized and contain no invisible characters; Ukrainian contains no Russian-only letters.
-* Every documented example in the README and `docs/languages` is checked: a one-line `I18n.with_locale(:en) { 21.to_words(ordinal: true) }` with a number or array of numbers and literal options, followed by `# => <value>`. Examples are parsed, never evaluated, and any other `I18n.with_locale` line fails. Update the language page whenever output changes. Every option a language accepts appears in an example on its page, and every global option in the README. `unit`, `subunit` and `zero_subunit` examples are documented only in the README and run with the translations in its `### Unit` YAML block.
+* Every example in the README and `docs/languages` is checked: one line such as `I18n.with_locale(:en) { 21.to_words(ordinal: true) }`, with literal numbers and options, followed by `# => <value>`. Examples are parsed, never evaluated; any other `I18n.with_locale` line fails. Every option a language accepts appears in an example on its page, and every global option in the README; `unit`, `subunit` and `zero_subunit` examples use the translations in the README's `### Unit` YAML block.
 
 ## Language Changes
 
