@@ -85,5 +85,5 @@ ru:
     micro_prefix:
       tens: десяти
       hundreds: сто
-      union: ' '
+      union: ''
     union: 'и'
