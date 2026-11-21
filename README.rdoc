@@ -411,7 +411,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 == Requirements / Требования / Configuration Requise
 
 * 3.2 <= Ruby (compatible with/совместимость с/compatible avec Ruby 3.2 and/и/et JRuby);
-* 1.14.3 <= I18n (earlier versions not tested/ранние версии не тестировались/versions précédentes non testées);
+* I18n (tested with 1.6 and later/протестировано с 1.6 и новее/testé avec 1.6 et plus récent);
 
 == Installation / Установка / Installation
 

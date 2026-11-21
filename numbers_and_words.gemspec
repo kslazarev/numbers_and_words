@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
     'changelog_uri' => 'https://github.com/kslazarev/numbers_and_words/blob/master/CHANGELOG.md',
     'source_code_uri' => 'https://github.com/kslazarev/numbers_and_words'
   }
-  s.add_dependency 'i18n', '<= 2'
+  s.add_dependency 'i18n'
 end

@@ -14,14 +14,17 @@ concurrency:
 
 jobs:
   test:
-    name: Ruby ${{ matrix.entry.ruby }} / ${{ matrix.entry.os }}
+    name: Ruby ${{ matrix.entry.ruby }} / ${{ matrix.entry.os }}${{ matrix.entry.i18n && format(' / i18n {0}', matrix.entry.i18n) || '' }}
     runs-on: ${{ matrix.entry.os }}
     continue-on-error: ${{ matrix.entry.experimental }}
+    env:
+      I18N_VERSION: ${{ matrix.entry.i18n }}
     strategy:
       fail-fast: false
       matrix:
         entry:
           - { ruby: '3.2', os: ubuntu-latest, experimental: false }
+          - { ruby: '3.2', os: ubuntu-latest, experimental: false, i18n: '1.6.0' }
           - { ruby: '3.3', os: ubuntu-latest, experimental: false }
           - { ruby: '3.4', os: ubuntu-latest, experimental: false }
           - { ruby: '4.0', os: ubuntu-latest, experimental: false }
