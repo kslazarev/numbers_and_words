@@ -18,6 +18,7 @@ module NumbersAndWords
       pronounced: 'Read four-digit numbers as they are spoken',
       remove_hyphen: 'Remove the hyphen between tens and ones',
       remove_zero: 'Omit a zero integral part',
+      spelling: 'Spelling, e.g. French reformed (1990) or traditional',
       tens_of_hundreds: 'Read thousands as tens of hundreds'
     }.freeze
 

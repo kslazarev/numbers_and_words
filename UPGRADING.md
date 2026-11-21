@@ -53,4 +53,11 @@ I18n.with_locale(:fr) { 2_000_021.to_words }
 # 2.0.0 => "deux millions vingt-et-un"
 ```
 
-See [#257](https://github.com/kslazarev/numbers_and_words/pull/257) for details.
+To keep the 1.0.x spelling, pass `spelling: :traditional`:
+
+```ruby
+I18n.with_locale(:fr) { 321.to_words(spelling: :traditional) }
+# => "trois cent vingt et un"
+```
+
+See [#257](https://github.com/kslazarev/numbers_and_words/pull/257) and [#264](https://github.com/kslazarev/numbers_and_words/issues/264) for details.

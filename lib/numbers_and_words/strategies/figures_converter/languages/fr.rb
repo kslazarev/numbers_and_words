@@ -29,9 +29,13 @@ module NumbersAndWords
 
           # The 1990 spelling reform hyphenates every numeral in a compound number
           # ("trois-cent-vingt-et-un", "deux-cent-mille"), but not the nouns million,
-          # milliard and larger ("deux millions vingt-et-un").
+          # milliard and larger ("deux millions vingt-et-un"). spelling: :traditional keeps
+          # the earlier spelling ("trois cent vingt et un").
           def print_words
-            super.split.slice_when { |a, b| scale_noun?(a) || scale_noun?(b) }.map { |run| run.join('-') }.join(' ')
+            words = super
+            return words if @options.spelling.traditional?
+
+            words.split.slice_when { |a, b| scale_noun?(a) || scale_noun?(b) }.map { |run| run.join('-') }.join(' ')
           end
 
           private

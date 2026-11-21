@@ -83,3 +83,16 @@ to_words:
     1001000000: un milliard un million
     2000000000: deux milliards
     999999: neuf-cent-nonante-neuf-mille-neuf-cent-nonante-neuf
+  traditional_spelling:
+    options:
+      :spelling: traditional
+    21: vingt et un
+    71: septante et un
+    81: huitante et un
+    101: cent un
+    200: deux cents
+    321: trois cent vingt et un
+    1200: mille deux cents
+    200000: deux cent mille
+    2000021: deux millions vingt et un
+    80000000: huitante millions
