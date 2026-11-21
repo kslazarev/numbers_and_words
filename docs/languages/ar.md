@@ -55,6 +55,32 @@ Decimals are not supported yet. Converting a float, such as `1.5.to_words`, rais
 
 `micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
 
+### Unit
+
+With the [`unit`](../../README.md#unit) option, a unit takes the form its count requires, chosen with the Arabic plural rule: `one` for 1, after which the number follows the unit (دينار واحد), `two` for 2, the dual said alone (ديناران), `few` for counts ending in 03 to 10, the plural (ثلاثة دنانير), `many` for counts ending in 11 to 99, the accusative singular (أحد عشر دينارًا), `zero` for 0, and `other` for the rest, the genitive singular (مائة دينار). Before the unit a dual scale word or hundred takes its construct form (ألفا دينار, مائتا دينار), and an accusative one drops its ending (أحد عشر ألف دينار). A subunit is joined with و attached to it.
+
+A count above 100 ending in 01 or 02, such as 101, repeats the unit (مائة دينار ودينار) and raises `NumbersAndWords::UnsupportedNumberError`. Numbers use the masculine form, so a unit with `gender: female`, and `unit` with `ordinal: true`, raise `NumbersAndWords::UnsupportedOptionError`.
+
+```ruby
+I18n.with_locale(:ar) { 1.to_words(unit: :dinar) }
+# => "دينار واحد"
+
+I18n.with_locale(:ar) { 2.to_words(unit: :dinar) }
+# => "ديناران"
+
+I18n.with_locale(:ar) { 3.to_words(unit: :dinar) }
+# => "ثلاثة دنانير"
+
+I18n.with_locale(:ar) { 11.to_words(unit: :dinar) }
+# => "أحد عشر دينارًا"
+
+I18n.with_locale(:ar) { 2_000.to_words(unit: :dinar) }
+# => "ألفا دينار"
+
+I18n.with_locale(:ar) { 1.5.to_words(unit: :dinar, subunit: :fils) }
+# => "دينار واحد وخمسون فلسًا"
+```
+
 ### Ordinal
 
 `ordinal: true` gives the masculine definite ordinal from 1 to 99. One is `الحادي` in compounds. Other numbers raise `RangeError`, and the feminine forms are not supported yet.

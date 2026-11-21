@@ -9,7 +9,6 @@ module NumbersAndWords
             def result
               return unless @options[:ordinal]
 
-              raise ArgumentError, 'Polish ordinals require an integer' if @options[:integral] || @options[:fractional]
               raise RangeError, 'Polish ordinals support magnitudes from 0 to 999' if @strategy.figures.drop(3).any?(&:positive?)
 
               super

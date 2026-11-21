@@ -16,7 +16,7 @@ module NumbersAndWords
       # The fraction noun for a number of decimal places: "jedna desatina", "dve desatiny", "päť desatín".
       def fraction(length, number)
         nouns = t(:fractions)[form(number)]
-        raise RangeError, "Slovak decimals support up to #{nouns.size - 1} fractional digits" if length >= nouns.size
+        raise Families::Base.decimal_range_error(nouns.size - 1) if length >= nouns.size
 
         nouns[length]
       end

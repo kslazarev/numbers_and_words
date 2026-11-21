@@ -9,8 +9,8 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Pl do
     expect { 1000.to_words(ordinal: true) }.to raise_error(RangeError, /ordinals/)
   end
 
-  it 'rejects ordinal float conversion' do
-    expect { 1.1.to_words(ordinal: true) }.to raise_error(ArgumentError, /integer/)
+  it 'keeps the cardinal form of a decimal with ordinal: true' do
+    expect(1.1.to_words(ordinal: true)).to eq(1.1.to_words)
   end
 
   it 'rejects an unsupported grammatical gender' do
@@ -18,11 +18,11 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Pl do
   end
 
   it 'rejects numbers beyond the translated scale table' do
-    expect { (10**48).to_words }.to raise_error(RangeError, /magnitude/)
+    expect { (10**48).to_words }.to raise_error(RangeError, 'numbers must be below 10**48 in :pl')
   end
 
   it 'rejects fractions beyond the translated scale table' do
-    expect { 0.1.to_words(precision: 49) }.to raise_error(RangeError, /decimal places/)
+    expect { 0.1.to_words(precision: 49) }.to raise_error(RangeError, 'decimals support up to 48 fractional digits in :pl')
   end
 
   it 'supports the documented maximum decimal precision' do

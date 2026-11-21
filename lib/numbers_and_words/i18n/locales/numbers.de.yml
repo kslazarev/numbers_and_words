@@ -45,3 +45,7 @@ de:
     union: und
     micro_separator: Komma
     subunit_separator: und
+    # Before a unit, "eins" at the end of a number is "ein", or "eine" before a feminine unit (ein Euro, eine Mark).
+    before_unit:
+      endings:
+        eins: { other: ein, female: eine }

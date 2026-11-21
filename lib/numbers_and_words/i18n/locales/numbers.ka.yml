@@ -20,3 +20,4 @@ ka:
       'suffix': 'ე'
       'compound': 'და'
       'leading_one': ['ერთი']
+    subunit_separator: და

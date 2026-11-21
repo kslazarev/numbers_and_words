@@ -146,3 +146,25 @@ to_words:
     1000000000000: 'bilionésimo'
     2000000000000: 'segundo bilionésimo'
     1000000000000000000: 'trilionésimo'
+  female:
+    options:
+      :gender: female
+    1: 'uma'
+    2: 'duas'
+    21: 'vinte e uma'
+    200: 'duzentas'
+    1001: 'mil e uma'
+    2000: 'duas mil'
+    222222: 'duzentas e vinte e duas mil duzentas e vinte e duas'
+    1000002: 'um milhão e duas'
+    2000000: 'dois milhões'
+    2000000000: 'dois mil milhões'
+    2000000002: 'dois mil milhões e duas'
+  female_ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: 'primeira'
+    21: 'vigésima primeira'
+    2000: 'segunda milésima'
+    1000000000: 'milésima milionésima'

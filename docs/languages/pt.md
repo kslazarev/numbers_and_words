@@ -109,6 +109,18 @@ I18n.with_locale(:pt) { 1_000_000_000_000.to_words(ordinal: true) }
 # => "bilionésimo"
 ```
 
+### Gender
+
+`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas), but milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take the feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it.
+
+```ruby
+I18n.with_locale(:pt) { 2_222_222.to_words(gender: :female) }
+# => "dois milhões duzentas e vinte e duas mil duzentas e vinte e duas"
+
+I18n.with_locale(:pt) { 21.to_words(gender: :female, ordinal: true) }
+# => "vigésima primeira"
+```
+
 ### Remove Zero
 
 `remove_zero: true` omits a zero integral part.

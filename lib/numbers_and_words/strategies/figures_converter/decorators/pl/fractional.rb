@@ -7,7 +7,7 @@ module NumbersAndWords
         module Pl
           class Fractional < Cs::Fractional
             def run(&)
-              raise RangeError, 'Polish fractions support at most 48 decimal places' if @options[:fractional][:length].to_i > 48
+              raise Translations::Families::Base.decimal_range_error(48) if @options[:fractional][:length].to_i > 48
 
               super
             end

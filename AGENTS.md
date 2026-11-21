@@ -15,7 +15,7 @@ Guidance for AI agents and contributors working on numbers_and_words. See [CONTR
 
 For a locale such as `fr`:
 
-* `lib/numbers_and_words/i18n/locales/numbers.fr.yml`: the words. `mega` and `micro` list the keys of scale and fraction words by power of 1000. A number past the last `mega` entry raises `RangeError`, and `minus` is the word read before a negative number.
+* `lib/numbers_and_words/i18n/locales/numbers.fr.yml`: the words. `mega` and `micro` list the keys of scale and fraction words by power of 1000. A number past the last `mega` entry raises `RangeError`, and `minus` is the word read before a negative number. For the `unit` option, `subunit_separator` joins a unit and its subunit (`subunit_separator_attached: true` makes it a prefix of the subunit), `before_unit` gives the form a number takes before a noun (`whole` readings or `endings`, per unit gender), and `unit_order` puts counts after their unit or says them with the unit's form alone; see `lib/numbers_and_words/unit/`. Raise `RangeError` with `Translations::Families::Base.range_error` or `decimal_range_error` for the shared wording.
 * `lib/numbers_and_words/translations/fr.rb`: how individual words are chosen (tens with ones, hundreds, scale words, fractions).
 * `lib/numbers_and_words/strategies/figures_converter/languages/fr.rb`: how a number is assembled and printed.
 * `lib/numbers_and_words/strategies/figures_converter/decorators/fr/`: integral and fractional parts of floats; a locale without decorators cannot convert decimals.

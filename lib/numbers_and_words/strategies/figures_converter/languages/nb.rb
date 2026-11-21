@@ -13,7 +13,7 @@ module NumbersAndWords
 
           def words
             number = @figures.to_a.reverse.join.to_i
-            raise RangeError, "Norwegian numbers must be below 10**#{Math.log10(MAX).to_i}" if number >= MAX
+            raise Translations::Families::Base.range_error(Math.log10(MAX).to_i) if number >= MAX
 
             text = number.zero? ? zero_words : number_words(number)
             ordinal? ? ordinal_words(text) : text

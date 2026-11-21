@@ -110,4 +110,4 @@ es:
       'teens': ['décimo', 'undécimo', 'duodécimo', 'decimotercero', 'decimocuarto', 'decimoquinto', 'decimosexto', 'decimoséptimo', 'decimoctavo', 'decimonoveno']
       'tens': ['_', 'décimo', 'vigésimo', 'trigésimo', 'cuadragésimo', 'quincuagésimo', 'sexagésimo', 'septuagésimo', 'octogésimo', 'nonagésimo']
       'hundreds': ['_', 'centésimo', 'ducentésimo', 'tricentésimo', 'cuadringentésimo', 'quingentésimo', 'sexcentésimo', 'septingentésimo', 'octingentésimo', 'noningentésimo']
-      'mega': ['_', 'milésimo', 'millonésimo', 'milmillonésimo', 'billonésimo', 'milbillonésimo', 'trillonésimo', 'miltrillonésimo', 'cuatrillonésimo']
+      'mega': ['_', 'milésimo', 'millonésimo', 'milmillonésimo', 'billonésimo', 'milbillonésimo', 'trillonésimo', 'miltrillonésimo', 'cuatrillonésimo', 'milcuatrillonésimo', 'quintillonésimo', 'milquintillonésimo', 'sextillonésimo', 'milsextillonésimo', 'septillonésimo', 'milseptillonésimo']
