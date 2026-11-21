@@ -4,7 +4,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/families/helpe
 require 'numbers_and_words/strategies/figures_converter/languages/families/base'
 require 'numbers_and_words/strategies/figures_converter/languages/base'
 require 'numbers_and_words/strategies/figures_converter/languages/ordinals'
-require 'numbers_and_words/strategies/figures_converter/languages/cases'
+require 'numbers_and_words/strategies/figures_converter/languages/rule_sets'
 
 require 'numbers_and_words/strategies/figures_converter/languages/cs'
 require 'numbers_and_words/strategies/figures_converter/languages/de'
@@ -28,7 +28,6 @@ require 'numbers_and_words/strategies/figures_converter/languages/hy'
 require 'numbers_and_words/strategies/figures_converter/languages/kk'
 require 'numbers_and_words/strategies/figures_converter/languages/da'
 
-require 'numbers_and_words/strategies/figures_converter/languages/families/cyrillic'
 require 'numbers_and_words/strategies/figures_converter/languages/ru'
 require 'numbers_and_words/strategies/figures_converter/languages/uk'
 require 'numbers_and_words/strategies/figures_converter/languages/vi'

@@ -27,6 +27,8 @@ For a locale such as `fr`:
 
 Languages that share a numbering system share its code in a `families` module. Hindi, Bengali and Urdu use the Indian system (lakh and crore) in `languages/families/indian.rb`, `translations/families/indian.rb`, `decorators/indian.rb` and `array_joiner/languages/families/indian.rb`; another such language, such as Marathi, needs its locale file with the same keys and subclasses that include those modules.
 
+Russian and Ukrainian spell whole numbers from the rule sets under `numbers.rules` in `numbers.ru.yml` and `numbers.uk.yml` with `lib/numbers_and_words/rules.rb` (template syntax documented there), through the shared `languages/rule_sets.rb`: `gender:` and `animate:` pick a rule set, `case:` the words under `numbers.cases` (a case without words, such as the Ukrainian vocative, uses the nominative), and ordinals are declined through `numbers.ordinals.endings`. Change their words and grammar in the locale files, not in Ruby.
+
 A new language needs all of these, an entry in the script map in `spec/numbers_and_words/i18n_spec.rb`, and a CHANGELOG entry.
 
 ## Invariants Enforced by Specs
