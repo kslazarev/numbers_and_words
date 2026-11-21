@@ -21,3 +21,10 @@ to_words:
     21.77: vingt et un et soixante-dix-sept centièmes
     0.21: zéro et vingt et un centièmes
     4242.7463: quatre mille deux cent quarante-deux et sept mille quatre cent soixante-trois dix-millièmes
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: "un dixième"
+    0.7: "sept dixièmes"
+    0.05: "cinq centièmes"
+    42.1: "quarante-deux et un dixième"

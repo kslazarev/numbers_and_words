@@ -17,3 +17,10 @@ to_words:
     4242.7463: négyezer-kettőszáznegyvenkettő egész hétezer-négyszázhatvanhárom tízezred
     1111.4444: egyezeregyszáztizenegy egész négyezer-négyszáznegyvennégy tízezred
     4444.1111: négyezer-négyszáznegyvennégy egész egyezeregyszáztizenegy tízezred
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.1: "egy tized"
+    0.7: "hét tized"
+    0.05: "öt század"
+    42.1: "negyvenkettő egész egy tized"

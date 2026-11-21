@@ -56,3 +56,12 @@ I18n.with_locale(:vi) { 0.1.to_words(precision: 2) }
 I18n.with_locale(:vi) { 21.77.to_words(micro_separator: "plus") }
 # => "hai mươi mốt plus bảy mươi bảy"
 ```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part.
+
+```ruby
+I18n.with_locale(:vi) { 0.7.to_words(remove_zero: true) }
+# => "phẩy bảy"
+```

@@ -12,11 +12,16 @@ module NumbersAndWords
 
           def words
             number = @figures.to_a.reverse.join.to_i
-            text = number.zero? ? @translations.ones(0) : number_words(number)
+            text = number.zero? ? zero_words : number_words(number)
             ordinal? ? "#{@translations.t(:ordinal_prefix)}#{text}" : text
           end
 
           private
+
+          # remove_zero: true omits a zero integral part; the fractional part is read by its decorator.
+          def zero_words
+            @options.remove_zero.result ? '' : @translations.ones(0)
+          end
 
           # Each group of six digits is followed by ล้าน once per million it is worth.
           def number_words(number)

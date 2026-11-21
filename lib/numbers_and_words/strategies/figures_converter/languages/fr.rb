@@ -23,7 +23,10 @@ module NumbersAndWords
             super({ alone: thousand? ? false : nil })
           end
 
+          # remove_zero: true omits a zero integral part.
           def zero
+            return if @options.remove_zero.result
+
             ordinal? ? ordinal(super) : super
           end
 
