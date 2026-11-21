@@ -28,7 +28,31 @@ I18n.with_locale(:vi) { [1, 2, 3].to_words }
 
 I18n.with_locale(:vi) { [11, 22, 133].to_words }
 # => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:vi) { 21.77.to_words }
 # => "hai mươi mốt phẩy bảy mươi bảy"
+```
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:vi) { 0.1.to_words(precision: 2) }
+# => "không phẩy mười"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:vi) { 21.77.to_words(micro_separator: "plus") }
+# => "hai mươi mốt plus bảy mươi bảy"
 ```

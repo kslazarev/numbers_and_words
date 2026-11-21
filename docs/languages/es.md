@@ -28,24 +28,36 @@ I18n.with_locale(:es) { [1, 2, 3].to_words }
 
 I18n.with_locale(:es) { [11, 22, 133].to_words }
 # => ["once", "veintidós", "ciento treinta y tres"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:es) { 21.77.to_words }
 # => "veintiuno con setenta y siete centésimas"
 ```
 
-## Gender
+## Options
 
-`gender: :male` (default) or :female
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
 
 ```ruby
-I18n.with_locale(:es) { 1.to_words(gender: :female) }
-# => "una"
-
-I18n.with_locale(:es) { 1.to_words(gender: :male) }
-# => "uno"
+I18n.with_locale(:es) { 0.1.to_words(precision: 2) }
+# => "cero con diez centésimas"
 ```
 
-## Apocopated
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:es) { 21.77.to_words(micro_separator: "plus") }
+# => "veintiuno plus setenta y siete centésimas"
+```
+
+### Apocopated
 
 `apocopated: true` uses the shortened form, alone or with gender.
 
@@ -57,7 +69,19 @@ I18n.with_locale(:es) { 201.to_words(gender: :female, apocopated: true) }
 # => "doscientas un"
 ```
 
-## Remove Zero
+### Gender
+
+`gender: :male` (default) or :female
+
+```ruby
+I18n.with_locale(:es) { 1.to_words(gender: :female) }
+# => "una"
+
+I18n.with_locale(:es) { 1.to_words(gender: :male) }
+# => "uno"
+```
+
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

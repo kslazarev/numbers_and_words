@@ -30,9 +30,21 @@ I18n.with_locale(:da) { [11, 22, 133].to_words }
 # => ["elleve", "toogtyve", "et hundrede og treogtredive"]
 ```
 
+## Decimals
+
 Decimals are not supported yet.
 
-## Gender
+## Options
+
+### Precision
+
+`precision` pads the fractional part of a decimal, so it has no effect until decimals are supported.
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts of a decimal, so it has no effect until decimals are supported.
+
+### Gender
 
 `gender: :common` or :neuter
 

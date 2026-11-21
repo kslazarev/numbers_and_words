@@ -26,6 +26,7 @@
   * Allow setting locales directly with `NumbersAndWords.config.locales = [:en, :ru]`. \[[#277](https://github.com/kslazarev/numbers_and_words/pull/277)\] \([@dblock](https://github.com/dblock)\)
   * Add a project logo. \[[#274](https://github.com/kslazarev/numbers_and_words/pull/274)\] \([@dblock](https://github.com/dblock)\)
   * Add a `fallback` option and `NumbersAndWords.config.fallback` setting that convert in another locale, or return digits, when the current locale is unsupported, and raise `NumbersAndWords::UnsupportedLanguageError` otherwise. \[[#234](https://github.com/kslazarev/numbers_and_words/pull/234)\] \([@dblock](https://github.com/dblock)\)
+  * Document every option, including `precision` and `micro_separator`, and decimal support on each language page, replacing the decimals and ordinals columns in the README. \[[#278](https://github.com/kslazarev/numbers_and_words/pull/278)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

@@ -33,12 +33,36 @@ I18n.with_locale(:it) { [1, 2, 3].to_words }
 
 I18n.with_locale(:it) { [11, 22, 133].to_words }
 # => ["undici", "ventidue", "centotrentatré"]
+```
 
+## Decimals
+
+```ruby
 I18n.with_locale(:it) { 21.77.to_words }
 # => "ventuno e settantasette centesimi"
 ```
 
-## Remove Zero
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
+# => "zero e dieci centesimi"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
+# => "ventuno plus settantasette centesimi"
+```
+
+### Remove Zero
 
 `remove_zero: true` omits a zero integral part.
 

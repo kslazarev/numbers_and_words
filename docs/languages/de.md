@@ -30,12 +30,44 @@ I18n.with_locale(:de) { [1, 2, 3].to_words }
 
 I18n.with_locale(:de) { [11, 22, 133].to_words }
 # => ["elf", "zweiundzwanzig", "einhundertdreiunddreißig"]
-
-I18n.with_locale(:de) { 21.77.to_words }
-# => "einundzwanzig Komma sieben sieben"
 ```
 
-## Ordinal
+## Decimals
+
+Decimals are read with `Komma` followed by each fractional digit, including leading zeros.
+
+```ruby
+I18n.with_locale(:de) { 21.77.to_words }
+# => "einundzwanzig Komma sieben sieben"
+
+I18n.with_locale(:de) { 3.05.to_words }
+# => "drei Komma null fünf"
+
+I18n.with_locale(:de) { 3.14.to_words }
+# => "drei Komma eins vier"
+```
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:de) { 0.1.to_words(precision: 2) }
+# => "null Komma eins null"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
+# => "einundzwanzig plus sieben sieben"
+```
+
+### Ordinal
 
 `ordinal: true` gives the uninflected `-te`/`-ste` form; exact multiples of a million or larger are written as one word.
 
@@ -48,16 +80,4 @@ I18n.with_locale(:de) { 101.to_words(ordinal: true) }
 
 I18n.with_locale(:de) { 2_000_000.to_words(ordinal: true) }
 # => "zweimillionste"
-```
-
-## Decimals
-
-Decimals are read with `Komma` followed by each fractional digit, including leading zeros.
-
-```ruby
-I18n.with_locale(:de) { 3.05.to_words }
-# => "drei Komma null fünf"
-
-I18n.with_locale(:de) { 3.14.to_words }
-# => "drei Komma eins vier"
 ```

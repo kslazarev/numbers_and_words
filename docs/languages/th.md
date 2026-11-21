@@ -33,18 +33,6 @@ I18n.with_locale(:th) { [11, 22, 133].to_words }
 # => ["สิบเอ็ด", "ยี่สิบสอง", "หนึ่งร้อยสามสิบสาม"]
 ```
 
-## Ordinal
-
-`ordinal: true` adds the prefix ที่ to integers.
-
-```ruby
-I18n.with_locale(:th) { 1.to_words(ordinal: true) }
-# => "ที่หนึ่ง"
-
-I18n.with_locale(:th) { 21.to_words(ordinal: true) }
-# => "ที่ยี่สิบเอ็ด"
-```
-
 ## Decimals
 
 Decimals are read with จุด followed by each fractional digit, including leading zeros.
@@ -55,4 +43,36 @@ I18n.with_locale(:th) { 3.14.to_words }
 
 I18n.with_locale(:th) { 21.05.to_words }
 # => "ยี่สิบเอ็ดจุดศูนย์ห้า"
+```
+
+## Options
+
+### Precision
+
+`precision` pads the fractional part with zeros to the given number of digits.
+
+```ruby
+I18n.with_locale(:th) { 0.1.to_words(precision: 2) }
+# => "ศูนย์จุดหนึ่งศูนย์"
+```
+
+### Micro Separator
+
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:th) { 21.77.to_words(micro_separator: "plus") }
+# => "ยี่สิบเอ็ดplusเจ็ดเจ็ด"
+```
+
+### Ordinal
+
+`ordinal: true` adds the prefix ที่ to integers.
+
+```ruby
+I18n.with_locale(:th) { 1.to_words(ordinal: true) }
+# => "ที่หนึ่ง"
+
+I18n.with_locale(:th) { 21.to_words(ordinal: true) }
+# => "ที่ยี่สิบเอ็ด"
 ```
