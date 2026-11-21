@@ -14,7 +14,7 @@ describe NumbersAndWords::OptionsValidation do
   context 'with an option the language does not define' do
     it 'raises and lists the supported options' do
       expect { words(:vi, 21, gender: :female) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :unit')
     end
 
     it 'rejects misspelled options' do
@@ -95,7 +95,7 @@ describe NumbersAndWords::OptionsValidation do
   end
 
   it 'lists the options of each language' do
-    expect(described_class.supported_options(:fr).keys).to contain_exactly(:fraction, :ordinal, :remove_zero, :spelling, :precision, :micro_separator)
-    expect(described_class.supported_options(:es).keys).to contain_exactly(:apocopated, :gender, :ordinal, :remove_zero, :precision, :micro_separator)
+    expect(described_class.supported_options(:fr).keys).to contain_exactly(:fraction, :ordinal, :remove_zero, :spelling, :precision, :micro_separator, :unit)
+    expect(described_class.supported_options(:es).keys).to contain_exactly(:apocopated, :gender, :ordinal, :remove_zero, :precision, :micro_separator, :unit)
   end
 end
