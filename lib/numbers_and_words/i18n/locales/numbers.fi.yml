@@ -1,0 +1,18 @@
+fi:
+  numbers:
+    ones: [nolla, yksi, kaksi, kolme, neljä, viisi, kuusi, seitsemän, kahdeksan, yhdeksän]
+    ten: kymmenen
+    teens: toista
+    tens: kymmentä
+    hundred: sata
+    hundreds: sataa
+    mega: [_, tuhat, miljoona, miljardi, biljoona]
+    megas: [_, tuhatta, miljoonaa, miljardia, biljoonaa]
+    micro_separator: pilkku
+    ordinals:
+      ones: [nollas, ensimmäinen, toinen, kolmas, neljäs, viides, kuudes, seitsemäs, kahdeksas, yhdeksäs]
+      multipliers: [_, yhdes, kahdes, kolmas, neljäs, viides, kuudes, seitsemäs, kahdeksas, yhdeksäs]
+      ten: kymmenes
+      tens: kymmenes
+      hundred: sadas
+      mega: [_, tuhannes, miljoonas, miljardis, biljoonas]

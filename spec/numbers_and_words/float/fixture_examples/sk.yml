@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: nula celá jedna desatina
+    0.01: nula celá jedna stotina
+    0.05: nula celá päť stotín
+    0.77: nula celá sedemdesiatsedem stotín
+  integral_and_fractional:
+    1.5: jedna celá päť desatín
+    2.5: dve celé päť desatín
+    3.14: tri celé štrnásť stotín
+    21.05: dvadsaťjedna celých päť stotín
+    21.77: dvadsaťjedna celých sedemdesiatsedem stotín
+    101.001: stojedna celých jedna tisícina
+    5.123: päť celých stodvadsaťtri tisícin
+  precision:
+    options:
+      :precision: 3
+    1.5: jedna celá päťsto tisícin
+    0.1: nula celá sto tisícin
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: sedem desatín
+    0.05: päť stotín
+    1.5: jedna celá päť desatín
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: dvadsaťjedna celých x sedemdesiatsedem stotín

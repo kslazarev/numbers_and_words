@@ -1,0 +1,143 @@
+to_words:
+  ones:
+    0: 'null'
+    1: en
+    2: to
+    3: tre
+    4: fire
+    5: fem
+    6: seks
+    7: sju
+    8: åtte
+    9: ni
+  tens:
+    10: ti
+    11: elleve
+    12: tolv
+    13: tretten
+    14: fjorten
+    15: femten
+    16: seksten
+    17: sytten
+    18: atten
+    19: nitten
+    20: tjue
+    21: tjueen
+    22: tjueto
+    30: tretti
+    45: førtifem
+    99: nittini
+  hundreds:
+    100: hundre
+    101: hundre og en
+    110: hundre og ti
+    111: hundre og elleve
+    121: hundre og tjueen
+    200: to hundre
+    300: tre hundre
+    456: fire hundre og femtiseks
+    999: ni hundre og nittini
+  thousands:
+    1000: tusen
+    1001: tusen og en
+    1100: tusen ett hundre
+    1121: tusen ett hundre og tjueen
+    2000: to tusen
+    2021: to tusen og tjueen
+    2300: to tusen tre hundre
+    5000: fem tusen
+    11000: elleve tusen
+    21000: tjueen tusen
+    22000: tjueto tusen
+    100000: hundre tusen
+    123456: hundre og tjuetre tusen fire hundre og femtiseks
+    999999: ni hundre og nittini tusen ni hundre og nittini
+  millions:
+    1000000: en million
+    1000001: en million og en
+    1001000: en million ett tusen
+    1100000: en million ett hundre tusen
+    2000000: to millioner
+    2003000: to millioner tre tusen
+    5000000: fem millioner
+    21000000: tjueen millioner
+    22000000: tjueto millioner
+  billions:
+    1000000000: en milliard
+    2000000000: to milliarder
+    1000000000000: en billion
+    999999999999999: ni hundre og nittini billioner ni hundre og nittini milliarder
+      ni hundre og nittini millioner ni hundre og nittini tusen ni hundre og nittini
+  female gender:
+    options:
+      :gender: female
+    1: ei
+    2: to
+    21: tjueen
+    22: tjueto
+    101: hundre og ei
+    1001: tusen og ei
+    1000002: en million og to
+  neuter gender:
+    options:
+      :gender: neuter
+    1: ett
+    2: to
+    21: tjueen
+    22: tjueto
+    101: hundre og ett
+    1001: tusen og ett
+    1000002: en million og to
+  ordinal:
+    options:
+      :ordinal: true
+    0: nullte
+    1: første
+    2: andre
+    3: tredje
+    4: fjerde
+    5: femte
+    10: tiende
+    11: ellevte
+    12: tolvte
+    20: tjuende
+    21: tjueførste
+    22: tjueandre
+    100: hundrede
+    101: hundre og første
+    121: hundre og tjueførste
+    200: to hundrede
+    1000: tusende
+    1001: tusen og første
+    2000: to tusende
+    2021: to tusen og tjueførste
+    21000: tjueen tusende
+    100000: hundre tusende
+    1000000: millionte
+    2000000: to millionte
+    2025000: to millioner tjuefem tusende
+    1000000000: milliardte
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    0: nullte
+    1: første
+    3: tredje
+    21: tjueførste
+    100: hundrede
+    1000: tusende
+    2000: to tusende
+    1000000: millionte
+  neuter ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    0: nullte
+    1: første
+    3: tredje
+    21: tjueførste
+    100: hundrede
+    1000: tusende
+    2000: to tusende
+    1000000: millionte

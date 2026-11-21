@@ -1,0 +1,143 @@
+to_words:
+  ones:
+    0: nula
+    1: jeden
+    2: dva
+    3: tri
+    4: štyri
+    5: päť
+    6: šesť
+    7: sedem
+    8: osem
+    9: deväť
+  tens:
+    10: desať
+    11: jedenásť
+    12: dvanásť
+    13: trinásť
+    14: štrnásť
+    15: pätnásť
+    16: šestnásť
+    17: sedemnásť
+    18: osemnásť
+    19: devätnásť
+    20: dvadsať
+    21: dvadsaťjeden
+    22: dvadsaťdva
+    30: tridsať
+    45: štyridsaťpäť
+    99: deväťdesiatdeväť
+  hundreds:
+    100: sto
+    101: stojeden
+    110: stodesať
+    111: stojedenásť
+    121: stodvadsaťjeden
+    200: dvesto
+    300: tristo
+    456: štyristopäťdesiatšesť
+    999: deväťstodeväťdesiatdeväť
+  thousands:
+    1000: tisíc
+    1001: tisícjeden
+    1100: tisícsto
+    1121: tisícstodvadsaťjeden
+    2000: dvetisíc
+    2021: dvetisícdvadsaťjeden
+    2300: dvetisíctristo
+    5000: päťtisíc
+    11000: jedenásťtisíc
+    21000: dvadsaťjedentisíc
+    22000: dvadsaťdvetisíc
+    100000: stotisíc
+    123456: stodvadsaťtritisícštyristopäťdesiatšesť
+    999999: deväťstodeväťdesiatdeväťtisícdeväťstodeväťdesiatdeväť
+  millions:
+    1000000: milión
+    1000001: milión jeden
+    1001000: milión tisíc
+    1100000: milión stotisíc
+    2000000: dva milióny
+    2003000: dva milióny tritisíc
+    5000000: päť miliónov
+    21000000: dvadsaťjeden miliónov
+    22000000: dvadsaťdva miliónov
+  billions:
+    1000000000: miliarda
+    2000000000: dve miliardy
+    1000000000000: bilión
+    999999999999999: deväťstodeväťdesiatdeväť biliónov deväťstodeväťdesiatdeväť miliárd
+      deväťstodeväťdesiatdeväť miliónov deväťstodeväťdesiatdeväťtisícdeväťstodeväťdesiatdeväť
+  female gender:
+    options:
+      :gender: female
+    1: jedna
+    2: dve
+    21: dvadsaťjedna
+    22: dvadsaťdve
+    101: stojedna
+    1001: tisícjedna
+    1000002: milión dve
+  neuter gender:
+    options:
+      :gender: neuter
+    1: jedno
+    2: dve
+    21: dvadsaťjedno
+    22: dvadsaťdve
+    101: stojedno
+    1001: tisícjedno
+    1000002: milión dve
+  ordinal:
+    options:
+      :ordinal: true
+    0: nultý
+    1: prvý
+    2: druhý
+    3: tretí
+    4: štvrtý
+    5: piaty
+    10: desiaty
+    11: jedenásty
+    12: dvanásty
+    20: dvadsiaty
+    21: dvadsiaty prvý
+    22: dvadsiaty druhý
+    100: stý
+    101: stoprvý
+    121: stodvadsiaty prvý
+    200: dvojstý
+    1000: tisíci
+    1001: tisícprvý
+    2000: dvojtisíci
+    2021: dvetisícdvadsiaty prvý
+    21000: dvadsaťjedentisíci
+    100000: stotisíci
+    1000000: miliónty
+    2000000: dvojmiliónty
+    2025000: dva milióny dvadsaťpäťtisíci
+    1000000000: miliardtý
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    0: nultá
+    1: prvá
+    3: tretia
+    21: dvadsiata prvá
+    100: stá
+    1000: tisíca
+    2000: dvojtisíca
+    1000000: miliónta
+  neuter ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    0: nulté
+    1: prvé
+    3: tretie
+    21: dvadsiate prvé
+    100: sté
+    1000: tisíce
+    2000: dvojtisíce
+    1000000: miliónte

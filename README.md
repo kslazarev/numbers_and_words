@@ -102,12 +102,14 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Bengali](docs/languages/bn.md)* | বাংলা | `bn` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português Brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
+| [Bulgarian](docs/languages/bg.md)* | Български | `bg` |
 | [Chinese](docs/languages/zh.md)* | 中文 | `zh` |
 | [Czech](docs/languages/cs.md) | Čeština | `cs` |
 | [Danish](docs/languages/da.md) | Dansk | `da` |
 | [Dutch](docs/languages/nl.md) | Nederlands | `nl` |
 | [English](docs/languages/en.md) | English | `en` |
 | [Estonian](docs/languages/et.md) | Eesti | `et` |
+| [Finnish](docs/languages/fi.md)* | Suomi | `fi` |
 | [French](docs/languages/fr.md) | Français | `fr` |
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` |
 | [German](docs/languages/de.md) | Deutsch | `de` |
@@ -120,9 +122,11 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Korean](docs/languages/ko.md)* | 한국어 | `ko` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
+| [Norwegian Bokmål](docs/languages/nb.md)* | Norsk bokmål | `nb` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |
 | [Portuguese](docs/languages/pt.md) | Português | `pt` |
 | [Russian](docs/languages/ru.md) | Русский | `ru` |
+| [Slovak](docs/languages/sk.md)* | Slovenčina | `sk` |
 | [Spanish](docs/languages/es.md) | Español | `es` |
 | [Swedish](docs/languages/sv.md)* | Svenska | `sv` |
 | [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` |
@@ -134,7 +138,7 @@ Each language page has examples, says whether decimals are supported, and docume
 
 \* Experimental: the language has known gaps or has not been reviewed by a native speaker yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 
-Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `zh-CN` and `zh-SG` use `zh`. Swedish, Ukrainian and Kazakh use the standard codes `sv`, `uk` and `kk` (`se`, `ua` and `kz` before 2.0.0).
+Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `nb-NO`, `no` and `no-NO` use `nb`; `zh-CN` and `zh-SG` use `zh`. Swedish, Ukrainian and Kazakh use the standard codes `sv`, `uk` and `kk` (`se`, `ua` and `kz` before 2.0.0).
 
 ## Options / Опции / Options
 

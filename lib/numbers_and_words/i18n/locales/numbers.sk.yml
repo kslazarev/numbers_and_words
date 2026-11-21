@@ -1,0 +1,31 @@
+sk:
+  numbers:
+    ones: [nula, jeden, dva, tri, štyri, päť, šesť, sedem, osem, deväť]
+    gender:
+      female: [nula, jedna, dve]
+      neuter: [nula, jedno, dve]
+    teens: [desať, jedenásť, dvanásť, trinásť, štrnásť, pätnásť, šestnásť, sedemnásť, osemnásť, devätnásť]
+    tens: [_, _, dvadsať, tridsať, štyridsať, päťdesiat, šesťdesiat, sedemdesiat, osemdesiat, deväťdesiat]
+    hundreds: [_, sto, dvesto, tristo, štyristo, päťsto, šesťsto, sedemsto, osemsto, deväťsto]
+    mega: [_, tisíc, milión, miliarda, bilión, biliarda, trilión]
+    megas:
+      few: [_, tisíc, milióny, miliardy, bilióny, biliardy, trilióny]
+      many: [_, tisíc, miliónov, miliárd, biliónov, biliárd, triliónov]
+    # The gender of each scale word's multiplier: "dvetisíc", "dva milióny", "dve miliardy".
+    mega_gender: [_, female, male, female, male, female, male]
+    integral:
+      one: celá
+      few: celé
+      many: celých
+    fractions:
+      one: [_, desatina, stotina, tisícina, desaťtisícina, stotisícina, milióntina, desaťmilióntina, stomilióntina, miliardtina]
+      few: [_, desatiny, stotiny, tisíciny, desaťtisíciny, stotisíciny, milióntiny, desaťmilióntiny, stomilióntiny, miliardtiny]
+      many: [_, desatín, stotín, tisícin, desaťtisícin, stotisícin, milióntin, desaťmilióntin, stomilióntin, miliardtin]
+    micro_separator: ''
+    ordinals:
+      ones: [nultý, prvý, druhý, tretí, štvrtý, piaty, šiesty, siedmy, ôsmy, deviaty]
+      teens: [desiaty, jedenásty, dvanásty, trinásty, štrnásty, pätnásty, šestnásty, sedemnásty, osemnásty, devätnásty]
+      tens: [_, _, dvadsiaty, tridsiaty, štyridsiaty, päťdesiaty, šesťdesiaty, sedemdesiaty, osemdesiaty, deväťdesiaty]
+      hundreds: [_, stý, dvojstý, trojstý, štvorstý, päťstý, šesťstý, sedemstý, osemstý, deväťstý]
+      mega: [_, tisíci, miliónty, miliardtý, biliónty, biliardtý, triliónty]
+      combining: [_, _, dvoj, troj, štvor]

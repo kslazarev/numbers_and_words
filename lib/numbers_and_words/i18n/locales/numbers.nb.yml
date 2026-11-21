@@ -1,0 +1,58 @@
+nb:
+  numbers:
+    ones: ["null", en, to, tre, fire, fem, seks, sju, åtte, ni]
+    one:
+      male: en
+      female: ei
+      neuter: ett
+    teens: [ti, elleve, tolv, tretten, fjorten, femten, seksten, sytten, atten, nitten]
+    tens: [_, _, tjue, tretti, førti, femti, seksti, sytti, åtti, nitti]
+    hundred: hundre
+    mega: [_, tusen, million, milliard, billion, billiard, trillion]
+    megas: [_, tusen, millioner, milliarder, billioner, billiarder, trillioner]
+    union: og
+    micro_separator: komma
+    ordinals:
+      words:
+        "null": nullte
+        en: første
+        ei: første
+        ett: første
+        to: andre
+        tre: tredje
+        fire: fjerde
+        fem: femte
+        seks: sjette
+        sju: sjuende
+        åtte: åttende
+        ni: niende
+        ti: tiende
+        elleve: ellevte
+        tolv: tolvte
+        tretten: trettende
+        fjorten: fjortende
+        femten: femtende
+        seksten: sekstende
+        sytten: syttende
+        atten: attende
+        nitten: nittende
+        tjue: tjuende
+        tretti: trettiende
+        førti: førtiende
+        femti: femtiende
+        seksti: sekstiende
+        sytti: syttiende
+        åtti: åttiende
+        nitti: nittiende
+        hundre: hundrede
+        tusen: tusende
+        million: millionte
+        millioner: millionte
+        milliard: milliardte
+        milliarder: milliardte
+        billion: billionte
+        billioner: billionte
+        billiard: billiardte
+        billiarder: billiardte
+        trillion: trillionte
+        trillioner: trillionte

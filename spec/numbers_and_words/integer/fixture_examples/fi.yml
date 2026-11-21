@@ -1,0 +1,99 @@
+to_words:
+  ones:
+    0: nolla
+    1: yksi
+    2: kaksi
+    3: kolme
+    4: neljä
+    5: viisi
+    6: kuusi
+    7: seitsemän
+    8: kahdeksan
+    9: yhdeksän
+  tens:
+    10: kymmenen
+    11: yksitoista
+    12: kaksitoista
+    13: kolmetoista
+    14: neljätoista
+    15: viisitoista
+    16: kuusitoista
+    17: seitsemäntoista
+    18: kahdeksantoista
+    19: yhdeksäntoista
+    20: kaksikymmentä
+    21: kaksikymmentäyksi
+    22: kaksikymmentäkaksi
+    30: kolmekymmentä
+    45: neljäkymmentäviisi
+    99: yhdeksänkymmentäyhdeksän
+  hundreds:
+    100: sata
+    101: satayksi
+    110: satakymmenen
+    111: satayksitoista
+    121: satakaksikymmentäyksi
+    200: kaksisataa
+    300: kolmesataa
+    456: neljäsataaviisikymmentäkuusi
+    999: yhdeksänsataayhdeksänkymmentäyhdeksän
+  thousands:
+    1000: tuhat
+    1001: tuhatyksi
+    1100: tuhatsata
+    1121: tuhatsatakaksikymmentäyksi
+    2000: kaksituhatta
+    2021: kaksituhattakaksikymmentäyksi
+    2300: kaksituhattakolmesataa
+    5000: viisituhatta
+    11000: yksitoistatuhatta
+    21000: kaksikymmentäyksituhatta
+    22000: kaksikymmentäkaksituhatta
+    100000: satatuhatta
+    123456: satakaksikymmentäkolmetuhattaneljäsataaviisikymmentäkuusi
+    999999: yhdeksänsataayhdeksänkymmentäyhdeksäntuhattayhdeksänsataayhdeksänkymmentäyhdeksän
+  millions:
+    1000000: miljoona
+    1000001: miljoona yksi
+    1001000: miljoona tuhat
+    1100000: miljoona satatuhatta
+    2000000: kaksi miljoonaa
+    2003000: kaksi miljoonaa kolmetuhatta
+    5000000: viisi miljoonaa
+    21000000: kaksikymmentäyksi miljoonaa
+    22000000: kaksikymmentäkaksi miljoonaa
+  billions:
+    1000000000: miljardi
+    2000000000: kaksi miljardia
+    1000000000000: biljoona
+    999999999999999: yhdeksänsataayhdeksänkymmentäyhdeksän biljoonaa yhdeksänsataayhdeksänkymmentäyhdeksän
+      miljardia yhdeksänsataayhdeksänkymmentäyhdeksän miljoonaa yhdeksänsataayhdeksänkymmentäyhdeksäntuhattayhdeksänsataayhdeksänkymmentäyhdeksän
+  ordinal:
+    options:
+      :ordinal: true
+    0: nollas
+    1: ensimmäinen
+    2: toinen
+    3: kolmas
+    4: neljäs
+    5: viides
+    10: kymmenes
+    11: yhdestoista
+    12: kahdestoista
+    20: kahdeskymmenes
+    21: kahdeskymmenesensimmäinen
+    22: kahdeskymmenestoinen
+    100: sadas
+    101: sadasensimmäinen
+    121: sadaskahdeskymmenesensimmäinen
+    200: kahdessadas
+    1000: tuhannes
+    1001: tuhannesensimmäinen
+    2000: kahdestuhannes
+    2021: kahdestuhanneskahdeskymmenesensimmäinen
+    21000: kahdeskymmenesyhdestuhannes
+    100000: sadastuhannes
+    1000000: miljoonas
+    2000000: kahdes miljoonas
+    2025000: kahdes miljoonas kahdeskymmenesviidestuhannes
+    1000000000: miljardis
