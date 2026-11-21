@@ -11,8 +11,7 @@ module NumbersAndWords
           end
 
           # Ordinals take the -te (1-19) or -ste (20 and above) suffix on the
-          # final element; exact multiples of a million and above are written
-          # as one word, e.g. "zweimillionste".
+          # final element and are written as one word, e.g. "zweimillionste".
           ORDINAL_REPLACEMENTS = { 'eins' => 'erste', 'drei' => 'dritte', 'sieben' => 'siebte', 'acht' => 'achte' }.freeze
           ORDINAL_STE_ENDINGS = %w[zig ßig hundert tausend].freeze
 
@@ -57,10 +56,10 @@ module NumbersAndWords
           def ordinal(cardinal)
             words = cardinal.split
             last = words.pop
-            return [*words, ordinal_word(last)].join(' ') unless last.match?(/\A[[:upper:]]/)
+            return [*words, ordinal_word(last)].join.downcase unless last.match?(/\A[[:upper:]]/)
 
             count = words.pop.delete_suffix('e')
-            [*words, "#{count}#{meg_stem(last)}ste"].join(' ')
+            [*words, "#{count}#{meg_stem(last)}ste"].join.downcase
           end
 
           def ordinal_word(word)

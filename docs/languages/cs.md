@@ -45,7 +45,7 @@ I18n.with_locale(:cs) { 21.77.to_words }
 
 ```ruby
 I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
-# => "nula celých deset setin"
+# => "nula celá deset setin"
 ```
 
 ### Micro Separator

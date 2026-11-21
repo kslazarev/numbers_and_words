@@ -97,7 +97,9 @@ to_words:
     21000: einundzwanzigtausendste
     1000000: einmillionste
     2000000: zweimillionste
-    1000001: eine Million erste
+    1000001: einemillionerste
     3000000000: dreimilliardste
-    2002000000: zwei Milliarden zweimillionste
+    2002000000: zweimilliardenzweimillionste
+    2000100: zweimillioneneinhundertste
+    2001000: zweimillioneneintausendste
     1000000000000: einbillionste

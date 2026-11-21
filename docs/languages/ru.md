@@ -83,6 +83,9 @@ I18n.with_locale(:ru) { 21.to_words(ordinal: true) }
 I18n.with_locale(:ru) { 2_000.to_words(ordinal: true) }
 # => "двухтысячный"
 
+I18n.with_locale(:ru) { 90_000.to_words(ordinal: true) }
+# => "девяностотысячный"
+
 I18n.with_locale(:ru) { 1001.to_words(ordinal: true) }
 # => "тысяча первый"
 

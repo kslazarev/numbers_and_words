@@ -69,9 +69,13 @@ module NumbersAndWords
           def ordinal_words(text, _number)
             with_last_word(without_leading_one(text)) do |word|
               *head, last = word.split(ordinals[:compound], -1)
-              ordinal = lookup(ordinals[:words], last) || "#{last.delete_suffix(ordinals[:plural])}#{ordinals[:scale_suffix]}"
-              [*head, ordinal].join(ordinals[:compound])
+              [*head, ordinal_word(last)].join(ordinals[:compound])
             end
+          end
+
+          def ordinal_word(word)
+            table = ordinal_gender == :neuter ? ordinals[:words].merge(ordinals[:neuter_words]) : ordinals[:words]
+            lookup(table, word) || "#{word.delete_suffix(ordinals[:plural])}#{ordinals[:scale_suffix]}"
           end
         end
       end

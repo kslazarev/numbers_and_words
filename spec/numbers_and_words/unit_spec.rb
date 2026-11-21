@@ -250,8 +250,9 @@ describe NumbersAndWords::Unit do
     end
 
     it 'attaches the Hebrew and Arabic word for and to the subunit' do
-      expect([words(:he, 1.5, unit: :shekel, subunit: :agora), words(:he, 12.02, unit: :shekel, subunit: :agora), words(:ar, 1.5, unit: :dinar, subunit: :fils)])
-        .to eq(['שקל אחד וחמישים אגורות', 'שנים עשר שקלים ושתי אגורות', 'دينار واحد وخمسون فلسًا'])
+      expect([words(:he, 1.5, unit: :shekel, subunit: :agora), words(:he, 12.02, unit: :shekel, subunit: :agora), words(:ar, 1.5, unit: :dinar, subunit: :fils, precision: 3)])
+        .to eq(['שקל אחד וחמישים אגורות', 'שנים עשר שקלים ושתי אגורות', 'دينار واحد وخمسمائة فلس'])
+      expect(words(:ar, 1.005, unit: :dinar, subunit: :fils, precision: 3)).to eq('دينار واحد وخمسة فلوس')
     end
 
     it 'gives an Arabic unit the form and place its count needs' do

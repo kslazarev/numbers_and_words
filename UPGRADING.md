@@ -193,6 +193,24 @@ I18n.with_locale(:cs) { 1.5.to_words(ordinal: true) }
 
 To get an ordinal, convert an integer, `1.5.to_i.to_words(ordinal: true)`.
 
+### Further Language Corrections
+
+These corrections replace output from earlier 2.0.0 development revisions. No option restores the incorrect forms.
+
+| Language | Number and Options | Previous Output | Corrected Output |
+| --- | --- | --- | --- |
+| Armenian (`hy`) | 10¹⁵ | `մեկ քառակուսի` | `մեկ կվադրիլիոն` |
+| Armenian (`hy`) | 10¹⁵, `ordinal: true` | `քառակուսիերորդ` | `կվադրիլիոներորդ` |
+| Bulgarian (`bg`) | 2,000, `ordinal: true` | `двухиляден` | `двехиляден` |
+| Czech (`cs`) | 0.1 | `nula celých jedna desetina` | `nula celá jedna desetina` |
+| Slovak (`sk`) | 0.1 | `nula celá jedna desatina` | `nula celých jedna desatina` |
+| Danish (`da`) | 2, `ordinal: true, gender: :neuter` | `anden` | `andet` |
+| German (`de`) | 2,002,000,000, `ordinal: true` | `zwei Milliarden zweimillionste` | `zweimilliardenzweimillionste` |
+| Spanish (`es`) | 22,000, `ordinal: true` | `veintidósmilésimo` | `veintidosmilésimo` |
+| Spanish (`es`) | 32,000, `ordinal: true` | `treintaydosmilésimo` | `treintaidosmilésimo` |
+| Spanish (`es`) | 21,000, `ordinal: true, gender: :female` | `veintiunamilésima` | `veintiunmilésima` |
+| Russian (`ru`) | 90,000, `ordinal: true` | `девяностатысячный` | `девяностотысячный` |
+
 ### Swedish, Ukrainian and Kazakh Use Standard Locale Codes
 
 Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. They now use the ISO 639-1 codes, regional variants such as `sv-SE` included, and the old codes raise `NumbersAndWords::UnsupportedLanguageError`.

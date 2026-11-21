@@ -158,7 +158,11 @@ to_words:
     2000: 'dosmilésimo'
     2021: 'dosmilésimo vigésimo primero'
     21000: 'veintiunmilésimo'
+    22000: 'veintidosmilésimo'
+    32000: 'treintaidosmilésimo'
     100000: 'cienmilésimo'
+    101000: 'cientounmilésimo'
+    200000: 'doscientosmilésimo'
     1000000: 'millonésimo'
     2000000: 'dosmillonésimo'
     2025000: 'dosmillonésimo veinticincomilésimo'
@@ -171,6 +175,12 @@ to_words:
     3: 'tercera'
     21: 'vigésima primera'
     2000: 'dosmilésima'
+    21000: 'veintiunmilésima'
+    22000: 'veintidosmilésima'
+    32000: 'treintaidosmilésima'
+    100000: 'cienmilésima'
+    101000: 'cientounmilésima'
+    200000: 'doscientosmilésima'
     1000000: 'millonésima'
   apocopated_ordinal:
     options:
@@ -182,6 +192,7 @@ to_words:
     13: 'decimotercer'
     21: 'vigésimo primer'
     23: 'vigésimo tercer'
+    22000: 'veintidosmilésimo'
   apocopated_tens:
     options:
       :apocopated: true

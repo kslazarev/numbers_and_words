@@ -32,17 +32,17 @@ I18n.with_locale(:da) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are not supported yet. Converting a float, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :da").
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :da"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 
 ### Precision
 
-`precision` pads the fractional part of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a decimal; floats raise `NumbersAndWords::UnsupportedNumberError` until decimals are supported.
+`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
 
 ### Gender
 
@@ -58,7 +58,7 @@ I18n.with_locale(:da) { 1.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal, or the last part of a compound ("enogtyvende").
+`ordinal: true` makes the last word ordinal, or the last part of a compound ("enogtyvende"). Second is `anden` in the common gender and `andet` with `gender: :neuter`.
 
 ```ruby
 I18n.with_locale(:da) { 1.to_words(ordinal: true) }
@@ -69,4 +69,7 @@ I18n.with_locale(:da) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:da) { 2_000.to_words(ordinal: true) }
 # => "to tusinde"
+
+I18n.with_locale(:da) { 2.to_words(ordinal: true, gender: :neuter) }
+# => "andet"
 ```
