@@ -42,6 +42,13 @@ jobs:
           bundler-cache: true
       - name: Run Tests
         run: bundle exec rake spec
+      - name: Report Coverage
+        if: matrix.entry.ruby == '4.0' && matrix.entry.os == 'ubuntu-latest'
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          file: coverage/lcov.info
+          format: lcov
       - name: Smoke-Test Benchmarks
         if: matrix.entry.ruby == '4.0' && matrix.entry.os == 'ubuntu-latest'
         env:

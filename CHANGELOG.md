@@ -8,6 +8,7 @@
   * Reduce conversion allocations with per-proxy option-name reuse, integer digit extraction and single-pass float splitting. \[[#222](https://github.com/kslazarev/numbers_and_words/pull/222)\] \([@dblock](https://github.com/dblock)\)
   * Replace unmaintained Jeweler with a static gemspec and automate manually dispatched trusted-publisher releases with ruby-gem-release. \[[#219](https://github.com/kslazarev/numbers_and_words/pull/219)\] \([@dblock](https://github.com/dblock)\)
   * Remove the i18n version constraint, test i18n 1.6 in CI, and relax development dependency constraints. \[[#237](https://github.com/kslazarev/numbers_and_words/pull/237)\] \([@dblock](https://github.com/dblock)\)
+  * Report coverage to Coveralls with SimpleCov and the Coveralls GitHub Action, replacing the unmaintained coveralls gem and the Code Climate badge. \[[#239](https://github.com/kslazarev/numbers_and_words/pull/239)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
