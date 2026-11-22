@@ -4,15 +4,9 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        # Turns the cardinal words of an integer into an ordinal when ordinal: true. A language prepends
-        # this module and implements ordinal_words(text, ordinal_integer), using the words in its locale file under
-        # numbers.ordinals. Decimals, and either part of one, keep the cardinal form.
+        # What RuleSets needs to spell an ordinal: whether ordinal: true applies (decimals, and either part of one,
+        # keep the cardinal form), and the declension of an ordinal through numbers.ordinals.endings.
         module Ordinals
-          def words
-            text = super
-            ordinal_number? && !text.empty? ? ordinal_words(text, ordinal_integer) : text
-          end
-
           private
 
           def ordinal_number?
@@ -24,7 +18,7 @@ module NumbersAndWords
           end
 
           def ordinals
-            @ordinals ||= @translations.t(:ordinals)
+            @ordinals ||= @translations.t(:ordinals, default: {})
           end
 
           # The word with the longest suffix found in the table replaced by its value, or nil.

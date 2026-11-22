@@ -5,7 +5,6 @@ module NumbersAndWords
     module Helpers
       MICRO_CAPACITY_SHIFT = 2
       FIGURES_IN_CAPACITY = 3
-      THOUSAND_CAPACITY = 1
       ONES_SHIFT = 1
 
       def capacity_length
@@ -15,30 +14,6 @@ module NumbersAndWords
       def capacity_count
         count = capacity_length / FIGURES_IN_CAPACITY
         count.zero? ? nil : count
-      end
-
-      def figures_array_in_capacity(capacity)
-        self[capacity * FIGURES_IN_CAPACITY, FIGURES_IN_CAPACITY]
-      end
-
-      def ones
-        self[0].to_i if self[0].to_i.positive?
-      end
-
-      def teens
-        tens_with_ones if tens == 1
-      end
-
-      def tens
-        self[1].to_i if self[1].to_i.positive?
-      end
-
-      def tens_with_ones
-        [ones, tens] if ones && tens
-      end
-
-      def hundreds
-        self[2].to_i if self[2].to_i.positive?
       end
 
       def sub_capacity

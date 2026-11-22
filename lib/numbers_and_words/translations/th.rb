@@ -2,17 +2,10 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Th.
     class Th < Base
       def ones(digit)
         t(:ones)[digit]
-      end
-
-      def tens(digit)
-        t(:tens)[digit]
-      end
-
-      def place(power)
-        t(:places)[power]
       end
 
       def micro_separator

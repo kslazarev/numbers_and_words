@@ -3,7 +3,47 @@ th:
     minus: ลบ
     ones: [ศูนย์, หนึ่ง, สอง, สาม, สี่, ห้า, หก, เจ็ด, แปด, เก้า]
     tens: [_, สิบ, ยี่สิบ, สามสิบ, สี่สิบ, ห้าสิบ, หกสิบ, เจ็ดสิบ, แปดสิบ, เก้าสิบ]
-    places: [_, _, ร้อย, พัน, หมื่น, แสน]
+    hundred: ร้อย
+    thousand: พัน
+    ten_thousand: หมื่น
+    hundred_thousand: แสน
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A number is one word, grouped by millions with one ล้าน for each power of a million ("หนึ่งล้านล้าน"), here
+    # up to 10**120; a final one after other digits is เอ็ด ("สิบเอ็ด", "หนึ่งล้านเอ็ด").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[{>rest}]'
+        100: '{ones}{hundred}[{>rest}]'
+        1000: '{ones}{thousand}[{>rest}]'
+        10000: '{ones}{ten_thousand}[{>rest}]'
+        100000: '{ones}{hundred_thousand}[{>rest}]'
+        1000000: '{<cardinal}{million}[{>rest}]'
+        1000000000000: '{<cardinal}{million}{million}[{>rest}]'
+        1000000000000000000: '{<cardinal}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000: '{<cardinal}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+        1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000: '{<cardinal}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}{million}[{>rest}]'
+      rest:
+        extends: cardinal
+        1: '{final_one}'
+        2: '{ones}'
+      ordinal:
+        0: '{ordinal_prefix}{=cardinal}'
     million: ล้าน
     final_one: เอ็ด
     ordinal_prefix: ที่
