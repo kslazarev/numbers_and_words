@@ -17,7 +17,7 @@ module NumbersAndWords
 
           def words
             result = super
-            @options.ordinal&.result ? ordinal(result) : result
+            @options.ordinal&.result && !result.empty? ? ordinal(result) : result
           end
 
           def print_words

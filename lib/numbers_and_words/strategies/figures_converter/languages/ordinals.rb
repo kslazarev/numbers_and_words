@@ -10,7 +10,7 @@ module NumbersAndWords
         module Ordinals
           def words
             text = super
-            ordinal_number? ? ordinal_words(text, ordinal_integer) : text
+            ordinal_number? && !text.empty? ? ordinal_words(text, ordinal_integer) : text
           end
 
           private

@@ -13,7 +13,7 @@ module NumbersAndWords
           def words
             number = @figures.to_a.reverse.join.to_i
             text = number.zero? ? zero_words : number_words(number)
-            ordinal? ? "#{@translations.t(:ordinal_prefix)}#{text}" : text
+            ordinal? && !text.empty? ? "#{@translations.t(:ordinal_prefix)}#{text}" : text
           end
 
           private

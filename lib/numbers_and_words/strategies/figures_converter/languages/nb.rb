@@ -16,7 +16,7 @@ module NumbersAndWords
             raise Translations::Families::Base.range_error(Math.log10(MAX).to_i) if number >= MAX
 
             text = number.zero? ? zero_words : number_words(number)
-            ordinal? ? ordinal_words(text) : text
+            ordinal? && !text.empty? ? ordinal_words(text) : text
           end
 
           private
