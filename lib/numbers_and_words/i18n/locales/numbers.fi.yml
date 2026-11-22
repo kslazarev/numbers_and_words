@@ -1,5 +1,8 @@
 fi:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: miinus
     ones: [nolla, yksi, kaksi, kolme, neljä, viisi, kuusi, seitsemän, kahdeksan, yhdeksän]
     ten: kymmenen

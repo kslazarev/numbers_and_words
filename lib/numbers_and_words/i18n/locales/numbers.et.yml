@@ -1,5 +1,7 @@
 et:
   numbers:
+    supported_options:
+      ordinal: true
     minus: miinus
     ones: ['null', üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
     teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]

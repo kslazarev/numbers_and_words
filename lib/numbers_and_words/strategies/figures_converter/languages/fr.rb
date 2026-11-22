@@ -16,7 +16,7 @@ module NumbersAndWords
           end
 
           def option_words
-            @options.spelling.traditional? ? ['options.traditional'] : []
+            @options.spelling.result == :traditional ? ['options.traditional'] : []
           end
         end
       end

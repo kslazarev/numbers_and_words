@@ -2,50 +2,7 @@
 
 require 'concurrent/map'
 
-require 'numbers_and_words/strategies/figures_converter/options/base'
-require 'numbers_and_words/strategies/figures_converter/options/en'
-require 'numbers_and_words/strategies/figures_converter/options/en-GB'
-require 'numbers_and_words/strategies/figures_converter/options/es'
-require 'numbers_and_words/strategies/figures_converter/options/hu'
-require 'numbers_and_words/strategies/figures_converter/options/it'
-require 'numbers_and_words/strategies/figures_converter/options/nl'
-require 'numbers_and_words/strategies/figures_converter/options/pt-BR'
-require 'numbers_and_words/strategies/figures_converter/options/pt'
-require 'numbers_and_words/strategies/figures_converter/options/ru'
-require 'numbers_and_words/strategies/figures_converter/options/uk'
-require 'numbers_and_words/strategies/figures_converter/options/cs'
-require 'numbers_and_words/strategies/figures_converter/options/da'
-require 'numbers_and_words/strategies/figures_converter/options/pl'
-require 'numbers_and_words/strategies/figures_converter/options/de'
-require 'numbers_and_words/strategies/figures_converter/options/th'
-require 'numbers_and_words/strategies/figures_converter/options/fr'
-require 'numbers_and_words/strategies/figures_converter/options/fr-CH'
-require 'numbers_and_words/strategies/figures_converter/options/vi'
-require 'numbers_and_words/strategies/figures_converter/options/zh'
-require 'numbers_and_words/strategies/figures_converter/options/ja'
-require 'numbers_and_words/strategies/figures_converter/options/ko'
-require 'numbers_and_words/strategies/figures_converter/options/he'
-require 'numbers_and_words/strategies/figures_converter/options/nb'
-require 'numbers_and_words/strategies/figures_converter/options/fi'
-require 'numbers_and_words/strategies/figures_converter/options/bg'
-require 'numbers_and_words/strategies/figures_converter/options/sk'
-require 'numbers_and_words/strategies/figures_converter/options/ar'
-require 'numbers_and_words/strategies/figures_converter/options/hi'
-require 'numbers_and_words/strategies/figures_converter/options/bn'
-require 'numbers_and_words/strategies/figures_converter/options/ur'
-require 'numbers_and_words/strategies/figures_converter/options/sv'
-require 'numbers_and_words/strategies/figures_converter/options/tr'
-require 'numbers_and_words/strategies/figures_converter/options/kk'
-require 'numbers_and_words/strategies/figures_converter/options/id'
-require 'numbers_and_words/strategies/figures_converter/options/ms'
-require 'numbers_and_words/strategies/figures_converter/options/ro'
-require 'numbers_and_words/strategies/figures_converter/options/el'
-require 'numbers_and_words/strategies/figures_converter/options/az'
-require 'numbers_and_words/strategies/figures_converter/options/hy'
-require 'numbers_and_words/strategies/figures_converter/options/ka'
-require 'numbers_and_words/strategies/figures_converter/options/lv'
-require 'numbers_and_words/strategies/figures_converter/options/lt'
-require 'numbers_and_words/strategies/figures_converter/options/et'
+require 'numbers_and_words/strategies/figures_converter/options/option'
 
 module NumbersAndWords
   module Strategies
@@ -62,18 +19,20 @@ module NumbersAndWords
             @options = options
           end
 
-          # An option the language doesn't define is nil.
+          # A language's own option class, such as Options::Pl::Ordinal, or the option it declares in its locale
+          # file; an option the language doesn't support is nil.
           def method_missing(method_name, *args, &block)
             name = proxy_class_name(method_name)
-            return unless Object.const_defined?(name)
+            return Object.const_get(name).new(self, args, block) if Object.const_defined?(name)
 
-            Object.const_get(name).new(self, args, block)
+            declared = OptionsValidation.declared_options(I18n.local_language)[method_name]
+            Option.new(self, name: method_name, default: declared.is_a?(::Hash) ? declared[:default] : nil) if declared
           rescue NameError
             nil
           end
 
           def respond_to_missing?(method_name, include_private = false)
-            Object.const_defined?(proxy_class_name(method_name)) || super
+            Object.const_defined?(proxy_class_name(method_name)) || OptionsValidation.declared_options(I18n.local_language).key?(method_name) || super
           end
 
           private
@@ -91,3 +50,6 @@ module NumbersAndWords
     end
   end
 end
+
+require 'numbers_and_words/strategies/figures_converter/options/pl/gender'
+require 'numbers_and_words/strategies/figures_converter/options/pl/ordinal'

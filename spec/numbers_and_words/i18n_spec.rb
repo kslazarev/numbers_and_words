@@ -3,6 +3,9 @@
 require 'spec_helper'
 require 'support/locale_characters'
 
+# Locale keys that hold rule templates and option declarations rather than translated words.
+NOT_TRANSLATED = %w[rules supported_options].freeze
+
 describe NumbersAndWords::I18n do
   describe '.local_language' do
     it 'checks validity of given language and return it as symbol' do
@@ -75,9 +78,9 @@ describe NumbersAndWords::I18n do
       it "uses normalized #{Array(script).join(' and ')} translations without invisible characters in #{File.basename(path)}" do
         numbers = YAML.safe_load_file(path).fetch(locale).fetch('numbers')
         # These arrays contain English lookup keys, not translated words, and rule templates (NumbersAndWords::Rules)
-        # refer to them by key.
+        # refer to them by key; supported_options holds option names and values.
         references = lookup_locales.include?(locale) ? numbers.slice('mega', 'micro') : {}
-        translations = numbers.reject { |key, _value| references.key?(key) || key == 'rules' }
+        translations = numbers.reject { |key, _value| references.key?(key) || NOT_TRANSLATED.include?(key) }
 
         expect(LocaleCharacters.errors(references, 'Latin')).to be_empty
         expect(LocaleCharacters.errors(translations, script)).to be_empty

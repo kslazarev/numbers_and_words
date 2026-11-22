@@ -1,5 +1,9 @@
 cs:
   numbers:
+    supported_options:
+      gender: {values: [male, female, neuter], default: counting}
+      ordinal: true
+      remove_zero: true
     minus: mínus
     ones:
       male: [nula, jeden, dva, tři, čtyři, pět, šest, sedm, osm, devět]

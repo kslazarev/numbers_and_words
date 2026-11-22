@@ -1,5 +1,9 @@
 nb:
   numbers:
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: true
     minus: minus
     ones: ["null", en, to, tre, fire, fem, seks, sju, åtte, ni]
     last_one: en

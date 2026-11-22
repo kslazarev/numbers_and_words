@@ -11,7 +11,7 @@ describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers Russia
   end
 
   %i[ru uk].each do |locale|
-    values = NumbersAndWords::Strategies::FiguresConverter::Options.const_get(locale.capitalize)::Case::VALUES
+    values = NumbersAndWords::OptionsValidation.supported_options(locale)[:case]
 
     values.product(%i[male female neuter]).each do |grammatical_case, gender|
       it "spells every #{locale} #{gender} #{grammatical_case} ordinal" do

@@ -1,5 +1,8 @@
 az:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: mənfi
     ones: [sıfır, bir, iki, üç, dörd, beş, altı, yeddi, səkkiz, doqquz]
     teens: [_, on bir, on iki, on üç, on dörd, on beş, on altı, on yeddi, on səkkiz, on doqquz]

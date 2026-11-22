@@ -1,5 +1,7 @@
 lt:
   numbers:
+    supported_options:
+      ordinal: true
     minus: minus
     ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
