@@ -4,14 +4,18 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        # Urdu (ur) uses the Indian numbering system with ارب (10^9) and کھرب (10^11), and ordinals that agree in gender. Words are in logical order, without bidirectional control characters.
+        # Spells whole numbers from the rule sets in numbers.ur.yml; see RuleSets.
         class Ur < Base
-          include Families::Indian
+          include RuleSets
 
           private
 
-          def ordinal_forms
-            @translations.t(:ordinals)[@options.gender.result]
+          def cardinal_set
+            'cardinal'
+          end
+
+          def keeps_ordinal_zero?
+            true
           end
         end
       end

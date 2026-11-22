@@ -4,14 +4,18 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        # Hindi (hi) uses the Indian numbering system with अरब (10^9) and खरब (10^11), and ordinals that agree in gender.
+        # Spells whole numbers from the rule sets in numbers.hi.yml; see RuleSets.
         class Hi < Base
-          include Families::Indian
+          include RuleSets
 
           private
 
-          def ordinal_forms
-            @translations.t(:ordinals)[@options.gender.result]
+          def cardinal_set
+            'cardinal'
+          end
+
+          def keeps_ordinal_zero?
+            true
           end
         end
       end

@@ -105,12 +105,37 @@ hi:
       - निन्यानबे
     hundreds: [~, एक सौ, दो सौ, तीन सौ, चार सौ, पाँच सौ, छह सौ, सात सौ, आठ सौ, नौ सौ]
     # 10^3, 10^5, 10^7, 10^9 and 10^11; the last one repeats for larger numbers.
-    scales: [हज़ार, लाख, करोड़, अरब, खरब]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Below a hundred each number is one word; the counts of the scale words go up to 99, and the last scale word
+    # counts any number.
+    rules:
+      cardinal:
+        0: '{ones}'
+        100: '{hundreds}[ {>}]'
+        1000: '{ones} {thousand}[ {>}]'
+        100000: '{ones} {lakh}[ {>}]'
+        10000000: '{ones} {crore}[ {>}]'
+        1000000000: '{ones} {arab}[ {>}]'
+        100000000000: '{<cardinal} {kharab}[ {>}]'
+      # Ordinals are irregular words or the cardinal with a suffix.
+      ordinal:
+        0: '{=cardinal}{ordinals.suffix}'
+        1: '{ordinals.irregular}'
+        5: '{=cardinal}{ordinals.suffix}'
+        6: '{ordinals.irregular}'
+        7: '{=cardinal}{ordinals.suffix}'
+    thousand: हज़ार
+    lakh: लाख
+    crore: करोड़
+    arab: अरब
+    kharab: खरब
     ordinals:
-      male:
-        irregular: [~, पहला, दूसरा, तीसरा, चौथा, ~, छठा]
-        suffix: वाँ
+      irregular: [~, पहला, दूसरा, तीसरा, चौथा, ~, छठा]
+      suffix: वाँ
+    # The feminine ordinals.
+    genders:
       female:
-        irregular: [~, पहली, दूसरी, तीसरी, चौथी, ~, छठी]
-        suffix: वीं
+        ordinals:
+          irregular: [~, पहली, दूसरी, तीसरी, चौथी, ~, छठी]
+          suffix: वीं
     micro_separator: दशमलव

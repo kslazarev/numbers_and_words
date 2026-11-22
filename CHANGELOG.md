@@ -11,6 +11,7 @@
   * Spell Estonian, Finnish, Hungarian, Latvian and Lithuanian whole numbers and ordinals from rule sets in their locale files. \[[#331](https://github.com/kslazarev/numbers_and_words/pull/331)\] \([@dblock](https://github.com/dblock)\)
   * Spell Armenian, Azerbaijani, Georgian, Kazakh and Turkish whole numbers and ordinals from rule sets in their locale files. \[[#332](https://github.com/kslazarev/numbers_and_words/pull/332)\] \([@dblock](https://github.com/dblock)\)
   * Spell Arabic, Greek and Hebrew whole numbers and ordinals from rule sets in their locale files. \[[#333](https://github.com/kslazarev/numbers_and_words/pull/333)\] \([@dblock](https://github.com/dblock)\)
+  * Spell Bengali, Hindi and Urdu whole numbers and ordinals from rule sets in their locale files. \[[#334](https://github.com/kslazarev/numbers_and_words/pull/334)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

@@ -4,14 +4,18 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        # Bengali (bn) uses the Indian numbering system up to কোটি (10^7), and ordinals without gender.
+        # Spells whole numbers from the rule sets in numbers.bn.yml; see RuleSets.
         class Bn < Base
-          include Families::Indian
+          include RuleSets
 
           private
 
-          def ordinal_forms
-            @translations.t(:ordinals)
+          def cardinal_set
+            'cardinal'
+          end
+
+          def keeps_ordinal_zero?
+            true
           end
         end
       end

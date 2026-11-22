@@ -105,7 +105,24 @@ bn:
       - নিরানব্বই
     hundreds: [~, একশ, দুইশ, তিনশ, চারশ, পাঁচশ, ছয়শ, সাতশ, আটশ, নয়শ]
     # 10^3, 10^5 and 10^7; কোটি repeats for larger numbers (এক হাজার কোটি is 10^10).
-    scales: [হাজার, লাখ, কোটি]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Below a hundred each number is one word; the counts of the scale words go up to 99, and the last scale word
+    # counts any number.
+    rules:
+      cardinal:
+        0: '{ones}'
+        100: '{hundreds}[ {>}]'
+        1000: '{ones} {thousand}[ {>}]'
+        100000: '{ones} {lakh}[ {>}]'
+        10000000: '{<cardinal} {crore}[ {>}]'
+      # Ordinals are irregular words or the cardinal with a suffix.
+      ordinal:
+        0: '{=cardinal}{ordinals.suffix}'
+        1: '{ordinals.irregular}'
+        11: '{=cardinal}{ordinals.suffix}'
+    thousand: হাজার
+    lakh: লাখ
+    crore: কোটি
     ordinals:
       irregular: [~, প্রথম, দ্বিতীয়, তৃতীয়, চতুর্থ, পঞ্চম, ষষ্ঠ, সপ্তম, অষ্টম, নবম, দশম]
       suffix: তম

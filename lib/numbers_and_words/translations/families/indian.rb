@@ -10,15 +10,7 @@ module NumbersAndWords
           t(:ones)[number]
         end
 
-        def hundreds(digit)
-          t(:hundreds)[digit]
-        end
-
         # Scale words from thousand up: thousand, lakh, crore and, where the language has them, more.
-        def scales
-          t(:scales)
-        end
-
         def micro_separator
           t(:micro_separator)
         end

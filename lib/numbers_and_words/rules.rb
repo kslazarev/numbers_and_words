@@ -4,10 +4,10 @@ module NumbersAndWords
   # Spells a whole number from a locale's rule sets (numbers.rules), following the idea of Unicode CLDR's
   # rule-based number format: a small engine, with everything about a language kept in its locale file.
   #
-  # A rule set maps the smallest number each rule applies to onto a template. The rule for a number is the one
-  # with the largest key not above it, and its divisor is the largest power of ten not above that key, which
-  # splits the number into a quotient and a remainder; a key such as '1100/100' gives the divisor itself. A template
-  # is text with these parts:
+  # A rule set maps the smallest number each rule applies to onto a template. The rule for a number (below
+  # 10**limit, when there is a limit) is the one with the largest key not above it, and its divisor is the largest
+  # power of ten not above that key, which splits the number into a quotient and a remainder; a key such as
+  # '1100/100' gives the divisor itself. A template is text with these parts:
   #
   #   {list}   the word at the quotient in a word list, the plural form of a scale word for the quotient, or a
   #            single word
@@ -39,7 +39,7 @@ module NumbersAndWords
     private
 
     def expand(number, set_name)
-      raise Translations::Families::Base.range_error(@limit) if number >= 10**@limit
+      raise Translations::Families::Base.range_error(@limit) if @limit && number >= 10**@limit
 
       rules = rule_set(set_name)
       key, template = rule_for(rules, number)
