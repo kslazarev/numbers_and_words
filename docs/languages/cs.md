@@ -1,6 +1,6 @@
 # Czech (`cs`)
 
-Čeština. Without `gender`, numbers use the counting forms: jedna for one and dva for two (jedna, dva, tři, dvacet dva); see [Gender](#gender). Numbers up to 10<sup>30</sup> - 1 are supported; larger numbers raise `RangeError`.
+Čeština. Without [`gender`](#gender), numbers use the counting forms jedna and dva (jedna, dva, tři, dvacet dva). Numbers up to 10<sup>30</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -32,7 +32,7 @@ I18n.with_locale(:cs) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Fraction names use the unaccented spelling consistently with scale words: biliontina, biliontiny and biliontin, matching bilion. Accented variants are also valid Czech.
+Fraction names are unaccented like the scale words (biliontina, biliontiny and biliontin, as bilion); accented variants are also valid Czech.
 
 ```ruby
 I18n.with_locale(:cs) { 21.77.to_words }
@@ -46,7 +46,7 @@ I18n.with_locale(:cs) { 0.000000000001.to_words(precision: 12) }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
@@ -85,7 +85,7 @@ I18n.with_locale(:cs) { 22.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender. Ordinals are supported below 10,000; larger ones raise `RangeError`.
+`ordinal: true`, optionally with gender, spells ordinals below 10,000; larger ones raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:cs) { 21.to_words(ordinal: true) }

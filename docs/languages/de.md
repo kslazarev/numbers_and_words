@@ -34,7 +34,7 @@ I18n.with_locale(:de) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `Komma` followed by each fractional digit, including leading zeros.
+Decimals are read with `Komma` and then each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:de) { 21.77.to_words }
@@ -51,7 +51,7 @@ I18n.with_locale(:de) { 3.14.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:de) { 0.1.to_words(precision: 2) }
@@ -69,7 +69,7 @@ I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` gives the uninflected `-te`/`-ste` form. Ordinals, including compounds with million or larger scales, are written as one lowercase word. Exact single scales omit the multiplier ("millionste", "milliardste"); a multiplier of two or more stays ("zweimillionste").
+`ordinal: true` gives the uninflected `-te`/`-ste` form, written as one lowercase word, even with million or larger scales. A single scale has no multiplier ("millionste", "milliardste"); two or more keep it ("zweimillionste").
 
 ```ruby
 I18n.with_locale(:de) { 21.to_words(ordinal: true) }

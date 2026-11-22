@@ -27,7 +27,7 @@ bundle exec rake
 
 Run `bundle exec rake spec` for tests only or `bundle exec rake rubocop` for lint only. CI runs tests on Ruby 3.1 and later, JRuby, macOS and Windows.
 
-`bundle exec rake build` followed by `bundle exec ruby script/verify_package.rb` installs the built gem in a throwaway directory and exercises it there, without the source checkout.
+`bundle exec rake build` and then `bundle exec ruby script/verify_package.rb` install the built gem in a throwaway directory and exercise it there.
 
 See [BENCHMARKS](BENCHMARKS.md) for performance measurements and [RELEASING](RELEASING.md) for releases.
 
@@ -45,9 +45,9 @@ git checkout -b my-feature-branch
 
 ### Write Tests
 
-Try to write a test that reproduces the problem you're trying to fix or describes a feature that you want to build. Add tests to [spec](spec).
+Write a test that reproduces the problem you're fixing or describes the feature you're building, in [spec](spec).
 
-We definitely appreciate pull requests that highlight or reproduce a problem, even without a fix.
+Pull requests that only reproduce a problem, without a fix, are welcome too.
 
 #### Locale Character Validation
 
@@ -55,11 +55,11 @@ Locale strings must use the locale's script, be NFC-normalized, and contain no i
 
 #### Unicode CLDR Comparison
 
-`spec/cldr_comparison_spec.rb` spells integers from 0 to 123,456,789 with this gem and with the [Unicode CLDR](https://cldr.unicode.org/) rule-based number format (RBNF) spell-out rules, from the development-only [twitter_cldr](https://github.com/ruby-i18n/twitter-cldr-rb) gem, for each language CLDR covers: the default cardinal, ordinals, and each gender the gem accepts. `CldrComparison::LOCALES` in `spec/support/cldr_comparison.rb` maps every locale to its CLDR locale and rule sets and lists the skipped locales with the reason. It runs with the rest of the suite; run it alone with `bundle exec rspec spec/cldr_comparison_spec.rb`.
+`spec/cldr_comparison_spec.rb` spells integers from 0 to 123,456,789 with this gem and with the [Unicode CLDR](https://cldr.unicode.org/) spell-out rules (RBNF), from the development-only [twitter_cldr](https://github.com/ruby-i18n/twitter-cldr-rb) gem, for each language CLDR covers: cardinals, ordinals, and each gender the gem accepts. `CldrComparison::LOCALES` in `spec/support/cldr_comparison.rb` maps each locale to its CLDR rule sets and lists skipped locales with the reason. Run it alone with `bundle exec rspec spec/cldr_comparison_spec.rb`.
 
-Every difference must be reviewed. `spec/fixtures/cldr_rules.yml` holds reviewed rules, per locale and shared under `"*"`, that transform CLDR's reading before the comparison, each with a specific reason: a CLDR convention or error, or a variant in use. A rule does one literal operation, so it cannot hide an unrelated difference: `replace` whole words or phrases, `replace_parts` of words such as a misspelled stem, `drop_one` the implicit one before listed scale words, add a `prefix`, `split_before` listed word parts, `join_before`/`join_after` words beginning or ending with listed parts, or `hyphenate` all words except next to listed ones; `kinds`, `above` and `below` limit it to some comparisons. Each rule records with `affects` how many comparisons it changes. A difference no rule explains is a per-number exception in `spec/fixtures/cldr_exceptions.yml`, with both readings and the reason. The spec fails on a difference that is neither, on an exception that no longer differs, on a rule that changes a reading CLDR already agrees on, and on a rule whose `affects` count changed, so a rule that silently absorbs a new kind of difference, or no longer applies, is noticed.
+Every difference is reviewed. `spec/fixtures/cldr_rules.yml` holds rules, per locale or shared under `"*"`, that transform CLDR's reading before the comparison, each with a reason: a CLDR convention or error, or a variant in use. A rule does one literal operation, so it can't hide an unrelated difference: `replace` whole words or phrases, `replace_parts` of words such as a misspelled stem, `drop_one` the implicit one before listed scale words, add a `prefix`, `split_before` listed word parts, `join_before`/`join_after` words beginning or ending with listed parts, or `hyphenate` all words except next to listed ones; `kinds`, `above` and `below` limit it to some comparisons. Each rule records with `affects` how many comparisons it changes. A difference no rule explains is an exception in `spec/fixtures/cldr_exceptions.yml`, with both readings and the reason. The spec fails on any other difference, on an exception that no longer differs, on a rule that changes a reading CLDR agrees with, and on a changed `affects` count, so a rule that starts absorbing a new difference, or stops applying, is noticed.
 
-After a deliberate output change, or after upgrading the pinned twitter_cldr, run `bundle exec ruby script/cldr_differences.rb`: it updates the `affects` counts, rewrites the exceptions keeping the reasons of unchanged ones and marking new ones `TODO`, and lists the new differences grouped by the word substitution they need, as candidate rules. Write a rule for a repeated difference, give each remaining `TODO` a reason, or fix the gem when it is wrong; then check that every changed `affects` count is explained. Report CLDR errors to the [CLDR Jira](https://unicode-org.atlassian.net/jira/software/c/projects/CLDR/issues) and reference the ticket in the rule with `ticket:` (for example `ticket: CLDR-19918`) or in the exception's reason. CLDR is a reference, not the specification: the fixtures are.
+After a deliberate output change, or upgrading twitter_cldr, run `bundle exec ruby script/cldr_differences.rb`: it updates the `affects` counts, rewrites the exceptions, keeping the reasons of unchanged ones and marking new ones `TODO`, and lists new differences by the substitution they need, as candidate rules. Write a rule for a repeated difference, give each `TODO` a reason, or fix the gem when it's wrong; then explain every changed `affects` count. Report CLDR errors to the [CLDR Jira](https://unicode-org.atlassian.net/jira/software/c/projects/CLDR/issues) and reference the ticket in the rule with `ticket:` (for example `ticket: CLDR-19918`) or in the exception's reason. CLDR is a reference, not the specification: the fixtures are.
 
 ### Write Code
 

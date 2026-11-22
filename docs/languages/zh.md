@@ -1,6 +1,6 @@
 # Chinese (`zh`)
 
-中文 (简体). This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Simplified Chinese characters without spaces. Digits are grouped by ten thousands: each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), and is followed by 万 (10^4), 亿 (10^8), 万亿 (10^12), 亿亿 (10^16) and so on. A single 零 marks skipped places between nonzero digits (101 is 一百零一, 1,000,100 is 一百万零一百), and a number from 10 to 19 at the start drops its leading 一 (15 is 十五, 110,000 is 十一万). The formal 二 is used for 2 everywhere; the colloquial 两 is not supported yet. Regional locales such as `zh-CN` use `zh`; Traditional Chinese (`zh-TW`, `zh-HK`) characters are not supported yet.
+中文 (简体). Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Simplified Chinese characters without spaces. Digits are grouped by ten thousands: each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), and is followed by 万 (10^4), 亿 (10^8), 万亿 (10^12), 亿亿 (10^16) and so on. A single 零 marks skipped places between nonzero digits (101 is 一百零一, 1,000,100 is 一百万零一百), and a number from 10 to 19 at the start drops its leading 一 (15 is 十五, 110,000 is 十一万). 2 is always the formal 二; the colloquial 两 is not supported yet. Regional locales such as `zh-CN` use `zh`; Traditional Chinese (`zh-TW`, `zh-HK`) characters are not supported yet.
 
 ## Examples
 
@@ -49,7 +49,7 @@ I18n.with_locale(:zh) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:zh) { 0.1.to_words(precision: 2) }

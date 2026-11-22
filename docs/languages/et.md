@@ -1,6 +1,6 @@
 # Estonian (`et`)
 
-Eesti. One hundred and one thousand are read as sada and tuhat, rather than the also-valid ükssada and üks tuhat; one remains before a million and larger scales. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Eesti. One hundred and one thousand are sada and tuhat, not the also valid ükssada and üks tuhat; a million and larger scales keep one. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -38,21 +38,21 @@ I18n.with_locale(:et) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :et."). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
+Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :et."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
 
 ### Micro Separator
 
-`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
+`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal and puts the words before it in the genitive ("kahekümne esimene"). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` makes the last word ordinal and puts the words before it in the genitive ("kahekümne esimene"). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:et) { 1.to_words(ordinal: true) }

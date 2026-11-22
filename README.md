@@ -63,14 +63,14 @@ I18n.with_locale(:en) { 21.77.to_words }
 # => "twenty-one and seventy-seven hundredths"
 ```
 
-Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are converted from their exact decimal value.
+Floats in scientific notation, such as `0.00001` (`1.0e-05`), are read from their exact decimal value.
 
 ```ruby
 I18n.with_locale(:en) { 0.00001.to_words }
 # => "zero and one hundred-thousandth"
 ```
 
-Negative numbers start with the language's word for minus. They have no ordinal, so `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`, which is also raised for decimals in a language without decimals. Numbers beyond a language's largest scale word raise `RangeError`; each language page gives its limit.
+Negative numbers start with the word for minus. They have no ordinal: `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`, as do decimals in a language without them. Numbers past a language's largest scale word raise `RangeError`; each language page gives the limit.
 
 ```ruby
 I18n.with_locale(:en) { -42.to_words }
@@ -82,7 +82,7 @@ I18n.with_locale(:fr) { -1.5.to_words }
 
 ### Command Line
 
-The `to_words` command spells out each argument, or each number read from standard input, one per line.
+The `to_words` command spells each argument, or each number on standard input, one per line.
 
 ```
 $ to_words 42 1.5
@@ -99,11 +99,11 @@ $ to_words --locale es --gender female 21
 veintiuna
 ```
 
-Choose the language with `-l`/`--locale` (default `en`). Every `to_words` option has a flag, such as `--ordinal` (with a `--no-` form), `--gender VALUE` or `--precision N`; `to_words --help` lists them with the languages that support each. Errors go to standard error with exit status 1.
+Choose the language with `-l`/`--locale` (default `en`). Every option has a flag, such as `--ordinal` (and `--no-ordinal`), `--gender VALUE` or `--precision N`; `to_words --help` lists them and the languages that support each. Errors go to standard error, with exit status 1.
 
 ## Supported Languages / Языки / Langues Supportées
 
-Each language page has examples, says whether decimals are supported, and documents every option the language accepts.
+Each language page has examples, says whether it reads decimals, and documents its options.
 
 | Language | Name | Code |
 | --- | --- | --- |
@@ -151,13 +151,13 @@ Each language page has examples, says whether decimals are supported, and docume
 | [Urdu](docs/languages/ur.md)* | اردو | `ur` |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 
-\* Experimental: known gaps, or no native-speaker review yet; its page says why. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
+\* Experimental: known gaps or no native-speaker review yet, as its page explains. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 
 Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `nb-NO`, `no` and `no-NO` use `nb`; `zh-CN` and `zh-SG` use `zh`.
 
 ## Options / Опции / Options
 
-Options are passed to `to_words`. Language-specific options, such as `gender`, `ordinal` or `remove_zero`, are described on each language page.
+Options are passed to `to_words`. Language options, such as `gender`, `ordinal` or `remove_zero`, are on each language page.
 
 ### Precision
 
@@ -182,7 +182,7 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fallback
 
-`fallback` decides what happens when the current locale has no bundled rules or the configuration disables it. By default this raises `NumbersAndWords::UnsupportedLanguageError`. Set it to a bundled locale to convert in that locale, or to `true` to return the digits.
+`fallback` applies when the current locale has no bundled rules or the configuration disables it, which otherwise raises `NumbersAndWords::UnsupportedLanguageError`. Set it to a bundled locale to convert in that locale, or to `true` to return the digits.
 
 ```ruby
 I18n.with_locale(:am) { 42.to_words(fallback: :fr) }
@@ -196,7 +196,7 @@ Other options are validated for the fallback locale. `I18n.with_locale` raises `
 
 ### Unit
 
-`unit` follows a number with a unit word, such as a currency, in the form the number takes. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations for the current locale, and a dotted key such as `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, chosen with the gem's plural rules (`one`, `few`, `many` and `other` in Russian and Ukrainian, `one` and `other` in English), or a single string for a unit that never changes. An optional `gender` sets the gender of the number in languages with a `gender` option; a `gender` passed to `to_words` overrides it.
+`unit` follows a number with a unit word, such as a currency, in the form the number takes. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations, and `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language (`one`, `few`, `many` and `other` in Russian and Ukrainian, `one` and `other` in English), or one string if it never changes. An optional `gender` sets the number's gender in languages with a `gender` option; a `gender` passed to `to_words` overrides it.
 
 ```yaml
 en:
@@ -249,7 +249,7 @@ I18n.with_locale(:zh) { 21.to_words(unit: :yuan) }
 # => "二十一元"
 ```
 
-The unit follows the number after a space, or directly in languages written without spaces (Chinese, Japanese and Thai). Hebrew and Arabic put one after its unit, and Arabic says two with the unit's dual form alone, as their language pages describe. Before a unit, a number takes the form a language uses before a noun, which its locale file lists under `numbers.before_unit`: German "ein Euro" and "eine Mark", Swedish "en krona", Italian "un euro", Romanian "un leu" and "o liră", Hungarian "két forint", Spanish "un euro" (see `apocopated` on its page). The unit's `gender` chooses between the forms where they differ. With `ordinal: true` the unit takes its singular (`one`) form, because an ordinal names one item: the twenty-first dollar. Decimals keep their cardinal form with `ordinal: true`.
+The unit follows the number after a space, or directly in Chinese, Japanese and Thai. Hebrew and Arabic put one after its unit, and Arabic says two with the dual form alone, as their pages describe. Before a unit, a number takes its form before a noun, listed under `numbers.before_unit` in the locale file: German "ein Euro" and "eine Mark", Swedish "en krona", Italian "un euro", Romanian "un leu" and "o liră", Hungarian "két forint", Spanish "un euro" (see `apocopated` on its page); the unit's `gender` picks between them. With `ordinal: true` the unit is singular, since an ordinal names one item: the twenty-first dollar. Decimals keep their cardinal form.
 
 ```ruby
 I18n.with_locale(:en) { 21.to_words(unit: :dollar, ordinal: true) }
@@ -259,16 +259,16 @@ I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
 # => "двадцать вторая копейка"
 ```
 
-A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `The unit :euro has no translation in :ru, expected at units.euro.`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
+A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, such as `The unit :euro has no translation in :ru, expected at units.euro.`. Unit forms are nominative, so `unit` with another `case` raises too.
 
-In Spanish, French, Italian and Portuguese, a whole number that ends in a scale word of a million or more takes a preposition before the unit (`de`, or `di` in Italian), but one that ends in another word, such as `mil`, does not. French elides `de` to `d'` before a unit that starts with a vowel; a unit sets `elision: true` for a mute h (`d'hectares`) or `elision: false` for another exception. Romanian puts `de` in the unit forms, as it does for any number from 20.
+In Spanish, French, Italian and Portuguese, a whole number ending in a scale word of a million or more takes `de` (Italian `di`) before the unit; one ending in another word, such as `mil`, doesn't. French elides `de` to `d'` before a vowel; a unit sets `elision: true` for a mute h (`d'hectares`) or `elision: false` for another exception. Romanian puts `de` in the unit forms, as for any number from 20.
 
 ```ruby
 I18n.with_locale(:fr) { 2_000_000.to_words(unit: :euro) }
 # => "deux millions d'euros"
 ```
 
-After a decimal, the unit takes its `other` form, which is the genitive singular in Russian and Czech; in French and Portuguese, amounts below 2 take the singular, and in Romanian the unit takes its `few` form. A float with no fractional part reads as a whole number.
+After a decimal, the unit takes its `other` form, the genitive singular in Russian and Czech; French and Portuguese use the singular below 2, and Romanian the `few` form. A float with no fractional part reads as a whole number.
 
 ```ruby
 I18n.with_locale(:en) { 1.5.to_words(unit: :dollar) }
@@ -281,7 +281,7 @@ I18n.with_locale(:fr) { 1.5.to_words(unit: :euro) }
 # => "un virgule cinq euro"
 ```
 
-`subunit` spells an amount in two units, such as dollars and cents: the decimal places become the subunit, rounded half to even. `precision` sets how many decimal places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`, and a zero unit is left out with `remove_zero: true` in languages that support it. The two parts are joined with the language's word for it (`and` in English, `et` in French), attached to the subunit in Hebrew and Arabic (`ו`, `و`), or a space.
+`subunit` spells an amount in two units, such as dollars and cents: the decimal places, rounded half to even, become the subunit. `precision` sets how many places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`, and a zero unit with `remove_zero: true` where supported. The parts are joined with the language's word (`and` in English, `et` in French), attached to the subunit in Hebrew and Arabic (`ו`, `و`), or with a space.
 
 ```ruby
 I18n.with_locale(:en) { 21.5.to_words(unit: :dollar, subunit: :cent) }
@@ -304,7 +304,7 @@ I18n.with_locale(:en) { 0.5.to_words(unit: :dollar, subunit: :cent, remove_zero:
 
 ### Unsupported Options
 
-Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its language page. Any other option or value is ignored with a warning that names the supported alternatives, and 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, instead; set [`strict_options`](#configuration--конфигурация) to `true` to raise now.
+Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its page. Any other option or value is ignored with a warning that lists the supported ones; 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, instead. Set [`strict_options`](#configuration--конфигурация) to `true` to raise now.
 
 Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` returns "hai mươi mốt" and warns once:
 
@@ -314,11 +314,11 @@ numbers_and_words: The option :gender is not supported in :vi; supported: :micro
 
 ### Deprecations
 
-The defaults `fraction: true` in English, French, Italian and Portuguese, `spelling: :traditional` in French and `hundreds_with_union: false` in British English are deprecated and will change in 2.0; pass the option explicitly to keep or change the reading. The locale codes `se`, `ua` and `kz` are deprecated in favor of `sv`, `uk` and `kk`. Each deprecation warns once per process; warnings about defaults are Ruby deprecation warnings, shown with `Warning[:deprecated] = true` or `ruby -W:deprecated`. See [UPGRADING](UPGRADING.md).
+The defaults `fraction: true` in English, French, Italian and Portuguese, `spelling: :traditional` in French and `hundreds_with_union: false` in British English change in 2.0; pass the option to choose. The locale codes `se`, `ua` and `kz` are deprecated for `sv`, `uk` and `kk`. Each deprecation warns once per process; those about defaults are Ruby deprecation warnings, shown with `Warning[:deprecated] = true` or `ruby -W:deprecated`. See [UPGRADING](UPGRADING.md).
 
 ## Configuration / Конфигурация
 
-All bundled locales are loaded by default. To load only some, configure the gem after requiring it:
+All bundled locales load by default. To load only some, configure the gem after requiring it:
 
 ```ruby
 NumbersAndWords.configure do |config|
@@ -332,7 +332,7 @@ Or set it directly:
 NumbersAndWords.config.locales = [:en, :ru]
 ```
 
-Regional locales such as `"en-US"` are normalized to their bundled locale. `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. A direct assignment takes effect immediately; a `configure` block takes effect when it completes, and not at all if it raises.
+Regional locales such as `"en-US"` become their bundled locale. `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. An assignment takes effect at once; a `configure` block when it completes, and not at all if it raises.
 
 `fallback` sets the default [fallback](#fallback); the `fallback` option of `to_words` overrides it.
 
@@ -340,16 +340,15 @@ Regional locales such as `"en-US"` are normalized to their bundled locale. `nil`
 NumbersAndWords.config.fallback = :en
 ```
 
-`strict_options` (`false` by default) ignores an unsupported option or value with a warning; `true` raises `NumbersAndWords::UnsupportedOptionError` instead, which 2.0 will make the default.
+`strict_options` (`false` by default) ignores an unsupported option or value with a warning; `true` raises `NumbersAndWords::UnsupportedOptionError`, the default in 2.0.
 
 ```ruby
 NumbersAndWords.config.strict_options = true
 ```
 
+Configuration only changes this gem's locale files in `I18n.load_path` and its plural rules, keeping application translations and an assigned `I18n.available_locales`. Converting in a disabled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set.
 
-Configuration changes only this gem's locale files in `I18n.load_path` and its pluralization rules; application translations and an explicitly assigned `I18n.available_locales` are kept. Converting in a disabled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set.
-
-Require the gem before looking up any translations, as Rails does, and configure it during application initialization. Configuring reloads the I18n backend, as assigning `I18n.load_path` does, so store runtime-only translations afterwards. Configuring again doesn't duplicate load paths. The gem never changes `I18n.locale` or `I18n.default_locale`, so don't disable the locales they use.
+Require the gem before looking up translations, as Rails does, and configure it during initialization. Configuring reloads the I18n backend, as assigning `I18n.load_path` does, so store runtime-only translations afterwards; configuring again doesn't duplicate load paths. The gem never changes `I18n.locale` or `I18n.default_locale`, so don't disable their locales.
 
 ## Requirements / Требования / Configuration Requise
 
@@ -358,7 +357,7 @@ Require the gem before looking up any translations, as Rails does, and configure
 
 ## Upgrading / Обновление / Mise à jour
 
-See [UPGRADING](UPGRADING.md) for changes in behavior, and for what 2.0 will change.
+See [UPGRADING](UPGRADING.md) for changes in behavior and what 2.0 will change.
 
 ## Contributing / Участие / Contribuer
 

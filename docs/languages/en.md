@@ -34,7 +34,7 @@ I18n.with_locale(:en) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `point`, which 2.0 will make the default.
+Decimals are read as a fraction, or with `point` with `fraction: false` (see [Fraction](#fraction)), which 2.0 will make the default.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words }
@@ -51,7 +51,7 @@ I18n.with_locale(:en) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
@@ -69,7 +69,7 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `point` followed by each fractional digit, including leading zeros. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads `point` and then each fractional digit, including leading zeros. 2.0 will make `fraction: false` the default and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(fraction: false) }
@@ -84,7 +84,7 @@ I18n.with_locale(:en) { 3.1416.to_words(fraction: false) }
 
 ### Hundreds With Union
 
-`hundreds_with_union: true` adds 'and' after hundreds.
+`hundreds_with_union: true` adds "and" after hundreds.
 
 ```ruby
 I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
@@ -105,7 +105,7 @@ I18n.with_locale(:en) { 133.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads numbers of up to four digits in pairs, as they are usually spoken. Longer numbers are read as usual.
+`pronounced: true` reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:en) { 1984.to_words(pronounced: true) }

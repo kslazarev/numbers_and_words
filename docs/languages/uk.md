@@ -41,7 +41,7 @@ I18n.with_locale(:uk) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:uk) { 0.1.to_words(precision: 2) }
@@ -71,7 +71,7 @@ I18n.with_locale(:uk) { 1001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("двадцять перший") and joins a round thousand or million to its multiplier ("двохтисячний", "дев’яностотисячний"). A scale group of exactly one omits its one ("тисяча перший", "мільйон перший"), while cardinals keep it ("одна тисяча один", "один мільйон один"). Omission before million and larger scales is the chosen concise reading, not a claim that every form retaining один is incorrect. `gender:` selects the masculine, feminine or neuter ending.
+`ordinal: true` makes the last word ordinal ("двадцять перший") and joins a round thousand or million to its multiplier ("двохтисячний", "дев’яностотисячний"). A scale group of exactly one omits its one ("тисяча перший", "мільйон перший"), while cardinals keep it ("одна тисяча один", "один мільйон один"). Before мільйон and larger scales, this is the shorter of two readings; one that keeps один isn't wrong. `gender:` selects the masculine, feminine or neuter ending.
 
 ```ruby
 I18n.with_locale(:uk) { 1.to_words(ordinal: true) }
@@ -139,7 +139,7 @@ Decimals are not declined: `case:` other than `:nominative` raises `NumbersAndWo
 
 ### Animate
 
-`animate: true` gives the accusative the genitive form, as for an animate noun: for a masculine ordinal ("бачу двадцять першого"), for "один" ("двадцять одного"), and for "два", "три" and "чотири" alone ("двох"), while compound numbers ending in them keep the nominative ("двадцять два"). The default is the inanimate form.
+`animate: true` gives the accusative its genitive form, as for an animate noun, instead of the default inanimate form. This applies to a masculine ordinal ("бачу двадцять першого"), "один" ("двадцять одного"), and "два", "три" and "чотири" alone ("двох"); compound numbers ending in them keep the nominative ("двадцять два").
 
 ```ruby
 I18n.with_locale(:uk) { 21.to_words(ordinal: true, case: :accusative) }

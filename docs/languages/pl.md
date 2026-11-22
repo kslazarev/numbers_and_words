@@ -1,6 +1,6 @@
 # Polish (`pl`)
 
-Polski. This language is experimental: cardinals support magnitudes below 10**48 and decimals up to 48 places; ordinals support 0 to 999; general noun-case and masculine-personal inflection are not implemented.
+Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals 0 to 999. Noun cases and masculine-personal forms are not implemented.
 
 ## Examples
 
@@ -44,7 +44,7 @@ I18n.with_locale(:pl) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:pl) { 0.1.to_words(precision: 2) }
@@ -77,7 +77,7 @@ I18n.with_locale(:pl) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender, for integers from 0 to 999. Larger ordinals raise `RangeError`.
+`ordinal: true`, optionally with gender, spells integers from 0 to 999; larger ones raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:pl) { 21.to_words(ordinal: true) }

@@ -1,6 +1,6 @@
 # British English (`en-GB`)
 
-English (British). With `hundreds_with_union: true`, "and" joins the rest of a hundred (one hundred and one) and a final part below one hundred after thousand, million or a larger scale (one thousand and one, two million and thirty); 2.0 will make it the default. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+English (British). With `hundreds_with_union: true`, "and" follows a hundred (one hundred and one) and comes before a final part below one hundred after a scale word (one thousand and one, two million and thirty); 2.0 will make it the default. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -35,7 +35,7 @@ I18n.with_locale(:'en-GB') { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `point` followed by each fractional digit, including leading zeros.
+Decimals are read with `point` and then each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 21.77.to_words }
@@ -52,7 +52,7 @@ I18n.with_locale(:'en-GB') { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 0.1.to_words(precision: 2) }
@@ -82,7 +82,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
 
 ### Hundreds With Union
 
-`hundreds_with_union: true` adds 'and' after hundreds, and before a final part below one hundred after a larger scale. 2.0 will make it the default for British English, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`hundreds_with_union: true` adds "and" after hundreds, and before a final part below one hundred after a larger scale. 2.0 will make it the default for British English and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'en-GB') { 111.to_words }
@@ -109,7 +109,7 @@ I18n.with_locale(:'en-GB') { 1001.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads numbers of up to four digits in pairs, as they are usually spoken. Longer numbers are read as usual.
+`pronounced: true` reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 1984.to_words(pronounced: true) }

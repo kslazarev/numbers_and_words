@@ -1,6 +1,6 @@
 # Swedish (`sv`)
 
-Svenska. Numbers below a million are written as one word (tjugoettusen, fyratusentrettio), and ett drops a t before tusen (ettusen). This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Svenska. Numbers below a million are written as one word (tjugoettusen, fyratusentrettio), and ett drops a t before tusen (ettusen). Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -32,21 +32,21 @@ I18n.with_locale(:sv) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :sv."). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
+Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :sv."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
 
 ### Micro Separator
 
-`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
+`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
 
 ### Ordinal
 
-`ordinal: true` makes the end of the last word ordinal ("tjugoförsta"). Million scale nouns remain separate from their multipliers ("två miljonte"); exactly one millionth is miljonte.
+`ordinal: true` makes the end of the last word ordinal ("tjugoförsta"). Million scales stay apart from their multiplier ("två miljonte"); one millionth is miljonte.
 
 ```ruby
 I18n.with_locale(:sv) { 1.to_words(ordinal: true) }

@@ -37,7 +37,7 @@ I18n.with_locale(:it) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `virgola`, which 2.0 will make the default.
+Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `virgola`.
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words }
@@ -54,7 +54,7 @@ I18n.with_locale(:it) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
@@ -72,7 +72,7 @@ I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgola` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgola`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words(fraction: false) }

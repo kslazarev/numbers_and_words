@@ -1,6 +1,6 @@
 # Japanese (`ja`)
 
-日本語. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in kanji numerals without spaces. Digits are grouped by ten thousands: each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), and is followed by 万 (10^4), 億 (10^8), 兆 (10^12), 京 (10^16), 垓 (10^20) and so on up to 極 (10^48); larger numbers raise `RangeError`. 一 is not written before 十, 百 and 千 (十一, 百, 千, 一万千) but is before every scale (一万, 一億), and skipped places are not read (百一, 一万一). Zero is 零, which is also used for zero digits after the decimal point; the positional 〇 used to write digits one by one (二〇二四) is not supported. 一千 within larger numbers (一千万, 一万一千) is not supported yet, and native numbers (ひとつ, ふたつ) and counters are not supported.
+日本語. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in kanji numerals without spaces. Digits are grouped by ten thousands: each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), and is followed by 万 (10^4), 億 (10^8), 兆 (10^12), 京 (10^16), 垓 (10^20) and so on up to 極 (10^48); larger numbers raise `RangeError`. 一 is not written before 十, 百 and 千 (十一, 百, 千, 一万千) but is before every scale (一万, 一億), and skipped places are not read (百一, 一万一). Zero is 零, also for zero digits after the decimal point; the positional 〇 for writing digits one by one (二〇二四) is not supported. 一千 within larger numbers (一千万, 一万一千) is not supported yet, nor are native numbers (ひとつ, ふたつ) and counters.
 
 ## Examples
 
@@ -52,7 +52,7 @@ I18n.with_locale(:ja) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ja) { 0.1.to_words(precision: 2) }
@@ -91,7 +91,7 @@ I18n.with_locale(:ja) { 0.7.to_words(remove_zero: true) }
 
 ### Script
 
-`script: :kanji` (the default) writes kanji numerals; `script: :kana` writes their reading in hiragana. Readings use よん for 4, なな for 7, きゅう for 9 and れい for 0, and the usual sound changes: 300 is さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, 3,000 さんぜん and 8,000 はっせん, and いち, はち and じゅう become いっ, はっ and じゅっ before 兆 (ちょう), 京 (けい) and 点 (てん), as do ろく and ひゃく before 京 (いっちょう, じゅっちょう, ろっけい, ひゃっけい, いってんご). 十 before these words is read じゅっ rather than the older じっ.
+`script: :kanji` (the default) writes kanji numerals; `script: :kana` writes their reading in hiragana. Readings use よん for 4, なな for 7, きゅう for 9, れい for 0, and the usual sound changes: 300 is さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, 3,000 さんぜん and 8,000 はっせん, and いち, はち and じゅう become いっ, はっ and じゅっ before 兆 (ちょう), 京 (けい) and 点 (てん), as do ろく and ひゃく before 京 (いっちょう, じゅっちょう, ろっけい, ひゃっけい, いってんご). 十 there is じゅっ, not the older じっ.
 
 ```ruby
 I18n.with_locale(:ja) { 300.to_words(script: :kana) }

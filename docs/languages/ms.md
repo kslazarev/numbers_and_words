@@ -1,6 +1,6 @@
 # Malay (`ms`)
 
-Bahasa Melayu. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Bahasa Melayu. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Malay counts like Indonesian with its own words: lapan for 8, bilion and trilion for 10<sup>9</sup> and 10<sup>12</sup>, and the formal sifar for zero (kosong is common in speech). One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta). Numbers up to 999,999,999,999,999 are supported; larger numbers raise `RangeError`.
 
@@ -48,7 +48,7 @@ I18n.with_locale(:ms) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ms) { 0.1.to_words(precision: 2) }

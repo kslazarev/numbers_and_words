@@ -1,6 +1,6 @@
 # Slovak (`sk`)
 
-Slovenčina. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Slovenčina. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers below a million are written as one word (dvetisícdvestotridsaťštyri), and millions and larger as separate words (dva milióny tristotisíc). Scale words take the singular after one, which is omitted (tisíc, milión), the nominative plural after two to four (dva milióny) and the genitive plural otherwise, also after compounds (päť miliónov, dvadsaťjeden miliónov). Tisíc and miliarda take dve (dvetisíc, dve miliardy). Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -54,7 +54,7 @@ I18n.with_locale(:sk) { 3.14.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:sk) { 0.1.to_words(precision: 2) }

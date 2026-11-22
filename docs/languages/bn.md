@@ -1,8 +1,8 @@
 # Bengali (`bn`)
 
-বাংলা. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Bengali script and separated by spaces.
+বাংলা. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Bengali script, separated by spaces.
 
-Bengali uses the Indian numbering system. Every number from 0 to 99 is its own word (একুশ, আটাত্তর, নিরানব্বই) and is not composed from tens and ones. The last three digits are read as hundreds, written as one word with শ (একশ, ছয়শ আটাত্তর), and each scale above them counts from 1 to 99: হাজার (10^3), লাখ (10^5) and কোটি (10^7), so 1,23,45,678 is এক কোটি তেইশ লাখ পঁয়তাল্লিশ হাজার ছয়শ আটাত্তর. As usual in Bengali, larger numbers repeat কোটি with its count spelled the same way: 10^9 is একশ কোটি, 10^10 is এক হাজার কোটি and 10^14 is এক কোটি কোটি; the rare names অর্বুদ and খর্ব are not used. লাখ is used rather than the more formal লক্ষ.
+Bengali uses the Indian numbering system. Each number from 0 to 99 is its own word (একুশ, আটাত্তর, নিরানব্বই), not a compound of tens and ones. The last three digits are read as hundreds, written as one word with শ (একশ, ছয়শ আটাত্তর), and each scale above them counts from 1 to 99: হাজার (10^3), লাখ (10^5) and কোটি (10^7), so 1,23,45,678 is এক কোটি তেইশ লাখ পঁয়তাল্লিশ হাজার ছয়শ আটাত্তর. As usual in Bengali, larger numbers repeat কোটি with its count spelled the same way (10^9 is একশ কোটি, 10^10 is এক হাজার কোটি, 10^14 is এক কোটি কোটি), not the rare names অর্বুদ and খর্ব. লাখ is used, not the more formal লক্ষ.
 
 ## Examples
 
@@ -54,7 +54,7 @@ I18n.with_locale(:bn) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:bn) { 0.1.to_words(precision: 2) }
@@ -72,7 +72,7 @@ I18n.with_locale(:bn) { 21.77.to_words(micro_separator: "বিন্দু") }
 
 ### Ordinal
 
-`ordinal: true` gives the Sanskrit-derived ordinals প্রথম, দ্বিতীয়, তৃতীয়, চতুর্থ, পঞ্চম, ষষ্ঠ, সপ্তম, অষ্টম, নবম and দশম for 1 to 10, and adds তম to the cardinal above 10, as is common for larger numbers (একুশতম, একশতম). The formal Sanskrit-derived forms above 10, such as একাদশ and বিংশ, are not used. Ordinals do not change with gender. Decimals keep the cardinal form.
+`ordinal: true` gives the Sanskrit-derived ordinals প্রথম, দ্বিতীয়, তৃতীয়, চতুর্থ, পঞ্চম, ষষ্ঠ, সপ্তম, অষ্টম, নবম and দশম for 1 to 10. Above 10 it adds তম to the cardinal (একুশতম, একশতম), as is common, not the formal forms such as একাদশ and বিংশ. Ordinals do not change with gender. Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:bn) { 1.to_words(ordinal: true) }

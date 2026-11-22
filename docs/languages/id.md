@@ -51,7 +51,7 @@ I18n.with_locale(:id) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:id) { 0.1.to_words(precision: 2) }

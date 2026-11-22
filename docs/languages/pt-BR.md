@@ -32,7 +32,7 @@ I18n.with_locale(:'pt-BR') { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `vírgula`, which 2.0 will make the default.
+Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `vírgula`.
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.77.to_words }
@@ -49,7 +49,7 @@ I18n.with_locale(:'pt-BR') { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 0.1.to_words(precision: 2) }
@@ -67,7 +67,7 @@ I18n.with_locale(:'pt-BR') { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula` followed by the fractional part: up to six decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula`: up to six decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.77.to_words(fraction: false) }
@@ -97,7 +97,7 @@ I18n.with_locale(:'pt-BR') { 21_000.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true`. A single thousand, million or larger scale is read without primeiro (milésimo, milionésimo primeiro).
+`ordinal: true` reads a single thousand, million or larger scale without primeiro (milésimo, milionésimo primeiro).
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.to_words(ordinal: true) }

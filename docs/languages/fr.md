@@ -34,7 +34,7 @@ I18n.with_locale(:fr) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction, joined with `et`. With `fraction: false` (see [Fraction](#fraction)) they are read with `virgule` followed by the fractional part, which 2.0 will make the default.
+Decimals are read as a fraction joined with `et`. [`fraction: false`](#fraction), the default in 2.0, reads them with `virgule`.
 
 ```ruby
 I18n.with_locale(:fr) { 21.77.to_words }
@@ -51,7 +51,7 @@ I18n.with_locale(:fr) { 3.1416.to_words }
 
 ### Unit
 
-With application translations such as `units.euro.one: euro` and `units.euro.other: euros`, zero takes the singular unit, as do decimals below two. An explicit `zero` unit translation takes precedence.
+With `one` and `other` unit translations, such as `units.euro.one: euro` and `units.euro.other: euros`, zero and decimals below two take the singular. A `zero` unit translation takes precedence.
 
 ```ruby
 I18n.with_locale(:fr) { 0.to_words(unit: :euro) }
@@ -60,7 +60,7 @@ I18n.with_locale(:fr) { 0.to_words(unit: :euro) }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:fr) { 0.1.to_words(precision: 2) }
@@ -78,7 +78,7 @@ I18n.with_locale(:fr) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgule` followed by the fractional part: up to three decimal places as a number after one `zéro` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgule`: up to three decimal places as a number, after a `zéro` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:fr) { 21.77.to_words(fraction: false) }
@@ -126,7 +126,7 @@ I18n.with_locale(:fr) { 0.7.to_words(remove_zero: true) }
 
 ### Spelling
 
-French uses the traditional spelling by default (`spelling: :traditional`), with spaces and without hyphens around `et`, `cent` and `mille`. `spelling: :reformed` follows the 1990 spelling reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. 2.0 will make `spelling: :reformed` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`spelling: :traditional`, the default, puts spaces rather than hyphens around `et`, `cent` and `mille`. `spelling: :reformed` follows the 1990 reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:fr) { 321.to_words }

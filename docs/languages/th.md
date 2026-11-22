@@ -1,6 +1,6 @@
 # Thai (`th`)
 
-ภาษาไทย. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Each group of up to six digits uses the places สิบ (10), ร้อย (100), พัน (1,000), หมื่น (10,000) and แสน (100,000), and ล้าน (1,000,000) repeats for larger numbers, so 10^12 is หนึ่งล้านล้าน. A final 1 is read เอ็ด in a number with at least two digits, including across million groups (1,000,001 is หนึ่งล้านเอ็ด); standalone 1 and fractional digit 1 remain หนึ่ง.
+ภาษาไทย. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Each group of up to six digits uses the places สิบ (10), ร้อย (100), พัน (1,000), หมื่น (10,000) and แสน (100,000), and ล้าน (1,000,000) repeats for larger numbers, so 10^12 is หนึ่งล้านล้าน. A final 1 is read เอ็ด in a number with at least two digits, including across million groups (1,000,001 is หนึ่งล้านเอ็ด); 1 alone and a fractional 1 stay หนึ่ง.
 
 ## Examples
 
@@ -52,7 +52,7 @@ I18n.with_locale(:th) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:th) { 0.1.to_words(precision: 2) }

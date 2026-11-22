@@ -1,5 +1,22 @@
 # Upgrading
 
+## Upgrading to 1.2.0
+
+### Error and Warning Messages Are Sentences
+
+Error and warning messages start with a capital letter and end with a period, and the four ordinal range errors share one message. The error classes don't change; rescue them rather than matching messages.
+
+| 1.1.0 | 1.2.0 |
+| --- | --- |
+| `numbers must be below 10**30 in :cs` | `Numbers in :cs only support values below 10**30.` |
+| `decimals are not supported in :sv` | `Decimals are not supported in :sv.` |
+| `Arabic ordinals support 1 to 99` | `Ordinals in :ar only support numbers between 1 and 99.` |
+| `unsupported option :gender for locale :vi; supported: ...` | `The option :gender is not supported in :vi; supported: ....` |
+
+### Languages Declare Their Options in Their Locale Files
+
+Each language lists the options it accepts under `numbers.supported_options` in its locale file, and spells whole numbers from the rule sets under `numbers.rules`. Applications can change both through I18n like any other translation. The option classes under `NumbersAndWords::Strategies::FiguresConverter::Options`, other than `Option` and the Polish `Gender`, are gone.
+
 ## Upgrading to 1.1.0
 
 1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly; this works in 1.1 and 2.0 alike. To raise for unsupported options now, as 2.0 will, set `strict_options`.
