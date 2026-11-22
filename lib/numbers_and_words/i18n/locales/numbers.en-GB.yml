@@ -4,7 +4,9 @@ en-GB:
   numbers:
     extends: en
     supported_options:
-      hundreds_with_union: {default: true}
+      # Decimals read with point by default in 1.x too, unlike English.
+      fraction: true
+      hundreds_with_union: {default: true, legacy_default: false}
     options:
       hundreds_with_union:
         before_last: ' and '

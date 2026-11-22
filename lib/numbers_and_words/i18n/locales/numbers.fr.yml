@@ -1,10 +1,10 @@
 fr:
   numbers:
     supported_options:
-      fraction: true
+      fraction: {default: false, legacy_default: true}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
-      spelling: {values: [reformed, traditional]}
+      spelling: {values: [reformed, traditional], default: reformed, legacy_default: traditional}
     minus: moins
     ones: [zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf]
     teens: [_, onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf]

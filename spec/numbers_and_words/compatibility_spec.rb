@@ -8,7 +8,7 @@ describe NumbersAndWords::Compatibility, :compatibility do
   end
 
   # Every fixture without the option reads as 1.x did: the same as passing the 1.x default explicitly.
-  described_class::DEFAULTS.each do |locale, defaults|
+  NumbersAndWords::I18n.languages.to_h { |locale| [locale, described_class.legacy_defaults(locale)] }.reject { |_, defaults| defaults.empty? }.each do |locale, defaults|
     [Integer, Float].each do |type|
       next if type == Float && !decimal_languages.include?(locale)
 

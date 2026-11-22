@@ -1,7 +1,7 @@
 pt:
   numbers:
     supported_options:
-      fraction: true
+      fraction: {default: false, legacy_default: true}
       gender: {values: [male, female], default: male}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
