@@ -38,7 +38,7 @@ I18n.with_locale(:et) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("decimals are not supported in :et"). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
+Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :et."). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
 
 ## Options
 

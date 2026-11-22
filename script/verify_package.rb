@@ -59,7 +59,7 @@ Dir.mktmpdir('numbers-and-words-consumer-') do |directory|
     output, status = Open3.capture2(environment, Gem.ruby, executable, '--locale', 'ru', '2000', chdir: directory)
     abort "Installed executable failed: #{output.inspect}" unless status.success? && output == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438\n"
     _, errors, status = Open3.capture3(environment, Gem.ruby, executable, 'nope', chdir: directory)
-    abort 'Installed executable accepted invalid input' unless status.exitstatus == 1 && errors.include?('not a number')
+    abort 'Installed executable accepted invalid input' unless status.exitstatus == 1 && errors.include?('Not a number')
     puts 'Installed executable passed'
   end
 end

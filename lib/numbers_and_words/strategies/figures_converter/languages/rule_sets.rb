@@ -43,7 +43,7 @@ module NumbersAndWords
 
           def cardinal(number)
             return rules(*option_words).spell(number, cardinal_set) if grammatical_case == :nominative
-            raise UnsupportedOptionError, "case: #{grammatical_case.inspect} is not supported for decimals" if decimal_part?
+            raise UnsupportedOptionError, "The case: #{grammatical_case.inspect} option is not supported for decimals." if decimal_part?
 
             rules(case_words, *option_words).spell(number, cardinal_set)
           end

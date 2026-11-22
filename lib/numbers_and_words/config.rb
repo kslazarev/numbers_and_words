@@ -31,7 +31,7 @@ module NumbersAndWords
     # What to_words does with an option or value the current language does not support: false (the default
     # until 2.0) ignores it with a warning, and true raises NumbersAndWords::UnsupportedOptionError.
     def strict_options=(strict)
-      raise ArgumentError, "strict_options must be true or false, not #{strict.inspect}" unless [true, false].include?(strict)
+      raise ArgumentError, "The strict_options setting must be true or false, not #{strict.inspect}." unless [true, false].include?(strict)
 
       @strict_options = strict
     end

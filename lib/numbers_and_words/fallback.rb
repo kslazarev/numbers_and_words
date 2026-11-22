@@ -40,7 +40,7 @@ module NumbersAndWords
     end
 
     def unsupported(fallback)
-      "unsupported fallback #{fallback.inspect}; supported: true, false, nil or a bundled locale"
+      "The fallback #{fallback.inspect} is not supported; supported: true, false, nil or a bundled locale."
     end
   end
 end

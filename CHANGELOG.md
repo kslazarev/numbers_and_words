@@ -20,6 +20,7 @@
   * Define the language classes that only include `RuleSets`, pick the `cardinal` rule set where the locale file has none for the gender, and declare that a language keeps the ordinal of zero with `remove_zero` in its locale file. \[[#340](https://github.com/kslazarev/numbers_and_words/pull/340)\] \([@dblock](https://github.com/dblock)\)
   * Read the shared words of every language through `Translations::Base`, and declare that a language keeps the decimal word with `remove_zero` in its locale file, instead of a translations and an array joiner class each. \[[#341](https://github.com/kslazarev/numbers_and_words/pull/341)\] \([@dblock](https://github.com/dblock)\)
   * Declare the ordinals Arabic, Czech, Greek and Polish spell as `ordinal: {minimum:, maximum:}` in their locale files; ordinals outside them raise `RangeError` with one message for every language, such as `Ordinals in :cs only support numbers between 0 and 9999.`, and numbers too large for any words raise the cardinal `RangeError`. \[[#342](https://github.com/kslazarev/numbers_and_words/pull/342)\] \([@dblock](https://github.com/dblock)\)
+  * Write every error and warning message as a sentence, such as `Numbers in :cs only support values below 10**30.` instead of `numbers must be below 10**30 in :cs`. \[[#343](https://github.com/kslazarev/numbers_and_words/pull/343)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

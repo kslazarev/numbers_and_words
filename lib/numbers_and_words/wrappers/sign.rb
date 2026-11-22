@@ -9,7 +9,7 @@ module NumbersAndWords
 
       def words(number, options)
         return yield(number) unless number.negative?
-        raise UnsupportedNumberError, "negative numbers have no ordinal: #{number}" if ordinal?(options)
+        raise UnsupportedNumberError, "Negative numbers have no ordinal: #{number}." if ordinal?(options)
 
         prefix(yield(-number))
       end

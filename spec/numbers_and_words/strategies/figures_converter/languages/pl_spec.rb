@@ -18,11 +18,11 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Pl do
   end
 
   it 'rejects numbers beyond the translated scale table' do
-    expect { (10**48).to_words }.to raise_error(RangeError, 'numbers must be below 10**48 in :pl')
+    expect { (10**48).to_words }.to raise_error(RangeError, 'Numbers in :pl only support values below 10**48.')
   end
 
   it 'rejects fractions beyond the translated scale table' do
-    expect { 0.1.to_words(precision: 49) }.to raise_error(RangeError, 'decimals support up to 48 fractional digits in :pl')
+    expect { 0.1.to_words(precision: 49) }.to raise_error(RangeError, 'Decimals in :pl only support up to 48 fractional digits.')
   end
 
   it 'supports the documented maximum decimal precision' do

@@ -6,7 +6,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Nb do
   around { |example| I18n.with_locale(:nb) { example.run } }
 
   it 'raises for numbers from 10**21' do
-    expect { (10**21).to_words }.to raise_error(RangeError, 'numbers must be below 10**21 in :nb')
+    expect { (10**21).to_words }.to raise_error(RangeError, 'Numbers in :nb only support values below 10**21.')
   end
 
   it 'is the language of no, nb-NO and no-NO' do

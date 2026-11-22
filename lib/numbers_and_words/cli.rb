@@ -88,7 +88,7 @@ module NumbersAndWords
 
     def read_numbers(arguments)
       numbers = arguments.empty? ? @stdin.read.split : arguments
-      raise Error, 'no numbers given' if numbers.empty?
+      raise Error, 'No numbers given.' if numbers.empty?
 
       numbers.map { |number| parse_number(number) }
     end
@@ -121,7 +121,7 @@ module NumbersAndWords
       return Integer(text, 10) if /\A[+-]?\d+\z/.match?(text)
       return Float(text) if /\A[+-]?\d+\.\d+\z/.match?(text)
 
-      raise Error, "not a number: #{text.inspect}"
+      raise Error, "Not a number: #{text.inspect}."
     end
   end
 end

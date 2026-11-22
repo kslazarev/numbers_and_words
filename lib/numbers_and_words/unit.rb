@@ -69,7 +69,7 @@ module NumbersAndWords
       grammatical_case = options[:case]
       return if grammatical_case.nil? || grammatical_case.to_sym == :nominative
 
-      raise UnsupportedOptionError, "unit #{unit.inspect} cannot be used with case: #{grammatical_case.inspect} yet; unit forms are nominative"
+      raise UnsupportedOptionError, "The unit #{unit.inspect} cannot be used with case: #{grammatical_case.inspect} yet, as unit forms are nominative."
     end
 
     # The unit and subunit keys, or nil, and the options without them.
@@ -82,13 +82,13 @@ module NumbersAndWords
     end
 
     def check!(unit, subunit, options)
-      raise UnsupportedOptionError, 'subunit needs a unit' if subunit && unit.nil?
-      raise UnsupportedOptionError, 'zero_subunit needs a subunit' if options[:zero_subunit] && subunit.nil?
+      raise UnsupportedOptionError, 'The subunit option needs a unit.' if subunit && unit.nil?
+      raise UnsupportedOptionError, 'The zero_subunit option needs a subunit.' if options[:zero_subunit] && subunit.nil?
     end
 
     def lookup(unit, key)
       locale = ::I18n.locale
-      raise UnsupportedOptionError, "unit #{unit.inspect} has no translation for locale #{locale.inspect} (expected #{key})" unless ::I18n.exists?(key, locale)
+      raise UnsupportedOptionError, "The unit #{unit.inspect} has no translation in #{locale.inspect}, expected at #{key}." unless ::I18n.exists?(key, locale)
 
       ::I18n.t(key, locale:)
     end
@@ -113,7 +113,7 @@ module NumbersAndWords
     def form(unit, key, count)
       ::I18n.t(key, count:)
     rescue ::I18n::InvalidPluralizationData
-      raise UnsupportedOptionError, "unit #{unit.inspect} has no form for count #{count} or :other in locale #{::I18n.locale.inspect} (#{key})"
+      raise UnsupportedOptionError, "The unit #{unit.inspect} has no form for count #{count} or :other in #{::I18n.locale.inspect}, at #{key}."
     end
 
     # The unit form after a decimal, which the plural rules for whole numbers don't cover.
@@ -121,7 +121,7 @@ module NumbersAndWords
       return entry unless entry.is_a?(Hash)
 
       entry.fetch(decimal_category(number)) do
-        entry.fetch(:other) { raise UnsupportedOptionError, "unit #{unit.inspect} has no form for #{number} or :other in locale #{::I18n.locale.inspect} (#{key})" }
+        entry.fetch(:other) { raise UnsupportedOptionError, "The unit #{unit.inspect} has no form for #{number} or :other in #{::I18n.locale.inspect}, at #{key}." }
       end
     end
 

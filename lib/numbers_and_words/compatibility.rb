@@ -41,8 +41,8 @@ module NumbersAndWords
         next if set?(options, name) || skip?(name, number, options)
 
         result[name] = legacy
-        deprecated "the default #{name}: #{legacy.inspect} for #{I18n.local_language.inspect} changes to #{name}: #{upcoming.inspect} in 2.0; " \
-                   "pass #{name}: to choose"
+        deprecated "The default #{name}: #{legacy.inspect} for #{I18n.local_language.inspect} changes to #{name}: #{upcoming.inspect} in 2.0; " \
+                   "pass #{name}: to choose."
       end
     end
 
@@ -51,7 +51,7 @@ module NumbersAndWords
       language = LOCALES[code]
       return unless language
 
-      warn_once "locale #{code.inspect} is deprecated and raises NumbersAndWords::UnsupportedLanguageError in 2.0; use #{language.inspect}"
+      warn_once "The locale #{code.inspect} is deprecated and raises NumbersAndWords::UnsupportedLanguageError in 2.0; use #{language.inspect}."
       language
     end
 
@@ -60,7 +60,7 @@ module NumbersAndWords
     def unsupported_option(message)
       raise UnsupportedOptionError, message if NumbersAndWords.config.strict_options
 
-      warn_once "#{message}; ignored, set NumbersAndWords.config.strict_options = true to raise, the default in 2.0"
+      warn_once "#{message} It is ignored; set NumbersAndWords.config.strict_options = true to raise, the default in 2.0."
     end
 
     def set?(options, name)

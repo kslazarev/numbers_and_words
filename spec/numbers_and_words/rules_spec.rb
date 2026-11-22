@@ -94,6 +94,6 @@ describe NumbersAndWords::Rules do
   end
 
   it 'raises RangeError past the limit' do
-    expect { rules.spell(10**9, 'cardinal') }.to raise_error(RangeError, /numbers must be below 10\*\*9/)
+    expect { rules.spell(10**9, 'cardinal') }.to raise_error(RangeError, /only support values below 10\*\*9\./)
   end
 end

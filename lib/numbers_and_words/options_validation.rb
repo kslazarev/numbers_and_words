@@ -102,12 +102,12 @@ module NumbersAndWords
     end
 
     def unsupported_option(name, language, supported)
-      "unsupported option #{name.to_sym.inspect} for locale #{language.inspect}; supported: #{supported.keys.sort.map(&:inspect).join(', ')}"
+      "The option #{name.to_sym.inspect} is not supported in #{language.inspect}; supported: #{supported.keys.sort.map(&:inspect).join(', ')}."
     end
 
     def unsupported_value(name, value, language, check)
       expected = check.is_a?(Rule) ? check.description : check.map(&:inspect).join(', ')
-      "unsupported value #{value.inspect} for option #{name.to_sym.inspect} in locale #{language.inspect}; supported: #{expected}"
+      "The value #{value.inspect} of option #{name.to_sym.inspect} is not supported in #{language.inspect}; supported: #{expected}."
     end
 
     def snake_case(constant)

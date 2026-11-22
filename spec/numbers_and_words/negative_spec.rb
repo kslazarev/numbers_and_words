@@ -23,7 +23,7 @@ describe 'Negative numbers' do # rubocop:disable RSpec/DescribeClass -- covers I
     end
 
     it "rejects #{locale} ordinals of negative numbers" do
-      expect { words(locale, -1, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'negative numbers have no ordinal: -1')
+      expect { words(locale, -1, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'Negative numbers have no ordinal: -1.')
       expect(words(locale, -1, ordinal: false)).to eq(words(locale, -1))
     end
   end

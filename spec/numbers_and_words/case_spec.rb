@@ -60,7 +60,7 @@ describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers Russia
 
     it "rejects an unknown case in #{locale}" do
       expect { I18n.with_locale(locale) { 1.to_words(ordinal: true, case: :ablative) } }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, /unsupported value :ablative for option :case/)
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, /The value :ablative of option :case is not supported/)
     end
 
     it "rejects case: for decimals in #{locale}" do

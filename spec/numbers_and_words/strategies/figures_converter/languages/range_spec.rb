@@ -7,7 +7,7 @@ describe 'Indonesian, Malay, Romanian and Greek limits' do # rubocop:disable RSp
     it "raises for #{locale} numbers from 10**#{power}" do
       I18n.with_locale(locale) do
         expect(((10**power) - 1).to_words).not_to be_empty
-        expect { (10**power).to_words }.to raise_error(RangeError, "numbers must be below 10**#{power} in #{locale.inspect}")
+        expect { (10**power).to_words }.to raise_error(RangeError, "Numbers in #{locale.inspect} only support values below 10**#{power}.")
       end
     end
   end

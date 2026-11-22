@@ -259,7 +259,7 @@ I18n.with_locale(:ru) { 22.to_words(unit: :kopeck, ordinal: true) }
 # => "двадцать вторая копейка"
 ```
 
-A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `unit :euro has no translation for locale :ru (expected units.euro)`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
+A unit without a translation, or without the form a number needs and no `other` form, raises `NumbersAndWords::UnsupportedOptionError`, for example `The unit :euro has no translation in :ru, expected at units.euro.`. Unit forms are nominative, so `unit` with a `case` other than `:nominative` raises too.
 
 In Spanish, French, Italian and Portuguese, a whole number that ends in a scale word of a million or more takes a preposition before the unit (`de`, or `di` in Italian), but one that ends in another word, such as `mil`, does not. French elides `de` to `d'` before a unit that starts with a vowel; a unit sets `elision: true` for a mute h (`d'hectares`) or `elision: false` for another exception. Romanian puts `de` in the unit forms, as it does for any number from 20.
 
@@ -309,7 +309,7 @@ Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subu
 Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` returns "hai mươi mốt" and warns once:
 
 ```
-numbers_and_words: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit; ignored, set NumbersAndWords.config.strict_options = true to raise, the default in 2.0
+numbers_and_words: The option :gender is not supported in :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit. It is ignored; set NumbersAndWords.config.strict_options = true to raise, the default in 2.0.
 ```
 
 ### Deprecations

@@ -13,7 +13,7 @@ module NumbersAndWords
       # A zero subunit is left out unless zero_subunit: true, and a zero unit with remove_zero: true. A negative
       # amount starts with the minus word, unless it rounds to zero.
       def words(number, unit, subunit, options)
-        raise UnsupportedOptionError, 'subunit cannot be used with ordinal: true' if options[:ordinal]
+        raise UnsupportedOptionError, 'The subunit option cannot be used with ordinal: true.' if options[:ordinal]
 
         whole, part = split(number, options.fetch(:precision, SUBUNIT_PLACES))
         conversion = options.except(:precision, :remove_zero, :zero_subunit)
@@ -29,7 +29,7 @@ module NumbersAndWords
       end
 
       def split(number, places)
-        raise UnsupportedOptionError, 'subunit needs precision: of at least 1' if places.zero?
+        raise UnsupportedOptionError, 'The subunit option needs precision: of at least 1.' if places.zero?
 
         value = Rational(number.to_s).abs.round(places, half: :even)
         whole = value.to_i
