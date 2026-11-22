@@ -153,6 +153,10 @@ Portuguese (`pt`) is the language of Portugal, and 1.0 mixed Brazilian forms int
 | 10⁹, ordinal | `bilionésimo` | `milésimo milionésimo` |
 | 10⁻⁹, `fraction: true` | `um bilionésimo` | `um milésimo de milionésimo` |
 
+#### Brazilian Portuguese Ordinals Past the Last Scale Word
+
+Brazilian Portuguese ordinals of 10³⁶ and more raise `RangeError`, as their cardinals do, instead of being spelled without their highest digits (`zero` for 10³⁶).
+
 #### Czech Ordinals of Thousands
 
 Czech ordinals from 1,000 to 9,999 start with one word for the thousands (`tisící`, `dvoutisící`); from 10,000 they raise `RangeError` instead of returning wrong words.
