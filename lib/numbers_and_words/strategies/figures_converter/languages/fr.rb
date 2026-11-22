@@ -40,7 +40,7 @@ module NumbersAndWords
           # the earlier spelling ("trois cent vingt et un").
           def print_words
             words = @options.spelling.traditional? ? super : hyphenate(super)
-            ordinal? ? ordinal(words) : words
+            ordinal? && !words.empty? ? ordinal(words) : words
           end
 
           private

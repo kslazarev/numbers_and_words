@@ -8,6 +8,7 @@
 
   * Raise `RangeError` for Brazilian Portuguese ordinals of 10**36 and more, instead of spelling them without their highest digits. \[[#325](https://github.com/kslazarev/numbers_and_words/pull/325)\] \([@dblock](https://github.com/dblock)\)
   * Answer `respond_to?` on the options proxy instead of raising `ArgumentError`. \[[#346](https://github.com/kslazarev/numbers_and_words/pull/346)\] \([@dblock](https://github.com/dblock)\)
+  * Return no words for `0.to_words(ordinal: true, remove_zero: true)` instead of raising `NoMethodError` in Azerbaijani, Dutch, French, German, Norwegian and Swiss French, or returning the ordinal prefix alone in Chinese, Japanese, Korean, Thai and Vietnamese, and spell the ordinal of zero in Russian and Ukrainian. \[[#344](https://github.com/kslazarev/numbers_and_words/pull/344)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ## 1.1.0 (2026/11/22)

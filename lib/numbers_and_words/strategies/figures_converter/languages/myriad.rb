@@ -14,7 +14,7 @@ module NumbersAndWords
           def words
             number = @figures.to_a.reverse.join.to_i
             text = number.zero? ? zero_words : number_words(groups(number))
-            ordinal? ? "#{ordinal_prefix}#{text}" : text
+            ordinal? && !text.empty? ? "#{ordinal_prefix}#{text}" : text
           end
 
           # The fractional part of a decimal, digit by digit and with its leading zeros: 3.05 ends with 0 and 5.

@@ -8,9 +8,9 @@ module NumbersAndWords
           prepend Cases
           prepend Ordinals
 
-          # remove_zero: true omits a zero integral part.
+          # remove_zero: true omits a zero integral part, but not the ordinal of zero ("нулевой"), as in Bulgarian.
           def zero(*args)
-            super unless @options.remove_zero.result
+            super unless @options.remove_zero.result && !ordinal_number?
           end
 
           include Families::Cyrillic
