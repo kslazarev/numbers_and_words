@@ -4,13 +4,13 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Bg
-          # Bulgarian reads the fractional part as a feminine number of tenths, hundredths and so on.
+        # A count in the feminine and the fraction word in the form for it, as Czech "dvě desetiny", Spanish "dos décimas" and
+        # Russian "две десятых".
+        module CountedFraction
           class Fractional < Base
             def run
               @options[:gender] = :female
-              length = @options[:fractional][:length].to_i
-              "#{super} #{@strategy.translations.fraction(length, @strategy.figures.reverse.join.to_i)}"
+              "#{super} #{fraction_significance}"
             end
           end
         end

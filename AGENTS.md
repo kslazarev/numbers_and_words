@@ -25,7 +25,7 @@ Everything about a language belongs in its locale file; Ruby is only for what ru
 * Where needed, Ruby classes under `lib/numbers_and_words/`, each generated for a language without one:
   * `strategies/figures_converter/languages/fr.rb`: includes `RuleSets` and picks rule sets (`cardinal_set`, `ordinal_set`) or word scopes (`option_words`) from the options. `RuleSets` uses the rule set of the `gender:` option, such as `cardinal-female`, where there is one, and `cardinal` otherwise.
   * `translations/fr.rb`: words the decorators and array joiner read that `Translations::Base` doesn't, such as fractions with their own grammar.
-  * `strategies/figures_converter/decorators/fr/`: the integral and fractional parts of decimals. A missing decorator leaves its part as it is; `Decorators::SHARED` uses another language's, and `Decorators::PLAIN` reads decimals with none. Other languages without decorators don't read decimals.
+  * `strategies/figures_converter/decorators/fr/`: the integral and fractional parts of decimals. A missing decorator leaves its part as it is. `Decorators::SHARED` uses another language's, or a shared reading such as `CountedFraction` or `Digits` in `decorators/`, following each language it names; `Decorators::PLAIN` reads decimals with none. `Decorators::Base` gives the fraction word for the fractional part (`fraction_significance`). Other languages without decorators don't read decimals.
   * `strategies/array_joiner/languages/fr.rb`: how the parts of a decimal join, if not as `ArrayJoiner::Languages::Base` does.
   * `strategies/figures_converter/options/fr/`: an option with checks of its own, extending `Options::Option`, such as `Options::Pl::Gender`.
 * `lib/numbers_and_words/i18n/plurals/`, where needed.

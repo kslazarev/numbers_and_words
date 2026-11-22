@@ -4,7 +4,8 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Ro
+        # The decimal word and the fractional part read as a number, as in Greek and Romanian.
+        module PointWords
           # Up to three decimal places are read as a number after one zero for each leading zero, and longer
           # ones digit by digit.
           class Fractional < Base
@@ -12,12 +13,6 @@ module NumbersAndWords
 
             def run
               decimal_point_words(super)
-            end
-
-            private
-
-            def fraction_length
-              @options[:fractional][:length].to_i
             end
           end
         end

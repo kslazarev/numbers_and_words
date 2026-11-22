@@ -9,29 +9,7 @@ module NumbersAndWords
           # three wholes and fourteen in a hundred.
           class Fractional < Base
             def run
-              "#{fraction_significance} #{super}"
-            end
-
-            private
-
-            def fraction_significance
-              @strategy.translations.micros full_fraction.fraction_capacity
-            end
-
-            def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, _el| result.unshift '0' }.to_figures
-            end
-
-            def figures
-              @strategy.figures
-            end
-
-            def zero_length
-              fraction_length - figures.length
-            end
-
-            def fraction_length
-              @options[:fractional][:length].to_i
+              "#{fraction_significance(nil)} #{super}"
             end
           end
         end

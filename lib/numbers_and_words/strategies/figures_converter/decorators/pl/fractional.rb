@@ -5,7 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Decorators
         module Pl
-          class Fractional < Cs::Fractional
+          class Fractional < CountedFraction::Fractional
             def run(&)
               raise Translations::Families::Base.decimal_range_error(48) if @options[:fractional][:length].to_i > 48
 
