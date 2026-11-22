@@ -8,6 +8,102 @@ fr:
     hundreds:
       one: cent
       other: cents
+    hundred: cent
+    sixty: soixante
+    eighty_count: quatre-vingt
+    # The separator inside a group and around mille: a hyphen in the reformed spelling, a space in the traditional one.
+    sp: '-'
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{>and-one}]'
+        70: '[{sixty}{>seventy}|{tens}]'
+        80: '[{eighty_count}-{>}|{eighty}]'
+        90: '[{eighty_count}-{teens%}|{tens}]'
+        100: '{hundred}[{sp}{>}]'
+        200: '[{ones}{sp}{hundred}{sp}{>}|{ones}{sp}{hundreds}]'
+        1000: '{thousands}[{sp}{>}]'
+        2000: '{<thousands-count}{sp}{thousands}[{sp}{>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
+      # "Et" before a final un ("vingt et un"), a hyphen otherwise ("vingt-deux").
+      and-one:
+        1: '{sp}{union}{sp}{ones}'
+        2: '-{ones}'
+      seventy:
+        1: '{sp}{union}{sp}{teens}'
+        2: '-{teens}'
+      # Cent and quatre-vingt take no s before mille ("deux cent mille", "quatre-vingt mille").
+      thousands-count:
+        extends: cardinal
+        80: '[{eighty_count}-{>}|{eighty_count}]'
+        200: '{ones}{sp}{hundred}[{sp}{>}]'
+      # The last word of an ordinal is ordinal; a lone un is "premier", and a leading un before a single scale word
+      # is left out ("millionième").
+      ordinal:
+        0: '{ordinals.ones}'
+        1: '{ordinal_first}'
+        2: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens}{>ordinal-and-one}|{ordinals.tens}]'
+        70: '[{sixty}{>ordinal-seventy}|{ordinals.tens}]'
+        80: '[{eighty_count}-{>ordinal-inner}|{ordinals.tens}]'
+        90: '[{eighty_count}-{ordinals.teens%}|{ordinals.tens}]'
+        100: '[{hundred}{sp}{>ordinal-inner}|{ordinals.hundred}]'
+        200: '[{ones}{sp}{hundred}{sp}{>ordinal-inner}|{ones}{sp}{ordinals.hundred}]'
+        1000: '[{thousands}{sp}{>ordinal-inner}|{ordinals.thousands}]'
+        2000: '[{<thousands-count}{sp}{thousands}{sp}{>ordinal-inner}|{<thousands-count}{sp}{ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions} {>ordinal-inner}|{ordinals.millions}]'
+        2000000: '[{<cardinal} {millions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>ordinal-inner}|{ordinals.billions}]'
+        2000000000: '[{<cardinal} {billions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>ordinal-inner}|{ordinals.trillions}]'
+        2000000000000: '[{<cardinal} {trillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>ordinal-inner}|{ordinals.quadrillions}]'
+        2000000000000000: '[{<cardinal} {quadrillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>ordinal-inner}|{ordinals.quintillions}]'
+        2000000000000000000: '[{<cardinal} {quintillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>ordinal-inner}|{ordinals.sextillions}]'
+        2000000000000000000000: '[{<cardinal} {sextillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>ordinal-inner}|{ordinals.septillions}]'
+        2000000000000000000000000: '[{<cardinal} {septillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>ordinal-inner}|{ordinals.octillions}]'
+        2000000000000000000000000000: '[{<cardinal} {octillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>ordinal-inner}|{ordinals.nonillions}]'
+        2000000000000000000000000000000: '[{<cardinal} {nonillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>ordinal-inner}|{ordinals.decillions}]'
+        2000000000000000000000000000000000: '[{<cardinal} {decillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.decillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1: '{ordinals.ones}'
+        1000000: '[{<cardinal} {millions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>ordinal-inner}|{<cardinal}{sp}{ordinals.decillions}]'
+      ordinal-and-one:
+        1: '{sp}{union}{sp}{ordinals.ones}'
+        2: '-{ordinals.ones}'
+      ordinal-seventy:
+        1: '{sp}{union}{sp}{ordinals.teens}'
+        2: '-{ordinals.teens}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: mille
@@ -105,7 +201,22 @@ fr:
       union: '-'
     union: et
     ordinal_first: premier
-    ordinal_suffix: ième
-    ordinal_stems:
-      cinq: cinqu
-      neuf: neuv
+    ordinals:
+      ones: [zéroième, unième, deuxième, troisième, quatrième, cinquième, sixième, septième, huitième, neuvième]
+      teens: [_, onzième, douzième, treizième, quatorzième, quinzième, seizième, dix-septième, dix-huitième, dix-neuvième]
+      tens: [_, dixième, vingtième, trentième, quarantième, cinquantième, soixantième, soixante-dixième, quatre-vingtième, quatre-vingt-dixième]
+      hundred: centième
+      thousands: millième
+      millions: millionième
+      billions: milliardième
+      trillions: billionième
+      quadrillions: billiardième
+      quintillions: trillionième
+      sextillions: trilliardième
+      septillions: quadrillionième
+      octillions: quadrilliardième
+      nonillions: quintillionième
+      decillions: quintilliardième
+    options:
+      traditional:
+        sp: ' '

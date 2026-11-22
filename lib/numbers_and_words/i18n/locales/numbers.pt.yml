@@ -10,6 +10,85 @@ pt:
     female:
       ones: [zero, uma, duas, três, quatro, cinco, seis, sete, oito, nove]
       hundreds: [_, cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The long scale counts millions up to a million ("mil e um milhões"), and "e" comes before a last group below a
+    # hundred or of round hundreds ("um bilião e um milhão", "mil e cem").
+    rules:
+      cardinal-male:
+        then: and-male
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {union} {>cardinal-male}]'
+        100: '[{hundreds} {union} {>cardinal-male}|{one_hundred}]'
+        200: '{hundreds}[ {union} {>cardinal-male}]'
+        1000: '{<thousands-count-male} {thousands}[{>}]'
+        1000000: '{<cardinal-male} {millions}[{>}]'
+        1000000000000: '{<cardinal-male} {trillions}[{>}]'
+        1000000000000000000: '{<cardinal-male} {quintillions}[{>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[{>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[{>}]'
+      cardinal-female:
+        extends: cardinal-male
+        then: and-female
+        0: '{female.ones}'
+        20: '{tens}[ {union} {>cardinal-female}]'
+        100: '[{female.hundreds} {union} {>cardinal-female}|{one_hundred}]'
+        200: '{female.hundreds}[ {union} {>cardinal-female}]'
+        1000: '{<thousands-count-female} {thousands}[{>}]'
+      thousands-count-male:
+        extends: cardinal-male
+        1: ''
+        2: '{ones}'
+      thousands-count-female:
+        extends: cardinal-female
+        1: ''
+        2: '{female.ones}'
+      and-male:
+        then: cardinal-male
+        1: ' {union} {=}'
+        100: '[ {=}| {union} {=}]'
+        1000: '[ {=}| {union} {=}]'
+        100000: '[ {=}| {union} {=}]'
+        1000000: '[ {=}| {union} {=}]'
+        100000000: '[ {=}| {union} {=}]'
+        1000000000: '[ {=}| {union} {=}]'
+        100000000000: '[ {=}| {union} {=}]'
+        1000000000000: '[ {=}| {union} {=}]'
+        100000000000000: '[ {=}| {union} {=}]'
+        1000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000000000000000: '[ {=}| {union} {=}]'
+        1000000000000000000000000000000000: '[ {=}| {union} {=}]'
+        100000000000000000000000000000000000: '[ {=}| {union} {=}]'
+      and-female:
+        extends: and-male
+        then: cardinal-female
+      # Each group of an ordinal is ordinal, and a count of one is left out before a scale ordinal ("milésimo").
+      ordinal:
+        0: '{ordinals.units}'
+        10: '{ordinals.tens}[ {>}]'
+        100: '{ordinals.hundreds}[ {>}]'
+        1000: '{<ordinal-count} {ordinals.thousand}[ {>}]'
+        1000000: '{<ordinal-count} {ordinals.millions}[ {>}]'
+        1000000000000: '{<ordinal-count} {ordinals.trillions}[ {>}]'
+        1000000000000000000: '{<ordinal-count} {ordinals.quintillions}[ {>}]'
+        1000000000000000000000000: '{<ordinal-count} {ordinals.septillions}[ {>}]'
+        1000000000000000000000000000000: '{<ordinal-count} {ordinals.nonillions}[ {>}]'
+      ordinal-count:
+        extends: ordinal
+        then: ordinal
+        1: ''
+        2: '{ordinals.units}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: mil
     millions:
@@ -74,8 +153,25 @@ pt:
         other: centésimos
       union: ' de '
     ordinals:
-      'units': ['_', 'primeiro', 'segundo', 'terceiro', 'quarto', 'quinto', 'sexto', 'sétimo', 'oitavo', 'nono']
-      'tens': ['_', 'décimo', 'vigésimo', 'trigésimo', 'quadragésimo', 'quinquagésimo', 'sexagésimo', 'septuagésimo', 'octogésimo', 'nonagésimo']
-      'hundreds': ['_', 'centésimo', 'ducentésimo', 'trecentésimo', 'quadringentésimo', 'quingentésimo', 'sexcentésimo', 'septingentésimo', 'octingentésimo', 'noningentésimo']
-      'thousand': 'milésimo'
-      'mega': ['_', 'milionésimo', 'bilionésimo', 'trilionésimo', 'quatrilionésimo', 'quintilionésimo']
+      units: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
+      tens: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
+      hundreds: [_, centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
+      thousand: milésimo
+      millions: milionésimo
+      trillions: bilionésimo
+      quintillions: trilionésimo
+      septillions: quatrilionésimo
+      nonillions: quintilionésimo
+    # The feminine ordinals.
+    genders:
+      female:
+        ordinals:
+          units: [zero, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
+          tens: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
+          hundreds: [_, centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
+          thousand: milésima
+          millions: milionésima
+          trillions: bilionésima
+          quintillions: trilionésima
+          septillions: quatrilionésima
+          nonillions: quintilionésima

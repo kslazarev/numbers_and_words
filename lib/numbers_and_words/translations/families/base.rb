@@ -40,10 +40,6 @@ module NumbersAndWords
           scales[capacity] || raise(Base.range_error(scales.size * 3))
         end
 
-        def union
-          t :union
-        end
-
         def micro_separator
           t :micro_separator
         end

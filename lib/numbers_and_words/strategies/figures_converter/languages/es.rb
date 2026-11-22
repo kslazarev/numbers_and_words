@@ -4,105 +4,20 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.es.yml; see RuleSets. The last group takes the feminine
+        # words under numbers.genders.female, or the apocopated ones under numbers.options.apocopated.
         class Es < Base
-          prepend Ordinals
-
-          def capacity_iteration
-            super.compact
-          end
-
-          def zero
-            super unless maybe_remove_zero
-          end
-
-          def ones
-            super({ gender:,
-                    is_one_thousand: one_thousand?,
-                    is_apocopated: one_apocopated? })
-          end
-
-          def tens_with_ones
-            options = { gender:, is_apocopated: one_apocopated? }
-            return @translations.twenties_with_ones(@figures, options) if @figures.tens == 2
-
-            super(options)
-          end
-
-          def hundreds
-            super({ gender:,
-                    is_apocopated: hundred_apocopated? })
-          end
-
-          def megs
-            return @translations.megs(1, number: 1) if long_scale_thousand?
-
-            super({ number: @figures.number_in_capacity(@current_capacity) })
-          end
+          include RuleSets
 
           private
 
-          def one_thousand?
-            @current_capacity.odd? &&
-              @figures.ones == 1 &&
-              @figures.tens.nil? &&
-              @figures.hundreds.nil?
+          def cardinal_set
+            'cardinal'
           end
 
-          def long_scale_thousand?
-            @current_capacity.odd? &&
-              !@figures.number_in_capacity(@current_capacity - 1).zero?
-          end
-
-          # Apocope shortens the masculine "uno" ("veintiún", "novecientos un"); the feminine keeps "una".
-          def one_apocopated?
-            @figures.ones == 1 && (@current_capacity.positive? || (@options.apocopated.result && gender != :female))
-          end
-
-          def hundred_apocopated?
-            @figures.hundreds == 1 && @figures.round_hundred?
-          end
-
-          def gender
-            @current_capacity ||= 0
-
-            return :male if @current_capacity >= 2
-
-            @options.gender.result
-          end
-
-          def maybe_remove_zero
-            @options.remove_zero.result
-          end
-
-          # Every part of a Spanish ordinal is ordinal ("centésimo vigésimo primero"), and a multiplier of a scale
-          # word joins its cardinal to it ("dosmilésimo"). gender: :female gives the feminine forms.
-          def ordinal_words(text, number)
-            return text if number.zero?
-
-            words = number.digits(1000).each_with_index.reverse_each.filter_map do |group, power|
-              group_ordinal(group, power) unless group.zero?
-            end.join(' ')
-            return words.gsub(/o\b/, 'a') if ordinal_gender == :female
-
-            @options.apocopated.result ? apocopated_ordinal(words) : words
-          end
-
-          # Before a masculine noun primero and tercero drop their final o ("primer", "vigésimo tercer").
-          def apocopated_ordinal(words)
-            words.sub(/(primer|tercer)o\z/, '\\1')
-          end
-
-          def group_ordinal(group, power)
-            return hundreds_ordinal(group) if power.zero?
-
-            multiplier = group == 1 ? '' : cardinal_words(group, gender: :male, apocopated: false).gsub(' y ', 'i').delete(' ').tr('áéíóú', 'aeiou').sub(/uno\z/, 'un')
-            "#{multiplier}#{ordinals[:mega][power]}"
-          end
-
-          def hundreds_ordinal(group)
-            hundreds, tens, units = format('%03d', group).chars.map(&:to_i)
-            parts = tens == 1 ? [[:teens, units]] : [[:tens, tens], [:units, units]]
-            [[:hundreds, hundreds], *parts].filter_map { |key, digit| ordinal_part(key, digit) }.join(' ')
+          def option_words
+            female = @options.gender.result == :female
+            [('genders.female' if female), ('options.apocopated' if @options.apocopated.result && !female)]
           end
         end
       end

@@ -15,6 +15,126 @@ es:
       apocopated: cien
       male: [_, ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
       female: [_, ciento, doscientas, trescientas, cuatrocientas, quinientas, seiscientas, setecientas, ochocientas, novecientas]
+    # The words of the last group, which take the gender asked for and apocopated: ("veintiún"); a scale word's
+    # count is masculine and apocopated ("veintiún millones"), but a thousand's takes the gender ("doscientas mil").
+    unit_ones: [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    unit_twenties: [_, veintiuno, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+    unit_hundreds: [_, ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
+    thousand_hundreds: [_, ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
+    count_ones: [cero, un, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+    count_twenties: [_, veintiún, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The long scale says "mil millones", or only "mil" before a count of millions ("mil un millón").
+    rules:
+      cardinal:
+        0: '{unit_ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{unit_twenties%}|{tens}]'
+        30: '{tens}[ {union} {>}]'
+        100: '[{unit_hundreds} {>}|{hundreds.apocopated}]'
+        200: '{unit_hundreds}[ {>}]'
+        1000: '{<thousands-count} {thousands}[ {>}]'
+        1000000: '{<count} {millions}[ {>}]'
+        1000000000: '{<mil-count} {>after-billions}'
+        1000000000000: '{<count} {trillions}[ {>}]'
+        1000000000000000: '{<mil-count} {>after-quadrillions}'
+        1000000000000000000: '{<count} {quintillions}[ {>}]'
+        1000000000000000000000: '{<mil-count} {>after-sextillions}'
+        1000000000000000000000000: '{<count} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<mil-count} {>after-octillions}'
+        1000000000000000000000000000000: '{<count} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<mil-count} {>after-decillions}'
+        1000000000000000000000000000000000000: '{<count} {undecillions}[ {>}]'
+        1000000000000000000000000000000000000000: '{<mil-count} {>after-duodecillions}'
+        1000000000000000000000000000000000000000000: '{<count} {tredecillions}[ {>}]'
+        1000000000000000000000000000000000000000000000: '{<mil-count} {>after-quattuordecillions}'
+      count:
+        extends: cardinal
+        0: '{count_ones}'
+        20: '[{count_twenties%}|{tens}]'
+        100: '[{hundreds.male} {>}|{hundreds.apocopated}]'
+        200: '{hundreds.male}[ {>}]'
+      # A count of one is left out before mil.
+      mil-count:
+        extends: count
+        then: count
+        1: ''
+        2: '{count_ones}'
+      thousands-count:
+        extends: count
+        then: count
+        1: ''
+        2: '{count_ones}'
+        100: '[{thousand_hundreds} {>}|{hundreds.apocopated}]'
+        200: '{thousand_hundreds}[ {>}]'
+      after-billions:
+        0: '{billions}'
+        1: '{billions} {=cardinal}'
+        1000000: '{thousands} {=cardinal}'
+      after-quadrillions:
+        0: '{quadrillions}'
+        1: '{quadrillions} {=cardinal}'
+        1000000000000: '{thousands} {=cardinal}'
+      after-sextillions:
+        0: '{sextillions}'
+        1: '{sextillions} {=cardinal}'
+        1000000000000000000: '{thousands} {=cardinal}'
+      after-octillions:
+        0: '{octillions}'
+        1: '{octillions} {=cardinal}'
+        1000000000000000000000000: '{thousands} {=cardinal}'
+      after-decillions:
+        0: '{decillions}'
+        1: '{decillions} {=cardinal}'
+        1000000000000000000000000000000: '{thousands} {=cardinal}'
+      after-duodecillions:
+        0: '{duodecillions}'
+        1: '{duodecillions} {=cardinal}'
+        1000000000000000000000000000000000000: '{thousands} {=cardinal}'
+      after-quattuordecillions:
+        0: '{quattuordecillions}'
+        1: '{quattuordecillions} {=cardinal}'
+        1000000000000000000000000000000000000000000: '{thousands} {=cardinal}'
+      # Each group of an ordinal is ordinal; a scale ordinal joins its count without spaces or accents
+      # ("dosmilésimo", "veintiunmilésimo", "treintaiunmilésimo").
+      ordinal:
+        0: '{ordinals.units}'
+        10: '{ordinals.teens%}'
+        20: '{ordinals.tens}[ {>}]'
+        100: '{ordinals.hundreds}[ {>}]'
+        1000: '{<compact}{ordinals.thousands}[ {>}]'
+        1000000: '{<compact}{ordinals.millions}[ {>}]'
+        1000000000: '{<compact}{ordinals.billions}[ {>}]'
+        1000000000000: '{<compact}{ordinals.trillions}[ {>}]'
+        1000000000000000: '{<compact}{ordinals.quadrillions}[ {>}]'
+        1000000000000000000: '{<compact}{ordinals.quintillions}[ {>}]'
+        1000000000000000000000: '{<compact}{ordinals.sextillions}[ {>}]'
+        1000000000000000000000000: '{<compact}{ordinals.septillions}[ {>}]'
+        1000000000000000000000000000: '{<compact}{ordinals.octillions}[ {>}]'
+        1000000000000000000000000000000: '{<compact}{ordinals.nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<compact}{ordinals.decillions}[ {>}]'
+        1000000000000000000000000000000000000: '{<compact}{ordinals.undecillions}[ {>}]'
+        1000000000000000000000000000000000000000: '{<compact}{ordinals.duodecillions}[ {>}]'
+        1000000000000000000000000000000000000000000: '{<compact}{ordinals.tredecillions}[ {>}]'
+        1000000000000000000000000000000000000000000000: '{<compact}{ordinals.quattuordecillions}[ {>}]'
+      compact:
+        1: ''
+        2: '{compact.ones}'
+        10: '{tens}'
+        11: '{compact.teens%}'
+        20: '[{compact.twenties%}|{tens}]'
+        30: '{tens}[i{>compact-rest}]'
+        100: '[{compact.hundreds}{>compact-rest}|{hundreds.apocopated}]'
+        200: '{compact.hundreds}[{>compact-rest}]'
+      compact-rest:
+        extends: compact
+        1: '{compact.ones}'
+    compact:
+      ones: [_, un, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+      teens: [_, once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve]
+      twenties: [_, veintiun, veintidos, veintitres, veinticuatro, veinticinco, veintiseis, veintisiete, veintiocho, veintinueve]
+      hundreds: [_, ciento, doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos]
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
     thousands: mil
     millions:
@@ -106,8 +226,56 @@ es:
       union: ''
     union: y
     ordinals:
-      'units': ['_', 'primero', 'segundo', 'tercero', 'cuarto', 'quinto', 'sexto', 'séptimo', 'octavo', 'noveno']
-      'teens': ['décimo', 'undécimo', 'duodécimo', 'decimotercero', 'decimocuarto', 'decimoquinto', 'decimosexto', 'decimoséptimo', 'decimoctavo', 'decimonoveno']
-      'tens': ['_', 'décimo', 'vigésimo', 'trigésimo', 'cuadragésimo', 'quincuagésimo', 'sexagésimo', 'septuagésimo', 'octogésimo', 'nonagésimo']
-      'hundreds': ['_', 'centésimo', 'ducentésimo', 'tricentésimo', 'cuadringentésimo', 'quingentésimo', 'sexcentésimo', 'septingentésimo', 'octingentésimo', 'noningentésimo']
-      'mega': ['_', 'milésimo', 'millonésimo', 'milmillonésimo', 'billonésimo', 'milbillonésimo', 'trillonésimo', 'miltrillonésimo', 'cuatrillonésimo', 'milcuatrillonésimo', 'quintillonésimo', 'milquintillonésimo', 'sextillonésimo', 'milsextillonésimo', 'septillonésimo', 'milseptillonésimo']
+      units: [cero, primero, segundo, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno]
+      teens: [décimo, undécimo, duodécimo, decimotercero, decimocuarto, decimoquinto, decimosexto, decimoséptimo, decimoctavo, decimonoveno]
+      tens: [_, décimo, vigésimo, trigésimo, cuadragésimo, quincuagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
+      hundreds: [_, centésimo, ducentésimo, tricentésimo, cuadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
+      thousands: milésimo
+      millions: millonésimo
+      billions: milmillonésimo
+      trillions: billonésimo
+      quadrillions: milbillonésimo
+      quintillions: trillonésimo
+      sextillions: miltrillonésimo
+      septillions: cuatrillonésimo
+      octillions: milcuatrillonésimo
+      nonillions: quintillonésimo
+      decillions: milquintillonésimo
+      undecillions: sextillonésimo
+      duodecillions: milsextillonésimo
+      tredecillions: septillonésimo
+      quattuordecillions: milseptillonésimo
+    # The feminine words, and those that apocopated: changes ("veintiún", "vigésimo primer").
+    genders:
+      female:
+        unit_ones: [cero, una, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+        unit_twenties: [_, veintiuna, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+        unit_hundreds: [_, ciento, doscientas, trescientas, cuatrocientas, quinientas, seiscientas, setecientas, ochocientas, novecientas]
+        thousand_hundreds: [_, ciento, doscientas, trescientas, cuatrocientas, quinientas, seiscientas, setecientas, ochocientas, novecientas]
+        ordinals:
+          units: [cero, primera, segunda, tercera, cuarta, quinta, sexta, séptima, octava, novena]
+          teens: [décima, undécima, duodécima, decimotercera, decimocuarta, decimoquinta, decimosexta, decimoséptima, decimoctava, decimonovena]
+          tens: [_, décima, vigésima, trigésima, cuadragésima, quincuagésima, sexagésima, septuagésima, octogésima, nonagésima]
+          hundreds: [_, centésima, ducentésima, tricentésima, cuadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
+          thousands: milésima
+          millions: millonésima
+          billions: milmillonésima
+          trillions: billonésima
+          quadrillions: milbillonésima
+          quintillions: trillonésima
+          sextillions: miltrillonésima
+          septillions: cuatrillonésima
+          octillions: milcuatrillonésima
+          nonillions: quintillonésima
+          decillions: milquintillonésima
+          undecillions: sextillonésima
+          duodecillions: milsextillonésima
+          tredecillions: septillonésima
+          quattuordecillions: milseptillonésima
+    options:
+      apocopated:
+        unit_ones: [cero, un, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
+        unit_twenties: [_, veintiún, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
+        ordinals:
+          units: [cero, primer, segundo, tercer, cuarto, quinto, sexto, séptimo, octavo, noveno]
+          teens: [décimo, undécimo, duodécimo, decimotercer, decimocuarto, decimoquinto, decimosexto, decimoséptimo, decimoctavo, decimonoveno]
