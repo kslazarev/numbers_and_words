@@ -4,7 +4,8 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Fi
+        # The fractional part digit by digit, including leading zeros, as in Finnish and Norwegian.
+        module Digits
           # Finnish reads the fractional part digit by digit, including leading zeros.
           class Fractional < Base
             def run

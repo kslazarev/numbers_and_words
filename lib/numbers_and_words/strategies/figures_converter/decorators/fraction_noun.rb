@@ -4,8 +4,9 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Sk
-          # Slovak reads the fractional part as a feminine number of tenths, hundredths and so on.
+        # A count in the feminine and the fraction noun for the length of the fractional part, as Bulgarian "две десети".
+        module FractionNoun
+          # Bulgarian reads the fractional part as a feminine number of tenths, hundredths and so on.
           class Fractional < Base
             def run
               @options[:gender] = :female

@@ -3,40 +3,30 @@
 require 'numbers_and_words/strategies/figures_converter/decorators/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/decimal_point'
 require 'numbers_and_words/strategies/figures_converter/decorators/indian'
+require 'numbers_and_words/strategies/figures_converter/decorators/counted_fraction'
+require 'numbers_and_words/strategies/figures_converter/decorators/fraction_noun'
+require 'numbers_and_words/strategies/figures_converter/decorators/point_or_fraction'
+require 'numbers_and_words/strategies/figures_converter/decorators/point_words'
+require 'numbers_and_words/strategies/figures_converter/decorators/digits'
+require 'numbers_and_words/strategies/figures_converter/decorators/myriad'
 require 'numbers_and_words/strategies/figures_converter/decorators/az/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/bg/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/bg/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/cs/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/cs/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/de/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/el/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/en/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/es/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/fi/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/fr/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/he/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/id/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/it/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/ja/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/ko/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/nb/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/nl/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/nl/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/pl/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/pt-BR/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/pt-BR/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/ro/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/ru/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/ru/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/sk/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/sk/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/th/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/uk/fractional'
-require 'numbers_and_words/strategies/figures_converter/decorators/uk/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/zh/fractional'
 
 module NumbersAndWords
   module Strategies
@@ -44,7 +34,12 @@ module NumbersAndWords
       module Decorators
         # Languages that read decimals with the decorators of another language, or of a family, where they have
         # none of their own.
-        SHARED = { EnGb: :En, FrCh: :Fr, Pt: :PtBr, Pl: :Cs, Ms: :Id, Hi: :Indian, Bn: :Indian, Ur: :Indian }.freeze
+        SHARED = {
+          EnGb: :En, FrCh: :Fr, Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Indian, Bn: :Indian, Ur: :Indian,
+          Cs: :CountedFraction, Es: :CountedFraction, Ru: :CountedFraction, Bg: :FractionNoun, Sk: :FractionNoun,
+          Fr: :PointOrFraction, PtBr: :PointOrFraction, El: :PointWords, Ro: :PointWords, Fi: :Digits, Nb: :Digits,
+          Ja: :Myriad, Ko: :Myriad, Zh: :Myriad
+        }.freeze
         # Languages that read decimals without decorators.
         PLAIN = %i[Vi].freeze
 
@@ -82,8 +77,12 @@ module NumbersAndWords
             own_and_shared(language.to_sym)
           end
 
+          # The language's decorators and those it shares, following SHARED: Ukrainian uses Russian's, which use
+          # CountedFraction's.
           def own_and_shared(language)
-            [language, SHARED[language]].compact.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
+            names = [language]
+            names << SHARED[names.last] while SHARED.key?(names.last)
+            names.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
           end
         end
       end

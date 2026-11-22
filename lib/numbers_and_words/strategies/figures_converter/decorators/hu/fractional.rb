@@ -7,29 +7,7 @@ module NumbersAndWords
         module Hu
           class Fractional < Base
             def run
-              "#{before_noun(super)} #{fraction_significance}"
-            end
-
-            private
-
-            def fraction_significance
-              @strategy.translations.micros full_fraction.fraction_capacity
-            end
-
-            def full_fraction
-              (0..zero_length).inject(figures.clone) { |result, _el| result.unshift '0' }.to_figures
-            end
-
-            def figures
-              @strategy.figures
-            end
-
-            def zero_length
-              fraction_length - figures.length
-            end
-
-            def fraction_length
-              @options[:fractional][:length].to_i
+              "#{before_noun(super)} #{fraction_significance(nil)}"
             end
           end
         end
