@@ -1,8 +1,8 @@
 # Azerbaijani (`az`)
 
-Azərbaycan dili, in the Latin alphabet. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Azərbaycan dili, in the Latin alphabet. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Azerbaijani counts like Turkish: one hundred and one thousand are "yüz" and "min" alone, and larger scales keep "bir" (bir milyon). The scale words are milyon, milyard, trilyon, kvadrilyon and so on, in the short scale. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Azerbaijani counts like Turkish: one hundred and one thousand are "yüz" and "min" alone, and larger scales keep "bir" (bir milyon). It uses the short scale: milyon, milyard, trilyon, kvadrilyon and so on. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:az) { [1, 2, 3].to_words }
 
 ## Decimals
 
-Decimals are read as fractions, the standard reading taught in Azerbaijani schools: the integral part, "tam" (whole), then the denominator in the locative case followed by the numerator, so 3.14 is "üç tam yüzdə on dörd", three wholes and fourteen in a hundred.
+Decimals are read as fractions, as taught in Azerbaijani schools: the integral part, "tam" (whole), the denominator in the locative, then the numerator. 3.14 is "üç tam yüzdə on dörd", three wholes and fourteen in a hundred.
 
 ```ruby
 I18n.with_locale(:az) { 0.5.to_words }
@@ -57,7 +57,7 @@ I18n.with_locale(:az) { 0.0001.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits, which changes the denominator.
+`precision` pads the fractional part with zeros to that many digits, which changes the denominator.
 
 ```ruby
 I18n.with_locale(:az) { 0.1.to_words(precision: 2) }

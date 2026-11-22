@@ -43,7 +43,7 @@ I18n.with_locale(:pt) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `vírgula`, which 2.0 will make the default.
+Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `vírgula`.
 
 ```ruby
 I18n.with_locale(:pt) { 21.77.to_words }
@@ -60,7 +60,7 @@ I18n.with_locale(:pt) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:pt) { 0.1.to_words(precision: 2) }
@@ -78,7 +78,7 @@ I18n.with_locale(:pt) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:pt) { 21.77.to_words(fraction: false) }
@@ -114,7 +114,7 @@ I18n.with_locale(:pt) { 1_000_000_000_000.to_words(ordinal: true) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas), but milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take the feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it.
+`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas), but milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it too.
 
 ```ruby
 I18n.with_locale(:pt) { 2_222_222.to_words(gender: :female) }

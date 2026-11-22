@@ -32,7 +32,7 @@ I18n.with_locale(:vi) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `phẩy`, one `không` for each leading zero, and the remaining fractional part as a number. This consistently uses the numeric reading rather than switching to the also-valid digit-by-digit reading after a leading zero.
+Decimals are read with `phẩy`, one `không` for each leading zero, and the remaining fractional part as a number. The digit-by-digit reading, also valid after a leading zero, is not used.
 
 ```ruby
 I18n.with_locale(:vi) { 0.05.to_words }
@@ -52,7 +52,7 @@ I18n.with_locale(:vi) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:vi) { 0.1.to_words(precision: 2) }

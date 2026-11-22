@@ -1,8 +1,8 @@
 # Bulgarian (`bg`)
 
-Български. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Български. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the full literary forms (единадесет, двадесет) rather than the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет) and a last group of one part to the rest of the number (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:bg) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a whole number and a fraction, the formal reading: the integral part in the neuter with the invariable цяло, then "и" and the fractional part in the feminine with its denominator (десета, стотна, хилядна), singular after one and plural otherwise. Up to nine fractional digits are supported; more raise `RangeError`.
+Decimals use the formal reading, a whole number and a fraction: the integral part in the neuter with the invariable цяло, then "и" and the fractional part in the feminine with its denominator (десета, стотна, хилядна), singular after one and plural otherwise. More than nine fractional digits raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:bg) { 3.14.to_words }
@@ -54,7 +54,7 @@ I18n.with_locale(:bg) { 1.1.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:bg) { 0.1.to_words(precision: 2) }

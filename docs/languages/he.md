@@ -1,10 +1,10 @@
 # Hebrew (`he`)
 
-עברית. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+עברית. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers use the feminine counting form by default (אחת, שתיים, שלוש); see [Gender](#gender). Multipliers of אלף, מיליון and larger are masculine (עשרים ואחד אלף), and 2,000 to 10,000 have their own forms (אלפיים, שלושת אלפים, עשרת אלפים). The conjunction ו joins the last part of each group (עשרים ואחת), and a single last part to the rest of the number (אלף ואחת). Numbers up to 999,999,999,999,999 are supported; larger numbers raise `RangeError`.
 
-Hebrew is written right to left. `to_words` returns the words in logical order, the order they are read, and adds no bidirectional control characters, so the text displays correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Where the words are embedded in left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
+Hebrew is written right to left. `to_words` returns the words in logical (reading) order without bidirectional control characters, so they display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
 
 ## Examples
 
@@ -53,7 +53,7 @@ I18n.with_locale(:he) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:he) { 0.1.to_words(precision: 2) }
@@ -71,7 +71,7 @@ I18n.with_locale(:he) { 21.77.to_words(micro_separator: "פסיק") }
 
 ### Gender
 
-`gender: :female` (the default) or `gender: :male`, the gender of what is counted. It applies to the last group of digits; multipliers of thousands and larger are always masculine.
+`gender: :female` (the default) or `gender: :male` sets the gender of what is counted. It applies to the last group of digits; multipliers of thousands and larger are always masculine.
 
 ```ruby
 I18n.with_locale(:he) { 21.to_words(gender: :male) }
@@ -86,7 +86,7 @@ I18n.with_locale(:he) { 2.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal words for 1 to 10, in the requested gender, and the definite cardinal above 10, as Hebrew does (`היום העשרים ואחד`). After a one-word multiplier the article goes on the noun it counts (שלוש המאות, שלושת האלפים, שני המיליון). 0 raises `RangeError`.
+`ordinal: true` gives the ordinal words for 1 to 10 in the requested gender, and above 10 the definite cardinal, as Hebrew does (`היום העשרים ואחד`). After a one-word multiplier the article goes on the noun it counts (שלוש המאות, שלושת האלפים, שני המיליון). 0 raises `RangeError`.
 
 ```ruby
 I18n.with_locale(:he) { 1.to_words(ordinal: true) }

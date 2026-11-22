@@ -32,21 +32,21 @@ I18n.with_locale(:lt) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. Converting a float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :lt."). Amounts with both [`unit` and `subunit`](../../README.md#unit) are supported.
+Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :lt."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable ordinary decimal readings.
+With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
 
 ### Micro Separator
 
-`micro_separator` applies to ordinary decimal readings, which are not supported yet. It does not change the separator between a unit and its subunit.
+`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), except round hundreds and thousands, which take the definite form that is standard for them (šimtasis, tūkstantasis), and millions and larger, which take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis); a multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals in this language are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` makes the last word ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), except round hundreds and thousands, which take their standard definite form (šimtasis, tūkstantasis), and millions and larger, which take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis); a multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:lt) { 1.to_words(ordinal: true) }

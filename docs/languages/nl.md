@@ -41,7 +41,7 @@ I18n.with_locale(:nl) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:nl) { 0.1.to_words(precision: 2) }
@@ -59,7 +59,7 @@ I18n.with_locale(:nl) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste"). As in cardinal numbers, million and larger scales stay separate ("twee miljoenste"), not joined to their multiplier.
+`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste"). As in cardinals, million and larger scales stay apart from their multiplier ("twee miljoenste").
 
 ```ruby
 I18n.with_locale(:nl) { 1.to_words(ordinal: true) }
@@ -77,7 +77,7 @@ I18n.with_locale(:nl) { 2_000_000.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as they are usually spoken, with a space before the remainder. Other numbers are read as usual.
+`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as usually spoken, with a space before the remainder. Other numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:nl) { 1910.to_words(pronounced: true) }

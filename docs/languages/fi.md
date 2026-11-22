@@ -1,8 +1,8 @@
 # Finnish (`fi`)
 
-Suomi. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Suomi. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers below a million are written as one word (kaksituhattakaksikymmentäyksi), and millions and larger as separate words (kaksi miljoonaa). Scale words take the partitive after numbers above one (kaksituhatta, kaksi miljoonaa), and a lone one is omitted (tuhat, miljoona). Numbers up to 999,999,999,999,999 are supported, with miljoona, miljardi and biljoona; larger numbers raise `RangeError`. Finnish numbers have no grammatical gender.
+Numbers below a million are one word (kaksituhattakaksikymmentäyksi); millions and larger are separate words (kaksi miljoonaa). Scale words take the partitive after numbers above one (kaksituhatta, kaksi miljoonaa), and a lone one is omitted (tuhat, miljoona). Numbers up to 999,999,999,999,999 are supported, with miljoona, miljardi and biljoona; larger numbers raise `RangeError`. Finnish numbers have no gender.
 
 ## Examples
 
@@ -34,7 +34,7 @@ I18n.with_locale(:fi) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with pilkku followed by each fractional digit, including leading zeros.
+Decimals are read with pilkku and then each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:fi) { 3.14.to_words }
@@ -48,7 +48,7 @@ I18n.with_locale(:fi) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:fi) { 0.1.to_words(precision: 2) }

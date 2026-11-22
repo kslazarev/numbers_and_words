@@ -1,10 +1,10 @@
 # Romanian (`ro`)
 
-Română. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Română. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or from 20 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). The last group uses the masculine counting form by default (unu, doi, douăzeci și unu); see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu), see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-For the [`unit`](../../README.md#unit) option, Romanian chooses the plural form `one` for 1, `few` for 0 and counts ending in 01 to 19, and `other` for counts ending in 00 or from 20, so a unit's `other` form includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei"; after a decimal a unit takes its `few` form ("douăzeci și unu virgulă cinci lei"). A unit after 1 takes the form before a noun, `un` or `o` for a feminine unit ("un leu", "o liră"); compounds keep the counting form ("o sută unu lei", "douăzeci și una de lire").
+With [`unit`](../../README.md#unit), a unit takes its `one` form after 1, `few` after 0, counts ending in 01 to 19 and decimals ("douăzeci și unu virgulă cinci lei"), and `other` after counts ending in 00 or 20 to 99, so `other` includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei". One before a unit is `un`, or `o` for a feminine unit ("un leu", "o liră"); compounds keep the counting form ("o sută unu lei", "douăzeci și una de lire").
 
 ## Examples
 
@@ -59,7 +59,7 @@ I18n.with_locale(:ro) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ro) { 0.1.to_words(precision: 2) }
@@ -77,7 +77,7 @@ I18n.with_locale(:ro) { 21.77.to_words(micro_separator: "punct") }
 
 ### Gender
 
-`gender: :male` (the default), `gender: :female` or `gender: :neuter`, the gender of what is counted. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune). It applies to the last group of digits.
+`gender: :male` (the default), `gender: :female` or `gender: :neuter`, the gender of what is counted, changes the last group of digits. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune).
 
 ```ruby
 I18n.with_locale(:ro) { 1.to_words(gender: :female) }

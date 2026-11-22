@@ -1,10 +1,10 @@
 # Urdu (`ur`)
 
-اردو. This language is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Urdu letters (ک, ہ, ی and ے rather than the Arabic ك, ه and ي) and separated by spaces.
+اردو. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Urdu letters (ک, ہ, ی and ے, not the Arabic ك, ه and ي), separated by spaces.
 
-Urdu uses the Indian numbering system. Every number from 0 to 99 is its own word (اکیس, اٹھہتر, ننانوے) and is not composed from tens and ones. The last three digits are read as hundreds (چھ سو اٹھہتر), and each scale above them counts from 1 to 99: ہزار (10^3), لاکھ (10^5), کروڑ (10^7), ارب (10^9) and کھرب (10^11), so 1,23,45,678 is ایک کروڑ تئیس لاکھ پینتالیس ہزار چھ سو اٹھہتر. Larger numbers repeat کھرب with its count spelled the same way (10^13 is ایک سو کھرب). 100 and 1,000 are ایک سو and ایک ہزار.
+Urdu uses the Indian numbering system. Each number from 0 to 99 is its own word (اکیس, اٹھہتر, ننانوے), not a compound of tens and ones. The last three digits are read as hundreds (چھ سو اٹھہتر), and each scale above them counts from 1 to 99: ہزار (10^3), لاکھ (10^5), کروڑ (10^7), ارب (10^9) and کھرب (10^11), so 1,23,45,678 is ایک کروڑ تئیس لاکھ پینتالیس ہزار چھ سو اٹھہتر. Larger numbers repeat کھرب with its count spelled the same way (10^13 is ایک سو کھرب). 100 and 1,000 are ایک سو and ایک ہزار.
 
-Urdu is written right to left. `to_words` returns the words in logical order, the order they are read, and adds no bidirectional control characters, so the text displays correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Where the words are embedded in left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
+Urdu is written right to left. `to_words` returns the words in logical (reading) order without bidirectional control characters, so they display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
 
 ## Examples
 
@@ -56,7 +56,7 @@ I18n.with_locale(:ur) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to the given number of digits.
+`precision` pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ur) { 0.1.to_words(precision: 2) }
@@ -74,7 +74,7 @@ I18n.with_locale(:ur) { 21.77.to_words(micro_separator: "نقطہ") }
 
 ### Ordinal
 
-`ordinal: true` gives پہلا, دوسرا, تیسرا, چوتھا, چھٹا and نواں for 1, 2, 3, 4, 6 and 9, and adds واں to the cardinal otherwise (پانچواں, اکیسواں, ایک سوواں). The irregular forms are used only for the numbers themselves; larger numbers ending in them add واں (101 is ایک سو ایکواں). Decimals keep the cardinal form.
+`ordinal: true` gives پہلا, دوسرا, تیسرا, چوتھا, چھٹا and نواں for 1, 2, 3, 4, 6 and 9, and adds واں to the cardinal otherwise (پانچواں, اکیسواں, ایک سوواں). Larger numbers ending in these add واں (101 is ایک سو ایکواں). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:ur) { 1.to_words(ordinal: true) }
