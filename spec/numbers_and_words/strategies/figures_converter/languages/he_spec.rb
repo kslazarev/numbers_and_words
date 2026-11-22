@@ -12,6 +12,6 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::He do
   end
 
   it 'raises for numbers from 10**15' do
-    expect { (10**15).to_words }.to raise_error(RangeError, 'numbers must be below 10**15 in :he')
+    expect { (10**15).to_words }.to raise_error(RangeError, 'Numbers in :he only support values below 10**15.')
   end
 end

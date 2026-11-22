@@ -7,7 +7,7 @@ module NumbersAndWords
       module Base
         # The RangeError for a number of 10**power or more in the current locale.
         def self.range_error(power)
-          RangeError.new("numbers must be below 10**#{power} in #{::I18n.locale.inspect}")
+          RangeError.new("Numbers in #{::I18n.locale.inspect} only support values below 10**#{power}.")
         end
 
         # The RangeError for an ordinal outside the range the current locale declares.
@@ -17,7 +17,7 @@ module NumbersAndWords
 
         # The RangeError for a decimal with more fractional digits than the current locale can name.
         def self.decimal_range_error(digits)
-          RangeError.new("decimals support up to #{digits} fractional digits in #{::I18n.locale.inspect}")
+          RangeError.new("Decimals in #{::I18n.locale.inspect} only support up to #{digits} fractional digits.")
         end
 
         def micro_separator

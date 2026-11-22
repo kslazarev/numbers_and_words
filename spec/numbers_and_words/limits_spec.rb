@@ -39,7 +39,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
       readings = LONG_DECIMALS.filter_map do |number|
         words(locale, number)
       rescue RangeError => e
-        expect(e.message).to match(/\Adecimals support up to \d+ fractional digits in #{locale.inspect}\z|\Anumbers must be below 10\*\*\d+ in #{locale.inspect}\z/)
+        expect(e.message).to match(/\ADecimals in #{locale.inspect} only support up to \d+ fractional digits\.\z|\ANumbers in #{locale.inspect} only support values below 10\*\*\d+\.\z/)
         nil
       end
       readings.each do |reading|
@@ -54,7 +54,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
   it 'raises RangeError past the last fraction word' do
     { ru: 23, uk: 23, cs: 23 }.each do |locale, digits|
       expect(words(locale, 10.0**-digits)).not_to be_empty
-      expect { words(locale, 10.0**-(digits + 1)) }.to raise_error(RangeError, "decimals support up to #{digits} fractional digits in #{locale.inspect}")
+      expect { words(locale, 10.0**-(digits + 1)) }.to raise_error(RangeError, "Decimals in #{locale.inspect} only support up to #{digits} fractional digits.")
     end
     expect([words(:ru, 0.1 + 0.2), words(:uk, 1.0e-15), words(:cs, 1.0e-17)])
       .to eq(['ноль целых и тридцать квадриллионов четыре стоквадриллионных', 'нуль цілих і одна квадрильйонна', 'nula celá jedna stobiliardtina'])
@@ -63,14 +63,14 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
   it 'raises RangeError past the last scale word' do
     { da: 21, de: 36, sv: 36, et: 36, ka: 15, vi: 18, en: 48, es: 48, fr: 36, hu: 36, 'pt-BR': 36 }.each do |locale, power|
       expect(words(locale, (10**power) - 1)).not_to be_empty
-      expect { words(locale, 10**power) }.to raise_error(RangeError, "numbers must be below 10**#{power} in #{locale.inspect}")
+      expect { words(locale, 10**power) }.to raise_error(RangeError, "Numbers in #{locale.inspect} only support values below 10**#{power}.")
     end
   end
 
   (NumbersAndWords::I18n.languages - decimal_languages).each do |locale|
     it "raises UnsupportedNumberError for #{locale} decimals" do
       UNSUPPORTED_DECIMALS.each do |number|
-        expect { words(locale, number) }.to raise_error(NumbersAndWords::UnsupportedNumberError, "decimals are not supported in #{locale.inspect}")
+        expect { words(locale, number) }.to raise_error(NumbersAndWords::UnsupportedNumberError, "Decimals are not supported in #{locale.inspect}.")
       end
       expect { words(locale, 1.5, fallback: :en) }.to raise_error(NumbersAndWords::UnsupportedNumberError)
     end

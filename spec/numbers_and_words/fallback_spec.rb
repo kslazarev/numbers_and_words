@@ -35,7 +35,7 @@ describe NumbersAndWords::Fallback do
 
     it 'validates the other options for the fallback locale' do
       expect(42.to_words(fallback: :ru, gender: :female)).to eq('сорок две')
-      expect { 42.to_words(fallback: :en, gender: :female) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /:gender for locale :en/)
+      expect { 42.to_words(fallback: :en, gender: :female) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /:gender is not supported in :en/)
     end
 
     it 'returns digits with fallback: true' do
@@ -50,7 +50,7 @@ describe NumbersAndWords::Fallback do
 
     [:xx, '', 5, :am].each do |value|
       it "rejects fallback: #{value.inspect}" do
-        expect { 42.to_words(fallback: value) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /unsupported fallback/)
+        expect { 42.to_words(fallback: value) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /The fallback .* is not supported/)
       end
     end
 
@@ -97,7 +97,7 @@ describe NumbersAndWords::Fallback do
 
     it 'rejects an unsupported fallback without changing the configuration' do
       NumbersAndWords.config.fallback = :fr
-      expect { NumbersAndWords.configure { |config| config.fallback = :xx } }.to raise_error(ArgumentError, /unsupported fallback :xx/)
+      expect { NumbersAndWords.configure { |config| config.fallback = :xx } }.to raise_error(ArgumentError, /The fallback :xx is not supported/)
       expect(NumbersAndWords.config.fallback).to eq(:fr)
     end
 

@@ -124,7 +124,7 @@ describe NumbersAndWords::Unit do
     it 'accepts only the nominative case, the case of unit forms' do
       expect(words(:ru, 21, unit: :ruble, ordinal: true, case: :nominative)).to eq('двадцать первый рубль')
       expect { words(:ru, 21, unit: :ruble, ordinal: true, case: :genitive) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :ruble cannot be used with case: :genitive yet; unit forms are nominative')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :ruble cannot be used with case: :genitive yet, as unit forms are nominative.')
     end
 
     it 'looks up a dotted key under units' do
@@ -132,7 +132,7 @@ describe NumbersAndWords::Unit do
     end
 
     it 'validates the gender of the unit for the language' do
-      expect { words(:ru, 1, unit: :odd) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /unsupported value :common for option :gender in locale :ru/)
+      expect { words(:ru, 1, unit: :odd) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /The value :common of option :gender is not supported in :ru/)
     end
   end
 
@@ -298,12 +298,12 @@ describe NumbersAndWords::Unit do
     end
 
     it 'raises for what Hebrew and Arabic units do not support yet' do
-      expect { words(:ar, 101, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'a unit after 101 is not supported in :ar yet')
-      expect { words(:ar, 2_002, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'a unit after 2002 is not supported in :ar yet')
+      expect { words(:ar, 101, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 101 is not supported in :ar yet.')
+      expect { words(:ar, 2_002, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 2002 is not supported in :ar yet.')
       expect { words(:ar, 3, unit: :lira) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :lira has gender :female; numbers in :ar agree only with male units yet')
-      expect { words(:he, 1, unit: :shekel, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit cannot be used with ordinal: true in :he yet')
-      expect { words(:ar, 1, unit: :dinar, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit cannot be used with ordinal: true in :ar yet')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :lira has gender :female, and numbers in :ar only agree with male units yet.')
+      expect { words(:he, 1, unit: :shekel, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :he yet.')
+      expect { words(:ar, 1, unit: :dinar, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :ar yet.')
     end
   end
 
@@ -383,37 +383,37 @@ describe NumbersAndWords::Unit do
   describe 'errors' do
     it 'raises for a unit without a translation' do
       expect { words(:ru, 1, unit: :dollar) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :dollar has no translation for locale :ru (expected units.dollar)')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :dollar has no translation in :ru, expected at units.dollar.')
     end
 
     it 'raises for a unit without the form a number needs' do
       expect(words(:ru, 1, unit: :broken)).to eq('один один')
       expect { words(:ru, 5, unit: :broken) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :broken has no form for count 5 or :other in locale :ru (units.broken)')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :broken has no form for count 5 or :other in :ru, at units.broken.')
     end
 
     it 'raises for a subunit without a unit, and zero_subunit without a subunit' do
-      expect { words(:en, 1, subunit: :cent) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'subunit needs a unit')
-      expect { words(:en, 1, unit: :dollar, zero_subunit: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'zero_subunit needs a subunit')
+      expect { words(:en, 1, subunit: :cent) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'The subunit option needs a unit.')
+      expect { words(:en, 1, unit: :dollar, zero_subunit: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'The zero_subunit option needs a subunit.')
     end
 
     it 'raises for a subunit with ordinal: true or precision: 0' do
       expect { words(:en, 1, unit: :dollar, subunit: :cent, ordinal: true) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'subunit cannot be used with ordinal: true')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The subunit option cannot be used with ordinal: true.')
       expect(words(:en, 1.5, unit: :dollar, subunit: :cent, ordinal: true)).to eq('one dollar and fifty cents')
       expect { words(:en, 1.5, unit: :dollar, subunit: :cent, precision: 0) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'subunit needs precision: of at least 1')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The subunit option needs precision: of at least 1.')
     end
 
     it 'raises for a decimal when the unit has no form for it' do
       expect { words(:ru, 1.5, unit: :broken) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unit :broken has no form for 1.5 or :other in locale :ru (units.broken)')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :broken has no form for 1.5 or :other in :ru, at units.broken.')
     end
 
     [nil, '', 1, true].each do |value|
       it "rejects unit: #{value.inspect}" do
         expect { words(:en, 1, unit: value) }
-          .to raise_error(NumbersAndWords::UnsupportedOptionError, /for option :unit in locale :en; supported: a unit translation key/)
+          .to raise_error(NumbersAndWords::UnsupportedOptionError, /of option :unit is not supported in :en; supported: a unit translation key/)
       end
     end
   end

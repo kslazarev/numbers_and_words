@@ -14,15 +14,15 @@ describe NumbersAndWords::OptionsValidation do
   context 'with an option the language does not define' do
     it 'raises and lists the supported options' do
       expect { words(:vi, 21, gender: :female) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The option :gender is not supported in :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit.')
     end
 
     it 'rejects misspelled options' do
-      expect { words(:en, 21, ordnal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /unsupported option :ordnal for locale :en/)
+      expect { words(:en, 21, ordnal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /The option :ordnal is not supported in :en/)
     end
 
     it 'rejects options of another language' do
-      expect { words(:ru, 1, apocopated: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /:apocopated for locale :ru/)
+      expect { words(:ru, 1, apocopated: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /:apocopated is not supported in :ru/)
     end
 
     it 'rejects internal options' do
@@ -33,7 +33,7 @@ describe NumbersAndWords::OptionsValidation do
   context 'with an unsupported value' do
     it 'rejects a gender the language does not have' do
       expect { words(:es, 1, gender: :neuter) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'unsupported value :neuter for option :gender in locale :es; supported: :male, :female')
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The value :neuter of option :gender is not supported in :es; supported: :male, :female.')
     end
 
     it 'rejects a gender from another language' do
@@ -79,7 +79,7 @@ describe NumbersAndWords::OptionsValidation do
     available = I18n.available_locales
     I18n.available_locales = available + [:'en-US']
     expect(words(:'en-US', 21, ordinal: true)).to eq('twenty-first')
-    expect { words(:'en-US', 1, gender: :female) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /locale :en;/)
+    expect { words(:'en-US', 1, gender: :female) }.to raise_error(NumbersAndWords::UnsupportedOptionError, / in :en;/)
   ensure
     I18n.available_locales = available
   end

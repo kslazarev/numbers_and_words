@@ -71,7 +71,7 @@ describe NumbersAndWords::CLI do
   it 'rejects the ordinal of a negative number' do
     status, stdout, stderr = run_cli('--ordinal', '--', '-5')
     expect([status, stdout]).to eq([1, ''])
-    expect(stderr).to start_with('to_words: negative numbers have no ordinal: -5')
+    expect(stderr).to start_with('to_words: Negative numbers have no ordinal: -5.')
   end
 
   it 'prints the version and help' do
@@ -82,15 +82,15 @@ describe NumbersAndWords::CLI do
   end
 
   {
-    %w[abc] => 'not a number: "abc"',
-    %w[1e5] => 'not a number: "1e5"',
-    %w[1.] => 'not a number: "1."',
+    %w[abc] => 'Not a number: "abc".',
+    %w[1e5] => 'Not a number: "1e5".',
+    %w[1.] => 'Not a number: "1.".',
     %w[-l xx 1] => ':xx is not a valid locale',
-    %w[-l vi --gender female 1] => 'unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero',
-    %w[-l es --gender neuter 1] => 'unsupported value "neuter" for option :gender in locale :es; supported: :male, :female',
+    %w[-l vi --gender female 1] => 'The option :gender is not supported in :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero',
+    %w[-l es --gender neuter 1] => 'The value "neuter" of option :gender is not supported in :es; supported: :male, :female.',
     %w[--precision x 1] => 'invalid argument: --precision x',
-    %w[--unit dollar 1] => 'unit "dollar" has no translation for locale :en (expected units.dollar)',
-    %w[--subunit cent 1] => 'subunit needs a unit',
+    %w[--unit dollar 1] => 'The unit "dollar" has no translation in :en, expected at units.dollar.',
+    %w[--subunit cent 1] => 'The subunit option needs a unit.',
     %w[--gender] => 'missing argument: --gender',
     %w[--bogus 1] => 'invalid option: --bogus',
     %w[--locale] => 'missing argument: --locale'
@@ -106,11 +106,11 @@ describe NumbersAndWords::CLI do
   it 'rejects empty standard input' do
     status, stdout, stderr = run_cli(stdin: " \n")
     expect([status, stdout]).to eq([1, ''])
-    expect(stderr).to start_with('to_words: no numbers given')
+    expect(stderr).to start_with('to_words: No numbers given.')
   end
 
   it 'does not convert any number when one argument is invalid' do
-    expect(run_cli('1', 'two')).to eq([1, '', "to_words: not a number: \"two\"\nUsage: to_words [options] [NUMBER...]\n"])
+    expect(run_cli('1', 'two')).to eq([1, '', "to_words: Not a number: \"two\".\nUsage: to_words [options] [NUMBER...]\n"])
   end
 
   describe 'executable' do
@@ -130,7 +130,7 @@ describe NumbersAndWords::CLI do
     it 'exits non-zero for invalid input in a real process' do
       stdout, stderr, status = execute('nope')
       expect([stdout, status.exitstatus]).to eq(['', 1])
-      expect(stderr).to include('not a number: "nope"')
+      expect(stderr).to include('Not a number: "nope".')
     end
   end
 end

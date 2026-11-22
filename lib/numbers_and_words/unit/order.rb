@@ -22,16 +22,16 @@ module NumbersAndWords
       end
 
       def check!(count, order, options)
-        raise UnsupportedOptionError, "unit cannot be used with ordinal: true in #{::I18n.locale.inspect} yet" if options[:ordinal]
+        raise UnsupportedOptionError, "A unit cannot be used with ordinal: true in #{::I18n.locale.inspect} yet." if options[:ordinal]
         return unless count > 100 && order.fetch(:unsupported_after_hundred, []).include?(count % 100)
 
-        raise UnsupportedNumberError, "a unit after #{count} is not supported in #{::I18n.locale.inspect} yet"
+        raise UnsupportedNumberError, "A unit after #{count} is not supported in #{::I18n.locale.inspect} yet."
       end
 
       def check_gender!(unit, gender)
         return if gender.nil? || gender.to_sym == :male || !::I18n.t('numbers.unit_masculine_only', locale: I18n.local_language, default: false)
 
-        raise UnsupportedOptionError, "unit #{unit.inspect} has gender #{gender.inspect}; numbers in #{::I18n.locale.inspect} agree only with male units yet"
+        raise UnsupportedOptionError, "The unit #{unit.inspect} has gender #{gender.inspect}, and numbers in #{::I18n.locale.inspect} only agree with male units yet."
       end
     end
   end

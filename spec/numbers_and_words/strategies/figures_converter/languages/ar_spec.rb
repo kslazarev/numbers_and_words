@@ -10,7 +10,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Ar do
   end
 
   it 'rejects numbers beyond the largest scale word' do
-    expect { (10**21).to_words }.to raise_error(RangeError, 'numbers must be below 10**21 in :ar')
+    expect { (10**21).to_words }.to raise_error(RangeError, 'Numbers in :ar only support values below 10**21.')
   end
 
   it 'returns words in logical order without bidirectional control characters' do

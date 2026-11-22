@@ -50,7 +50,7 @@ describe NumbersAndWords::Compatibility, :compatibility do
       allow(Kernel).to receive(:warn)
       2.times { words(:fr, 321) }
       expect(Kernel).to have_received(:warn).once.with(
-        'numbers_and_words: the default spelling: :traditional for :fr changes to spelling: :reformed in 2.0; pass spelling: to choose',
+        'numbers_and_words: The default spelling: :traditional for :fr changes to spelling: :reformed in 2.0; pass spelling: to choose.',
         category: :deprecated
       )
     end
@@ -89,8 +89,8 @@ describe NumbersAndWords::Compatibility, :compatibility do
       allow(Kernel).to receive(:warn)
       expect(words(:vi, 21, gender: :female)).to eq('hai mươi mốt')
       expect(Kernel).to have_received(:warn).with(
-        'numbers_and_words: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, ' \
-        ':subunit, :unit, :zero_subunit; ignored, set NumbersAndWords.config.strict_options = true to raise, the default in 2.0',
+        'numbers_and_words: The option :gender is not supported in :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, ' \
+        ':subunit, :unit, :zero_subunit. It is ignored; set NumbersAndWords.config.strict_options = true to raise, the default in 2.0.',
         category: nil
       )
     end
@@ -98,7 +98,7 @@ describe NumbersAndWords::Compatibility, :compatibility do
     it 'ignores an unsupported value with a warning' do
       allow(Kernel).to receive(:warn)
       expect(words(:es, 1, gender: :neuter)).to eq('uno')
-      expect(Kernel).to have_received(:warn).with(/unsupported value :neuter for option :gender in locale :es/, category: nil)
+      expect(Kernel).to have_received(:warn).with(/The value :neuter of option :gender is not supported in :es/, category: nil)
     end
 
     it 'keeps the supported options' do
@@ -145,7 +145,7 @@ describe NumbersAndWords::Compatibility, :compatibility do
     end
 
     it 'rejects a strict_options value other than true or false' do
-      expect { NumbersAndWords.config.strict_options = nil }.to raise_error(ArgumentError, 'strict_options must be true or false, not nil')
+      expect { NumbersAndWords.config.strict_options = nil }.to raise_error(ArgumentError, 'The strict_options setting must be true or false, not nil.')
     end
 
     it 'keeps strict_options when configured' do

@@ -26,7 +26,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Myriad do
 
   it 'rejects an unknown Japanese script' do
     expect { I18n.with_locale(:ja) { 1.to_words(script: :romaji) } }
-      .to raise_error(NumbersAndWords::UnsupportedOptionError, /:script in locale :ja; supported: :kanji, :kana/)
+      .to raise_error(NumbersAndWords::UnsupportedOptionError, /:script is not supported in :ja; supported: :kanji, :kana/)
   end
 
   it 'accepts the Japanese script as a string' do

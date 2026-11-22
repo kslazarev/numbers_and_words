@@ -77,7 +77,7 @@ module NumbersAndWords
           # The decorators of the current language and those it shares; a language without decimals has none.
           def language_decorators
             language = I18n.language_class_name
-            raise UnsupportedNumberError, "decimals are not supported in #{::I18n.locale.inspect}" unless decimals?(language)
+            raise UnsupportedNumberError, "Decimals are not supported in #{::I18n.locale.inspect}." unless decimals?(language)
 
             own_and_shared(language.to_sym)
           end
