@@ -1,3 +1,13 @@
+## 1.1.2 (Next)
+
+### Features
+
+  * Your contribution here.
+
+### Bugs
+
+  * Your contribution here.
+
 ## 1.1.1 (2026/11/22)
 
 ### Bugs
