@@ -2,7 +2,7 @@ fi:
   numbers:
     supported_options:
       ordinal: true
-      remove_zero: {keeps_ordinal_zero: true}
+      remove_zero: {keeps_ordinal_zero: true, keeps_micro_separator: true}
     minus: miinus
     ones: [nolla, yksi, kaksi, kolme, neljä, viisi, kuusi, seitsemän, kahdeksan, yhdeksän]
     ten: kymmenen

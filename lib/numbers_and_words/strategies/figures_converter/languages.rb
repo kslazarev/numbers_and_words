@@ -35,10 +35,7 @@ module NumbersAndWords
       module Languages
         # A language with nothing of its own beyond its locale file's rule sets is a class that only includes
         # RuleSets, defined here (Languages::Sv).
-        I18n.languages.each do |language|
-          name = language.to_s.split('-').map(&:capitalize).join
-          const_set(name, Class.new(Base) { include RuleSets }) unless const_defined?(name, false)
-        end
+        I18n.define_classes(self) { Class.new(Base) { include RuleSets } }
 
         class << self
           def factory(strategy)

@@ -4,7 +4,7 @@ pt-BR:
       fraction: true
       gender: {values: [male, female], default: male}
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: menos
     # Up to six decimal places are read as a number after vírgula (três vírgula mil quatrocentos e dezesseis); longer ones digit by digit.
     decimal_number_places: 6

@@ -3,6 +3,7 @@
 module NumbersAndWords
   module Translations
     module Families
+      # The words every language reads from its locale file the same way; a language's class can override them.
       module Base
         # The RangeError for a number of 10**power or more in the current locale.
         def self.range_error(power)
@@ -14,10 +15,22 @@ module NumbersAndWords
           RangeError.new("decimals support up to #{digits} fractional digits in #{::I18n.locale.inspect}")
         end
 
-        # The scale word or key for 1000**capacity, or a RangeError past the last one the locale has.
-
         def micro_separator
           t :micro_separator
+        end
+
+        # The word for zero, under the prefix scope such as an ordinal's when one is given.
+        def zero(options = {})
+          t([options[:prefix], :ones].join('.'))[0]
+        end
+
+        def ones(number, options = {})
+          t([options[:prefix], :ones].join('.'))[number]
+        end
+
+        # The word for the integral part of a decimal, such as "целых", in the plural form for the number.
+        def integral(number, _options = {})
+          t(:integral, count: number)
         end
       end
     end

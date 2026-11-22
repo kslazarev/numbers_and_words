@@ -3,7 +3,7 @@ fr-CH:
     supported_options:
       fraction: true
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
       spelling: {values: [reformed, traditional]}
     minus: moins
     ones: [zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf]

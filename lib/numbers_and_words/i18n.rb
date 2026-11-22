@@ -15,6 +15,20 @@ module NumbersAndWords
       @languages ||= locale_files.map { |path| language_of(path) }
     end
 
+    # The class name of a language's classes: :'pt-BR' is PtBr.
+    def class_name(language)
+      language.to_s.split('-').map(&:capitalize).join
+    end
+
+    # Defines the class the block makes in the namespace for each bundled language without one of its own, under
+    # the language's class name, such as Translations::Sv.
+    def define_classes(namespace)
+      languages.each do |language|
+        name = class_name(language)
+        namespace.const_set(name, yield) unless namespace.const_defined?(name, false)
+      end
+    end
+
     # The language a bundled file belongs to: numbers.pt-BR.yml and pt-BR.rb are :'pt-BR'.
     def language_of(path)
       File.basename(path, File.extname(path)).delete_prefix('numbers.').to_sym

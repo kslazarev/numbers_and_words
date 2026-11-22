@@ -6,7 +6,7 @@ en-GB:
       ordinal: true
       pronounced: true
       remove_hyphen: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: minus
     ones: [zero, one, two, three, four, five, six, seven, eight, nine]
     teens: [_, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
