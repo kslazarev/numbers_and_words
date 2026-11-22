@@ -2,7 +2,7 @@ pl:
   numbers:
     supported_options:
       gender: {values: [male, female, neuter], default: male}
-      ordinal: true
+      ordinal: {minimum: 0, maximum: 999}
       remove_zero: true
     minus: minus
     ones:

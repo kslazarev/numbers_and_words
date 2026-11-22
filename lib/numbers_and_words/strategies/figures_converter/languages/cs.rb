@@ -8,14 +8,6 @@ module NumbersAndWords
         class Cs < Base
           include RuleSets
 
-          ORDINAL_LIMIT = 10_000
-
-          def words
-            raise RangeError, 'Czech ordinals support numbers below 10,000' if @options.ordinal.result && ordinal_integer >= ORDINAL_LIMIT
-
-            super
-          end
-
           private
 
           # A counting number's ordinal is feminine ("dvacátá první").

@@ -15,6 +15,7 @@ module NumbersAndWords
 
           def words
             ordinal = ordinal_number?
+            check_ordinal_range if ordinal
             return '' if removed_zero?(ordinal)
             return declined(rules(gender_words, *option_words).spell(ordinal_integer, ordinal_set)) if ordinal
 
@@ -22,6 +23,18 @@ module NumbersAndWords
           end
 
           private
+
+          # An ordinal outside ordinal: {minimum:, maximum:} under numbers.supported_options raises RangeError; one too
+          # large for cardinals raises the cardinal RangeError instead.
+          def check_ordinal_range
+            range = OptionsValidation.declared_options(I18n.local_language)[:ordinal]
+            return unless range.is_a?(::Hash)
+
+            number = ordinal_integer
+            return if number.between?(range[:minimum], range[:maximum]) || (limit && number >= 10**limit)
+
+            raise Translations::Families::Base.ordinal_range_error(range[:minimum], range[:maximum])
+          end
 
           # remove_zero: true leaves no words for zero, also as an ordinal unless the language keeps it.
           def removed_zero?(ordinal)

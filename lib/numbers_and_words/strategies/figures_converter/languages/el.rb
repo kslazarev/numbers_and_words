@@ -8,16 +8,6 @@ module NumbersAndWords
         class El < Base
           include RuleSets
 
-          ORDINAL_LIMIT = 10_000
-
-          # Numbers too large for cardinals raise the cardinal RangeError first.
-          def words
-            limited = ordinal_integer.between?(ORDINAL_LIMIT, (10**(@translations.t(:mega).size * 3)) - 1)
-            raise RangeError, 'Greek ordinals support numbers below 10,000' if ordinal_number? && limited
-
-            super
-          end
-
           private
 
           # The fractional part of a decimal is neuter.

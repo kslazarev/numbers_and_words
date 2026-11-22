@@ -19,7 +19,7 @@ module NumbersAndWords
             @options = options
           end
 
-          # A language's own option class, such as Options::Pl::Ordinal, or the option it declares in its locale
+          # A language's own option class, such as Options::Pl::Gender, or the option it declares in its locale
           # file; an option the language doesn't support is nil.
           def method_missing(method_name, *args, &block)
             name = proxy_class_name(method_name)
@@ -52,4 +52,3 @@ module NumbersAndWords
 end
 
 require 'numbers_and_words/strategies/figures_converter/options/pl/gender'
-require 'numbers_and_words/strategies/figures_converter/options/pl/ordinal'

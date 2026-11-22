@@ -6,7 +6,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Pl do
   around { |example| I18n.with_locale(:pl) { example.run } }
 
   it 'rejects unsupported large ordinals instead of returning a wrong cardinal' do
-    expect { 1000.to_words(ordinal: true) }.to raise_error(RangeError, /ordinals/)
+    expect { 1000.to_words(ordinal: true) }.to raise_error(RangeError, /\AOrdinals in :pl only support numbers between/)
   end
 
   it 'keeps the cardinal form of a decimal with ordinal: true' do
