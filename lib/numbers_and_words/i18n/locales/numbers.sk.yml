@@ -1,19 +1,76 @@
 sk:
   numbers:
     minus: mínus
-    ones: [nula, jeden, dva, tri, štyri, päť, šesť, sedem, osem, deväť]
-    gender:
-      female: [nula, jedna, dve]
-      neuter: [nula, jedno, dve]
+    ones:
+      male: [nula, jeden, dva, tri, štyri, päť, šesť, sedem, osem, deväť]
+      female: [nula, jedna, dve, tri, štyri, päť, šesť, sedem, osem, deväť]
+      neuter: [nula, jedno, dve, tri, štyri, päť, šesť, sedem, osem, deväť]
     teens: [desať, jedenásť, dvanásť, trinásť, štrnásť, pätnásť, šestnásť, sedemnásť, osemnásť, devätnásť]
     tens: [_, _, dvadsať, tridsať, štyridsať, päťdesiat, šesťdesiat, sedemdesiat, osemdesiat, deväťdesiat]
     hundreds: [_, sto, dvesto, tristo, štyristo, päťsto, šesťsto, sedemsto, osemsto, deväťsto]
-    mega: [_, tisíc, milión, miliarda, bilión, biliarda, trilión]
-    megas:
-      few: [_, tisíc, milióny, miliardy, bilióny, biliardy, trilióny]
-      many: [_, tisíc, miliónov, miliárd, biliónov, biliárd, triliónov]
-    # The gender of each scale word's multiplier: "dvetisíc", "dva milióny", "dve miliardy".
-    mega_gender: [_, female, male, female, male, female, male]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Numbers below a million are one word ("dvetisícdvestotridsaťpäť"); millions and larger scales are separate.
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '{hundreds}[{>}]'
+        1000: '{<scale-female}{thousands}[{>}]'
+        1000000: '{<scale-male} {millions}[ {>}]'
+        1000000000: '{<scale-female} {billions}[ {>}]'
+        1000000000000: '{<scale-male} {trillions}[ {>}]'
+        1000000000000000: '{<scale-female} {quadrillions}[ {>}]'
+        1000000000000000000: '{<scale-male} {quintillions}[ {>}]'
+      cardinal-female:
+        extends: cardinal-male
+        0: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        0: '{ones.neuter}'
+      # The count of a scale word omits a lone one ("tisíc", "milión"). Before a feminine scale word, "tisíc" and
+      # "miliarda", two is "dve" ("dvetisíc", "dvadsaťdve miliardy"), while one stays "jeden" ("dvadsaťjedentisíc").
+      scale-male:
+        extends: cardinal-male
+        then: cardinal-male
+        1: ''
+        2: '{ones.male}'
+      two-female:
+        extends: cardinal-male
+        2: '{ones.female}'
+        3: '{ones.male}'
+      scale-female:
+        extends: two-female
+        then: two-female
+        1: ''
+      # Every word of an ordinal below a hundred is ordinal ("dvadsiaty prvý"); a round scale ordinal joins its
+      # count, with two to four in their combining forms ("dvojtisíci", "dvadsaťdvojmiliónty", "dvanásťtisíci").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '{ordinals.tens}[ {>}]'
+        100: '[{hundreds}{>}|{ordinals.hundreds}]'
+        1000: '[{<scale-female}{thousands}{>}|{<ordinal-count}{ordinals.thousands}]'
+        1000000: '[{<scale-male} {millions} {>}|{<ordinal-count}{ordinals.millions}]'
+        1000000000: '[{<scale-female} {billions} {>}|{<ordinal-count}{ordinals.billions}]'
+        1000000000000: '[{<scale-male} {trillions} {>}|{<ordinal-count}{ordinals.trillions}]'
+        1000000000000000: '[{<scale-female} {quadrillions} {>}|{<ordinal-count}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<scale-male} {quintillions} {>}|{<ordinal-count}{ordinals.quintillions}]'
+      ordinal-count:
+        extends: combining
+        then: combining
+        1: ''
+      combining:
+        extends: cardinal-male
+        2: '{ordinals.combining}'
+        5: '{ones.male}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    thousands: tisíc
+    millions: {one: milión, few: milióny, other: miliónov}
+    billions: {one: miliarda, few: miliardy, other: miliárd}
+    trillions: {one: bilión, few: bilióny, other: biliónov}
+    quadrillions: {one: biliarda, few: biliardy, other: biliárd}
+    quintillions: {one: trilión, few: trilióny, other: triliónov}
     integral:
       one: celá
       few: celé
@@ -28,5 +85,36 @@ sk:
       teens: [desiaty, jedenásty, dvanásty, trinásty, štrnásty, pätnásty, šestnásty, sedemnásty, osemnásty, devätnásty]
       tens: [_, _, dvadsiaty, tridsiaty, štyridsiaty, päťdesiaty, šesťdesiaty, sedemdesiaty, osemdesiaty, deväťdesiaty]
       hundreds: [_, stý, dvojstý, trojstý, štvorstý, päťstý, šesťstý, sedemstý, osemstý, deväťstý]
-      mega: [_, tisíci, miliónty, miliardtý, biliónty, biliardtý, triliónty]
+      thousands: tisíci
+      millions: miliónty
+      billions: miliardtý
+      trillions: biliónty
+      quadrillions: biliardtý
+      quintillions: triliónty
       combining: [_, _, dvoj, troj, štvor]
+    # The feminine and neuter ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [nultá, prvá, druhá, tretia, štvrtá, piata, šiesta, siedma, ôsma, deviata]
+          teens: [desiata, jedenásta, dvanásta, trinásta, štrnásta, pätnásta, šestnásta, sedemnásta, osemnásta, devätnásta]
+          tens: [_, _, dvadsiata, tridsiata, štyridsiata, päťdesiata, šesťdesiata, sedemdesiata, osemdesiata, deväťdesiata]
+          hundreds: [_, stá, dvojstá, trojstá, štvorstá, päťstá, šesťstá, sedemstá, osemstá, deväťstá]
+          thousands: tisíca
+          millions: miliónta
+          billions: miliardtá
+          trillions: biliónta
+          quadrillions: biliardtá
+          quintillions: triliónta
+      neuter:
+        ordinals:
+          ones: [nulté, prvé, druhé, tretie, štvrté, piate, šieste, siedme, ôsme, deviate]
+          teens: [desiate, jedenáste, dvanáste, trináste, štrnáste, pätnáste, šestnáste, sedemnáste, osemnáste, devätnáste]
+          tens: [_, _, dvadsiate, tridsiate, štyridsiate, päťdesiate, šesťdesiate, sedemdesiate, osemdesiate, deväťdesiate]
+          hundreds: [_, sté, dvojsté, trojsté, štvorsté, päťsté, šesťsté, sedemsté, osemsté, deväťsté]
+          thousands: tisíce
+          millions: miliónte
+          billions: miliardté
+          trillions: biliónte
+          quadrillions: biliardté
+          quintillions: triliónte
