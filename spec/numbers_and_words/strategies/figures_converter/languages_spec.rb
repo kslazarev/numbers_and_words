@@ -21,4 +21,10 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages do
   it 'spells with the cardinal rule set where the locale file has none for the gender' do
     I18n.with_locale(:es) { expect(21.to_words(gender: :female)).to eq('veintiuna') }
   end
+
+  it 'defines the classes of a locale that extends another as subclasses of the other' do
+    expect(described_class::EnGb.superclass).to eq(described_class::En)
+    expect(described_class::FrCh.superclass).to eq(described_class::Fr)
+    expect(NumbersAndWords::Translations::EnGb.superclass).to eq(NumbersAndWords::Translations::En)
+  end
 end
