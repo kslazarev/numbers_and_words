@@ -3,7 +3,7 @@ ro:
     supported_options:
       gender: {values: [male, female, neuter], default: male}
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: minus
     ones:
       male: [zero, unu, doi, trei, patru, cinci, șase, șapte, opt, nouă]

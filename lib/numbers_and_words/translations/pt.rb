@@ -4,7 +4,6 @@ module NumbersAndWords
   module Translations
     # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Pt.
     class Pt < Base
-      include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::PortugueseFractions
     end
   end

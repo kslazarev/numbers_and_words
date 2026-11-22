@@ -4,9 +4,6 @@ module NumbersAndWords
   module Translations
     # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Cs.
     class Cs < Base
-      include NumbersAndWords::Translations::Families::Base
-      include NumbersAndWords::Translations::Extensions::FractionSignificance
-
       def integral(number, _options = {})
         t(:integral, count: fraction_count(number))
       end

@@ -4,7 +4,7 @@ pt:
       fraction: true
       gender: {values: [male, female], default: male}
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: menos
     ones: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
     teens: [_, onze, doze, treze, catorze, quinze, dezasseis, dezassete, dezoito, dezanove]

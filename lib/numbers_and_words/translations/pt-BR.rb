@@ -4,7 +4,6 @@ module NumbersAndWords
   module Translations
     # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::PtBr.
     class PtBr < Base
-      include NumbersAndWords::Translations::Families::Base
       include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
       def zero(_options = {})
