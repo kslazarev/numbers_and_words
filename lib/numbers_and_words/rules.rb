@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'concurrent/map'
+require 'numbers_and_words/rules/keys'
 
 module NumbersAndWords
   # Spells a whole number from a locale's rule sets (numbers.rules), following the idea of Unicode CLDR's
@@ -9,11 +10,13 @@ module NumbersAndWords
   # A rule set maps the smallest number each rule applies to onto a template. The rule for a number (below
   # 10**limit, when there is a limit) is the one with the largest key not above it, and its divisor is the largest
   # power of ten not above that key, which splits the number into a quotient and a remainder; a key such as
-  # '1100/100' gives the divisor itself. A template is text with these parts:
+  # '1100/100' gives the divisor itself, and a key such as '100*1000' repeats the rule at 100, 100 000,
+  # 100 000 000 and so on below the limit. A template is text with these parts:
   #
   #   {list}   the word at the quotient in a word list, the plural form of a scale word for the quotient, or a
   #            single word
   #   {list%}  the word at the remainder in a word list
+  #   {list*6} the word once for every 6 zeros of the rule's divisor, such as Thai ล้าน for each million
   #   {<}      the quotient spelled with the same rule set; {<set} with another one
   #   {>}      the remainder spelled with the rule set named by `then` (the same one by default); {>set} with another
   #   {=}      the whole number spelled with the rule set named by `then`; {=set} with another
@@ -29,9 +32,10 @@ module NumbersAndWords
   # with the numbers.rules it was built from, and dropped when I18n returns other rules, reloads or stores
   # translations.
   class Rules
+    include Keys
+
     TOKEN = /\{([<>=])?([^}%]*)(%)?\}/
     OPTIONAL = /\[([^\]|]*)(?:\|([^\]]*))?\]/
-    RATIO = %r{\A(\d+)/(\d+)\z}
 
     # A rule: the smallest number it applies to, its divisor, and its template's parts when the remainder isn't
     # zero and when it is.
@@ -150,12 +154,13 @@ module NumbersAndWords
     def templates(name)
       definition = @definitions.fetch(name.to_sym)
       inherited, inherited_then = definition[:extends] ? templates(definition[:extends].to_s) : [{}, nil]
-      own = definition.filter_map { |key, template| [base(key), [key, template]] if base(key) }.to_h
-      [inherited.merge(own), definition[:then]&.to_s || inherited_then]
+      [inherited.merge(repeated(definition)).merge(own(definition)), definition[:then]&.to_s || inherited_then]
     end
 
     def rule(base, key, template, name, next_name)
-      Rule.new(base, divisor(key), parts(choose(template, false), name, next_name), parts(choose(template, true), name, next_name))
+      divisor = divisor(key)
+      template = repeat_words(template, divisor)
+      Rule.new(base, divisor, parts(choose(template, false), name, next_name), parts(choose(template, true), name, next_name))
     end
 
     def choose(template, zero)
@@ -176,14 +181,6 @@ module NumbersAndWords
 
       default = direction == '<' ? name : next_name
       Token.new(KINDS.fetch(direction), word.empty? ? default : word)
-    end
-
-    def base(key)
-      key.is_a?(Integer) ? key : key.to_s[RATIO, 1]&.to_i
-    end
-
-    def divisor(key)
-      key.is_a?(Integer) ? 10**(key.to_s.length - 1) : key.to_s[RATIO, 2].to_i
     end
   end
 end

@@ -41,9 +41,7 @@ he:
       after-female:
         extends: and-female
         100: '[ {=}| {union}{=}]'
-        1000: '[ {=}| {union}{=}]'
-        1000000: '[ {=}| {union}{=}]'
-        1000000000: '[ {=}| {union}{=}]'
+        '1000*1000': '[ {=}| {union}{=}]'
       cardinal-male:
         0: '{ones.male}'
         11: '{teens.male%}'
@@ -67,9 +65,7 @@ he:
       after-male:
         extends: and-male
         100: '[ {=}| {union}{=}]'
-        1000: '[ {=}| {union}{=}]'
-        1000000: '[ {=}| {union}{=}]'
-        1000000000: '[ {=}| {union}{=}]'
+        '1000*1000': '[ {=}| {union}{=}]'
       # One to ten have ordinals of their own; larger ordinals take the definite article (see Languages::He).
       ordinal:
         1: '{ordinals.ones}'
