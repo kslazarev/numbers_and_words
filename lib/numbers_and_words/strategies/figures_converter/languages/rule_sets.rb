@@ -17,7 +17,7 @@ module NumbersAndWords
             ordinal = ordinal_number?
             check_ordinal_range if ordinal
             return '' if removed_zero?(ordinal)
-            return declined(rules(gender_words, *option_words).spell(ordinal_integer, ordinal_set)) if ordinal
+            return ordinal(ordinal_integer) if ordinal
 
             cardinal(ordinal_integer)
           end
@@ -39,6 +39,10 @@ module NumbersAndWords
           # remove_zero: true leaves no words for zero, also as an ordinal unless the language keeps it.
           def removed_zero?(ordinal)
             ordinal_integer.zero? && @options.remove_zero&.result && !(ordinal && keeps_ordinal_zero?)
+          end
+
+          def ordinal(number)
+            declined(rules(gender_words, *option_words).spell(number, ordinal_set))
           end
 
           def cardinal(number)
