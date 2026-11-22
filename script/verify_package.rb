@@ -25,7 +25,8 @@ consumer = <<~'RUBY'
   abort 'Russian conversion failed' unless I18n.with_locale(:ru) { 2000.to_words } == "\u0434\u0432\u0435 \u0442\u044b\u0441\u044f\u0447\u0438"
   abort 'Italian conversion failed' unless I18n.with_locale(:it) { 17.to_words } == 'diciassette'
   abort 'Dutch pronounced conversion failed' unless I18n.with_locale(:nl) { 1910.to_words(pronounced: true) } == 'negentienhonderd tien'
-  abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due virgola cinque'
+  abort 'Italian decimal conversion failed' unless I18n.with_locale(:it) { 2.5.to_words(fraction: false) } == 'due virgola cinque'
+  abort 'Italian 1.x decimal default failed' unless I18n.with_locale(:it) { 2.5.to_words } == 'due e cinque decimi'
   abort 'Portuguese decimal conversion failed' unless I18n.with_locale(:pt) { 4.5.to_words(fraction: true) } == "quatro inteiros e cinco d\u00e9cimos"
   abort 'Polish cardinal failed' unless I18n.with_locale(:pl) { 21_000.to_words } == 'dwadzieścia jeden tysięcy'
   abort 'Polish decimal failed' unless I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) } == 'jedna dziesiąta'
@@ -34,9 +35,11 @@ consumer = <<~'RUBY'
   abort 'German conversion failed' unless I18n.with_locale(:de) { [21.to_words(ordinal: true), 3.05.to_words] } == ['einundzwanzigste', "drei Komma null f\u00fcnf"]
   I18n.backend.store_translations(:ru, units: { kopeck: { one: "\u043a\u043e\u043f\u0435\u0439\u043a\u0430", few: "\u043a\u043e\u043f\u0435\u0439\u043a\u0438", many: "\u043a\u043e\u043f\u0435\u0435\u043a", gender: :female } })
   abort 'Unit conversion failed' unless I18n.with_locale(:ru) { [21, 22].to_words(unit: :kopeck) } == ["\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044c \u043e\u0434\u043d\u0430 \u043a\u043e\u043f\u0435\u0439\u043a\u0430", "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044c \u0434\u0432\u0435 \u043a\u043e\u043f\u0435\u0439\u043a\u0438"]
+  abort 'Unsupported option was not ignored' unless I18n.with_locale(:vi) { 21.to_words(gender: :female) } == 'hai mươi mốt'
+  NumbersAndWords.config.strict_options = true
   begin
     I18n.with_locale(:vi) { 21.to_words(gender: :female) }
-    abort 'Unsupported option was accepted'
+    abort 'Unsupported option was accepted with strict_options'
   rescue NumbersAndWords::UnsupportedOptionError
     nil
   end

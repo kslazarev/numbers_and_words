@@ -31,11 +31,13 @@ describe NumbersAndWords::I18n do
       end
     end
 
-    context 'when a locale code used before 2.0.0 is given' do
+    context 'when a locale code used before 1.1.0 is given' do
       # se is Northern Sami; ua and kz are country codes. Swedish, Ukrainian and Kazakh are sv, uk and kk.
-      %i[se ua kz].each do |code|
-        it "rejects #{code}" do
-          expect { described_class.local_language(code) }.to raise_error(NumbersAndWords::UnsupportedLanguageError, 'Language not supported')
+      { se: :sv, ua: :uk, kz: :kk }.each do |code, language|
+        it "maps #{code} to #{language} with a warning" do
+          allow(Kernel).to receive(:warn)
+          expect(described_class.local_language(code)).to eq(language)
+          expect(Kernel).to have_received(:warn).with(/locale #{code.inspect} is deprecated/, category: nil)
         end
       end
     end

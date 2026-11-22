@@ -5,7 +5,8 @@ require 'numbers_and_words/i18n/initialization'
 
 module NumbersAndWords
   # Raised when the current locale has no bundled rules, or its bundled locale is not enabled by the configuration.
-  class UnsupportedLanguageError < StandardError; end
+  # A RuntimeError, as 1.0 raised, so rescue RuntimeError still catches it.
+  class UnsupportedLanguageError < RuntimeError; end
 
   module I18n
     module_function
@@ -40,7 +41,7 @@ module NumbersAndWords
         locale
       else
         locale = locale.to_s.scan(/\w+/).first&.to_sym
-        locale = ALIASES.fetch(locale, locale)
+        locale = ALIASES.fetch(locale) { Compatibility.locale(locale) || locale }
         languages.include?(locale) ? locale : raise(UnsupportedLanguageError, 'Language not supported')
       end
     end

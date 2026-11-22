@@ -1,6 +1,6 @@
 # British English (`en-GB`)
 
-English (British). "and" joins the rest of a hundred (one hundred and one) and a final part below one hundred after thousand, million or a larger scale (one thousand and one, two million and thirty). Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+English (British). With `hundreds_with_union: true`, "and" joins the rest of a hundred (one hundred and one) and a final part below one hundred after thousand, million or a larger scale (one thousand and one, two million and thirty); 2.0 will make it the default. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -12,13 +12,13 @@ I18n.with_locale(:'en-GB') { 21.to_words }
 # => "twenty-one"
 
 I18n.with_locale(:'en-GB') { 231.to_words }
-# => "two hundred and thirty-one"
+# => "two hundred thirty-one"
 
 I18n.with_locale(:'en-GB') { 4030.to_words }
-# => "four thousand and thirty"
+# => "four thousand thirty"
 
 I18n.with_locale(:'en-GB') { 2_000_001.to_words }
-# => "two million and one"
+# => "two million one"
 
 I18n.with_locale(:'en-GB') { 1_000_100.to_words }
 # => "one million one hundred"
@@ -30,7 +30,7 @@ I18n.with_locale(:'en-GB') { [1, 2, 3].to_words }
 # => ["one", "two", "three"]
 
 I18n.with_locale(:'en-GB') { [11, 22, 133].to_words }
-# => ["eleven", "twenty-two", "one hundred and thirty-three"]
+# => ["eleven", "twenty-two", "one hundred thirty-three"]
 ```
 
 ## Decimals
@@ -82,17 +82,17 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
 
 ### Hundreds With Union
 
-British English adds 'and' after hundreds, and before a final part below one hundred after a larger scale, by default; `hundreds_with_union: false` omits both.
+`hundreds_with_union: true` adds 'and' after hundreds, and before a final part below one hundred after a larger scale. 2.0 will make it the default for British English, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'en-GB') { 111.to_words }
-# => "one hundred and eleven"
-
-I18n.with_locale(:'en-GB') { 111.to_words(hundreds_with_union: false) }
 # => "one hundred eleven"
 
-I18n.with_locale(:'en-GB') { 1001.to_words(hundreds_with_union: false) }
-# => "one thousand one"
+I18n.with_locale(:'en-GB') { 111.to_words(hundreds_with_union: true) }
+# => "one hundred and eleven"
+
+I18n.with_locale(:'en-GB') { 1001.to_words(hundreds_with_union: true) }
+# => "one thousand and one"
 ```
 
 ### Ordinal
@@ -101,10 +101,10 @@ I18n.with_locale(:'en-GB') { 1001.to_words(hundreds_with_union: false) }
 
 ```ruby
 I18n.with_locale(:'en-GB') { 133.to_words(ordinal: true) }
-# => "one hundred and thirty-third"
+# => "one hundred thirty-third"
 
 I18n.with_locale(:'en-GB') { 1001.to_words(ordinal: true) }
-# => "one thousand and first"
+# => "one thousand first"
 ```
 
 ### Pronounced
@@ -119,10 +119,10 @@ I18n.with_locale(:'en-GB') { 1101.to_words(pronounced: true) }
 # => "eleven oh one"
 
 I18n.with_locale(:'en-GB') { 2005.to_words(pronounced: true) }
-# => "two thousand and five"
+# => "two thousand five"
 
 I18n.with_locale(:'en-GB') { 12_345.to_words(pronounced: true) }
-# => "twelve thousand three hundred and forty-five"
+# => "twelve thousand three hundred forty-five"
 ```
 
 ### Remove Hyphen
