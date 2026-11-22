@@ -7,6 +7,7 @@
 ### Bugs
 
   * Raise `RangeError` for Brazilian Portuguese ordinals of 10**36 and more, instead of spelling them without their highest digits. \[[#325](https://github.com/kslazarev/numbers_and_words/pull/325)\] \([@dblock](https://github.com/dblock)\)
+  * Answer `respond_to?` on the options proxy instead of raising `ArgumentError`. \[[#346](https://github.com/kslazarev/numbers_and_words/pull/346)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ## 1.1.0 (2026/11/22)

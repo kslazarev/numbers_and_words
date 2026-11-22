@@ -70,8 +70,8 @@ module NumbersAndWords
             nil
           end
 
-          def respond_to_missing?(method_name, include_private: false)
-            Object.const_get(proxy_class_name(method_name)) || super
+          def respond_to_missing?(method_name, include_private = false)
+            Object.const_defined?(proxy_class_name(method_name)) || super
           end
 
           private

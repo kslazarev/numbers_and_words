@@ -52,4 +52,14 @@ describe NumbersAndWords::Strategies::FiguresConverter::Options::Proxy do
       end
     end
   end
+
+  describe '#respond_to?' do
+    it 'answers for the options the language defines' do
+      proxy = described_class.new(double, {})
+      I18n.with_locale(:en) do
+        expect(proxy).to respond_to(:ordinal)
+        expect(proxy).not_to respond_to(:gender)
+      end
+    end
+  end
 end
