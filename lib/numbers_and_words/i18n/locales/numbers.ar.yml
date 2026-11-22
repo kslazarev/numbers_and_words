@@ -7,19 +7,133 @@ ar:
     hundreds: [_, مائة, مائتان, ثلاثمائة, أربعمائة, خمسمائة, ستمائة, سبعمائة, ثمانمائة, تسعمائة]
     two_hundred_construct: مائتا
     union: و
+    two_hundreds: مائتان
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # "و" joins every part ("مائة وواحد وعشرون"), and a scale word takes its singular, dual, plural or accusative
+    # form from its count ("ألف", "ألفان", "ثلاثة آلاف", "أحد عشر ألفًا"), or the singular after round hundreds
+    # ("مائتا ألف", "مائة ألف وألفان").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{teens%}'
+        20: '[{ones%} {union}{tens}|{tens}]'
+        100: '{hundreds}[ {union}{>}]'
+        1000: '{<thousands-count}[ {union}{>}]'
+        1000000: '{<millions-count}[ {union}{>}]'
+        1000000000: '{<billions-count}[ {union}{>}]'
+        1000000000000: '{<trillions-count}[ {union}{>}]'
+        1000000000000000: '{<quadrillions-count}[ {union}{>}]'
+        1000000000000000000: '{<quintillions-count}[ {union}{>}]'
+      thousands-count:
+        1: '{thousands}'
+        3: '{=cardinal} {thousands}'
+        100: '{hundreds}[{>thousands-after-hundreds}| {thousands_singular}]'
+        200: '[{>thousands-after-two-hundred}|{two_hundred_construct} {thousands_singular}]'
+        300: '{hundreds}[{>thousands-after-hundreds}| {thousands_singular}]'
+      thousands-after-hundreds:
+        then: thousands-count
+        1: ' {thousands_singular} {union}{=}'
+        3: ' {union}{=}'
+      thousands-after-two-hundred:
+        then: thousands-count
+        1: '{two_hundred_construct} {thousands_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      millions-count:
+        1: '{millions}'
+        3: '{=cardinal} {millions}'
+        100: '{hundreds}[{>millions-after-hundreds}| {millions_singular}]'
+        200: '[{>millions-after-two-hundred}|{two_hundred_construct} {millions_singular}]'
+        300: '{hundreds}[{>millions-after-hundreds}| {millions_singular}]'
+      millions-after-hundreds:
+        then: millions-count
+        1: ' {millions_singular} {union}{=}'
+        3: ' {union}{=}'
+      millions-after-two-hundred:
+        then: millions-count
+        1: '{two_hundred_construct} {millions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      billions-count:
+        1: '{billions}'
+        3: '{=cardinal} {billions}'
+        100: '{hundreds}[{>billions-after-hundreds}| {billions_singular}]'
+        200: '[{>billions-after-two-hundred}|{two_hundred_construct} {billions_singular}]'
+        300: '{hundreds}[{>billions-after-hundreds}| {billions_singular}]'
+      billions-after-hundreds:
+        then: billions-count
+        1: ' {billions_singular} {union}{=}'
+        3: ' {union}{=}'
+      billions-after-two-hundred:
+        then: billions-count
+        1: '{two_hundred_construct} {billions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      trillions-count:
+        1: '{trillions}'
+        3: '{=cardinal} {trillions}'
+        100: '{hundreds}[{>trillions-after-hundreds}| {trillions_singular}]'
+        200: '[{>trillions-after-two-hundred}|{two_hundred_construct} {trillions_singular}]'
+        300: '{hundreds}[{>trillions-after-hundreds}| {trillions_singular}]'
+      trillions-after-hundreds:
+        then: trillions-count
+        1: ' {trillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      trillions-after-two-hundred:
+        then: trillions-count
+        1: '{two_hundred_construct} {trillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      quadrillions-count:
+        1: '{quadrillions}'
+        3: '{=cardinal} {quadrillions}'
+        100: '{hundreds}[{>quadrillions-after-hundreds}| {quadrillions_singular}]'
+        200: '[{>quadrillions-after-two-hundred}|{two_hundred_construct} {quadrillions_singular}]'
+        300: '{hundreds}[{>quadrillions-after-hundreds}| {quadrillions_singular}]'
+      quadrillions-after-hundreds:
+        then: quadrillions-count
+        1: ' {quadrillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      quadrillions-after-two-hundred:
+        then: quadrillions-count
+        1: '{two_hundred_construct} {quadrillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      quintillions-count:
+        1: '{quintillions}'
+        3: '{=cardinal} {quintillions}'
+        100: '{hundreds}[{>quintillions-after-hundreds}| {quintillions_singular}]'
+        200: '[{>quintillions-after-two-hundred}|{two_hundred_construct} {quintillions_singular}]'
+        300: '{hundreds}[{>quintillions-after-hundreds}| {quintillions_singular}]'
+      quintillions-after-hundreds:
+        then: quintillions-count
+        1: ' {quintillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      quintillions-after-two-hundred:
+        then: quintillions-count
+        1: '{two_hundred_construct} {quintillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      # Ordinals go from 1 to 99 ("الحادي والعشرون").
+      ordinal:
+        1: '{ordinals.ones}'
+        10: '{ordinals.ten}'
+        11: '{ordinals.compound_ones%} {ordinals.teen}'
+        20: '[{ordinals.compound_ones%} {union}{ordinals.tens}|{ordinals.tens}]'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    thousands: {one: ألف, two: ألفان, few: آلاف, many: ألفًا, other: ألف}
+    thousands_singular: ألف
+    millions: {one: مليون, two: مليونان, few: ملايين, many: مليونًا, other: مليون}
+    millions_singular: مليون
+    billions: {one: مليار, two: ملياران, few: مليارات, many: مليارًا, other: مليار}
+    billions_singular: مليار
+    trillions: {one: تريليون, two: تريليونان, few: تريليونات, many: تريليونًا, other: تريليون}
+    trillions_singular: تريليون
+    quadrillions: {one: كوادريليون, two: كوادريليونان, few: كوادريليونات, many: كوادريليونًا, other: كوادريليون}
+    quadrillions_singular: كوادريليون
+    quintillions: {one: كوينتليون, two: كوينتليونان, few: كوينتليونات, many: كوينتليونًا, other: كوينتليون}
+    quintillions_singular: كوينتليون
     ordinals:
       ones: [_, الأول, الثاني, الثالث, الرابع, الخامس, السادس, السابع, الثامن, التاسع]
-      compound_one: الحادي
+      # A one before a ten ("الحادي عشر").
+      compound_ones: [_, الحادي, الثاني, الثالث, الرابع, الخامس, السادس, السابع, الثامن, التاسع]
       ten: العاشر
       teen: عشر
       tens: [_, _, العشرون, الثلاثون, الأربعون, الخمسون, الستون, السبعون, الثمانون, التسعون]
-    scales:
-      - { singular: ألف, dual: ألفان, plural: آلاف, accusative: ألفًا }
-      - { singular: مليون, dual: مليونان, plural: ملايين, accusative: مليونًا }
-      - { singular: مليار, dual: ملياران, plural: مليارات, accusative: مليارًا }
-      - { singular: تريليون, dual: تريليونان, plural: تريليونات, accusative: تريليونًا }
-      - { singular: كوادريليون, dual: كوادريليونان, plural: كوادريليونات, accusative: كوادريليونًا }
-      - { singular: كوينتليون, dual: كوينتليونان, plural: كوينتليونات, accusative: كوينتليونًا }
     subunit_separator: و
     subunit_separator_attached: true
     # One follows its unit (دينار واحد) and two is the unit's dual alone (ديناران). A count above 100 ending in 01

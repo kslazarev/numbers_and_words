@@ -20,17 +20,78 @@ el:
       neuter: χίλια
       male: χίλιοι
       female: χίλιες
-    mega: [_, χιλιάδα, εκατομμύριο, δισεκατομμύριο, τρισεκατομμύριο]
-    mega_plural: [_, χιλιάδες, εκατομμύρια, δισεκατομμύρια, τρισεκατομμύρια]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The last group takes the gender asked for, χιλιάδες counts in the feminine and the larger scale words in the
+    # neuter; "εκατό" is "εκατόν" before other words.
+    rules:
+      cardinal-neuter:
+        0: '{ones.neuter}'
+        10: '{teens.neuter%}'
+        20: '{tens}[ {>}]'
+        100: '[{hundred_and} {>}|{hundreds.neuter}]'
+        200: '{hundreds.neuter}[ {>}]'
+        1000: '{thousand.neuter}[ {>}]'
+        2000: '{<cardinal-female} {thousands}[ {>}]'
+        1000000: '{<cardinal-neuter} {millions}[ {>}]'
+        1000000000: '{<cardinal-neuter} {billions}[ {>}]'
+        1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{teens.male%}'
+        20: '{tens}[ {>}]'
+        100: '[{hundred_and} {>}|{hundreds.male}]'
+        200: '{hundreds.male}[ {>}]'
+        1000: '{thousand.male}[ {>}]'
+        2000: '{<cardinal-female} {thousands}[ {>}]'
+        1000000: '{<cardinal-neuter} {millions}[ {>}]'
+        1000000000: '{<cardinal-neuter} {billions}[ {>}]'
+        1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+      cardinal-female:
+        0: '{ones.female}'
+        10: '{teens.female%}'
+        20: '{tens}[ {>}]'
+        100: '[{hundred_and} {>}|{hundreds.female}]'
+        200: '{hundreds.female}[ {>}]'
+        1000: '{thousand.female}[ {>}]'
+        2000: '{<cardinal-female} {thousands}[ {>}]'
+        1000000: '{<cardinal-neuter} {millions}[ {>}]'
+        1000000000: '{<cardinal-neuter} {billions}[ {>}]'
+        1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+      # Ordinals stop below 10,000, and every part is ordinal ("εκατοστός εικοστός πρώτος").
+      ordinal:
+        0: '{ones.neuter}'
+        1: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        13: '{ordinals.tens} {ordinals.ones%}'
+        20: '{ordinals.tens}[ {>}]'
+        100: '{ordinals.hundreds}[ {>}]'
+        1000: '{ordinals.thousands}[ {>}]'
+    mega: [_, thousands, millions, billions, trillions]
+    thousands: {one: χιλιάδα, other: χιλιάδες}
+    millions: {one: εκατομμύριο, other: εκατομμύρια}
+    billions: {one: δισεκατομμύριο, other: δισεκατομμύρια}
+    trillions: {one: τρισεκατομμύριο, other: τρισεκατομμύρια}
     ordinals:
       ones: [_, πρώτος, δεύτερος, τρίτος, τέταρτος, πέμπτος, έκτος, έβδομος, όγδοος, ένατος]
       teens: [δέκατος, ενδέκατος, δωδέκατος]
       tens: [_, δέκατος, εικοστός, τριακοστός, τεσσαρακοστός, πεντηκοστός, εξηκοστός, εβδομηκοστός, ογδοηκοστός, ενενηκοστός]
       hundreds: [_, εκατοστός, διακοσιοστός, τριακοσιοστός, τετρακοσιοστός, πεντακοσιοστός, εξακοσιοστός, επτακοσιοστός, οκτακοσιοστός, εννιακοσιοστός]
       thousands: [_, χιλιοστός, δισχιλιοστός, τρισχιλιοστός, τετρακισχιλιοστός, πεντακισχιλιοστός, εξακισχιλιοστός, επτακισχιλιοστός, οκτακισχιλιοστός, εννεακισχιλιοστός]
-      # Masculine endings and their feminine and neuter forms.
-      endings:
-        ός: {female: ή, neuter: ό}
-        ος: {female: η, neuter: ο}
+    # The feminine and neuter ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [_, πρώτη, δεύτερη, τρίτη, τέταρτη, πέμπτη, έκτη, έβδομη, όγδοη, ένατη]
+          teens: [δέκατη, ενδέκατη, δωδέκατη]
+          tens: [_, δέκατη, εικοστή, τριακοστή, τεσσαρακοστή, πεντηκοστή, εξηκοστή, εβδομηκοστή, ογδοηκοστή, ενενηκοστή]
+          hundreds: [_, εκατοστή, διακοσιοστή, τριακοσιοστή, τετρακοσιοστή, πεντακοσιοστή, εξακοσιοστή, επτακοσιοστή, οκτακοσιοστή, εννιακοσιοστή]
+          thousands: [_, χιλιοστή, δισχιλιοστή, τρισχιλιοστή, τετρακισχιλιοστή, πεντακισχιλιοστή, εξακισχιλιοστή, επτακισχιλιοστή, οκτακισχιλιοστή, εννεακισχιλιοστή]
+      neuter:
+        ordinals:
+          ones: [_, πρώτο, δεύτερο, τρίτο, τέταρτο, πέμπτο, έκτο, έβδομο, όγδοο, ένατο]
+          teens: [δέκατο, ενδέκατο, δωδέκατο]
+          tens: [_, δέκατο, εικοστό, τριακοστό, τεσσαρακοστό, πεντηκοστό, εξηκοστό, εβδομηκοστό, ογδοηκοστό, ενενηκοστό]
+          hundreds: [_, εκατοστό, διακοσιοστό, τριακοσιοστό, τετρακοσιοστό, πεντακοσιοστό, εξακοσιοστό, επτακοσιοστό, οκτακοσιοστό, εννιακοσιοστό]
+          thousands: [_, χιλιοστό, δισχιλιοστό, τρισχιλιοστό, τετρακισχιλιοστό, πεντακισχιλιοστό, εξακισχιλιοστό, επτακισχιλιοστό, οκτακισχιλιοστό, εννεακισχιλιοστό]
     micro_separator: κόμμα
     subunit_separator: και
