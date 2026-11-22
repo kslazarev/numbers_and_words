@@ -32,17 +32,17 @@ I18n.with_locale(:'pt-BR') { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `vírgula` followed by the fractional part: up to six decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit.
+Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `vírgula`, which 2.0 will make the default.
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.77.to_words }
-# => "vinte e um vírgula setenta e sete"
+# => "vinte e um inteiros e setenta e sete centésimos"
 
 I18n.with_locale(:'pt-BR') { 3.05.to_words }
-# => "três vírgula zero cinco"
+# => "três inteiros e cinco centésimos"
 
 I18n.with_locale(:'pt-BR') { 3.1416.to_words }
-# => "três vírgula mil quatrocentos e dezesseis"
+# => "três inteiros e mil quatrocentos e dezesseis décimos de milésimo"
 ```
 
 ## Options
@@ -53,7 +53,7 @@ I18n.with_locale(:'pt-BR') { 3.1416.to_words }
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 0.1.to_words(precision: 2) }
-# => "zero vírgula dez"
+# => "zero inteiros e dez centésimos"
 ```
 
 ### Micro Separator
@@ -62,19 +62,22 @@ I18n.with_locale(:'pt-BR') { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.77.to_words(micro_separator: "plus") }
-# => "vinte e um plus setenta e sete"
+# => "vinte e um inteiros plus setenta e sete centésimos"
 ```
 
 ### Fraction
 
-`fraction: true` reads decimals as a fraction instead of with `vírgula`.
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula` followed by the fractional part: up to six decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
-I18n.with_locale(:'pt-BR') { 21.77.to_words(fraction: true) }
-# => "vinte e um inteiros e setenta e sete centésimos"
+I18n.with_locale(:'pt-BR') { 21.77.to_words(fraction: false) }
+# => "vinte e um vírgula setenta e sete"
 
-I18n.with_locale(:'pt-BR') { 0.1.to_words(fraction: true) }
-# => "zero inteiros e um décimo"
+I18n.with_locale(:'pt-BR') { 3.05.to_words(fraction: false) }
+# => "três vírgula zero cinco"
+
+I18n.with_locale(:'pt-BR') { 3.1416.to_words(fraction: false) }
+# => "três vírgula mil quatrocentos e dezesseis"
 ```
 
 ### Gender
@@ -106,11 +109,11 @@ I18n.with_locale(:'pt-BR') { 1_000_001.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part. The default reading, "zero vírgula sete", is the usual one.
+`remove_zero: true` omits a zero integral part. The decimal point reading, "zero vírgula sete" with `fraction: false`, is the usual one.
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 0.7.to_words(remove_zero: true) }
-# => "vírgula sete"
+# => "sete décimos"
 ```
 
 ## Sources

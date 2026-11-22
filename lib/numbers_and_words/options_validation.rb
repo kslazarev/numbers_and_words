@@ -5,7 +5,7 @@ module NumbersAndWords
   # current language does not support.
   class UnsupportedOptionError < ArgumentError; end
 
-  # Checks to_words options against the options the current language supports.
+  # Checks to_words options against the options the current language supports, and returns the supported ones.
   # A language supports the global options plus the option classes it defines
   # under Strategies::FiguresConverter::Options::<Language>.
   module OptionsValidation
@@ -31,11 +31,19 @@ module NumbersAndWords
 
       language = I18n.local_language
       supported = supported_options(language)
-      options.each do |name, value|
-        check = supported.fetch(name.to_sym) { raise UnsupportedOptionError, unsupported_option(name, language, supported) }
-        raise UnsupportedOptionError, unsupported_value(name, value, language, check) unless valid?(check, value)
+      options.select do |name, value|
+        check = supported[name.to_sym]
+        next unsupported(unsupported_option(name, language, supported)) unless check
+        next unsupported(unsupported_value(name, value, language, check)) unless valid?(check, value)
+
+        true
       end
-      options
+    end
+
+    # Ignores the option with a warning, or raises with NumbersAndWords.config.strict_options = true; false drops it.
+    def unsupported(message)
+      Compatibility.unsupported_option(message)
+      false
     end
 
     # Option classes do not change at runtime, so each language's table is built once.

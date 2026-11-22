@@ -34,17 +34,17 @@ I18n.with_locale(:en) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `point` followed by each fractional digit, including leading zeros.
+Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `point`, which 2.0 will make the default.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words }
-# => "twenty-one point seven seven"
+# => "twenty-one and seventy-seven hundredths"
 
 I18n.with_locale(:en) { 3.05.to_words }
-# => "three point zero five"
+# => "three and five hundredths"
 
 I18n.with_locale(:en) { 3.1416.to_words }
-# => "three point one four one six"
+# => "three and one thousand four hundred sixteen ten-thousandths"
 ```
 
 ## Options
@@ -55,7 +55,7 @@ I18n.with_locale(:en) { 3.1416.to_words }
 
 ```ruby
 I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
-# => "zero point one zero"
+# => "zero and ten hundredths"
 ```
 
 ### Micro Separator
@@ -64,19 +64,22 @@ I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
-# => "twenty-one plus seven seven"
+# => "twenty-one plus seventy-seven hundredths"
 ```
 
 ### Fraction
 
-`fraction: true` reads decimals as a fraction instead of with `point`.
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `point` followed by each fractional digit, including leading zeros. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
-I18n.with_locale(:en) { 21.77.to_words(fraction: true) }
-# => "twenty-one and seventy-seven hundredths"
+I18n.with_locale(:en) { 21.77.to_words(fraction: false) }
+# => "twenty-one point seven seven"
 
-I18n.with_locale(:en) { 0.1.to_words(fraction: true) }
-# => "zero and one tenth"
+I18n.with_locale(:en) { 3.05.to_words(fraction: false) }
+# => "three point zero five"
+
+I18n.with_locale(:en) { 3.1416.to_words(fraction: false) }
+# => "three point one four one six"
 ```
 
 ### Hundreds With Union
@@ -130,10 +133,10 @@ I18n.with_locale(:en) { 21.to_words(remove_hyphen: true) }
 
 ```ruby
 I18n.with_locale(:en) { 0.7.to_words(remove_zero: true) }
-# => "point seven"
+# => "seven tenths"
 
 I18n.with_locale(:en) { [0.1, 0.31, 0.12].to_words(remove_zero: true) }
-# => ["point one", "point three one", "point one two"]
+# => ["one tenth", "thirty-one hundredths", "twelve hundredths"]
 ```
 
 ## Sources

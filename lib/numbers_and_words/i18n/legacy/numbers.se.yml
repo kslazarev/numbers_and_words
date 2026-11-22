@@ -1,0 +1,4 @@
+# The locale code used for :sv before 1.1.0, kept available to I18n until 2.0; see NumbersAndWords::Compatibility::LOCALES.
+se:
+  numbers_and_words:
+    language: sv

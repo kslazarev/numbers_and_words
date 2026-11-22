@@ -108,7 +108,7 @@ describe NumbersAndWords::Fallback do
     end
   end
 
-  it 'makes UnsupportedLanguageError a StandardError, not a RuntimeError' do
-    expect(NumbersAndWords::UnsupportedLanguageError.superclass).to eq(StandardError)
+  it 'makes UnsupportedLanguageError a RuntimeError, as 1.0 raised' do
+    expect(NumbersAndWords::UnsupportedLanguageError.superclass).to eq(RuntimeError)
   end
 end

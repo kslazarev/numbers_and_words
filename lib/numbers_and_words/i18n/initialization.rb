@@ -15,13 +15,20 @@ module NumbersAndWords
       end
 
       def load_locales(locales)
-        ::I18n.load_path = (::I18n.load_path - I18n.locale_files) + locale_files(locales)
+        ::I18n.load_path = (::I18n.load_path - I18n.locale_files - legacy_files(nil)) + locale_files(locales)
       end
 
-      # The gem's locale files for the given languages, or all of them for nil.
+      # The gem's locale files for the given languages, or all of them for nil, with the codes used for them before 1.1.0.
       def locale_files(locales)
         files = I18n.locale_files
-        locales.nil? ? files : files.select { |file| locales.include?(I18n.language_of(file)) }
+        (locales.nil? ? files : files.select { |file| locales.include?(I18n.language_of(file)) }) + legacy_files(locales)
+      end
+
+      # Registers se, ua and kz with I18n while their language is loaded; see Compatibility::LOCALES.
+      def legacy_files(locales)
+        Compatibility::LOCALES.filter_map do |code, language|
+          File.expand_path("legacy/numbers.#{code}.yml", __dir__) if locales.nil? || locales.include?(language)
+        end
       end
     end
   end

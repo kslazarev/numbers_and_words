@@ -11,13 +11,13 @@ I18n.with_locale(:fr) { 0.to_words }
 # => "zéro"
 
 I18n.with_locale(:fr) { 21.to_words }
-# => "vingt-et-un"
+# => "vingt et un"
 
 I18n.with_locale(:fr) { 231.to_words }
-# => "deux-cent-trente-et-un"
+# => "deux cent trente et un"
 
 I18n.with_locale(:fr) { 4030.to_words }
-# => "quatre-mille-trente"
+# => "quatre mille trente"
 
 I18n.with_locale(:fr) { 1_000_100.to_words }
 # => "un million cent"
@@ -29,22 +29,22 @@ I18n.with_locale(:fr) { [1, 2, 3].to_words }
 # => ["un", "deux", "trois"]
 
 I18n.with_locale(:fr) { [11, 22, 133].to_words }
-# => ["onze", "vingt-deux", "cent-trente-trois"]
+# => ["onze", "vingt-deux", "cent trente-trois"]
 ```
 
 ## Decimals
 
-Decimals are read with `virgule` followed by the fractional part: up to three decimal places as a number after one `zéro` for each leading zero, and longer ones digit by digit.
+Decimals are read as a fraction, joined with `et`. With `fraction: false` (see [Fraction](#fraction)) they are read with `virgule` followed by the fractional part, which 2.0 will make the default.
 
 ```ruby
 I18n.with_locale(:fr) { 21.77.to_words }
-# => "vingt-et-un virgule soixante-dix-sept"
+# => "vingt et un et soixante-dix-sept centièmes"
 
 I18n.with_locale(:fr) { 3.05.to_words }
-# => "trois virgule zéro cinq"
+# => "trois et cinq centièmes"
 
 I18n.with_locale(:fr) { 3.1416.to_words }
-# => "trois virgule un quatre un six"
+# => "trois et mille quatre cent seize dix-millièmes"
 ```
 
 ## Options
@@ -64,7 +64,7 @@ I18n.with_locale(:fr) { 0.to_words(unit: :euro) }
 
 ```ruby
 I18n.with_locale(:fr) { 0.1.to_words(precision: 2) }
-# => "zéro virgule dix"
+# => "zéro et dix centièmes"
 ```
 
 ### Micro Separator
@@ -73,43 +73,46 @@ I18n.with_locale(:fr) { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:fr) { 21.77.to_words(micro_separator: "plus") }
-# => "vingt-et-un plus soixante-dix-sept"
+# => "vingt et un plus soixante-dix-sept centièmes"
 ```
 
 ### Fraction
 
-`fraction: true` reads decimals as a fraction instead of with `virgule`.
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgule` followed by the fractional part: up to three decimal places as a number after one `zéro` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
-I18n.with_locale(:fr) { 21.77.to_words(fraction: true) }
-# => "vingt-et-un et soixante-dix-sept centièmes"
+I18n.with_locale(:fr) { 21.77.to_words(fraction: false) }
+# => "vingt et un virgule soixante-dix-sept"
 
-I18n.with_locale(:fr) { 0.1.to_words(fraction: true) }
-# => "zéro et un dixième"
+I18n.with_locale(:fr) { 3.05.to_words(fraction: false) }
+# => "trois virgule zéro cinq"
+
+I18n.with_locale(:fr) { 3.1416.to_words(fraction: false) }
+# => "trois virgule un quatre un six"
 ```
 
 ### Ordinal
 
-`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux-centième"). The ordinal of a round million or larger is a numeral, so the 1990 spelling joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.
+`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux centième"). The ordinal of a round million or larger is a numeral, so `spelling: :reformed` joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:fr) { 1.to_words(ordinal: true) }
 # => "premier"
 
 I18n.with_locale(:fr) { 21.to_words(ordinal: true) }
-# => "vingt-et-unième"
+# => "vingt et unième"
 
 I18n.with_locale(:fr) { 80.to_words(ordinal: true) }
 # => "quatre-vingtième"
 
 I18n.with_locale(:fr) { 200.to_words(ordinal: true) }
-# => "deux-centième"
+# => "deux centième"
 
 I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true) }
-# => "deux-millionième"
-
-I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true, spelling: :traditional) }
 # => "deux millionième"
+
+I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true, spelling: :reformed) }
+# => "deux-millionième"
 ```
 
 ### Remove Zero
@@ -118,28 +121,28 @@ I18n.with_locale(:fr) { 2_000_000.to_words(ordinal: true, spelling: :traditional
 
 ```ruby
 I18n.with_locale(:fr) { 0.7.to_words(remove_zero: true) }
-# => "virgule sept"
+# => "sept dixièmes"
 ```
 
 ### Spelling
 
-French follows the 1990 spelling reform by default (`spelling: :reformed`), hyphenating every numeral in a compound number except the nouns million, milliard and larger. `spelling: :traditional` gives the earlier spelling, with spaces and without hyphens around `et`, `cent` and `mille`.
+French uses the traditional spelling by default (`spelling: :traditional`), with spaces and without hyphens around `et`, `cent` and `mille`. `spelling: :reformed` follows the 1990 spelling reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. 2.0 will make `spelling: :reformed` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:fr) { 321.to_words }
-# => "trois-cent-vingt-et-un"
-
-I18n.with_locale(:fr) { 2_000_021.to_words }
-# => "deux millions vingt-et-un"
-
-I18n.with_locale(:fr) { 280_000_000.to_words }
-# => "deux-cent-quatre-vingts millions"
-
-I18n.with_locale(:fr) { 321.to_words(spelling: :traditional) }
 # => "trois cent vingt et un"
 
-I18n.with_locale(:fr) { 2_000_021.to_words(spelling: :traditional) }
+I18n.with_locale(:fr) { 2_000_021.to_words }
 # => "deux millions vingt et un"
+
+I18n.with_locale(:fr) { 280_000_000.to_words }
+# => "deux cent quatre-vingts millions"
+
+I18n.with_locale(:fr) { 321.to_words(spelling: :reformed) }
+# => "trois-cent-vingt-et-un"
+
+I18n.with_locale(:fr) { 2_000_021.to_words(spelling: :reformed) }
+# => "deux millions vingt-et-un"
 ```
 
 ## Sources

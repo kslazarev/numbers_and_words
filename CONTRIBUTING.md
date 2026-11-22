@@ -25,7 +25,7 @@ bundle install
 bundle exec rake
 ```
 
-Run `bundle exec rake spec` for tests only or `bundle exec rake rubocop` for lint only. CI runs tests on Ruby 3.2 and later, JRuby, macOS and Windows.
+Run `bundle exec rake spec` for tests only or `bundle exec rake rubocop` for lint only. CI runs tests on Ruby 3.1 and later, JRuby, macOS and Windows.
 
 `bundle exec rake build` followed by `bundle exec ruby script/verify_package.rb` installs the built gem in a throwaway directory and exercises it there, without the source checkout.
 

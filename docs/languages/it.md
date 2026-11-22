@@ -37,17 +37,17 @@ I18n.with_locale(:it) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `virgola` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit.
+Decimals are read as a fraction. With `fraction: false` (see [Fraction](#fraction)) they are read with `virgola`, which 2.0 will make the default.
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words }
-# => "ventuno virgola settantasette"
+# => "ventuno e settantasette centesimi"
 
 I18n.with_locale(:it) { 3.05.to_words }
-# => "tre virgola zero cinque"
+# => "tre e cinque centesimi"
 
 I18n.with_locale(:it) { 3.1416.to_words }
-# => "tre virgola uno quattro uno sei"
+# => "tre e millequattrocentosedici decimillesimi"
 ```
 
 ## Options
@@ -58,7 +58,7 @@ I18n.with_locale(:it) { 3.1416.to_words }
 
 ```ruby
 I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
-# => "zero virgola dieci"
+# => "zero e dieci centesimi"
 ```
 
 ### Micro Separator
@@ -67,19 +67,22 @@ I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
-# => "ventuno plus settantasette"
+# => "ventuno plus settantasette centesimi"
 ```
 
 ### Fraction
 
-`fraction: true` reads decimals as a fraction instead of with `virgola`.
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgola` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. 2.0 will make `fraction: false` the default, and warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
-I18n.with_locale(:it) { 21.77.to_words(fraction: true) }
-# => "ventuno e settantasette centesimi"
+I18n.with_locale(:it) { 21.77.to_words(fraction: false) }
+# => "ventuno virgola settantasette"
 
-I18n.with_locale(:it) { 0.1.to_words(fraction: true) }
-# => "zero e un decimo"
+I18n.with_locale(:it) { 3.05.to_words(fraction: false) }
+# => "tre virgola zero cinque"
+
+I18n.with_locale(:it) { 3.1416.to_words(fraction: false) }
+# => "tre virgola uno quattro uno sei"
 ```
 
 ### Ordinal
@@ -109,7 +112,7 @@ I18n.with_locale(:it) { 3_000_003.to_words(ordinal: true) }
 
 ```ruby
 I18n.with_locale(:it) { 0.7.to_words(remove_zero: true) }
-# => "virgola sette"
+# => "sette decimi"
 ```
 
 ## Sources

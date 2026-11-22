@@ -20,7 +20,7 @@ For a locale such as `fr`:
 * `lib/numbers_and_words/translations/fr.rb`: how individual words are chosen (tens with ones, hundreds, scale words, fractions).
 * `lib/numbers_and_words/strategies/figures_converter/languages/fr.rb`: how a number is assembled and printed.
 * `lib/numbers_and_words/strategies/figures_converter/decorators/fr/`: integral and fractional parts of floats; a locale without decorators cannot convert decimals.
-* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: the options the language accepts, such as `gender` or `ordinal`; `to_words` rejects any other option except the global ones in `OptionsValidation::GLOBAL`. A class with a `VALUES` constant accepts only those values; the others are `true`/`false` flags. Internal options such as `integral` or `fractional` must not go through `Integer#to_words`; call the wrappers directly.
+* `lib/numbers_and_words/strategies/figures_converter/options/fr/`: the options the language accepts, such as `gender` or `ordinal`; `to_words` ignores any other option except the global ones in `OptionsValidation::GLOBAL` with a warning, and raises with `NumbersAndWords.config.strict_options = true`. A class with a `VALUES` constant accepts only those values; the others are `true`/`false` flags. Internal options such as `integral` or `fractional` must not go through `Integer#to_words`; call the wrappers directly.
 * `lib/numbers_and_words/strategies/array_joiner/languages/fr.rb` and `lib/numbers_and_words/i18n/plurals/` where needed.
 * `spec/numbers_and_words/{integer,float,array}/fixture_examples/fr.yml`: expected output. Float fixtures only run for locales in `FLOAT_CAPABLE_LANGUAGES` in `spec/numbers_and_words/numbers_and_words_spec.rb`.
 * `docs/languages/fr.md` and its row in the [README](README.md) table.
@@ -41,13 +41,14 @@ A new language needs all of these, an entry in the script map in `spec/numbers_a
 * Fixtures are the specification of correct language. Change an expectation only with a linguistic reason, give it in the PR, and add fixtures for the rule's boundaries, not only the reported number.
 * An output change can add, change or remove a difference from Unicode CLDR: run `script/cldr_differences.rb`, cover a repeated difference with a literal rule in `spec/fixtures/cldr_rules.yml` rather than many exceptions, give a specific reason for each new rule or exception, and explain every changed `affects` count. Rules may only use the operations in `spec/support/cldr_rules.rb`, never patterns. A difference where the gem is wrong is a bug to fix, not a rule or exception. Reference a CLDR error's Jira ticket (such as CLDR-19918) with `ticket:`.
 * Judgement calls go to native speakers; [#255](https://github.com/kslazarev/numbers_and_words/issues/255) collects them.
-* An output change that callers might depend on, or a changed option default, is breaking: document it in [UPGRADING](UPGRADING.md) with the old and new output and how to keep the old behavior.
+* An output change that callers might depend on, or a changed option default, is breaking: until 2.0, keep the old behavior in `lib/numbers_and_words/compatibility.rb` (a default goes in `Compatibility::DEFAULTS` and warns once), and document it in [UPGRADING](UPGRADING.md) with the old and new output and how to choose. A fix of wrong output isn't breaking, but still goes in UPGRADING.
+* Specs test the 2.0 behavior, with `strict_options = true` and without `Compatibility::DEFAULTS` (see `spec/spec_helper.rb`); specs tagged `:compatibility`, such as the documentation examples and `spec/numbers_and_words/compatibility_spec.rb`, run with the 1.x defaults.
 * Floats below `0.0001` print in scientific notation in Ruby; check such inputs separately.
 
 ## Packaging and Releases
 
 * `lib/numbers_and_words/version.rb` holds the only version. The gemspec loads it with `require_relative`; a load-path `require` can pick up another copy and breaks release preparation (`spec/release_spec.rb`).
 * The gem ships the `to_words` command (`bin/to_words`, `lib/numbers_and_words/cli.rb`). It generates one flag per option from `OptionsValidation`, so a new option class gets a flag automatically, and leaves validation for the selected locale to `to_words`; add a description to `CLI::DESCRIPTIONS`.
-* Consumers support Ruby 3.2 and later; release tooling needs CRuby 3.3+.
+* Consumers support Ruby 3.1 and later; release tooling needs CRuby 3.3+.
 * RuboCop and its plugins are pinned to exact versions, so new cops arrive only through deliberate upgrades.
 * Releases run only through the manually dispatched workflow described in [RELEASING](RELEASING.md).

@@ -7,7 +7,7 @@ require 'tempfile'
 # Runs every documented example without evaluating documentation text: each
 # example is parsed into a locale, a number and literal options, and only
 # to_words is called.
-describe 'documentation examples' do # rubocop:disable RSpec/DescribeClass -- checks Markdown files, not a class
+describe 'documentation examples', :compatibility do # rubocop:disable RSpec/DescribeClass -- checks Markdown files, not a class
   root = File.expand_path('../..', __dir__)
   files = [File.join(root, 'README.md'), *Dir[File.join(root, 'docs/languages/*.md')]].sort
   examples = files.flat_map { |path| DocumentationExamples.from(path, path.delete_prefix("#{root}/")) }

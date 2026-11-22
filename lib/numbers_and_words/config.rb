@@ -2,7 +2,9 @@
 
 module NumbersAndWords
   class Config
-    attr_reader :locales, :fallback
+    SETTINGS = %i[locales fallback strict_options].freeze
+
+    attr_reader :locales, :fallback, :strict_options
 
     # NumbersAndWords.config applies each setting as soon as it is assigned.
     # The config that configure yields only collects settings until its block completes.
@@ -10,6 +12,7 @@ module NumbersAndWords
       @apply = apply
       @locales = nil
       @fallback = nil
+      @strict_options = false
     end
 
     # Validates every locale before changing anything, so an unsupported locale leaves the configuration as it was.
@@ -23,6 +26,14 @@ module NumbersAndWords
     # a bundled locale converts in that locale, and true returns the number's digits.
     def fallback=(fallback)
       @fallback = Fallback.normalize(fallback)
+    end
+
+    # What to_words does with an option or value the current language does not support: false (the default
+    # until 2.0) ignores it with a warning, and true raises NumbersAndWords::UnsupportedOptionError.
+    def strict_options=(strict)
+      raise ArgumentError, "strict_options must be true or false, not #{strict.inspect}" unless [true, false].include?(strict)
+
+      @strict_options = strict
     end
 
     private
@@ -44,11 +55,9 @@ module NumbersAndWords
     # Collects the settings assigned in the block and applies them only if the block completes.
     def configure
       candidate = Config.new
-      candidate.locales = config.locales
-      candidate.fallback = config.fallback
+      Config::SETTINGS.each { |setting| candidate.public_send(:"#{setting}=", config.public_send(setting)) }
       yield candidate
-      config.locales = candidate.locales
-      config.fallback = candidate.fallback
+      Config::SETTINGS.each { |setting| config.public_send(:"#{setting}=", candidate.public_send(setting)) }
     end
   end
 end

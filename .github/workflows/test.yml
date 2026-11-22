@@ -23,8 +23,9 @@ jobs:
       fail-fast: false
       matrix:
         entry:
+          - { ruby: '3.1', os: ubuntu-latest, experimental: false }
           - { ruby: '3.2', os: ubuntu-latest, experimental: false }
-          - { ruby: '3.2', os: ubuntu-latest, experimental: false, i18n: '1.6.0' }
+          - { ruby: '3.1', os: ubuntu-latest, experimental: false, i18n: '1.6.0' }
           - { ruby: '3.3', os: ubuntu-latest, experimental: false }
           - { ruby: '3.4', os: ubuntu-latest, experimental: false }
           - { ruby: '4.0', os: ubuntu-latest, experimental: false }

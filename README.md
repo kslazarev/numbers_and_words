@@ -60,14 +60,14 @@ I18n.with_locale(:en) { [1, 2, 3].to_words }
 # => ["one", "two", "three"]
 
 I18n.with_locale(:en) { 21.77.to_words }
-# => "twenty-one point seven seven"
+# => "twenty-one and seventy-seven hundredths"
 ```
 
 Floats that Ruby prints in scientific notation, such as `0.00001` (`1.0e-05`), are converted from their exact decimal value.
 
 ```ruby
 I18n.with_locale(:en) { 0.00001.to_words }
-# => "zero point zero zero zero zero one"
+# => "zero and one hundred-thousandth"
 ```
 
 Negative numbers start with the language's word for minus. They have no ordinal, so `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`, which is also raised for decimals in a language without decimals. Numbers beyond a language's largest scale word raise `RangeError`; each language page gives its limit.
@@ -77,7 +77,7 @@ I18n.with_locale(:en) { -42.to_words }
 # => "minus forty-two"
 
 I18n.with_locale(:fr) { -1.5.to_words }
-# => "moins un virgule cinq"
+# => "moins un et cinq dixièmes"
 ```
 
 ### Command Line
@@ -87,7 +87,7 @@ The `to_words` command spells out each argument, or each number read from standa
 ```
 $ to_words 42 1.5
 forty-two
-one point five
+one and five tenths
 
 $ to_words --locale ru 2000
 две тысячи
@@ -177,7 +177,7 @@ I18n.with_locale(:es) { 0.2.to_words(precision: 2) }
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
-# => "twenty-one plus seven seven"
+# => "twenty-one plus seventy-seven hundredths"
 ```
 
 ### Fallback
@@ -291,7 +291,7 @@ I18n.with_locale(:ru) { 22.22.to_words(unit: :ruble, subunit: :kopeck) }
 # => "двадцать два рубля двадцать две копейки"
 
 I18n.with_locale(:fr) { 21.01.to_words(unit: :euro, subunit: :centime) }
-# => "vingt-et-un euros et un centime"
+# => "vingt et un euros et un centime"
 
 I18n.with_locale(:en) { 21.to_words(unit: :dollar, subunit: :cent, zero_subunit: true) }
 # => "twenty-one dollars and zero cents"
@@ -304,13 +304,17 @@ I18n.with_locale(:en) { 0.5.to_words(unit: :dollar, subunit: :cent, remove_zero:
 
 ### Unsupported Options
 
-Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its language page. Any other option or value raises `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError` that names the supported alternatives.
+Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its language page. Any other option or value is ignored with a warning that names the supported alternatives, and 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, instead; set [`strict_options`](#configuration--конфигурация) to `true` to raise now.
 
-Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` raises:
+Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` returns "hai mươi mốt" and warns once:
 
 ```
-NumbersAndWords::UnsupportedOptionError: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit
+numbers_and_words: unsupported option :gender for locale :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit; ignored, set NumbersAndWords.config.strict_options = true to raise, the default in 2.0
 ```
+
+### Deprecations
+
+The defaults `fraction: true` in English, French, Italian and Portuguese, `spelling: :traditional` in French and `hundreds_with_union: false` in British English are deprecated and will change in 2.0; pass the option explicitly to keep or change the reading. The locale codes `se`, `ua` and `kz` are deprecated in favor of `sv`, `uk` and `kk`. Each deprecation warns once per process; warnings about defaults are Ruby deprecation warnings, shown with `Warning[:deprecated] = true` or `ruby -W:deprecated`. See [UPGRADING](UPGRADING.md).
 
 ## Configuration / Конфигурация
 
@@ -336,18 +340,25 @@ Regional locales such as `"en-US"` are normalized to their bundled locale. `nil`
 NumbersAndWords.config.fallback = :en
 ```
 
+`strict_options` (`false` by default) ignores an unsupported option or value with a warning; `true` raises `NumbersAndWords::UnsupportedOptionError` instead, which 2.0 will make the default.
+
+```ruby
+NumbersAndWords.config.strict_options = true
+```
+
+
 Configuration changes only this gem's locale files in `I18n.load_path` and its pluralization rules; application translations and an explicitly assigned `I18n.available_locales` are kept. Converting in a disabled locale raises `NumbersAndWords::UnsupportedLanguageError` (`Language not configured`) unless a fallback is set.
 
 Require the gem before looking up any translations, as Rails does, and configure it during application initialization. Configuring reloads the I18n backend, as assigning `I18n.load_path` does, so store runtime-only translations afterwards. Configuring again doesn't duplicate load paths. The gem never changes `I18n.locale` or `I18n.default_locale`, so don't disable the locales they use.
 
 ## Requirements / Требования / Configuration Requise
 
-* Ruby 3.2 or later, including JRuby.
+* Ruby 3.1 or later, including JRuby.
 * I18n, tested with 1.6 and later.
 
 ## Upgrading / Обновление / Mise à jour
 
-See [UPGRADING](UPGRADING.md) for breaking changes and how to upgrade.
+See [UPGRADING](UPGRADING.md) for changes in behavior, and for what 2.0 will change.
 
 ## Contributing / Участие / Contribuer
 

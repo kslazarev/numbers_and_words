@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.summary = 'Spell out numbers in several languages'
   s.description = 'This gem spells out numbers in several languages using the I18n gem.'
-  s.required_ruby_version = '>= 3.2.0'
+  s.required_ruby_version = '>= 3.1.0'
   s.files = Dir['lib/**/*'] + ['bin/to_words']
   s.bindir = 'bin'
   s.executables = ['to_words']
