@@ -5,6 +5,100 @@ et:
     teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
     tens: [_, kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]
     hundreds: sada
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{<hundreds-count}{hundreds}[ {>}]'
+        1000: '{<thousands-count} {thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
+      hundreds-count:
+        0: '{ones}'
+        1: ''
+        2: '{ones}'
+      thousands-count:
+        extends: cardinal
+        then: cardinal
+        1: ''
+        2: '{ones}'
+      # Every word of an ordinal but the last is in the genitive ("kahe miljoni tuhande esimene"), and a leading one
+      # before a single scale word is left out ("miljones").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{genitive.tens} {>}|{ordinals.tens}]'
+        100: '{<genitive-hundreds-count}[{genitive.hundred} {>}|{ordinals.hundred}]'
+        1000: '{<genitive-thousands-count}[{genitive.thousands} {>}|{ordinals.thousands}]'
+        1000000: '[{<genitive} {genitive.millions} {>}|{<genitive-count} {ordinals.millions}]'
+        1000000000: '[{<genitive} {genitive.billions} {>}|{<genitive-count} {ordinals.billions}]'
+        1000000000000: '[{<genitive} {genitive.trillions} {>}|{<genitive-count} {ordinals.trillions}]'
+        1000000000000000: '[{<genitive} {genitive.quadrillions} {>}|{<genitive-count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<genitive} {genitive.quintillions} {>}|{<genitive-count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<genitive} {genitive.sextillions} {>}|{<genitive-count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<genitive} {genitive.septillions} {>}|{<genitive-count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<genitive} {genitive.octillions} {>}|{<genitive-count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<genitive} {genitive.nonillions} {>}|{<genitive-count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<genitive} {genitive.decillions} {>}|{<genitive-count} {ordinals.decillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1000000: '[{<genitive} {genitive.millions} {>}|{<genitive} {ordinals.millions}]'
+        1000000000: '[{<genitive} {genitive.billions} {>}|{<genitive} {ordinals.billions}]'
+        1000000000000: '[{<genitive} {genitive.trillions} {>}|{<genitive} {ordinals.trillions}]'
+        1000000000000000: '[{<genitive} {genitive.quadrillions} {>}|{<genitive} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<genitive} {genitive.quintillions} {>}|{<genitive} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<genitive} {genitive.sextillions} {>}|{<genitive} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<genitive} {genitive.septillions} {>}|{<genitive} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<genitive} {genitive.octillions} {>}|{<genitive} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<genitive} {genitive.nonillions} {>}|{<genitive} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<genitive} {genitive.decillions} {>}|{<genitive} {ordinals.decillions}]'
+      genitive:
+        0: '{genitive.ones}'
+        10: '{genitive.tens}'
+        11: '{genitive.teens%}'
+        20: '{genitive.tens}[ {>}]'
+        100: '{<genitive-hundreds-count}{genitive.hundred}[ {>}]'
+        1000: '{<genitive-thousands-count}{genitive.thousands}[ {>}]'
+        1000000: '{<genitive} {genitive.millions}[ {>}]'
+        1000000000: '{<genitive} {genitive.billions}[ {>}]'
+        1000000000000: '{<genitive} {genitive.trillions}[ {>}]'
+        1000000000000000: '{<genitive} {genitive.quadrillions}[ {>}]'
+        1000000000000000000: '{<genitive} {genitive.quintillions}[ {>}]'
+        1000000000000000000000: '{<genitive} {genitive.sextillions}[ {>}]'
+        1000000000000000000000000: '{<genitive} {genitive.septillions}[ {>}]'
+        1000000000000000000000000000: '{<genitive} {genitive.octillions}[ {>}]'
+        1000000000000000000000000000000: '{<genitive} {genitive.nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<genitive} {genitive.decillions}[ {>}]'
+      genitive-count:
+        extends: genitive
+        then: genitive
+        1: ''
+        2: '{genitive.ones}'
+      genitive-hundreds-count:
+        0: '{genitive.ones}'
+        1: ''
+        2: '{genitive.ones}'
+      # The genitive count of tuhat, followed by a space.
+      genitive-thousands-count:
+        1: ''
+        2: '{genitive.ones} '
+        10: '{genitive.tens} '
+        11: '{genitive.teens%} '
+        20: '{genitive.tens}[ {>genitive}] '
+        100: '{<genitive-hundreds-count}{genitive.hundred}[ {>genitive}] '
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: tuhat
     millions:
@@ -37,18 +131,36 @@ et:
     decillions:
       one: kvintiljard
       other: kvintiljardit
+    genitive:
+      ones: [nulli, ühe, kahe, kolme, nelja, viie, kuue, seitsme, kaheksa, üheksa]
+      teens: [_, üheteistkümne, kaheteistkümne, kolmeteistkümne, neljateistkümne, viieteistkümne, kuueteistkümne, seitsmeteistkümne, kaheksateistkümne, üheksateistkümne]
+      tens: [_, kümne, kahekümne, kolmekümne, neljakümne, viiekümne, kuuekümne, seitsmekümne, kaheksakümne, üheksakümne]
+      hundred: saja
+      thousands: tuhande
+      millions: miljoni
+      billions: miljardi
+      trillions: biljoni
+      quadrillions: biljardi
+      quintillions: triljoni
+      sextillions: triljardi
+      septillions: kvadriljoni
+      octillions: kvadriljardi
+      nonillions: kvintiljoni
+      decillions: kvintiljardi
     ordinals:
-      'genitive': ['nulli', 'ühe', 'kahe', 'kolme', 'nelja', 'viie', 'kuue', 'seitsme', 'kaheksa', 'üheksa']
-      'ordinal': ['nullis', 'esimene', 'teine', 'kolmas', 'neljas', 'viies', 'kuues', 'seitsmes', 'kaheksas', 'üheksas']
-      'words':
-        'sada': ['saja', 'sajas']
-        'kümme': ['kümne', 'kümnes']
-        'tuhat': ['tuhande', 'tuhandes']
-      'compounds':
-        'teist': ['teistkümne', 'teistkümnes']
-        'kümmend': ['kümne', 'kümnes']
-        'sada': ['saja', 'sajas']
-      'scale_plural': 'it'
-      'scale': ['i', 'es']
-      'leading_one': ['üks']
+      ones: [nullis, esimene, teine, kolmas, neljas, viies, kuues, seitsmes, kaheksas, üheksas]
+      teens: [_, üheteistkümnes, kaheteistkümnes, kolmeteistkümnes, neljateistkümnes, viieteistkümnes, kuueteistkümnes, seitsmeteistkümnes, kaheksateistkümnes, üheksateistkümnes]
+      tens: [_, kümnes, kahekümnes, kolmekümnes, neljakümnes, viiekümnes, kuuekümnes, seitsmekümnes, kaheksakümnes, üheksakümnes]
+      hundred: sajas
+      thousands: tuhandes
+      millions: miljones
+      billions: miljardes
+      trillions: biljones
+      quadrillions: biljardes
+      quintillions: triljones
+      sextillions: triljardes
+      septillions: kvadriljones
+      octillions: kvadriljardes
+      nonillions: kvintiljones
+      decillions: kvintiljardes
     subunit_separator: ja

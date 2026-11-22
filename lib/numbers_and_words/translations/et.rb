@@ -2,14 +2,9 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Et.
     class Et < Base
       include NumbersAndWords::Translations::Families::Latin
-
-      def hundreds(number, _options = {})
-        return t(:hundreds) if number == 1
-
-        super(number, separator: '')
-      end
     end
   end
 end
