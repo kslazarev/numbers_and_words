@@ -1,5 +1,9 @@
 he:
   numbers:
+    supported_options:
+      gender: {values: [male, female], default: female}
+      ordinal: true
+      remove_zero: true
     minus: מינוס
     ones:
       female: [אפס, אחת, שתיים, שלוש, ארבע, חמש, שש, שבע, שמונה, תשע, עשר]

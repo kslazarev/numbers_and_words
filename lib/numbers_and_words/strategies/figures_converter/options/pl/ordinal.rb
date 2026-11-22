@@ -5,7 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module Pl
-          class Ordinal < Base::Ordinal
+          class Ordinal < Option
             def result
               return unless @options[:ordinal]
 

@@ -1,5 +1,8 @@
 vi:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: âm
     ones: ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín']
     teens: [_, 'mười một', 'mười hai', 'mười ba', 'mười bốn', 'mười lăm', 'mười sáu', 'mười bảy', 'mười tám', 'mười chín']

@@ -61,15 +61,20 @@ module NumbersAndWords
       COMPILED.clear
     end
 
-    # Drops the compiled rule sets when I18n's Simple backend reloads or stores translations, which may change
-    # numbers.rules or the words in place.
+    # Drops the compiled rule sets and the supported options when I18n's Simple backend reloads or stores
+    # translations, which may change numbers.rules, numbers.supported_options or the words in place.
     module Invalidation
       def store_translations(...)
-        super.tap { Rules.clear }
+        super.tap { Invalidation.clear }
       end
 
       def reload!(...)
-        super.tap { Rules.clear }
+        super.tap { Invalidation.clear }
+      end
+
+      def self.clear
+        Rules.clear
+        OptionsValidation.clear
       end
     end
 

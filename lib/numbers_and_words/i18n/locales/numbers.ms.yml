@@ -1,5 +1,8 @@
 ms:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: negatif
     ones: [sifar, satu, dua, tiga, empat, lima, enam, tujuh, lapan, sembilan]
     ten: sepuluh

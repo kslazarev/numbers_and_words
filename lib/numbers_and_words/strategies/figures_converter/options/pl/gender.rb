@@ -5,9 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         module Pl
-          class Gender < Base::Gender
-            VALUES = %i[male female neuter].freeze
-
+          class Gender < Option
             def result
               gender = (@options[:gender] || :male).to_s.to_sym
               raise ArgumentError, 'Polish gender must be male, female or neuter' unless %i[male female neuter].include?(gender)

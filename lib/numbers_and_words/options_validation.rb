@@ -46,16 +46,44 @@ module NumbersAndWords
       false
     end
 
-    # Option classes do not change at runtime, so each language's table is built once.
+    # The options a language supports, built again only when its numbers.supported_options change.
     def supported_options(language)
-      (@supported_options ||= {})[language] ||= language_options(language).merge(GLOBAL).freeze
+      declared = declared_options(language)
+      cached = (@supported_options ||= {})[language]
+      return cached[:options] if cached && cached[:declared].equal?(declared)
+
+      @supported_options[language] = { declared:, options: language_options(language).merge(GLOBAL).freeze }
+      @supported_options[language][:options]
     end
 
+    def clear
+      @supported_options = {}
+    end
+
+    # The options under numbers.supported_options in the language's locale file: true for a true or false option,
+    # or the values it takes and its default.
+    def declared_options(language)
+      ::I18n.t(:supported_options, scope: :numbers, locale: language, default: {})
+    end
+
+    # The declared options, with any option class of the language's own, such as a custom extension, as a
+    # true or false option or with its VALUES.
     def language_options(language)
+      checks = declared_options(language).to_h { |name, declared| [name, declared_check(declared)] }
+      class_options(language).each { |name, check| checks[name] ||= check }
+      checks.sort.to_h
+    end
+
+    def declared_check(declared)
+      values = declared.is_a?(::Hash) ? declared[:values] : declared
+      values.is_a?(::Array) ? values.map(&:to_sym).freeze : BOOLEAN
+    end
+
+    def class_options(language)
       namespace = language_namespace(language)
       return {} unless namespace
 
-      namespace.constants.sort.to_h do |constant|
+      namespace.constants.to_h do |constant|
         option = namespace.const_get(constant)
         [snake_case(constant), option.const_defined?(:VALUES, false) ? option::VALUES : BOOLEAN]
       end

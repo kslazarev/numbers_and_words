@@ -1,5 +1,7 @@
 lv:
   numbers:
+    supported_options:
+      ordinal: true
     minus: mīnus
     ones: [nulle, viens, divi, trīs, četri, pieci, seši, septiņi, astoņi, deviņi]
     teens: [_, vienpadsmit, divpadsmit, trīspadsmit, četrpadsmit, piecpadsmit, sešpadsmit, septiņpadsmit, astoņpadsmit, deviņpadsmit]

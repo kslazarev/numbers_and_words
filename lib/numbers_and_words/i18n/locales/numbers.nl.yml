@@ -1,5 +1,10 @@
 nl:
   numbers:
+    supported_options:
+      ordinal: true
+      pronounced: true
+      remove_zero: true
+      tens_of_hundreds: true
     minus: min
     ones: [nul, een, twee, drie, vier, vijf, zes, zeven, acht, negen]
     loose_one: één

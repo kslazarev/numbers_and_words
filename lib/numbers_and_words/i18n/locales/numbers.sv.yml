@@ -1,5 +1,7 @@
 sv:
   numbers:
+    supported_options:
+      ordinal: true
     minus: minus
     ones: [noll, ett, två, tre, fyra, fem, sex, sju, åtta, nio]
     common_one: en

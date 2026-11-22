@@ -1,5 +1,8 @@
 ko:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: 마이너스
     ones: [영, 일, 이, 삼, 사, 오, 육, 칠, 팔, 구]
     places: [_, 십, 백, 천]

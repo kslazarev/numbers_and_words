@@ -1,5 +1,10 @@
 pt:
   numbers:
+    supported_options:
+      fraction: true
+      gender: {values: [male, female], default: male}
+      ordinal: true
+      remove_zero: true
     minus: menos
     ones: [zero, um, dois, três, quatro, cinco, seis, sete, oito, nove]
     teens: [_, onze, doze, treze, catorze, quinze, dezasseis, dezassete, dezoito, dezanove]

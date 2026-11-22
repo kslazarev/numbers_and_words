@@ -1,5 +1,8 @@
 th:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: ลบ
     ones: [ศูนย์, หนึ่ง, สอง, สาม, สี่, ห้า, หก, เจ็ด, แปด, เก้า]
     tens: [_, สิบ, ยี่สิบ, สามสิบ, สี่สิบ, ห้าสิบ, หกสิบ, เจ็ดสิบ, แปดสิบ, เก้าสิบ]

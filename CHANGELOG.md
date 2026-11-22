@@ -15,6 +15,7 @@
   * Spell Indonesian, Malay, Thai and Vietnamese whole numbers and ordinals from rule sets in their locale files. \[[#335](https://github.com/kslazarev/numbers_and_words/pull/335)\] \([@dblock](https://github.com/dblock)\)
   * Spell Chinese, Japanese and Korean whole numbers and ordinals from rule sets in their locale files, so that every language now does. \[[#336](https://github.com/kslazarev/numbers_and_words/pull/336)\] \([@dblock](https://github.com/dblock)\)
   * Compile each locale's rule sets once and cache their words, which makes conversions 1.2 to 3.6 times faster than 1.1.0 with fewer allocations. \[[#337](https://github.com/kslazarev/numbers_and_words/pull/337)\] \([@dblock](https://github.com/dblock)\)
+  * Declare each language's options, their values and defaults under `numbers.supported_options` in its locale file, instead of an option class each. \[[#338](https://github.com/kslazarev/numbers_and_words/pull/338)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

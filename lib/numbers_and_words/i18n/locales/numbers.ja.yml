@@ -1,5 +1,9 @@
 ja:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
+      script: {values: [kanji, kana], default: kanji}
     minus: マイナス
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Numbers are grouped by 10,000 (万) with words of the script asked for; in kana, a count's last sound doubles

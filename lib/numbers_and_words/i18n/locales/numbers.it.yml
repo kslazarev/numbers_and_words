@@ -1,5 +1,9 @@
 it:
   numbers:
+    supported_options:
+      fraction: true
+      ordinal: true
+      remove_zero: true
     minus: meno
     ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
     fractional_one: un

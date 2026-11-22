@@ -1,5 +1,8 @@
 id:
   numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: true
     minus: minus
     ones: [nol, satu, dua, tiga, empat, lima, enam, tujuh, delapan, sembilan]
     ten: sepuluh

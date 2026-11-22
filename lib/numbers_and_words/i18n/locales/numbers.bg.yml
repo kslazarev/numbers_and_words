@@ -1,5 +1,9 @@
 bg:
   numbers:
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: true
     minus: минус
     ones:
       male: [нула, един, два, три, четири, пет, шест, седем, осем, девет]

@@ -1,5 +1,12 @@
 en-GB:
   numbers:
+    supported_options:
+      fraction: true
+      hundreds_with_union: true
+      ordinal: true
+      pronounced: true
+      remove_hyphen: true
+      remove_zero: true
     minus: minus
     ones: [zero, one, two, three, four, five, six, seven, eight, nine]
     teens: [_, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
