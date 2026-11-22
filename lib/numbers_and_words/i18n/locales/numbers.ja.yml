@@ -1,12 +1,61 @@
 ja:
   numbers:
     minus: マイナス
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Numbers are grouped by 10,000 (万) with words of the script asked for; in kana, a count's last sound doubles
+    # before a scale word starting with k, s or t ("いっちょう", "はっけい").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[{>}]'
+        100: '{hundreds}[{>}]'
+        1000: '{thousands}[{>}]'
+        10000: '{<cardinal}{scale_4}[{>}]'
+        100000000: '{<cardinal}{scale_8}[{>}]'
+        1000000000000: '{<count-t}{scale_12}[{>}]'
+        10000000000000000: '{<count-k}{scale_16}[{>}]'
+        100000000000000000000: '{<cardinal}{scale_20}[{>}]'
+        1000000000000000000000000: '{<cardinal}{scale_24}[{>}]'
+        10000000000000000000000000000: '{<cardinal}{scale_28}[{>}]'
+        100000000000000000000000000000000: '{<count-k}{scale_32}[{>}]'
+        1000000000000000000000000000000000000: '{<count-k}{scale_36}[{>}]'
+        10000000000000000000000000000000000000000: '{<count-t}{scale_40}[{>}]'
+        100000000000000000000000000000000000000000000: '{<count-t}{scale_44}[{>}]'
+        1000000000000000000000000000000000000000000000000: '{<cardinal}{scale_48}[{>}]'
+      count-t:
+        extends: cardinal
+        0: '{ones_t}'
+        10: '[{tens}{>}|{tens_t}]'
+      count-k:
+        extends: cardinal
+        0: '{ones_k}'
+        10: '[{tens}{>}|{tens_k}]'
+        100: '[{hundreds}{>}|{hundreds_k}]'
+      ordinal:
+        0: '{ordinal_prefix}{=cardinal}'
     kanji:
       ones: [零, 一, 二, 三, 四, 五, 六, 七, 八, 九]
       tens: [_, 十, 二十, 三十, 四十, 五十, 六十, 七十, 八十, 九十]
       hundreds: [_, 百, 二百, 三百, 四百, 五百, 六百, 七百, 八百, 九百]
       thousands: [_, 千, 二千, 三千, 四千, 五千, 六千, 七千, 八千, 九千]
+      ones_t: [零, 一, 二, 三, 四, 五, 六, 七, 八, 九]
+      tens_t: [_, 十, 二十, 三十, 四十, 五十, 六十, 七十, 八十, 九十]
+      ones_k: [零, 一, 二, 三, 四, 五, 六, 七, 八, 九]
+      tens_k: [_, 十, 二十, 三十, 四十, 五十, 六十, 七十, 八十, 九十]
+      hundreds_k: [_, 百, 二百, 三百, 四百, 五百, 六百, 七百, 八百, 九百]
       scales: [_, 万, 億, 兆, 京, 垓, 𥝱, 穣, 溝, 澗, 正, 載, 極]
+      scale_4: 万
+      scale_8: 億
+      scale_12: 兆
+      scale_16: 京
+      scale_20: 垓
+      scale_24: 𥝱
+      scale_28: 穣
+      scale_32: 溝
+      scale_36: 澗
+      scale_40: 正
+      scale_44: 載
+      scale_48: 極
       ordinal_prefix: 第
       micro_separator: 点
     kana:
@@ -14,6 +63,23 @@ ja:
       tens: [_, じゅう, にじゅう, さんじゅう, よんじゅう, ごじゅう, ろくじゅう, ななじゅう, はちじゅう, きゅうじゅう]
       hundreds: [_, ひゃく, にひゃく, さんびゃく, よんひゃく, ごひゃく, ろっぴゃく, ななひゃく, はっぴゃく, きゅうひゃく]
       thousands: [_, せん, にせん, さんぜん, よんせん, ごせん, ろくせん, ななせん, はっせん, きゅうせん]
+      ones_t: [れい, いっ, に, さん, よん, ご, ろく, なな, はっ, きゅう]
+      tens_t: [_, じゅっ, にじゅっ, さんじゅっ, よんじゅっ, ごじゅっ, ろくじゅっ, ななじゅっ, はちじゅっ, きゅうじゅっ]
+      ones_k: [れい, いっ, に, さん, よん, ご, ろっ, なな, はっ, きゅう]
+      tens_k: [_, じゅっ, にじゅっ, さんじゅっ, よんじゅっ, ごじゅっ, ろくじゅっ, ななじゅっ, はちじゅっ, きゅうじゅっ]
+      hundreds_k: [_, ひゃっ, にひゃっ, さんびゃっ, よんひゃっ, ごひゃっ, ろっぴゃっ, ななひゃっ, はっぴゃっ, きゅうひゃっ]
       scales: [_, まん, おく, ちょう, けい, がい, じょ, じょう, こう, かん, せい, さい, ごく]
+      scale_4: まん
+      scale_8: おく
+      scale_12: ちょう
+      scale_16: けい
+      scale_20: がい
+      scale_24: じょ
+      scale_28: じょう
+      scale_32: こう
+      scale_36: かん
+      scale_40: せい
+      scale_44: さい
+      scale_48: ごく
       ordinal_prefix: だい
       micro_separator: てん

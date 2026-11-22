@@ -4,5 +4,48 @@ ko:
     ones: [영, 일, 이, 삼, 사, 오, 육, 칠, 팔, 구]
     places: [_, 십, 백, 천]
     scales: [_, 만, 억, 조, 경, 해, 자, 양, 구, 간, 정, 재, 극]
+    tens: [_, 십, 이십, 삼십, 사십, 오십, 육십, 칠십, 팔십, 구십]
+    hundreds: [_, 백, 이백, 삼백, 사백, 오백, 육백, 칠백, 팔백, 구백]
+    thousands: [_, 천, 이천, 삼천, 사천, 오천, 육천, 칠천, 팔천, 구천]
+    scale_4: 만
+    scale_8: 억
+    scale_12: 조
+    scale_16: 경
+    scale_20: 해
+    scale_24: 자
+    scale_28: 양
+    scale_32: 구
+    scale_36: 간
+    scale_40: 정
+    scale_44: 재
+    scale_48: 극
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Numbers are grouped by 10,000 (만) and the groups separated by spaces; one is left out before the places and
+    # before 만 ("만 이천"), but not before the larger scale words ("일억").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[{>}]'
+        100: '{hundreds}[{>}]'
+        1000: '{thousands}[{>}]'
+        10000: '{<ten-thousands-count}{scale_4}[ {>}]'
+        100000000: '{<cardinal}{scale_8}[ {>}]'
+        1000000000000: '{<cardinal}{scale_12}[ {>}]'
+        10000000000000000: '{<cardinal}{scale_16}[ {>}]'
+        100000000000000000000: '{<cardinal}{scale_20}[ {>}]'
+        1000000000000000000000000: '{<cardinal}{scale_24}[ {>}]'
+        10000000000000000000000000000: '{<cardinal}{scale_28}[ {>}]'
+        100000000000000000000000000000000: '{<cardinal}{scale_32}[ {>}]'
+        1000000000000000000000000000000000000: '{<cardinal}{scale_36}[ {>}]'
+        10000000000000000000000000000000000000000: '{<cardinal}{scale_40}[ {>}]'
+        100000000000000000000000000000000000000000000: '{<cardinal}{scale_44}[ {>}]'
+        1000000000000000000000000000000000000000000000000: '{<cardinal}{scale_48}[ {>}]'
+      ten-thousands-count:
+        extends: cardinal
+        then: cardinal
+        1: ''
+        2: '{ones}'
+      ordinal:
+        0: '{ordinal_prefix}{=cardinal}'
     ordinal_prefix: 제
     micro_separator: 점

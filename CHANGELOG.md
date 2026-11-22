@@ -13,6 +13,7 @@
   * Spell Arabic, Greek and Hebrew whole numbers and ordinals from rule sets in their locale files. \[[#333](https://github.com/kslazarev/numbers_and_words/pull/333)\] \([@dblock](https://github.com/dblock)\)
   * Spell Bengali, Hindi and Urdu whole numbers and ordinals from rule sets in their locale files. \[[#334](https://github.com/kslazarev/numbers_and_words/pull/334)\] \([@dblock](https://github.com/dblock)\)
   * Spell Indonesian, Malay, Thai and Vietnamese whole numbers and ordinals from rule sets in their locale files. \[[#335](https://github.com/kslazarev/numbers_and_words/pull/335)\] \([@dblock](https://github.com/dblock)\)
+  * Spell Chinese, Japanese and Korean whole numbers and ordinals from rule sets in their locale files, so that every language now does. \[[#336](https://github.com/kslazarev/numbers_and_words/pull/336)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
