@@ -34,6 +34,8 @@ ro:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # A scale word counts in the feminine (mie) or the neuter (the others), with "de" after a count whose last two
     # digits are zero or 20 or more ("douăzeci de mii", "o sută de mii", but "două mii", "o sută una mii").
+    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
+    decimals: {fractional_gender: male}
     rules:
       cardinal-male:
         0: '{ones.male}'

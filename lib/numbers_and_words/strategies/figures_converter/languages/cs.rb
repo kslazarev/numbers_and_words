@@ -12,7 +12,7 @@ module NumbersAndWords
 
           # A counting number's ordinal is feminine ("dvacátá první").
           def gender_words
-            @options.gender.result == :counting ? 'genders.female' : super
+            gender == :counting ? 'genders.female' : super
           end
         end
       end

@@ -7,7 +7,6 @@ module NumbersAndWords
         module Cs
           class Integral < Base
             def run
-              @options[:gender] = :female
               [super, integral_significance].compact.join(' ')
             end
 

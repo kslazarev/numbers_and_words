@@ -12,7 +12,7 @@ module NumbersAndWords
           private
 
           def option_words
-            female = @options.gender.result == :female
+            female = gender == :female
             [('genders.female' if female), ('options.apocopated' if @options.apocopated.result && !female)]
           end
         end

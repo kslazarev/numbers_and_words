@@ -15,6 +15,8 @@ uk:
     tens: [_, десять, двадцять, тридцять, сорок, п’ятдесят, шістдесят, сімдесят, вісімдесят, дев’яносто]
     hundreds: [_, сто, двісті, триста, чотириста, п’ятсот, шістсот, сімсот, вісімсот, дев’ятсот]
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
+    decimals: {integral_gender: female, fractional_gender: female}
     rules:
       cardinal-male:
         0: '{ones.male}'
