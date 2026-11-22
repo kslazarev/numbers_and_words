@@ -22,12 +22,21 @@ module NumbersAndWords
     end
 
     # Defines the class the block makes in the namespace for each bundled language without one of its own, under
-    # the language's class name, such as Translations::Sv.
+    # the language's class name, such as Translations::Sv; a language that extends another, such as British
+    # English, gets a subclass of the other's class.
     def define_classes(namespace)
-      languages.each do |language|
+      languages.sort_by { |language| parents.key?(class_name(language)) ? 1 : 0 }.each do |language|
         name = class_name(language)
-        namespace.const_set(name, yield) unless namespace.const_defined?(name, false)
+        next if namespace.const_defined?(name, false)
+
+        parent = parents[name]
+        namespace.const_set(name, parent && namespace.const_defined?(parent, false) ? Class.new(namespace.const_get(parent, false)) : yield)
       end
+    end
+
+    # The class name of each bundled language that extends another, by the class name of the other: EnGb => En.
+    def parents
+      @parents ||= locale_files.to_h { |file| [class_name(language_of(file)), Extends.parent(file)&.then { |parent| class_name(parent) }] }.compact
     end
 
     # The language a bundled file belongs to: numbers.pt-BR.yml and pt-BR.rb are :'pt-BR'.

@@ -33,7 +33,7 @@ module NumbersAndWords
         # Languages that read decimals with the decorators of another language, or of a family, where they have
         # none of their own.
         SHARED = {
-          EnGb: :En, FrCh: :Fr, Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Indian, Bn: :Indian, Ur: :Indian,
+          Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Indian, Bn: :Indian, Ur: :Indian,
           Cs: :CountedFraction, Es: :CountedFraction, Ru: :CountedFraction, Bg: :FractionNoun, Sk: :FractionNoun,
           Fr: :PointOrFraction, PtBr: :PointOrFraction, El: :PointWords, Ro: :PointWords, Fi: :Digits, Nb: :Digits,
           Ja: :Myriad, Ko: :Myriad, Zh: :Myriad
@@ -75,12 +75,16 @@ module NumbersAndWords
             own_and_shared(language.to_sym)
           end
 
-          # The language's decorators and those it shares, following SHARED: Ukrainian uses Russian's, which use
-          # CountedFraction's.
+          # The language's decorators and those it shares, following SHARED and the language a locale extends:
+          # Ukrainian uses Russian's, which use CountedFraction's, and British English uses English's.
           def own_and_shared(language)
             names = [language]
-            names << SHARED[names.last] while SHARED.key?(names.last)
+            names << shared_with(names.last) while shared_with(names.last)
             names.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
+          end
+
+          def shared_with(name)
+            SHARED[name] || I18n.parents[name.to_s]&.to_sym
           end
         end
       end
