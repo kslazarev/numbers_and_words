@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'support/locale_characters'
 
 # Locale keys that hold rule templates and declarations rather than translated words.
-NOT_TRANSLATED = %w[rules supported_options decimals].freeze
+NOT_TRANSLATED = %w[rules supported_options decimals unit_after_decimal].freeze
 
 describe NumbersAndWords::I18n do
   describe '.local_language' do

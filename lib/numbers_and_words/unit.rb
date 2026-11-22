@@ -6,11 +6,6 @@ module NumbersAndWords
   #   ru: { units: { kopeck: { one: копейка, few: копейки, many: копеек, other: копейки, gender: female } } }
   module Unit
     SCOPE = 'units'
-    # After a decimal a unit takes its other form (1.5 dollars, 1,5 рубля, 1,5 koruny), except that French
-    # and Portuguese use the singular below 2 (1,5 euro).
-    SINGULAR_BELOW_TWO = %i[fr fr-CH pt pt-BR].freeze
-    # Romanian decimals take the few form, without "de" (douăzeci și unu virgulă cinci lei).
-    FEW_AFTER_DECIMAL = %i[ro].freeze
 
     module_function
 
@@ -123,10 +118,13 @@ module NumbersAndWords
       end
     end
 
+    # After a decimal a unit takes its other form (1.5 dollars, 1,5 рубля), or the form under
+    # numbers.unit_after_decimal: form: few in Romanian ("virgulă cinci lei"), and below_two: one in French and
+    # Portuguese ("1,5 euro").
     def decimal_category(number)
-      return :few if FEW_AFTER_DECIMAL.include?(I18n.local_language)
-
-      SINGULAR_BELOW_TWO.include?(I18n.local_language) && number.abs < 2 ? :one : :other
+      after = ::I18n.t('numbers.unit_after_decimal', default: {})
+      form = after[:below_two] if number.abs < 2
+      (form || after[:form] || :other).to_sym
     end
 
     def join(words, form)
