@@ -13,13 +13,14 @@ module NumbersAndWords
   #   {list%}  the word at the remainder in a word list
   #   {<}      the quotient spelled with the same rule set; {<set} with another one
   #   {>}      the remainder spelled with the rule set named by `then` (the same one by default); {>set} with another
+  #   {=}      the whole number spelled with the rule set named by `then`; {=set} with another
   #   [...]    included only when the remainder isn't zero
   #   [...|...] the first part when the remainder isn't zero, the second when it is
   #
   # A rule set can name another with `extends` and override some of its rules. Words are looked up under the
   # `words:` scope first (such as "cases.genitive"), then at the top level, so a scope only lists what differs.
   class Rules
-    TOKEN = /\{([<>])?([^}%]*)(%)?\}/
+    TOKEN = /\{([<>=])?([^}%]*)(%)?\}/
     OPTIONAL = /\[([^\]|]*)(?:\|([^\]]*))?\]/
 
     def initialize(translations, limit, words: nil)
@@ -40,22 +41,21 @@ module NumbersAndWords
       rules = rule_set(set_name)
       key, template = rule_for(rules, number)
       quotient, remainder = number.divmod(10**(key.to_s.length - 1))
-      choose(template, remainder).gsub(TOKEN) do
-        token(Regexp.last_match, rules.fetch(:then, set_name), set_name, quotient, remainder)
-      end
+      parts = { '<' => quotient, '>' => remainder, '=' => number }
+      choose(template, remainder).gsub(TOKEN) { token(Regexp.last_match, parts, set_name, rules.fetch(:then, set_name)) }
     end
 
     def choose(template, remainder)
       template.gsub(OPTIONAL) { remainder.zero? ? Regexp.last_match(2).to_s : Regexp.last_match(1) }
     end
 
-    def token(match, next_set, set_name, quotient, remainder)
+    # {<} spells with the same rule set by default, {>} and {=} with the one named by `then`.
+    def token(match, parts, set_name, next_set)
       direction, name, at_remainder = match.captures
-      case direction
-      when '<' then expand(quotient, name.empty? ? set_name : name)
-      when '>' then expand(remainder, name.empty? ? next_set : name)
-      else word(name, at_remainder ? remainder : quotient)
-      end
+      return word(name, parts[at_remainder ? '>' : '<']) unless direction
+
+      default = direction == '<' ? set_name : next_set
+      expand(parts[direction], name.empty? ? default : name)
     end
 
     def word(name, index)
