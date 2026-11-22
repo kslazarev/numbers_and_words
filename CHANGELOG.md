@@ -3,6 +3,7 @@
 ### Features
 
   * Spell Russian and Ukrainian whole numbers, including their cases, animate forms and ordinals, from rule sets in `numbers.ru.yml` and `numbers.uk.yml` with a small rule engine, `NumbersAndWords::Rules`, modeled on Unicode CLDR rule-based number formatting. \[[#318](https://github.com/kslazarev/numbers_and_words/pull/318)\] \([@dblock](https://github.com/dblock)\)
+  * Spell Slovak whole numbers and ordinals from rule sets in `numbers.sk.yml`. \[[#324](https://github.com/kslazarev/numbers_and_words/pull/324)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

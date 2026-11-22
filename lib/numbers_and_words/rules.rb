@@ -8,7 +8,8 @@ module NumbersAndWords
   # with the largest key not above it, and its divisor is the largest power of ten not above that key, which
   # splits the number into a quotient and a remainder. A template is text with these parts:
   #
-  #   {list}   the word at the quotient in a word list, or the plural form of a scale word for the quotient
+  #   {list}   the word at the quotient in a word list, the plural form of a scale word for the quotient, or a
+  #            single word
   #   {list%}  the word at the remainder in a word list
   #   {<}      the quotient spelled with the same rule set; {<set} with another one
   #   {>}      the remainder spelled with the rule set named by `then` (the same one by default); {>set} with another
@@ -60,6 +61,8 @@ module NumbersAndWords
     def word(name, index)
       key = scoped?(name) ? "#{@scope}.#{name}" : name
       words = @translations.t(key)
+      return words if words.is_a?(String)
+
       words.is_a?(Hash) ? @translations.t(key, count: index) : words.fetch(index)
     end
 

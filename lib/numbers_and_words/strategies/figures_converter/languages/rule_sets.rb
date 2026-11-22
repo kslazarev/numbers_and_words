@@ -6,13 +6,14 @@ module NumbersAndWords
       module Languages
         # Spells whole numbers from the rule sets under numbers.rules in the locale file (see NumbersAndWords::Rules):
         # gender: and animate: pick a rule set, case: the words under numbers.cases, and an ordinal is spelled in the
-        # masculine nominative and then declined through numbers.ordinals.endings. A case without words of its own,
-        # such as the Ukrainian vocative, uses the nominative ones.
+        # masculine nominative and then declined through numbers.ordinals.endings, or spelled with the words under
+        # numbers.genders.<gender>. A case without words of its own, such as the Ukrainian vocative, uses the
+        # nominative ones.
         module RuleSets
           include Ordinals
 
           def words
-            return declined(rules.spell(ordinal_integer, 'ordinal')) if ordinal_number?
+            return declined(rules(gender_words).spell(ordinal_integer, 'ordinal')) if ordinal_number?
 
             number = @figures.to_a.reverse.join.to_i
             # remove_zero: true leaves no words for a zero integral part.
@@ -36,6 +37,11 @@ module NumbersAndWords
 
           def case_words
             "cases.#{grammatical_case}" if @translations.t(:cases).key?(grammatical_case)
+          end
+
+          def gender_words
+            gender = @options.gender.result
+            "genders.#{gender}" if @translations.t(:genders, default: {}).key?(gender)
           end
 
           def rules(words = nil)

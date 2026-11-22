@@ -12,6 +12,7 @@ describe NumbersAndWords::Rules do
       teens: %w[_ eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen],
       tens: %w[_ ten twenty thirty forty fifty sixty seventy eighty ninety],
       thousands: { one: 'thousand', other: 'thousands' },
+      hundred: 'hundred',
       rules: {
         cardinal: {
           0 => '{ones}',
@@ -24,7 +25,8 @@ describe NumbersAndWords::Rules do
         short: { extends: 'cardinal', 0 => '{short_ones}' },
         ordinal: { 0 => '{ordinals}', 20 => '[{tens}-{>}|{ordinal_tens}]', 100 => '{<cardinal} hundred[ {>}|th]' },
         counting: { extends: 'cardinal', then: 'counted', 1 => 'just one', 2 => '{ones}' },
-        counted: { extends: 'cardinal', 1 => 'one more', 2 => '{ones}' }
+        counted: { extends: 'cardinal', 1 => 'one more', 2 => '{ones}' },
+        word: { extends: 'cardinal', 100 => '{<} {hundred}[ {>}]' }
       },
       ordinals: %w[zeroth first second third fourth fifth sixth seventh eighth ninth],
       ordinal_tens: %w[_ tenth twentieth thirtieth fortieth fiftieth sixtieth seventieth eightieth ninetieth],
@@ -66,6 +68,10 @@ describe NumbersAndWords::Rules do
   it 'spells the remainder with the rule set named by then' do
     expect([1, 21, 1021].map { |number| rules.spell(number, 'counting') })
       .to eq(['just one', 'twenty-one more', 'a thousand twenty-one more'])
+  end
+
+  it 'spells a single word as it is' do
+    expect([100, 342].map { |number| rules.spell(number, 'word') }).to eq(['one hundred', 'three hundred forty-two'])
   end
 
   it 'looks words up under the words scope first, then at the top level' do
