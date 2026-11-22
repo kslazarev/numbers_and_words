@@ -2,6 +2,7 @@
 
 require 'numbers_and_words/i18n/pluralization'
 require 'numbers_and_words/i18n/initialization'
+require 'numbers_and_words/i18n/extends'
 
 module NumbersAndWords
   # Raised when the current locale has no bundled rules, or its bundled locale is not enabled by the configuration.

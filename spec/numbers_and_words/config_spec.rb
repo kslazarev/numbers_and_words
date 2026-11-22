@@ -26,6 +26,18 @@ describe NumbersAndWords::Config do
     I18n.locale = current_locale
   end
 
+  it 'loads the locale a configured locale extends, without enabling it' do
+    NumbersAndWords.configure { |config| config.locales = [:'en-GB'] }
+    expect(I18n.with_locale(:'en-GB') { 1001.to_words(hundreds_with_union: true) }).to eq('one thousand and one')
+    expect { I18n.with_locale(:en) { 1.to_words } }.to raise_error(NumbersAndWords::UnsupportedLanguageError)
+  end
+
+  it 'merges a locale with the one it extends again after a reload, keeping the keys it drops' do
+    I18n.reload!
+    expect(I18n.with_locale(:'fr-CH') { [71, 80, 1001].map(&:to_words) }).to eq(%w[septante-et-un huitante mille-un])
+    expect(I18n.t('numbers.rules.cardinal', locale: :'fr-CH')).to include(70 => nil).and include(20 => '{tens}[{>and-one}]')
+  end
+
   it 'normalizes aliases and limits translations and pluralization locales after require' do
     I18n.t(:ones, scope: :numbers, locale: :ru)
     NumbersAndWords.configure { |config| config.locales = ['en-US', :ru, :en] }

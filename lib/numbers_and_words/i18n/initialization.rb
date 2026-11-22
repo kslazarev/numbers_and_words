@@ -21,7 +21,11 @@ module NumbersAndWords
       # The gem's locale files for the given languages, or all of them for nil, with the codes used for them before 1.1.0.
       def locale_files(locales)
         files = I18n.locale_files
-        (locales.nil? ? files : files.select { |file| locales.include?(I18n.language_of(file)) }) + legacy_files(locales)
+        return files + legacy_files(locales) if locales.nil?
+
+        selected = files.select { |file| locales.include?(I18n.language_of(file)) }
+        parents = selected.filter_map { |file| Extends.parent(file) }
+        (files.select { |file| parents.include?(I18n.language_of(file)) } | selected) + legacy_files(locales)
       end
 
       # Registers se, ua and kz with I18n while their language is loaded; see Compatibility::LOCALES.

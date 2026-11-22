@@ -154,7 +154,7 @@ module NumbersAndWords
     def templates(name)
       definition = @definitions.fetch(name.to_sym)
       inherited, inherited_then = definition[:extends] ? templates(definition[:extends].to_s) : [{}, nil]
-      [inherited.merge(repeated(definition)).merge(own(definition)), definition[:then]&.to_s || inherited_then]
+      [inherited.merge(repeated(definition)).merge(own(definition)).compact, definition[:then]&.to_s || inherited_then]
     end
 
     def rule(base, key, template, name, next_name)
