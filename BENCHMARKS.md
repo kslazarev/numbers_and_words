@@ -1,6 +1,8 @@
 # Benchmarks
 
-Run `bundle exec rake benchmark` to measure conversion throughput with [benchmark-ips](https://github.com/evanphx/benchmark-ips) and allocations with Ruby's `GC.stat`. The runner prints the Ruby and I18n versions, warms translations first, and covers small and large English integers, large Russian integers, Italian and British English fractions, Brazilian Portuguese ordinals, and arrays.
+Run `bundle exec rake benchmark` to measure conversion throughput with [benchmark-ips](https://github.com/evanphx/benchmark-ips) and allocations with Ruby's `GC.stat`. The runner prints the Ruby and I18n versions, warms translations first, and covers small and large English integers, large Russian, French, Arabic and Chinese integers, Japanese kana, Italian and British English fractions, Brazilian Portuguese and German ordinals, and arrays.
+
+The rule engine compiles each locale's rule sets and resolves its words once per process, so the first conversion in a locale is slower than the measured, warmed ones. Storing translations or reloading I18n starts over.
 
 ## Comparing Revisions
 

@@ -11,7 +11,12 @@ cases = {
   'it/fraction' => [:it, 21.77, {}],
   'en-GB/fraction' => [:'en-GB', 21.77, {}],
   'pt-BR/ordinal' => [:'pt-BR', 42, { ordinal: true }],
-  'en/array' => [:en, [1, 22, 333, 4444, 55_555], {}]
+  'en/array' => [:en, [1, 22, 333, 4444, 55_555], {}],
+  'fr/large' => [:fr, 1_174_315_119, {}],
+  'de/ordinal' => [:de, 2_001_000, { ordinal: true }],
+  'ar/large' => [:ar, 1_174_315_119, {}],
+  'zh/large' => [:zh, 1_174_315_119, {}],
+  'ja/kana' => [:ja, 1_174_315_119, { script: :kana }]
 }
 iterations = Integer(ENV.fetch('BENCHMARK_ITERATIONS', '1000'))
 abort 'BENCHMARK_ITERATIONS must be positive' unless iterations.positive?
