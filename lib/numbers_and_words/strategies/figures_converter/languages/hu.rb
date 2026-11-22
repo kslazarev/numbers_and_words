@@ -4,87 +4,14 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.hu.yml; see RuleSets.
         class Hu < Base
-          def print_words
-            inner_reverse_words.reverse.join(greater_than_2000? ? '-' : '')
-          end
-
-          def inner_reverse_words
-            @strings.collect { |iteration| iteration.reverse.join }
-          end
-
-          def greater_than_2000?
-            @figures.length > 4 || (@figures.length == 4 && @figures.last >= 2)
-          end
-
-          def strings_logic
-            if @figures.capacity_count
-              number_without_capacity_to_words + complex_number_to_words
-            elsif @figures.hundreds
-              [hundreds_number_to_words]
-            elsif @figures.tens || @figures.ones
-              [simple_number_to_words]
-            else
-              []
-            end
-          end
-
-          # "ezer" rather than "egyezer", and "két" before a scale word ("kétezer", "huszonkétmillió").
-          def capacity_iteration
-            meg, words = super
-            return [] if meg.nil?
-            return [meg] if bare_scale?
-
-            [meg, [words.first.sub(/#{@translations.t(:ones)[2]}\z/o, @translations.t(:compound_two)), *words.drop(1)]]
-          end
-
-          def complex_number_to_words
-            count = @figures.capacity_count
-            (1..count).map do |capacity|
-              @current_capacity = capacity
-              capacity_iteration.flatten
-            end.reject(&:empty?)
-          end
-
-          def simple_number_to_words
-            if @figures.teens || @figures.tens
-              [complex_tens]
-            elsif @figures.ones
-              [ones]
-            else
-              []
-            end
-          end
-
-          def ones
-            prefix = maybe_ordinal(:ones)
-            return @translations.t(:'ordinal.ones_with_tens')[@figures.ones] if prefix && @figures.length > 1
-
-            super(prefix:)
-          end
-
-          %i[teens tens tens_with_ones hundreds megs].each do |method_name|
-            define_method(method_name) do
-              super({ prefix: maybe_ordinal(method_name) })
-            end
-          end
-
-          # remove_zero: true omits a zero integral part.
-          def zero
-            super({ prefix: maybe_ordinal(:zero) }) unless @options.remove_zero.result
-          end
-
-          def maybe_ordinal(type)
-            @options.ordinal.result type
-          end
+          include RuleSets
 
           private
 
-          def bare_scale?
-            return false unless @figures.number_in_capacity(@current_capacity) == 1
-            return true if @current_capacity == FiguresArray::THOUSAND_CAPACITY
-
-            @current_capacity == 2 && @figures.capacity_count == 2 && maybe_ordinal(:megs)
+          def cardinal_set
+            'cardinal'
           end
         end
       end

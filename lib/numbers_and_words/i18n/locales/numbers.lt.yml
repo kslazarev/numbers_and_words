@@ -5,6 +5,76 @@ lt:
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
     tens: [_, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
     hundreds: [_, šimtas, du šimtai, trys šimtai, keturi šimtai, penki šimtai, šeši šimtai, septyni šimtai, aštuoni šimtai, devyni šimtai]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<thousands-count} {thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
+      thousands-count:
+        extends: cardinal
+        then: cardinal
+        1: ''
+        2: '{ones}'
+      # The last word of an ordinal is ordinal; a round hundred or scale word joins a count of one word in its
+      # combining form ("dušimtasis", "dutūkstantasis", "šimttūkstantasis", but "du šimtai tūkstantasis"), and a
+      # leading one before a single scale word is left out ("milijoninis").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens} {>}|{ordinals.tens}]'
+        100: '[{hundreds} {>}|{ordinals.hundred}]'
+        200: '[{hundreds} {>}|{combining.ones}{ordinals.hundred}]'
+        1000: '[{<thousands-count} {thousands} {>}|{<fused}{ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions} {>}|{<fused}{ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<fused}{ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<fused}{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<fused}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<fused}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<fused}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<fused}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<fused}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<fused}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<fused}{ordinals.decillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1000000: '[{<cardinal} {millions} {>}|{<fused-inner}{ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<fused-inner}{ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<fused-inner}{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<fused-inner}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<fused-inner}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<fused-inner}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<fused-inner}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<fused-inner}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<fused-inner}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<fused-inner}{ordinals.decillions}]'
+      # The count before a round scale ordinal: one word in its combining form, or several followed by a space.
+      fused:
+        0: '{combining.ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{tens} {>cardinal} |{tens}]'
+        100: '[{hundreds} {>cardinal} |{combining.hundred}]'
+        200: '{hundreds}[ {>cardinal}] '
+      fused-inner:
+        extends: fused
+        1: '{ones} '
+        2: '{combining.ones}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tūkstantis
@@ -51,53 +121,21 @@ lt:
       ones: decilijonai
       other: decilijonų
     ordinals:
-      'words':
-        'nulis': 'nulinis'
-        'vienas': 'pirmas'
-        'du': 'antras'
-        'trys': 'trečias'
-        'keturi': 'ketvirtas'
-        'penki': 'penktas'
-        'šeši': 'šeštas'
-        'septyni': 'septintas'
-        'aštuoni': 'aštuntas'
-        'devyni': 'devintas'
-        'šimtas': 'šimtasis'
-        'šimtai': 'šimtasis'
-        'tūkstantis': 'tūkstantasis'
-        'tūkstančiai': 'tūkstantasis'
-        'tūkstančių': 'tūkstantasis'
-      'suffixes':
-        'lika': 'liktas'
-        'dešimt': 'dešimtas'
-      'scale_endings': ['as', 'ai', 'ų']
-      'scale_suffix': 'inis'
-      'combining':
-        'du': 'du'
-        'trys': 'tri'
-        'keturi': 'ketur'
-        'penki': 'penkia'
-        'šeši': 'šešia'
-        'septyni': 'septynia'
-        'aštuoni': 'aštuonia'
-        'devyni': 'devynia'
-        'dešimt': 'dešimt'
-        'vienuolika': 'vienuolika'
-        'dvylika': 'dvylika'
-        'trylika': 'trylika'
-        'keturiolika': 'keturiolika'
-        'penkiolika': 'penkiolika'
-        'šešiolika': 'šešiolika'
-        'septyniolika': 'septyniolika'
-        'aštuoniolika': 'aštuoniolika'
-        'devyniolika': 'devyniolika'
-        'dvidešimt': 'dvidešimt'
-        'trisdešimt': 'trisdešimt'
-        'keturiasdešimt': 'keturiasdešimt'
-        'penkiasdešimt': 'penkiasdešimt'
-        'šešiasdešimt': 'šešiasdešimt'
-        'septyniasdešimt': 'septyniasdešimt'
-        'aštuoniasdešimt': 'aštuoniasdešimt'
-        'devyniasdešimt': 'devyniasdešimt'
-        'šimtas': 'šimt'
-      'leading_one': ['vienas']
+      ones: [nulinis, pirmas, antras, trečias, ketvirtas, penktas, šeštas, septintas, aštuntas, devintas]
+      teens: [_, vienuoliktas, dvyliktas, tryliktas, keturioliktas, penkioliktas, šešioliktas, septynioliktas, aštuonioliktas, devynioliktas]
+      tens: [_, dešimtas, dvidešimtas, trisdešimtas, keturiasdešimtas, penkiasdešimtas, šešiasdešimtas, septyniasdešimtas, aštuoniasdešimtas, devyniasdešimtas]
+      hundred: šimtasis
+      thousands: tūkstantasis
+      millions: milijoninis
+      billions: milijardinis
+      trillions: trilijoninis
+      quadrillions: kvadrilijoninis
+      quintillions: kvintilijoninis
+      sextillions: sekstilijoninis
+      septillions: septilijoninis
+      octillions: oktilijoninis
+      nonillions: nonilijoninis
+      decillions: decilijoninis
+    combining:
+      ones: [_, '', du, tri, ketur, penkia, šešia, septynia, aštuonia, devynia]
+      hundred: šimt

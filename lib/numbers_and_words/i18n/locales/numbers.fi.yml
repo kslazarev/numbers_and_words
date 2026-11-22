@@ -7,8 +7,53 @@ fi:
     tens: kymmentä
     hundred: sata
     hundreds: sataa
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Below a million a number is one word ("kaksituhattaviisisataa"); millions and larger are separate words.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{ten}'
+        11: '{ones%}{teens}'
+        20: '{ones}{tens}[{>}]'
+        100: '{hundred}[{>}]'
+        200: '{ones}{hundreds}[{>}]'
+        1000: '{thousand}[{>}]'
+        2000: '{<cardinal}{thousands}[{>}]'
+        1000000: '{million}[ {>}]'
+        2000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{billion}[ {>}]'
+        2000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{trillion}[ {>}]'
+        2000000000000: '{<cardinal} {trillions}[ {>}]'
+      # Every part of an ordinal is ordinal; the ones are "ensimmäinen" and "toinen" only at the end
+      # ("kahdeskymmenesensimmäinen", "kahdestuhannes").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.ten}'
+        11: '{ordinals.multipliers%}{teens}'
+        20: '{ordinals.multipliers}{ordinals.tens}[{>}]'
+        100: '{ordinals.hundred}[{>}]'
+        200: '{ordinals.multipliers}{ordinals.hundred}[{>}]'
+        1000: '{ordinals.thousand}[{>}]'
+        2000: '{<ordinal-count}{ordinals.thousand}[{>}]'
+        1000000: '{ordinals.million}[ {>}]'
+        2000000: '{<ordinal-count} {ordinals.million}[ {>}]'
+        1000000000: '{ordinals.billion}[ {>}]'
+        2000000000: '{<ordinal-count} {ordinals.billion}[ {>}]'
+        1000000000000: '{ordinals.trillion}[ {>}]'
+        2000000000000: '{<ordinal-count} {ordinals.trillion}[ {>}]'
+      ordinal-count:
+        extends: ordinal
+        0: '{ordinals.multipliers}'
     mega: [_, tuhat, miljoona, miljardi, biljoona]
-    megas: [_, tuhatta, miljoonaa, miljardia, biljoonaa]
+    thousand: tuhat
+    thousands: tuhatta
+    million: miljoona
+    millions: miljoonaa
+    billion: miljardi
+    billions: miljardia
+    trillion: biljoona
+    trillions: biljoonaa
     micro_separator: pilkku
     ordinals:
       ones: [nollas, ensimmäinen, toinen, kolmas, neljäs, viides, kuudes, seitsemäs, kahdeksas, yhdeksäs]
@@ -16,5 +61,8 @@ fi:
       ten: kymmenes
       tens: kymmenes
       hundred: sadas
-      mega: [_, tuhannes, miljoonas, miljardis, biljoonas]
+      thousand: tuhannes
+      million: miljoonas
+      billion: miljardis
+      trillion: biljoonas
     subunit_separator: ja

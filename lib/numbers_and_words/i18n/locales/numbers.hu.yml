@@ -7,13 +7,100 @@ hu:
     tens_with_ones: [_, tizen, huszon, harminc, negyven, ötven, hatvan, hetven, nyolcvan, kilencven]
     hundreds: száz
     compound_two: két
+    compound_ones: [_, '', két, három, négy, öt, hat, hét, nyolc, kilenc]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A number is one word up to 2000 ("ezerkilencszázkilencvenkilenc") and joins its groups with hyphens from there
+    # ("kétezer-egy", "egymillió-ezer-ötszáz"); a count ending in kettő ends in két ("kétezer", "huszonkétmillió").
+    rules:
+      cardinal:
+        then: inner
+        0: '{ones}'
+        10: '{tens}'
+        11: '{tens_with_ones}{ones_with_tens%}'
+        20: '[{tens_with_ones}{ones_with_tens%}|{tens}]'
+        100: '{hundreds}[{>}]'
+        200: '{compound_ones}{hundreds}[{>}]'
+        1000: '{thousand}[{>}]'
+        2000: '{<count}{thousand}[-{>}]'
+        1000000: '{<count}{million}[-{>}]'
+        1000000000: '{<count}{billion}[-{>}]'
+        1000000000000: '{<count}{trillion}[-{>}]'
+        1000000000000000: '{<count}{quadrillion}[-{>}]'
+        1000000000000000000: '{<count}{quintillion}[-{>}]'
+        1000000000000000000000: '{<count}{sextillion}[-{>}]'
+        1000000000000000000000000: '{<count}{septillion}[-{>}]'
+        1000000000000000000000000000: '{<count}{octillion}[-{>}]'
+        1000000000000000000000000000000: '{<count}{nonillion}[-{>}]'
+        1000000000000000000000000000000000: '{<count}{decillion}[-{>}]'
+      inner:
+        extends: cardinal
+        1000: '{thousand}[-{>}]'
+      count:
+        extends: cardinal
+        then: count
+        2: '{compound_two}'
+        3: '{ones}'
+        11: '{tens_with_ones}{>}'
+        20: '[{tens_with_ones}{>}|{tens}]'
+      # The last part of an ordinal is ordinal, with "első" and "második" alone and "egyedik" and "kettedik" after
+      # other digits; a lone one before millió is left out ("milliomodik").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{tens_with_ones}{ordinals.ones_with_tens%}'
+        20: '[{tens_with_ones}{ordinals.ones_with_tens%}|{ordinals.tens}]'
+        100: '[{hundreds}{>}|{ordinals.hundreds}]'
+        200: '[{compound_ones}{hundreds}{>}|{compound_ones}{ordinals.hundreds}]'
+        1000: '[{thousand}{>}|{ordinals.thousand}]'
+        2000: '[{<count}{thousand}-{>}|{<count}{ordinals.thousand}]'
+        1000000: '[{<count}{million}-{>}|{<millions-count}{ordinals.million}]'
+        1000000000: '[{<count}{billion}-{>}|{<count}{ordinals.billion}]'
+        1000000000000: '[{<count}{trillion}-{>}|{<count}{ordinals.trillion}]'
+        1000000000000000: '[{<count}{quadrillion}-{>}|{<count}{ordinals.quadrillion}]'
+        1000000000000000000: '[{<count}{quintillion}-{>}|{<count}{ordinals.quintillion}]'
+        1000000000000000000000: '[{<count}{sextillion}-{>}|{<count}{ordinals.sextillion}]'
+        1000000000000000000000000: '[{<count}{septillion}-{>}|{<count}{ordinals.septillion}]'
+        1000000000000000000000000000: '[{<count}{octillion}-{>}|{<count}{ordinals.octillion}]'
+        1000000000000000000000000000000: '[{<count}{nonillion}-{>}|{<count}{ordinals.nonillion}]'
+        1000000000000000000000000000000000: '[{<count}{decillion}-{>}|{<count}{ordinals.decillion}]'
+      ordinal-inner:
+        extends: ordinal
+        0: '{ordinals.ones_with_tens}'
+        1000: '[{thousand}-{>}|{ordinals.thousand}]'
+        1000000: '[{<count}{million}-{>}|{<count}{ordinals.million}]'
+      millions-count:
+        extends: count
+        1: ''
+        2: '{compound_two}'
     mega: [_, ezer, millió, milliárd, billió, billiárd, trillió, trilliárd, kvadrillió, kvadrilliárd, kvintillió, kvintilliárd]
-    ordinal:
+    thousand: ezer
+    million: millió
+    billion: milliárd
+    trillion: billió
+    quadrillion: billiárd
+    quintillion: trillió
+    sextillion: trilliárd
+    septillion: kvadrillió
+    octillion: kvadrilliárd
+    nonillion: kvintillió
+    decillion: kvintilliárd
+    ordinals:
       ones: [nulladik, első, második, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
       ones_with_tens: [nulladik, egyedik, kettedik, harmadik, negyedik, ötödik, hatodik, hetedik, nyolcadik, kilencedik]
       tens: [_, tizedik, huszadik, harmincadik, negyvenedik, ötvenedik, hatvanadik, hetvenedik, nyolcvanadik, kilencvenedik]
       hundreds: századik
-      mega: [_, ezredik, milliomodik, milliárdodik, billiomodik, billiárdodik, trilliomodik, trilliárdodik, kvadrilliomodik, kvadrilliárdodik, kvintilliomodik, kvintilliárdodik]
+      thousand: ezredik
+      million: milliomodik
+      billion: milliárdodik
+      trillion: billiomodik
+      quadrillion: billiárdodik
+      quintillion: trilliomodik
+      sextillion: trilliárdodik
+      septillion: kvadrilliomodik
+      octillion: kvadrilliárdodik
+      nonillion: kvintilliomodik
+      decillion: kvintilliárdodik
     micro: [_, tized, század, ezred, milliomod, milliárdod, billiomod, billiárdod, trilliomod, trilliárdod, kvadrilliomod, kvadrilliárdod, kvintilliomod, kvintilliárdod]
     micro_separator: egész
     micro_prefix:
