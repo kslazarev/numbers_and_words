@@ -11,8 +11,6 @@ module NumbersAndWords
 
           def words
             raise Translations::Families::Base.range_error(48) if figures.drop(48).any?(&:positive?)
-            # remove_zero: true leaves no words for zero, also as an ordinal.
-            return '' if ordinal_integer.zero? && @options.remove_zero.result
 
             super
           end

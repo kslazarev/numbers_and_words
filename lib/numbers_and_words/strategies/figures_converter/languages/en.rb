@@ -4,56 +4,33 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.en.yml; see RuleSets. remove_hyphen: and
+        # hundreds_with_union: change the words under numbers.options.
         class En < Base
-          %i[ones teens tens megs].each do |method_name|
-            define_method(method_name) do
-              super({ prefix: maybe_ordinal(method_name) })
-            end
+          include RuleSets
+
+          private
+
+          def cardinal_set
+            pronounced? ? 'pronounced' : 'cardinal'
           end
 
-          def hundreds
-            maybe_union_after_hundreds super({ prefix: maybe_ordinal(:hundreds) })
+          def ordinal_set
+            pronounced? ? 'pronounced-ordinal' : 'ordinal'
           end
 
-          def zero
-            super({ prefix: maybe_ordinal(:zero) }) unless maybe_remove_zero
+          # Up to four digits, unless the hundreds digit is zero ("two thousand one").
+          def pronounced?
+            number = ordinal_integer
+            @options.options[:pronounced] && number.between?(100, 9999) && (number < 1000 || !(number / 100 % 10).zero?)
           end
 
-          def tens_with_ones
-            super({
-              separator: maybe_hyphen_separator,
-              prefix: maybe_ordinal(:tens_with_ones)
-            })
+          def option_words
+            [('options.remove_hyphen' if @options.options[:remove_hyphen]), ('options.hundreds_with_union' if union?)]
           end
 
-          def words
-            # Decided once for the whole number, since strings_logic also runs for each thousands group.
-            @pronounced = @options.pronounced.active? && @figures.size <= Options::En::Pronounced::MAX_DIGITS
-            super
-          end
-
-          def strings_logic
-            if @pronounced
-              @options.pronounced.process self, @figures
-            else
-              super
-            end
-          end
-
-          def maybe_hyphen_separator
-            @options.remove_hyphen.result
-          end
-
-          def maybe_ordinal(type)
-            @options.ordinal.result type
-          end
-
-          def maybe_union_after_hundreds(translations)
-            @options.hundreds_with_union.modify_or_leave translations
-          end
-
-          def maybe_remove_zero
-            @options.remove_zero.result
+          def union?
+            @options.options[:hundreds_with_union]
           end
         end
       end

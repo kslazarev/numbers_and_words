@@ -7,6 +7,12 @@ module NumbersAndWords
         # Spells whole numbers from the rule sets in numbers.sk.yml; see RuleSets.
         class Sk < Base
           include RuleSets
+
+          private
+
+          def keeps_ordinal_zero?
+            true
+          end
         end
       end
     end

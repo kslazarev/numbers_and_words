@@ -2,6 +2,7 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::De.
     class De < Base
       include NumbersAndWords::Translations::Families::Base
 
@@ -9,18 +10,6 @@ module NumbersAndWords
 
       def ones(number, options = {})
         t([options[:prefix], :ones, options[:postfix] || DEFAULT_POSTFIX].join('.'))[number]
-      end
-
-      def tens_with_ones(numbers, options = {})
-        [tens(numbers[1]), ones(numbers[0], options)].reverse.join(union)
-      end
-
-      def hundreds(number, _options = {})
-        [ones(number), t(:hundreds)].join
-      end
-
-      def zero(_options = {})
-        ones 0
       end
     end
   end

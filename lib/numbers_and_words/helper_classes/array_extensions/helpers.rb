@@ -37,10 +37,6 @@ module NumbersAndWords
         self[0].to_i if self[0].to_i.positive?
       end
 
-      def only_ones
-        ones if !tens && !hundreds
-      end
-
       def teens
         tens_with_ones if tens == 1
       end

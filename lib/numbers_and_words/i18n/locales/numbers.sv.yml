@@ -3,9 +3,77 @@ sv:
     minus: minus
     ones: [noll, ett, två, tre, fyra, fem, sex, sju, åtta, nio]
     common_one: en
+    thousands_one: et
     teens: [_, elva, tolv, tretton, fjorton, femton, sexton, sjutton, arton, nitton]
     tens: [_, tio, tjugo, trettio, fyrtio, femtio, sextio, sjuttio, åttio, nittio]
     hundreds: hundra
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Below a million a number is one word ("ettusenetthundratjugoett"); the count of miljon and the larger scale
+    # words is in the common gender ("en miljon", "tjugoen miljoner").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '{ones}{hundreds}[{>}]'
+        1000: '{<thousands-count}{thousands}[{>}]'
+        1000000: '{<common} {millions}[ {>}]'
+        1000000000: '{<common} {billions}[ {>}]'
+        1000000000000: '{<common} {trillions}[ {>}]'
+        1000000000000000: '{<common} {quadrillions}[ {>}]'
+        1000000000000000000: '{<common} {quintillions}[ {>}]'
+        1000000000000000000000: '{<common} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<common} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<common} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<common} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<common} {decillions}[ {>}]'
+      # "Ett" before tusen loses a t ("ettusen", "tjugoettusen").
+      thousands-count:
+        extends: cardinal
+        then: thousands-count
+        1: '{thousands_one}'
+        2: '{ones}'
+      common:
+        extends: cardinal
+        then: common
+        1: '{common_one}'
+        2: '{ones}'
+      # The last word of an ordinal is ordinal, and a one before a single scale word is left out ("miljonte").
+      ordinal:
+        then: ordinal-rest
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens}{>ordinal}|{ordinals.tens}]'
+        100: '{ones}[{hundreds}{>ordinal}|{ordinals.hundreds}]'
+        1000: '{<thousands-count}[{thousands}{>ordinal}|{ordinals.thousands}]'
+        1000000: '[{<common} {millions} {>}|{<ordinal-count} {ordinals.millions}]'
+        1000000000: '[{<common} {billions} {>}|{<ordinal-count} {ordinals.billions}]'
+        1000000000000: '[{<common} {trillions} {>}|{<ordinal-count} {ordinals.trillions}]'
+        1000000000000000: '[{<common} {quadrillions} {>}|{<ordinal-count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<common} {quintillions} {>}|{<ordinal-count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<common} {sextillions} {>}|{<ordinal-count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<common} {septillions} {>}|{<ordinal-count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<common} {octillions} {>}|{<ordinal-count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<common} {nonillions} {>}|{<ordinal-count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<common} {decillions} {>}|{<ordinal-count} {ordinals.decillions}]'
+      ordinal-rest:
+        extends: ordinal
+        1000000: '[{<common} {millions} {>}|{<common} {ordinals.millions}]'
+        1000000000: '[{<common} {billions} {>}|{<common} {ordinals.billions}]'
+        1000000000000: '[{<common} {trillions} {>}|{<common} {ordinals.trillions}]'
+        1000000000000000: '[{<common} {quadrillions} {>}|{<common} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<common} {quintillions} {>}|{<common} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<common} {sextillions} {>}|{<common} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<common} {septillions} {>}|{<common} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<common} {octillions} {>}|{<common} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<common} {nonillions} {>}|{<common} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<common} {decillions} {>}|{<common} {ordinals.decillions}]'
+      ordinal-count:
+        extends: common
+        1: ''
+        2: '{ones}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: { one: tusen, other: tusen }
     millions: { one: miljon, other: miljoner }
@@ -19,34 +87,21 @@ sv:
     nonillions: { one: kvintiljon, other: kvintiljoner }
     decillions: { one: kvintiljard, other: kvintiljarder }
     ordinals:
-      'suffixes':
-        'noll': 'nollte'
-        'ett': 'första'
-        'en': 'första'
-        'två': 'andra'
-        'tre': 'tredje'
-        'fyra': 'fjärde'
-        'fem': 'femte'
-        'sex': 'sjätte'
-        'sju': 'sjunde'
-        'åtta': 'åttonde'
-        'nio': 'nionde'
-        'tio': 'tionde'
-        'elva': 'elfte'
-        'tolv': 'tolfte'
-        'tretton': 'trettonde'
-        'fjorton': 'fjortonde'
-        'femton': 'femtonde'
-        'sexton': 'sextonde'
-        'sjutton': 'sjuttonde'
-        'arton': 'artonde'
-        'nitton': 'nittonde'
-        'tjugo': 'tjugonde'
-        'hundra': 'hundrade'
-        'tusen': 'tusende'
-      'plural': 'er'
-      'scale_suffix': 'te'
-      'leading_one': ['en', 'ett']
+      ones: [nollte, första, andra, tredje, fjärde, femte, sjätte, sjunde, åttonde, nionde]
+      teens: [_, elfte, tolfte, trettonde, fjortonde, femtonde, sextonde, sjuttonde, artonde, nittonde]
+      tens: [_, tionde, tjugonde, trettionde, fyrtionde, femtionde, sextionde, sjuttionde, åttionde, nittionde]
+      hundreds: hundrade
+      thousands: tusende
+      millions: miljonte
+      billions: miljardte
+      trillions: biljonte
+      quadrillions: biljardte
+      quintillions: triljonte
+      sextillions: triljardte
+      septillions: kvadriljonte
+      octillions: kvadriljardte
+      nonillions: kvintiljonte
+      decillions: kvintiljardte
     subunit_separator: och
     # Before a unit, "ett" at the end of a number is "en", the common gender, or "ett" before a neuter unit.
     before_unit:

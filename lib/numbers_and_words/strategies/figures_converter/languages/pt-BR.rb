@@ -8,11 +8,6 @@ module NumbersAndWords
         class PtBr < Base
           include RuleSets
 
-          # remove_zero: true leaves no words for zero, also as an ordinal.
-          def words
-            ordinal_integer.zero? && @options.remove_zero.result ? '' : super
-          end
-
           private
 
           # Inteiro and décimo are masculine whatever is counted ("dois inteiros e dois décimos").

@@ -8,64 +8,92 @@ da:
     tens: [_, ti, tyve, tredive, fyrre, halvtreds, tres, halvfjerds, firs, halvfems]
     hundreds: [ _, et hundrede, to hundrede, tre hundrede, fire hundrede, fem hundrede, seks hundrede, syv hundrede, otte hundrede, ni hundrede ]
     one_hundred: et hundrede
-    mega: [_, tusind, million, milliard, billion, billiard, trillion]
-    tusind:
-      one: tusind
-      other: tusind
-    million:
-      one: million
-      other: millioner
-    milliard:
-      one: milliard
-      other: milliarder
-    billion:
-      one: billion
-      other: billioner
-    billiard:
-      one: billiard
-      other: billiarder
-    trillion:
-      one: trillion
-      other: trillioner
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Tusind counts in the neuter ("et tusind") and million and the larger scale words in the common gender.
+    rules:
+      cardinal:
+        then: rest
+        0: '{common}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{common%}{union}{tens}|{tens}]'
+        100: '{hundreds}[ {union} {>cardinal}]'
+        1000: '{<neuter} {thousands}[{>}]'
+        1000000: '{<cardinal} {millions}[{>}]'
+        1000000000: '{<cardinal} {billions}[{>}]'
+        1000000000000: '{<cardinal} {trillions}[{>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[{>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[{>}]'
+      neuter:
+        extends: cardinal
+        then: rest-neuter
+        0: '{neuter}'
+        100: '{hundreds}[ {union} {>neuter}]'
+      # "Og" comes before a last group below a hundred ("et tusind og en").
+      rest:
+        then: cardinal
+        1: ' {union} {=}'
+        100: ' {=}'
+      rest-neuter:
+        extends: rest
+        then: neuter
+      # The last word of an ordinal is ordinal, and a leading one before a single scale word is left out
+      # ("hundrede", "tusinde", "millionte", but "et tusind og første").
+      ordinal:
+        then: ordinal-rest
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{common%}{union}{ordinals.tens}|{ordinals.tens}]'
+        100: '[{hundreds} {union} {>ordinal}|{<count} {ordinals.hundreds}]'
+        1000: '[{<neuter} {thousands}{>}|{<count-neuter} {ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions}{>}|{<count} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions}{>}|{<count} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions}{>}|{<count} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions}{>}|{<count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions}{>}|{<count} {ordinals.quintillions}]'
+      ordinal-rest:
+        extends: rest
+        then: ordinal-inner
+      ordinal-inner:
+        extends: ordinal
+        100: '[{hundreds} {union} {>ordinal}|{hundreds}]'
+        1000: '[{<neuter} {thousands}{>}|{<neuter} {ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions}{>}|{<cardinal} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions}{>}|{<cardinal} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions}{>}|{<cardinal} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions}{>}|{<cardinal} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions}{>}|{<cardinal} {ordinals.quintillions}]'
+      count:
+        extends: cardinal
+        1: ''
+        2: '{common}'
+      count-neuter:
+        extends: neuter
+        1: ''
+        2: '{neuter}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    thousands: {one: tusind, other: tusind}
+    millions: {one: million, other: millioner}
+    billions: {one: milliard, other: milliarder}
+    trillions: {one: billion, other: billioner}
+    quadrillions: {one: billiard, other: billiarder}
+    quintillions: {one: trillion, other: trillioner}
     union: og
     ordinals:
-      'words':
-        'nul': 'nulte'
-        'et': 'første'
-        'en': 'første'
-        'to': 'anden'
-        'tre': 'tredje'
-        'fire': 'fjerde'
-        'fem': 'femte'
-        'seks': 'sjette'
-        'syv': 'syvende'
-        'otte': 'ottende'
-        'ni': 'niende'
-        'ti': 'tiende'
-        'elleve': 'ellevte'
-        'tolv': 'tolvte'
-        'tretten': 'trettende'
-        'fjorten': 'fjortende'
-        'femten': 'femtende'
-        'seksten': 'sekstende'
-        'sytten': 'syttende'
-        'atten': 'attende'
-        'nitten': 'nittende'
-        'tyve': 'tyvende'
-        'tredive': 'tredivte'
-        'fyrre': 'fyrretyvende'
-        'halvtreds': 'halvtredsindstyvende'
-        'tres': 'tresindstyvende'
-        'halvfjerds': 'halvfjerdsindstyvende'
-        'firs': 'firsindstyvende'
-        'halvfems': 'halvfemsindstyvende'
-        'hundrede': 'hundrede'
-        'tusinde': 'tusinde'
-        'tusind': 'tusinde'
-      'neuter_words':
-        'to': 'andet'
-      'compound': 'og'
-      'plural': 'er'
-      'scale_suffix': 'te'
-      'leading_one': ['et', 'en']
+      ones: [nulte, første, anden, tredje, fjerde, femte, sjette, syvende, ottende, niende]
+      teens: [tiende, ellevte, tolvte, trettende, fjortende, femtende, sekstende, syttende, attende, nittende]
+      tens: [_, tiende, tyvende, tredivte, fyrretyvende, halvtredsindstyvende, tresindstyvende, halvfjerdsindstyvende, firsindstyvende, halvfemsindstyvende]
+      hundreds: hundrede
+      thousands: tusinde
+      millions: millionte
+      billions: milliardte
+      trillions: billionte
+      quadrillions: billiardte
+      quintillions: trillionte
+    # The neuter ordinals.
+    genders:
+      neuter:
+        ordinals:
+          ones: [nulte, første, andet, tredje, fjerde, femte, sjette, syvende, ottende, niende]
     subunit_separator: og

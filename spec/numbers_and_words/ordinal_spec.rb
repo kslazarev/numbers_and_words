@@ -66,6 +66,13 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
     end
   end
 
+  # remove_zero: true leaves no words for an ordinal zero, except in the languages that keep it.
+  { en: '', de: '', ru: 'нулевой', uk: 'нульовий', sk: 'nultý', bg: 'нулев' }.each do |locale, words|
+    it "spells the #{locale} ordinal zero with remove_zero: true as #{words.inspect}" do
+      expect(I18n.with_locale(locale) { 0.to_words(ordinal: true, remove_zero: true) }).to eq(words)
+    end
+  end
+
   def plain(text)
     text.unicode_normalize(:nfd).gsub(/\p{Mn}/, '').downcase
   end
