@@ -63,7 +63,13 @@ module NumbersAndWords
           end
 
           def rules(*words)
-            Rules.new(@translations, @translations.t(:mega).size * 3, words: words.compact)
+            Rules.new(@translations, limit, words: words.compact)
+          end
+
+          # Numbers stop below the first scale word past the last in numbers.mega, if the locale lists them.
+          def limit
+            mega = @translations.t(:mega, default: nil)
+            mega && (mega.size * 3)
           end
 
           def grammatical_case
