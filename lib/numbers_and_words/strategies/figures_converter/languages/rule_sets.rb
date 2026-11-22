@@ -43,14 +43,22 @@ module NumbersAndWords
             []
           end
 
+          # Whether remove_zero: true still spells the ordinal of zero, as remove_zero: {keeps_ordinal_zero: true}
+          # under numbers.supported_options declares.
           def keeps_ordinal_zero?
-            false
+            declared = OptionsValidation.declared_options(I18n.local_language)[:remove_zero]
+            declared.is_a?(::Hash) && declared[:keeps_ordinal_zero] == true
           end
 
-          # An animate accusative takes the genitive of a final "one", and of "two", "three" and "four" alone.
+          # The rule set of the gender, such as cardinal-female, where the locale file has one, or else cardinal. An
+          # animate accusative takes the genitive of a final "one", and of "two", "three" and "four" alone.
           def cardinal_set
+            gender = @options.gender&.result
+            return 'cardinal' unless gender
+
             animate = grammatical_case == :accusative && @options.animate&.result
-            "cardinal-#{@options.gender.result}#{'-animate' if animate}"
+            set = "cardinal-#{gender}#{'-animate' if animate}"
+            locale_words(:rules).include?(set.to_sym) ? set : 'cardinal'
           end
 
           def case_words

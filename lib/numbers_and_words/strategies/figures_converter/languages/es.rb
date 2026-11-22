@@ -11,10 +11,6 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            'cardinal'
-          end
-
           def option_words
             female = @options.gender.result == :female
             [('genders.female' if female), ('options.apocopated' if @options.apocopated.result && !female)]

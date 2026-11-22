@@ -11,10 +11,6 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            'cardinal'
-          end
-
           def option_words
             @options.spelling.result == :traditional ? ['options.traditional'] : []
           end

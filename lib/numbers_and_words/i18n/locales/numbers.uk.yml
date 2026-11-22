@@ -5,7 +5,7 @@ uk:
       case: {values: [nominative, genitive, dative, accusative, instrumental, prepositional, vocative]}
       gender: {values: [male, female, neuter], default: male}
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_ordinal_zero: true}
     minus: мінус
     ones:
       male: [нуль, один, два, три, чотири, п’ять, шість, сім, вісім, дев’ять]

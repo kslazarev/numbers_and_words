@@ -16,10 +16,6 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            'cardinal'
-          end
-
           def check_scale_ordinal!
             number = ordinal_integer
             return if number.zero? || !(number % 1000).zero?

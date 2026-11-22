@@ -3,7 +3,7 @@ hi:
     supported_options:
       gender: {values: [male, female], default: male}
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_ordinal_zero: true}
     minus: ऋण
     # Every number from 0 to 99 is its own word.
     ones:
