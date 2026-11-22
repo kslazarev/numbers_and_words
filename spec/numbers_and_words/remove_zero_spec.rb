@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'remove_zero option' do # rubocop:disable RSpec/DescribeClass -- checks every language's option classes
   decorators = NumbersAndWords::Strategies::FiguresConverter::Decorators
   with_decimals = NumbersAndWords::I18n.languages.select do |locale|
-    decorators.decimals?(locale.to_s.split('-').map(&:capitalize).join)
+    decorators.decimals?(locale)
   end
 
   with_decimals.each do |locale|

@@ -13,6 +13,8 @@ ms:
     one_prefix: se
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # One is "se-" before puluh, ratus and ribu ("sepuluh", "seratus", "seribu"), but "satu juta".
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: id}
     rules:
       cardinal:
         0: '{ones}'

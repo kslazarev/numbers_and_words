@@ -12,6 +12,8 @@ vi:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # A group after a scale word is read in full ("một nghìn không trăm linh một"), and numbers from a billion on
     # count tỷ ("một nghìn không trăm linh một tỷ"); a final one or five after a ten is "mốt" or "lăm".
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: plain}
     rules:
       cardinal:
         0: '{ones}'

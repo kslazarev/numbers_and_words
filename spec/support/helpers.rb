@@ -10,6 +10,6 @@ end
 # The bundled languages that read decimals; the others raise NumbersAndWords::UnsupportedNumberError for floats.
 def decimal_languages
   NumbersAndWords::I18n.languages.select do |locale|
-    NumbersAndWords::Strategies::FiguresConverter::Decorators.decimals?(locale.to_s.split('-').map(&:capitalize).join)
+    NumbersAndWords::Strategies::FiguresConverter::Decorators.decimals?(locale)
   end
 end

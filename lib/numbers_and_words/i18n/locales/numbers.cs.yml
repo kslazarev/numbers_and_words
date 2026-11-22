@@ -16,8 +16,8 @@ cs:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # The last group takes the gender asked for, a thousand and a milion the masculine, and a miliarda and the other
     # scale words in -arda the feminine ("dvě miliardy").
-    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
-    decimals: {integral_gender: female, fractional_gender: female}
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: counted_fraction, integral_gender: female, fractional_gender: female}
     rules:
       cardinal-male:
         0: '{ones.male}'

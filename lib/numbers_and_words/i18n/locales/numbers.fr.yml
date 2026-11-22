@@ -19,6 +19,8 @@ fr:
     # The separator inside a group and around mille: a hyphen in the reformed spelling, a space in the traditional one.
     sp: '-'
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: point_or_fraction}
     rules:
       cardinal:
         0: '{ones}'

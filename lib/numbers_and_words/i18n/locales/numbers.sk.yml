@@ -14,8 +14,8 @@ sk:
     hundreds: [_, sto, dvesto, tristo, štyristo, päťsto, šesťsto, sedemsto, osemsto, deväťsto]
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Numbers below a million are one word ("dvetisícdvestotridsaťpäť"); millions and larger scales are separate.
-    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
-    decimals: {integral_gender: female, fractional_gender: female}
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: fraction_noun, integral_gender: female, fractional_gender: female}
     rules:
       cardinal-male:
         0: '{ones.male}'

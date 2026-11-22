@@ -27,8 +27,8 @@ el:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # The last group takes the gender asked for, χιλιάδες counts in the feminine and the larger scale words in the
     # neuter; "εκατό" is "εκατόν" before other words.
-    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
-    decimals: {fractional_gender: neuter}
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: point_words, fractional_gender: neuter}
     rules:
       cardinal-neuter:
         0: '{ones.neuter}'
