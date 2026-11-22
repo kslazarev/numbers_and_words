@@ -2,17 +2,10 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Ko.
     class Ko < Base
       def ones(digit)
         t(:ones)[digit]
-      end
-
-      def place(power)
-        t(:places)[power]
-      end
-
-      def scale(index)
-        t(:scales)[index] || raise(RangeError, "10^#{index * 4} is beyond the largest Korean scale")
       end
 
       def micro_separator
