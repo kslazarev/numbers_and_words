@@ -14,7 +14,7 @@ describe 'option documentation' do # rubocop:disable RSpec/DescribeClass -- chec
   end
 
   def decimals?(locale)
-    NumbersAndWords::Strategies::FiguresConverter::Decorators.const_defined?(locale.to_s.split('-').map(&:capitalize).join, false)
+    NumbersAndWords::Strategies::FiguresConverter::Decorators.decimals?(locale.to_s.split('-').map(&:capitalize).join)
   end
 
   NumbersAndWords::I18n.languages.each do |locale|
