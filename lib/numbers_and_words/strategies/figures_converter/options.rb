@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'concurrent/map'
+
 require 'numbers_and_words/strategies/figures_converter/options/base'
 require 'numbers_and_words/strategies/figures_converter/options/en'
 require 'numbers_and_words/strategies/figures_converter/options/en-GB'
@@ -50,22 +52,22 @@ module NumbersAndWords
     module FiguresConverter
       module Options
         class Proxy
+          # The option class names by locale and option, which don't change at runtime.
+          CLASS_NAMES = Concurrent::Map.new
+
           attr_accessor :strategy, :options
 
           def initialize(strategy, options)
             @strategy = strategy
             @options = options
-            @proxy_class_names = {}
           end
 
+          # An option the language doesn't define is nil.
           def method_missing(method_name, *args, &block)
-            method = Object.const_get(proxy_class_name(method_name))
+            name = proxy_class_name(method_name)
+            return unless Object.const_defined?(name)
 
-            if method
-              method.new(self, args, block)
-            else
-              super
-            end
+            Object.const_get(name).new(self, args, block)
           rescue NameError
             nil
           end
@@ -77,8 +79,8 @@ module NumbersAndWords
           private
 
           def proxy_class_name(method_name)
-            names = @proxy_class_names[::I18n.locale] ||= {}
-            names[method_name] ||= "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
+            CLASS_NAMES.compute_if_absent(::I18n.locale) { Concurrent::Map.new }[method_name] ||=
+              "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
 
           def module_name

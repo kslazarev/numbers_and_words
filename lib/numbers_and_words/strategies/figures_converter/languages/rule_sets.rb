@@ -54,22 +54,38 @@ module NumbersAndWords
           end
 
           def case_words
-            "cases.#{grammatical_case}" if @translations.t(:cases).key?(grammatical_case)
+            "cases.#{grammatical_case}" if locale_words(:cases).include?(grammatical_case)
           end
 
           def gender_words
             gender = @options.gender&.result
-            "genders.#{gender}" if @translations.t(:genders, default: {}).key?(gender)
+            "genders.#{gender}" if locale_words(:genders).include?(gender)
           end
 
           def rules(*words)
-            Rules.new(@translations, limit, words: words.compact)
+            Rules.new(@translations, limit, words: words.compact, compiled: locale)
           end
 
           # Numbers stop below the first scale word past the last in numbers.mega, if the locale lists them.
           def limit
-            mega = @translations.t(:mega, default: nil)
-            mega && (mega.size * 3)
+            locale.fetch(:limit) do
+              mega = @translations.t(:mega, default: nil)
+              locale[:limit] = mega && (mega.size * 3)
+            end
+          end
+
+          # The cases or genders with words of their own.
+          def locale_words(key)
+            locale[key] ||= @translations.t(key, default: {}).keys
+          end
+
+          def ordinals
+            locale[:ordinals] ||= super
+          end
+
+          # Data about the current locale's numbers, kept with its compiled rule sets.
+          def locale
+            @locale ||= Rules.compiled(@translations)
           end
 
           def grammatical_case
