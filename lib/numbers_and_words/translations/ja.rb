@@ -4,14 +4,6 @@ module NumbersAndWords
   module Translations
     # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Ja.
     class Ja < Base
-      SOKUON = {
-        'いち' => ['いっ', /\A[かきくけこさしすせそたちつてと]/],
-        'はち' => ['はっ', /\A[かきくけこさしすせそたちつてと]/],
-        'じゅう' => ['じゅっ', /\A[かきくけこさしすせそたちつてと]/],
-        'ろく' => ['ろっ', /\A[かきくけこ]/],
-        'ゃく' => ['ゃっ', /\A[かきくけこ]/]
-      }.freeze
-
       def ones(digit, script = :kanji)
         t(script)[:ones][digit]
       end
@@ -20,11 +12,13 @@ module NumbersAndWords
         t(script)[:micro_separator]
       end
 
+      # In kana, an ending under numbers.kana.sokuon doubles the next consonant before the sounds it lists
+      # ("いっせん").
       def join(left, right, script)
         return left + right unless script == :kana
 
-        ending, (replacement, sounds) = SOKUON.find { |suffix, _| left.end_with?(suffix) }
-        ending && right.match?(sounds) ? left.delete_suffix(ending) + replacement + right : left + right
+        ending, change = t(:kana)[:sokuon].find { |suffix, _| left.end_with?(suffix.to_s) }
+        ending && change[:before].include?(right[0]) ? left.delete_suffix(ending.to_s) + change[:to] + right : left + right
       end
     end
   end

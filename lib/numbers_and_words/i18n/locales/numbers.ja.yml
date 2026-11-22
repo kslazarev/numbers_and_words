@@ -91,3 +91,10 @@ ja:
       scale_48: ごく
       ordinal_prefix: だい
       micro_separator: てん
+      # Endings that double the next consonant (sokuon) before the sounds listed, when words are joined.
+      sokuon:
+        いち: {to: いっ, before: かきくけこさしすせそたちつてと}
+        はち: {to: はっ, before: かきくけこさしすせそたちつてと}
+        じゅう: {to: じゅっ, before: かきくけこさしすせそたちつてと}
+        ろく: {to: ろっ, before: かきくけこ}
+        ゃく: {to: ゃっ, before: かきくけこ}
