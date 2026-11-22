@@ -201,6 +201,8 @@ fr:
     subunit_separator: et
     # The form of a unit after a decimal: an amount below 2 takes the singular ("1,5 euro").
     unit_after_decimal: {below_two: one}
+    # The form of a unit after zero: the singular ("zéro euro").
+    unit_after_zero: one
     unit_scale_preposition: de
     unit_scale_preposition_elided: "d'"
     fraction_separator: et
