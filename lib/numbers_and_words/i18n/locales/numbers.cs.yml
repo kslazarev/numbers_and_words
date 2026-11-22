@@ -9,6 +9,47 @@ cs:
     teens: [_, jedenáct, dvanáct, třináct, čtrnáct, patnáct, šestnáct, sedmnáct, osmnáct, devatenáct]
     tens: [_, deset, dvacet, třicet, čtyřicet, padesát, šedesát, sedmdesát, osmdesát, devadesát]
     hundreds: [_, sto, dvě stě, tři sta, čtyři sta, pět set, šest set, sedm set, osm set, devět set]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The last group takes the gender asked for, a thousand and a milion the masculine, and a miliarda and the other
+    # scale words in -arda the feminine ("dvě miliardy").
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<thousands-count} {thousands}[ {>}]'
+        1000000: '{<cardinal-male} {millions}[ {>}]'
+        1000000000: '{<cardinal-female} {billions}[ {>}]'
+        1000000000000: '{<cardinal-male} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-female} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-male} {quintillion}[ {>}]'
+        1000000000000000000000: '{<cardinal-female} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-female} {octillions}[ {>}]'
+      cardinal-female:
+        extends: cardinal-male
+        0: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        0: '{ones.neuter}'
+      cardinal-counting:
+        extends: cardinal-male
+        0: '{ones.counting}'
+      # One is left out before tisíc ("tisíc", "dva tisíce"), and kept before the other scale words ("jeden milion").
+      thousands-count:
+        extends: cardinal-male
+        then: cardinal-male
+        1: ''
+        2: '{ones.male}'
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '{ordinals.tens}[ {>}]'
+        100: '{ordinals.hundreds}[ {>}]'
+        1000: '{ordinals.thousands}[ {>}]'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions]
     thousands:
       one: tisíc
@@ -46,24 +87,26 @@ cs:
       one: kvadriliarda
       few: kvadriliardy
       many: kvadriliard
-    ordinal:
-      ones:
-        male: [nultý, první, druhý, třetí, čtvrtý, pátý, šestý, sedmý, osmý, devátý]
-        female: [nultá, první, druhá, třetí, čtvrtá, pátá, šestá, sedmá, osmá, devátá]
-        neuter: [nulté, první, druhé, třetí, čtvrté, páté, šesté, sedmé, osmé, deváté]
-      teens:
-        male: [_, jedenáctý, dvanáctý, třináctý, čtrnáctý, patnáctý, šestnáctý, sedmnáctý, osmnáctý, devatenáctý]
-        female: [_, jedenáctá, dvanáctá, třináctá, čtrnáctá, patnáctá, šestnáctá, sedmnáctá, osmnáctá, devatenáctá]
-        neuter: [_, jedenácté, dvanácté, třinácté, čtrnácté, patnácté, šestnácté, sedmnácté, osmnácté, devatenácté]
-      tens:
-        male: [_, desátý, dvacátý, třicátý, čtyřicátý, padesátý, šedesátý, sedmdesátý, osmdesátý, devadesátý]
-        female: [_, desátá, dvacátá, třicátá, čtyřicátá, padesátá, šedesátá, sedmdesátá, osmdesátá, devadesátá]
-        neuter: [_, desáté, dvacáté, třicáté, čtyřicáté, padesáté, šedesáté, sedmdesáté, osmdesáté, devadesáté]
+    ordinals:
+      ones: [nultý, první, druhý, třetí, čtvrtý, pátý, šestý, sedmý, osmý, devátý]
+      teens: [_, jedenáctý, dvanáctý, třináctý, čtrnáctý, patnáctý, šestnáctý, sedmnáctý, osmnáctý, devatenáctý]
+      tens: [_, desátý, dvacátý, třicátý, čtyřicátý, padesátý, šedesátý, sedmdesátý, osmdesátý, devadesátý]
+      hundreds: [_, stý, dvoustý, třístý, čtyřstý, pětistý, šestistý, sedmistý, osmistý, devítistý]
       thousands: [_, tisící, dvoutisící, třítisící, čtyřtisící, pětitisící, šestitisící, sedmitisící, osmitisící, devítitisící]
-      hundreds:
-        male: [_, stý, dvoustý, třístý, čtyřstý, pětistý, šestistý, sedmistý, osmistý, devítistý]
-        female: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
-        neuter: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
+    # The feminine and neuter ordinals; counting numbers take the feminine ones ("dvacátá první").
+    genders:
+      female:
+        ordinals:
+          ones: [nultá, první, druhá, třetí, čtvrtá, pátá, šestá, sedmá, osmá, devátá]
+          teens: [_, jedenáctá, dvanáctá, třináctá, čtrnáctá, patnáctá, šestnáctá, sedmnáctá, osmnáctá, devatenáctá]
+          tens: [_, desátá, dvacátá, třicátá, čtyřicátá, padesátá, šedesátá, sedmdesátá, osmdesátá, devadesátá]
+          hundreds: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
+      neuter:
+        ordinals:
+          ones: [nulté, první, druhé, třetí, čtvrté, páté, šesté, sedmé, osmé, deváté]
+          teens: [_, jedenácté, dvanácté, třinácté, čtrnácté, patnácté, šestnácté, sedmnácté, osmnácté, devatenácté]
+          tens: [_, desáté, dvacáté, třicáté, čtyřicáté, padesáté, šedesáté, sedmdesáté, osmdesáté, devadesáté]
+          hundreds: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
     integral:
       zero: celá
       one: celá

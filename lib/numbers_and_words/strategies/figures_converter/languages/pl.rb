@@ -4,31 +4,15 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
-        class Pl < Cs
+        # Spells whole numbers from the rule sets in numbers.pl.yml; see RuleSets. Ordinals stop below 1,000 (see
+        # Options::Pl::Ordinal).
+        class Pl < Base
+          include RuleSets
+
           def words
             raise Translations::Families::Base.range_error(48) if figures.drop(48).any?(&:positive?)
-
-            @options.ordinal.result
-            @options.gender.result
-            super
-          end
-
-          def gender
-            return :male unless @current_capacity.to_i.zero?
-            return :male if !@options.options[:ordinal] && figures.ones == 1 && @strategy.figures.drop(1).any?(&:positive?)
-
-            options.gender.result
-          end
-
-          def hundreds
-            prefix = figures.round_hundred? ? maybe_ordinal : nil
-            translate(:hundreds, figures.hundreds, { gender:, prefix: })
-          end
-
-          def capacity_iteration
-            number = figures.number_in_capacity(@current_capacity)
-            return [] if number.zero?
-            return [megs] if number == 1
+            # remove_zero: true leaves no words for zero, also as an ordinal.
+            return '' if ordinal_integer.zero? && @options.remove_zero.result
 
             super
           end
