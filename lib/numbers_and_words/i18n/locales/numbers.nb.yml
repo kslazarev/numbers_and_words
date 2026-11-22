@@ -17,6 +17,8 @@ nb:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # One is left out before hundre and tusen only at the start ("hundre", "tusen ett hundre"), "og" comes after
     # hundreds and before a last group below a hundred ("tusen og en"), and a final one takes the gender asked for.
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
     rules:
       cardinal:
         then: after

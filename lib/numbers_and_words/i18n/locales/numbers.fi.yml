@@ -12,6 +12,8 @@ fi:
     hundreds: sataa
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Below a million a number is one word ("kaksituhattaviisisataa"); millions and larger are separate words.
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
     rules:
       cardinal:
         0: '{ones}'

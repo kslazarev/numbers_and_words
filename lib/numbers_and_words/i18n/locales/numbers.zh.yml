@@ -14,6 +14,8 @@ zh:
     # number starting with 10 to 19 starts with 十 ("十五"). Languages::Zh joins the groups with ten_thousand and hundred_million.
     # Numbers are written without spaces between words.
     word_separator: ''
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: myriad}
     rules:
       cardinal:
         0: '{ones}'

@@ -18,8 +18,8 @@ pt-BR:
       female: [_, cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
     one_hundred: cem
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
-    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
-    decimals: {fraction_gender: male}
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: point_or_fraction, fraction_gender: male}
     rules:
       cardinal-male:
         then: and-male

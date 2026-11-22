@@ -27,17 +27,6 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        # Languages that read decimals with the decorators of another language, or of a family, where they have
-        # none of their own.
-        SHARED = {
-          Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Digits, Bn: :Digits, Ur: :Digits, Id: :Digits, Th: :Digits,
-          Cs: :CountedFraction, Es: :CountedFraction, Ru: :CountedFraction, Bg: :FractionNoun, Sk: :FractionNoun,
-          Fr: :PointOrFraction, PtBr: :PointOrFraction, El: :PointWords, Ro: :PointWords, Fi: :Digits, Nb: :Digits,
-          Ja: :Myriad, Ko: :Myriad, Zh: :Myriad
-        }.freeze
-        # Languages that read decimals without decorators.
-        PLAIN = %i[Vi].freeze
-
         class << self
           AVAILABLE = %i[integral fractional].freeze
 
@@ -45,9 +34,11 @@ module NumbersAndWords
             enabled_decorator(options).new strategy, options
           end
 
-          # Whether a language, by its class name (PtBr), reads decimals.
+          # Whether a language, such as :'pt-BR', reads decimals: with decorators of its own or of the readings it
+          # names, or with none for reading: plain.
           def decimals?(language)
-            !own_and_shared(language.to_sym).empty? || PLAIN.include?(language.to_sym)
+            readings = readings(language.to_sym)
+            readings.include?(:plain) || readings.any? { |name| const_defined?(I18n.class_name(name), false) }
           end
 
           private
@@ -66,22 +57,25 @@ module NumbersAndWords
 
           # The decorators of the current language and those it shares; a language without decimals has none.
           def language_decorators
-            language = I18n.language_class_name
+            language = I18n.local_language
             raise UnsupportedNumberError, "Decimals are not supported in #{::I18n.locale.inspect}." unless decimals?(language)
 
-            own_and_shared(language.to_sym)
+            readings(language).map { |name| I18n.class_name(name) }.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
           end
 
-          # The language's decorators and those it shares, following SHARED and the language a locale extends:
-          # Ukrainian uses Russian's, which use CountedFraction's, and British English uses English's.
-          def own_and_shared(language)
+          # The language and the readings it uses for decimals, in order: its numbers.decimals.reading, which names
+          # a shared reading such as :counted_fraction or another language, followed in turn, or else the language
+          # its locale file extends. Ukrainian reads as Russian, which reads as CountedFraction.
+          def readings(language)
             names = [language]
-            names << shared_with(names.last) while shared_with(names.last)
-            names.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
+            names << next_reading(names.last) while next_reading(names.last)
+            names
           end
 
-          def shared_with(name)
-            SHARED[name] || I18n.parents[name.to_s]&.to_sym
+          def next_reading(name)
+            return unless I18n.languages.include?(name)
+
+            ::I18n.t('numbers.decimals.reading', locale: name, default: nil)&.to_sym || I18n.parents[name]
           end
         end
       end

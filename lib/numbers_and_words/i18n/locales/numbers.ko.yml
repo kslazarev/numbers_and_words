@@ -25,6 +25,8 @@ ko:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Numbers are grouped by 10,000 (만) and the groups separated by spaces; one is left out before the places and
     # before 만 ("만 이천"), but not before the larger scale words ("일억").
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: myriad}
     rules:
       cardinal:
         0: '{ones}'

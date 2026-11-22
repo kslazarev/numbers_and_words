@@ -112,6 +112,8 @@ ur:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Below a hundred each number is one word; the counts of the scale words go up to 99, and the last scale word
     # counts any number.
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
     rules:
       cardinal:
         0: '{ones}'

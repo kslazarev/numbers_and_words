@@ -22,27 +22,29 @@ module NumbersAndWords
       ::I18n.t('numbers.word_separator', locale: language, default: ' ')
     end
 
-    # The class name of a language's classes: :'pt-BR' is PtBr.
+    # The class name of a language's classes, or of a shared reading: :'pt-BR' is PtBr, :counted_fraction CountedFraction.
     def class_name(language)
-      language.to_s.split('-').map(&:capitalize).join
+      language.to_s.split(/[-_]/).map(&:capitalize).join
     end
 
     # Defines the class the block makes in the namespace for each bundled language without one of its own, under
     # the language's class name, such as Translations::Sv; a language that extends another, such as British
     # English, gets a subclass of the other's class.
     def define_classes(namespace)
-      languages.sort_by { |language| parents.key?(class_name(language)) ? 1 : 0 }.each do |language|
+      languages.sort_by { |language| parents.key?(language) ? 1 : 0 }.each do |language|
         name = class_name(language)
-        next if namespace.const_defined?(name, false)
-
-        parent = parents[name]
-        namespace.const_set(name, parent && namespace.const_defined?(parent, false) ? Class.new(namespace.const_get(parent, false)) : yield)
+        namespace.const_set(name, parent_class(namespace, language) || yield) unless namespace.const_defined?(name, false)
       end
     end
 
-    # The class name of each bundled language that extends another, by the class name of the other: EnGb => En.
+    def parent_class(namespace, language)
+      parent = parents[language] && class_name(parents[language])
+      Class.new(namespace.const_get(parent, false)) if parent && namespace.const_defined?(parent, false)
+    end
+
+    # The language each bundled language that extends another extends: :'en-GB' => :en.
     def parents
-      @parents ||= locale_files.to_h { |file| [class_name(language_of(file)), Extends.parent(file)&.then { |parent| class_name(parent) }] }.compact
+      @parents ||= locale_files.to_h { |file| [language_of(file), Extends.parent(file)] }.compact
     end
 
     # The language a bundled file belongs to: numbers.pt-BR.yml and pt-BR.rb are :'pt-BR'.

@@ -10,6 +10,8 @@ ja:
     # before a scale word starting with k, s or t ("いっちょう", "はっけい").
     # Numbers are written without spaces between words.
     word_separator: ''
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: myriad}
     rules:
       cardinal:
         0: '{ones}'
