@@ -15,7 +15,7 @@ describe 'Indonesian, Malay, Romanian and Greek limits' do # rubocop:disable RSp
   it 'raises for Greek ordinals from 10,000' do
     I18n.with_locale(:el) do
       expect(9999.to_words(ordinal: true)).to eq('εννεακισχιλιοστό εννιακοσιοστό ενενηκοστό ένατο')
-      expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Greek ordinals support numbers below 10,000')
+      expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Ordinals in :el only support numbers between 0 and 9999.')
     end
   end
 

@@ -6,7 +6,7 @@ module NumbersAndWords
       module Options
         # An option a language declares under numbers.supported_options in its locale file. A true or false option
         # gives its value; one with values gives the value as a symbol, or the declared default when it isn't given.
-        # A language's own class, such as Options::Pl::Ordinal, extends this one when an option needs checks.
+        # A language's own class, such as Options::Pl::Gender, extends this one when an option needs checks.
         class Option
           attr_reader :strategy, :options
 

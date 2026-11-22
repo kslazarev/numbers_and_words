@@ -10,7 +10,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Cs do
   end
 
   it 'raises for ordinals of 10,000 or more instead of returning wrong words' do
-    expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Czech ordinals support numbers below 10,000')
+    expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Ordinals in :cs only support numbers between 0 and 9999.')
   end
 
   it 'still converts cardinals of 10,000 or more' do
