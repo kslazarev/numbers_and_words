@@ -43,7 +43,7 @@ module NumbersAndWords
       end
 
       def megs(capacity, options = {})
-        return t([options[:prefix], :mega, options[:gender]].join('.'))[capacity] if ordinal?(options)
+        return scale(t([options[:prefix], :mega, options[:gender]].join('.')), capacity) if ordinal?(options)
         return super if options[:is_opaque] || options[:is_without_connector]
 
         suffix = options[:is_with_comma] ? ',' : " #{union}"

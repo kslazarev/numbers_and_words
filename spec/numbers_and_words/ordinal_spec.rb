@@ -45,7 +45,8 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
   end
 
   # The ordinal of every power of a thousand, once and twice, up to the last cardinal scale word: a scale table
-  # shorter than or out of step with the cardinal mega list gives an empty, repeated or wrong scale word.
+  # shorter than or out of step with the cardinal mega list gives an empty, repeated or wrong scale word. The next
+  # power has no cardinal words, and no ordinal ones either.
   NumbersAndWords::I18n.languages.each do |locale|
     it "spells the #{locale} ordinal of every scale word" do
       I18n.with_locale(locale) do
@@ -60,6 +61,7 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
           number.to_s[0] == '2' || plain(ordinal).include?(plain(number.to_words.split.last)[0, 3]) || ORDINAL_SCALE_STEM_EXCEPTIONS.include?([locale, number])
         end
         expect(mismatched).to eq([])
+        expect { (10**(3 * (scales.size + 1))).to_words(ordinal: true) }.to raise_error(RangeError) if scales.size < 50
       end
     end
   end
