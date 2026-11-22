@@ -5,8 +5,6 @@ require 'numbers_and_words/strategies/array_joiner/languages/families/base'
 
 require 'numbers_and_words/strategies/array_joiner/languages/base'
 
-require 'numbers_and_words/strategies/array_joiner/languages/th'
-require 'numbers_and_words/strategies/array_joiner/languages/zh'
 require 'numbers_and_words/strategies/array_joiner/languages/ja'
 
 module NumbersAndWords

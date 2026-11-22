@@ -8,6 +8,8 @@ ja:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Numbers are grouped by 10,000 (万) with words of the script asked for; in kana, a count's last sound doubles
     # before a scale word starting with k, s or t ("いっちょう", "はっけい").
+    # Numbers are written without spaces between words.
+    word_separator: ''
     rules:
       cardinal:
         0: '{ones}'

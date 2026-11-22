@@ -2,7 +2,6 @@
 
 require 'numbers_and_words/strategies/figures_converter/decorators/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/decimal_point'
-require 'numbers_and_words/strategies/figures_converter/decorators/indian'
 require 'numbers_and_words/strategies/figures_converter/decorators/counted_fraction'
 require 'numbers_and_words/strategies/figures_converter/decorators/fraction_noun'
 require 'numbers_and_words/strategies/figures_converter/decorators/point_or_fraction'
@@ -17,14 +16,12 @@ require 'numbers_and_words/strategies/figures_converter/decorators/he/fractional
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/base'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/hu/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/id/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/it/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/nl/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/nl/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/pl/fractional'
 require 'numbers_and_words/strategies/figures_converter/decorators/pt-BR/integral'
 require 'numbers_and_words/strategies/figures_converter/decorators/ru/integral'
-require 'numbers_and_words/strategies/figures_converter/decorators/th/fractional'
 
 module NumbersAndWords
   module Strategies
@@ -33,7 +30,7 @@ module NumbersAndWords
         # Languages that read decimals with the decorators of another language, or of a family, where they have
         # none of their own.
         SHARED = {
-          Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Indian, Bn: :Indian, Ur: :Indian,
+          Pt: :PtBr, Pl: :Cs, Ms: :Id, Uk: :Ru, Hi: :Digits, Bn: :Digits, Ur: :Digits, Id: :Digits, Th: :Digits,
           Cs: :CountedFraction, Es: :CountedFraction, Ru: :CountedFraction, Bg: :FractionNoun, Sk: :FractionNoun,
           Fr: :PointOrFraction, PtBr: :PointOrFraction, El: :PointWords, Ro: :PointWords, Fi: :Digits, Nb: :Digits,
           Ja: :Myriad, Ko: :Myriad, Zh: :Myriad

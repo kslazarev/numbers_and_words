@@ -15,7 +15,7 @@ describe 'Negative numbers' do # rubocop:disable RSpec/DescribeClass -- covers I
 
   NumbersAndWords::I18n.languages.each do |locale|
     it "reads #{locale} negative integers as the minus word and the absolute value" do
-      separator = NumbersAndWords::Unit::UNSPACED.include?(locale) ? '' : ' '
+      separator = NumbersAndWords::I18n.word_separator(locale)
       NEGATIVE_EXAMPLES.each do |number|
         expect(words(locale, -number)).to eq("#{minus(locale)}#{separator}#{words(locale, number)}")
       end
@@ -30,7 +30,7 @@ describe 'Negative numbers' do # rubocop:disable RSpec/DescribeClass -- covers I
 
   decimal_languages.each do |locale|
     it "reads #{locale} negative decimals as the minus word and the absolute value" do
-      separator = NumbersAndWords::Unit::UNSPACED.include?(locale) ? '' : ' '
+      separator = NumbersAndWords::I18n.word_separator(locale)
       expect(words(locale, -1.5)).to eq("#{minus(locale)}#{separator}#{words(locale, 1.5)}")
       expect(words(locale, -0.0)).not_to start_with(minus(locale))
     end

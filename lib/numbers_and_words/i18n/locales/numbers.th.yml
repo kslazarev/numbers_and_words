@@ -2,7 +2,7 @@ th:
   numbers:
     supported_options:
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: ลบ
     ones: [ศูนย์, หนึ่ง, สอง, สาม, สี่, ห้า, หก, เจ็ด, แปด, เก้า]
     tens: [_, สิบ, ยี่สิบ, สามสิบ, สี่สิบ, ห้าสิบ, หกสิบ, เจ็ดสิบ, แปดสิบ, เก้าสิบ]
@@ -13,6 +13,8 @@ th:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # A number is one word, grouped by millions with one ล้าน for each power of a million ("หนึ่งล้านล้าน"), here
     # up to 10**120; a final one after other digits is เอ็ด ("สิบเอ็ด", "หนึ่งล้านเอ็ด").
+    # Numbers are written without spaces between words.
+    word_separator: ''
     rules:
       cardinal:
         0: '{ones}'
