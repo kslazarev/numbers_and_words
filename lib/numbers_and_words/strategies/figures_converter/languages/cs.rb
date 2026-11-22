@@ -4,74 +4,25 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.cs.yml; see RuleSets.
         class Cs < Base
-          # methods in translations/cs.rb which can work with :gender or :ordinal
-          %i[ones teens tens tens_with_ones hundreds].each do |method_name|
-            define_method(method_name) do
-              super(internal_options)
-            end
-          end
+          include RuleSets
 
-          def zero
-            super(internal_options) unless maybe_remove_zero
-          end
-
-          # Ordinals of 1,000 to 9,999 start with one word for the thousands ("tisící", "dvoutisící").
           ORDINAL_LIMIT = 10_000
 
           def words
-            raise RangeError, 'Czech ordinals support numbers below 10,000' if maybe_ordinal && @figures.reverse.join.to_i >= ORDINAL_LIMIT
+            raise RangeError, 'Czech ordinals support numbers below 10,000' if @options.ordinal.result && ordinal_integer >= ORDINAL_LIMIT
+            # remove_zero: true leaves no words for zero, also as an ordinal.
+            return '' if ordinal_integer.zero? && @options.remove_zero.result
 
             super
-          end
-
-          # "tisíc" rather than "jeden tisíc" for a thousands group of one, and "tisící" in ordinals.
-          def capacity_iteration
-            return super unless @current_capacity == FiguresArray::THOUSAND_CAPACITY
-
-            thousands = @figures.number_in_capacity(@current_capacity)
-            return [@translations.t('ordinal.thousands')[thousands]] if maybe_ordinal && thousands.positive?
-            return [megs] if thousands == 1
-
-            super
-          end
-
-          def megs(*args)
-            super({ number: @figures.number_in_capacity(@current_capacity) }.merge(args.first || {}))
-          end
-
-          def gender
-            # @current_capacity = order of block of 3 digits, backwards (0 = hundreds tens ones)
-            @current_capacity ||= 0
-
-            if @current_capacity.zero?
-              last_group_gender
-            elsif @current_capacity > 2 && @current_capacity.odd?
-              :female # miliardy, biliardy, triliardy...
-            else
-              :male
-            end
           end
 
           private
 
-          # Without a gender, ordinals are feminine (druhá) and cardinals use the counting forms (dvacet dva); the
-          # decimal decorators choose the feminine for both parts (dvě celé dvě desetiny).
-          def last_group_gender
-            gender = options.gender.result
-            gender == :counting && maybe_ordinal ? :female : gender
-          end
-
-          def internal_options
-            { gender:, prefix: maybe_ordinal }
-          end
-
-          def maybe_remove_zero
-            @options.remove_zero.result
-          end
-
-          def maybe_ordinal
-            @options.ordinal.result
+          # A counting number's ordinal is feminine ("dvacátá první").
+          def gender_words
+            @options.gender.result == :counting ? 'genders.female' : super
           end
         end
       end

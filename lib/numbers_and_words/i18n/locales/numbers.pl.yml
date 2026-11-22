@@ -8,6 +8,59 @@ pl:
     teens: [_, jedenaście, dwanaście, trzynaście, czternaście, piętnaście, szesnaście, siedemnaście, osiemnaście, dziewiętnaście]
     tens: [_, dziesięć, dwadzieścia, trzydzieści, czterdzieści, pięćdziesiąt, sześćdziesiąt, siedemdziesiąt, osiemdziesiąt, dziewięćdziesiąt]
     hundreds: [_, sto, dwieście, trzysta, czterysta, pięćset, sześćset, siedemset, osiemset, dziewięćset]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<scale-count} {thousands}[ {>}]'
+        1000000: '{<scale-count} {millions}[ {>}]'
+        1000000000: '{<scale-count} {billions}[ {>}]'
+        1000000000000: '{<scale-count} {trillions}[ {>}]'
+        1000000000000000: '{<scale-count} {quadrillions}[ {>}]'
+        1000000000000000000: '{<scale-count} {quintillions}[ {>}]'
+        1000000000000000000000: '{<scale-count} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<scale-count} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<scale-count} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<scale-count} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<scale-count} {decillions}[ {>}]'
+        1000000000000000000000000000000000000: '{<scale-count} {undecillions}[ {>}]'
+        1000000000000000000000000000000000000000: '{<scale-count} {duodecillions}[ {>}]'
+        1000000000000000000000000000000000000000000: '{<scale-count} {tredecillions}[ {>}]'
+        1000000000000000000000000000000000000000000000: '{<scale-count} {quattuordecillions}[ {>}]'
+      # A final one after other digits is masculine whatever is counted ("dwadzieścia jeden", "tysiąc jeden").
+      cardinal-female:
+        extends: cardinal-male
+        then: final-female
+        0: '{ones.female}'
+      final-female:
+        extends: cardinal-female
+        1: '{ones.male}'
+        2: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        then: final-neuter
+        0: '{ones.neuter}'
+      final-neuter:
+        extends: cardinal-neuter
+        1: '{ones.male}'
+        2: '{ones.neuter}'
+      # A scale word's count is masculine, and a count of one is left out ("tysiąc", "milion", "dwa tysiące").
+      scale-count:
+        extends: cardinal-male
+        then: cardinal-male
+        1: ''
+        2: '{ones.male}'
+      # A hundred is ordinal only when it ends the number ("dwusetny", but "sto dwudziesty pierwszy").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '{ordinals.tens}[ {>}]'
+        100: '[{hundreds} {>}|{ordinals.hundreds}]'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
     thousands: { one: tysiąc, few: tysiące, many: tysięcy, other: tysiąca }
     millions: { one: milion, few: miliony, many: milionów, other: miliona }
@@ -24,23 +77,25 @@ pl:
     duodecillions: { one: sekstyliard, few: sekstyliardy, many: sekstyliardów, other: sekstyliarda }
     tredecillions: { one: septylion, few: septyliony, many: septylionów, other: septyliona }
     quattuordecillions: { one: septyliard, few: septyliardy, many: septyliardów, other: septyliarda }
-    ordinal:
-      ones:
-        male: [zerowy, pierwszy, drugi, trzeci, czwarty, piąty, szósty, siódmy, ósmy, dziewiąty]
-        female: [zerowa, pierwsza, druga, trzecia, czwarta, piąta, szósta, siódma, ósma, dziewiąta]
-        neuter: [zerowe, pierwsze, drugie, trzecie, czwarte, piąte, szóste, siódme, ósme, dziewiąte]
-      teens:
-        male: [_, jedenasty, dwunasty, trzynasty, czternasty, piętnasty, szesnasty, siedemnasty, osiemnasty, dziewiętnasty]
-        female: [_, jedenasta, dwunasta, trzynasta, czternasta, piętnasta, szesnasta, siedemnasta, osiemnasta, dziewiętnasta]
-        neuter: [_, jedenaste, dwunaste, trzynaste, czternaste, piętnaste, szesnaste, siedemnaste, osiemnaste, dziewiętnaste]
-      tens:
-        male: [_, dziesiąty, dwudziesty, trzydziesty, czterdziesty, pięćdziesiąty, sześćdziesiąty, siedemdziesiąty, osiemdziesiąty, dziewięćdziesiąty]
-        female: [_, dziesiąta, dwudziesta, trzydziesta, czterdziesta, pięćdziesiąta, sześćdziesiąta, siedemdziesiąta, osiemdziesiąta, dziewięćdziesiąta]
-        neuter: [_, dziesiąte, dwudzieste, trzydzieste, czterdzieste, pięćdziesiąte, sześćdziesiąte, siedemdziesiąte, osiemdziesiąte, dziewięćdziesiąte]
-      hundreds:
-        male: [_, setny, dwusetny, trzechsetny, czterechsetny, pięćsetny, sześćsetny, siedemsetny, osiemsetny, dziewięćsetny]
-        female: [_, setna, dwusetna, trzechsetna, czterechsetna, pięćsetna, sześćsetna, siedemsetna, osiemsetna, dziewięćsetna]
-        neuter: [_, setne, dwusetne, trzechsetne, czterechsetne, pięćsetne, sześćsetne, siedemsetne, osiemsetne, dziewięćsetne]
+    ordinals:
+      ones: [zerowy, pierwszy, drugi, trzeci, czwarty, piąty, szósty, siódmy, ósmy, dziewiąty]
+      teens: [_, jedenasty, dwunasty, trzynasty, czternasty, piętnasty, szesnasty, siedemnasty, osiemnasty, dziewiętnasty]
+      tens: [_, dziesiąty, dwudziesty, trzydziesty, czterdziesty, pięćdziesiąty, sześćdziesiąty, siedemdziesiąty, osiemdziesiąty, dziewięćdziesiąty]
+      hundreds: [_, setny, dwusetny, trzechsetny, czterechsetny, pięćsetny, sześćsetny, siedemsetny, osiemsetny, dziewięćsetny]
+    # The feminine and neuter ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [zerowa, pierwsza, druga, trzecia, czwarta, piąta, szósta, siódma, ósma, dziewiąta]
+          teens: [_, jedenasta, dwunasta, trzynasta, czternasta, piętnasta, szesnasta, siedemnasta, osiemnasta, dziewiętnasta]
+          tens: [_, dziesiąta, dwudziesta, trzydziesta, czterdziesta, pięćdziesiąta, sześćdziesiąta, siedemdziesiąta, osiemdziesiąta, dziewięćdziesiąta]
+          hundreds: [_, setna, dwusetna, trzechsetna, czterechsetna, pięćsetna, sześćsetna, siedemsetna, osiemsetna, dziewięćsetna]
+      neuter:
+        ordinals:
+          ones: [zerowe, pierwsze, drugie, trzecie, czwarte, piąte, szóste, siódme, ósme, dziewiąte]
+          teens: [_, jedenaste, dwunaste, trzynaste, czternaste, piętnaste, szesnaste, siedemnaste, osiemnaste, dziewiętnaste]
+          tens: [_, dziesiąte, dwudzieste, trzydzieste, czterdzieste, pięćdziesiąte, sześćdziesiąte, siedemdziesiąte, osiemdziesiąte, dziewięćdziesiąte]
+          hundreds: [_, setne, dwusetne, trzechsetne, czterechsetne, pięćsetne, sześćsetne, siedemsetne, osiemsetne, dziewięćsetne]
     integral: { one: cała, few: całe, many: całych, other: całej }
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths, quindecillionths]
     tenths: { one: dziesiąta, few: dziesiąte, many: dziesiątych, other: dziesiątej }
