@@ -15,12 +15,6 @@ module NumbersAndWords
 
             super
           end
-
-          private
-
-          def cardinal_set
-            'cardinal'
-          end
         end
       end
     end

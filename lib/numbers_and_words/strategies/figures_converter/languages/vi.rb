@@ -18,10 +18,6 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            'cardinal'
-          end
-
           def fractional?
             !@options.options[:fractional].nil? && !@options.options[:integral]
           end

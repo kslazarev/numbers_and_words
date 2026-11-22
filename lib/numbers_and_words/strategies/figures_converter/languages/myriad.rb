@@ -17,10 +17,6 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            'cardinal'
-          end
-
           def digit_word(digit)
             @translations.ones(digit)
           end
