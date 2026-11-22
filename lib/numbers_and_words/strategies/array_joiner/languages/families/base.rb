@@ -11,11 +11,15 @@ module NumbersAndWords
             def elements_logic
               return @elements.join(union_element) unless @elements.first.empty?
 
-              keeps_micro_separator? ? "#{micro_separator} #{@elements.last}" : @elements.last
+              keeps_micro_separator? ? [micro_separator, @elements.last].join(word_separator) : @elements.last
             end
 
             def union_element
-              micro_separator.empty? ? ' ' : " #{micro_separator} "
+              micro_separator.empty? ? word_separator : [nil, micro_separator, nil].join(word_separator)
+            end
+
+            def word_separator
+              I18n.word_separator
             end
 
             # The decimal word, or the fraction word for fraction: true.

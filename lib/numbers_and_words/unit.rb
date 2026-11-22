@@ -6,8 +6,6 @@ module NumbersAndWords
   #   ru: { units: { kopeck: { one: копейка, few: копейки, many: копеек, other: копейки, gender: female } } }
   module Unit
     SCOPE = 'units'
-    # Locales whose numbers are written without spaces, so the unit follows without one.
-    UNSPACED = %i[ja th zh].freeze
     # After a decimal a unit takes its other form (1.5 dollars, 1,5 рубля, 1,5 koruny), except that French
     # and Portuguese use the singular below 2 (1,5 euro).
     SINGULAR_BELOW_TWO = %i[fr fr-CH pt pt-BR].freeze
@@ -136,7 +134,7 @@ module NumbersAndWords
     end
 
     def separator
-      UNSPACED.include?(I18n.local_language) ? '' : ' '
+      I18n.word_separator
     end
   end
 end

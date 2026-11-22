@@ -2,7 +2,7 @@ zh:
   numbers:
     supported_options:
       ordinal: true
-      remove_zero: true
+      remove_zero: {keeps_micro_separator: true}
     minus: 负
     ones: [零, 一, 二, 三, 四, 五, 六, 七, 八, 九]
     ten: 十
@@ -12,6 +12,8 @@ zh:
     hundred_million: 亿
     # Rule sets for a group of four digits (see NumbersAndWords::Rules), with 零 for a gap inside it ("一千零一"); a
     # number starting with 10 to 19 starts with 十 ("十五"). Languages::Zh joins the groups with ten_thousand and hundred_million.
+    # Numbers are written without spaces between words.
+    word_separator: ''
     rules:
       cardinal:
         0: '{ones}'

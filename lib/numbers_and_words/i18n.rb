@@ -16,6 +16,12 @@ module NumbersAndWords
       @languages ||= locale_files.map { |path| language_of(path) }
     end
 
+    # What separates the words of a number in the language: a space, or nothing in languages written without spaces,
+    # under numbers.word_separator.
+    def word_separator(language = local_language)
+      ::I18n.t('numbers.word_separator', locale: language, default: ' ')
+    end
+
     # The class name of a language's classes: :'pt-BR' is PtBr.
     def class_name(language)
       language.to_s.split('-').map(&:capitalize).join
