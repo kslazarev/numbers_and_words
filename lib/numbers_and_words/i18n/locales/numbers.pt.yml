@@ -128,6 +128,8 @@ pt:
       other: trilionésimos
     micro_separator: vírgula
     subunit_separator: e
+    # The form of a unit after a decimal: an amount below 2 takes the singular ("1,5 euro").
+    unit_after_decimal: {below_two: one}
     unit_scale_preposition: de
     fraction_separator: e
     micro_prefix:
