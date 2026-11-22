@@ -4,12 +4,22 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        # A count in the feminine and the fraction noun for the length of the fractional part, as Bulgarian "две десети".
+        # A decimal read as two counted nouns, as Bulgarian "едно цяло и две десети" and Slovak "jedna celá a dve
+        # desatiny", in the genders under numbers.decimals in the locale file.
         module FractionNoun
-          # Bulgarian reads the fractional part as a feminine number of tenths, hundredths and so on.
+          # The integral part and its noun, which remove_zero leaves out with a zero integral part.
+          class Integral < Base
+            def run
+              number = @strategy.figures.reverse.join.to_i
+              return super if @options[:remove_zero] && number.zero?
+
+              "#{super} #{@strategy.translations.integral(number)}"
+            end
+          end
+
+          # The fractional part and the fraction noun for its length, such as tenths or hundredths.
           class Fractional < Base
             def run
-              @options[:gender] = :female
               length = @options[:fractional][:length].to_i
               "#{super} #{@strategy.translations.fraction(length, @strategy.figures.reverse.join.to_i)}"
             end

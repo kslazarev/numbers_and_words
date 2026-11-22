@@ -30,6 +30,8 @@ es:
     count_twenties: [_, veintiún, veintidós, veintitrés, veinticuatro, veinticinco, veintiséis, veintisiete, veintiocho, veintinueve]
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # The long scale says "mil millones", or only "mil" before a count of millions ("mil un millón").
+    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
+    decimals: {fractional_gender: female}
     rules:
       cardinal:
         0: '{unit_ones}'

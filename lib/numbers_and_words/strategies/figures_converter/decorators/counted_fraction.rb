@@ -9,7 +9,6 @@ module NumbersAndWords
         module CountedFraction
           class Fractional < Base
             def run
-              @options[:gender] = :female
               "#{super} #{fraction_significance}"
             end
           end

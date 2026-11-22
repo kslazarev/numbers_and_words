@@ -18,6 +18,8 @@ pt:
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # The long scale counts millions up to a million ("mil e um milhões"), and "e" comes before a last group below a
     # hundred or of round hundreds ("um bilião e um milhão", "mil e cem").
+    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
+    decimals: {fraction_gender: male}
     rules:
       cardinal-male:
         then: and-male

@@ -7,7 +7,6 @@ module NumbersAndWords
         module Ru
           class Integral < Base
             def run
-              @options[:gender] = :female
               words = super
               # remove_zero: true leaves no words for a zero integral part, and no "целых" after them.
               words.empty? ? words : "#{words} #{integral_significance}"

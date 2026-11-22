@@ -12,6 +12,7 @@ module NumbersAndWords
         # option_words, such as the words under numbers.options.<option> for an option that is on.
         module RuleSets
           include Ordinals
+          include Declarations
 
           def words
             ordinal = ordinal_number?
@@ -56,45 +57,9 @@ module NumbersAndWords
             with_option_rules('ordinal')
           end
 
-          # The words under numbers.options.<option> of each declared option that is on, or numbers.options.<value>
-          # of its value, such as French spelling: :traditional.
-          def option_words
-            scopes = locale_words(:options)
-            declared_options.keys.filter_map do |name|
-              value = @options.public_send(name)&.result
-              key = value == true ? name : value
-              "options.#{key}" if key.is_a?(::Symbol) && scopes.include?(key)
-            end
-          end
-
-          # The rule set with the suffix an option that is on names, such as cardinal-hundreds for
-          # tens_of_hundreds: {rules: hundreds}, where the locale file has one.
-          def with_option_rules(set)
-            suffix = option_rules
-            candidate = "#{set}-#{suffix}"
-            suffix && locale_words(:rules).include?(candidate.to_sym) ? candidate : set
-          end
-
-          def option_rules
-            declared_options.each { |name, declared| return declared[:rules] if declared.is_a?(::Hash) && declared[:rules] && @options.options[name] }
-            nil
-          end
-
-          def declared_options
-            OptionsValidation.declared_options(I18n.local_language)
-          end
-
-          # Whether remove_zero: true still spells the ordinal of zero, as remove_zero: {keeps_ordinal_zero: true}
-          # under numbers.supported_options declares.
-          def keeps_ordinal_zero?
-            declared = declared_options[:remove_zero]
-            declared.is_a?(::Hash) && declared[:keeps_ordinal_zero] == true
-          end
-
           # The rule set of the gender, such as cardinal-female, where the locale file has one, or else cardinal. An
           # animate accusative takes the genitive of a final "one", and of "two", "three" and "four" alone.
           def cardinal_set
-            gender = @options.gender&.result
             return with_option_rules('cardinal') unless gender
 
             animate = grammatical_case == :accusative && @options.animate&.result
@@ -107,7 +72,6 @@ module NumbersAndWords
           end
 
           def gender_words
-            gender = @options.gender&.result
             "genders.#{gender}" if locale_words(:genders).include?(gender)
           end
 

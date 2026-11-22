@@ -3,6 +3,7 @@
 require 'numbers_and_words/i18n'
 require 'numbers_and_words/strategies/figures_converter/languages/base'
 require 'numbers_and_words/strategies/figures_converter/languages/ordinals'
+require 'numbers_and_words/strategies/figures_converter/languages/rule_sets/declarations'
 require 'numbers_and_words/strategies/figures_converter/languages/rule_sets'
 
 require 'numbers_and_words/strategies/figures_converter/languages/cs'
@@ -11,8 +12,6 @@ require 'numbers_and_words/strategies/figures_converter/languages/en-GB'
 require 'numbers_and_words/strategies/figures_converter/languages/es'
 require 'numbers_and_words/strategies/figures_converter/languages/ka'
 require 'numbers_and_words/strategies/figures_converter/languages/nl'
-require 'numbers_and_words/strategies/figures_converter/languages/pt-BR'
-require 'numbers_and_words/strategies/figures_converter/languages/pt'
 
 require 'numbers_and_words/strategies/figures_converter/languages/vi'
 require 'numbers_and_words/strategies/figures_converter/languages/myriad'
@@ -22,8 +21,6 @@ require 'numbers_and_words/strategies/figures_converter/languages/ko'
 require 'numbers_and_words/strategies/figures_converter/languages/he'
 require 'numbers_and_words/strategies/figures_converter/languages/nb'
 require 'numbers_and_words/strategies/figures_converter/languages/pl'
-require 'numbers_and_words/strategies/figures_converter/languages/ro'
-require 'numbers_and_words/strategies/figures_converter/languages/el'
 
 module NumbersAndWords
   module Strategies

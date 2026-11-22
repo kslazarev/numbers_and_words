@@ -13,6 +13,8 @@ pl:
     tens: [_, dziesięć, dwadzieścia, trzydzieści, czterdzieści, pięćdziesiąt, sześćdziesiąt, siedemdziesiąt, osiemdziesiąt, dziewięćdziesiąt]
     hundreds: [_, sto, dwieście, trzysta, czterysta, pięćset, sześćset, siedemset, osiemset, dziewięćset]
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The gender of the parts of a decimal (see RuleSets#decimal_gender).
+    decimals: {integral_gender: female, fractional_gender: female}
     rules:
       cardinal-male:
         0: '{ones.male}'
