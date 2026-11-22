@@ -7,10 +7,6 @@ module NumbersAndWords
       def zero
         t(:ones)[:neuter][0]
       end
-
-      def micro_separator
-        t(:micro_separator)
-      end
     end
   end
 end
