@@ -47,14 +47,19 @@ module NumbersAndWords
 
     # The unit form after a whole number, after a preposition where the number ends in a scale noun (de reais).
     def whole_form(unit, key, entry, number, options)
-      key = "#{key}.one" if singular_zero?(entry, number)
+      zero_form = zero_form(entry, number)
+      key = "#{key}.#{zero_form}" if zero_form
       form = form(unit, key, count(number, options))
       options[:ordinal] ? form : ScalePreposition.apply(form, number, entry)
     end
 
-    def singular_zero?(entry, number)
-      number.zero? && %i[fr fr-CH].include?(I18n.local_language) &&
-        entry.is_a?(Hash) && entry.key?(:one) && !entry.key?(:zero)
+    # The form numbers.unit_after_zero gives a unit after zero, such as the French singular ("zéro euro"), where
+    # the unit has that form and no zero form of its own.
+    def zero_form(entry, number)
+      return unless number.zero? && entry.is_a?(Hash) && !entry.key?(:zero)
+
+      form = ::I18n.t('numbers.unit_after_zero', default: nil)&.to_sym
+      form if entry.key?(form)
     end
 
     # Unit translations have one form per plural category, all in the nominative.
