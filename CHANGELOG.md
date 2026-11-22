@@ -1,4 +1,4 @@
-## 1.1.0 (Next)
+## 1.1.0 (2026/11/22)
 
 ### Features
   * Add support for Ruby 4.0. \[[#211](https://github.com/kslazarev/numbers_and_words/pull/211)\]
@@ -29,7 +29,6 @@
   * Add numeral spelling and grammar references in a Sources section on every language page. \[[#316](https://github.com/kslazarev/numbers_and_words/pull/316)\] \([@dblock](https://github.com/dblock)\)
   * Check spelled-out integers against the Unicode CLDR spell-out rules from twitter_cldr in every language CLDR covers, with every accepted difference reviewed as a rule in `spec/fixtures/cldr_rules.yml` or an exception in `spec/fixtures/cldr_exceptions.yml`. \[[#317](https://github.com/kslazarev/numbers_and_words/pull/317)\] \([@dblock](https://github.com/dblock)\)
   * Release 1.1.0 instead of 2.0.0: keep the 1.0 defaults, error classes, locale codes and Ruby 3.1 support, warn about what 2.0 will change, and add `NumbersAndWords.config.strict_options` to raise for unsupported options. \[[#320](https://github.com/kslazarev/numbers_and_words/pull/320)\] \([@dblock](https://github.com/dblock)\)
-  * Your contribution here.
 
 ### Bugs
   * Fix Latin letters inside Cyrillic words in Russian, Ukrainian and Kazakh, and the Italian spelling of 17 (`diciassette`). \[[#216](https://github.com/kslazarev/numbers_and_words/pull/216)\]
