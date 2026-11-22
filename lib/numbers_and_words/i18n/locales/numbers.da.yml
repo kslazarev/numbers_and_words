@@ -21,17 +21,17 @@ da:
         11: '{teens%}'
         20: '[{common%}{union}{tens}|{tens}]'
         100: '{hundreds}[ {union} {>cardinal}]'
-        1000: '{<neuter} {thousands}[{>}]'
+        1000: '{<cardinal-neuter} {thousands}[{>}]'
         1000000: '{<cardinal} {millions}[{>}]'
         1000000000: '{<cardinal} {billions}[{>}]'
         1000000000000: '{<cardinal} {trillions}[{>}]'
         1000000000000000: '{<cardinal} {quadrillions}[{>}]'
         1000000000000000000: '{<cardinal} {quintillions}[{>}]'
-      neuter:
+      cardinal-neuter:
         extends: cardinal
         then: rest-neuter
         0: '{neuter}'
-        100: '{hundreds}[ {union} {>neuter}]'
+        100: '{hundreds}[ {union} {>cardinal-neuter}]'
       # "Og" comes before a last group below a hundred ("et tusind og en").
       rest:
         then: cardinal
@@ -39,7 +39,7 @@ da:
         100: ' {=}'
       rest-neuter:
         extends: rest
-        then: neuter
+        then: cardinal-neuter
       # The last word of an ordinal is ordinal, and a leading one before a single scale word is left out
       # ("hundrede", "tusinde", "millionte", but "et tusind og første").
       ordinal:
@@ -49,7 +49,7 @@ da:
         11: '{ordinals.teens%}'
         20: '[{common%}{union}{ordinals.tens}|{ordinals.tens}]'
         100: '[{hundreds} {union} {>ordinal}|{<count} {ordinals.hundreds}]'
-        1000: '[{<neuter} {thousands}{>}|{<count-neuter} {ordinals.thousands}]'
+        1000: '[{<cardinal-neuter} {thousands}{>}|{<count-neuter} {ordinals.thousands}]'
         1000000: '[{<cardinal} {millions}{>}|{<count} {ordinals.millions}]'
         1000000000: '[{<cardinal} {billions}{>}|{<count} {ordinals.billions}]'
         1000000000000: '[{<cardinal} {trillions}{>}|{<count} {ordinals.trillions}]'
@@ -61,7 +61,7 @@ da:
       ordinal-inner:
         extends: ordinal
         100: '[{hundreds} {union} {>ordinal}|{hundreds}]'
-        1000: '[{<neuter} {thousands}{>}|{<neuter} {ordinals.thousands}]'
+        1000: '[{<cardinal-neuter} {thousands}{>}|{<cardinal-neuter} {ordinals.thousands}]'
         1000000: '[{<cardinal} {millions}{>}|{<cardinal} {ordinals.millions}]'
         1000000000: '[{<cardinal} {billions}{>}|{<cardinal} {ordinals.billions}]'
         1000000000000: '[{<cardinal} {trillions}{>}|{<cardinal} {ordinals.trillions}]'
@@ -72,7 +72,7 @@ da:
         1: ''
         2: '{common}'
       count-neuter:
-        extends: neuter
+        extends: cardinal-neuter
         1: ''
         2: '{neuter}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]

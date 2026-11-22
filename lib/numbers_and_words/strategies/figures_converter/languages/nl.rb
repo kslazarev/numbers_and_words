@@ -10,20 +10,9 @@ module NumbersAndWords
 
           private
 
-          def cardinal_set
-            hundreds? ? 'number-hundreds' : 'number'
-          end
-
-          def ordinal_set
-            hundreds? ? 'ordinal-hundreds' : 'ordinal'
-          end
-
-          def hundreds?
-            @options.options[:tens_of_hundreds] || @options.options[:pronounced]
-          end
-
+          # fractional_numeral, which the decimal decorator sets, takes the words under numbers.options.fractional_numeral.
           def option_words
-            %i[pronounced fractional_numeral].filter_map { |option| "options.#{option}" if @options.options[option] }
+            @options.options[:fractional_numeral] ? [*super, 'options.fractional_numeral'] : super
           end
         end
       end

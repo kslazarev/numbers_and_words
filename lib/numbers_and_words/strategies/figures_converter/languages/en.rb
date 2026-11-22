@@ -24,14 +24,6 @@ module NumbersAndWords
             number = ordinal_integer
             @options.options[:pronounced] && number.between?(100, 9999) && (number < 1000 || !(number / 100 % 10).zero?)
           end
-
-          def option_words
-            [('options.remove_hyphen' if @options.options[:remove_hyphen]), ('options.hundreds_with_union' if union?)]
-          end
-
-          def union?
-            @options.options[:hundreds_with_union]
-          end
         end
       end
     end

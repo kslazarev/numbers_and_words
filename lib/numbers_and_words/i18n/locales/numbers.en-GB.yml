@@ -1,8 +1,10 @@
-# British English is English (numbers.en.yml), with "and" before a last group below a hundred after a scale word
-# when hundreds_with_union: true ("one thousand and one").
+# British English is English (numbers.en.yml) with hundreds_with_union: true by default ("one hundred and one"),
+# which also says "and" before a last group below a hundred after a scale word ("one thousand and one").
 en-GB:
   numbers:
     extends: en
+    supported_options:
+      hundreds_with_union: {default: true}
     options:
       hundreds_with_union:
         before_last: ' and '
