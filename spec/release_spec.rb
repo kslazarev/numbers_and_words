@@ -12,6 +12,8 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
     it 'releases the gemspec version and prepares the next development iteration' do
       skip 'ruby-gem-release 0.9.0 subprocess fixtures require POSIX PATH handling' if Gem.win_platform?
       skip 'Release tooling is validated on stable Ruby, not development snapshots' if RUBY_PATCHLEVEL.negative?
+      # The release workflow runs the specs after dating the (Next) heading, and then validates the changelog itself.
+      skip 'CHANGELOG.md has no (Next) heading to release' unless File.read(File.expand_path('../CHANGELOG.md', __dir__)).match?(/^## \S+ \(Next\)$/)
 
       with_release_project do |project|
         project.copy_files(
