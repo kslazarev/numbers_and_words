@@ -1,7 +1,7 @@
 en:
   numbers:
     supported_options:
-      fraction: true
+      fraction: {default: false, legacy_default: true}
       hundreds_with_union: true
       ordinal: true
       pronounced: true

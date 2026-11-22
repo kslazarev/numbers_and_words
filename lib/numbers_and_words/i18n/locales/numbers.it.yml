@@ -1,7 +1,7 @@
 it:
   numbers:
     supported_options:
-      fraction: true
+      fraction: {default: false, legacy_default: true}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: meno
