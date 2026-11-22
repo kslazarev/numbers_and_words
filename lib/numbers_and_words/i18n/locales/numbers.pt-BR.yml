@@ -12,6 +12,111 @@ pt-BR:
       male: [_, cento, duzentos, trezentos, quatrocentos, quinhentos, seiscentos, setecentos, oitocentos, novecentos]
       female: [_, cento, duzentas, trezentas, quatrocentas, quinhentas, seiscentas, setecentas, oitocentas, novecentas]
     one_hundred: cem
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal-male:
+        then: and-male
+        0: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '[{hundreds.male}{>}|{one_hundred}]'
+        200: '{hundreds.male}[{>}]'
+        1000: '{<count-male} {thousands}[{>and-thousands-male}]'
+        1000000: '{<cardinal-male} {millions}[{>}]'
+        1000000000: '{<cardinal-male} {billions}[{>}]'
+        1000000000000: '{<cardinal-male} {trillions}[{>}]'
+        1000000000000000: '{<cardinal-male} {quadrillions}[{>}]'
+        1000000000000000000: '{<cardinal-male} {quintillions}[{>}]'
+        1000000000000000000000: '{<cardinal-male} {sextillions}[{>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[{>}]'
+        1000000000000000000000000000: '{<cardinal-male} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<cardinal-male} {decillions}[{>}]'
+      # Milhão and larger scale words are masculine whatever is counted ("duas mil", but "dois milhões").
+      cardinal-female:
+        extends: cardinal-male
+        then: and-female
+        0: '{ones.female}'
+        200: '{hundreds.female}[{>}]'
+        1000: '{<count-female} {thousands}[{>and-thousands-female}]'
+      # One is left out before mil ("mil", "dois mil"), and kept before milhão ("um milhão").
+      count-male:
+        extends: cardinal-male
+        1: ''
+        2: '{ones.male}'
+      count-female:
+        extends: cardinal-female
+        1: ''
+        2: '{ones.female}'
+      # After a scale word, "e" joins a remainder below a hundred or with one digit that isn't zero ("um milhão e
+      # duzentos mil"); a comma comes before any other remainder of a million or more ("um milhão, cento e um"),
+      # and nothing before one of a thousand ("mil cento e um").
+      and-male:
+        then: cardinal-male
+        1: ' {union} {=}'
+        100: '[, {=}| {union} {=}]'
+        1000: '[, {=}| {union} {=}]'
+        10000: '[, {=}| {union} {=}]'
+        100000: '[, {=}| {union} {=}]'
+        1000000: '[, {=}| {union} {=}]'
+        10000000: '[, {=}| {union} {=}]'
+        100000000: '[, {=}| {union} {=}]'
+        1000000000: '[, {=}| {union} {=}]'
+        10000000000: '[, {=}| {union} {=}]'
+        100000000000: '[, {=}| {union} {=}]'
+        1000000000000: '[, {=}| {union} {=}]'
+        10000000000000: '[, {=}| {union} {=}]'
+        100000000000000: '[, {=}| {union} {=}]'
+        1000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000: '[, {=}| {union} {=}]'
+        1000000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000000: '[, {=}| {union} {=}]'
+        1000000000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000000000: '[, {=}| {union} {=}]'
+        1000000000000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000000000000: '[, {=}| {union} {=}]'
+        1000000000000000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000000000000000: '[, {=}| {union} {=}]'
+        1000000000000000000000000000000: '[, {=}| {union} {=}]'
+        10000000000000000000000000000000: '[, {=}| {union} {=}]'
+        100000000000000000000000000000000: '[, {=}| {union} {=}]'
+      and-female:
+        extends: and-male
+        then: cardinal-female
+      and-thousands-male:
+        then: cardinal-male
+        1: ' {union} {=}'
+        100: '[ {=}| {union} {=}]'
+      and-thousands-female:
+        extends: and-thousands-male
+        then: cardinal-female
+      # Every word of an ordinal is ordinal, and one is left out before a scale word ("milésimo", "segundo milésimo").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}[ {>}]'
+        100: '{ordinals.hundreds}[ {>}]'
+        1000: '{<ordinal-count} {ordinals.thousands}[ {>}]'
+        1000000: '{<ordinal-count} {ordinals.millions}[ {>}]'
+        1000000000: '{<ordinal-count} {ordinals.billions}[ {>}]'
+        1000000000000: '{<ordinal-count} {ordinals.trillions}[ {>}]'
+        1000000000000000: '{<ordinal-count} {ordinals.quadrillions}[ {>}]'
+        1000000000000000000: '{<ordinal-count} {ordinals.quintillions}[ {>}]'
+        1000000000000000000000: '{<ordinal-count} {ordinals.sextillions}[ {>}]'
+        1000000000000000000000000: '{<ordinal-count} {ordinals.septillions}[ {>}]'
+        1000000000000000000000000000: '{<ordinal-count} {ordinals.octillions}[ {>}]'
+        1000000000000000000000000000000: '{<ordinal-count} {ordinals.nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<ordinal-count} {ordinals.decillions}[ {>}]'
+      ordinal-count:
+        extends: ordinal
+        then: ordinal
+        1: ''
+        2: '{ordinals.ones}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: mil
     millions:
@@ -44,19 +149,39 @@ pt-BR:
     decillions:
       one: decilhão
       other: decilhões
-    ordinal:
-      ones:
-        male: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
-        female: [zero, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
-      tens:
-        male: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
-        female: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
-      hundreds:
-        male: [_, centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
-        female: [_, centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
-      mega:
-        male: [_, milésimo, milionésimo, bilionésimo, trilionésimo, quadrilionésimo, quintilionésimo, sextilionésimo, septilionésimo, octilionésimo, nonilionésimo, decilionésimo]
-        female: [_, milésima, milionésima, bilionésima, trilionésima, quadrilionésima, quintilionésima, sextilionésima, septilionésima, octilionésima, nonilionésima, decilionésima]
+    ordinals:
+      ones: [zero, primeiro, segundo, terceiro, quarto, quinto, sexto, sétimo, oitavo, nono]
+      tens: [_, décimo, vigésimo, trigésimo, quadragésimo, quinquagésimo, sexagésimo, septuagésimo, octogésimo, nonagésimo]
+      hundreds: [_, centésimo, ducentésimo, trecentésimo, quadringentésimo, quingentésimo, sexcentésimo, septingentésimo, octingentésimo, noningentésimo]
+      thousands: milésimo
+      millions: milionésimo
+      billions: bilionésimo
+      trillions: trilionésimo
+      quadrillions: quadrilionésimo
+      quintillions: quintilionésimo
+      sextillions: sextilionésimo
+      septillions: septilionésimo
+      octillions: octilionésimo
+      nonillions: nonilionésimo
+      decillions: decilionésimo
+    # The feminine ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [zero, primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava, nona]
+          tens: [_, décima, vigésima, trigésima, quadragésima, quinquagésima, sexagésima, septuagésima, octogésima, nonagésima]
+          hundreds: [_, centésima, ducentésima, trecentésima, quadringentésima, quingentésima, sexcentésima, septingentésima, octingentésima, noningentésima]
+          thousands: milésima
+          millions: milionésima
+          billions: bilionésima
+          trillions: trilionésima
+          quadrillions: quadrilionésima
+          quintillions: quintilionésima
+          sextillions: sextilionésima
+          septillions: septilionésima
+          octillions: octilionésima
+          nonillions: nonilionésima
+          decillions: decilionésima
     integral:
       one: inteiro
       other: inteiros

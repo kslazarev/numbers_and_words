@@ -2,58 +2,13 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::PtBr.
     class PtBr < Base
       include NumbersAndWords::Translations::Families::Base
       include NumbersAndWords::Translations::Extensions::PortugueseFractions
 
-      def zero(options = {})
-        t([options[:prefix], :ones, :male].join('.'))[0]
-      end
-
-      def ones(number, options = {})
-        return if options[:is_one_thousand]
-
-        t([options[:prefix], :ones, options[:gender]].join('.'))[number]
-      end
-
-      def tens(number, options = {})
-        path = [options[:prefix], :tens]
-        path.push(options[:gender]) if ordinal?(options)
-        t(path.join('.'))[number]
-      end
-
-      def teens(number, options = {})
-        return [tens(1, options), ones(number[0], options)].join(' ') if ordinal? options
-
-        super
-      end
-
-      def tens_with_ones(numbers, options = {})
-        connector = ordinal?(options) ? ' ' : " #{union} "
-        [tens(numbers[1], options), ones(numbers[0], options)].join(connector)
-      end
-
-      def hundreds(number, options = {})
-        return t(:one_hundred) if options[:is_one_hundred] && !ordinal?(options)
-
-        hundreds = t([options[:prefix], :hundreds, options[:gender]].join('.'))[number]
-        return hundreds if ordinal?(options) || options[:is_hundred]
-
-        [hundreds, union].join(' ')
-      end
-
-      def megs(capacity, options = {})
-        return scale(t([options[:prefix], :mega, options[:gender]].join('.')), capacity) if ordinal?(options)
-        return super if options[:is_opaque] || options[:is_without_connector]
-
-        suffix = options[:is_with_comma] ? ',' : " #{union}"
-        super + suffix
-      end
-
-      private
-
-      def ordinal?(options)
-        options[:prefix] == :ordinal
+      def zero(_options = {})
+        t(:ones)[:male][0]
       end
     end
   end

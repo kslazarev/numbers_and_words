@@ -29,11 +29,6 @@ module NumbersAndWords
         figures_array_under_capacity(capacity).reverse.join.to_i
       end
 
-      def opaque?(capacity)
-        figures_under = figures_array_under_capacity(capacity)
-        figures_under.count(0) == figures_under.length
-      end
-
       def figures_array_under_capacity(capacity)
         self[0..((capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT)]
       end
