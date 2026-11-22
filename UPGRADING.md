@@ -2,20 +2,24 @@
 
 ## Upgrading to 1.2.0
 
+The public API, `to_words` with the options in the README and on each language page, is unchanged, and so is its output in every language.
+
 ### Error and Warning Messages Are Sentences
 
-Error and warning messages start with a capital letter and end with a period, and the four ordinal range errors share one message. The error classes don't change; rescue them rather than matching messages.
+Error and warning messages start with a capital letter and end with a period, and the ordinal range errors of Arabic, Czech, Greek and Polish share one message. The error classes don't change; rescue them rather than matching messages.
 
-| 1.1.0 | 1.2.0 |
+| 1.1 | 1.2 |
 | --- | --- |
 | `numbers must be below 10**30 in :cs` | `Numbers in :cs only support values below 10**30.` |
 | `decimals are not supported in :sv` | `Decimals are not supported in :sv.` |
 | `Arabic ordinals support 1 to 99` | `Ordinals in :ar only support numbers between 1 and 99.` |
 | `unsupported option :gender for locale :vi; supported: ...` | `The option :gender is not supported in :vi; supported: ....` |
 
-### Languages Declare Their Options in Their Locale Files
+An ordinal too large for any words in those four languages now raises the cardinal `RangeError`, as Greek already did.
 
-Each language lists the options it accepts under `numbers.supported_options` in its locale file, and spells whole numbers from the rule sets under `numbers.rules`. Applications can change both through I18n like any other translation. The option classes under `NumbersAndWords::Strategies::FiguresConverter::Options`, other than `Option` and the Polish `Gender`, are gone.
+### Internals Moved Into the Locale Files
+
+Each language now spells numbers from rule sets in its locale file (`numbers.rules`) and lists its options there (`numbers.supported_options`); British English and Swiss French list only what differs from English and French. Code that reached into the gem's classes, such as `NumbersAndWords::Strategies::FiguresConverter::Options::En::Ordinal` or `NumbersAndWords::Translations::Families::Latin`, or that overrode its translations under `numbers.*`, may need changes, since many of those classes and keys are gone or renamed.
 
 ## Upgrading to 1.1.0
 
