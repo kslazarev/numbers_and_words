@@ -8,7 +8,32 @@ id:
     tens: puluh
     hundreds: ratus
     one_prefix: se
-    mega: [_, ribu, juta, miliar, triliun]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # One is "se-" before puluh, ratus and ribu ("sepuluh", "seratus", "seribu"), but "satu juta".
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{ten}'
+        11: '{eleven}'
+        12: '{ones%} {teen}'
+        20: '{ones} {tens}[ {>}]'
+        100: '{one_prefix}{hundreds}[ {>}]'
+        200: '{ones} {hundreds}[ {>}]'
+        1000: '{one_prefix}{thousands}[ {>}]'
+        2000: '{<cardinal} {thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+      # An ordinal is ke- and the cardinal ("kedua puluh satu"), and "pertama" for one.
+      ordinal:
+        0: '{ones}'
+        1: '{ordinals.first}'
+        2: '{ordinals.prefix}{=cardinal}'
+    mega: [_, thousands, millions, billions, trillions]
+    thousands: ribu
+    millions: juta
+    billions: miliar
+    trillions: triliun
     ordinals:
       first: pertama
       prefix: ke

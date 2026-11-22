@@ -4,99 +4,26 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.vi.yml; see RuleSets. A fractional part keeps its
+        # leading zeros ("không năm").
         class Vi < Base
-          prepend Ordinals
+          include RuleSets
 
-          # remove_zero: true omits a zero integral part.
-          def zero(*args)
-            super unless @options.remove_zero.result
-          end
+          def words
+            return super unless fractional?
 
-          def print_words
-            value = super
-            remove_billion_noise(value)
-          end
-
-          def strings_logic
-            return integral_string_logic unless fractional?
-
-            leading_zeros = fraction_number_zeros_leading
-            @options.options[:integral] = true
-            integral_string_logic + ([translate(:zero)] * leading_zeros)
-          end
-
-          def integral_string_logic
-            if @figures.capacity_count
-              number_without_capacity_to_words + complex_number_to_words
-            elsif hundreds?
-              hundreds_number_to_words
-            elsif @figures.tens || @figures.ones
-              simple_number_to_words
-            else
-              []
-            end
-          end
-
-          def hundreds?
-            @figures.hundreds ||
-              (@figures.size == 3 && (@figures.teens || @figures.tens || @figures.ones))
-          end
-
-          def hundreds(options = {})
-            if @figures.hundreds.to_i.zero?
-              translate :hundreds, 0, options
-            else
-              super
-            end
-          end
-
-          def ones(options = {})
-            if @figures.capacity_length >= 2
-              ones_union(options)
-            else
-              super
-            end
-          end
-
-          def ones_union(options = {})
-            translate :ones_union, @figures.ones, options
-          end
-
-          def fractional?
-            !@options.options[:fractional].nil? && !@options.options[:integral]
-          end
-
-          def fraction_length
-            return 0 unless @options.options[:fractional]
-
-            @options.options[:fractional][:length]
-          end
-
-          def fraction_number_zeros_leading
-            fraction_length - @figures.length
-          end
-
-          def remove_billion_noise(value)
-            parts = value.split(billion_unit).map(&:strip)
-            if value.end_with?(billion_unit)
-              parts.insert(-1, billion_unit).join(' ')
-            else
-              return value if parts.size <= 2
-
-              parts.insert(-2, billion_unit).join(' ')
-            end
-          end
-
-          def billion_unit
-            translate :mega, 3
+            zeros = [@translations.t(:ones)[0]] * (@options.options[:fractional][:length] - @figures.length)
+            [*zeros, super].reject(&:empty?).join(' ')
           end
 
           private
 
-          # Vietnamese ordinals put thứ before the cardinal, with nhất for 1 and tư for 4 ("thứ hai mươi mốt").
-          def ordinal_words(text, number)
-            word = { 1 => ordinals[:first], 4 => ordinals[:fourth] }.fetch(number, text)
-            "#{ordinals[:prefix]} #{word}"
+          def cardinal_set
+            'cardinal'
+          end
+
+          def fractional?
+            !@options.options[:fractional].nil? && !@options.options[:integral]
           end
         end
       end
