@@ -4,10 +4,6 @@ module NumbersAndWords
   module Translations
     # The words are read from the locale file by Strategies::FiguresConverter::Languages::Sk.
     class Sk < Base
-      def micro_separator
-        t(:micro_separator)
-      end
-
       # "nula celých", "jedna celá", "dve celé", "päť celých".
       def integral(number)
         t(:integral)[form(number)]
