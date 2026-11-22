@@ -61,12 +61,6 @@ module NumbersAndWords
             suffix && "#{word.delete_suffix(suffix)}#{table[suffix.to_sym]}"
           end
 
-          # A word from an ordinal table, or nil for its "_" placeholder.
-          def ordinal_part(key, index)
-            word = ordinals[key][index]
-            word unless word == '_'
-          end
-
           # A round hundred or scale ordinal joined to the combining form (numbers.ordinals.combining) of a multiplier
           # that is one word ("dušimtasis", "divtūkstošais"); a multiplier of several words stays separate.
           def fused_multiplier(text, number)

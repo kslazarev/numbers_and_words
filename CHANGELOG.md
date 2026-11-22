@@ -7,6 +7,7 @@
   * Spell Brazilian Portuguese whole numbers and ordinals from rule sets in `numbers.pt-BR.yml`. \[[#326](https://github.com/kslazarev/numbers_and_words/pull/326)\] \([@dblock](https://github.com/dblock)\)
   * Spell Bulgarian, Czech and Polish whole numbers and ordinals from rule sets in their locale files. \[[#328](https://github.com/kslazarev/numbers_and_words/pull/328)\] \([@dblock](https://github.com/dblock)\)
   * Spell Danish, Dutch, English, British English, German, Norwegian and Swedish whole numbers and ordinals from rule sets in their locale files. \[[#329](https://github.com/kslazarev/numbers_and_words/pull/329)\] \([@dblock](https://github.com/dblock)\)
+  * Spell French, Swiss French, Italian, European Portuguese, Romanian and Spanish whole numbers and ordinals from rule sets in their locale files. \[[#330](https://github.com/kslazarev/numbers_and_words/pull/330)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

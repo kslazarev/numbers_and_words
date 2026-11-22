@@ -6,6 +6,184 @@ it:
     teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciassette, diciotto, diciannove]
     tens: [_, dieci, venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta]
     hundreds: cento
+    tens_stems: [_, _, vent, trent, quarant, cinquant, sessant, settant, ottant, novant]
+    hundreds_stem: cent
+    accented_tre: tré
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Tens and hundreds lose their vowel before uno and otto ("ventuno", "centotto"), a final tre is accented
+    # ("ventitré") but not before mila ("ventitremila"), and a count of milioni ends in un ("ventun milioni").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens_stems}{>with-i}'
+        30: '{tens_stems}{>with-a}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred}'
+        1000: '{<thousands-count}{thousands}[{>compound}]'
+        1000000: '{<mega-count} {millions}[ {>}]'
+        1000000000: '{<mega-count} {billions}[ {>}]'
+        1000000000000: '{<mega-count} {trillions}[ {>}]'
+        1000000000000000: '{<mega-count} {quadrillions}[ {>}]'
+        1000000000000000000: '{<mega-count} {quintillions}[ {>}]'
+        1000000000000000000000: '{<mega-count} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<mega-count} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<mega-count} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<mega-count} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<mega-count} {decillions}[ {>}]'
+        1000000000000000000000000000000000000: '{<mega-count} {undecillions}[ {>}]'
+        1000000000000000000000000000000000000000: '{<mega-count} {duodecillions}[ {>}]'
+        1000000000000000000000000000000000000000000: '{<mega-count} {tredecillions}[ {>}]'
+        1000000000000000000000000000000000000000000000: '{<mega-count} {quattuordecillions}[ {>}]'
+      compound:
+        extends: cardinal
+        3: '{accented_tre}'
+        4: '{ones}'
+      with-i:
+        then: compound
+        0: 'i'
+        1: '{=}'
+        2: 'i{=}'
+        8: '{=}'
+        9: 'i{=}'
+      with-a:
+        extends: with-i
+        0: 'a'
+        2: 'a{=}'
+        9: 'a{=}'
+      after-hundred:
+        then: compound
+        0: 'o'
+        1: 'o{=}'
+        8: '{=}'
+        9: 'o{=}'
+        80: '{=}'
+        90: 'o{=}'
+      hundreds-count:
+        0: '{ones}'
+        1: ''
+        2: '{ones}'
+      # Before mila, tre keeps no accent.
+      plain:
+        extends: cardinal
+        20: '{tens_stems}{>with-i-plain}'
+        30: '{tens_stems}{>with-a-plain}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred-plain}'
+      with-i-plain:
+        extends: with-i
+        then: cardinal
+      with-a-plain:
+        extends: with-a
+        then: cardinal
+      after-hundred-plain:
+        extends: after-hundred
+        then: plain
+      thousands-count:
+        extends: plain
+        1: ''
+        2: '{ones}'
+      mega-count:
+        extends: compound-mega
+        1: '{fractional_one}'
+        2: '{ones}'
+        3: '{ones}'
+      compound-mega:
+        extends: compound
+        20: '{tens_stems}{>with-i-mega}'
+        30: '{tens_stems}{>with-a-mega}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred-mega}'
+      with-i-mega:
+        extends: with-i
+        1: '{fractional_one}'
+      with-a-mega:
+        extends: with-a
+        1: '{fractional_one}'
+      after-hundred-mega:
+        extends: after-hundred
+        then: compound-mega
+      # An ordinal is one word, from the first ten ("decimo") or with -esimo on its last part ("ventitreesimo",
+      # "duemillesimo"), leaving out a leading un before a scale word ("milionesimo").
+      ordinal:
+        0: '{ordinals.units}'
+        11: '{ordinals.teens%}'
+        20: '{tens_stems}{>ordinal-with-i}'
+        30: '{tens_stems}{>ordinal-with-a}'
+        100: '{<hundreds-count}{hundreds_stem}{>ordinal-after-hundred}'
+        1000: '{<thousands-count}[{thousands}{>ordinal-compound}|{ordinals.thousands}]'
+        1000000: '{<ordinal-mega-count}[{millions}{>ordinal-compound}|{ordinals.millions}]'
+        1000000000: '{<ordinal-mega-count}[{billions}{>ordinal-compound}|{ordinals.billions}]'
+        1000000000000: '{<ordinal-mega-count}[{trillions}{>ordinal-compound}|{ordinals.trillions}]'
+        1000000000000000: '{<ordinal-mega-count}[{quadrillions}{>ordinal-compound}|{ordinals.quadrillions}]'
+        1000000000000000000: '{<ordinal-mega-count}[{quintillions}{>ordinal-compound}|{ordinals.quintillions}]'
+        1000000000000000000000: '{<ordinal-mega-count}[{sextillions}{>ordinal-compound}|{ordinals.sextillions}]'
+        1000000000000000000000000: '{<ordinal-mega-count}[{septillions}{>ordinal-compound}|{ordinals.septillions}]'
+        1000000000000000000000000000: '{<ordinal-mega-count}[{octillions}{>ordinal-compound}|{ordinals.octillions}]'
+        1000000000000000000000000000000: '{<ordinal-mega-count}[{nonillions}{>ordinal-compound}|{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '{<ordinal-mega-count}[{decillions}{>ordinal-compound}|{ordinals.decillions}]'
+        1000000000000000000000000000000000000: '{<ordinal-mega-count}[{undecillions}{>ordinal-compound}|{ordinals.undecillions}]'
+        1000000000000000000000000000000000000000: '{<ordinal-mega-count}[{duodecillions}{>ordinal-compound}|{ordinals.duodecillions}]'
+        1000000000000000000000000000000000000000000: '{<ordinal-mega-count}[{tredecillions}{>ordinal-compound}|{ordinals.tredecillions}]'
+        1000000000000000000000000000000000000000000000: '{<ordinal-mega-count}[{quattuordecillions}{>ordinal-compound}|{ordinals.quattuordecillions}]'
+      ordinal-compound:
+        extends: ordinal
+        0: '{ordinals.final}'
+        1000000: '{<ordinal-mega-count-un}[{millions}{>ordinal-compound}|{ordinals.millions}]'
+        1000000000: '{<ordinal-mega-count-un}[{billions}{>ordinal-compound}|{ordinals.billions}]'
+        1000000000000: '{<ordinal-mega-count-un}[{trillions}{>ordinal-compound}|{ordinals.trillions}]'
+        1000000000000000: '{<ordinal-mega-count-un}[{quadrillions}{>ordinal-compound}|{ordinals.quadrillions}]'
+        1000000000000000000: '{<ordinal-mega-count-un}[{quintillions}{>ordinal-compound}|{ordinals.quintillions}]'
+        1000000000000000000000: '{<ordinal-mega-count-un}[{sextillions}{>ordinal-compound}|{ordinals.sextillions}]'
+        1000000000000000000000000: '{<ordinal-mega-count-un}[{septillions}{>ordinal-compound}|{ordinals.septillions}]'
+        1000000000000000000000000000: '{<ordinal-mega-count-un}[{octillions}{>ordinal-compound}|{ordinals.octillions}]'
+        1000000000000000000000000000000: '{<ordinal-mega-count-un}[{nonillions}{>ordinal-compound}|{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '{<ordinal-mega-count-un}[{decillions}{>ordinal-compound}|{ordinals.decillions}]'
+        1000000000000000000000000000000000000: '{<ordinal-mega-count-un}[{undecillions}{>ordinal-compound}|{ordinals.undecillions}]'
+        1000000000000000000000000000000000000000: '{<ordinal-mega-count-un}[{duodecillions}{>ordinal-compound}|{ordinals.duodecillions}]'
+        1000000000000000000000000000000000000000000: '{<ordinal-mega-count-un}[{tredecillions}{>ordinal-compound}|{ordinals.tredecillions}]'
+        1000000000000000000000000000000000000000000000: '{<ordinal-mega-count-un}[{quattuordecillions}{>ordinal-compound}|{ordinals.quattuordecillions}]'
+      ordinal-with-i:
+        then: ordinal-compound
+        0: 'esimo'
+        1: '{=}'
+        2: 'i{=}'
+        8: '{=}'
+        9: 'i{=}'
+      ordinal-with-a:
+        extends: ordinal-with-i
+        2: 'a{=}'
+        9: 'a{=}'
+      ordinal-after-hundred:
+        then: ordinal-compound
+        0: 'esimo'
+        1: 'o{=}'
+        8: '{=}'
+        9: 'o{=}'
+        80: '{=}'
+        90: 'o{=}'
+      ordinal-mega-count:
+        extends: ordinal-mega-count-un
+        1: ''
+        2: '{ones}'
+      ordinal-mega-count-un:
+        extends: plain
+        1: '{fractional_one}'
+        2: '{ones}'
+        20: '{tens_stems}{>with-i-mega-plain}'
+        30: '{tens_stems}{>with-a-mega-plain}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred-mega-plain}'
+      with-i-mega-plain:
+        extends: with-i-plain
+        1: '{fractional_one}'
+      with-a-mega-plain:
+        extends: with-a-plain
+        1: '{fractional_one}'
+      after-hundred-mega-plain:
+        extends: after-hundred
+        then: ordinal-mega-count-inner
+      ordinal-mega-count-inner:
+        extends: ordinal-mega-count-un
+        1: '{ones}'
+        2: '{ones}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
     thousands:
       one: mille
@@ -114,12 +292,25 @@ it:
       union: ''
     union: e
     ordinals:
-      'units': ['_', 'primo', 'secondo', 'terzo', 'quarto', 'quinto', 'sesto', 'settimo', 'ottavo', 'nono', 'decimo']
-      'suffix': 'esimo'
-      'thousands': 'mila'
-      'thousandth': 'millesimo'
-      'keep_vowel': ['sei', 'tre']
-      'leading_one': ['un', 'uno']
+      units: [zero, primo, secondo, terzo, quarto, quinto, sesto, settimo, ottavo, nono, decimo]
+      teens: [_, undicesimo, dodicesimo, tredicesimo, quattordicesimo, quindicesimo, sedicesimo, diciassettesimo, diciottesimo, diciannovesimo]
+      # The last part of a compound ordinal ("ventunesimo", "centodiecesimo").
+      final: [_, unesimo, duesimo, treesimo, quattresimo, cinquesimo, seiesimo, settesimo, ottesimo, novesimo, diecesimo]
+      thousands: millesimo
+      millions: milionesimo
+      billions: miliardesimo
+      trillions: bilionesimo
+      quadrillions: biliardesimo
+      quintillions: trilionesimo
+      sextillions: triliardesimo
+      septillions: quadrilionesimo
+      octillions: quadriliardesimo
+      nonillions: quintilionesimo
+      decillions: quintiliardesimo
+      undecillions: sestilionesimo
+      duodecillions: sestiliardesimo
+      tredecillions: settilionesimo
+      quattuordecillions: settiliardesimo
     # Before a unit, one is "un", or "una" before a feminine unit (un euro, una lira); compounds keep "-uno".
     before_unit:
       whole:

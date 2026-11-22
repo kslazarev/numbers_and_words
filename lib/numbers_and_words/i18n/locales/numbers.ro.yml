@@ -4,45 +4,139 @@ ro:
     ones:
       male: [zero, unu, doi, trei, patru, cinci, șase, șapte, opt, nouă]
       female: [zero, una, două, trei, patru, cinci, șase, șapte, opt, nouă]
+      neuter: [zero, unu, două, trei, patru, cinci, șase, șapte, opt, nouă]
     teens:
       male: [zece, unsprezece, doisprezece, treisprezece, paisprezece, cincisprezece, șaisprezece, șaptesprezece, optsprezece, nouăsprezece]
       female: [zece, unsprezece, douăsprezece, treisprezece, paisprezece, cincisprezece, șaisprezece, șaptesprezece, optsprezece, nouăsprezece]
+      neuter: [zece, unsprezece, douăsprezece, treisprezece, paisprezece, cincisprezece, șaisprezece, șaptesprezece, optsprezece, nouăsprezece]
     tens: [_, _, douăzeci, treizeci, patruzeci, cincizeci, șaizeci, șaptezeci, optzeci, nouăzeci]
     union: și
     of: de
-    hundred: [o sută, sute]
-    # The article "o" or "un" counts one of a feminine or neuter noun.
+    hundred_one: o sută
+    hundreds_many: sute
     one:
       female: o
       neuter: un
+    thousand: mie
+    thousands: mii
+    million: milion
+    millions: milioane
+    billion: miliard
+    billions: miliarde
+    trillion: bilion
+    trillions: bilioane
+    quadrillion: biliard
+    quadrillions: biliarde
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A scale word counts in the feminine (mie) or the neuter (the others), with "de" after a count whose last two
+    # digits are zero or 20 or more ("douăzeci de mii", "o sută de mii", but "două mii", "o sută una mii").
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{teens.male%}'
+        20: '[{tens} {union} {ones.male%}|{tens}]'
+        100: '{hundred_one}[ {>}]'
+        200: '{ones.female} {hundreds_many}[ {>}]'
+        1000: '{one.female} {thousand}[ {>}]'
+        2000: '{<count-female} {thousands}[ {>}]'
+        1000000: '{one.neuter} {million}[ {>}]'
+        2000000: '{<count-neuter} {millions}[ {>}]'
+        1000000000: '{one.neuter} {billion}[ {>}]'
+        2000000000: '{<count-neuter} {billions}[ {>}]'
+        1000000000000: '{one.neuter} {trillion}[ {>}]'
+        2000000000000: '{<count-neuter} {trillions}[ {>}]'
+        1000000000000000: '{one.neuter} {quadrillion}[ {>}]'
+        2000000000000000: '{<count-neuter} {quadrillions}[ {>}]'
+      cardinal-female:
+        extends: cardinal-male
+        0: '{ones.female}'
+        10: '{teens.female%}'
+        20: '[{tens} {union} {ones.female%}|{tens}]'
+      cardinal-neuter:
+        extends: cardinal-male
+        0: '{ones.neuter}'
+        10: '{teens.neuter%}'
+        20: '[{tens} {union} {ones.neuter%}|{tens}]'
+      count-female:
+        0: '{ones.female}'
+        10: '{teens.female%}'
+        20: '[{tens} {union} {ones.female%} {of}|{tens} {of}]'
+        100: '[{hundred_one} {>}|{hundred_one} {of}]'
+        200: '[{ones.female} {hundreds_many} {>}|{ones.female} {hundreds_many} {of}]'
+      count-neuter:
+        0: '{ones.neuter}'
+        10: '{teens.neuter%}'
+        20: '[{tens} {union} {ones.neuter%} {of}|{tens} {of}]'
+        100: '[{hundred_one} {>}|{hundred_one} {of}]'
+        200: '[{ones.female} {hundreds_many} {>}|{ones.female} {hundreds_many} {of}]'
+      # An ordinal is "primul" or "prima", or an article and words whose last one is ordinal ("al doilea", "a doua"),
+      # leaving out un before a single scale word ("al milionulea").
+      ordinal:
+        0: '{ones.male}'
+        1: '{ordinals.first}'
+        2: '{ordinals.article} {=ordinal-words}'
+      ordinal-words:
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{tens} {union} {ordinals.ones%}|{ordinals.tens}]'
+        100: '[{hundred_one} {>ordinal-words}|{ordinals.hundred_one}]'
+        200: '[{ones.female} {hundreds_many} {>ordinal-words}|{ones.female} {ordinals.hundreds_many}]'
+        1000: '[{one.female} {thousand} {>ordinal-inner}|{one.female} {ordinals.thousand}]'
+        2000: '[{<count-female} {thousands} {>ordinal-inner}|{<count-female} {ordinals.thousands}]'
+        1000000: '[{one.neuter} {million} {>ordinal-inner}|{ordinals.million}]'
+        2000000: '[{<count-neuter} {millions} {>ordinal-inner}|{<count-neuter} {ordinals.millions}]'
+        1000000000: '[{one.neuter} {billion} {>ordinal-inner}|{ordinals.billion}]'
+        2000000000: '[{<count-neuter} {billions} {>ordinal-inner}|{<count-neuter} {ordinals.billions}]'
+        1000000000000: '[{one.neuter} {trillion} {>ordinal-inner}|{ordinals.trillion}]'
+        2000000000000: '[{<count-neuter} {trillions} {>ordinal-inner}|{<count-neuter} {ordinals.trillions}]'
+        1000000000000000: '[{one.neuter} {quadrillion} {>ordinal-inner}|{ordinals.quadrillion}]'
+        2000000000000000: '[{<count-neuter} {quadrillions} {>ordinal-inner}|{<count-neuter} {ordinals.quadrillions}]'
+      ordinal-inner:
+        extends: ordinal-words
+        1000000: '[{one.neuter} {million} {>ordinal-inner}|{one.neuter} {ordinals.million}]'
+        1000000000: '[{one.neuter} {billion} {>ordinal-inner}|{one.neuter} {ordinals.billion}]'
+        1000000000000: '[{one.neuter} {trillion} {>ordinal-inner}|{one.neuter} {ordinals.trillion}]'
+        1000000000000000: '[{one.neuter} {quadrillion} {>ordinal-inner}|{one.neuter} {ordinals.quadrillion}]'
     mega: [_, mie, milion, miliard, bilion, biliard]
-    mega_plural: [_, mii, milioane, miliarde, bilioane, biliarde]
     ordinals:
-      article:
-        male: al
-        female: a
-      first:
-        male: primul
-        female: prima
-      male_suffix: lea
-      male_consonant_suffix: ulea
-      # Masculine ordinals that don't add the suffix to the cardinal: al o miilea, not al o mielea.
-      male_words:
-        mie: miilea
-      # Feminine ordinals of nouns: a doua suta, a doua mia, a milioana.
-      female_nouns:
-        sută: suta
-        sute: suta
-        mie: mia
-        mii: mia
-        milion: milioana
-        milioane: milioana
-        miliard: miliarda
-        miliarde: miliarda
-        bilion: bilioana
-        bilioane: bilioana
-        biliard: biliarda
-        biliarde: biliarda
+      article: al
+      first: primul
+      ones: [_, unulea, doilea, treilea, patrulea, cincilea, șaselea, șaptelea, optulea, nouălea]
+      teens: [zecelea, unsprezecelea, doisprezecelea, treisprezecelea, paisprezecelea, cincisprezecelea, șaisprezecelea, șaptesprezecelea, optsprezecelea, nouăsprezecelea]
+      tens: [_, _, douăzecilea, treizecilea, patruzecilea, cincizecilea, șaizecilea, șaptezecilea, optzecilea, nouăzecilea]
+      hundred_one: o sutălea
+      hundreds_many: sutelea
+      thousand: miilea
+      thousands: miilea
+      million: milionulea
+      millions: milioanelea
+      billion: miliardulea
+      billions: miliardelea
+      trillion: bilionulea
+      trillions: bilioanelea
+      quadrillion: biliardulea
+      quadrillions: biliardelea
+    # The feminine ordinals.
+    genders:
+      female:
+        ordinals:
+          article: a
+          first: prima
+          ones: [_, una, doua, treia, patra, cincea, șasea, șaptea, opta, noua]
+          teens: [zecea, unsprezecea, douăsprezecea, treisprezecea, paisprezecea, cincisprezecea, șaisprezecea, șaptesprezecea, optsprezecea, nouăsprezecea]
+          tens: [_, _, douăzecea, treizecea, patruzecea, cincizecea, șaizecea, șaptezecea, optzecea, nouăzecea]
+          hundred_one: o suta
+          hundreds_many: suta
+          thousand: mia
+          thousands: mia
+          million: milioana
+          millions: milioana
+          billion: miliarda
+          billions: miliarda
+          trillion: bilioana
+          trillions: bilioana
+          quadrillion: biliarda
+          quadrillions: biliarda
     micro_separator: virgulă
     subunit_separator: și
     # Before a unit, one is "un", or "o" before a feminine unit (un leu, o liră); compounds keep "unu" and "una".
