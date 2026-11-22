@@ -28,8 +28,10 @@ describe NumbersAndWords::Rules do
         counted: { extends: 'cardinal', 1 => 'one more', 2 => '{ones}' },
         word: { extends: 'cardinal', 100 => '{<} {hundred}[ {>}]' },
         whole: { then: 'cardinal', 0 => '{=}', 100 => '[{=cardinal}|just {=}]' },
-        hundreds: { extends: 'cardinal', '1100/100': '{<} hundred[ {>}]', 2000 => '{<} {thousands}[ {>}]' }
+        hundreds: { extends: 'cardinal', '1100/100': '{<} hundred[ {>}]', 2000 => '{<} {thousands}[ {>}]' },
+        grouped: { extends: 'cardinal', '1000*1000': '{<} {kilo*3}[ {>}]' }
       },
+      kilo: 'K',
       ordinals: %w[zeroth first second third fourth fifth sixth seventh eighth ninth],
       ordinal_tens: %w[_ tenth twentieth thirtieth fortieth fiftieth sixtieth seventieth eightieth ninetieth],
       loud: { tens: %w[_ TEN TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY] },
@@ -91,6 +93,11 @@ describe NumbersAndWords::Rules do
 
   it 'looks words up under the first scope that has them' do
     expect(described_class.new(translations, 9, words: %w[loud quiet]).spell(42, 'cardinal')).to eq('FORTY-ii')
+  end
+
+  it 'repeats a key such as 1000*1000 below the limit, with a word repeated for the zeros of the divisor' do
+    expect([2000, 3_000_000, 1_002_005].map { |number| rules.spell(number, 'grouped') }).to eq(['two K', 'three KK', 'one KK two K five'])
+    expect { rules.spell(10**9, 'grouped') }.to raise_error(RangeError)
   end
 
   it 'raises RangeError past the limit' do
