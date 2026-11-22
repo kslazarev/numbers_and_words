@@ -13,9 +13,9 @@ module NumbersAndWords
 
       private
 
-      # The rules of a rule set's own keys.
+      # The rules of a rule set's own keys; a key set to ~, as in a locale that extends another, drops the rule.
       def own(definition)
-        definition.filter_map { |key, template| [base(key), [key, template]] if base(key) }.to_h
+        definition.filter_map { |key, template| [base(key), template && [key, template]] if base(key) }.to_h
       end
 
       # The rules of keys such as '100*1000', at every multiple below the limit; a key of its own overrides one.
