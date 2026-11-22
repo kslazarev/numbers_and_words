@@ -14,7 +14,7 @@ module NumbersAndWords
             @strategy = proxy.strategy
             @options = proxy.options
             @name = name || OptionsValidation.snake_case(self.class.name.split('::').last)
-            @default = default&.to_sym
+            @default = default.is_a?(::String) ? default.to_sym : default
           end
 
           def result
