@@ -2,16 +2,10 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Az.
     class Az < Base
       include NumbersAndWords::Translations::Families::Latin
       include NumbersAndWords::Translations::Extensions::FractionSignificance
-
-      # "yüz" rather than "bir yüz".
-      def hundreds(number, options = {})
-        words = [t([options[:prefix], :hundreds].join('.'))]
-        words.unshift(t(:ones)[number]) unless number == 1
-        words.join options[:separator] || ' '
-      end
     end
   end
 end

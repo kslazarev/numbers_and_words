@@ -21,18 +21,6 @@ module NumbersAndWords
         self[capacity * FIGURES_IN_CAPACITY, FIGURES_IN_CAPACITY]
       end
 
-      def number_in_capacity(capacity)
-        figures_array_in_capacity(capacity).reverse.join.to_i
-      end
-
-      def number_under_capacity(capacity)
-        figures_array_under_capacity(capacity).reverse.join.to_i
-      end
-
-      def figures_array_under_capacity(capacity)
-        self[0..((capacity * FIGURES_IN_CAPACITY) - ONES_SHIFT)]
-      end
-
       def ones
         self[0].to_i if self[0].to_i.positive?
       end

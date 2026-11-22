@@ -2,20 +2,9 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Hy.
     class Hy < Base
       include NumbersAndWords::Translations::Families::Latin
-
-      def tens_with_ones(numbers, options = {})
-        options[:separator] ||= ''
-        super
-      end
-
-      def hundreds(number, _options = {})
-        parts = [t(:hundreds)]
-        parts.unshift(t(:ones)[number]) if number > 1
-
-        parts.join(' ')
-      end
     end
   end
 end

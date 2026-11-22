@@ -4,30 +4,14 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.tr.yml; see RuleSets.
         class Tr < Base
-          prepend Ordinals
-
-          def capacity_iteration
-            words = []
-            capacity_words = words_in_capacity(@current_capacity)
-            words.push(megs) unless capacity_words.empty?
-            words += capacity_words unless thousand? && one?
-            words
-          end
+          include RuleSets
 
           private
 
-          def one?
-            words_in_capacity(@current_capacity) == [translations.ones(1)]
-          end
-
-          def thousand?
-            @current_capacity == FiguresArray::THOUSAND_CAPACITY
-          end
-
-          # Only the last word is ordinal, with a suffix that follows vowel harmony ("yirmi birinci").
-          def ordinal_words(text, _number)
-            with_last_word(without_leading_one(text)) { |word| harmonic_ordinal(word) }
+          def cardinal_set
+            'cardinal'
           end
         end
       end

@@ -5,7 +5,64 @@ ka:
     teens: [_, თერთმეტი, თორმეტი, ცამეტი, თოთხმეტი, თხუთმეტი, თექვსმეტი, ჩვიდმეტი, თვრამეტი, ცხრამეტი]
     tens: [_, ათი, ოცი, ოცდაათი, ორმოცი, ორმოცდაათი, სამოცი, სამოცდაათი, ოთხმოცი, ოთხმოცდაათი]
     hundreds: ასი
-    mega: [_, ათასი, მილიონი, მილიარდი, ტრილიონი]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Tens are counted in twenties ("ოცდაერთი", "ორმოცდაათი"), and the hundreds and scale words take their partial
+    # form before other words ("ას ერთი", "ათას ერთი").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{partials.twenty}{>}|{tens}]'
+        30: '[{partials.twenty}{teens%}|{tens}]'
+        40: '[{partials.forty}{>}|{tens}]'
+        50: '[{partials.forty}{teens%}|{tens}]'
+        60: '[{partials.sixty}{>}|{tens}]'
+        70: '[{partials.sixty}{teens%}|{tens}]'
+        80: '[{partials.eighty}{>}|{tens}]'
+        90: '[{partials.eighty}{teens%}|{tens}]'
+        100: '[{partials.hundreds} {>}|{hundreds}]'
+        200: '[{partials.ones}{partials.hundreds} {>}|{partials.ones}{hundreds}]'
+        1000: '[{partials.thousands} {>}|{thousands}]'
+        2000: '[{<cardinal} {partials.thousands} {>}|{<cardinal} {thousands}]'
+        1000000: '[{<cardinal} {partials.millions} {>}|{<cardinal} {millions}]'
+        1000000000: '[{<cardinal} {partials.billions} {>}|{<cardinal} {billions}]'
+        1000000000000: '[{<cardinal} {partials.trillions} {>}|{<cardinal} {trillions}]'
+      # An ordinal puts მე- and -ე around its last word, or the last part of a compound ("ოცდამეერთე"); one is
+      # "პირველი" alone, and a leading one before a single scale word is left out ("მემილიონე").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        1: '{ordinals.first}'
+        2: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{partials.twenty}{ordinals.ones%}|{ordinals.tens}]'
+        30: '[{partials.twenty}{ordinals.teens%}|{ordinals.tens}]'
+        40: '[{partials.forty}{ordinals.ones%}|{ordinals.tens}]'
+        50: '[{partials.forty}{ordinals.teens%}|{ordinals.tens}]'
+        60: '[{partials.sixty}{ordinals.ones%}|{ordinals.tens}]'
+        70: '[{partials.sixty}{ordinals.teens%}|{ordinals.tens}]'
+        80: '[{partials.eighty}{ordinals.ones%}|{ordinals.tens}]'
+        90: '[{partials.eighty}{ordinals.teens%}|{ordinals.tens}]'
+        100: '[{partials.hundreds} {>}|{ordinals.hundreds}]'
+        200: '[{partials.ones}{partials.hundreds} {>}|{ordinals.hundreds}]'
+        1000: '[{partials.thousands} {>}|{ordinals.thousands}]'
+        2000: '{<cardinal} {partials.thousands} {>}'
+        1000000: '[{<cardinal} {partials.millions} {>}|{ordinals.millions}]'
+        1000000000: '[{<cardinal} {partials.billions} {>}|{ordinals.billions}]'
+        1000000000000: '[{<cardinal} {partials.trillions} {>}|{ordinals.trillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1: '{ordinals.ones}'
+        1000000: '[{<cardinal} {partials.millions} {>}|{<cardinal} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {partials.billions} {>}|{<cardinal} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {partials.trillions} {>}|{<cardinal} {ordinals.trillions}]'
+    mega: [_, thousands, millions, billions, trillions]
+    thousands: ათასი
+    millions: მილიონი
+    billions: მილიარდი
+    trillions: ტრილიონი
     partials:
       ones: [ნული, ერთი, ორ, სამ, ოთხ, ხუთ, ექვს, შვიდ, რვა, ცხრა]
       twenty: ოცდა
@@ -13,11 +70,19 @@ ka:
       sixty: სამოცდა
       eighty: ოთხმოცდა
       hundreds: ას
-      mega: [_, ათას, მილიონ, მილიარდ, ტრილიონ]
+      thousands: ათას
+      millions: მილიონ
+      billions: მილიარდ
+      trillions: ტრილიონ
     ordinals:
-      'first': 'პირველი'
-      'prefix': 'მე'
-      'suffix': 'ე'
-      'compound': 'და'
-      'leading_one': ['ერთი']
+      first: პირველი
+      ones: [მენულე, მეერთე, მეორე, მესამე, მეოთხე, მეხუთე, მეექვსე, მეშვიდე, მერვე, მეცხრე]
+      teens: [_, მეთერთმეტე, მეთორმეტე, მეცამეტე, მეთოთხმეტე, მეთხუთმეტე, მეთექვსმეტე, მეჩვიდმეტე, მეთვრამეტე, მეცხრამეტე]
+      tens: [_, მეათე, მეოცე, ოცდამეათე, მეორმოცე, ორმოცდამეათე, მესამოცე, სამოცდამეათე, მეოთხმოცე, ოთხმოცდამეათე]
+      # The ordinals of round hundreds, from the cardinal word ("მეორასე").
+      hundreds: [_, მეასე, მეორასე, მესამასე, მეოთხასე, მეხუთასე, მეექვსასე, შვიდამესე, მერვაასე, მეცხრაასე]
+      thousands: მეათასე
+      millions: მემილიონე
+      billions: მემილიარდე
+      trillions: მეტრილიონე
     subunit_separator: და
