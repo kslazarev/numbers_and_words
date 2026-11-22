@@ -12,8 +12,6 @@ module NumbersAndWords
 
           def words
             raise RangeError, 'Czech ordinals support numbers below 10,000' if @options.ordinal.result && ordinal_integer >= ORDINAL_LIMIT
-            # remove_zero: true leaves no words for zero, also as an ordinal.
-            return '' if ordinal_integer.zero? && @options.remove_zero.result
 
             super
           end

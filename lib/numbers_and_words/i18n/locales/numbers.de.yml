@@ -8,6 +8,69 @@ de:
     teens: [_, elf, zwölf, dreizehn, vierzehn, fünfzehn, sechzehn, siebzehn, achtzehn, neunzehn]
     tens: [_, zehn, zwanzig, dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig]
     hundreds: hundert
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Below a million a number is one word ("einundzwanzigtausendeins"); a lone one is "eins", "ein" before tausend
+    # and hundert, and "eine" before Million and the larger scale words.
+    rules:
+      cardinal:
+        0: '{ones.default}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{ones.combine%}{union}{tens}|{tens}]'
+        100: '{ones.combine}{hundreds}[{>}]'
+        1000: '{<thousands-count}{thousands}[{>}]'
+        1000000: '{<scale-count} {millions}[ {>}]'
+        1000000000: '{<scale-count} {billions}[ {>}]'
+        1000000000000: '{<scale-count} {trillions}[ {>}]'
+        1000000000000000: '{<scale-count} {quadrillions}[ {>}]'
+        1000000000000000000: '{<scale-count} {quintillions}[ {>}]'
+        1000000000000000000000: '{<scale-count} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<scale-count} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<scale-count} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<scale-count} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<scale-count} {decillions}[ {>}]'
+      thousands-count:
+        extends: cardinal
+        0: '{ones.combine}'
+      scale-count:
+        extends: cardinal
+        0: '{ones.gender}'
+      # An ordinal is one lowercase word ("einemillionerste"); a round scale ordinal joins its count, leaving out a
+      # leading one ("millionste", "zweimillionste", "einemilliardeeinmillionste").
+      ordinal:
+        then: ordinal-rest
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{ones.combine%}{union}{ordinals.tens}|{ordinals.tens}]'
+        100: '{ones.combine}[{hundreds}{>}|{ordinals.hundreds}]'
+        1000: '{<thousands-count}[{thousands}{>}|{ordinals.thousands}]'
+        1000000: '[{<scale-count}{ordinals.scales.millions}{>}|{<ordinal-count}{ordinals.millions}]'
+        1000000000: '[{<scale-count}{ordinals.scales.billions}{>}|{<ordinal-count}{ordinals.billions}]'
+        1000000000000: '[{<scale-count}{ordinals.scales.trillions}{>}|{<ordinal-count}{ordinals.trillions}]'
+        1000000000000000: '[{<scale-count}{ordinals.scales.quadrillions}{>}|{<ordinal-count}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<scale-count}{ordinals.scales.quintillions}{>}|{<ordinal-count}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<scale-count}{ordinals.scales.sextillions}{>}|{<ordinal-count}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<scale-count}{ordinals.scales.septillions}{>}|{<ordinal-count}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<scale-count}{ordinals.scales.octillions}{>}|{<ordinal-count}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<scale-count}{ordinals.scales.nonillions}{>}|{<ordinal-count}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<scale-count}{ordinals.scales.decillions}{>}|{<ordinal-count}{ordinals.decillions}]'
+      ordinal-rest:
+        extends: ordinal
+        1000000: '[{<scale-count}{ordinals.scales.millions}{>}|{<thousands-count}{ordinals.millions}]'
+        1000000000: '[{<scale-count}{ordinals.scales.billions}{>}|{<thousands-count}{ordinals.billions}]'
+        1000000000000: '[{<scale-count}{ordinals.scales.trillions}{>}|{<thousands-count}{ordinals.trillions}]'
+        1000000000000000: '[{<scale-count}{ordinals.scales.quadrillions}{>}|{<thousands-count}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<scale-count}{ordinals.scales.quintillions}{>}|{<thousands-count}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<scale-count}{ordinals.scales.sextillions}{>}|{<thousands-count}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<scale-count}{ordinals.scales.septillions}{>}|{<thousands-count}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<scale-count}{ordinals.scales.octillions}{>}|{<thousands-count}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<scale-count}{ordinals.scales.nonillions}{>}|{<thousands-count}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<scale-count}{ordinals.scales.decillions}{>}|{<thousands-count}{ordinals.decillions}]'
+      ordinal-count:
+        extends: thousands-count
+        1: ''
+        2: '{ones.combine}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tausend
@@ -42,6 +105,34 @@ de:
     decillions:
       one: Quintilliarde
       other: Quintilliarden
+    ordinals:
+      ones: [nullte, erste, zweite, dritte, vierte, fünfte, sechste, siebte, achte, neunte]
+      teens: [zehnte, elfte, zwölfte, dreizehnte, vierzehnte, fünfzehnte, sechzehnte, siebzehnte, achtzehnte, neunzehnte]
+      tens: [_, zehnte, zwanzigste, dreißigste, vierzigste, fünfzigste, sechzigste, siebzigste, achtzigste, neunzigste]
+      hundreds: hundertste
+      thousands: tausendste
+      millions: millionste
+      billions: milliardste
+      trillions: billionste
+      quadrillions: billiardste
+      quintillions: trillionste
+      sextillions: trilliardste
+      septillions: quadrillionste
+      octillions: quadrilliardste
+      nonillions: quintillionste
+      decillions: quintilliardste
+      # The scale words inside an ordinal.
+      scales:
+        millions: {one: million, other: millionen}
+        billions: {one: milliarde, other: milliarden}
+        trillions: {one: billion, other: billionen}
+        quadrillions: {one: billiarde, other: billiarden}
+        quintillions: {one: trillion, other: trillionen}
+        sextillions: {one: trilliarde, other: trilliarden}
+        septillions: {one: quadrillion, other: quadrillionen}
+        octillions: {one: quadrilliarde, other: quadrilliarden}
+        nonillions: {one: quintillion, other: quintillionen}
+        decillions: {one: quintilliarde, other: quintilliarden}
     union: und
     micro_separator: Komma
     subunit_separator: und

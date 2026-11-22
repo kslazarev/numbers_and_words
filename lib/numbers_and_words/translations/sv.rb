@@ -2,22 +2,9 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Sv.
     class Sv < Base
       include NumbersAndWords::Translations::Families::Latin
-
-      def ones(number, options = {})
-        return t(:common_one) if number == 1 && options[:common]
-
-        super
-      end
-
-      def hundreds(number, _options = {})
-        super(number, separator: '')
-      end
-
-      def tens_with_ones(numbers, options = {})
-        super(numbers, options.merge(separator: ''))
-      end
     end
   end
 end

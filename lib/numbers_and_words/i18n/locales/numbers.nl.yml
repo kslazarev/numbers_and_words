@@ -6,9 +6,152 @@ nl:
     teens: [_, elf, twaalf, dertien, veertien, vijftien, zestien, zeventien, achttien, negentien]
     tens: [_, tien, twintig, dertig, veertig, vijftig, zestig, zeventig, tachtig, negentig]
     hundreds: honderd
-    mega: [_, duizend, miljoen, miljard, biljoen, biljard, triljoen, triljard, quadriljoen, quadriljard, quintiljoen, quintiljard]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A group is one word ("tweehonderdeenentwintig", "eenentwintigduizend"); a group of one alone is "één".
+    rules:
+      cardinal:
+        then: number
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '[{ones%}{unions%}{tens}|{tens}]'
+        100: '{<count}{hundreds}[{>cardinal}]'
+        1000: '{<count}{thousands}[ {>}]'
+        1000000: '{<number} {millions}[ {>}]'
+        1000000000: '{<number} {billions}[ {>}]'
+        1000000000000: '{<number} {trillions}[ {>}]'
+        1000000000000000: '{<number} {quadrillions}[ {>}]'
+        1000000000000000000: '{<number} {quintillions}[ {>}]'
+        1000000000000000000000: '{<number} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<number} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<number} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<number} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<number} {decillions}[ {>}]'
+      number:
+        extends: cardinal
+        1: '{loose_one}'
+        2: '{ones}'
+      # A count of one is left out before honderd and duizend.
+      count:
+        extends: cardinal
+        1: ''
+        2: '{ones}'
+      # tens_of_hundreds: and pronounced: read 1100 to 9999 in hundreds, unless the hundreds digit is zero
+      # ("negentienhonderdvierentachtig", "tweeduizend vijftig").
+      number-hundreds:
+        extends: number
+        then: number-hundreds
+        1000: '{<count}{thousands}[ {>}]'
+        '1100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        2000: '{<count}{thousands}[ {>}]'
+        '2100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        3000: '{<count}{thousands}[ {>}]'
+        '3100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        4000: '{<count}{thousands}[ {>}]'
+        '4100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        5000: '{<count}{thousands}[ {>}]'
+        '5100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        6000: '{<count}{thousands}[ {>}]'
+        '6100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        7000: '{<count}{thousands}[ {>}]'
+        '7100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        8000: '{<count}{thousands}[ {>}]'
+        '8100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        9000: '{<count}{thousands}[ {>}]'
+        '9100/100': '{<cardinal}{hundreds}[{hundreds_separator}{>cardinal}]'
+        '10000/1000': '{<count}{thousands}[ {>}]'
+      # The last word of an ordinal is ordinal, and a round scale word alone drops its count ("miljoenste").
+      ordinal:
+        then: ordinal-rest
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{ones%}{unions%}{ordinals.tens}|{ordinals.tens}]'
+        100: '{<count}[{hundreds}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        1000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        1000000: '[{<number} {millions} {>}|{<count} {ordinals.millions}]'
+        1000000000: '[{<number} {billions} {>}|{<count} {ordinals.billions}]'
+        1000000000000: '[{<number} {trillions} {>}|{<count} {ordinals.trillions}]'
+        1000000000000000: '[{<number} {quadrillions} {>}|{<count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<number} {quintillions} {>}|{<count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<number} {sextillions} {>}|{<count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<number} {septillions} {>}|{<count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<number} {octillions} {>}|{<count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<number} {nonillions} {>}|{<count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<number} {decillions} {>}|{<count} {ordinals.decillions}]'
+      # Inside a group, one is "een" ("honderdeerste").
+      ordinal-cardinal:
+        extends: ordinal
+        1: '{ordinals.ones}'
+      ordinal-rest:
+        extends: ordinal
+        1000000: '[{<number} {millions} {>}|{<number} {ordinals.millions}]'
+        1000000000: '[{<number} {billions} {>}|{<number} {ordinals.billions}]'
+        1000000000000: '[{<number} {trillions} {>}|{<number} {ordinals.trillions}]'
+        1000000000000000: '[{<number} {quadrillions} {>}|{<number} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<number} {quintillions} {>}|{<number} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<number} {sextillions} {>}|{<number} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<number} {septillions} {>}|{<number} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<number} {octillions} {>}|{<number} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<number} {nonillions} {>}|{<number} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<number} {decillions} {>}|{<number} {ordinals.decillions}]'
+      ordinal-hundreds:
+        extends: ordinal
+        then: ordinal-hundreds-rest
+        1000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '1100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        2000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '2100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        3000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '3100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        4000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '4100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        5000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '5100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        6000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '6100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        7000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '7100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        8000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '8100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        9000: '{<count}[{thousands} {>}|{ordinals.thousands}]'
+        '9100/100': '{<cardinal}[{hundreds}{hundreds_separator}{>ordinal-cardinal}|{ordinals.hundreds}]'
+        '10000/1000': '{<count}[{thousands} {>}|{ordinals.thousands}]'
+      ordinal-hundreds-rest:
+        extends: ordinal-hundreds
+        1000000: '[{<number} {millions} {>}|{<number} {ordinals.millions}]'
+        1000000000: '[{<number} {billions} {>}|{<number} {ordinals.billions}]'
+        1000000000000: '[{<number} {trillions} {>}|{<number} {ordinals.trillions}]'
+        1000000000000000: '[{<number} {quadrillions} {>}|{<number} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<number} {quintillions} {>}|{<number} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<number} {sextillions} {>}|{<number} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<number} {septillions} {>}|{<number} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<number} {octillions} {>}|{<number} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<number} {nonillions} {>}|{<number} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<number} {decillions} {>}|{<number} {ordinals.decillions}]'
+    hundreds_separator: ''
+    # The words that an option changes when it is on.
+    options:
+      pronounced:
+        hundreds_separator: ' '
+      fractional_numeral:
+        loose_one: een
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: duizend
+    millions: miljoen
+    billions: miljard
+    trillions: biljoen
+    quadrillions: biljard
+    quintillions: triljoen
+    sextillions: triljard
+    septillions: quadriljoen
+    octillions: quadriljard
+    nonillions: quintiljoen
+    decillions: quintiljard
     union: en
     union2or3: ën
+    # The union in a ten with ones, by the ones ("eenentwintig", "tweeëntwintig").
+    unions: [_, en, ën, ën, en, en, en, en, en, en]
     micro: [_, tienden, honderdsten, duizendsten, miljoensten, miljardsten, biljoensten, biljardsten, triljoensten, triljardsten, quadriljoensten, quadriljardsten, quintiljoensten, quintiljardsten]
     tienden:
       one: tiende
@@ -56,13 +199,18 @@ nl:
       hundreds: honderd
       union: ''
     ordinals:
-      'words':
-        'één': 'eerste'
-        'een': 'eerste'
-        'drie': 'derde'
-        'acht': 'achtste'
-        'nul': 'nulde'
-      'ste_endings': ['tig', 'honderd', 'duizend', 'joen', 'jard']
-      'ste': 'ste'
-      'de': 'de'
-      'leading_one': ['één']
+      ones: [nulde, eerste, tweede, derde, vierde, vijfde, zesde, zevende, achtste, negende]
+      teens: [tiende, elfde, twaalfde, dertiende, veertiende, vijftiende, zestiende, zeventiende, achttiende, negentiende]
+      tens: [_, tiende, twintigste, dertigste, veertigste, vijftigste, zestigste, zeventigste, tachtigste, negentigste]
+      hundreds: honderdste
+      thousands: duizendste
+      millions: miljoenste
+      billions: miljardste
+      trillions: biljoenste
+      quadrillions: biljardste
+      quintillions: triljoenste
+      sextillions: triljardste
+      septillions: quadriljoenste
+      octillions: quadriljardste
+      nonillions: quintiljoenste
+      decillions: quintiljardste

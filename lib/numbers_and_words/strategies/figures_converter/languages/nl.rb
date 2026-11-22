@@ -4,74 +4,26 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # Spells whole numbers from the rule sets in numbers.nl.yml; see RuleSets.
         class Nl < Base
-          prepend Ordinals
-
-          def hundreds_number_to_words
-            [super.reverse.join]
-          end
-
-          def capacity_iteration
-            return super if @current_capacity != FiguresArray::THOUSAND_CAPACITY
-            return [] if apply_tens_of_hundreds?
-            return megs if figures.number_in_capacity(@current_capacity) == 1
-
-            capacity_words = words_in_capacity(@current_capacity)
-            capacity_words.empty? ? [] : [capacity_words, megs].join
-          end
-
-          def ones(*args)
-            super({ fractional_numeral: @options.options[:fractional_numeral] }.merge(args.first || {}))
-          end
-
-          def tens_with_ones(*args)
-            super({ fractional_numeral: @options.options[:fractional_numeral] }.merge(args.first || {}))
-          end
-
-          def simple_number_to_words
-            if @figures.only_ones && @figures.ones == 1 && !@options.options[:fractional_numeral]
-              [@translations.t(:loose_one)]
-            else
-              super
-            end
-          end
-
-          def zero
-            return nil if maybe_remove_zero
-
-            super
-          end
+          include RuleSets
 
           private
 
-          def maybe_remove_zero
-            @options.remove_zero&.result
+          def cardinal_set
+            hundreds? ? 'number-hundreds' : 'number'
           end
 
-          def number_without_capacity_to_words
-            return super unless apply_tens_of_hundreds?
-
-            base = save_parent_figures do
-              @figures = @parent_figures[2, 2].to_figures
-              simple_number_to_words
-            end
-            remainder = simple_number_to_words.join
-            [[[base, translate(:hundreds, 1)].join, remainder].reject(&:empty?).join(@options.pronounced.result ? ' ' : '')]
+          def ordinal_set
+            hundreds? ? 'ordinal-hundreds' : 'ordinal'
           end
 
-          def apply_tens_of_hundreds?
-            (@options.tens_of_hundreds.result || @options.pronounced.result) &&
-              (1..9).cover?(figures.number_in_capacity(FiguresArray::THOUSAND_CAPACITY)) &&
-              figures.hundreds
+          def hundreds?
+            @options.options[:tens_of_hundreds] || @options.options[:pronounced]
           end
 
-          # Only the last word is ordinal: -ste after -tig, honderd, duizend and scale words, -de otherwise,
-          # with eerste, derde and achtste ("eenentwintigste", "honderdeerste").
-          def ordinal_words(text, _number)
-            with_last_word(without_leading_one(text)) do |word|
-              replace_suffix(word, ordinals[:words]) ||
-                "#{word}#{ordinals[:ste_endings].any? { |ending| word.end_with?(ending) } ? ordinals[:ste] : ordinals[:de]}"
-            end
+          def option_words
+            %i[pronounced fractional_numeral].filter_map { |option| "options.#{option}" if @options.options[option] }
           end
         end
       end

@@ -7,6 +7,12 @@ module NumbersAndWords
         # Spells whole numbers from the rule sets in numbers.bg.yml; see RuleSets.
         class Bg < Base
           include RuleSets
+
+          private
+
+          def keeps_ordinal_zero?
+            true
+          end
         end
       end
     end

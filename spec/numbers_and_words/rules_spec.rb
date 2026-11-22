@@ -27,11 +27,13 @@ describe NumbersAndWords::Rules do
         counting: { extends: 'cardinal', then: 'counted', 1 => 'just one', 2 => '{ones}' },
         counted: { extends: 'cardinal', 1 => 'one more', 2 => '{ones}' },
         word: { extends: 'cardinal', 100 => '{<} {hundred}[ {>}]' },
-        whole: { then: 'cardinal', 0 => '{=}', 100 => '[{=cardinal}|just {=}]' }
+        whole: { then: 'cardinal', 0 => '{=}', 100 => '[{=cardinal}|just {=}]' },
+        hundreds: { extends: 'cardinal', '1100/100': '{<} hundred[ {>}]', 2000 => '{<} {thousands}[ {>}]' }
       },
       ordinals: %w[zeroth first second third fourth fifth sixth seventh eighth ninth],
       ordinal_tens: %w[_ tenth twentieth thirtieth fortieth fiftieth sixtieth seventieth eightieth ninetieth],
-      loud: { tens: %w[_ TEN TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY] }
+      loud: { tens: %w[_ TEN TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY] },
+      quiet: { tens: %w[_ ten twenty thirty forty fifty sixty seventy eighty ninety], ones: %w[o i ii iii iv v vi vii viii ix] }
     }
     Class.new do
       define_method(:t) do |key, options = {}|
@@ -81,6 +83,14 @@ describe NumbersAndWords::Rules do
 
   it 'looks words up under the words scope first, then at the top level' do
     expect(described_class.new(translations, 9, words: 'loud').spell(42, 'cardinal')).to eq('FORTY-two')
+  end
+
+  it 'divides by the divisor a key such as 1100/100 gives' do
+    expect([1050, 1984, 2001].map { |number| rules.spell(number, 'hundreds') }).to eq(['a thousand fifty', 'nineteen hundred eighty-four', 'two thousands one'])
+  end
+
+  it 'looks words up under the first scope that has them' do
+    expect(described_class.new(translations, 9, words: %w[loud quiet]).spell(42, 'cardinal')).to eq('FORTY-ii')
   end
 
   it 'raises RangeError past the limit' do

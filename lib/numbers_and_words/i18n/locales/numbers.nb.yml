@@ -2,6 +2,7 @@ nb:
   numbers:
     minus: minus
     ones: ["null", en, to, tre, fire, fem, seks, sju, åtte, ni]
+    last_one: en
     one:
       male: en
       female: ei
@@ -9,52 +10,123 @@ nb:
     teens: [ti, elleve, tolv, tretten, fjorten, femten, seksten, sytten, atten, nitten]
     tens: [_, _, tjue, tretti, førti, femti, seksti, sytti, åtti, nitti]
     hundred: hundre
-    mega: [_, tusen, million, milliard, billion, billiard, trillion]
-    megas: [_, tusen, millioner, milliarder, billioner, billiarder, trillioner]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # One is left out before hundre and tusen only at the start ("hundre", "tusen ett hundre"), "og" comes after
+    # hundreds and before a last group below a hundred ("tusen og en"), and a final one takes the gender asked for.
+    rules:
+      cardinal:
+        then: after
+        0: '{ones}'
+        1: '{last_one}'
+        2: '{ones}'
+        10: '{teens%}'
+        20: '{tens}[{>digits}]'
+        100: '{<hundreds-first} {hundred}[ {union} {>cardinal}]'
+        1000: '{<thousands-first} {thousands}[{>}]'
+        1000000: '{<group-first} {millions}[{>}]'
+        1000000000: '{<group-first} {billions}[{>}]'
+        1000000000000: '{<group-first} {trillions}[{>}]'
+        1000000000000000: '{<group-first} {quadrillions}[{>}]'
+        1000000000000000000: '{<group-first} {quintillions}[{>}]'
+      inner:
+        extends: cardinal
+        100: '{<hundreds-inner} {hundred}[ {union} {>cardinal}]'
+        1000: '{<thousands-inner} {thousands}[{>}]'
+        1000000: '{<group-inner} {millions}[{>}]'
+        1000000000: '{<group-inner} {billions}[{>}]'
+        1000000000000: '{<group-inner} {trillions}[{>}]'
+        1000000000000000: '{<group-inner} {quadrillions}[{>}]'
+        1000000000000000000: '{<group-inner} {quintillions}[{>}]'
+      after:
+        then: inner
+        1: ' {union} {=}'
+        100: ' {=}'
+      digits:
+        0: '{ones}'
+      # The count of a scale word: a final one is "en", or "ett" before tusen.
+      group-first:
+        0: '{ones}'
+        10: '{teens%}'
+        20: '{tens}[{>digits}]'
+        100: '{<hundreds-first} {hundred}[ {union} {>group-first}]'
+      group-inner:
+        extends: group-first
+        100: '{<hundreds-inner} {hundred}[ {union} {>group-first}]'
+      thousands-first:
+        extends: group-first
+        1: ''
+        2: '{ones}'
+        100: '{<hundreds-first} {hundred}[ {union} {>neuter}]'
+      thousands-inner:
+        extends: group-first
+        1: '{one.neuter}'
+        2: '{ones}'
+        100: '{<hundreds-inner} {hundred}[ {union} {>neuter}]'
+      neuter:
+        extends: group-first
+        1: '{one.neuter}'
+        2: '{ones}'
+      hundreds-first:
+        0: '{ones}'
+        1: ''
+        2: '{ones}'
+      hundreds-inner:
+        0: '{ones}'
+        1: '{one.neuter}'
+        2: '{ones}'
+      # The last word of an ordinal is ordinal, and "en" before a single scale word is left out ("millionte").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{tens}{ordinals.ones%}|{ordinals.tens}]'
+        100: '{<hundreds-first} [{hundred} {union} {>ordinal}|{ordinals.hundred}]'
+        1000: '{<thousands-first} [{thousands}{>ordinal-after}|{ordinals.thousands}]'
+        1000000: '[{<group-first} {millions}{>ordinal-after}|{<ordinal-count} {ordinals.millions}]'
+        1000000000: '[{<group-first} {billions}{>ordinal-after}|{<ordinal-count} {ordinals.billions}]'
+        1000000000000: '[{<group-first} {trillions}{>ordinal-after}|{<ordinal-count} {ordinals.trillions}]'
+        1000000000000000: '[{<group-first} {quadrillions}{>ordinal-after}|{<ordinal-count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<group-first} {quintillions}{>ordinal-after}|{<ordinal-count} {ordinals.quintillions}]'
+      ordinal-inner:
+        extends: ordinal
+        100: '{<hundreds-inner} [{hundred} {union} {>ordinal}|{ordinals.hundred}]'
+        1000: '{<thousands-inner} [{thousands}{>ordinal-after}|{ordinals.thousands}]'
+        1000000: '{<group-inner} [{millions}{>ordinal-after}|{ordinals.millions}]'
+        1000000000: '{<group-inner} [{billions}{>ordinal-after}|{ordinals.billions}]'
+        1000000000000: '{<group-inner} [{trillions}{>ordinal-after}|{ordinals.trillions}]'
+        1000000000000000: '{<group-inner} [{quadrillions}{>ordinal-after}|{ordinals.quadrillions}]'
+        1000000000000000000: '{<group-inner} [{quintillions}{>ordinal-after}|{ordinals.quintillions}]'
+      ordinal-after:
+        then: ordinal-inner
+        1: ' {union} {=}'
+        100: ' {=}'
+      ordinal-count:
+        extends: group-first
+        1: ''
+        2: '{ones}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    thousands: {one: tusen, other: tusen}
+    millions: {one: million, other: millioner}
+    billions: {one: milliard, other: milliarder}
+    trillions: {one: billion, other: billioner}
+    quadrillions: {one: billiard, other: billiarder}
+    quintillions: {one: trillion, other: trillioner}
     union: og
     micro_separator: komma
     ordinals:
-      words:
-        "null": nullte
-        en: første
-        ei: første
-        ett: første
-        to: andre
-        tre: tredje
-        fire: fjerde
-        fem: femte
-        seks: sjette
-        sju: sjuende
-        åtte: åttende
-        ni: niende
-        ti: tiende
-        elleve: ellevte
-        tolv: tolvte
-        tretten: trettende
-        fjorten: fjortende
-        femten: femtende
-        seksten: sekstende
-        sytten: syttende
-        atten: attende
-        nitten: nittende
-        tjue: tjuende
-        tretti: trettiende
-        førti: førtiende
-        femti: femtiende
-        seksti: sekstiende
-        sytti: syttiende
-        åtti: åttiende
-        nitti: nittiende
-        hundre: hundrede
-        tusen: tusende
-        million: millionte
-        millioner: millionte
-        milliard: milliardte
-        milliarder: milliardte
-        billion: billionte
-        billioner: billionte
-        billiard: billiardte
-        billiarder: billiardte
-        trillion: trillionte
-        trillioner: trillionte
+      ones: [nullte, første, andre, tredje, fjerde, femte, sjette, sjuende, åttende, niende]
+      teens: [tiende, ellevte, tolvte, trettende, fjortende, femtende, sekstende, syttende, attende, nittende]
+      tens: [_, _, tjuende, trettiende, førtiende, femtiende, sekstiende, syttiende, åttiende, nittiende]
+      hundred: hundrede
+      thousands: tusende
+      millions: millionte
+      billions: milliardte
+      trillions: billionte
+      quadrillions: billiardte
+      quintillions: trillionte
+    # The gender of a final one ("ei", "ett").
+    genders:
+      female:
+        last_one: ei
+      neuter:
+        last_one: ett
     subunit_separator: og

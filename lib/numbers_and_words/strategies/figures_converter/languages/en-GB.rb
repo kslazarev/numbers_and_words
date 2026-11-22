@@ -4,14 +4,13 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Languages
+        # British English says "and" after hundreds and before a last group below a hundred by default ("one hundred
+        # and one", "one thousand and one").
         class EnGb < En
-          # "one thousand and one": a final part below one hundred after a larger unit is joined with "and",
-          # like the rest of a hundred; hundreds_with_union: false leaves out both.
-          def number_without_capacity_to_words
-            words = words_in_capacity(0)
-            lowest = @figures.number_in_capacity(0)
-            union = lowest.positive? && lowest < 100 && @options.options.fetch(:hundreds_with_union, true)
-            union ? words + [@translations.union] : words
+          private
+
+          def union?
+            @options.options.fetch(:hundreds_with_union, true)
           end
         end
       end

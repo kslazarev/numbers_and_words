@@ -9,9 +9,9 @@ describe NumbersAndWords::Strategies::FiguresConverter::Options::Proxy do
         options = {}
         proxy = described_class.new(double, options)
 
-        expect(proxy.remove_hyphen.result).to eq('-')
+        expect(proxy.remove_hyphen.result).to be_nil
         options[:remove_hyphen] = true
-        expect(proxy.remove_hyphen.result).to eq(' ')
+        expect(proxy.remove_hyphen.result).to be(true)
       end
     end
 

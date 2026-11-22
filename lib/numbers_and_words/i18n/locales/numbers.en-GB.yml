@@ -5,13 +5,123 @@ en-GB:
     teens: [_, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen]
     tens: [_, ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety]
     hundreds: hundred
-    mega: [_, thousand, million, billion, trillion, quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion, undecillion, duodecillion, tredecillion, quattuordecillion]
-    ordinal:
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
+    thousands: thousand
+    millions: million
+    billions: billion
+    trillions: trillion
+    quadrillions: quadrillion
+    quintillions: quintillion
+    sextillions: sextillion
+    septillions: septillion
+    octillions: octillion
+    nonillions: nonillion
+    decillions: decillion
+    undecillions: undecillion
+    duodecillions: duodecillion
+    tredecillions: tredecillion
+    quattuordecillions: quattuordecillion
+    ordinals:
       ones: [zeroth, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
       teens: [tenth, eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth]
       tens: [_, tenth, twentieth, thirtieth, fortieth, fiftieth, sixtieth, seventieth, eightieth, ninetieth]
       hundreds: hundredth
-      mega: [_, thousandth, millionth, billionth, trillionth, quadrillionth, quintillionth, sextillionth, septillionth, octillionth, nonillionth, decillionth, undecillionth, duodecillionth, tredecillionth, quattuordecillionth]
+      thousands: thousandth
+      millions: millionth
+      billions: billionth
+      trillions: trillionth
+      quadrillions: quadrillionth
+      quintillions: quintillionth
+      sextillions: sextillionth
+      septillions: septillionth
+      octillions: octillionth
+      nonillions: nonillionth
+      decillions: decillionth
+      undecillions: undecillionth
+      duodecillions: duodecillionth
+      tredecillions: tredecillionth
+      quattuordecillions: quattuordecillionth
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        then: rest
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{hyphen}{>cardinal}]'
+        100: '{<} {hundreds}[{after_hundreds}{>cardinal}]'
+        1000: '{<} {thousands}[{>}]'
+        1000000: '{<} {millions}[{>}]'
+        1000000000: '{<} {billions}[{>}]'
+        1000000000000: '{<} {trillions}[{>}]'
+        1000000000000000: '{<} {quadrillions}[{>}]'
+        1000000000000000000: '{<} {quintillions}[{>}]'
+        1000000000000000000000: '{<} {sextillions}[{>}]'
+        1000000000000000000000000: '{<} {septillions}[{>}]'
+        1000000000000000000000000000: '{<} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<} {decillions}[{>}]'
+        1000000000000000000000000000000000000: '{<} {undecillions}[{>}]'
+        1000000000000000000000000000000000000000: '{<} {duodecillions}[{>}]'
+        1000000000000000000000000000000000000000000: '{<} {tredecillions}[{>}]'
+        1000000000000000000000000000000000000000000000: '{<} {quattuordecillions}[{>}]'
+      # The rest after a scale word, with "and" before a last group below a hundred where the language says so.
+      rest:
+        then: cardinal
+        1: '{before_last}{=}'
+        100: ' {=}'
+      # The last word of an ordinal is ordinal ("one hundred twenty-first", "two thousandth").
+      ordinal:
+        then: ordinal-rest
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens}{hyphen}{>ordinal}|{ordinals.tens}]'
+        100: '{<cardinal} [{hundreds}{after_hundreds}{>ordinal}|{ordinals.hundreds}]'
+        1000: '{<cardinal} [{thousands}{>}|{ordinals.thousands}]'
+        1000000: '{<cardinal} [{millions}{>}|{ordinals.millions}]'
+        1000000000: '{<cardinal} [{billions}{>}|{ordinals.billions}]'
+        1000000000000: '{<cardinal} [{trillions}{>}|{ordinals.trillions}]'
+        1000000000000000: '{<cardinal} [{quadrillions}{>}|{ordinals.quadrillions}]'
+        1000000000000000000: '{<cardinal} [{quintillions}{>}|{ordinals.quintillions}]'
+        1000000000000000000000: '{<cardinal} [{sextillions}{>}|{ordinals.sextillions}]'
+        1000000000000000000000000: '{<cardinal} [{septillions}{>}|{ordinals.septillions}]'
+        1000000000000000000000000000: '{<cardinal} [{octillions}{>}|{ordinals.octillions}]'
+        1000000000000000000000000000000: '{<cardinal} [{nonillions}{>}|{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '{<cardinal} [{decillions}{>}|{ordinals.decillions}]'
+        1000000000000000000000000000000000000: '{<cardinal} [{undecillions}{>}|{ordinals.undecillions}]'
+        1000000000000000000000000000000000000000: '{<cardinal} [{duodecillions}{>}|{ordinals.duodecillions}]'
+        1000000000000000000000000000000000000000000: '{<cardinal} [{tredecillions}{>}|{ordinals.tredecillions}]'
+        1000000000000000000000000000000000000000000000: '{<cardinal} [{quattuordecillions}{>}|{ordinals.quattuordecillions}]'
+      ordinal-rest:
+        extends: rest
+        then: ordinal
+      # pronounced: true reads 100 to 9999 in hundreds, as years are ("nineteen eighty-four", "nineteen oh five",
+      # "nineteen hundred"), unless the hundreds digit is zero ("two thousand one").
+      pronounced:
+        100: '{<plain} [{>pronounced-rest}|{hundreds}]'
+      pronounced-rest:
+        0: '{pronounced_zero} {ones}'
+        10: '{=cardinal}'
+      pronounced-ordinal:
+        100: '{<plain} [{>pronounced-ordinal-rest}|{hundreds}]'
+      pronounced-ordinal-rest:
+        0: '{pronounced_zero} {ordinals.ones}'
+        10: '{=ordinal}'
+      # The count of hundreds in a pronounced number, which keeps its hyphen ("twenty-one hundred").
+      plain:
+        extends: cardinal
+        20: '{tens}[-{>cardinal}]'
+    hyphen: '-'
+    after_hundreds: ' '
+    before_last: ' '
+    # The words that an option changes when it is on.
+    options:
+      remove_hyphen:
+        hyphen: ' '
+      hundreds_with_union:
+        after_hundreds: ' and '
+        before_last: ' and '
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths]
     tenths:
       one: tenth
