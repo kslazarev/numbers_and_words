@@ -10,13 +10,80 @@ he:
     tens: [_, _, עשרים, שלושים, ארבעים, חמישים, שישים, שבעים, שמונים, תשעים]
     hundreds: [_, מאה, מאתיים, שלוש מאות, ארבע מאות, חמש מאות, שש מאות, שבע מאות, שמונה מאות, תשע מאות]
     thousands: [_, אלף, אלפיים, שלושת אלפים, ארבעת אלפים, חמשת אלפים, ששת אלפים, שבעת אלפים, שמונת אלפים, תשעת אלפים, עשרת אלפים]
-    mega: [_, אלף, מיליון, מיליארד, טריליון]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # "ו" joins the last word of a group ("מאה עשרים ואחת"), and a last group of one word after a scale word
+    # ("אלף ומאה", "מיליון ואלפיים"); a scale word counts in the masculine.
+    rules:
+      cardinal-female:
+        0: '{ones.female}'
+        11: '{teens.female%}'
+        20: '[{tens} {union}{ones.female%}|{tens}]'
+        100: '{hundreds}[{>and-female}]'
+        1000: '{thousands}[{>after-female}]'
+        '11000/1000': '{<cardinal-male} {thousand}[{>after-female}]'
+        1000000: '{millions}[{>after-female}]'
+        2000000: '{two} {millions}[{>after-female}]'
+        '3000000/1000000': '{<cardinal-male} {millions}[{>after-female}]'
+        1000000000: '{billions}[{>after-female}]'
+        2000000000: '{two} {billions}[{>after-female}]'
+        '3000000000/1000000000': '{<cardinal-male} {billions}[{>after-female}]'
+        1000000000000: '{trillions}[{>after-female}]'
+        2000000000000: '{two} {trillions}[{>after-female}]'
+        '3000000000000/1000000000000': '{<cardinal-male} {trillions}[{>after-female}]'
+      and-female:
+        then: cardinal-female
+        1: ' {union}{=}'
+        20: '[ {=}| {union}{=}]'
+      after-female:
+        extends: and-female
+        100: '[ {=}| {union}{=}]'
+        1000: '[ {=}| {union}{=}]'
+        1000000: '[ {=}| {union}{=}]'
+        1000000000: '[ {=}| {union}{=}]'
+      cardinal-male:
+        0: '{ones.male}'
+        11: '{teens.male%}'
+        20: '[{tens} {union}{ones.male%}|{tens}]'
+        100: '{hundreds}[{>and-male}]'
+        1000: '{thousands}[{>after-male}]'
+        '11000/1000': '{<cardinal-male} {thousand}[{>after-male}]'
+        1000000: '{millions}[{>after-male}]'
+        2000000: '{two} {millions}[{>after-male}]'
+        '3000000/1000000': '{<cardinal-male} {millions}[{>after-male}]'
+        1000000000: '{billions}[{>after-male}]'
+        2000000000: '{two} {billions}[{>after-male}]'
+        '3000000000/1000000000': '{<cardinal-male} {billions}[{>after-male}]'
+        1000000000000: '{trillions}[{>after-male}]'
+        2000000000000: '{two} {trillions}[{>after-male}]'
+        '3000000000000/1000000000000': '{<cardinal-male} {trillions}[{>after-male}]'
+      and-male:
+        then: cardinal-male
+        1: ' {union}{=}'
+        20: '[ {=}| {union}{=}]'
+      after-male:
+        extends: and-male
+        100: '[ {=}| {union}{=}]'
+        1000: '[ {=}| {union}{=}]'
+        1000000: '[ {=}| {union}{=}]'
+        1000000000: '[ {=}| {union}{=}]'
+      # One to ten have ordinals of their own; larger ordinals take the definite article (see Languages::He).
+      ordinal:
+        1: '{ordinals.ones}'
+    mega: [_, thousand, millions, billions, trillions]
+    thousand: אלף
+    millions: מיליון
+    billions: מיליארד
+    trillions: טריליון
     two: שני
     union: ו
     definite: ה
     ordinals:
-      male: [_, ראשון, שני, שלישי, רביעי, חמישי, שישי, שביעי, שמיני, תשיעי, עשירי]
-      female: [_, ראשונה, שנייה, שלישית, רביעית, חמישית, שישית, שביעית, שמינית, תשיעית, עשירית]
+      ones: [_, ראשון, שני, שלישי, רביעי, חמישי, שישי, שביעי, שמיני, תשיעי, עשירי]
+    # The feminine ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [_, ראשונה, שנייה, שלישית, רביעית, חמישית, שישית, שביעית, שמינית, תשיעית, עשירית]
     micro_separator: נקודה
     subunit_separator: ו
     subunit_separator_attached: true
