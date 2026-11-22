@@ -2,16 +2,9 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Tr.
     class Tr < Base
       include NumbersAndWords::Translations::Families::Latin
-
-      def hundreds(number, options = {})
-        if number == 1
-          [t([options[:prefix], :hundreds].join('.'))].join options[:separator] || ' '
-        else
-          [t(:ones)[number], t([options[:prefix], :hundreds].join('.'))].join options[:separator] || ' '
-        end
-      end
     end
   end
 end

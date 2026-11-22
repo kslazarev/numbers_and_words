@@ -5,10 +5,65 @@ hy:
     teens: [_, տասնմեկ, տասներկու, տասներեք, տասնչորս, տասնհինգ, տասնվեց, տասնյոթ, տասնութ, տասնինը]
     tens: [_, տասը, քսան, երեսուն, քառասուն, հիսուն, վաթսուն, յոթանասուն, ութսուն, իննսուն]
     hundreds: հարյուր
-    mega: [_, հազար, միլիոն, միլիարդ, տրիլիոն, կվադրիլիոն]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '{hundreds}[ {>}]'
+        200: '{ones} {hundreds}[ {>}]'
+        1000: '{thousands}[ {>}]'
+        2000: '{<cardinal} {thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+      # One to four have ordinals of their own ("առաջին"); the others add -երորդ to their last word ("քսանմեկերորդ"),
+      # and a leading one before a single scale word is left out ("միլիոներորդ").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        1: '{ordinals.first}'
+        5: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens}{ordinals.ones%}|{ordinals.tens}]'
+        100: '[{hundreds} {>}|{ordinals.hundreds}]'
+        200: '[{ones} {hundreds} {>}|{ones} {ordinals.hundreds}]'
+        1000: '[{thousands} {>}|{ordinals.thousands}]'
+        2000: '[{<cardinal} {thousands} {>}|{<cardinal} {ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions} {>}|{<count} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<count} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<count} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<count} {ordinals.quadrillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1: '{ordinals.ones}'
+        1000000: '[{<cardinal} {millions} {>}|{<cardinal} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<cardinal} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<cardinal} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<cardinal} {ordinals.quadrillions}]'
+      count:
+        extends: cardinal
+        then: cardinal
+        1: ''
+        2: '{ones}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions]
+    thousands: հազար
+    millions: միլիոն
+    billions: միլիարդ
+    trillions: տրիլիոն
+    quadrillions: կվադրիլիոն
     ordinals:
-      'first_four': ['առաջին', 'երկրորդ', 'երրորդ', 'չորրորդ']
-      'suffix': 'երորդ'
-      'schwa': 'ը'
-      'linking': 'ն'
-      'leading_one': ['մեկ']
+      first: [_, առաջին, երկրորդ, երրորդ, չորրորդ]
+      ones: [զրոերորդ, մեկերորդ, երկուերորդ, երեքերորդ, չորսերորդ, հինգերորդ, վեցերորդ, յոթերորդ, ութերորդ, իններորդ]
+      teens: [_, տասնմեկերորդ, տասներկուերորդ, տասներեքերորդ, տասնչորսերորդ, տասնհինգերորդ, տասնվեցերորդ, տասնյոթերորդ, տասնութերորդ, տասնիններորդ]
+      tens: [_, տասներորդ, քսաներորդ, երեսուներորդ, քառասուներորդ, հիսուներորդ, վաթսուներորդ, յոթանասուներորդ, ութսուներորդ, իննսուներորդ]
+      hundreds: հարյուրերորդ
+      thousands: հազարերորդ
+      millions: միլիոներորդ
+      billions: միլիարդերորդ
+      trillions: տրիլիոներորդ
+      quadrillions: կվադրիլիոներորդ

@@ -5,17 +5,87 @@ tr:
     teens: [_, on bir, on iki, on üç, on dört, on beş, on altı, on yedi, on sekiz, on dokuz]
     tens: [_, 'on', yirmi, otuz, kırk, elli, altmış, yetmiş, seksen, doksan]
     hundreds: yüz
-    mega: [_, bin, milyon, milyar, trilyon, katrilyon, kentilyon, seksilyon, septilyon, oktilyon, nonilyon, desilyon]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A count of one is left out before the hundred and the thousand, and kept before the larger scale words.
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        200: '{ones} {hundreds}[ {>}]'
+        1000: '{thousands}[ {>}]'
+        2000: '{<cardinal} {thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
+      # The last word of an ordinal takes the suffix in harmony with its last vowel, and a leading one before a
+      # single scale word is left out ("milyonuncu").
+      ordinal:
+        then: ordinal-inner
+        0: '{ordinals.ones}'
+        10: '[{tens} {>}|{ordinals.tens}]'
+        100: '[{hundreds} {>}|{ordinals.hundreds}]'
+        200: '[{ones} {hundreds} {>}|{ones} {ordinals.hundreds}]'
+        1000: '[{thousands} {>}|{ordinals.thousands}]'
+        2000: '[{<cardinal} {thousands} {>}|{<cardinal} {ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions} {>}|{<count} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<count} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<count} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<count} {ordinals.decillions}]'
+      ordinal-inner:
+        extends: ordinal
+        1000000: '[{<cardinal} {millions} {>}|{<cardinal} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>}|{<cardinal} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>}|{<cardinal} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>}|{<cardinal} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<cardinal} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<cardinal} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<cardinal} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<cardinal} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<cardinal} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<cardinal} {ordinals.decillions}]'
+      count:
+        extends: cardinal
+        then: cardinal
+        1: ''
+        2: '{ones}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: bin
+    millions: milyon
+    billions: milyar
+    trillions: trilyon
+    quadrillions: katrilyon
+    quintillions: kentilyon
+    sextillions: seksilyon
+    septillions: septilyon
+    octillions: oktilyon
+    nonillions: nonilyon
+    decillions: desilyon
     ordinals:
-      'suffixes':
-        'a': 'ıncı'
-        'ı': 'ıncı'
-        'e': 'inci'
-        'i': 'inci'
-        'o': 'uncu'
-        'u': 'uncu'
-        'ö': 'üncü'
-        'ü': 'üncü'
-      'words':
-        'dört': 'dördüncü'
-      'leading_one': ['bir']
+      ones: [sıfırıncı, birinci, ikinci, üçüncü, dördüncü, beşinci, altıncı, yedinci, sekizinci, dokuzuncu]
+      tens: [_, onuncu, yirminci, otuzuncu, kırkıncı, ellinci, altmışıncı, yetmişinci, sekseninci, doksanıncı]
+      hundreds: yüzüncü
+      thousands: bininci
+      millions: milyonuncu
+      billions: milyarıncı
+      trillions: trilyonuncu
+      quadrillions: katrilyonuncu
+      quintillions: kentilyonuncu
+      sextillions: seksilyonuncu
+      septillions: septilyonuncu
+      octillions: oktilyonuncu
+      nonillions: nonilyonuncu
+      decillions: desilyonuncu

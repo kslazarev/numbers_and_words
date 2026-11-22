@@ -27,34 +27,6 @@ module NumbersAndWords
             @ordinals ||= @translations.t(:ordinals)
           end
 
-          # The ordinal form of a word from a table keyed by its cardinal form, or nil.
-          def lookup(table, word)
-            table[word.to_sym]
-          end
-
-          # Replaces the last word of the text with the block's result.
-          def with_last_word(text)
-            *head, last = text.split
-            [*head, yield(last)].join(' ')
-          end
-
-          # "one hundred" or "one million" reads as the ordinal of its scale word alone ("millionth").
-          def without_leading_one(text)
-            words = text.split
-            words.size == 2 && ordinals[:leading_one].include?(words.first) ? words.last : text
-          end
-
-          # Adds the ordinal suffix that harmonizes with the word's last vowel, dropping the suffix's
-          # first letter after a final vowel (Turkish "iki" gives "ikinci", Kazakh "алты" gives "алтыншы").
-          def harmonic_ordinal(word)
-            lookup(ordinals[:words], word) || begin
-              suffixes = ordinals[:suffixes]
-              vowel = word.chars.reverse.find { |char| suffixes.key?(char.to_sym) }
-              suffix = suffixes[vowel.to_sym]
-              suffixes.key?(word[-1].to_sym) ? "#{word}#{suffix[1..]}" : "#{word}#{suffix}"
-            end
-          end
-
           # The word with the longest suffix found in the table replaced by its value, or nil.
           def replace_suffix(word, table)
             suffix = table.keys.map(&:to_s).select { |key| word.end_with?(key) }.max_by(&:length)

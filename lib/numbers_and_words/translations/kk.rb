@@ -2,13 +2,9 @@
 
 module NumbersAndWords
   module Translations
+    # The words of whole numbers are read from the locale file by Strategies::FiguresConverter::Languages::Kk.
     class Kk < Base
       include NumbersAndWords::Translations::Families::Latin
-
-      # "жүз" rather than "бір жүз".
-      def hundreds(number, options = {})
-        number == 1 ? t(:hundreds) : super
-      end
     end
   end
 end
