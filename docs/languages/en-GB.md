@@ -1,6 +1,6 @@
 # British English (`en-GB`)
 
-English (British). [`hundreds_with_union: true`](#hundreds-with-union) adds the British "and" (one hundred and one, one thousand and one), and becomes the default in 2.0. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+The [`hundreds_with_union: true`](#hundreds-with-union) option adds the British "and" (one hundred and one, one thousand and one), and becomes the default in 2.0. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -52,7 +52,7 @@ I18n.with_locale(:'en-GB') { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 0.1.to_words(precision: 2) }
@@ -61,7 +61,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 21.77.to_words(micro_separator: "plus") }
@@ -70,7 +70,7 @@ I18n.with_locale(:'en-GB') { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true` reads decimals as a fraction instead of with `point`.
+The `fraction: true` option reads decimals as a fraction instead of with `point`.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 21.77.to_words(fraction: true) }
@@ -82,7 +82,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
 
 ### Hundreds With Union
 
-`hundreds_with_union: true` adds "and" after a hundred (one hundred and one), and before a final part below one hundred after a scale word (one thousand and one, two million and thirty). It becomes the default for British English in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+The `hundreds_with_union: true` option adds "and" after a hundred (one hundred and one), and before a final part below one hundred after a scale word (one thousand and one, two million and thirty). It becomes the default for British English in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'en-GB') { 111.to_words }
@@ -97,7 +97,7 @@ I18n.with_locale(:'en-GB') { 1001.to_words(hundreds_with_union: true) }
 
 ### Ordinal
 
-`ordinal: true`
+The `ordinal: true` option makes the number ordinal.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 133.to_words(ordinal: true) }
@@ -109,7 +109,7 @@ I18n.with_locale(:'en-GB') { 1001.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
+The `pronounced: true` option reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 1984.to_words(pronounced: true) }
@@ -127,7 +127,7 @@ I18n.with_locale(:'en-GB') { 12_345.to_words(pronounced: true) }
 
 ### Remove Hyphen
 
-`remove_hyphen: true` removes the hyphen between tens and ones.
+The `remove_hyphen: true` option removes the hyphen between tens and ones.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 21.to_words(remove_hyphen: true) }
@@ -136,7 +136,7 @@ I18n.with_locale(:'en-GB') { 21.to_words(remove_hyphen: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 0.7.to_words(remove_zero: true) }

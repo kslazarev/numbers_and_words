@@ -1,6 +1,6 @@
 # Malay (`ms`)
 
-Bahasa Melayu. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Bahasa Melayu is the Malay name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Malay counts like Indonesian, with its own words: lapan for 8, bilion (10<sup>9</sup>), trilion (10<sup>12</sup>) and the formal sifar for zero (kosong is common in speech). One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu). Larger scales keep satu (satu juta). Scales above trilion follow the short scale: kuadrilion, kuintilion, sekstilion, septilion, oktilion, nonilion and desilion (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -48,7 +48,7 @@ I18n.with_locale(:ms) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ms) { 0.1.to_words(precision: 2) }
@@ -57,7 +57,7 @@ I18n.with_locale(:ms) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ms) { 21.77.to_words(micro_separator: "titik") }
@@ -66,7 +66,7 @@ I18n.with_locale(:ms) { 21.77.to_words(micro_separator: "titik") }
 
 ### Ordinal
 
-`ordinal: true` adds the prefix ke- (kedua, kesebelas, kedua puluh satu), except `pertama` for 1. Zero keeps its cardinal form.
+The `ordinal: true` option adds the prefix ke- (kedua, kesebelas, kedua puluh satu), except `pertama` for 1. Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:ms) { 1.to_words(ordinal: true) }
@@ -78,7 +78,7 @@ I18n.with_locale(:ms) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:ms) { 0.7.to_words(remove_zero: true) }

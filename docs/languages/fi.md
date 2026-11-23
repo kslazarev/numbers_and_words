@@ -1,6 +1,6 @@
 # Finnish (`fi`)
 
-Suomi. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Suomi is the Finnish name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers below a million are one word (kaksituhattakaksikymmentäyksi); millions and larger are separate words (kaksi miljoonaa). Scale words take the partitive after numbers above one (kaksituhatta, kaksi miljoonaa), and a lone one is omitted (tuhat, miljoona). Biljoona (10<sup>12</sup>), triljoona (10<sup>18</sup>), kvadriljoona (10<sup>24</sup>) and kvintiljoona (10<sup>30</sup>) count up to 999 999 times. So 10<sup>15</sup> is tuhat biljoonaa and 10<sup>21</sup> tuhat triljoonaa, the recommended readings, rather than the rare biljardi and triljardi. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Finnish numbers have no gender.
 
@@ -48,7 +48,7 @@ I18n.with_locale(:fi) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:fi) { 0.1.to_words(precision: 2) }
@@ -57,7 +57,7 @@ I18n.with_locale(:fi) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:fi) { 21.77.to_words(micro_separator: "piste") }
@@ -66,7 +66,7 @@ I18n.with_locale(:fi) { 21.77.to_words(micro_separator: "piste") }
 
 ### Ordinal
 
-`ordinal: true` makes every part ordinal, with ensimmäinen and toinen at the end and yhdes and kahdes inside a number (yhdestoista, kahdeskymmenesensimmäinen).
+The `ordinal: true` option makes every part ordinal, with ensimmäinen and toinen at the end and yhdes and kahdes inside a number (yhdestoista, kahdeskymmenesensimmäinen).
 
 ```ruby
 I18n.with_locale(:fi) { 1.to_words(ordinal: true) }
@@ -81,7 +81,7 @@ I18n.with_locale(:fi) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps pilkku.
+The `remove_zero: true` option omits a zero integral part and keeps pilkku.
 
 ```ruby
 I18n.with_locale(:fi) { 0.7.to_words(remove_zero: true) }

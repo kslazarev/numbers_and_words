@@ -4,9 +4,9 @@ Releases use [ruby-gem-release](https://github.com/dblock/ruby-gem-release) 0.9.
 
 ## One-Time Setup
 
-- **GitHub environment:** the release jobs run in an environment named `release`. The first run creates it if it doesn't exist. Everyone with write access is trusted to release, so it may be unprotected. A repository administrator can restrict it to `master` and require reviewers.
-- **RubyGems trusted publisher:** a gem owner configures the [trusted publisher](https://rubygems.org/gems/numbers_and_words/trusted_publishers) with repository owner `kslazarev`, repository `numbers_and_words`, workflow `release.yml`, environment `release`, reusable workflow owner `dblock` and repository `ruby-gem-release`. No API key is needed.
-- **Branch protection:** the Actions token must be able to push the release commits and tags to `master` and create GitHub Releases. Use a narrow exception if needed. Never allow force pushes or tag overwrites.
+- **GitHub environment:** The release jobs run in an environment named `release`. The first run creates it if it doesn't exist. Everyone with write access is trusted to release, so it may be unprotected. A repository administrator can restrict it to `master` and require reviewers.
+- **RubyGems trusted publisher:** A gem owner configures the [trusted publisher](https://rubygems.org/gems/numbers_and_words/trusted_publishers) with repository owner `kslazarev`, repository `numbers_and_words`, workflow `release.yml`, environment `release`, reusable workflow owner `dblock` and repository `ruby-gem-release`. No API key is needed.
+- **Branch protection:** The Actions token must be able to push the release commits and tags to `master` and create GitHub Releases. Use a narrow exception if needed. Never allow force pushes or tag overwrites.
 
 ## Validation
 
@@ -16,7 +16,7 @@ Run `bundle exec rake`, then `bundle exec rake build` and `bundle exec ruby scri
 
 ## Dry Run
 
-`gh workflow run release.yml --repo kslazarev/numbers_and_words --ref master -f dry-run=true` checks the setup without changing anything. It runs in the `release` environment, so reviewers approve it. It exchanges an OIDC token with RubyGems and checks that the release commit and tag can be pushed.
+The `gh workflow run release.yml --repo kslazarev/numbers_and_words --ref master -f dry-run=true` command checks the setup without changing anything. It runs in the `release` environment, so reviewers approve it. It exchanges an OIDC token with RubyGems and checks that the release commit and tag can be pushed.
 
 ## Publish
 

@@ -1,6 +1,6 @@
 # Burmese (`my`)
 
-မြန်မာဘာသာ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces.
+မြန်မာဘာသာ is the Burmese name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces.
 
 The places are ဆယ် (10), ရာ (100), ထောင် (1,000), သောင်း (10,000), သိန်း (100,000), သန်း (1,000,000) and ကုဋေ (10<sup>7</sup>). Ten is ဆယ် without တစ်. ဆယ်, ရာ and ထောင် take the creaky tone (ဆယ့်, ရာ့, ထောင့်) when another number follows them (နှစ်ဆယ့်တစ်, သုံးရာ့တစ်, တစ်ထောင့်တစ်ရာ), but not at the end of the number (နှစ်ဆယ်). ကုဋေ counts up to ten million of itself (10<sup>9</sup> is တစ်ရာကုဋေ, 10<sup>12</sup> is တစ်သိန်းကုဋေ). ကောဋိ (10<sup>14</sup>) counts any number of itself, so there is no largest number. Burmese numbers have no gender.
 
@@ -53,7 +53,7 @@ I18n.with_locale(:my) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:my) { 0.1.to_words(precision: 2) }
@@ -62,7 +62,7 @@ I18n.with_locale(:my) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:my) { 21.77.to_words(micro_separator: "plus") }
@@ -71,7 +71,7 @@ I18n.with_locale(:my) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` gives the Pali ordinals from first to tenth (ပထမ to ဒသမ). Larger ordinals, and zero, are the cardinal, as in the Unicode CLDR rules. In a sentence Burmese adds a measure word and မြောက် (ဆယ့်တစ်ခုမြောက်). The measure word depends on the noun, so the gem leaves it to the caller.
+The `ordinal: true` option gives the Pali ordinals from first to tenth (ပထမ to ဒသမ). Larger ordinals, and zero, are the cardinal, as in the Unicode CLDR rules. In a sentence Burmese adds a measure word and မြောက် (ဆယ့်တစ်ခုမြောက်). The measure word depends on the noun, so the gem leaves it to the caller.
 
 ```ruby
 I18n.with_locale(:my) { 1.to_words(ordinal: true) }
@@ -86,7 +86,7 @@ I18n.with_locale(:my) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:my) { 0.7.to_words(remove_zero: true) }

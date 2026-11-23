@@ -1,6 +1,6 @@
 # Latvian (`lv`)
 
-Latviešu. A hundred is simts on its own and simt before another word (simt viens, simt tūkstoši). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Latviešu is the Latvian name of the language. A hundred is simts on its own and simt before another word (simt viens, simt tūkstoši). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -46,7 +46,7 @@ I18n.with_locale(:lv) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:lv) { 0.1.to_words(precision: 2) }
@@ -55,7 +55,7 @@ I18n.with_locale(:lv) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:lv) { 21.77.to_words(micro_separator: "punkts") }
@@ -64,7 +64,7 @@ I18n.with_locale(:lv) { 21.77.to_words(micro_separator: "punkts") }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female` sets the gender of the last group. The counts of tūkstotis and larger scale words stay masculine. Ordinals take the feminine ending.
+The `gender: :male` (default) or `gender: :female` option sets the gender of the last group. The counts of tūkstotis and larger scale words stay masculine. Ordinals take the feminine ending.
 
 ```ruby
 I18n.with_locale(:lv) { 1.to_words(gender: :female) }
@@ -85,7 +85,7 @@ I18n.with_locale(:lv) { 3.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("divdesmit pirmais"). A round hundred, thousand or larger scale is one word with a one-word multiplier in its combining form (divsimtais, piectūkstošais, desmittūkstošais, divmiljonais). A multiplier of several words stays separate (divdesmit viens tūkstošais). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+The `ordinal: true` option makes the last word ordinal ("divdesmit pirmais"). A round hundred, thousand or larger scale is one word with a one-word multiplier in its combining form (divsimtais, piectūkstošais, desmittūkstošais, divmiljonais). A multiplier of several words stays separate (divdesmit viens tūkstošais). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:lv) { 1.to_words(ordinal: true) }
@@ -103,7 +103,7 @@ I18n.with_locale(:lv) { 101.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komats.
+The `remove_zero: true` option omits a zero integral part and keeps komats.
 
 ```ruby
 I18n.with_locale(:lv) { 0.7.to_words(remove_zero: true) }

@@ -1,6 +1,6 @@
 # Russian (`ru`)
 
-Русский. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Русский is the Russian name of the language. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -41,7 +41,7 @@ I18n.with_locale(:ru) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ru) { 0.1.to_words(precision: 2) }
@@ -50,7 +50,7 @@ I18n.with_locale(:ru) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ru) { 21.77.to_words(micro_separator: "plus") }
@@ -59,7 +59,7 @@ I18n.with_locale(:ru) { 21.77.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter`.
+The `gender` option takes `:male` (default), `:female` or `:neuter`.
 
 ```ruby
 I18n.with_locale(:ru) { 1001.to_words(gender: :female) }
@@ -71,7 +71,7 @@ I18n.with_locale(:ru) { 1001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). A scale group of exactly one omits its one ("тысяча первый", "миллион первый"), while cardinals keep it ("одна тысяча один", "один миллион один"). Keeping один ("один миллион первый") is also correct. `gender:` selects the masculine, feminine or neuter ending.
+The `ordinal: true` option makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). A scale group of exactly one omits its one ("тысяча первый", "миллион первый"), while cardinals keep it ("одна тысяча один", "один миллион один"). Keeping один ("один миллион первый") is also correct. The `gender:` option selects the masculine, feminine or neuter ending.
 
 ```ruby
 I18n.with_locale(:ru) { 1.to_words(ordinal: true) }
@@ -98,7 +98,7 @@ I18n.with_locale(:ru) { 1_000_001.to_words(ordinal: true) }
 
 ### Case
 
-`case:` declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Every word of a cardinal declines. A scale word agrees with its numeral ("двадцати одной тысячи", "двух тысяч"). Only the last word of an ordinal declines ("двадцать первого"), in the ending `gender:` selects.
+The `case:` option declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Every word of a cardinal declines. A scale word agrees with its numeral ("двадцати одной тысячи", "двух тысяч"). Only the last word of an ordinal declines ("двадцать первого"), in the ending `gender:` selects.
 
 ```ruby
 I18n.with_locale(:ru) { 21.to_words(case: :genitive) }
@@ -136,7 +136,7 @@ Decimals are not declined: `case:` other than `:nominative` raises `NumbersAndWo
 
 ### Animate
 
-`animate: true` gives the accusative its genitive form, as for an animate noun, instead of the default inanimate form. It applies to a masculine ordinal ("вижу двадцать первого"), "один" ("двадцать одного"), and "два", "три" and "четыре" alone ("двух"); compound numbers ending in them keep the nominative ("двадцать два").
+The `animate: true` option gives the accusative its genitive form, as for an animate noun, instead of the default inanimate form. It applies to a masculine ordinal ("вижу двадцать первого"), "один" ("двадцать одного"), and "два", "три" and "четыре" alone ("двух"); compound numbers ending in them keep the nominative ("двадцать два").
 
 ```ruby
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative) }
@@ -154,7 +154,7 @@ I18n.with_locale(:ru) { 22.to_words(case: :accusative, animate: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:ru) { 0.7.to_words(remove_zero: true) }

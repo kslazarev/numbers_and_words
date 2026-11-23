@@ -1,6 +1,6 @@
 # Polish (`pl`)
 
-Polski. Experimental: masculine-personal forms are not implemented. Numbers up to 10<sup>48</sup> - 1 and up to 48 decimal places are supported, also as ordinals; larger numbers raise `RangeError`.
+Polski is the Polish name of the language. It is experimental: masculine-personal forms are not implemented. Numbers up to 10<sup>48</sup> - 1 and up to 48 decimal places are supported, also as ordinals; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -44,7 +44,7 @@ I18n.with_locale(:pl) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:pl) { 0.1.to_words(precision: 2) }
@@ -53,7 +53,7 @@ I18n.with_locale(:pl) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:pl) { 21.77.to_words(micro_separator: "plus") }
@@ -62,7 +62,7 @@ I18n.with_locale(:pl) { 21.77.to_words(micro_separator: "plus") }
 
 ### Case
 
-`case:` declines a cardinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:locative`, as Unicode CLDR's Polish rules do. Every word declines. A scale word takes the case of its count, in the singular after one and the plural otherwise ("dwóch tysięcy", "pięcioma tysiącami"). A final one after other digits stays jeden ("dwudziestu jeden"). Ordinals are not declined yet: `case:` other than `:nominative` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
+The `case:` option declines a cardinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:locative`, as Unicode CLDR's Polish rules do. Every word declines. A scale word takes the case of its count, in the singular after one and the plural otherwise ("dwóch tysięcy", "pięcioma tysiącami"). A final one after other digits stays jeden ("dwudziestu jeden"). Ordinals are not declined yet: `case:` other than `:nominative` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
 
 ```ruby
 I18n.with_locale(:pl) { 2.to_words(case: :genitive) }
@@ -86,7 +86,7 @@ I18n.with_locale(:pl) { 2.to_words(case: :dative, gender: :female) }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter`.
+The `gender` option takes `:male` (default), `:female` or `:neuter`.
 
 ```ruby
 I18n.with_locale(:pl) { 1.to_words(gender: :female) }
@@ -101,7 +101,7 @@ I18n.with_locale(:pl) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with `gender:`, makes the tens and ones ordinal and keeps the hundreds and scale words before them cardinal ("dwa tysiące dwudziesty pierwszy"). The ordinal of a round scale is one word with its count in combining form ("dwutysięczny", "stutysięczny"), leaving out a count of one ("tysięczny", "milionowy").
+The `ordinal: true` option, optionally with `gender:`, makes the tens and ones ordinal and keeps the hundreds and scale words before them cardinal ("dwa tysiące dwudziesty pierwszy"). The ordinal of a round scale is one word with its count in combining form ("dwutysięczny", "stutysięczny"), leaving out a count of one ("tysięczny", "milionowy").
 
 ```ruby
 I18n.with_locale(:pl) { 21.to_words(ordinal: true) }
@@ -122,7 +122,7 @@ I18n.with_locale(:pl) { 1_000_000.to_words(ordinal: true, gender: :female) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:pl) { 0.1.to_words(remove_zero: true) }

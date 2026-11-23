@@ -1,8 +1,8 @@
 # Norwegian Bokmål (`nb`)
 
-Norsk bokmål. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Norsk bokmål is the Norwegian Bokmål name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the modern counting system (tjueen, not en og tjue), with sju and tretti, not syv and tredve. "og" joins tens and ones to hundreds (hundre og en), and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no ett (hundre, tusen); after a larger part it is ett hundre or ett tusen. Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
+Numbers use the modern counting system (tjueen, not en og tjue), with sju and tretti, not syv and tredve. The word "og" joins tens and ones to hundreds (hundre og en), and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no ett (hundre, tusen); after a larger part it is ett hundre or ett tusen. Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
 
 ## Examples
 
@@ -51,7 +51,7 @@ I18n.with_locale(:nb) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:nb) { 0.1.to_words(precision: 2) }
@@ -60,7 +60,7 @@ I18n.with_locale(:nb) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:nb) { 21.77.to_words(micro_separator: "punktum") }
@@ -69,7 +69,7 @@ I18n.with_locale(:nb) { 21.77.to_words(micro_separator: "punktum") }
 
 ### Gender
 
-`gender: :male` (default, en), `:female` (ei) or `:neuter` (ett) sets the gender of a last part of exactly one. Compounds keep en (tjueen).
+The `gender: :male` (default, en), `:female` (ei) or `:neuter` (ett) option sets the gender of a last part of exactly one. Compounds keep en (tjueen).
 
 ```ruby
 I18n.with_locale(:nb) { 1.to_words(gender: :male) }
@@ -84,7 +84,7 @@ I18n.with_locale(:nb) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word, or the ones of a compound, ordinal (tjueførste). The ordinal of one hundred, one thousand or one million is the scale word alone (millionte).
+The `ordinal: true` option makes the last word, or the ones of a compound, ordinal (tjueførste). The ordinal of one hundred, one thousand or one million is the scale word alone (millionte).
 
 ```ruby
 I18n.with_locale(:nb) { 1.to_words(ordinal: true) }
@@ -99,7 +99,7 @@ I18n.with_locale(:nb) { 1_000_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komma.
+The `remove_zero: true` option omits a zero integral part and keeps komma.
 
 ```ruby
 I18n.with_locale(:nb) { 0.7.to_words(remove_zero: true) }

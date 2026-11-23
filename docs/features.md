@@ -1,12 +1,12 @@
 # Features
 
-What each bundled language supports. `bundle exec ruby script/features.rb` generates this page from the locale files and classes, and a spec fails when it is out of date. The [README](../README.md#options--опции--options) documents the options every language shares, and each language's page documents its own.
+This page lists what each bundled language supports. The `bundle exec ruby script/features.rb` command generates this page from the locale files and classes, and a spec fails when it is out of date. The [README](../README.md#options--опции--options) documents the options every language shares, and each language's page documents its own.
 
-* **Decimals**: whether floats such as `21.77.to_words` read without a unit. *fraction* means `fraction: true` also reads them as a fraction.
-* **Gender** and **Case**: the values of `gender:` and `case:`. *animate* means the language also accepts `animate:`.
-* **Ordinals**: the numbers `ordinal: true` spells. *all* means every number up to the largest number; otherwise the column gives a range.
-* **Largest number**: numbers from this power of ten raise `RangeError`.
-* **Other options**: the language's own options.
+* **Decimals**: The column says whether floats such as `21.77.to_words` read without a unit. The value *fraction* means `fraction: true` also reads them as a fraction.
+* **Gender** and **Case**: The columns give the values of `gender:` and `case:`. The value *animate* means the language also accepts `animate:`.
+* **Ordinals**: The column gives the numbers `ordinal: true` spells. The value *all* means every number up to the largest number; otherwise the column gives a range.
+* **Largest number**: Numbers from this power of ten raise `RangeError`.
+* **Other options**: The column lists the language's own options.
 
 
 | Language | Decimals | Gender | Case | Ordinals | Largest number | Other options |

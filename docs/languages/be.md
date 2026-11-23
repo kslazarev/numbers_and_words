@@ -1,6 +1,6 @@
 # Belarusian (`be`)
 
-Беларуская. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Беларуская is the Belarusian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers follow the official orthography of 2008 (пяцьдзясят, чацвёрты), not the classical one (чацьверты). Тысяча is feminine (адна тысяча, дзве тысячы) and larger scale words are masculine (адзін мільён, два мільёны, пяць мільёнаў). Scale words follow the short scale up to дэцыльён (10<sup>33</sup>). Unicode CLDR stops at квадрыльён, so the larger names follow the same pattern and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Unlike Russian and Ukrainian, Belarusian has no `case:` or `animate:` option yet.
 
@@ -45,7 +45,7 @@ I18n.with_locale(:be) { 2.3.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:be) { 0.1.to_words(precision: 2) }
@@ -54,7 +54,7 @@ I18n.with_locale(:be) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:be) { 21.77.to_words(micro_separator: "плюс") }
@@ -63,7 +63,7 @@ I18n.with_locale(:be) { 21.77.to_words(micro_separator: "плюс") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (адзін, адна, адно; два, дзве, два), and the ending of an ordinal.
+The `gender` option, `:male` (default), `:female` or `:neuter`, changes one and two in the last group (адзін, адна, адно; два, дзве, два), and the ending of an ordinal.
 
 ```ruby
 I18n.with_locale(:be) { 1001.to_words(gender: :female) }
@@ -75,7 +75,7 @@ I18n.with_locale(:be) { 21.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (дваццаць першы) and joins a round scale to its count in the genitive (двухтысячны, статысячны, дваццаціаднатысячны). A scale group of exactly one omits its one (тысяча першы, мільён першы), while cardinals keep it (адна тысяча адзін). `gender:` gives the feminine or neuter ending (першая, першае).
+The `ordinal: true` option makes the last word ordinal (дваццаць першы) and joins a round scale to its count in the genitive (двухтысячны, статысячны, дваццаціаднатысячны). A scale group of exactly one omits its one (тысяча першы, мільён першы), while cardinals keep it (адна тысяча адзін). The `gender` option gives the feminine or neuter ending (першая, першае).
 
 ```ruby
 I18n.with_locale(:be) { 3.to_words(ordinal: true) }
@@ -90,7 +90,7 @@ I18n.with_locale(:be) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:be) { 0.7.to_words(remove_zero: true) }

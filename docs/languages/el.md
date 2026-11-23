@@ -1,8 +1,8 @@
 # Greek (`el`)
 
-Ελληνικά. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Ελληνικά is the Greek name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Above τρισεκατομμύριο (10<sup>12</sup>), a scale word is a multiplier followed by εκατομμύριο, from τετράκις εκατομμύριο (10<sup>15</sup>) to δεκάκις εκατομμύριο (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). Εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Above τρισεκατομμύριο (10<sup>12</sup>), a scale word is a multiplier followed by εκατομμύριο, from τετράκις εκατομμύριο (10<sup>15</sup>) to δεκάκις εκατομμύριο (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -57,7 +57,7 @@ I18n.with_locale(:el) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:el) { 0.1.to_words(precision: 2) }
@@ -66,7 +66,7 @@ I18n.with_locale(:el) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:el) { 21.77.to_words(micro_separator: "τελεία") }
@@ -75,7 +75,7 @@ I18n.with_locale(:el) { 21.77.to_words(micro_separator: "τελεία") }
 
 ### Gender
 
-`gender: :neuter` (default), `gender: :male` or `gender: :female` sets the gender of what is counted. It changes 1, 3, 4, the hundreds from 200 and one thousand in the last group of digits. Thousands above one are always feminine, and millions neuter.
+The `gender` option, `:neuter` (default), `:male` or `:female`, sets the gender of what is counted. It changes 1, 3, 4, the hundreds from 200 and one thousand in the last group of digits. Thousands above one are always feminine, and millions neuter.
 
 ```ruby
 I18n.with_locale(:el) { 1.to_words(gender: :male) }
@@ -93,7 +93,7 @@ I18n.with_locale(:el) { 4.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο). Below ten thousand every part is an ordinal word (χιλιοστό εκατοστό). From ten thousand, as in Unicode CLDR, a count is cardinal and neuter before the ordinal of its scale word (είκοσι ένα χιλιοστό, δύο εκατομμυριοστό), and a count of one is left out (εκατομμυριοστό). Zero keeps its cardinal form.
+The `ordinal: true` option gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο). Below ten thousand every part is an ordinal word (χιλιοστό εκατοστό). From ten thousand, as in Unicode CLDR, a count is cardinal and neuter before the ordinal of its scale word (είκοσι ένα χιλιοστό, δύο εκατομμυριοστό), and a count of one is left out (εκατομμυριοστό). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:el) { 1.to_words(ordinal: true) }
@@ -114,7 +114,7 @@ I18n.with_locale(:el) { 2_000_000.to_words(ordinal: true, gender: :male) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:el) { 0.7.to_words(remove_zero: true) }

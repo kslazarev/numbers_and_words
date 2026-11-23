@@ -1,8 +1,8 @@
 # German (`de`)
 
-Deutsch. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Deutsch is the German name of the language. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Aliases: `de-AT`, `de-CH`.
+The aliases are `de-AT` and `de-CH`.
 
 ## Examples
 
@@ -51,7 +51,7 @@ I18n.with_locale(:de) { 3.14.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:de) { 0.1.to_words(precision: 2) }
@@ -60,7 +60,7 @@ I18n.with_locale(:de) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
@@ -69,7 +69,7 @@ I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :male`, `gender: :female` or `gender: :neuter`: a final eins becomes ein or eine before its noun ("hunderteine"). Without `gender`, eins is kept. Ordinals keep their form.
+With `gender: :male`, `gender: :female` or `gender: :neuter`, a final eins becomes ein or eine before its noun ("hunderteine"). Without `gender`, eins is kept. Ordinals keep their form.
 
 ```ruby
 I18n.with_locale(:de) { 1.to_words(gender: :female) }
@@ -87,7 +87,7 @@ I18n.with_locale(:de) { 1.to_words(gender: :male) }
 
 ### Ordinal
 
-`ordinal: true` gives the uninflected `-te`/`-ste` form, written as one lowercase word, even with million or larger scales. A single scale has no multiplier ("millionste", "milliardste"); two or more keep it ("zweimillionste").
+The `ordinal: true` option gives the uninflected `-te`/`-ste` form, written as one lowercase word, even with million or larger scales. A single scale has no multiplier ("millionste", "milliardste"); two or more keep it ("zweimillionste").
 
 ```ruby
 I18n.with_locale(:de) { 21.to_words(ordinal: true) }
@@ -108,7 +108,7 @@ I18n.with_locale(:de) { 2_002_000_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:de) { 0.7.to_words(remove_zero: true) }

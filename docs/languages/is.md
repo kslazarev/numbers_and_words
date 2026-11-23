@@ -1,6 +1,6 @@
 # Icelandic (`is`)
 
-Íslenska. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Íslenska is the Icelandic name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 One to four agree in gender with what is counted (einn, ein, eitt); see [Gender](#gender). "Og" comes before the last element of a number. It goes between tens and ones (tuttugu og einn), or before a last part that is a single element: a number below twenty, a ten, or a round hundred or thousand (eitt hundrað og tuttugu, eitt þúsund og eitt hundrað). It doesn't go before a part that has its own "og" (eitt hundrað tuttugu og einn). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -58,7 +58,7 @@ I18n.with_locale(:is) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:is) { 0.1.to_words(precision: 2) }
@@ -67,7 +67,7 @@ I18n.with_locale(:is) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:is) { 21.77.to_words(micro_separator: "punktur") }
@@ -76,7 +76,7 @@ I18n.with_locale(:is) { 21.77.to_words(micro_separator: "punktur") }
 
 ### Gender
 
-`gender: :male` (the default, einn, tveir, þrír, fjórir), `:female` (ein, tvær, þrjár, fjórar) or `:neuter` (eitt, tvö, þrjú, fjögur) sets the gender of what is counted. It applies to one to four in the last part of a number. The counts of hundrað, þúsund and the larger scale words keep the gender of the scale word.
+With `gender: :male` (the default, einn, tveir, þrír, fjórir), `:female` (ein, tvær, þrjár, fjórar) or `:neuter` (eitt, tvö, þrjú, fjögur), the number takes the gender of what is counted. It applies to one to four in the last part of a number. The counts of hundrað, þúsund and the larger scale words keep the gender of the scale word.
 
 ```ruby
 I18n.with_locale(:is) { 2.to_words(gender: :male) }
@@ -91,7 +91,7 @@ I18n.with_locale(:is) { 1004.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes every element ordinal, with "og" where the cardinal has it (tuttugasti og fyrsti, hundraðasti og fyrsti). A one before a scale word is left out (hundraðasti, þúsundasti, milljónasti). A one-word count is written together with hundraðasti and þúsundasti (tvöhundraðasti, tvöþúsundasti). A longer count, or the count of a million and larger, is written apart (tuttugu og eitt þúsundasti, tvær milljónasti). Ordinals take the requested gender: fyrsti, annar in the masculine, fyrsta, önnur in the feminine and fyrsta, annað in the neuter. They are spelled in the nominative singular only. The ordinals of compound numbers above a hundred, and of millions and larger, need a native speaker's review.
+With `ordinal: true`, every element becomes ordinal, with "og" where the cardinal has it (tuttugasti og fyrsti, hundraðasti og fyrsti). A one before a scale word is left out (hundraðasti, þúsundasti, milljónasti). A one-word count is written together with hundraðasti and þúsundasti (tvöhundraðasti, tvöþúsundasti). A longer count, or the count of a million and larger, is written apart (tuttugu og eitt þúsundasti, tvær milljónasti). Ordinals take the requested gender: fyrsti, annar in the masculine, fyrsta, önnur in the feminine and fyrsta, annað in the neuter. They are spelled in the nominative singular only. The ordinals of compound numbers above a hundred, and of millions and larger, need a native speaker's review.
 
 ```ruby
 I18n.with_locale(:is) { 1.to_words(ordinal: true) }
@@ -109,7 +109,7 @@ I18n.with_locale(:is) { 22.to_words(ordinal: true, gender: :female) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komma.
+With `remove_zero: true`, a zero integral part is omitted and komma is kept.
 
 ```ruby
 I18n.with_locale(:is) { 0.7.to_words(remove_zero: true) }

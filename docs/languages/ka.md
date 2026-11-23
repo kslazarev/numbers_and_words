@@ -1,6 +1,6 @@
 # Georgian (`ka`)
 
-ქართული. Scale words follow the short scale: ათასი, მილიონი, მილიარდი, ტრილიონი, კვადრილიონი, კვინტილიონი, სექსტილიონი, სეპტილიონი, ოქტილიონი, ნონილიონი and დეცილიონი (10<sup>33</sup>). A scale word drops its final ი when any lower group follows, including another scale group ("ერთი მილიონ ათასი"). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+ქართული is the Georgian name of the language. Scale words follow the short scale: ათასი, მილიონი, მილიარდი, ტრილიონი, კვადრილიონი, კვინტილიონი, სექსტილიონი, სეპტილიონი, ოქტილიონი, ნონილიონი and დეცილიონი (10<sup>33</sup>). A scale word drops its final ი when any lower group follows, including another scale group ("ერთი მილიონ ათასი"). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -49,7 +49,7 @@ I18n.with_locale(:ka) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ka) { 0.1.to_words(precision: 2) }
@@ -58,7 +58,7 @@ I18n.with_locale(:ka) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ka) { 21.77.to_words(micro_separator: "წერტილი") }
@@ -67,7 +67,7 @@ I18n.with_locale(:ka) { 21.77.to_words(micro_separator: "წერტილი")
 
 ### Ordinal
 
-`ordinal: true` gives პირველი for 1, and otherwise adds მე- and -ე to the last word, or to the last part of a compound ("ოცდამეერთე"). Of round thousands and larger scales, only one thousand, one million and so on have ordinals (მეათასე, მემილიონე). Others, such as 2,000, raise `RangeError` until a native speaker confirms their form. Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+With `ordinal: true`, 1 becomes პირველი, and other numbers add მე- and -ე to the last word, or to the last part of a compound ("ოცდამეერთე"). Of round thousands and larger scales, only one thousand, one million and so on have ordinals (მეათასე, მემილიონე). Others, such as 2,000, raise `RangeError` until a native speaker confirms their form. Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:ka) { 1.to_words(ordinal: true) }
@@ -88,7 +88,7 @@ I18n.with_locale(:ka) { 2_021.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps მძიმე.
+With `remove_zero: true`, a zero integral part is omitted and მძიმე is kept.
 
 ```ruby
 I18n.with_locale(:ka) { 0.7.to_words(remove_zero: true) }

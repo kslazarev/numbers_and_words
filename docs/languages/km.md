@@ -1,6 +1,6 @@
 # Khmer (`km`)
 
-ភាសាខ្មែរ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Khmer numbers have no gender.
+ភាសាខ្មែរ is the Khmer name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Khmer numbers have no gender.
 
 The tens have their own words (ដប់, ម្ភៃ, សាមសិប, សែសិប, ហាសិប, ហុកសិប, ចិតសិប, ប៉ែតសិប, កៅសិប), and six to nine are counted from five (ប្រាំមួយ, ប្រាំពីរ, ប្រាំបី, ប្រាំបួន). Each group of up to six digits uses the places រយ (100), ពាន់ (1,000), ម៉ឺន (10,000) and សែន (100,000). លាន (1,000,000) repeats for larger numbers, so 10<sup>9</sup> is មួយពាន់លាន and 10<sup>12</sup> is មួយលានលាន; there is no limit.
 
@@ -53,7 +53,7 @@ I18n.with_locale(:km) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:km) { 0.1.to_words(precision: 2) }
@@ -62,7 +62,7 @@ I18n.with_locale(:km) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:km) { 21.77.to_words(micro_separator: "plus") }
@@ -71,7 +71,7 @@ I18n.with_locale(:km) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds the prefix ទី to integers of any size.
+With `ordinal: true`, the prefix ទី is added to integers of any size.
 
 ```ruby
 I18n.with_locale(:km) { 1.to_words(ordinal: true) }
@@ -83,7 +83,7 @@ I18n.with_locale(:km) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+With `remove_zero: true`, a zero integral part is omitted.
 
 ```ruby
 I18n.with_locale(:km) { 0.7.to_words(remove_zero: true) }

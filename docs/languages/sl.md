@@ -1,6 +1,6 @@
 # Slovenian (`sl`)
 
-Slovenščina. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Slovenščina is the Slovenian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 The ones come before the tens, joined by in, in one word (enaindvajset, petinštirideset). Hundreds are one word (dvesto). The parts after a hundred, tisoč or a scale word are separate words (sto ena, tisoč petsto). By default numbers take the counting forms (ena, dva, tri, štiri). Slovenian has a dual, so scale words have four forms, chosen by the last two digits of their count. Milijon and the other scale words in -ijon are masculine (en milijon, dva milijona, trije milijoni, pet milijonov, sto en milijon). Milijarda and the other scale words in -ijarda are feminine (ena milijarda, dve milijardi, tri milijarde, pet milijard). Tisoč doesn't change and has no count of one (tisoč, dva tisoč, tri tisoč). Scale words follow the long scale up to kvintilijarda (10<sup>33</sup>); the names from bilijon (10<sup>12</sup>) on follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -50,7 +50,7 @@ I18n.with_locale(:sl) { 3.03.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:sl) { 0.1.to_words(precision: 2) }
@@ -59,7 +59,7 @@ I18n.with_locale(:sl) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` adds a word between the integral and fractional parts.
+The `micro_separator` option adds a word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:sl) { 2.5.to_words(micro_separator: "in") }
@@ -68,7 +68,7 @@ I18n.with_locale(:sl) { 2.5.to_words(micro_separator: "in") }
 
 ### Gender
 
-Without `gender`, numbers take the counting forms (ena, dva, tri, štiri). `gender: :male`, `:female` or `:neuter` changes one to four at the end of the number (en, ena, eno; dva, dve, dve; trije, tri, tri; štirje, štiri, štiri). The ones in a compound such as enaindvajset don't change.
+Without `gender`, numbers take the counting forms (ena, dva, tri, štiri). The `gender: :male`, `:female` or `:neuter` option changes one to four at the end of the number (en, ena, eno; dva, dve, dve; trije, tri, tri; štirje, štiri, štiri). The ones in a compound such as enaindvajset don't change.
 
 ```ruby
 I18n.with_locale(:sl) { 103.to_words(gender: :male) }
@@ -83,7 +83,7 @@ I18n.with_locale(:sl) { 1.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (enaindvajseti, dvesto prvi), in the requested gender (prva, prvo; tretja, tretje). A round thousand or larger scale is one word with its count, which is left out when it is one (tisoči, dvatisoči, milijonti, dvamilijonti). This joined form, and the neuter tisoče, need a native speaker's review. Ordinals are spelled up to the largest number.
+The `ordinal: true` option makes the last word ordinal (enaindvajseti, dvesto prvi), in the requested gender (prva, prvo; tretja, tretje). A round thousand or larger scale is one word with its count, which is left out when it is one (tisoči, dvatisoči, milijonti, dvamilijonti). This joined form, and the neuter tisoče, need a native speaker's review. Ordinals are spelled up to the largest number.
 
 ```ruby
 I18n.with_locale(:sl) { 21.to_words(ordinal: true) }
@@ -104,7 +104,7 @@ I18n.with_locale(:sl) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part; the ordinal of zero stays ničti.
+The `remove_zero: true` option omits a zero integral part; the ordinal of zero stays ničti.
 
 ```ruby
 I18n.with_locale(:sl) { 0.7.to_words(remove_zero: true) }

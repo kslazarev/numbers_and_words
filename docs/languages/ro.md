@@ -1,6 +1,6 @@
 # Romanian (`ro`)
 
-Română. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Română is the Romanian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers agree with the noun they count. Mie is feminine (o mie, două mii, douăzeci și una de mii). Milion and larger scales are neuter, so they take the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu); see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>, followed by trilion, triliard, cvadrilion, cvadriliard, cvintilion and cvintiliard (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -59,7 +59,7 @@ I18n.with_locale(:ro) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ro) { 0.1.to_words(precision: 2) }
@@ -68,7 +68,7 @@ I18n.with_locale(:ro) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ro) { 21.77.to_words(micro_separator: "punct") }
@@ -77,7 +77,7 @@ I18n.with_locale(:ro) { 21.77.to_words(micro_separator: "punct") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter` sets the gender of the last group of digits. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune).
+The `gender: :male` (default), `:female` or `:neuter` option sets the gender of the last group of digits. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune).
 
 ```ruby
 I18n.with_locale(:ro) { 1.to_words(gender: :female) }
@@ -92,7 +92,7 @@ I18n.with_locale(:ro) { 12.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal with its article: masculine by default (primul, al doilea, al douăzeci și unulea) and feminine with `gender: :female` (prima, a doua, a douăzeci și una). Neuter nouns take the masculine ordinal. Only the last word changes (al două miilea), and a leading un before a scale is dropped (al milionulea). Zero keeps its cardinal form.
+The `ordinal: true` option gives the ordinal with its article: masculine by default (primul, al doilea, al douăzeci și unulea) and feminine with `gender: :female` (prima, a doua, a douăzeci și una). Neuter nouns take the masculine ordinal. Only the last word changes (al două miilea), and a leading un before a scale is dropped (al milionulea). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:ro) { 2.to_words(ordinal: true) }
@@ -113,7 +113,7 @@ I18n.with_locale(:ro) { 1000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:ro) { 0.7.to_words(remove_zero: true) }

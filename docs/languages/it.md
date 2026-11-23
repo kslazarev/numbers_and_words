@@ -1,8 +1,8 @@
 # Italian (`it`)
 
-Italiano. Cento drops its final o before otto and ottanta (centotto, duecentottanta). Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+Italiano is the Italian name of the language. Cento drops its final o before otto and ottanta (centotto, duecentottanta). Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Aliases: `it-CH`.
+The alias is `it-CH`.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:it) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `virgola`.
+Decimals are read as a fraction. With [`fraction: false`](#fraction), the default in 2.0, they are read with `virgola`.
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words }
@@ -54,7 +54,7 @@ I18n.with_locale(:it) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
@@ -63,7 +63,7 @@ I18n.with_locale(:it) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
@@ -72,7 +72,7 @@ I18n.with_locale(:it) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgola`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+With `fraction: true`, the default, decimals are read as a fraction. With `fraction: false`, they are read with `virgola`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:it) { 21.77.to_words(fraction: false) }
@@ -87,7 +87,7 @@ I18n.with_locale(:it) { 3.1416.to_words(fraction: false) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. A final uno becomes una ("ventuna", "centouna"), but the counts of mila and larger scale words stay masculine. Feminine ordinals end in -a.
+The `gender` option takes `:male` (the default) or `:female`. A final uno becomes una ("ventuna", "centouna"), but the counts of mila and larger scale words stay masculine. Feminine ordinals end in -a.
 
 ```ruby
 I18n.with_locale(:it) { 1.to_words(gender: :female) }
@@ -108,7 +108,7 @@ I18n.with_locale(:it) { 23.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Final tre and sei keep their vowel before the suffix ("ventitreesimo", "ventiseiesimo"). Zero keeps its cardinal form.
+With `ordinal: true`, ordinals take the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Final tre and sei keep their vowel before the suffix ("ventitreesimo", "ventiseiesimo"). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:it) { 1.to_words(ordinal: true) }
@@ -129,7 +129,7 @@ I18n.with_locale(:it) { 3_000_003.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+With `remove_zero: true`, a zero integral part is omitted.
 
 ```ruby
 I18n.with_locale(:it) { 0.7.to_words(remove_zero: true) }

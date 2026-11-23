@@ -1,6 +1,6 @@
 # Catalan (`ca`)
 
-Català. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Català is the Catalan name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 As the Institut d'Estudis Catalans prescribes, units join the tens with a hyphen, or with -i- in the twenties (trenta-dos, vint-i-u), and the hundreds join their count (dos-cents). Cent and the other parts are written apart (cent vint-i-tres). One is u when counting, as Unicode CLDR's spellout-numbering reads it, and un as the count of mil and the scale words (vint-i-un mil, un milió); see [Gender](#gender) for una. Mil leaves out a count of one (mil, dos mil). Scales follow the long scale, from milió (10<sup>6</sup>) and miliard (10<sup>9</sup>, also said mil milions) through bilió, biliard, trilió, triliard, quadrilió, quadriliard, quintilió, quintiliard, sextilió and sextiliard (10<sup>39</sup>). Unicode CLDR stops at biliard (10<sup>15</sup>), so the larger names follow the same pattern and await a native speaker's review. Numbers up to 10<sup>42</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -54,7 +54,7 @@ I18n.with_locale(:ca) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ca) { 0.1.to_words(precision: 2) }
@@ -63,7 +63,7 @@ I18n.with_locale(:ca) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ca) { 21.77.to_words(micro_separator: "punt") }
@@ -72,7 +72,7 @@ I18n.with_locale(:ca) { 21.77.to_words(micro_separator: "punt") }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The feminine takes una and dues, also in compounds (vint-i-una, cent dues), and the feminine hundreds (dues-centes). The count of mil agrees too (dues mil, vint-i-una mil, dues-centes mil), while milió and the larger scale words count in the masculine (dos milions). Unicode CLDR counts mil and the hundreds in the masculine.
+The `gender` option takes `:male` (default) or `:female`. The feminine takes una and dues, also in compounds (vint-i-una, cent dues), and the feminine hundreds (dues-centes). The count of mil agrees too (dues mil, vint-i-una mil, dues-centes mil), while milió and the larger scale words count in the masculine (dos milions). Unicode CLDR counts mil and the hundreds in the masculine.
 
 ```ruby
 I18n.with_locale(:ca) { 1.to_words(gender: :male) }
@@ -87,7 +87,7 @@ I18n.with_locale(:ca) { 2_200.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal: primer, segon, tercer and quart alone, and -è from cinquè (desè, vintè, centè, milè). A compound ends in unè, dosè, tresè and quatrè (vint-i-unè, cent dosè), where Unicode CLDR keeps primer and segon (vint-i-primer). A count of one is left out before a scale word alone (milionè). With `gender: :female` the ordinals end in -ena (primera, cinquena, vint-i-unena). As in Unicode CLDR, the counts inside a feminine ordinal stay masculine (dos-centena). Ordinals are spelled up to the largest cardinal.
+The `ordinal: true` option makes the last word ordinal: primer, segon, tercer and quart alone, and -è from cinquè (desè, vintè, centè, milè). A compound ends in unè, dosè, tresè and quatrè (vint-i-unè, cent dosè), where Unicode CLDR keeps primer and segon (vint-i-primer). A count of one is left out before a scale word alone (milionè). With `gender: :female` the ordinals end in -ena (primera, cinquena, vint-i-unena). As in Unicode CLDR, the counts inside a feminine ordinal stay masculine (dos-centena). Ordinals are spelled up to the largest cardinal.
 
 ```ruby
 I18n.with_locale(:ca) { 1.to_words(ordinal: true) }
@@ -108,7 +108,7 @@ I18n.with_locale(:ca) { 21.to_words(ordinal: true, gender: :female) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps coma.
+The `remove_zero: true` option omits a zero integral part and keeps coma.
 
 ```ruby
 I18n.with_locale(:ca) { 0.7.to_words(remove_zero: true) }
