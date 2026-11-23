@@ -1,0 +1,41 @@
+to_words:
+  fractional:
+    0.1: nul komma een
+    0.5: nul komma vyf
+    0.01: nul komma nul een
+    0.05: nul komma nul vyf
+    0.001: nul komma nul nul een
+    0.21: nul komma twee een
+    0.77: nul komma sewe sewe
+    0.777: nul komma sewe sewe sewe
+    0.7777: nul komma sewe sewe sewe sewe
+    0.1001: nul komma een nul nul een
+  integral_and_fractional:
+    1.5: een komma vyf
+    2.5: twee komma vyf
+    3.14: drie komma een vier
+    21.05: een-en-twintig komma nul vyf
+    21.77: een-en-twintig komma sewe sewe
+    101.001: honderd een komma nul nul een
+    1000.5: duisend komma vyf
+    4242.7463: vierduisend tweehonderd twee-en-veertig komma sewe vier ses drie
+  precision:
+    options:
+      :precision: 3
+    1.5: een komma vyf nul nul
+    0.1: nul komma een nul nul
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komma sewe
+    0.05: komma nul vyf
+    1.5: een komma vyf
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: een komma vyf
+    2.25: twee komma twee vyf
+  micro_separator:
+    options:
+      :micro_separator: punt
+    21.77: een-en-twintig punt sewe sewe

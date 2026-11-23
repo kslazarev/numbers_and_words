@@ -1,0 +1,233 @@
+to_words:
+  ones:
+    0: zero
+    1: një
+    2: dy
+    3: tre
+    4: katër
+    5: pesë
+    6: gjashtë
+    7: shtatë
+    8: tetë
+    9: nëntë
+  tens:
+    10: dhjetë
+    11: njëmbëdhjetë
+    12: dymbëdhjetë
+    13: trembëdhjetë
+    14: katërmbëdhjetë
+    15: pesëmbëdhjetë
+    16: gjashtëmbëdhjetë
+    17: shtatëmbëdhjetë
+    18: tetëmbëdhjetë
+    19: nëntëmbëdhjetë
+    20: njëzet
+    21: njëzet e një
+    22: njëzet e dy
+    23: njëzet e tre
+    24: njëzet e katër
+    25: njëzet e pesë
+    28: njëzet e tetë
+    30: tridhjetë
+    31: tridhjetë e një
+    32: tridhjetë e dy
+    40: dyzet
+    44: dyzet e katër
+    50: pesëdhjetë
+    60: gjashtëdhjetë
+    70: shtatëdhjetë
+    80: tetëdhjetë
+    90: nëntëdhjetë
+    99: nëntëdhjetë e nëntë
+  hundreds:
+    100: njëqind
+    101: njëqind e një
+    102: njëqind e dy
+    110: njëqind e dhjetë
+    111: njëqind e njëmbëdhjetë
+    120: njëqind e njëzet
+    121: njëqind e njëzet e një
+    200: dyqind
+    201: dyqind e një
+    300: treqind
+    400: katërqind
+    500: pesëqind
+    600: gjashtëqind
+    700: shtatëqind
+    800: tetëqind
+    900: nëntëqind
+    999: nëntëqind e nëntëdhjetë e nëntë
+  thousands:
+    1000: një mijë
+    1001: një mijë e një
+    1100: një mijë e njëqind
+    1999: një mijë e nëntëqind e nëntëdhjetë e nëntë
+    2000: dy mijë
+    2001: dy mijë e një
+    3000: tre mijë
+    10000: dhjetë mijë
+    11000: njëmbëdhjetë mijë
+    19000: nëntëmbëdhjetë mijë
+    20000: njëzet mijë
+    21000: njëzet e një mijë
+    22000: njëzet e dy mijë
+    100000: njëqind mijë
+    101000: njëqind e një mijë
+    200000: dyqind mijë
+    999999: nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+  millions:
+    1000000: një milion
+    1000001: një milion e një
+    1001000: një milion e një mijë
+    2000000: dy milionë
+    3000000: tri milionë
+    21000000: njëzet e një milionë
+    100000000: njëqind milionë
+    200000000: dyqind milionë
+    123456789: njëqind e njëzet e tri milionë e katërqind e pesëdhjetë e gjashtë mijë e shtatëqind e tetëdhjetë e nëntë
+  large_scales:
+    1000000000: një miliard
+    2000000000: dy miliardë
+    1000000000000: një bilion
+    2000000000000: dy bilionë
+    1000000000000000: një biliard
+    2000000000000000: dy biliardë
+    1000000000000000000: një trilion
+    2000000000000000000: dy trilionë
+    1000000000000000000000: një triliard
+    1000000000000000000000000: një kuadrilion
+    1000000000000000000000000000: një kuadriliard
+    1000000000000000000000000000000: një kuintilion
+    1000000000000000000000000000000000: një kuintiliard
+    2000000000000000000000000000000000: dy kuintiliardë
+    123456789012345678901234567890123456: njëqind e njëzet e tri kuintiliardë e katërqind e pesëdhjetë e gjashtë kuintilionë e shtatëqind e tetëdhjetë e nëntë kuadriliardë e dymbëdhjetë kuadrilionë e treqind e dyzet e pesë triliardë e gjashtëqind e shtatëdhjetë e tetë trilionë e nëntëqind e një biliardë e dyqind e tridhjetë e katër bilionë e pesëqind e gjashtëdhjetë e shtatë miliardë e tetëqind e nëntëdhjetë milionë e njëqind e njëzet e tre mijë e katërqind e pesëdhjetë e gjashtë
+    999999999999999999999999999999999999: nëntëqind e nëntëdhjetë e nëntë kuintiliardë e nëntëqind e nëntëdhjetë e nëntë kuintilionë e nëntëqind e nëntëdhjetë e nëntë kuadriliardë e nëntëqind e nëntëdhjetë e nëntë kuadrilionë e nëntëqind e nëntëdhjetë e nëntë triliardë e nëntëqind e nëntëdhjetë e nëntë trilionë e nëntëqind e nëntëdhjetë e nëntë biliardë e nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliardë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+  female:
+    options:
+      :gender: female
+    1: një
+    2: dy
+    3: tri
+    11: njëmbëdhjetë
+    12: dymbëdhjetë
+    13: trembëdhjetë
+    21: njëzet e një
+    22: njëzet e dy
+    23: njëzet e tri
+    31: tridhjetë e një
+    101: njëqind e një
+    102: njëqind e dy
+    103: njëqind e tri
+    200: dyqind
+    201: dyqind e një
+    300: treqind
+    999: nëntëqind e nëntëdhjetë e nëntë
+    1000: një mijë
+    1001: një mijë e një
+    1002: një mijë e dy
+    2000: dy mijë
+    21000: njëzet e një mijë
+    22000: njëzet e dy mijë
+    200000: dyqind mijë
+    1000000: një milion
+    1000001: një milion e një
+    2000000: dy milionë
+    3000000: tri milionë
+    22000000: njëzet e dy milionë
+    2000000002: dy miliardë e dy
+  male:
+    options:
+      :gender: male
+    1: një
+    2: dy
+    3: tre
+    21: njëzet e një
+    23: njëzet e tre
+    200: dyqind
+    2000: dy mijë
+  ordinal:
+    options:
+      :ordinal: true
+    0: zero
+    1: i parë
+    2: i dytë
+    3: i tretë
+    4: i katërt
+    5: i pestë
+    6: i gjashtë
+    7: i shtatë
+    8: i tetë
+    9: i nëntë
+    10: i dhjetë
+    11: i njëmbëdhjetë
+    12: i dymbëdhjetë
+    13: i trembëdhjetë
+    14: i katërmbëdhjetë
+    15: i pesëmbëdhjetë
+    16: i gjashtëmbëdhjetë
+    17: i shtatëmbëdhjetë
+    18: i tetëmbëdhjetë
+    19: i nëntëmbëdhjetë
+    20: i njëzetë
+    21: i njëzet e njëtë
+    22: i njëzet e dytë
+    23: i njëzet e tretë
+    24: i njëzet e katërt
+    25: i njëzet e pestë
+    28: i njëzet e tetë
+    30: i tridhjetë
+    31: i tridhjetë e njëtë
+    40: i dyzetë
+    44: i dyzet e katërt
+    50: i pesëdhjetë
+    90: i nëntëdhjetë
+    99: i nëntëdhjetë e nëntë
+    100: i njëqindtë
+    101: i njëqind e njëtë
+    102: i njëqind e dytë
+    110: i njëqind e dhjetë
+    111: i njëqind e njëmbëdhjetë
+    121: i njëqind e njëzet e njëtë
+    200: i dyqindtë
+    201: i dyqind e njëtë
+    999: i nëntëqind e nëntëdhjetë e nëntë
+    1000: i një mijëtë
+    1001: i një mijë e njëtë
+    1100: i një mijë e njëqindtë
+    2000: i dy mijëtë
+    2001: i dy mijë e njëtë
+    21000: i njëzet e një mijëtë
+    100000: i njëqind mijëtë
+    1000000: i një miliontë
+    1000001: i një milion e njëtë
+    1001000: i një milion e një mijëtë
+    2000000: i dy miliontë
+    1000000000: i një miliardtë
+    2000000000: i dy miliardtë
+    1000000000000000000000000000000000: i një kuintiliardtë
+    2000000000000000000000000000000005: i dy kuintiliardë e pestë
+    999999999999999999999999999999999999: i nëntëqind e nëntëdhjetë e nëntë kuintiliardë e nëntëqind e nëntëdhjetë e nëntë kuintilionë e nëntëqind e nëntëdhjetë e nëntë kuadriliardë e nëntëqind e nëntëdhjetë e nëntë kuadrilionë e nëntëqind e nëntëdhjetë e nëntë triliardë e nëntëqind e nëntëdhjetë e nëntë trilionë e nëntëqind e nëntëdhjetë e nëntë biliardë e nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliardë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+  female_ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: e parë
+    2: e dytë
+    3: e tretë
+    4: e katërt
+    5: e pestë
+    10: e dhjetë
+    11: e njëmbëdhjetë
+    20: e njëzetë
+    21: e njëzet e njëtë
+    22: e njëzet e dytë
+    23: e njëzet e tretë
+    24: e njëzet e katërt
+    100: e njëqindtë
+    101: e njëqind e njëtë
+    200: e dyqindtë
+    1000: e një mijëtë
+    1001: e një mijë e njëtë
+    2000: e dy mijëtë
+    1000000: e një miliontë
+    2000000: e dy miliontë

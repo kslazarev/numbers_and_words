@@ -1,0 +1,47 @@
+to_words:
+  fractional:
+    0.1: zero presje një
+    0.5: zero presje pesë
+    0.01: zero presje zero një
+    0.05: zero presje zero pesë
+    0.001: zero presje zero zero një
+    0.21: zero presje dy një
+    0.77: zero presje shtatë shtatë
+    0.777: zero presje shtatë shtatë shtatë
+    0.7777: zero presje shtatë shtatë shtatë shtatë
+    0.1001: zero presje një zero zero një
+  integral_and_fractional:
+    1.5: një presje pesë
+    2.5: dy presje pesë
+    3.14: tre presje një katër
+    21.05: njëzet e një presje zero pesë
+    21.77: njëzet e një presje shtatë shtatë
+    101.001: njëqind e një presje zero zero një
+    1000.5: një mijë presje pesë
+    4242.7463: katër mijë e dyqind e dyzet e dy presje shtatë katër gjashtë tre
+  precision:
+    options:
+      :precision: 3
+    1.5: një presje pesë zero zero
+    0.1: zero presje një zero zero
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: presje shtatë
+    0.05: presje zero pesë
+    1.5: një presje pesë
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: një presje pesë
+    2.25: dy presje dy pesë
+  micro_separator:
+    options:
+      :micro_separator: pikë
+    21.77: njëzet e një pikë shtatë shtatë
+  female:
+    options:
+      :gender: female
+    1.5: një presje pesë
+    2.2: dy presje dy
+    21.21: njëzet e një presje dy një

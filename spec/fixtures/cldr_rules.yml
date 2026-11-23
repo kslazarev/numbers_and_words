@@ -13,8 +13,10 @@
 '*':
   - reason: CLDR says the implicit one before a scale word (one hundred, one thousand, one million); the gem omits it, as is usual
     drop_one:
+      af: { one: [een], before: [honderd, duisend], kinds: [ordinal], affects: 5 }
       az: { one: [bir], before: [yüz, min, bin, milyonuncu, milyarıncı], affects: 22 }
       bg: { one: [един], before: [милионен, милионна, милионно, милиарден, милиардна, милиардно], affects: 6 }
+      ca: { one: [un], before: [milionè, miliardè, milionena, miliardena], affects: 4 }
       cs: { one: [jedna], before: [tisíc], affects: 12 }
       de: { one: [eine], before: [Millionste, Milliardeste], affects: 2 }
       el: { one: [ένα], before: [εκατομμυριοστός, εκατομμυριοστή, εκατομμυριοστό, δισεκατομμυριοστός, δισεκατομμυριοστή, δισεκατομμυριοστό], affects: 6 }
@@ -37,6 +39,22 @@ pl:
     kinds: [cardinal/female/instrumental]
     below: 100
     affects: 8
+af:
+  - reason: CLDR adds -de to the cardinal from four to nine (sewede, agtde, negede); the Afrikaanse Woordelys en Spelreëls has sewende, agtste and negende
+    replace: { sewede: sewende, agtde: agtste, negede: negende }
+    affects: 3
+  - reason: CLDR writes a count of hundreds apart (vier honderd) in some ordinals, but together in its cardinals and in its other ordinals (vierhonderd)
+    replace: { twee honderd: tweehonderd, drie honderd: driehonderd, vier honderd: vierhonderd, vyf honderd: vyfhonderd, ses honderd: seshonderd, sewe honderd: sewehonderd, agt honderd: agthonderd, nege honderd: negehonderd }
+    kinds: [ordinal]
+    affects: 3
+  - reason: CLDR writes the count of duisend apart in ordinals (twee duisendste) but together in cardinals below 21 000 (tweeduisend); the gem writes both together
+    replace: { twee duisendste: tweeduisendste }
+    kinds: [ordinal]
+    affects: 1
+  - reason: CLDR reads 101st with the cardinal (honderd eenste), unlike its own en eerste after duisend and miljoen (duisend en eerste); the gem says honderd en eerste
+    replace: { honderd eenste: honderd en eerste }
+    kinds: [ordinal]
+    affects: 1
 ar:
   - reason: CLDR writes the hamza (إثنان); اثنان begins with a connecting hamzat wasl and is written without it
     replace: { إثنان: اثنان, إثنا: اثنا }
@@ -159,6 +177,23 @@ bs:
   - reason: CLDR says jedan miliard; the word is milijarda and feminine (jedna milijarda)
     replace: { jedan miliard: jedna milijarda }
     affects: 3
+ca:
+  - reason: CLDR keeps primer, segon, tercer and quart in compound ordinals (vint-i-primer, mil primer); Catalan uses them only alone and forms compounds with -è/-ena (vint-i-unè, vint-i-dosena)
+    replace: { primer: unè, segon: dosè, tercer: tresè, quart: quatrè, primera: unena, segona: dosena, tercera: tresena, quarta: quatrena }
+    kinds: [ordinal, ordinal/female]
+    above: 4
+    affects: 68
+  - reason: CLDR hyphenates cent and the tens or units after it (cent-u, cent-vint-i-tres); the Institut d'Estudis Catalans hyphenates only tens and units and units and hundreds (cent vint-i-tres)
+    replace_parts: { 'cent-': 'cent ' }
+    affects: 20
+  - reason: CLDR drops the plural -s of the hundreds before a remainder (quatre-cent cinquanta); Catalan hundreds from two hundred are plural (quatre-cents cinquanta)
+    replace: { dos-cent: dos-cents, tres-cent: tres-cents, quatre-cent: quatre-cents, cinc-cent: cinc-cents, sis-cent: sis-cents, set-cent: set-cents, vuit-cent: vuit-cents, nou-cent: nou-cents }
+    kinds: [cardinal, ordinal, ordinal/female]
+    affects: 9
+  - reason: CLDR's feminine cardinals count hundreds and thousands in the masculine (dos-cents, dos mil); Catalan hundreds and the count of mil agree with a feminine noun (dues-centes pàgines, dues mil persones, vint-i-una mil persones)
+    replace: { dos-cents: dues-centes, dos-cent: dues-centes, tres-cent: tres-centes, quatre-cent: quatre-centes, cinc-cent: cinc-centes, sis-cent: sis-centes, set-cent: set-centes, vuit-cent: vuit-centes, nou-cent: nou-centes, dos mil: dues mil, vint-i-un mil: vint-i-una mil }
+    kinds: [cardinal/female]
+    affects: 6
 cs:
   - reason: 'the gem counts with jedna (raz, dva, tři: jedna, dvě, tři), the usual Czech counting form; CLDR spellout-numbering uses the masculine jeden'
     replace: { jeden: jedna }
@@ -254,6 +289,18 @@ el:
   - reason: the gem reads the zero ordinal as the cardinal μηδέν, as its fixtures specify; CLDR forms the adjective μηδενικός
     replace: { μηδενικό: μηδέν, μηδενικός: μηδέν, μηδενική: μηδέν }
     affects: 3
+eo:
+  - reason: CLDR reads zero as the noun nulo; the numeral is nul (Plena Manlibro de Esperanta Gramatiko), and its ordinal nula
+    replace: { nulo: nul, nuloa: nula }
+    affects: 2
+  - reason: CLDR writes an ordinal of several words with spaces (dudek unua); the gem joins them with hyphens (dudek-unua), as Esperanto usually writes compound ordinals
+    hyphenate: []
+    kinds: [ordinal]
+    affects: 94
+  - reason: CLDR adds -a to a final scale noun (milionoa, du milionoja); its ordinal adjective replaces the noun ending -o with -a (miliona, du-miliona)
+    replace_parts: { milionoja: miliona, milionoa: miliona, miliardoja: miliarda, miliardoa: miliarda }
+    kinds: [ordinal]
+    affects: 4
 es:
   - reason: the gem uses undécimo and duodécimo, CLDR decimoprimero and decimosegundo; the RAE accepts both
     replace: { decimoprimero: undécimo, decimosegundo: duodécimo, decimoprimera: undécima, decimosegunda: duodécima }
@@ -447,6 +494,10 @@ sr:
   - reason: CLDR builds the 200th on двеста (двестати); the ordinal is двестоти, like стоти and тристоти
     replace: { двестати: двестоти }
     affects: 1
+sq:
+  - reason: CLDR spells 10^9 miliar; the Albanian word is miliard (plural miliardë)
+    replace: { miliar: miliard, miliarë: miliardë }
+    affects: 2
 sv:
   - reason: the gem writes numbers below a million as one word (ettusenett, etthundraförsta), as Språkrådet recommends; CLDR breaks them after tusen and hundra
     join_after: [tusen, hundra]

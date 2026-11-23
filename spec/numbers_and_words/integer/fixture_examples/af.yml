@@ -1,0 +1,166 @@
+to_words:
+  ones:
+    0: nul
+    1: een
+    2: twee
+    3: drie
+    4: vier
+    5: vyf
+    6: ses
+    7: sewe
+    8: agt
+    9: nege
+  tens:
+    10: tien
+    11: elf
+    12: twaalf
+    13: dertien
+    14: veertien
+    15: vyftien
+    16: sestien
+    17: sewentien
+    18: agttien
+    19: negentien
+    20: twintig
+    21: een-en-twintig
+    22: twee-en-twintig
+    23: drie-en-twintig
+    24: vier-en-twintig
+    25: vyf-en-twintig
+    28: agt-en-twintig
+    30: dertig
+    31: een-en-dertig
+    32: twee-en-dertig
+    40: veertig
+    44: vier-en-veertig
+    50: vyftig
+    60: sestig
+    70: sewentig
+    80: tagtig
+    90: negentig
+    99: nege-en-negentig
+  hundreds:
+    100: honderd
+    101: honderd een
+    102: honderd twee
+    110: honderd tien
+    111: honderd elf
+    120: honderd twintig
+    121: honderd een-en-twintig
+    200: tweehonderd
+    201: tweehonderd een
+    300: driehonderd
+    400: vierhonderd
+    500: vyfhonderd
+    600: seshonderd
+    700: sewehonderd
+    800: agthonderd
+    900: negehonderd
+    999: negehonderd nege-en-negentig
+  thousands:
+    1000: duisend
+    1001: duisend een
+    1100: duisend honderd
+    1999: duisend negehonderd nege-en-negentig
+    2000: tweeduisend
+    2001: tweeduisend een
+    3000: drieduisend
+    10000: tienduisend
+    11000: elfduisend
+    19000: negentienduisend
+    20000: twintigduisend
+    21000: een-en-twintig duisend
+    22000: twee-en-twintig duisend
+    100000: honderd duisend
+    101000: honderd een duisend
+    200000: tweehonderd duisend
+    999999: negehonderd nege-en-negentig duisend negehonderd nege-en-negentig
+  millions:
+    1000000: een miljoen
+    1000001: een miljoen een
+    1001000: een miljoen duisend
+    2000000: twee miljoen
+    3000000: drie miljoen
+    21000000: een-en-twintig miljoen
+    100000000: honderd miljoen
+    200000000: tweehonderd miljoen
+    123456789: honderd drie-en-twintig miljoen vierhonderd ses-en-vyftig duisend sewehonderd nege-en-tagtig
+  large_scales:
+    1000000000: een miljard
+    2000000000: twee miljard
+    1000000000000: een biljoen
+    2000000000000: twee biljoen
+    1000000000000000: een biljard
+    2000000000000000: twee biljard
+    1000000000000000000: een triljoen
+    2000000000000000000: twee triljoen
+    1000000000000000000000: een triljard
+    1000000000000000000000000: een kwadriljoen
+    1000000000000000000000000000: een kwadriljard
+    1000000000000000000000000000000: een kwintiljoen
+    1000000000000000000000000000000000: een kwintiljard
+    2000000000000000000000000000000000: twee kwintiljard
+    123456789012345678901234567890123456: honderd drie-en-twintig kwintiljard vierhonderd ses-en-vyftig kwintiljoen sewehonderd nege-en-tagtig kwadriljard twaalf kwadriljoen driehonderd vyf-en-veertig triljard seshonderd agt-en-sewentig triljoen negehonderd een biljard tweehonderd vier-en-dertig biljoen vyfhonderd sewe-en-sestig miljard agthonderd negentig miljoen honderd drie-en-twintig duisend vierhonderd ses-en-vyftig
+    999999999999999999999999999999999999: negehonderd nege-en-negentig kwintiljard negehonderd nege-en-negentig kwintiljoen negehonderd nege-en-negentig kwadriljard negehonderd nege-en-negentig kwadriljoen negehonderd nege-en-negentig triljard negehonderd nege-en-negentig triljoen negehonderd nege-en-negentig biljard negehonderd nege-en-negentig biljoen negehonderd nege-en-negentig miljard negehonderd nege-en-negentig miljoen negehonderd nege-en-negentig duisend negehonderd nege-en-negentig
+  ordinal:
+    options:
+      :ordinal: true
+    0: nulste
+    1: eerste
+    2: tweede
+    3: derde
+    4: vierde
+    5: vyfde
+    6: sesde
+    7: sewende
+    8: agtste
+    9: negende
+    10: tiende
+    11: elfde
+    12: twaalfde
+    13: dertiende
+    14: veertiende
+    15: vyftiende
+    16: sestiende
+    17: sewentiende
+    18: agttiende
+    19: negentiende
+    20: twintigste
+    21: een-en-twintigste
+    22: twee-en-twintigste
+    23: drie-en-twintigste
+    24: vier-en-twintigste
+    25: vyf-en-twintigste
+    28: agt-en-twintigste
+    30: dertigste
+    31: een-en-dertigste
+    40: veertigste
+    44: vier-en-veertigste
+    50: vyftigste
+    90: negentigste
+    99: nege-en-negentigste
+    100: honderdste
+    101: honderd en eerste
+    102: honderd tweede
+    110: honderd tiende
+    111: honderd elfde
+    121: honderd een-en-twintigste
+    200: tweehonderdste
+    201: tweehonderd en eerste
+    999: negehonderd nege-en-negentigste
+    1000: duisendste
+    1001: duisend en eerste
+    1100: duisend honderdste
+    2000: tweeduisendste
+    2001: tweeduisend en eerste
+    21000: een-en-twintig duisendste
+    100000: honderd duisendste
+    1000000: een miljoenste
+    1000001: een miljoen en eerste
+    1001000: een miljoen duisendste
+    2000000: twee miljoenste
+    1000000000: een miljardste
+    2000000000: twee miljardste
+    1000000000000000000000000000000000: een kwintiljardste
+    2000000000000000000000000000000005: twee kwintiljard vyfde
+    999999999999999999999999999999999999: negehonderd nege-en-negentig kwintiljard negehonderd nege-en-negentig kwintiljoen negehonderd nege-en-negentig kwadriljard negehonderd nege-en-negentig kwadriljoen negehonderd nege-en-negentig triljard negehonderd nege-en-negentig triljoen negehonderd nege-en-negentig biljard negehonderd nege-en-negentig biljoen negehonderd nege-en-negentig miljard negehonderd nege-en-negentig miljoen negehonderd nege-en-negentig duisend negehonderd nege-en-negentigste

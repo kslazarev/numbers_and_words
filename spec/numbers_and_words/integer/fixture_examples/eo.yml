@@ -1,0 +1,167 @@
+to_words:
+  ones:
+    0: nul
+    1: unu
+    2: du
+    3: tri
+    4: kvar
+    5: kvin
+    6: ses
+    7: sep
+    8: ok
+    9: naŭ
+  tens:
+    10: dek
+    11: dek unu
+    12: dek du
+    13: dek tri
+    14: dek kvar
+    15: dek kvin
+    16: dek ses
+    17: dek sep
+    18: dek ok
+    19: dek naŭ
+    20: dudek
+    21: dudek unu
+    22: dudek du
+    23: dudek tri
+    24: dudek kvar
+    25: dudek kvin
+    28: dudek ok
+    30: tridek
+    31: tridek unu
+    32: tridek du
+    40: kvardek
+    44: kvardek kvar
+    50: kvindek
+    60: sesdek
+    70: sepdek
+    80: okdek
+    90: naŭdek
+    99: naŭdek naŭ
+  hundreds:
+    100: cent
+    101: cent unu
+    102: cent du
+    110: cent dek
+    111: cent dek unu
+    120: cent dudek
+    121: cent dudek unu
+    200: ducent
+    201: ducent unu
+    300: tricent
+    400: kvarcent
+    500: kvincent
+    600: sescent
+    700: sepcent
+    800: okcent
+    900: naŭcent
+    999: naŭcent naŭdek naŭ
+  thousands:
+    1000: mil
+    1001: mil unu
+    1100: mil cent
+    1999: mil naŭcent naŭdek naŭ
+    2000: du mil
+    2001: du mil unu
+    3000: tri mil
+    10000: dek mil
+    11000: dek unu mil
+    19000: dek naŭ mil
+    20000: dudek mil
+    21000: dudek unu mil
+    22000: dudek du mil
+    100000: cent mil
+    101000: cent unu mil
+    200000: ducent mil
+    999999: naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ
+  millions:
+    1000000: miliono
+    1000001: miliono unu
+    1001000: miliono mil
+    2000000: du milionoj
+    3000000: tri milionoj
+    21000000: dudek unu milionoj
+    100000000: cent milionoj
+    200000000: ducent milionoj
+    123456789: cent dudek tri milionoj kvarcent kvindek ses mil sepcent okdek naŭ
+  large_scales:
+    1000000000: miliardo
+    2000000000: du miliardoj
+    1000000000000: biliono
+    2000000000000: du bilionoj
+    1000000000000000: mil bilionoj
+    2000000000000000: du mil bilionoj
+    1001000000000000: mil unu bilionoj
+    1000000000000000000: triliono
+    2000000000000000000: du trilionoj
+    1000000000000000000000: mil trilionoj
+    1000000000000000000000000: kvadriliono
+    1000000000000000000000000000: mil kvadrilionoj
+    1000000000000000000000000000000: kvintiliono
+    1000000000000000000000000000000000: mil kvintilionoj
+    2000000000000000000000000000000000: du mil kvintilionoj
+    123456789012345678901234567890123456: cent dudek tri mil kvarcent kvindek ses kvintilionoj sepcent okdek naŭ mil dek du kvadrilionoj tricent kvardek kvin mil sescent sepdek ok trilionoj naŭcent unu mil ducent tridek kvar bilionoj kvincent sesdek sep miliardoj okcent naŭdek milionoj cent dudek tri mil kvarcent kvindek ses
+    999999999999999999999999999999999999: naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ kvintilionoj naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ kvadrilionoj naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ trilionoj naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ bilionoj naŭcent naŭdek naŭ miliardoj naŭcent naŭdek naŭ milionoj naŭcent naŭdek naŭ mil naŭcent naŭdek naŭ
+  ordinal:
+    options:
+      :ordinal: true
+    0: nula
+    1: unua
+    2: dua
+    3: tria
+    4: kvara
+    5: kvina
+    6: sesa
+    7: sepa
+    8: oka
+    9: naŭa
+    10: deka
+    11: dek-unua
+    12: dek-dua
+    13: dek-tria
+    14: dek-kvara
+    15: dek-kvina
+    16: dek-sesa
+    17: dek-sepa
+    18: dek-oka
+    19: dek-naŭa
+    20: dudeka
+    21: dudek-unua
+    22: dudek-dua
+    23: dudek-tria
+    24: dudek-kvara
+    25: dudek-kvina
+    28: dudek-oka
+    30: trideka
+    31: tridek-unua
+    40: kvardeka
+    44: kvardek-kvara
+    50: kvindeka
+    90: naŭdeka
+    99: naŭdek-naŭa
+    100: centa
+    101: cent-unua
+    102: cent-dua
+    110: cent-deka
+    111: cent-dek-unua
+    121: cent-dudek-unua
+    200: ducenta
+    201: ducent-unua
+    999: naŭcent-naŭdek-naŭa
+    1000: mila
+    1001: mil-unua
+    1100: mil-centa
+    2000: du-mila
+    2001: du-mil-unua
+    21000: dudek-unu-mila
+    100000: cent-mila
+    1000000: miliona
+    1000001: miliono-unua
+    1001000: miliono-mila
+    2000000: du-miliona
+    1000000000: miliarda
+    2000000000: du-miliarda
+    1000000000000000000000000000000000: mil-kvintiliona
+    2000000000000000000000000000000005: du-mil-kvintilionoj-kvina
+    999999999999999999999999999999999999: naŭcent-naŭdek-naŭ-mil-naŭcent-naŭdek-naŭ-kvintilionoj-naŭcent-naŭdek-naŭ-mil-naŭcent-naŭdek-naŭ-kvadrilionoj-naŭcent-naŭdek-naŭ-mil-naŭcent-naŭdek-naŭ-trilionoj-naŭcent-naŭdek-naŭ-mil-naŭcent-naŭdek-naŭ-bilionoj-naŭcent-naŭdek-naŭ-miliardoj-naŭcent-naŭdek-naŭ-milionoj-naŭcent-naŭdek-naŭ-mil-naŭcent-naŭdek-naŭa
