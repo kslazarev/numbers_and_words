@@ -16,6 +16,13 @@ describe NumbersAndWords::I18n do
       expect(count_calls(3)).to eq(1)
     end
 
+    it 'keeps a value derived while the backend loads its translations' do
+      I18n.reload!
+      calls = 0
+      2.times { described_class.cached(:spec, :loading) { (calls += 1) && I18n.t('numbers.minus', locale: :en) } }
+      expect(calls).to eq(1)
+    end
+
     it 'keeps nil' do
       calls = 0
       2.times { described_class.cached(:spec, :nil) { (calls += 1) && nil } }
@@ -43,11 +50,12 @@ describe NumbersAndWords::I18n do
   describe '.t' do
     after { I18n.reload! }
 
-    it 'looks up a translation with a count each time' do
+    it 'keeps a translation with a count below a thousand, and looks up larger counts each time' do
       I18n.with_locale(:en) do
-        expect(described_class.t('numbers.mega', count: 1)).to eq(I18n.t('numbers.mega', count: 1))
+        expect(described_class.t('numbers.tenths', count: 1)).to eq('tenth')
         allow(I18n).to receive(:t).and_call_original
-        2.times { described_class.t('numbers.mega', count: 1) }
+        2.times { described_class.t('numbers.tenths', count: 1) }
+        2.times { described_class.t('numbers.tenths', count: 1_000) }
         expect(I18n).to have_received(:t).twice
       end
     end
