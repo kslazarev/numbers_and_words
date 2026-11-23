@@ -1,6 +1,6 @@
 # Croatian (`hr`)
 
-Hrvatski. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Hrvatski is the Croatian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers are written as separate words, with i between the tens and the ones (dvadeset i jedan), as in Unicode CLDR; dvadeset jedan is also in use. A thousand alone is tisuću (tisuću dvjesto), and a count of thousands is feminine (dvije tisuće, dvadeset i jedna tisuća). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -50,7 +50,7 @@ I18n.with_locale(:hr) { 0.02.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:hr) { 0.1.to_words(precision: 2) }
@@ -59,7 +59,7 @@ I18n.with_locale(:hr) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the i between the integral and fractional parts.
+The `micro_separator` option replaces the i between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:hr) { 2.5.to_words(micro_separator: "plus") }
@@ -68,7 +68,7 @@ I18n.with_locale(:hr) { 2.5.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two at the end of the number (jedan, jedna, jedno; dva, dvije, dva).
+With `gender: :male` (the default), `:female` or `:neuter`, one and two change at the end of the number (jedan, jedna, jedno; dva, dvije, dva).
 
 ```ruby
 I18n.with_locale(:hr) { 1.to_words(gender: :male) }
@@ -83,7 +83,7 @@ I18n.with_locale(:hr) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal, in the requested gender (prva, prvo; treća, treće), and drops the i after the tens (dvadeset prvi). A round thousand or larger scale is one word with its count, and a count of one is left out (tisućiti, dvijetisućiti, milijunti, dvamilijunti). This joined form needs a native speaker's review. Ordinals are spelled up to the largest supported number.
+With `ordinal: true`, the last word becomes ordinal, in the requested gender (prva, prvo; treća, treće), and the i after the tens is dropped (dvadeset prvi). A round thousand or larger scale is one word with its count, and a count of one is left out (tisućiti, dvijetisućiti, milijunti, dvamilijunti). This joined form needs a native speaker's review. Ordinals are spelled up to the largest supported number.
 
 ```ruby
 I18n.with_locale(:hr) { 21.to_words(ordinal: true) }
@@ -101,7 +101,7 @@ I18n.with_locale(:hr) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part. The ordinal of zero stays nulti.
+With `remove_zero: true`, a zero integral part is omitted. The ordinal of zero stays nulti.
 
 ```ruby
 I18n.with_locale(:hr) { 0.7.to_words(remove_zero: true) }

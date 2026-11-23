@@ -1,6 +1,6 @@
 # Tamil (`ta`)
 
-தமிழ். Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Tamil script, separated by spaces.
+தமிழ் is the Tamil name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Tamil script, separated by spaces.
 
 Tamil uses the Indian numbering system, as Unicode CLDR does: ஆயிரம் (10<sup>3</sup>), லட்சம் (10<sup>5</sup>), கோடி (10<sup>7</sup>), அரபம் (10<sup>9</sup>) and கரபம் (10<sup>11</sup>), each counting from 1 to 99. Larger numbers repeat கரபம் with its count spelled the same way (10<sup>13</sup> is நூறு கரபம், 10<sup>18</sup> is ஒரு கோடி கரபம்), so there is no largest number. Tamil news often says நூறு கோடி instead of அரபம் for 10<sup>9</sup>.
 
@@ -50,7 +50,7 @@ I18n.with_locale(:ta) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ta) { 0.1.to_words(precision: 2) }
@@ -59,7 +59,7 @@ I18n.with_locale(:ta) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ta) { 21.77.to_words(micro_separator: "தசம") }
@@ -68,7 +68,7 @@ I18n.with_locale(:ta) { 21.77.to_words(micro_separator: "தசம") }
 
 ### Ordinal
 
-`ordinal: true` adds ஆவது to the last word, as CLDR does (இரண்டாவது, இருபத்து ஒன்றாவது, நூறாவது). A scale word takes it after its linking form (ஆயிரத்தாவது, ஒரு லட்சத்தாவது). The first is முதலாவது. Zero and decimals keep the cardinal form. The adjectival ordinals in -ஆம் (இரண்டாம்) aren't supported.
+The `ordinal: true` option adds ஆவது to the last word, as CLDR does (இரண்டாவது, இருபத்து ஒன்றாவது, நூறாவது). A scale word takes it after its linking form (ஆயிரத்தாவது, ஒரு லட்சத்தாவது). The first is முதலாவது. Zero and decimals keep the cardinal form. The adjectival ordinals in -ஆம் (இரண்டாம்) aren't supported.
 
 ```ruby
 I18n.with_locale(:ta) { 1.to_words(ordinal: true) }
@@ -83,7 +83,7 @@ I18n.with_locale(:ta) { 1_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps புள்ளி.
+The `remove_zero: true` option omits a zero integral part and keeps புள்ளி.
 
 ```ruby
 I18n.with_locale(:ta) { 0.7.to_words(remove_zero: true) }

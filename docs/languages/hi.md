@@ -1,6 +1,6 @@
 # Hindi (`hi`)
 
-हिन्दी. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Devanagari, separated by spaces.
+हिन्दी is the Hindi name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Devanagari, separated by spaces.
 
 Hindi uses the Indian numbering system. Each number from 0 to 99 is its own word (इक्कीस, अठहत्तर, निन्यानबे), not a compound of tens and ones. The last three digits are read as hundreds (छह सौ अठहत्तर). Each scale above them counts from 1 to 99: हज़ार (10<sup>3</sup>), लाख (10<sup>5</sup>), करोड़ (10<sup>7</sup>), अरब (10<sup>9</sup>) and खरब (10<sup>11</sup>). So 1,23,45,678 is एक करोड़ तेईस लाख पैंतालीस हज़ार छह सौ अठहत्तर. Larger numbers repeat खरब with a spelled-out count (10<sup>13</sup> is एक सौ खरब, 10<sup>18</sup> is एक करोड़ खरब), rather than the rare names नील, पद्म and शंख. 100 and 1,000 are एक सौ and एक हज़ार.
 
@@ -54,7 +54,7 @@ I18n.with_locale(:hi) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:hi) { 0.1.to_words(precision: 2) }
@@ -63,7 +63,7 @@ I18n.with_locale(:hi) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:hi) { 21.77.to_words(micro_separator: "बिंदु") }
@@ -72,7 +72,7 @@ I18n.with_locale(:hi) { 21.77.to_words(micro_separator: "बिंदु") }
 
 ### Ordinal
 
-`ordinal: true` gives पहला, दूसरा, तीसरा, चौथा and छठा for 1, 2, 3, 4 and 6. Otherwise it adds वाँ to the cardinal (पाँचवाँ, इक्कीसवाँ, एक सौवाँ), also for larger numbers ending in 1, 2, 3, 4 or 6 (101 is एक सौ एकवाँ). Decimals keep the cardinal form.
+With `ordinal: true`, 1, 2, 3, 4 and 6 become पहला, दूसरा, तीसरा, चौथा and छठा. Other numbers add वाँ to the cardinal (पाँचवाँ, इक्कीसवाँ, एक सौवाँ), also for larger numbers ending in 1, 2, 3, 4 or 6 (101 is एक सौ एकवाँ). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:hi) { 1.to_words(ordinal: true) }
@@ -90,7 +90,7 @@ I18n.with_locale(:hi) { 100.to_words(ordinal: true) }
 
 ### Gender
 
-`gender: :male` (the default) or `gender: :female` sets the gender of an ordinal: पहली, दूसरी, छठी, and वीं instead of वाँ. Cardinals do not change.
+With `gender: :male` (the default) or `gender: :female`, an ordinal takes that gender: पहली, दूसरी, छठी, and वीं instead of वाँ. Cardinals do not change.
 
 ```ruby
 I18n.with_locale(:hi) { 1.to_words(ordinal: true, gender: :female) }
@@ -105,7 +105,7 @@ I18n.with_locale(:hi) { 2.to_words(ordinal: true, gender: :male) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps दशमलव.
+With `remove_zero: true`, a zero integral part is omitted and दशमलव is kept.
 
 ```ruby
 I18n.with_locale(:hi) { 0.7.to_words(remove_zero: true) }

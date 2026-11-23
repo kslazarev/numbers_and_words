@@ -1,8 +1,8 @@
 # Bulgarian (`bg`)
 
-Български. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Български is the Bulgarian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Scale words follow the short scale up to децилион (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). The conjunction "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Scale words follow the short scale up to децилион (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -54,7 +54,7 @@ I18n.with_locale(:bg) { 1.1.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:bg) { 0.1.to_words(precision: 2) }
@@ -63,7 +63,7 @@ I18n.with_locale(:bg) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:bg) { 21.77.to_words(micro_separator: "плюс") }
@@ -72,7 +72,7 @@ I18n.with_locale(:bg) { 21.77.to_words(micro_separator: "плюс") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (един, една, едно; два, две).
+The `gender` option, `:male` (default), `:female` or `:neuter`, changes one and two in the last group (един, една, едно; два, две).
 
 ```ruby
 I18n.with_locale(:bg) { 1.to_words(gender: :male) }
@@ -87,7 +87,7 @@ I18n.with_locale(:bg) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (двадесет и първи) in the requested gender (двадесет и първа). A round scale joins its multiplier, with две before хиляден (двехиляден) and дву before larger scale ordinals (двумилионен).
+The `ordinal: true` option makes the last word ordinal (двадесет и първи) in the requested gender (двадесет и първа). A round scale joins its multiplier, with две before хиляден (двехиляден) and дву before larger scale ordinals (двумилионен).
 
 ```ruby
 I18n.with_locale(:bg) { 21.to_words(ordinal: true) }
@@ -102,7 +102,7 @@ I18n.with_locale(:bg) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:bg) { 0.7.to_words(remove_zero: true) }

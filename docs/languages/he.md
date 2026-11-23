@@ -1,10 +1,10 @@
 # Hebrew (`he`)
 
-עברית. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+עברית is the Hebrew name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers use the feminine counting form by default (אחת, שתיים, שלוש); see [Gender](#gender). Multipliers of אלף, מיליון and larger are masculine (עשרים ואחד אלף). 2,000 to 10,000 have their own forms (אלפיים, שלושת אלפים, עשרת אלפים). The conjunction ו joins the last part of each group (עשרים ואחת), and joins a single last part to the rest of the number (אלף ואחת). Scale words follow the short scale used in Israel, with מיליארד for 10<sup>9</sup> and טריליון for 10<sup>12</sup>, up to דסיליון (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Hebrew is written right to left. `to_words` returns the words in logical (reading) order without bidirectional control characters. They display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
+Hebrew is written right to left. The `to_words` method returns the words in logical (reading) order without bidirectional control characters. They display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
 
 ## Examples
 
@@ -53,7 +53,7 @@ I18n.with_locale(:he) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:he) { 0.1.to_words(precision: 2) }
@@ -62,7 +62,7 @@ I18n.with_locale(:he) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:he) { 21.77.to_words(micro_separator: "פסיק") }
@@ -71,7 +71,7 @@ I18n.with_locale(:he) { 21.77.to_words(micro_separator: "פסיק") }
 
 ### Gender
 
-`gender: :female` (the default) or `gender: :male` sets the gender of what is counted. It applies to the last group of digits. Multipliers of thousands and larger are always masculine.
+With `gender: :female` (the default) or `gender: :male`, the number takes the gender of what is counted. It applies to the last group of digits. Multipliers of thousands and larger are always masculine.
 
 ```ruby
 I18n.with_locale(:he) { 21.to_words(gender: :male) }
@@ -86,7 +86,7 @@ I18n.with_locale(:he) { 2.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal words for 1 to 10 in the requested gender. Above 10, Hebrew uses the definite cardinal (`היום העשרים ואחד`). After a one-word multiplier, the article goes on the noun it counts (שלוש המאות, שלושת האלפים, שני המיליון). 0 raises `RangeError`.
+With `ordinal: true`, 1 to 10 take their ordinal words in the requested gender. Above 10, Hebrew uses the definite cardinal (`היום העשרים ואחד`). After a one-word multiplier, the article goes on the noun it counts (שלוש המאות, שלושת האלפים, שני המיליון). 0 raises `RangeError`.
 
 ```ruby
 I18n.with_locale(:he) { 1.to_words(ordinal: true) }
@@ -104,7 +104,7 @@ I18n.with_locale(:he) { 3000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+With `remove_zero: true`, a zero integral part is omitted.
 
 ```ruby
 I18n.with_locale(:he) { 0.7.to_words(remove_zero: true) }
@@ -113,7 +113,7 @@ I18n.with_locale(:he) { 0.7.to_words(remove_zero: true) }
 
 ## Units
 
-With the [`unit`](../../README.md#unit) option, one follows its unit (שקל אחד, אגורה אחת). Two takes its construct form before the unit (שני שקלים, שתי אגורות), and other numbers also come first (שלושה שקלים, עשרים ואחד שקלים). A unit's `gender` sets the gender of the number. A subunit is joined with ו prefixed to its first word. `unit` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`, because a Hebrew ordinal follows its noun with an article.
+With the [`unit`](../../README.md#unit) option, one follows its unit (שקל אחד, אגורה אחת). Two takes its construct form before the unit (שני שקלים, שתי אגורות), and other numbers also come first (שלושה שקלים, עשרים ואחד שקלים). A unit's `gender` sets the gender of the number. A subunit is joined with ו prefixed to its first word. Combining `unit` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`, because a Hebrew ordinal follows its noun with an article.
 
 ```ruby
 I18n.with_locale(:he) { 1.to_words(unit: :shekel) }

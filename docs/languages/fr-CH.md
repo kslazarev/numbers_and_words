@@ -1,6 +1,6 @@
 # Swiss French (`fr-CH`)
 
-Français (Suisse). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Français (Suisse) is the French name of Swiss French. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -32,7 +32,7 @@ I18n.with_locale(:'fr-CH') { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction joined with `et`. [`fraction: false`](#fraction), the default in 2.0, reads them with `virgule`.
+Decimals are read as a fraction joined with `et`. The [`fraction: false`](#fraction) option, the default in 2.0, reads them with `virgule`.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 21.77.to_words }
@@ -53,7 +53,7 @@ As in French, zero takes the singular with `one` and `other` unit translations (
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 0.1.to_words(precision: 2) }
@@ -62,7 +62,7 @@ I18n.with_locale(:'fr-CH') { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 21.77.to_words(micro_separator: "plus") }
@@ -71,7 +71,7 @@ I18n.with_locale(:'fr-CH') { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `virgule`: up to three decimal places as a number, after a `zéro` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+The `fraction: true` option, the default, reads decimals as a fraction. The `fraction: false` option reads them with `virgule`: up to three decimal places as a number, after a `zéro` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 21.77.to_words(fraction: false) }
@@ -86,7 +86,7 @@ I18n.with_locale(:'fr-CH') { 3.1416.to_words(fraction: false) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`: a final un is une ("septante et une"); the counts of mille and larger scale words stay masculine. A lone premier is première.
+The `gender` option takes `:male` (default) or `:female`. With `gender: :female`, a final un is une ("septante et une"); the counts of mille and larger scale words stay masculine. A lone premier is première.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 1.to_words(gender: :female) }
@@ -107,7 +107,7 @@ I18n.with_locale(:'fr-CH') { 21.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux centième"). The ordinal of a round million or larger is a numeral, so `spelling: :reformed` joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.
+The `ordinal: true` option gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux centième"). The ordinal of a round million or larger is a numeral, so `spelling: :reformed` joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 1.to_words(ordinal: true) }
@@ -131,7 +131,7 @@ I18n.with_locale(:'fr-CH') { 2_000_000.to_words(ordinal: true, spelling: :reform
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 0.7.to_words(remove_zero: true) }
@@ -140,7 +140,7 @@ I18n.with_locale(:'fr-CH') { 0.7.to_words(remove_zero: true) }
 
 ### Spelling
 
-`spelling: :traditional`, the default, puts spaces rather than hyphens around `et`, `cent` and `mille`. `spelling: :reformed` follows the 1990 reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+The `spelling: :traditional` option, the default, puts spaces rather than hyphens around `et`, `cent` and `mille`. The `spelling: :reformed` option follows the 1990 reform, hyphenating every numeral in a compound number except the nouns million, milliard and larger. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'fr-CH') { 71.to_words }

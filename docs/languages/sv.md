@@ -1,6 +1,6 @@
 # Swedish (`sv`)
 
-Svenska. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Svenska is the Swedish name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers below a million are written as one word (tjugoettusen, fyratusentrettio), and ett drops a t before tusen (ettusen). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -48,7 +48,7 @@ I18n.with_locale(:sv) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:sv) { 0.1.to_words(precision: 2) }
@@ -57,7 +57,7 @@ I18n.with_locale(:sv) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:sv) { 21.77.to_words(micro_separator: "punkt") }
@@ -66,7 +66,7 @@ I18n.with_locale(:sv) { 21.77.to_words(micro_separator: "punkt") }
 
 ### Gender
 
-`gender: :neuter` (default) or `gender: :common`. With `:common`, a final ett is en, as before a common-gender noun ("tjugoen"). The counts of tusen stay neuter ("tjugoettusen"), and those of miljon and larger scale words common.
+The `gender` option takes `:neuter` (default) or `:common`. With `:common`, a final ett is en, as before a common-gender noun ("tjugoen"). The counts of tusen stay neuter ("tjugoettusen"), and those of miljon and larger scale words common.
 
 ```ruby
 I18n.with_locale(:sv) { 1.to_words(gender: :neuter) }
@@ -81,7 +81,7 @@ I18n.with_locale(:sv) { 21_001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the end of the last word ordinal ("tjugoförsta"). Million and larger scales stay apart from their multiplier ("två miljonte"); one millionth is miljonte.
+The `ordinal: true` option makes the end of the last word ordinal ("tjugoförsta"). Million and larger scales stay apart from their multiplier ("två miljonte"); one millionth is miljonte.
 
 ```ruby
 I18n.with_locale(:sv) { 1.to_words(ordinal: true) }
@@ -99,7 +99,7 @@ I18n.with_locale(:sv) { 2_000_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komma.
+The `remove_zero: true` option omits a zero integral part and keeps komma.
 
 ```ruby
 I18n.with_locale(:sv) { 0.7.to_words(remove_zero: true) }

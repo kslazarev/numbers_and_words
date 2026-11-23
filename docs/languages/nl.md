@@ -1,6 +1,6 @@
 # Dutch (`nl`)
 
-Nederlands. Dutch uses the long scale: miljoen, miljard, biljoen, biljard, triljoen, triljard, quadriljoen, quadriljard, quintiljoen and quintiljard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Nederlands is the Dutch name of the language. Dutch uses the long scale: miljoen, miljard, biljoen, biljard, triljoen, triljard, quadriljoen, quadriljard, quintiljoen and quintiljard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -41,7 +41,7 @@ I18n.with_locale(:nl) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:nl) { 0.1.to_words(precision: 2) }
@@ -50,7 +50,7 @@ I18n.with_locale(:nl) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:nl) { 21.77.to_words(micro_separator: "plus") }
@@ -59,7 +59,7 @@ I18n.with_locale(:nl) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds -ste or -de to the last word ("eenentwintigste", "honderdeerste"). As in cardinals, million and larger scales stay apart from their multiplier ("twee miljoenste").
+The `ordinal: true` option adds -ste or -de to the last word ("eenentwintigste", "honderdeerste"). As in cardinals, million and larger scales stay apart from their multiplier ("twee miljoenste").
 
 ```ruby
 I18n.with_locale(:nl) { 1.to_words(ordinal: true) }
@@ -77,7 +77,7 @@ I18n.with_locale(:nl) { 2_000_000.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as usually spoken, with a space before the rest. Other numbers are read as usual.
+The `pronounced: true` option reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as usually spoken, with a space before the rest. Other numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:nl) { 1910.to_words(pronounced: true) }
@@ -92,7 +92,7 @@ I18n.with_locale(:nl) { 2001.to_words(pronounced: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:nl) { 0.7.to_words(remove_zero: true) }
@@ -101,7 +101,7 @@ I18n.with_locale(:nl) { 0.7.to_words(remove_zero: true) }
 
 ### Tens of Hundreds
 
-`tens_of_hundreds: true` reads thousands as tens of hundreds.
+The `tens_of_hundreds: true` option reads thousands as tens of hundreds.
 
 ```ruby
 I18n.with_locale(:nl) { 1910.to_words(tens_of_hundreds: true) }

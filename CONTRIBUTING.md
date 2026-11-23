@@ -53,19 +53,19 @@ Locale strings must use the locale's script, be NFC-normalized and contain no in
 
 #### Unicode CLDR Comparison
 
-`spec/cldr_comparison_spec.rb` spells integers from 0 to 123,456,789 with this gem and with the [Unicode CLDR](https://cldr.unicode.org/) spell-out rules (RBNF). The CLDR rules come from the development-only [twitter_cldr](https://github.com/ruby-i18n/twitter-cldr-rb) gem. The spec covers each language CLDR covers: cardinals, ordinals, and each gender the gem accepts. `CldrComparison::LOCALES` in `spec/support/cldr_comparison.rb` maps each locale to its CLDR rule sets, and lists skipped locales with the reason. Run the spec alone with `bundle exec rspec spec/cldr_comparison_spec.rb`.
+The `spec/cldr_comparison_spec.rb` spec spells integers from 0 to 123,456,789 with this gem and with the [Unicode CLDR](https://cldr.unicode.org/) spell-out rules (RBNF). The CLDR rules come from the development-only [twitter_cldr](https://github.com/ruby-i18n/twitter-cldr-rb) gem. The spec covers each language CLDR covers: cardinals, ordinals, and each gender the gem accepts. The `CldrComparison::LOCALES` constant in `spec/support/cldr_comparison.rb` maps each locale to its CLDR rule sets, and lists skipped locales with the reason. Run the spec alone with `bundle exec rspec spec/cldr_comparison_spec.rb`.
 
-Every difference is reviewed. `spec/fixtures/cldr_rules.yml` holds rules that transform CLDR's reading before the comparison, per locale or shared under `"*"`. Each rule has a reason: a CLDR convention or error, or a variant in use. A rule does one literal operation, so it can't hide an unrelated difference. The operations are:
+Every difference is reviewed. The `spec/fixtures/cldr_rules.yml` file holds rules that transform CLDR's reading before the comparison, per locale or shared under `"*"`. Each rule has a reason: a CLDR convention or error, or a variant in use. A rule does one literal operation, so it can't hide an unrelated difference. The operations are:
 
-* `replace` whole words or phrases;
-* `replace_parts` of words, such as a misspelled stem;
-* `drop_one`: drop the implicit one before listed scale words;
-* `prefix`: add a prefix;
-* `split_before` listed word parts;
-* `join_before`/`join_after`: join words beginning or ending with listed parts;
-* `hyphenate` all words except next to listed ones.
+* The `replace` operation replaces whole words or phrases.
+* The `replace_parts` operation replaces parts of words, such as a misspelled stem.
+* The `drop_one` operation drops the implicit one before listed scale words.
+* The `prefix` operation adds a prefix.
+* The `split_before` operation splits words before listed word parts.
+* The `join_before` and `join_after` operations join words beginning or ending with listed parts.
+* The `hyphenate` operation hyphenates all words except next to listed ones.
 
-`kinds`, `above` and `below` limit a rule to some comparisons. Each rule records with `affects` how many comparisons it changes. A difference no rule explains is an exception in `spec/fixtures/cldr_exceptions.yml`, with both readings and the reason.
+The `kinds`, `above` and `below` keys limit a rule to some comparisons. Each rule records with `affects` how many comparisons it changes. A difference no rule explains is an exception in `spec/fixtures/cldr_exceptions.yml`, with both readings and the reason.
 
 The spec fails on any other difference, on an exception that no longer differs, on a rule that changes a reading CLDR agrees with, and on a changed `affects` count. So a rule that starts absorbing a new difference, or stops applying, is noticed.
 

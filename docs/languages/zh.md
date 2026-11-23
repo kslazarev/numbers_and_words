@@ -1,6 +1,6 @@
 # Chinese (`zh`)
 
-中文 (简体). Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Simplified Chinese characters without spaces.
+中文 (简体) is the Simplified Chinese name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in Simplified Chinese characters without spaces.
 
 Digits are grouped by ten thousands. Each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), and is followed by 万 (10<sup>4</sup>), 亿 (10<sup>8</sup>), 万亿 (10<sup>12</sup>), 亿亿 (10<sup>16</sup>) and so on. A single 零 marks skipped places between nonzero digits (101 is 一百零一, 1,000,100 is 一百万零一百). A number from 10 to 19 at the start drops its leading 一 (15 is 十五, 110,000 is 十一万). 2 is always the formal 二; the colloquial 两 is not supported yet. Regional locales such as `zh-CN` use `zh`. Traditional Chinese characters (`zh-TW`, `zh-HK`) are not supported yet.
 
@@ -51,7 +51,7 @@ I18n.with_locale(:zh) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:zh) { 0.1.to_words(precision: 2) }
@@ -60,7 +60,7 @@ I18n.with_locale(:zh) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:zh) { 21.77.to_words(micro_separator: "plus") }
@@ -69,7 +69,7 @@ I18n.with_locale(:zh) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds the prefix 第 to integers.
+The `ordinal: true` option adds the prefix 第 to integers.
 
 ```ruby
 I18n.with_locale(:zh) { 1.to_words(ordinal: true) }
@@ -81,7 +81,7 @@ I18n.with_locale(:zh) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps 点.
+The `remove_zero: true` option omits a zero integral part and keeps 点.
 
 ```ruby
 I18n.with_locale(:zh) { 0.7.to_words(remove_zero: true) }

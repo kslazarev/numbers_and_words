@@ -1,6 +1,6 @@
 # Turkish (`tr`)
 
-Türkçe. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Türkçe is the Turkish name of the language. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -46,7 +46,7 @@ I18n.with_locale(:tr) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:tr) { 0.1.to_words(precision: 2) }
@@ -55,7 +55,7 @@ I18n.with_locale(:tr) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:tr) { 21.77.to_words(micro_separator: "nokta") }
@@ -64,7 +64,7 @@ I18n.with_locale(:tr) { 21.77.to_words(micro_separator: "nokta") }
 
 ### Ordinal
 
-`ordinal: true` adds -inci to the last word, following vowel harmony ("yirmi birinci", "dokuzuncu").
+The `ordinal: true` option adds -inci to the last word, following vowel harmony ("yirmi birinci", "dokuzuncu").
 
 ```ruby
 I18n.with_locale(:tr) { 1.to_words(ordinal: true) }
@@ -79,7 +79,7 @@ I18n.with_locale(:tr) { 2_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps virgül.
+The `remove_zero: true` option omits a zero integral part and keeps virgül.
 
 ```ruby
 I18n.with_locale(:tr) { 0.7.to_words(remove_zero: true) }

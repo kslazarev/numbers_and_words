@@ -99,7 +99,7 @@ $ to_words --locale es --gender female 21
 veintiuna
 ```
 
-Choose the language with `-l`/`--locale` (default `en`). Every option has a flag, such as `--ordinal` (and `--no-ordinal`), `--gender VALUE` or `--precision N`. `to_words --help` lists the flags and the languages that support each. Errors go to standard error, with exit status 1.
+Choose the language with `-l`/`--locale` (default `en`). Every option has a flag, such as `--ordinal` (and `--no-ordinal`), `--gender VALUE` or `--precision N`. The `to_words --help` command lists the flags and the languages that support each. Errors go to standard error, with exit status 1.
 
 ## Supported Languages / Языки / Langues Supportées
 
@@ -172,7 +172,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
 | [Welsh](docs/languages/cy.md)* | Cymraeg | `cy` |
 
-\* Experimental: known gaps or no native-speaker review yet, as its page explains. To help, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+\* An asterisk marks an experimental language, which has known gaps or no native-speaker review yet, as its page explains. To help, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Regional locales use their language: `en-AU`, `en-CA`, `en-IN` and `en-US` use `en`; `fr-CA` uses `fr`; `de-AT` and `de-CH` use `de`; `it-CH` uses `it`; `nb-NO`, `no` and `no-NO` use `nb`; `zh-CN` and `zh-SG` use `zh`.
 
@@ -182,7 +182,7 @@ Pass options to `to_words`. The options below work in every language. Language o
 
 ### Precision
 
-`precision` pads the fractional part of a float with zeros.
+The `precision` option pads the fractional part of a float with zeros.
 
 ```ruby
 I18n.with_locale(:ru) { 0.1.to_words(precision: 3) }
@@ -194,7 +194,7 @@ I18n.with_locale(:es) { 0.2.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts of a float.
+The `micro_separator` option replaces the word between the integral and fractional parts of a float.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
@@ -217,7 +217,7 @@ Other options are validated for the fallback locale. A locale missing from `I18n
 
 ### Unit
 
-`unit` follows a number with a unit word, such as a currency, in the form the number calls for. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations, and `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, such as `one`, `few`, `many` and `other` in Russian and Ukrainian, or `one` and `other` in English. A unit that never changes is one string. An optional `gender` sets the number's gender in languages with a `gender` option. A `gender` passed to `to_words` overrides it.
+The `unit` option follows a number with a unit word, such as a currency, in the form the number calls for. The gem ships no units: `unit: :ruble` looks up `units.ruble` in your application's translations, and `"money.ruble"` looks up `units.money.ruble`. A unit has one form per plural category of the language, such as `one`, `few`, `many` and `other` in Russian and Ukrainian, or `one` and `other` in English. A unit that never changes is one string. An optional `gender` sets the number's gender in languages with a `gender` option. A `gender` passed to `to_words` overrides it.
 
 ```yaml
 en:
@@ -302,7 +302,7 @@ I18n.with_locale(:fr) { 1.5.to_words(unit: :euro) }
 # => "un virgule cinq euro"
 ```
 
-`subunit` spells an amount in two units, such as dollars and cents. The decimal places, rounded half to even, become the subunit. `precision` sets how many places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`. A zero unit is left out with `remove_zero: true`, where the language supports it. The two parts are joined with the language's word (`and` in English, `et` in French), attached to the subunit in Hebrew and Arabic (`ו`, `و`), or else with a space.
+The `subunit` option spells an amount in two units, such as dollars and cents. The decimal places, rounded half to even, become the subunit. The `precision` option sets how many places make one subunit, 2 by default. A zero subunit is left out unless `zero_subunit: true`. A zero unit is left out with `remove_zero: true`, where the language supports it. The two parts are joined with the language's word (`and` in English, `et` in French), attached to the subunit in Hebrew and Arabic (`ו`, `و`), or else with a space.
 
 ```ruby
 I18n.with_locale(:en) { 21.5.to_words(unit: :dollar, subunit: :cent) }
@@ -321,11 +321,11 @@ I18n.with_locale(:en) { 0.5.to_words(unit: :dollar, subunit: :cent, remove_zero:
 # => "fifty cents"
 ```
 
-`subunit` without `unit`, `subunit` with `ordinal: true`, and `zero_subunit` without `subunit` raise `NumbersAndWords::UnsupportedOptionError`.
+Passing `subunit` without `unit`, `subunit` with `ordinal: true`, or `zero_subunit` without `subunit` raises `NumbersAndWords::UnsupportedOptionError`.
 
 ### Unsupported Options
 
-Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its page. Any other option or value is ignored with a warning that lists the supported ones. 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, instead. Set [`strict_options`](#configuration--конфигурация) to `true` to raise now.
+Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`, plus the options on its page. Any other option or value is ignored with a warning that lists the supported ones. Version 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, instead. Set [`strict_options`](#configuration--конфигурация) to `true` to raise now.
 
 Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` returns "hai mươi mốt" and warns once:
 
@@ -353,15 +353,15 @@ Or set it directly:
 NumbersAndWords.config.locales = [:en, :ru]
 ```
 
-Regional locales such as `"en-US"` become their bundled locale. `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. An assignment takes effect at once. A `configure` block takes effect when it completes, and not at all if it raises.
+Regional locales such as `"en-US"` become their bundled locale. Setting `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. An assignment takes effect at once. A `configure` block takes effect when it completes, and not at all if it raises.
 
-`fallback` sets the default [fallback](#fallback); the `fallback` option of `to_words` overrides it.
+The `fallback` setting chooses the default [fallback](#fallback); the `fallback` option of `to_words` overrides it.
 
 ```ruby
 NumbersAndWords.config.fallback = :en
 ```
 
-`strict_options` is `false` by default: an unsupported option or value is ignored with a warning. Set it to `true` to raise `NumbersAndWords::UnsupportedOptionError`, as 2.0 will by default.
+The `strict_options` setting is `false` by default: an unsupported option or value is ignored with a warning. Set it to `true` to raise `NumbersAndWords::UnsupportedOptionError`, as 2.0 will by default.
 
 ```ruby
 NumbersAndWords.config.strict_options = true
@@ -373,8 +373,8 @@ Require the gem before looking up translations, as Rails does, and configure it 
 
 ## Requirements / Требования / Configuration Requise
 
-* Ruby 3.1 or later, including JRuby.
-* I18n, tested with 1.6 and later.
+* The gem requires Ruby 3.1 or later, including JRuby.
+* The gem requires I18n and is tested with 1.6 and later.
 
 ## Users / Пользователи / Utilisateurs
 
@@ -390,4 +390,4 @@ See [CONTRIBUTING](CONTRIBUTING.md), [AGENTS](AGENTS.md), [CHANGELOG](CHANGELOG.
 
 ## License / Лицензия / Licence
 
-MIT License, see [LICENSE](LICENSE.txt).
+The gem is released under the MIT License, see [LICENSE](LICENSE.txt).

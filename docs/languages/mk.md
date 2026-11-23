@@ -1,8 +1,8 @@
 # Macedonian (`mk`)
 
-Македонски. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Македонски is the Macedonian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-"и" joins the last part of each group (дваесет и еден, сто и пет). It also joins a last group of one word to the rest (илјада и еден, две илјади и триста). Hundreds are сто, двесте, триста, then end in -стотини (четиристотини, шестотини). Илјада and the scale words in -ијарда are feminine (две илјади, две милијарди); those in -ион are masculine (два милиони). A count ending in one, but not in eleven, takes the singular (дваесет и една илјада). Scale words follow the long scale: милијарда is 10<sup>9</sup>, билион 10<sup>12</sup> and билијарда 10<sup>15</sup>, up to квинтилијарда (10<sup>33</sup>). Unicode CLDR stops at билијарда; the larger words follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. The personal forms of masculine nouns (двајца, тројца) are not supported.
+The word "и" joins the last part of each group (дваесет и еден, сто и пет). It also joins a last group of one word to the rest (илјада и еден, две илјади и триста). Hundreds are сто, двесте, триста, then end in -стотини (четиристотини, шестотини). Илјада and the scale words in -ијарда are feminine (две илјади, две милијарди); those in -ион are masculine (два милиони). A count ending in one, but not in eleven, takes the singular (дваесет и една илјада). Scale words follow the long scale: милијарда is 10<sup>9</sup>, билион 10<sup>12</sup> and билијарда 10<sup>15</sup>, up to квинтилијарда (10<sup>33</sup>). Unicode CLDR stops at билијарда; the larger words follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. The personal forms of masculine nouns (двајца, тројца) are not supported.
 
 ## Examples
 
@@ -51,7 +51,7 @@ I18n.with_locale(:mk) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:mk) { 0.1.to_words(precision: 3) }
@@ -60,7 +60,7 @@ I18n.with_locale(:mk) { 0.1.to_words(precision: 3) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:mk) { 21.77.to_words(micro_separator: "цело и") }
@@ -69,7 +69,7 @@ I18n.with_locale(:mk) { 21.77.to_words(micro_separator: "цело и") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (еден, една, едно; два, две, две) and the ending of an ordinal.
+The `gender: :male` (default), `:female` or `:neuter` option changes one and two in the last group (еден, една, едно; два, две, две) and the ending of an ordinal.
 
 ```ruby
 I18n.with_locale(:mk) { 1.to_words(gender: :male) }
@@ -84,7 +84,7 @@ I18n.with_locale(:mk) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (дваесет и прв) in the requested gender (дваесет и прва, дваесет и прво). A round scale is one word with its count, which is left out when it is one (илјадити, двеилјадити, двамилионити, дваесет и едноилјадити). These joined forms need a native speaker's review.
+The `ordinal: true` option makes the last word ordinal (дваесет и прв) in the requested gender (дваесет и прва, дваесет и прво). A round scale is one word with its count, which is left out when it is one (илјадити, двеилјадити, двамилионити, дваесет и едноилјадити). These joined forms need a native speaker's review.
 
 ```ruby
 I18n.with_locale(:mk) { 21.to_words(ordinal: true) }
@@ -99,7 +99,7 @@ I18n.with_locale(:mk) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps кома.
+The `remove_zero: true` option omits a zero integral part and keeps кома.
 
 ```ruby
 I18n.with_locale(:mk) { 0.7.to_words(remove_zero: true) }

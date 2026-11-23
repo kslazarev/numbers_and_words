@@ -1,6 +1,6 @@
 # Esperanto (`eo`)
 
-Esperanto. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+The language is also called Esperanto in Esperanto. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Tens and hundreds are single words formed from the units (dudek, ducent), and the other parts follow with spaces (dudek unu, cent dek du). Zero is the numeral nul, not the noun nulo. Mil and the scale nouns take their count before them and leave out unu (mil, du mil, miliono, du milionoj). The nouns take the plural -j after a count above one. Scales follow the long scale: miliono (10<sup>6</sup>), miliardo (10<sup>9</sup>), biliono (10<sup>12</sup>), triliono (10<sup>18</sup>), kvadriliono (10<sup>24</sup>) and kvintiliono (10<sup>30</sup>). The powers between them are a thousand of the word below (mil bilionoj for 10<sup>15</sup>): biliardo, triliardo and the other -iardo words don't exist in Esperanto, although Unicode CLDR uses biliardo. The names past triliono are rare and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -54,7 +54,7 @@ I18n.with_locale(:eo) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:eo) { 0.1.to_words(precision: 2) }
@@ -63,7 +63,7 @@ I18n.with_locale(:eo) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:eo) { 21.77.to_words(micro_separator: "punkto") }
@@ -72,7 +72,7 @@ I18n.with_locale(:eo) { 21.77.to_words(micro_separator: "punkto") }
 
 ### Ordinal
 
-`ordinal: true` adds the adjective ending -a and joins the words of a compound with hyphens (unua, dudek-unua, du-mila). A final scale noun changes its -o to -a (miliona), and one before a remainder keeps its form (miliono-unua). Unicode CLDR writes compound ordinals with spaces (dudek unua) and adds -a to the noun (milionoa). Ordinals are spelled up to the largest cardinal.
+The `ordinal: true` option adds the adjective ending -a and joins the words of a compound with hyphens (unua, dudek-unua, du-mila). A final scale noun changes its -o to -a (miliona), and one before a remainder keeps its form (miliono-unua). Unicode CLDR writes compound ordinals with spaces (dudek unua) and adds -a to the noun (milionoa). Ordinals are spelled up to the largest cardinal.
 
 ```ruby
 I18n.with_locale(:eo) { 1.to_words(ordinal: true) }
@@ -90,7 +90,7 @@ I18n.with_locale(:eo) { 1_000_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komo.
+The `remove_zero: true` option omits a zero integral part and keeps komo.
 
 ```ruby
 I18n.with_locale(:eo) { 0.7.to_words(remove_zero: true) }

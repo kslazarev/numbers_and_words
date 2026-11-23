@@ -1,6 +1,6 @@
 # Swahili (`sw`)
 
-Kiswahili. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Kiswahili is the Swahili name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 The count follows mia (hundred) and the scale words (mia mbili, elfu tatu, milioni ishirini na moja). Na (and) joins every part (mia moja na ishirini na moja). Unicode CLDR joins the groups after a thousand or a million with a comma (elfu moja, mia moja); the gem uses na there too (elfu moja na mia moja), as grammars also do. A hundred thousand is elfu mia moja, as in CLDR, not laki moja. Scales follow the short scale: milioni, bilioni (10<sup>9</sup>), trilioni and kvadrilioni (10<sup>15</sup>), as in CLDR. Kwintilioni, sekstilioni, septilioni, oktilioni, nonilioni and desilioni (10<sup>33</sup>) follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -47,7 +47,7 @@ I18n.with_locale(:sw) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:sw) { 0.1.to_words(precision: 2) }
@@ -56,7 +56,7 @@ I18n.with_locale(:sw) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:sw) { 21.77.to_words(micro_separator: "pointi") }
@@ -65,7 +65,7 @@ I18n.with_locale(:sw) { 21.77.to_words(micro_separator: "pointi") }
 
 ### Ordinal
 
-`ordinal: true` gives wa and the cardinal (wa tatu, wa ishirini na moja), with kwanza and pili for one and two (wa kwanza, wa pili). Wa agrees with the first noun class (mtu wa tatu); other classes (ya, la, cha, za) aren't supported. CLDR omits wa for the first and second only. Decimals keep the cardinal form.
+The `ordinal: true` option gives wa and the cardinal (wa tatu, wa ishirini na moja), with kwanza and pili for one and two (wa kwanza, wa pili). Wa agrees with the first noun class (mtu wa tatu); other classes (ya, la, cha, za) aren't supported. CLDR omits wa for the first and second only. Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:sw) { 1.to_words(ordinal: true) }
@@ -80,7 +80,7 @@ I18n.with_locale(:sw) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps nukta.
+The `remove_zero: true` option omits a zero integral part and keeps nukta.
 
 ```ruby
 I18n.with_locale(:sw) { 0.7.to_words(remove_zero: true) }

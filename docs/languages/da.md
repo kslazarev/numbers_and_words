@@ -1,6 +1,6 @@
 # Danish (`da`)
 
-Dansk. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Dansk is the Danish name of the language. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -46,7 +46,7 @@ I18n.with_locale(:da) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:da) { 0.1.to_words(precision: 2) }
@@ -55,7 +55,7 @@ I18n.with_locale(:da) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:da) { 21.77.to_words(micro_separator: "punktum") }
@@ -64,7 +64,7 @@ I18n.with_locale(:da) { 21.77.to_words(micro_separator: "punktum") }
 
 ### Gender
 
-`gender: :common` or `gender: :neuter`. Without it, 1 is the counting form `en`. Hundreds and thousands always take the neuter `et` (`et hundrede`, `et tusind`).
+The `gender` option takes `:common` or `:neuter`. Without it, 1 is the counting form `en`. Hundreds and thousands always take the neuter `et` (`et hundrede`, `et tusind`).
 
 ```ruby
 I18n.with_locale(:da) { 1.to_words(gender: :common) }
@@ -76,7 +76,7 @@ I18n.with_locale(:da) { 1.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word, or the last part of a compound, ordinal ("enogtyvende"). Second is `anden`, or `andet` with `gender: :neuter`.
+The `ordinal: true` option makes the last word, or the last part of a compound, ordinal ("enogtyvende"). Second is `anden`, or `andet` with `gender: :neuter`.
 
 ```ruby
 I18n.with_locale(:da) { 1.to_words(ordinal: true) }
@@ -94,7 +94,7 @@ I18n.with_locale(:da) { 2.to_words(ordinal: true, gender: :neuter) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps komma.
+The `remove_zero: true` option omits a zero integral part and keeps komma.
 
 ```ruby
 I18n.with_locale(:da) { 0.7.to_words(remove_zero: true) }

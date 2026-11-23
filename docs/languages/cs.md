@@ -1,6 +1,6 @@
 # Czech (`cs`)
 
-Čeština. Without [`gender`](#gender), numbers use the counting forms jedna and dva (jedna, dva, tři, dvacet dva). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Čeština is the Czech name of the language. Without [`gender`](#gender), numbers use the counting forms jedna and dva (jedna, dva, tři, dvacet dva). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -46,7 +46,7 @@ I18n.with_locale(:cs) { 0.000000000001.to_words(precision: 12) }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
@@ -55,7 +55,7 @@ I18n.with_locale(:cs) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:cs) { 21.77.to_words(micro_separator: "plus") }
@@ -64,7 +64,7 @@ I18n.with_locale(:cs) { 21.77.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :female`, `gender: :male` or `gender: :neuter`. Without it, numbers use the counting forms (jedna, dva) and ordinals the feminine.
+The `gender` option takes `:female`, `:male` or `:neuter`. Without it, numbers use the counting forms (jedna, dva) and ordinals the feminine.
 
 ```ruby
 I18n.with_locale(:cs) { 1.to_words(gender: :female) }
@@ -85,7 +85,7 @@ I18n.with_locale(:cs) { 22.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender, makes every part ordinal ("tisící dvoustý třicátý čtvrtý"). The count of a thousand or a larger scale word joins its ordinal in the genitive combining form ("desetitisící", "dvacetijednatisící", "stotisící", "dvoumiliontý"), leaving out a count of one ("miliontý").
+The `ordinal: true` option, optionally with gender, makes every part ordinal ("tisící dvoustý třicátý čtvrtý"). The count of a thousand or a larger scale word joins its ordinal in the genitive combining form ("desetitisící", "dvacetijednatisící", "stotisící", "dvoumiliontý"), leaving out a count of one ("miliontý").
 
 ```ruby
 I18n.with_locale(:cs) { 21.to_words(ordinal: true) }
@@ -103,7 +103,7 @@ I18n.with_locale(:cs) { 2_000_000.to_words(gender: :male, ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:cs) { 0.7.to_words(remove_zero: true) }

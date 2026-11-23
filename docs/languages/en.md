@@ -1,8 +1,8 @@
 # English (`en`)
 
-English. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Aliases: `en-AU`, `en-CA`, `en-IN`, `en-US`.
+The aliases are `en-AU`, `en-CA`, `en-IN` and `en-US`.
 
 ## Examples
 
@@ -34,7 +34,7 @@ I18n.with_locale(:en) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `point`.
+Decimals are read as a fraction. The [`fraction: false`](#fraction) option, the default in 2.0, reads them with `point`.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words }
@@ -51,7 +51,7 @@ I18n.with_locale(:en) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
@@ -60,7 +60,7 @@ I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
@@ -69,7 +69,7 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads `point` and then each fractional digit, including leading zeros. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+The `fraction: true` option, the default, reads decimals as a fraction. The `fraction: false` option reads `point` and then each fractional digit, including leading zeros. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(fraction: false) }
@@ -84,7 +84,7 @@ I18n.with_locale(:en) { 3.1416.to_words(fraction: false) }
 
 ### Hundreds With Union
 
-`hundreds_with_union: true` adds "and" after hundreds.
+The `hundreds_with_union: true` option adds "and" after hundreds.
 
 ```ruby
 I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
@@ -93,7 +93,7 @@ I18n.with_locale(:en) { 111.to_words(hundreds_with_union: true) }
 
 ### Ordinal
 
-`ordinal: true`
+The `ordinal: true` option makes the number ordinal.
 
 ```ruby
 I18n.with_locale(:en) { 21.to_words(ordinal: true) }
@@ -105,7 +105,7 @@ I18n.with_locale(:en) { 133.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
+The `pronounced: true` option reads numbers of up to four digits in pairs, as usually spoken. Longer numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:en) { 1984.to_words(pronounced: true) }
@@ -120,7 +120,7 @@ I18n.with_locale(:en) { 12_345.to_words(pronounced: true) }
 
 ### Remove Hyphen
 
-`remove_hyphen: true` removes the hyphen between tens and ones.
+The `remove_hyphen: true` option removes the hyphen between tens and ones.
 
 ```ruby
 I18n.with_locale(:en) { 21.to_words(remove_hyphen: true) }
@@ -129,7 +129,7 @@ I18n.with_locale(:en) { 21.to_words(remove_hyphen: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:en) { 0.7.to_words(remove_zero: true) }

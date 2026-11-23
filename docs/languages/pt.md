@@ -1,8 +1,8 @@
 # Portuguese (`pt`)
 
-Português europeu. Brazilian Portuguese is [`pt-BR`](pt-BR.md).
+Português europeu is the European Portuguese name of the language. Brazilian Portuguese is [`pt-BR`](pt-BR.md).
 
-European Portuguese uses the long scale, with a new scale word every million: milhão (10<sup>6</sup>), bilião (10<sup>12</sup>), trilião (10<sup>18</sup>), quatrilião (10<sup>24</sup>) and quintilião (10<sup>30</sup>). Mil counts the thousands in between (mil milhões is 10<sup>9</sup>, mil biliões 10<sup>15</sup>). "e" joins the last group of three digits to the rest when it is below one hundred or a round hundred (mil e trinta, um milhão e duzentos mil, but mil cento e vinte). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+European Portuguese uses the long scale, with a new scale word every million: milhão (10<sup>6</sup>), bilião (10<sup>12</sup>), trilião (10<sup>18</sup>), quatrilião (10<sup>24</sup>) and quintilião (10<sup>30</sup>). Mil counts the thousands in between (mil milhões is 10<sup>9</sup>, mil biliões 10<sup>15</sup>). The word "e" joins the last group of three digits to the rest when it is below one hundred or a round hundred (mil e trinta, um milhão e duzentos mil, but mil cento e vinte). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -60,7 +60,7 @@ I18n.with_locale(:pt) { 3.1416.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:pt) { 0.1.to_words(precision: 2) }
@@ -69,7 +69,7 @@ I18n.with_locale(:pt) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:pt) { 21.77.to_words(micro_separator: "plus") }
@@ -78,7 +78,7 @@ I18n.with_locale(:pt) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads them with `vírgula`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
+The `fraction: true` option, the default, reads decimals as a fraction. The `fraction: false` option reads them with `vírgula`: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:pt) { 21.77.to_words(fraction: false) }
@@ -96,7 +96,7 @@ I18n.with_locale(:pt) { 0.000000001.to_words(fraction: true) }
 
 ### Ordinal
 
-`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Scale ordinals follow the long scale: milésimo milionésimo is 10<sup>9</sup> and bilionésimo 10<sup>12</sup>. Zero keeps its cardinal form.
+The `ordinal: true` option makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Scale ordinals follow the long scale: milésimo milionésimo is 10<sup>9</sup> and bilionésimo 10<sup>12</sup>. Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:pt) { 1.to_words(ordinal: true) }
@@ -114,7 +114,7 @@ I18n.with_locale(:pt) { 1_000_000_000_000.to_words(ordinal: true) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas). Milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it too.
+The `gender` option takes `:male` (default) or `:female`. The groups below a million agree with what is counted (duas mil, duzentas). Milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it too.
 
 ```ruby
 I18n.with_locale(:pt) { 2_222_222.to_words(gender: :female) }
@@ -126,7 +126,7 @@ I18n.with_locale(:pt) { 21.to_words(gender: :female, ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:pt) { 0.7.to_words(remove_zero: true) }

@@ -1,6 +1,6 @@
 # Irish (`ga`)
 
-Gaeilge. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Gaeilge is the Irish name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers are bare numbers, the form used for counting, as in Unicode CLDR. The particle a comes before a final unit ("a haon", "fiche a haon"), and a comma follows a scale word ("míle, a haon"). The counts of scale words use the cardinal forms, and the count's last digit mutates the scale word: aon, dhá and trí to sé lenite it ("dhá mhíle", "trí mhilliún"), and seacht to deich eclipse it ("seacht gcéad", "ocht mbilliún"). Déag follows the scale word ("aon mhíle dhéag"), and the tens leave it unchanged ("fiche míle", "fiche is aon mhíle"). Irish uses the short scale: milliún, billiún, trilliún, quadrilliún. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -55,7 +55,7 @@ I18n.with_locale(:ga) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ga) { 1.5.to_words(precision: 3) }
@@ -64,7 +64,7 @@ I18n.with_locale(:ga) { 1.5.to_words(precision: 3) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ga) { 21.77.to_words(micro_separator: "ponc") }
@@ -73,7 +73,7 @@ I18n.with_locale(:ga) { 21.77.to_words(micro_separator: "ponc") }
 
 ### Ordinal
 
-`ordinal: true` follows the established system of An Caighdeán Oifigiúil, without the article an. Below a hundred, the ordinal of the last digit comes before the tens ("aonú is fiche"); above a hundred, it comes after them ("céad tríocha is aonú"). Aonú replaces céad in compounds, and déag isn't lenited. Second is dara, also in compounds; dóú is also standard. A round scale ordinal mutates like the cardinal ("dhá mhíliú"). Ordinals start at 1, as Irish has no ordinal of zero. Unicode CLDR has no Irish ordinals.
+With `ordinal: true`, ordinals follow the established system of An Caighdeán Oifigiúil, without the article an. Below a hundred, the ordinal of the last digit comes before the tens ("aonú is fiche"); above a hundred, it comes after them ("céad tríocha is aonú"). Aonú replaces céad in compounds, and déag isn't lenited. Second is dara, also in compounds; dóú is also standard. A round scale ordinal mutates like the cardinal ("dhá mhíliú"). Ordinals start at 1, as Irish has no ordinal of zero. Unicode CLDR has no Irish ordinals.
 
 ```ruby
 I18n.with_locale(:ga) { 1.to_words(ordinal: true) }
@@ -97,7 +97,7 @@ I18n.with_locale(:ga) { 2_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps pointe.
+With `remove_zero: true`, a zero integral part is omitted and pointe is kept.
 
 ```ruby
 I18n.with_locale(:ga) { 0.7.to_words(remove_zero: true) }

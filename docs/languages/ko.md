@@ -1,6 +1,6 @@
 # Korean (`ko`)
 
-한국어. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are Sino-Korean numbers written in Hangul.
+한국어 is the Korean name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are Sino-Korean numbers written in Hangul.
 
 Digits are grouped by ten thousands. Each group of up to four digits uses the places 십 (10), 백 (100) and 천 (1,000), followed by 만 (10<sup>4</sup>), 억 (10<sup>8</sup>), 조 (10<sup>12</sup>), 경 (10<sup>16</sup>), 해 (10<sup>20</sup>) and so on up to 극 (10<sup>48</sup>); larger numbers raise `RangeError`. 일 is not read before 십, 백 and 천 (십일, 백, 천) or before 만 (만, 만 일, 일억 만), but is read before larger scale words (일억, 일조). Skipped places are not read (백일). Following the Korean spelling rules (한글 맞춤법 제44항), groups of 만 are separated by spaces (만 이천삼백사십오), and the words within a group are written together.
 
@@ -59,7 +59,7 @@ I18n.with_locale(:ko) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ko) { 0.1.to_words(precision: 2) }
@@ -68,7 +68,7 @@ I18n.with_locale(:ko) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ko) { 21.77.to_words(micro_separator: "plus") }
@@ -77,7 +77,7 @@ I18n.with_locale(:ko) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds the formal prefix 제 to integers. The native ordinals (첫째, 둘째) and the counter 번째 are not supported yet.
+With `ordinal: true`, the formal prefix 제 is added to integers. The native ordinals (첫째, 둘째) and the counter 번째 are not supported yet.
 
 ```ruby
 I18n.with_locale(:ko) { 1.to_words(ordinal: true) }
@@ -89,7 +89,7 @@ I18n.with_locale(:ko) { 21.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps 점.
+With `remove_zero: true`, a zero integral part is omitted and 점 is kept.
 
 ```ruby
 I18n.with_locale(:ko) { 0.7.to_words(remove_zero: true) }

@@ -1,6 +1,6 @@
 # Japanese (`ja`)
 
-日本語. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in kanji numerals without spaces.
+日本語 is the Japanese name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written in kanji numerals without spaces.
 
 Digits are grouped by ten thousands. Each group of up to four digits uses the places 十 (10), 百 (100) and 千 (1,000), followed by 万 (10<sup>4</sup>), 億 (10<sup>8</sup>), 兆 (10<sup>12</sup>), 京 (10<sup>16</sup>), 垓 (10<sup>20</sup>) and so on up to 極 (10<sup>48</sup>); larger numbers raise `RangeError`. 一 is not written before 十, 百 and 千 (十一, 百, 千, 一万千), but is written before every scale word (一万, 一億). Skipped places are not read (百一, 一万一). Zero is 零, also for zero digits after the decimal point.
 
@@ -56,7 +56,7 @@ I18n.with_locale(:ja) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:ja) { 0.1.to_words(precision: 2) }
@@ -65,7 +65,7 @@ I18n.with_locale(:ja) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:ja) { 21.77.to_words(micro_separator: "plus") }
@@ -74,7 +74,7 @@ I18n.with_locale(:ja) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` adds the prefix 第 (だい) to integers.
+With `ordinal: true`, the prefix 第 (だい) is added to integers.
 
 ```ruby
 I18n.with_locale(:ja) { 21.to_words(ordinal: true) }
@@ -86,7 +86,7 @@ I18n.with_locale(:ja) { 21.to_words(ordinal: true, script: :kana) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps 点.
+With `remove_zero: true`, a zero integral part is omitted and 点 is kept.
 
 ```ruby
 I18n.with_locale(:ja) { 0.7.to_words(remove_zero: true) }
@@ -95,7 +95,7 @@ I18n.with_locale(:ja) { 0.7.to_words(remove_zero: true) }
 
 ### Script
 
-`script: :kanji` (the default) writes kanji numerals; `script: :kana` writes their reading in hiragana. Readings use よん for 4, なな for 7, きゅう for 9 and れい for 0, with the usual sound changes. 300 is さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, 3,000 さんぜん and 8,000 はっせん. いち, はち and じゅう become いっ, はっ and じゅっ before 兆 (ちょう), 京 (けい) and 点 (てん), and ろく and ひゃく become ろっ and ひゃっ before 京 (いっちょう, じゅっちょう, ろっけい, ひゃっけい, いってんご). 十 there is じゅっ, not the older じっ.
+With `script: :kanji` (the default), numbers are written in kanji numerals; with `script: :kana`, their reading is written in hiragana. Readings use よん for 4, なな for 7, きゅう for 9 and れい for 0, with the usual sound changes. 300 is さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, 3,000 さんぜん and 8,000 はっせん. いち, はち and じゅう become いっ, はっ and じゅっ before 兆 (ちょう), 京 (けい) and 点 (てん), and ろく and ひゃく become ろっ and ひゃっ before 京 (いっちょう, じゅっちょう, ろっけい, ひゃっけい, いってんご). 十 there is じゅっ, not the older じっ.
 
 ```ruby
 I18n.with_locale(:ja) { 300.to_words(script: :kana) }

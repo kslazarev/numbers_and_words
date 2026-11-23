@@ -1,6 +1,6 @@
 # Indonesian (`id`)
 
-Bahasa Indonesia.
+Bahasa Indonesia is the Indonesian name of the language.
 
 One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta, satu miliar). Teens are formed with belas (dua belas), tens with puluh (dua puluh satu) and hundreds with ratus (dua ratus). Scale words follow the short scale, from miliar (10<sup>9</sup>) and triliun (10<sup>12</sup>) through kuadriliun, kuintiliun, sekstiliun, septiliun, oktiliun, noniliun and desiliun (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -51,7 +51,7 @@ I18n.with_locale(:id) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:id) { 0.1.to_words(precision: 2) }
@@ -60,7 +60,7 @@ I18n.with_locale(:id) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:id) { 21.77.to_words(micro_separator: "titik") }
@@ -69,7 +69,7 @@ I18n.with_locale(:id) { 21.77.to_words(micro_separator: "titik") }
 
 ### Ordinal
 
-`ordinal: true` adds the prefix ke- (kedua, kesebelas, kedua puluh satu), except `pertama` for 1. Zero keeps its cardinal form.
+With `ordinal: true`, the prefix ke- is added (kedua, kesebelas, kedua puluh satu), except `pertama` for 1. Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:id) { 1.to_words(ordinal: true) }
@@ -84,7 +84,7 @@ I18n.with_locale(:id) { 100.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+With `remove_zero: true`, a zero integral part is omitted.
 
 ```ruby
 I18n.with_locale(:id) { 0.7.to_words(remove_zero: true) }

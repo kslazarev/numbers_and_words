@@ -1,6 +1,6 @@
 # Serbian (`sr`)
 
-Српски. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Српски is the Serbian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Words are in the Cyrillic script, the Unicode CLDR default for `sr`; the Latin script isn't supported. Numbers are ekavian and written as separate words. As in CLDR, и joins the tens and the ones (двадесет и један); двадесет један is also in use. A thousand alone is хиљаду (хиљаду двеста), and a count of thousands is feminine (две хиљаде, двадесет и једна хиљада). Scale words follow the long scale: милион (10<sup>6</sup>), милијарда (10<sup>9</sup>), билион (10<sup>12</sup>), билијарда and so on up to квинтилијарда (10<sup>33</sup>). Those in -ион are masculine (један милион, два милиона), and those in -ијарда feminine (једна милијарда, две милијарде, пет милијарди). A scale word agrees with the last numeral of its count (двадесет и један милион, сто двадесет и три хиљаде). CLDR stops at билијарда (10<sup>15</sup>); the names from трилион (10<sup>18</sup>) on follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -48,7 +48,7 @@ I18n.with_locale(:sr) { 0.02.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:sr) { 0.1.to_words(precision: 2) }
@@ -57,7 +57,7 @@ I18n.with_locale(:sr) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the и between the integral and fractional parts.
+The `micro_separator` option replaces the и between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:sr) { 2.5.to_words(micro_separator: "плус") }
@@ -66,7 +66,7 @@ I18n.with_locale(:sr) { 2.5.to_words(micro_separator: "плус") }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter` changes one and two at the end of the number (један, једна, једно; два, две, два).
+The `gender: :male` (default), `:female` or `:neuter` option changes one and two at the end of the number (један, једна, једно; два, две, два).
 
 ```ruby
 I18n.with_locale(:sr) { 1.to_words(gender: :male) }
@@ -81,7 +81,7 @@ I18n.with_locale(:sr) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (двадесет и први), in the requested gender (прва, прво; трећа, треће). A round thousand or larger scale is one word with its count, which is left out when it is one (хиљадити, двехиљадити, милионити, двамилионити). This joined form needs a native speaker's review. Ordinals are spelled up to the largest number.
+The `ordinal: true` option makes the last word ordinal (двадесет и први), in the requested gender (прва, прво; трећа, треће). A round thousand or larger scale is one word with its count, which is left out when it is one (хиљадити, двехиљадити, милионити, двамилионити). This joined form needs a native speaker's review. Ordinals are spelled up to the largest number.
 
 ```ruby
 I18n.with_locale(:sr) { 21.to_words(ordinal: true) }
@@ -99,7 +99,7 @@ I18n.with_locale(:sr) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part; the ordinal of zero stays нулти.
+The `remove_zero: true` option omits a zero integral part; the ordinal of zero stays нулти.
 
 ```ruby
 I18n.with_locale(:sr) { 0.7.to_words(remove_zero: true) }

@@ -1,10 +1,10 @@
 # Persian (`fa`)
 
-فارسی. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Persian letters (ک and ی, not the Arabic ك and ي), separated by spaces.
+فارسی is the Persian name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Persian letters (ک and ی, not the Arabic ك and ي), separated by spaces.
 
 The conjunction و, read -o, joins every part of a number (صد و بیست و یک). A hundred and a thousand are صد and هزار without یک (هزار و یک), while larger scales count one (یک میلیون). Scale words keep their form after any count (دو هزار, سه میلیون). Persian follows the long scale: میلیون (10<sup>6</sup>), میلیارد (10<sup>9</sup>), بیلیون (10<sup>12</sup>), بیلیارد (10<sup>15</sup>), تریلیون (10<sup>18</sup>), تریلیارد, کوآدریلیون, کوآدریلیارد, کوینتیلیون and کوینتیلیارد (10<sup>33</sup>). Unicode CLDR stops at 10<sup>18</sup> and says هزار میلیارد for 10<sup>12</sup>, which is also common. The names from بیلیون follow the Persian Wikipedia table of large numbers and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Persian is written right to left. `to_words` returns the words in logical (reading) order without bidirectional control characters, so they display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML.
+Persian is written right to left. The `to_words` method returns the words in logical (reading) order without bidirectional control characters, so they display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML.
 
 ## Examples
 
@@ -50,7 +50,7 @@ I18n.with_locale(:fa) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:fa) { 0.1.to_words(precision: 2) }
@@ -59,7 +59,7 @@ I18n.with_locale(:fa) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:fa) { 21.77.to_words(micro_separator: "نقطه") }
@@ -68,7 +68,7 @@ I18n.with_locale(:fa) { 21.77.to_words(micro_separator: "نقطه") }
 
 ### Ordinal
 
-`ordinal: true` adds -م to the last word (بیست و یکم, صدم, یک میلیونم). Three is سوم, and thirty سی‌ام, with a zero-width non-joiner between سی and ام as Persian spelling requires. One is یکم, not the Arabic loan اول or نخست, and zero is صفرم. The adjectival ordinals in -مین (سومین) aren't supported. Decimals keep the cardinal form.
+The `ordinal: true` option adds -م to the last word (بیست و یکم, صدم, یک میلیونم). Three is سوم, and thirty سی‌ام, with a zero-width non-joiner between سی and ام as Persian spelling requires. One is یکم, not the Arabic loan اول or نخست, and zero is صفرم. The adjectival ordinals in -مین (سومین) aren't supported. Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:fa) { 1.to_words(ordinal: true) }
@@ -89,7 +89,7 @@ I18n.with_locale(:fa) { 1_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps ممیز.
+The `remove_zero: true` option omits a zero integral part and keeps ممیز.
 
 ```ruby
 I18n.with_locale(:fa) { 0.7.to_words(remove_zero: true) }

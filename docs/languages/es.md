@@ -1,6 +1,6 @@
 # Spanish (`es`)
 
-Español. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+Español is the Spanish name of the language. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -43,7 +43,7 @@ I18n.with_locale(:es) { 21.77.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:es) { 0.1.to_words(precision: 2) }
@@ -52,7 +52,7 @@ I18n.with_locale(:es) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:es) { 21.77.to_words(micro_separator: "plus") }
@@ -61,7 +61,7 @@ I18n.with_locale(:es) { 21.77.to_words(micro_separator: "plus") }
 
 ### Apocopated
 
-`apocopated: true` shortens a final masculine `uno` to `un`, and the ordinals `primero` and `tercero` to `primer` and `tercer`, as before a masculine noun; feminine `una` stays. Before a [`unit`](../../README.md#unit) that isn't feminine, the number is shortened unless `apocopated: false` is given (un euro, veintiún céntimos).
+The `apocopated: true` option shortens a final masculine `uno` to `un`, and the ordinals `primero` and `tercero` to `primer` and `tercer`, as before a masculine noun; feminine `una` stays. Before a [`unit`](../../README.md#unit) that isn't feminine, the number is shortened unless `apocopated: false` is given (un euro, veintiún céntimos).
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(apocopated: true) }
@@ -79,7 +79,7 @@ I18n.with_locale(:es) { 21.to_words(ordinal: true, apocopated: true) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`
+The `gender` option takes `:male` (default) or `:female`.
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(gender: :female) }
@@ -91,7 +91,7 @@ I18n.with_locale(:es) { 1.to_words(gender: :male) }
 
 ### Ordinal
 
-`ordinal: true` makes every part of the number ordinal ("vigésimo primero") and joins a scale word to its multiplier ("dosmilésimo"). A joined multiplier loses its accent, changes internal `y` to `i`, and stays masculine. `gender: :female` changes only the ordinal ending ("veintidosmilésima"). Zero keeps its cardinal form.
+The `ordinal: true` option makes every part of the number ordinal ("vigésimo primero") and joins a scale word to its multiplier ("dosmilésimo"). A joined multiplier loses its accent, changes internal `y` to `i`, and stays masculine. The `gender: :female` option changes only the ordinal ending ("veintidosmilésima"). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:es) { 1.to_words(ordinal: true) }
@@ -112,7 +112,7 @@ I18n.with_locale(:es) { 22_000.to_words(ordinal: true, gender: :female) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part.
+The `remove_zero: true` option omits a zero integral part.
 
 ```ruby
 I18n.with_locale(:es) { 0.7.to_words(remove_zero: true) }

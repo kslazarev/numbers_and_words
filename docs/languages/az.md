@@ -1,6 +1,6 @@
 # Azerbaijani (`az`)
 
-Azərbaycan dili, in the Latin alphabet. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Azərbaycan dili is the Azerbaijani name of the language, written in the Latin alphabet. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Azerbaijani counts like Turkish: one hundred and one thousand are "yüz" and "min" alone, and larger scales keep "bir" (bir milyon). It uses the short scale: milyon, milyard, trilyon, kvadrilyon and so on. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -57,7 +57,7 @@ I18n.with_locale(:az) { 0.0001.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits, which changes the denominator.
+The `precision` option pads the fractional part with zeros to that many digits, which changes the denominator.
 
 ```ruby
 I18n.with_locale(:az) { 0.1.to_words(precision: 2) }
@@ -66,7 +66,7 @@ I18n.with_locale(:az) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces "tam" between the integral and fractional parts.
+The `micro_separator` option replaces "tam" between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:az) { 21.77.to_words(micro_separator: "vergül") }
@@ -75,7 +75,7 @@ I18n.with_locale(:az) { 21.77.to_words(micro_separator: "vergül") }
 
 ### Ordinal
 
-`ordinal: true` adds -inci to the last word, following vowel harmony (-ıncı, -inci, -uncu, -üncü) and dropping its first vowel after a vowel ("ikinci", "altıncı"). One hundred, thousand or million drops "bir" ("milyonuncu").
+The `ordinal: true` option adds -inci to the last word, following vowel harmony (-ıncı, -inci, -uncu, -üncü) and dropping its first vowel after a vowel ("ikinci", "altıncı"). One hundred, thousand or million drops "bir" ("milyonuncu").
 
 ```ruby
 I18n.with_locale(:az) { 1.to_words(ordinal: true) }
@@ -93,7 +93,7 @@ I18n.with_locale(:az) { 2_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and "tam".
+The `remove_zero: true` option omits a zero integral part and "tam".
 
 ```ruby
 I18n.with_locale(:az) { 0.7.to_words(remove_zero: true) }

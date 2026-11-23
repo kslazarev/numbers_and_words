@@ -40,7 +40,7 @@ Each language now spells numbers from rule sets in its locale file (`numbers.rul
 
 ## Upgrading to 1.1.0
 
-1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly. This works in both 1.1 and 2.0. To raise for unsupported options now, as 2.0 will, set `strict_options`.
+Version 1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly. This works in both 1.1 and 2.0. To raise for unsupported options now, as 2.0 will, set `strict_options`.
 
 ```ruby
 NumbersAndWords.config.strict_options = true
@@ -50,7 +50,7 @@ Each warning is shown once per process. Warnings about changed defaults are depr
 
 ### Deprecated: Unsupported Options Are Ignored
 
-`to_words` used to ignore options a language doesn't support, and an invalid value could return garbage. Each language accepts the global options (`precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`) and the options on its [language page](docs/languages). 1.1.0 ignores anything else with a warning. 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, as 1.1.0 does with `NumbersAndWords.config.strict_options = true`.
+The `to_words` method used to ignore options a language doesn't support, and an invalid value could return garbage. Each language accepts the global options (`precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`) and the options on its [language page](docs/languages). Version 1.1.0 ignores anything else with a warning. Version 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, as 1.1.0 does with `NumbersAndWords.config.strict_options = true`.
 
 ```ruby
 I18n.with_locale(:vi) { 21.to_words(gender: :female) }
@@ -66,7 +66,7 @@ Pass each option only to the locales that accept it. Flags such as `ordinal` acc
 
 ### Deprecated: Decimals Are Read as a Fraction by Default
 
-English, French, Swiss French, Italian and Portuguese read decimals as a fraction by default, as in 1.0. `fraction: false` reads them with a decimal point, as British English does. 2.0 will make it the default. With a decimal point, English reads each digit after the point. Brazilian Portuguese reads up to six decimal places as a number (`três vírgula mil quatrocentos e dezesseis`). The others read up to three decimal places as a number, and longer ones digit by digit.
+English, French, Swiss French, Italian and Portuguese read decimals as a fraction by default, as in 1.0. The `fraction: false` option reads them with a decimal point, as British English does. Version 2.0 will make it the default. With a decimal point, English reads each digit after the point. Brazilian Portuguese reads up to six decimal places as a number (`três vírgula mil quatrocentos e dezesseis`). The others read up to three decimal places as a number, and longer ones digit by digit.
 
 | Language | Number | 1.0.x, 1.1.0 | `fraction: false`, 2.0.0 |
 | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ To keep the fraction reading in 2.0, pass `fraction: true`. British English acce
 
 ### Deprecated: French Uses the Traditional Spelling by Default
 
-French (`fr`) and Swiss French (`fr-CH`) use the traditional spelling by default, as in 1.0. `spelling: :reformed` follows the 1990 spelling reform: it hyphenates every numeral in a compound number except the nouns `million`, `milliard` and larger. 2.0 will make it the default.
+French (`fr`) and Swiss French (`fr-CH`) use the traditional spelling by default, as in 1.0. The `spelling: :reformed` option follows the 1990 spelling reform: it hyphenates every numeral in a compound number except the nouns `million`, `milliard` and larger. Version 2.0 will make it the default.
 
 ```ruby
 I18n.with_locale(:fr) { 321.to_words }
@@ -99,7 +99,7 @@ To keep the traditional spelling in 2.0, pass `spelling: :traditional`. See [#25
 
 ### Deprecated: British English Omits "and" After Hundreds by Default
 
-British English (`en-GB`) omits "and" by default, as in 1.0. `hundreds_with_union: true` adds it after hundreds, and after thousand, million or a larger scale before a final part below one hundred. 2.0 will make it the default. American English (`en`) won't change.
+British English (`en-GB`) omits "and" by default, as in 1.0. The `hundreds_with_union: true` option adds it after hundreds, and after thousand, million or a larger scale before a final part below one hundred. Version 2.0 will make it the default. American English (`en`) won't change.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 101.to_words }
@@ -114,7 +114,7 @@ To keep the 1.0 output in 2.0, pass `hundreds_with_union: false`. See [#251](htt
 
 ### Deprecated: Swedish, Ukrainian and Kazakh Locale Codes
 
-Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. The gem now uses the ISO 639-1 codes, including in regional variants such as `sv-SE`. The old codes still convert, with a warning. 2.0 will raise `NumbersAndWords::UnsupportedLanguageError` for them.
+Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. The gem now uses the ISO 639-1 codes, including in regional variants such as `sv-SE`. The old codes still convert, with a warning. Version 2.0 will raise `NumbersAndWords::UnsupportedLanguageError` for them.
 
 | Language | 1.0.x | 1.1.0 | 2.0.0 |
 | --- | --- | --- | --- |
@@ -170,10 +170,10 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 | Brazilian Portuguese (`pt-BR`) | 2,000,000, feminine | `duas milhões` | `dois milhões` |
 | Vietnamese (`vi`) | 18 | `thứ mười tám` | `mười tám` |
 
-- **Danish:** 1 is the counting form `en`; `gender: :neuter` gives `et`.
-- **Hungarian:** `két` replaces `kettő` before hundreds and scale words (`huszonkétezer`), but not at the end (`huszonkettő`).
-- **Spanish:** `apocopated: true` shortens only the masculine `uno`, and only a final one (`veintiún`, not `veinticinco`).
-- **Czech:** without `gender`, numbers use the counting forms (`jedna`, `dva`); pass `gender: :female` for the previous `dvě`.
+- **Danish:** The number 1 is the counting form `en`; `gender: :neuter` gives `et`.
+- **Hungarian:** The form `két` replaces `kettő` before hundreds and scale words (`huszonkétezer`), but not at the end (`huszonkettő`).
+- **Spanish:** The `apocopated: true` option shortens only the masculine `uno`, and only a final one (`veintiún`, not `veinticinco`).
+- **Czech:** Without `gender`, numbers use the counting forms (`jedna`, `dva`); pass `gender: :female` for the previous `dvě`.
 
 See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
 
@@ -229,7 +229,7 @@ Russian, Ukrainian and Czech decimals with more fractional digits than their fra
 
 #### Decimals Keep the Cardinal Form With `ordinal: true`
 
-`ordinal: true` used to turn parts of a decimal into ordinals in some languages. It now applies to whole numbers only. A float, including one such as `2.0`, keeps its cardinal reading in every language.
+The `ordinal: true` option used to turn parts of a decimal into ordinals in some languages. It now applies to whole numbers only. A float, including one such as `2.0`, keeps its cardinal reading in every language.
 
 ```ruby
 I18n.with_locale(:en) { 1.5.to_words(ordinal: true) }

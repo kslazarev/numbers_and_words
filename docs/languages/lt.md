@@ -1,6 +1,6 @@
 # Lithuanian (`lt`)
 
-Lietuvių. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Lietuvių is the Lithuanian name of the language. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -46,7 +46,7 @@ I18n.with_locale(:lt) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:lt) { 0.1.to_words(precision: 2) }
@@ -55,7 +55,7 @@ I18n.with_locale(:lt) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:lt) { 21.77.to_words(micro_separator: "taškas") }
@@ -64,7 +64,7 @@ I18n.with_locale(:lt) { 21.77.to_words(micro_separator: "taškas") }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The last group agrees with the noun, but the counts of tūkstantis and larger scale words stay masculine. Ordinals take the feminine ending.
+The `gender` option takes `:male` (the default) or `:female`. The last group agrees with the noun, but the counts of tūkstantis and larger scale words stay masculine. Ordinals take the feminine ending.
 
 ```ruby
 I18n.with_locale(:lt) { 1.to_words(gender: :female) }
@@ -85,7 +85,7 @@ I18n.with_locale(:lt) { 100.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), with two exceptions. Round hundreds and thousands take their standard definite form (šimtasis, tūkstantasis), and millions and larger take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis). A multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+With `ordinal: true`, the last word becomes ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), with two exceptions. Round hundreds and thousands take their standard definite form (šimtasis, tūkstantasis), and millions and larger take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis). A multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:lt) { 1.to_words(ordinal: true) }
@@ -100,7 +100,7 @@ I18n.with_locale(:lt) { 2_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps kablelis.
+With `remove_zero: true`, a zero integral part is omitted and kablelis is kept.
 
 ```ruby
 I18n.with_locale(:lt) { 0.7.to_words(remove_zero: true) }

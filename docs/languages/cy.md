@@ -1,6 +1,6 @@
 # Welsh (`cy`)
 
-Cymraeg. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Cymraeg is the Welsh name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 Numbers are read in the decimal system ("dau ddeg un"), as Welsh is taught and as Unicode CLDR reads them. A scale word mutates after the last digit of its count: dau softens it ("dau gant", "dau filiwn" for two billion), and tri and chwe aspirate c, p and t ("tri chant", "chwe thriliwn"). Mil and miliwn are feminine: softened after un and counted with dwy, tair and pedair ("dwy fil", "tair miliwn"). One hundred, one thousand and one million are "cant", "mil" and "miliwn" alone, and ten is "deg". Cant is "can" before a scale word ("can mil"). Welsh uses the short scale: miliwn, biliwn, triliwn. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
@@ -49,7 +49,7 @@ I18n.with_locale(:cy) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:cy) { 1.5.to_words(precision: 3) }
@@ -58,7 +58,7 @@ I18n.with_locale(:cy) { 1.5.to_words(precision: 3) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:cy) { 21.77.to_words(micro_separator: "coma") }
@@ -67,7 +67,7 @@ I18n.with_locale(:cy) { 21.77.to_words(micro_separator: "coma") }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female` sets the gender of what is counted: a final two, three or four is dwy, tair or pedair. The counts of scale words take the gender of the scale word ("dwy fil", "dau filiwn").
+The `gender` option, `:male` (default) or `:female`, sets the gender of what is counted: a final two, three or four is dwy, tair or pedair. The counts of scale words take the gender of the scale word ("dwy fil", "dau filiwn").
 
 ```ruby
 I18n.with_locale(:cy) { 2.to_words(gender: :female) }
@@ -82,7 +82,7 @@ I18n.with_locale(:cy) { 3.to_words(gender: :male) }
 
 ### Vigesimal
 
-`vigesimal: true` reads the traditional system, which counts in twenties below a hundred ("un ar hugain", "deg a thrigain") and has deuddeg, pymtheg, deunaw and hanner cant. It puts "a" or "ac" before a last part below a hundred ("cant ac un", "mil a phump"), and a scale word after the first part of its count ("un fil ar hugain"). Unicode CLDR has no vigesimal Welsh rules.
+The `vigesimal: true` option reads the traditional system, which counts in twenties below a hundred ("un ar hugain", "deg a thrigain") and has deuddeg, pymtheg, deunaw and hanner cant. It puts "a" or "ac" before a last part below a hundred ("cant ac un", "mil a phump"), and a scale word after the first part of its count ("un fil ar hugain"). Unicode CLDR has no vigesimal Welsh rules.
 
 ```ruby
 I18n.with_locale(:cy) { 21.to_words(vigesimal: true) }
@@ -103,7 +103,7 @@ I18n.with_locale(:cy) { 17.to_words(vigesimal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` spells the traditional ordinals ("unfed ar hugain", "deugeinfed", "hanner canfed"), with or without `vigesimal: true`, as Welsh has no decimal ordinals in standard use. Above a hundred, the first part of the number, the hundreds or the leading scale word, takes the ordinal ending ("canfed", "dau ganfed", "dwy filfed", "miliynfed"). The rest follows as a traditional cardinal ("canfed ac un"). Grammars give no compound ordinals above a hundred, so these await a native speaker's review. `gender: :female` gives trydedd, pedwaredd and pedair ugeinfed. Ordinals start at 1; Welsh has no ordinal of zero. Unicode CLDR has no Welsh ordinals.
+The `ordinal: true` option spells the traditional ordinals ("unfed ar hugain", "deugeinfed", "hanner canfed"), with or without `vigesimal: true`, as Welsh has no decimal ordinals in standard use. Above a hundred, the first part of the number, the hundreds or the leading scale word, takes the ordinal ending ("canfed", "dau ganfed", "dwy filfed", "miliynfed"). The rest follows as a traditional cardinal ("canfed ac un"). Grammars give no compound ordinals above a hundred, so these await a native speaker's review. The `gender: :female` option gives trydedd, pedwaredd and pedair ugeinfed. Ordinals start at 1; Welsh has no ordinal of zero. Unicode CLDR has no Welsh ordinals.
 
 ```ruby
 I18n.with_locale(:cy) { 1.to_words(ordinal: true) }
@@ -124,7 +124,7 @@ I18n.with_locale(:cy) { 2_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps pwynt.
+The `remove_zero: true` option omits a zero integral part and keeps pwynt.
 
 ```ruby
 I18n.with_locale(:cy) { 0.7.to_words(remove_zero: true) }

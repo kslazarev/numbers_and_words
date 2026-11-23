@@ -1,6 +1,6 @@
 # Armenian (`hy`)
 
-Հայերեն. Scale words follow the short scale used in Armenia, from միլիարդ (10<sup>9</sup>) through տրիլիոն, կվադրիլիոն, կվինտիլիոն, սեքստիլիոն, սեպտիլիոն, օկտիլիոն, նոնիլիոն and դեցիլիոն (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Հայերեն is the Armenian name of the language. Scale words follow the short scale used in Armenia, from միլիարդ (10<sup>9</sup>) through տրիլիոն, կվադրիլիոն, կվինտիլիոն, սեքստիլիոն, սեպտիլիոն, օկտիլիոն, նոնիլիոն and դեցիլիոն (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -49,7 +49,7 @@ I18n.with_locale(:hy) { 21.05.to_words }
 
 ### Precision
 
-`precision` pads the fractional part with zeros to that many digits.
+The `precision` option pads the fractional part with zeros to that many digits.
 
 ```ruby
 I18n.with_locale(:hy) { 0.1.to_words(precision: 2) }
@@ -58,7 +58,7 @@ I18n.with_locale(:hy) { 0.1.to_words(precision: 2) }
 
 ### Micro Separator
 
-`micro_separator` replaces the word between the integral and fractional parts.
+The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
 I18n.with_locale(:hy) { 21.77.to_words(micro_separator: "կետ") }
@@ -67,7 +67,7 @@ I18n.with_locale(:hy) { 21.77.to_words(micro_separator: "կետ") }
 
 ### Ordinal
 
-`ordinal: true` gives առաջին to չորրորդ for 1 to 4, and otherwise adds -երորդ to the last word ("քսանմեկերորդ"), changing a final ը to ն first ("իններորդ", "տասներորդ"). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+With `ordinal: true`, 1 to 4 become առաջին to չորրորդ, and other numbers add -երորդ to the last word ("քսանմեկերորդ"), changing a final ը to ն first ("իններորդ", "տասներորդ"). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:hy) { 1.to_words(ordinal: true) }
@@ -85,7 +85,7 @@ I18n.with_locale(:hy) { 1_000_000_000_000_000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part and keeps ստորակետ.
+With `remove_zero: true`, a zero integral part is omitted and ստորակետ is kept.
 
 ```ruby
 I18n.with_locale(:hy) { 0.7.to_words(remove_zero: true) }
@@ -95,6 +95,6 @@ I18n.with_locale(:hy) { 0.7.to_words(remove_zero: true) }
 ## Sources
 
 - [Omniglot: Armenian Numbers](https://www.omniglot.com/language/numbers/armenian.htm): Cardinal and ordinal forms, including final-vowel changes.
-- [Wiktionary: Quadrillion](https://en.wiktionary.org/wiki/հազար_երկիլիոն): կվադրիլիոն and its ordinal կվադրիլիոներորդ.
+- [Wiktionary: Quadrillion](https://en.wiktionary.org/wiki/հազար_երկիլիոն): The scale word կվադրիլիոն and its ordinal կվադրիլիոներորդ.
 - [Armenian Wikipedia: Number Naming Systems](https://hy.wikipedia.org/wiki/Թվերի_անվանման_համակարգեր): Short-scale names of large numbers, from կվինտիլիոն to դեցիլիոն.
 - [Unicode CLDR: Armenian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/hy.xml): The spell-out rules ICU uses to write numbers in words.
