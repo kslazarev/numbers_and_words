@@ -86,7 +86,7 @@ With the [`unit`](../../README.md#unit) option, a unit takes the form the Arabic
 
 Before the unit, a dual scale word or hundred takes its construct form (ألفا دينار, مائتا دينار), and an accusative one drops its ending (أحد عشر ألف دينار). A subunit is joined with و attached to it.
 
-Arabic repeats the unit after a count above 100 ending in 01 or 02, such as 101 (مائة دينار ودينار). Such counts raise `NumbersAndWords::UnsupportedNumberError`. A unit with `gender: female` takes the feminine numbers (ليرة واحدة, ثلاث ليرات, إحدى عشرة ليرة). The `unit` option with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
+A count above 100 ending in 01 or 02 repeats the unit: the rest of the count takes its unit, and the unit follows again with و, singular for 01 and dual for 02 (مائة دينار ودينار, ألفا دينار وديناران). A unit with `gender: female` takes the feminine numbers (ليرة واحدة, ثلاث ليرات, إحدى عشرة ليرة). The `unit` option with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
 
 For a Kuwaiti dinar, which has 1,000 fils, pass `precision: 3`.
 
@@ -102,6 +102,12 @@ I18n.with_locale(:ar) { 3.to_words(unit: :dinar) }
 
 I18n.with_locale(:ar) { 11.to_words(unit: :dinar) }
 # => "أحد عشر دينارًا"
+
+I18n.with_locale(:ar) { 101.to_words(unit: :dinar) }
+# => "مائة دينار ودينار"
+
+I18n.with_locale(:ar) { 2002.to_words(unit: :dinar) }
+# => "ألفا دينار وديناران"
 
 I18n.with_locale(:ar) { 2_000.to_words(unit: :dinar) }
 # => "ألفا دينار"

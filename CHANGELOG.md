@@ -17,6 +17,7 @@
 * Write the documentation in full sentences, each starting with a capitalized subject, such as "The `precision` option pads …". \[[#384](https://github.com/kslazarev/numbers_and_words/pull/384)\] \([@dblock](https://github.com/dblock)\)
 * Lint the Markdown with rubocop-prose and rubocop-md, and the YAML with rubocop-yaml, enforcing full sentences and title-case headings. \[[#385](https://github.com/kslazarev/numbers_and_words/pull/385)\] \([@dblock](https://github.com/dblock)\)
 * Spell Arabic ordinals from 100, as the definite cardinal ("المائة والواحد والعشرون", "الثلاثة آلاف"), instead of raising `RangeError`. \[[#387](https://github.com/kslazarev/numbers_and_words/pull/387)\] \([@dblock](https://github.com/dblock)\)
+* Spell an Arabic unit after a count above 100 ending in 01 or 02 by repeating it ("مائة دينار ودينار", "مائة دينار وديناران"), instead of raising `UnsupportedNumberError`. \[[#388](https://github.com/kslazarev/numbers_and_words/pull/388)\] \([@dblock](https://github.com/dblock)\)
 * Your contribution here.
 
 ### Bugs
