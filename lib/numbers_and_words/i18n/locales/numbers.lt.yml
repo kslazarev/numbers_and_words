@@ -5,6 +5,7 @@ lt:
       one: 'n % 10 = 1 and n % 100 != 11'
       ones: 'n % 10 = 2,3,4,5,6,7,8,9 and n % 100 != 12,13,14,15,16,17,18,19'
     supported_options:
+      gender: {values: [male, female], default: male}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: minus
@@ -12,6 +13,7 @@ lt:
     decimals: {reading: digits}
     micro_separator: kablelis
     ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
+    female_ones: [nulis, viena, dvi, trys, keturios, penkios, šešios, septynios, aštuonios, devynios]
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
     tens: [_, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]
     hundreds: [_, šimtas, du šimtai, trys šimtai, keturi šimtai, penki šimtai, šeši šimtai, septyni šimtai, aštuoni šimtai, devyni šimtai]
@@ -39,6 +41,10 @@ lt:
         then: cardinal
         1: ''
         2: '{ones}'
+      # The last group takes the feminine; the counts of scale words stay masculine ("dvidešimt vienas tūkstantis viena").
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
       # The last word of an ordinal is ordinal; a round hundred or scale word joins a count of one word in its
       # combining form ("dušimtasis", "dutūkstantasis", "šimttūkstantasis", but "du šimtai tūkstantasis"), and a
       # leading one before a single scale word is left out ("milijoninis").
@@ -131,6 +137,10 @@ lt:
       ones: decilijonai
       other: decilijonų
     ordinals:
+      # The feminine of an ordinal ("pirma", "šimtoji", "milijoninė").
+      endings:
+        female:
+          nominative: {as: a, asis: oji, inis: inė}
       ones: [nulinis, pirmas, antras, trečias, ketvirtas, penktas, šeštas, septintas, aštuntas, devintas]
       teens: [_, vienuoliktas, dvyliktas, tryliktas, keturioliktas, penkioliktas, šešioliktas, septynioliktas, aštuonioliktas, devynioliktas]
       tens: [_, dešimtas, dvidešimtas, trisdešimtas, keturiasdešimtas, penkiasdešimtas, šešiasdešimtas, septyniasdešimtas, aštuoniasdešimtas, devyniasdešimtas]

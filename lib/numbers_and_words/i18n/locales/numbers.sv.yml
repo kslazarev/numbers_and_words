@@ -1,6 +1,7 @@
 sv:
   numbers:
     supported_options:
+      gender: {values: [common, neuter], default: neuter}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: minus
@@ -45,6 +46,9 @@ sv:
         then: common
         1: '{common_one}'
         2: '{ones}'
+      # gender: :common ends in en ("tjugoen"); the counts of tusen stay neuter ("tjugoettusen").
+      cardinal-common:
+        extends: common
       # The last word of an ordinal is ordinal, and a one before a single scale word is left out ("miljonte").
       ordinal:
         then: ordinal-rest

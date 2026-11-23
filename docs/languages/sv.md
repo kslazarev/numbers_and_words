@@ -62,6 +62,21 @@ I18n.with_locale(:sv) { 21.77.to_words(micro_separator: "punkt") }
 # => "tjugoett punkt sju sju"
 ```
 
+### Gender
+
+`gender: :neuter` (default) or `gender: :common`: a final ett is en, as before a common-gender noun ("tjugoen"); the counts of tusen stay neuter ("tjugoettusen") and those of miljon and larger scale words common.
+
+```ruby
+I18n.with_locale(:sv) { 1.to_words(gender: :neuter) }
+# => "ett"
+
+I18n.with_locale(:sv) { 21.to_words(gender: :neuter) }
+# => "tjugoett"
+
+I18n.with_locale(:sv) { 21_001.to_words(gender: :neuter) }
+# => "tjugoettusenett"
+```
+
 ### Ordinal
 
 `ordinal: true` makes the end of the last word ordinal ("tjugoförsta"). Million scales stay apart from their multiplier ("två miljonte"); one millionth is miljonte.

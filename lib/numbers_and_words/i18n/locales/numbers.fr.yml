@@ -1,12 +1,14 @@
 fr:
   numbers:
     supported_options:
+      gender: {values: [male, female], default: male}
       fraction: {default: false, legacy_default: true}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
       spelling: {values: [reformed, traditional], default: reformed, legacy_default: traditional}
     minus: moins
     ones: [zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf]
+    female_ones: [zéro, une, deux, trois, quatre, cinq, six, sept, huit, neuf]
     teens: [_, onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf]
     tens: [_, dix, vingt, trente, quarante, cinquante, soixante, soixante-dix, quatre-vingt, quatre-vingt-dix]
     eighty: quatre-vingts
@@ -47,6 +49,14 @@ fr:
       # "Et" before a final un ("vingt et un"), a hyphen otherwise ("vingt-deux").
       and-one:
         1: '{sp}{union}{sp}{ones}'
+        2: '-{ones}'
+      # A final un is une in the feminine ("vingt et une", "cent une"); the counts of scale words stay masculine.
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
+        20: '{tens}[{>and-one-female}]'
+      and-one-female:
+        1: '{sp}{union}{sp}{female_ones}'
         2: '-{ones}'
       seventy:
         1: '{sp}{union}{sp}{teens}'
@@ -214,6 +224,10 @@ fr:
     union: et
     ordinal_first: premier
     ordinals:
+      # The feminine of an ordinal ("première").
+      endings:
+        female:
+          nominative: {premier: première}
       ones: [zéroième, unième, deuxième, troisième, quatrième, cinquième, sixième, septième, huitième, neuvième]
       teens: [_, onzième, douzième, treizième, quatorzième, quinzième, seizième, dix-septième, dix-huitième, dix-neuvième]
       tens: [_, dixième, vingtième, trentième, quarantième, cinquantième, soixantième, soixante-dixième, quatre-vingtième, quatre-vingt-dixième]

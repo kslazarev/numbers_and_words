@@ -1,6 +1,7 @@
 de:
   numbers:
     supported_options:
+      gender: {values: [male, female, neuter]}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: minus
@@ -36,6 +37,15 @@ de:
         extends: cardinal
         0: '{ones.combine}'
       scale-count:
+        extends: cardinal
+        0: '{ones.gender}'
+      # A final eins agrees with its noun: ein for the masculine and neuter, eine for the feminine ("hunderteine").
+      cardinal-male:
+        extends: cardinal
+        0: '{ones.combine}'
+      cardinal-neuter:
+        extends: cardinal-male
+      cardinal-female:
         extends: cardinal
         0: '{ones.gender}'
       # An ordinal is one lowercase word ("einemillionerste"); a round scale ordinal joins its count, leaving out a

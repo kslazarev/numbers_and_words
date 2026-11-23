@@ -6,6 +6,7 @@
   * Write error and warning messages as sentences, such as `Numbers in :cs only support values below 10**30.` instead of `numbers must be below 10**30 in :cs`, with one message for ordinals out of range, such as `Ordinals in :ar only support numbers between 1 and 99.`. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361)\] \([@dblock](https://github.com/dblock)\)
   * Compare what each language supports in [docs/features.md](docs/features.md), generated from the locale files. \[[#365](https://github.com/kslazarev/numbers_and_words/pull/365)\] \([@dblock](https://github.com/dblock)\)
   * Read decimals in Arabic, Armenian, Danish, Estonian, Georgian, Kazakh, Latvian, Lithuanian, Swedish and Turkish, as Unicode CLDR reads them, so that every language reads decimals. \[[#366](https://github.com/kslazarev/numbers_and_words/pull/366)\] \([@dblock](https://github.com/dblock)\)
+  * Accept `gender:` in French, German, Italian, Latvian, Lithuanian and Swedish, also for units with a gender, such as "une heure" instead of "un heure" in French. \[[#367](https://github.com/kslazarev/numbers_and_words/pull/367)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
