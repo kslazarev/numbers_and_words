@@ -2,7 +2,7 @@
 
 Català is the Catalan name of the language. It is experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-As the Institut d'Estudis Catalans prescribes, units join the tens with a hyphen, or with -i- in the twenties (trenta-dos, vint-i-u), and the hundreds join their count (dos-cents). Cent and the other parts are written apart (cent vint-i-tres). One is u when counting, as Unicode CLDR's spellout-numbering reads it, and un as the count of mil and the scale words (vint-i-un mil, un milió); see [Gender](#gender) for una. Mil leaves out a count of one (mil, dos mil). Scales follow the long scale, from milió (10<sup>6</sup>) and miliard (10<sup>9</sup>, also said mil milions) through bilió, biliard, trilió, triliard, quadrilió, quadriliard, quintilió, quintiliard, sextilió and sextiliard (10<sup>39</sup>). Unicode CLDR stops at biliard (10<sup>15</sup>), so the larger names follow the same pattern and await a native speaker's review. Numbers up to 10<sup>42</sup> - 1 are supported; larger numbers raise `RangeError`.
+As the Institut d'Estudis Catalans prescribes, units join the tens with a hyphen, or with -i- in the twenties (trenta-dos, vint-i-u), and the hundreds join their count (dos-cents). Cent and the other parts are written apart (cent vint-i-tres). One is u when counting, as Unicode CLDR's spellout-numbering reads it, and un as the count of mil and the scale words (vint-i-un mil, un milió); see [Gender](#gender) for una. Mil leaves out a count of one (mil, dos mil). Scales follow the long scale: milió (10<sup>6</sup>), bilió (10<sup>12</sup>), trilió, quadrilió, quintilió and sextilió (10<sup>36</sup>), and a thousand of each between them (mil milions for 10<sup>9</sup>, mil bilions for 10<sup>15</sup>), as the Institut d'Estudis Catalans recommends and Unicode CLDR's current rules do; the rarer miliard and biliard aren't used. Unicode CLDR stops at mil bilions (10<sup>15</sup>), so the larger names follow the same pattern and need a native speaker's review. Numbers up to 10<sup>42</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -29,7 +29,7 @@ I18n.with_locale(:ca) { 1_000_000.to_words }
 # => "un milió"
 
 I18n.with_locale(:ca) { 3_000_000_000.to_words }
-# => "tres miliards"
+# => "tres mil milions"
 
 I18n.with_locale(:ca) { [1, 2, 3].to_words }
 # => ["u", "dos", "tres"]

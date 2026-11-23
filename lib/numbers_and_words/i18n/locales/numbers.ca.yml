@@ -29,17 +29,11 @@ ca:
         100: '{hundreds}[ {>}]'
         1000: '{<thousands-count}{thousands}[ {>}]'
         1000000: '{<count} {millions}[ {>}]'
-        1000000000: '{<count} {billions}[ {>}]'
         1000000000000: '{<count} {trillions}[ {>}]'
-        1000000000000000: '{<count} {quadrillions}[ {>}]'
         1000000000000000000: '{<count} {quintillions}[ {>}]'
-        1000000000000000000000: '{<count} {sextillions}[ {>}]'
         1000000000000000000000000: '{<count} {septillions}[ {>}]'
-        1000000000000000000000000000: '{<count} {octillions}[ {>}]'
         1000000000000000000000000000000: '{<count} {nonillions}[ {>}]'
-        1000000000000000000000000000000000: '{<count} {decillions}[ {>}]'
         1000000000000000000000000000000000000: '{<count} {undecillions}[ {>}]'
-        1000000000000000000000000000000000000000: '{<count} {duodecillions}[ {>}]'
       count:
         extends: cardinal
         0: '{count_ones}'
@@ -65,34 +59,22 @@ ca:
         100: '[{hundreds} {>ordinal-final}|{ordinals.hundreds}]'
         1000: '{<thousands-count}[{thousands} {>ordinal-final}|{ordinals.thousands}]'
         1000000: '[{<count} {millions} {>ordinal-final}|{<thousands-count}{ordinals.millions}]'
-        1000000000: '[{<count} {billions} {>ordinal-final}|{<thousands-count}{ordinals.billions}]'
         1000000000000: '[{<count} {trillions} {>ordinal-final}|{<thousands-count}{ordinals.trillions}]'
-        1000000000000000: '[{<count} {quadrillions} {>ordinal-final}|{<thousands-count}{ordinals.quadrillions}]'
         1000000000000000000: '[{<count} {quintillions} {>ordinal-final}|{<thousands-count}{ordinals.quintillions}]'
-        1000000000000000000000: '[{<count} {sextillions} {>ordinal-final}|{<thousands-count}{ordinals.sextillions}]'
         1000000000000000000000000: '[{<count} {septillions} {>ordinal-final}|{<thousands-count}{ordinals.septillions}]'
-        1000000000000000000000000000: '[{<count} {octillions} {>ordinal-final}|{<thousands-count}{ordinals.octillions}]'
         1000000000000000000000000000000: '[{<count} {nonillions} {>ordinal-final}|{<thousands-count}{ordinals.nonillions}]'
-        1000000000000000000000000000000000: '[{<count} {decillions} {>ordinal-final}|{<thousands-count}{ordinals.decillions}]'
         1000000000000000000000000000000000000: '[{<count} {undecillions} {>ordinal-final}|{<thousands-count}{ordinals.undecillions}]'
-        1000000000000000000000000000000000000000: '[{<count} {duodecillions} {>ordinal-final}|{<thousands-count}{ordinals.duodecillions}]'
       ordinal-final:
         extends: ordinal
         1: '{ordinals.final}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions]
     thousands: mil
     millions: {one: milió, other: milions}
-    billions: {one: miliard, other: miliards}
     trillions: {one: bilió, other: bilions}
-    quadrillions: {one: biliard, other: biliards}
     quintillions: {one: trilió, other: trilions}
-    sextillions: {one: triliard, other: triliards}
     septillions: {one: quadrilió, other: quadrilions}
-    octillions: {one: quadriliard, other: quadriliards}
     nonillions: {one: quintilió, other: quintilions}
-    decillions: {one: quintiliard, other: quintiliards}
     undecillions: {one: sextilió, other: sextilions}
-    duodecillions: {one: sextiliard, other: sextiliards}
     ordinals:
       ones: [zeroè, primer, segon, tercer, quart, cinquè, sisè, setè, vuitè, novè]
       final: [_, unè, dosè, tresè, quatrè, cinquè, sisè, setè, vuitè, novè]
@@ -101,17 +83,11 @@ ca:
       hundreds: [_, centè, dos-centè, tres-centè, quatre-centè, cinc-centè, sis-centè, set-centè, vuit-centè, nou-centè]
       thousands: milè
       millions: milionè
-      billions: miliardè
       trillions: bilionè
-      quadrillions: biliardè
       quintillions: trilionè
-      sextillions: triliardè
       septillions: quadrilionè
-      octillions: quadriliardè
       nonillions: quintilionè
-      decillions: quintiliardè
       undecillions: sextilionè
-      duodecillions: sextiliardè
     # The feminine ordinals ("primera", "vint-i-unena", "milionena").
     genders:
       female:
@@ -123,15 +99,9 @@ ca:
           hundreds: [_, centena, dos-centena, tres-centena, quatre-centena, cinc-centena, sis-centena, set-centena, vuit-centena, nou-centena]
           thousands: milena
           millions: milionena
-          billions: miliardena
           trillions: bilionena
-          quadrillions: biliardena
           quintillions: trilionena
-          sextillions: triliardena
           septillions: quadrilionena
-          octillions: quadriliardena
           nonillions: quintilionena
-          decillions: quintiliardena
           undecillions: sextilionena
-          duodecillions: sextiliardena
     subunit_separator: i

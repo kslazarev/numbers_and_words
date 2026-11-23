@@ -86,27 +86,27 @@ to_words:
     200000000: dos-cents milions
     123456789: cent vint-i-tres milions quatre-cents cinquanta-sis mil set-cents vuitanta-nou
   large_scales:
-    1000000000: un miliard
-    2000000000: dos miliards
+    1000000000: mil milions
+    2000000000: dos mil milions
     1000000000000: un bilió
     2000000000000: dos bilions
-    1000000000000000: un biliard
-    2000000000000000: dos biliards
+    1000000000000000: mil bilions
+    2000000000000000: dos mil bilions
     1000000000000000000: un trilió
     2000000000000000000: dos trilions
-    1000000000000000000000: un triliard
+    1000000000000000000000: mil trilions
     1000000000000000000000000: un quadrilió
-    1000000000000000000000000000: un quadriliard
+    1000000000000000000000000000: mil quadrilions
     1000000000000000000000000000000: un quintilió
-    1000000000000000000000000000000000: un quintiliard
-    2000000000000000000000000000000000: dos quintiliards
-    123456789012345678901234567890123456: cent vint-i-tres quintiliards quatre-cents cinquanta-sis quintilions set-cents vuitanta-nou quadriliards dotze quadrilions tres-cents quaranta-cinc triliards sis-cents setanta-vuit trilions nou-cents un biliards dos-cents trenta-quatre bilions cinc-cents seixanta-set miliards vuit-cents noranta milions cent vint-i-tres mil quatre-cents cinquanta-sis
-    999999999999999999999999999999999999: nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
+    1000000000000000000000000000000000: mil quintilions
+    2000000000000000000000000000000000: dos mil quintilions
+    123456789012345678901234567890123456: cent vint-i-tres mil quatre-cents cinquanta-sis quintilions set-cents vuitanta-nou mil dotze quadrilions tres-cents quaranta-cinc mil sis-cents setanta-vuit trilions nou-cents un mil dos-cents trenta-quatre bilions cinc-cents seixanta-set mil vuit-cents noranta milions cent vint-i-tres mil quatre-cents cinquanta-sis
+    999999999999999999999999999999999999: nou-cents noranta-nou mil nou-cents noranta-nou quintilions nou-cents noranta-nou mil nou-cents noranta-nou quadrilions nou-cents noranta-nou mil nou-cents noranta-nou trilions nou-cents noranta-nou mil nou-cents noranta-nou bilions nou-cents noranta-nou mil nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
     1000000000000000000000000000000000000: un sextilió
     2000000000000000000000000000000000000: dos sextilions
-    1000000000000000000000000000000000000000: un sextiliard
-    2000000000000000000000000000000000000000: dos sextiliards
-    999999999999999999999999999999999999999999: nou-cents noranta-nou sextiliards nou-cents noranta-nou sextilions nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
+    1000000000000000000000000000000000000000: mil sextilions
+    2000000000000000000000000000000000000000: dos mil sextilions
+    999999999999999999999999999999999999999999: nou-cents noranta-nou mil nou-cents noranta-nou sextilions nou-cents noranta-nou mil nou-cents noranta-nou quintilions nou-cents noranta-nou mil nou-cents noranta-nou quadrilions nou-cents noranta-nou mil nou-cents noranta-nou trilions nou-cents noranta-nou mil nou-cents noranta-nou bilions nou-cents noranta-nou mil nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
   female:
     options:
       :gender: female
@@ -139,7 +139,7 @@ to_words:
     2000000: dos milions
     3000000: tres milions
     22000000: vint-i-dos milions
-    2000000002: dos miliards dues
+    2000000002: dos mil milions dues
   male:
     options:
       :gender: male
@@ -207,11 +207,11 @@ to_words:
     1000001: un milió unè
     1001000: un milió milè
     2000000: dos milionè
-    1000000000: miliardè
-    2000000000: dos miliardè
-    1000000000000000000000000000000000: quintiliardè
-    2000000000000000000000000000000005: dos quintiliards cinquè
-    999999999999999999999999999999999999: nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-novè
+    1000000000: mil milionè
+    2000000000: dos mil milionè
+    1000000000000000000000000000000000: mil quintilionè
+    2000000000000000000000000000000005: dos mil quintilions cinquè
+    999999999999999999999999999999999999: nou-cents noranta-nou mil nou-cents noranta-nou quintilions nou-cents noranta-nou mil nou-cents noranta-nou quadrilions nou-cents noranta-nou mil nou-cents noranta-nou trilions nou-cents noranta-nou mil nou-cents noranta-nou bilions nou-cents noranta-nou mil nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-novè
   female_ordinal:
     options:
       :ordinal: true
