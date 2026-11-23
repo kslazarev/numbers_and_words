@@ -15,6 +15,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bn`](languages/bn.md) | yes | — | — | all | unlimited | — |
+| [`bs`](languages/bs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`cs`](languages/cs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`da`](languages/da.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`de`](languages/de.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
@@ -28,6 +29,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`fr-CH`](languages/fr-CH.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | `spelling` |
 | [`he`](languages/he.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`hi`](languages/hi.md) | yes | male, female | — | all | unlimited | — |
+| [`hr`](languages/hr.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`hu`](languages/hu.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`hy`](languages/hy.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`id`](languages/id.md) | yes | — | — | all | 10<sup>36</sup> | — |
@@ -47,6 +49,8 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ro`](languages/ro.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`ru`](languages/ru.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, prepositional, animate | all | 10<sup>36</sup> | — |
 | [`sk`](languages/sk.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
+| [`sl`](languages/sl.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
+| [`sr`](languages/sr.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`sv`](languages/sv.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`th`](languages/th.md) | yes | — | — | all | unlimited | — |
 | [`tr`](languages/tr.md) | yes | — | — | all | 10<sup>36</sup> | — |

@@ -72,6 +72,8 @@ module CldrComparison
       kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') }
         .merge(gendered('cardinal', FEMALE_NEUTER), gendered('ordinal', FEMALE_NEUTER, ordinal: true))
     },
+    # CLDR has no Bosnian ordinals.
+    bs: { cldr: :bs, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
     # Czech counts with jedna by default and takes gender: for jeden/jedna/jedno; CLDR has no counting
     # set with jedna, so the default is compared with spellout-numbering, which says jeden.
     cs: { cldr: :cs, kinds: { 'cardinal' => compare({}, 'spellout-numbering') }.merge(gendered('cardinal', FEMALE_NEUTER.merge(male: 'masculine'))) },
@@ -114,6 +116,12 @@ module CldrComparison
         .merge(gendered('ordinal', FEMALE, ordinal: true))
     },
     # CLDR has no spelled-out Hungarian ordinal for a billion and prints digits.
+    # CLDR builds Croatian ordinals from 100 on Czech stems (sti, dvesti, milijuny) and spells the ordinal of zero nulai; only 1-99 are compared.
+    hr: {
+      cldr: :hr,
+      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine', within(1..99)) }
+        .merge(gendered('cardinal', FEMALE_NEUTER), gendered('ordinal', FEMALE_NEUTER, { ordinal: true }, within(1..99)))
+    },
     hu: { cldr: :hu, kinds: CARDINAL.merge('ordinal' => compare({ ordinal: true }, 'spellout-ordinal', within(0...1_000_000_000))) },
     hy: { cldr: :hy, kinds: CARDINAL },
     # twitter_cldr 6.14.0 fails to parse the CLDR rule for Indonesian 1st (pertama), which has no trailing semicolon.
@@ -147,6 +155,12 @@ module CldrComparison
         .merge(gendered('cardinal', FEMALE_NEUTER), gendered('ordinal', FEMALE_NEUTER, { ordinal: true }, within(0...100_000)))
     },
     sk: { cldr: :sk, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
+    # CLDR spells Serbian ordinals from 1,000 as multiples of a hundred (десетстоти for 1,000) and has them only in the masculine.
+    sr: {
+      cldr: :sr,
+      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal', within(0...1000)) }
+        .merge(gendered('cardinal', FEMALE_NEUTER))
+    },
     sv: { cldr: :sv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-neuter'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-neuter') } },
     th: { cldr: :th, kinds: CARDINAL.merge(ORDINAL) },
     tr: { cldr: :tr, kinds: CARDINAL.merge(ORDINAL) },
@@ -161,6 +175,7 @@ module CldrComparison
     'fr-CH': 'twitter_cldr 6.14.0 does not ship the CLDR fr_CH rules',
     nb: 'twitter_cldr 6.14.0 does not resolve the CLDR nb alias to no, so nb has no rule sets',
     pt: 'twitter_cldr 6.14.0 does not ship the CLDR pt_PT rules; CLDR pt is Brazilian and compared as pt-BR',
+    sl: 'CLDR 46.1 Slovenian spell-out rules are Croatian words in Slovenian spelling (dvaset ena, tisuću, milijun); Slovenian says enaindvajset, tisoč, milijon',
     ur: 'CLDR added Urdu spell-out rules in CLDR 49; twitter_cldr 6.14.0 bundles CLDR 46.1'
   }.freeze
 

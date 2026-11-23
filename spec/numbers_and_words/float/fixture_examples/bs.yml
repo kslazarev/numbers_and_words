@@ -1,0 +1,36 @@
+to_words:
+  fractional:
+    0.1: nula cijelih i jedna desetinka
+    0.01: nula cijelih i jedna stotinka
+    0.02: nula cijelih i dvije stotinke
+    0.03: nula cijelih i tri stotinke
+    0.05: nula cijelih i pet stotinki
+    0.21: nula cijelih i dvadeset jedna stotinka
+    0.77: nula cijelih i sedamdeset sedam stotinki
+  integral_and_fractional:
+    1.5: jedno cijelo i pet desetinki
+    2.5: dva cijela i pet desetinki
+    3.14: tri cijela i četrnaest stotinki
+    4.4: četiri cijela i četiri desetinke
+    5.25: pet cijelih i dvadeset pet stotinki
+    21.05: dvadeset jedno cijelo i pet stotinki
+    21.77: dvadeset jedno cijelo i sedamdeset sedam stotinki
+    22.2: dvadeset dva cijela i dvije desetinke
+    101.001: sto jedno cijelo i jedna hiljaditinka
+    5.123: pet cijelih i sto dvadeset tri hiljaditinke
+    2.0001: dva cijela i jedna desethiljaditinka
+  precision:
+    options:
+      :precision: 3
+    1.5: jedno cijelo i petsto hiljaditinki
+    0.1: nula cijelih i sto hiljaditinki
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: sedam desetinki
+    0.05: pet stotinki
+    1.5: jedno cijelo i pet desetinki
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: dvadeset jedno cijelo x sedamdeset sedam stotinki

@@ -107,6 +107,30 @@ bg:
       един милионна: едномилионна
       един милионно: едномилионно
     affects: 15
+bs:
+  - reason: CLDR spells the feminine one jedinica, a noun (the digit one); the feminine numeral is jedna
+    replace: { jedinica: jedna }
+    affects: 22
+  - reason: CLDR says jedinica hiljada; a thousand alone is hiljadu (hiljadu sto), as in CLDR's Croatian tisuću
+    drop_one: { one: [jedna], before: [hiljada] }
+    affects: 9
+  - reason: CLDR says jedinica hiljada; a thousand alone is hiljadu (hiljadu sto), as in CLDR's Croatian tisuću
+    replace: { hiljada: hiljadu }
+    above: 999
+    below: 2000
+    affects: 9
+  - reason: CLDR uses the ekavian dve and dvesta; Bosnian is ijekavian (dvije, dvjesta)
+    replace: { dve: dvije, dvesta: dvjesta }
+    affects: 15
+  - reason: CLDR misspells jedanaest as jedenaest and uses the colloquial šestnaest and četristo; the standard forms are jedanaest, šesnaest and četiristo
+    replace: { jedenaest: jedanaest, šestnaest: šesnaest, četristo: četiristo }
+    affects: 15
+  - reason: CLDR keeps the genitive plural hiljada and the singular milion after two to four; they take the paucal hiljade and miliona (dvije hiljade, tri miliona)
+    replace: { dvije hiljada: dvije hiljade, tri hiljada: tri hiljade, dva milion: dva miliona, tri milion: tri miliona }
+    affects: 12
+  - reason: CLDR says jedan miliard; the word is milijarda and feminine (jedna milijarda)
+    replace: { jedan miliard: jedna milijarda }
+    affects: 3
 cs:
   - reason: 'the gem counts with jedna (raz, dva, tři: jedna, dvě, tři), the usual Czech counting form; CLDR spellout-numbering uses the masculine jeden'
     replace: { jeden: jedna }
@@ -246,6 +270,13 @@ hi:
     replace_parts: { वी: वीं }
     kinds: [ordinal/female]
     affects: 113
+hr:
+  - reason: CLDR picks the neuter ordinal ending by the whole number, so 23 gets the hard ending (dvadeset trećo); treći has the soft neuter treće in every compound
+    replace: { trećo: treće }
+    affects: 8
+  - reason: CLDR picks the form of a scale word by the whole count, not its last digits; the noun agrees with the last numeral (sto dvadeset i tri tisuće, dvadeset i jedan milijun)
+    replace: { tri tisuća: tri tisuće, jedan milijuna: jedan milijun }
+    affects: 6
 hu:
   - reason: Hungarian hyphenates numbers above 2000 between groups of three digits (százhuszonháromezer-négyszázötvenhat); CLDR does not
     replace_parts: { ezernégy: ezer-négy, milliónégy: millió-négy, ezerhét: ezer-hét }
@@ -360,6 +391,19 @@ sk:
   - reason: Slovak writes a cardinal number as one word, split only after millions (stodvadsaťtritisícštyristopäťdesiatšesť); CLDR separates hundreds and thousands
     join_before: [tisíc]
     affects: 12
+sr:
+  - reason: CLDR says једна хиљаду; a thousand alone is хиљаду (хиљаду сто), or једна хиљада
+    replace: { једна хиљаду: хиљаду }
+    affects: 9
+  - reason: CLDR keeps the genitive plural хиљада and the singular милион after two to four; they take the paucal хиљаде and милиона (две хиљаде, три милиона)
+    replace: { две хиљада: две хиљаде, три хиљада: три хиљаде, два милион: два милиона, три милион: три милиона }
+    affects: 12
+  - reason: CLDR says један милијарда; милијарда is feminine (једна милијарда)
+    replace: { један милијарда: једна милијарда }
+    affects: 3
+  - reason: CLDR builds the 200th on двеста (двестати); the ordinal is двестоти, like стоти and тристоти
+    replace: { двестати: двестоти }
+    affects: 1
 sv:
   - reason: the gem writes numbers below a million as one word (ettusenett, etthundraförsta), as Språkrådet recommends; CLDR breaks them after tusen and hundra
     join_after: [tusen, hundra]
