@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: nulis kablelis vienas
+    0.01: nulis kablelis nulis vienas
+    0.05: nulis kablelis nulis penki
+    0.77: nulis kablelis septyni septyni
+  integral_and_fractional:
+    1.5: vienas kablelis penki
+    2.5: du kablelis penki
+    3.14: trys kablelis vienas keturi
+    21.05: dvidešimt vienas kablelis nulis penki
+    21.77: dvidešimt vienas kablelis septyni septyni
+    101.001: šimtas vienas kablelis nulis nulis vienas
+    5.123: penki kablelis vienas du trys
+  precision:
+    options:
+      :precision: 3
+    1.5: vienas kablelis penki nulis nulis
+    0.1: nulis kablelis vienas nulis nulis
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: kablelis septyni
+    0.05: kablelis nulis penki
+    1.5: vienas kablelis penki
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: dvidešimt vienas x septyni septyni

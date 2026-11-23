@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: noll komma ett
+    0.01: noll komma noll ett
+    0.05: noll komma noll fem
+    0.77: noll komma sju sju
+  integral_and_fractional:
+    1.5: ett komma fem
+    2.5: två komma fem
+    3.14: tre komma ett fyra
+    21.05: tjugoett komma noll fem
+    21.77: tjugoett komma sju sju
+    101.001: etthundraett komma noll noll ett
+    5.123: fem komma ett två tre
+  precision:
+    options:
+      :precision: 3
+    1.5: ett komma fem noll noll
+    0.1: noll komma ett noll noll
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komma sju
+    0.05: komma noll fem
+    1.5: ett komma fem
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: tjugoett x sju sju

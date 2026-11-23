@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: null koma üks
+    0.01: null koma null üks
+    0.05: null koma null viis
+    0.77: null koma seitse seitse
+  integral_and_fractional:
+    1.5: üks koma viis
+    2.5: kaks koma viis
+    3.14: kolm koma üks neli
+    21.05: kakskümmend üks koma null viis
+    21.77: kakskümmend üks koma seitse seitse
+    101.001: sada üks koma null null üks
+    5.123: viis koma üks kaks kolm
+  precision:
+    options:
+      :precision: 3
+    1.5: üks koma viis null null
+    0.1: null koma üks null null
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: koma seitse
+    0.05: koma null viis
+    1.5: üks koma viis
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: kakskümmend üks x seitse seitse

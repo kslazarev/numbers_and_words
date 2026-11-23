@@ -2,7 +2,11 @@ ka:
   numbers:
     supported_options:
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: მინუს
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: მძიმე
     ones: [ნული, ერთი, ორი, სამი, ოთხი, ხუთი, ექვსი, შვიდი, რვა, ცხრა]
     teens: [_, თერთმეტი, თორმეტი, ცამეტი, თოთხმეტი, თხუთმეტი, თექვსმეტი, ჩვიდმეტი, თვრამეტი, ცხრამეტი]
     tens: [_, ათი, ოცი, ოცდაათი, ორმოცი, ორმოცდაათი, სამოცი, სამოცდაათი, ოთხმოცი, ოთხმოცდაათი]

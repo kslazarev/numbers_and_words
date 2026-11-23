@@ -70,7 +70,7 @@ I18n.with_locale(:en) { 0.00001.to_words }
 # => "zero and one hundred-thousandth"
 ```
 
-Negative numbers start with the word for minus. They have no ordinal: `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`, as do decimals in a language without them. Numbers past a language's largest scale word raise `RangeError`; each language page gives the limit.
+Negative numbers start with the word for minus. They have no ordinal: `ordinal: true` raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`. Numbers past a language's largest scale word raise `RangeError`; each language page gives the limit.
 
 ```ruby
 I18n.with_locale(:en) { -42.to_words }

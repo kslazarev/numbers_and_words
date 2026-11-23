@@ -32,17 +32,35 @@ I18n.with_locale(:kk) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :kk."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
+Decimals are read as the whole part, бүтін, and the fractional part as a count of the fraction word in the ablative (оннан, жүзден, мыңнан), as Unicode CLDR reads them: 7.5 is five of ten. Up to 18 fractional digits are supported; more raise `RangeError`.
+
+```ruby
+I18n.with_locale(:kk) { 3.14.to_words }
+# => "үш бүтін жүзден он төрт"
+
+I18n.with_locale(:kk) { 21.05.to_words }
+# => "жиырма бір бүтін жүзден бес"
+```
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
+`precision` pads the fractional part with zeros to that many digits.
+
+```ruby
+I18n.with_locale(:kk) { 0.1.to_words(precision: 2) }
+# => "нөл бүтін жүзден он"
+```
 
 ### Micro Separator
 
-`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:kk) { 21.77.to_words(micro_separator: "нүкте") }
+# => "жиырма бір нүкте жүзден жетпіс жеті"
+```
 
 ### Ordinal
 
@@ -57,6 +75,15 @@ I18n.with_locale(:kk) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:kk) { 2_000.to_words(ordinal: true) }
 # => "екі мыңыншы"
+```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part and бүтін.
+
+```ruby
+I18n.with_locale(:kk) { 0.7.to_words(remove_zero: true) }
+# => "оннан жеті"
 ```
 
 ## Sources

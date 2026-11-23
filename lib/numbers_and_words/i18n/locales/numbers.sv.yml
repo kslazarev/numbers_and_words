@@ -2,7 +2,11 @@ sv:
   numbers:
     supported_options:
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: komma
     ones: [noll, ett, två, tre, fyra, fem, sex, sju, åtta, nio]
     common_one: en
     thousands_one: et

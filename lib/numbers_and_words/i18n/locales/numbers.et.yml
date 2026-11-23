@@ -2,7 +2,11 @@ et:
   numbers:
     supported_options:
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: miinus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: koma
     ones: ['null', üks, kaks, kolm, neli, viis, kuus, seitse, kaheksa, üheksa]
     teens: [_, üksteist, kaksteist, kolmteist, neliteist, viisteist, kuusteist, seitseteist, kaheksateist, üheksateist]
     tens: [_, kümme, kakskümmend, kolmkümmend, nelikümmend, viiskümmend, kuuskümmend, seitsekümmend, kaheksakümmend, üheksakümmend]

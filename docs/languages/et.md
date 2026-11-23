@@ -38,17 +38,35 @@ I18n.with_locale(:et) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :et."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
+Decimals are read with koma and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+
+```ruby
+I18n.with_locale(:et) { 3.14.to_words }
+# => "kolm koma üks neli"
+
+I18n.with_locale(:et) { 21.05.to_words }
+# => "kakskümmend üks koma null viis"
+```
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
+`precision` pads the fractional part with zeros to that many digits.
+
+```ruby
+I18n.with_locale(:et) { 0.1.to_words(precision: 2) }
+# => "null koma üks null"
+```
 
 ### Micro Separator
 
-`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:et) { 21.77.to_words(micro_separator: "punkt") }
+# => "kakskümmend üks punkt seitse seitse"
+```
 
 ### Ordinal
 
@@ -69,6 +87,15 @@ I18n.with_locale(:et) { 1_001.to_words(ordinal: true) }
 
 I18n.with_locale(:et) { 2_000.to_words(ordinal: true) }
 # => "kahe tuhandes"
+```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part and keeps koma.
+
+```ruby
+I18n.with_locale(:et) { 0.7.to_words(remove_zero: true) }
+# => "koma seitse"
 ```
 
 ## Sources

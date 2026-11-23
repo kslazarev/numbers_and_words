@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: nulle komats viens
+    0.01: nulle komats nulle viens
+    0.05: nulle komats nulle pieci
+    0.77: nulle komats septiņi septiņi
+  integral_and_fractional:
+    1.5: viens komats pieci
+    2.5: divi komats pieci
+    3.14: trīs komats viens četri
+    21.05: divdesmit viens komats nulle pieci
+    21.77: divdesmit viens komats septiņi septiņi
+    101.001: simt viens komats nulle nulle viens
+    5.123: pieci komats viens divi trīs
+  precision:
+    options:
+      :precision: 3
+    1.5: viens komats pieci nulle nulle
+    0.1: nulle komats viens nulle nulle
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komats septiņi
+    0.05: komats nulle pieci
+    1.5: viens komats pieci
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: divdesmit viens x septiņi septiņi

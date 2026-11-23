@@ -2,7 +2,11 @@ hy:
   numbers:
     supported_options:
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: մինուս
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: ստորակետ
     ones: [զրո, մեկ, երկու, երեք, չորս, հինգ, վեց, յոթ, ութ, ինը]
     teens: [_, տասնմեկ, տասներկու, տասներեք, տասնչորս, տասնհինգ, տասնվեց, տասնյոթ, տասնութ, տասնինը]
     tens: [_, տասը, քսան, երեսուն, քառասուն, հիսուն, վաթսուն, յոթանասուն, ութսուն, իննսուն]
