@@ -1,5 +1,12 @@
 ar:
   numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      zero: 'n = 0'
+      one: 'n = 1'
+      two: 'n = 2'
+      few: 'n % 100 = 3..10'
+      many: 'n % 100 = 11..99'
     supported_options:
       ordinal: {minimum: 1, maximum: 99}
     minus: سالب

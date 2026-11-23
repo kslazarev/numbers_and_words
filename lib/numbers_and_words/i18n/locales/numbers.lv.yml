@@ -1,5 +1,8 @@
 lv:
   numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
     supported_options:
       ordinal: true
     minus: mīnus

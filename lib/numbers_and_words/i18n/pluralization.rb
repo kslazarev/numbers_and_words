@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+require 'yaml'
+require 'numbers_and_words/i18n/plural_rule'
+
 module NumbersAndWords
   module I18n
     module Pluralization
-      DIRECTORY = File.expand_path('plurals', __dir__)
       # Loaded through I18n.load_path; maps each language to its rule.
-      CONFIG_FILE = File.join(DIRECTORY, 'plurals.rb')
-      # One file per language defining Plurals::<Language>::RULE.
-      RULE_FILES = (Dir[File.join(DIRECTORY, '*.rb')] - [CONFIG_FILE]).sort.each { |file| require file }.freeze
+      CONFIG_FILE = File.expand_path('plurals.rb', __dir__)
 
       module_function
 
@@ -15,8 +15,24 @@ module NumbersAndWords
         ::I18n::Backend::Simple.include ::I18n::Backend::Pluralization
       end
 
+      # The enabled languages with plural rules.
       def languages
-        I18n.enabled(RULE_FILES.map { |file| I18n.language_of(file) })
+        I18n.enabled(rules.keys)
+      end
+
+      def rule(language)
+        rules.fetch(language)
+      end
+
+      # The rule of each bundled language that has numbers.plural in its locale file, read from the file itself,
+      # since I18n loads the rules while it loads translations.
+      def rules
+        @rules ||= I18n.locale_files.each_with_object({}) do |file, rules|
+          next unless File.read(file).include?("\n    plural:\n")
+
+          language = I18n.language_of(file)
+          rules[language] = PluralRule.new(YAML.load_file(file).dig(language.to_s, 'numbers', 'plural')).to_proc
+        end
       end
     end
   end

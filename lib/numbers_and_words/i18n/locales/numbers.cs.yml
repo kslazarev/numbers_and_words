@@ -1,5 +1,10 @@
 cs:
   numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
+      few: 'n % 10 = 2,3,4 and n % 100 != 12,13,14'
+      many: 'n % 10 = 0 or n % 10 = 5,6,7,8,9 or n % 100 = 11,12,13,14'
     supported_options:
       gender: {values: [male, female, neuter], default: counting}
       ordinal: {minimum: 0, maximum: 9999}

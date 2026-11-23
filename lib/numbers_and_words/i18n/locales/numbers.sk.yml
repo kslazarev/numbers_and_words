@@ -1,5 +1,9 @@
 sk:
   numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      one: 'n = 1'
+      few: 'n = 2..4'
     supported_options:
       gender: {values: [male, female, neuter], default: male}
       ordinal: true
