@@ -376,6 +376,10 @@ Require the gem before looking up translations, as Rails does, and configure it 
 * Ruby 3.1 or later, including JRuby.
 * I18n, tested with 1.6 and later.
 
+## Users / Пользователи / Utilisateurs
+
+See [Users](docs/users.md) for applications and gems that use numbers_and_words.
+
 ## Upgrading / Обновление / Mise à jour
 
 See [UPGRADING](UPGRADING.md) for changes in behavior and what 2.0 will change.
