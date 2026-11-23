@@ -14,6 +14,7 @@ require 'numbers_and_words/translations/sk'
 require 'numbers_and_words/translations/pl'
 require 'numbers_and_words/translations/ro'
 require 'numbers_and_words/translations/el'
+require 'numbers_and_words/translations/mk'
 
 module NumbersAndWords
   module Translations

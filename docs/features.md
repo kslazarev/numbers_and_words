@@ -13,6 +13,7 @@ What each bundled language supports, generated from its locale file and classes 
 | --- | --- | --- | --- | --- | --- | --- |
 | [`ar`](languages/ar.md) | yes | male, female | — | 1 to 99 | 10<sup>36</sup> | — |
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`be`](languages/be.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bn`](languages/bn.md) | yes | — | — | all | unlimited | — |
 | [`bs`](languages/bs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
@@ -40,6 +41,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ko`](languages/ko.md) | yes | — | — | all | 10<sup>52</sup> | — |
 | [`lt`](languages/lt.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`lv`](languages/lv.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
+| [`mk`](languages/mk.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`nb`](languages/nb.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`nl`](languages/nl.md) | yes | — | — | all | 10<sup>36</sup> | `pronounced`, `tens_of_hundreds` |

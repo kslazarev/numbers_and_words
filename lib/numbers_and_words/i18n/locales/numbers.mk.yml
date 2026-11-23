@@ -1,0 +1,196 @@
+mk:
+  numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule): a count ending in one, but not in
+    # eleven, takes the singular ("дваесет и една илјада"); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: {keeps_ordinal_zero: true, keeps_micro_separator: true}
+    minus: минус
+    ones:
+      male: [нула, еден, два, три, четири, пет, шест, седум, осум, девет]
+      female: [нула, една, две, три, четири, пет, шест, седум, осум, девет]
+      neuter: [нула, едно, две, три, четири, пет, шест, седум, осум, девет]
+    teens: [десет, единаесет, дванаесет, тринаесет, четиринаесет, петнаесет, шеснаесет, седумнаесет, осумнаесет, деветнаесет]
+    tens: [_, _, дваесет, триесет, четириесет, педесет, шеесет, седумдесет, осумдесет, деведесет]
+    hundreds: [_, сто, двесте, триста, четиристотини, петстотини, шестотини, седумстотини, осумстотини, деветстотини]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: point_words, fractional_gender: male}
+    rules:
+      # Илјада, милијарда and the other -ијарда words are feminine ("две илјади", "две милијарди"); милион and the
+      # other -ион words are masculine ("два милиони").
+      cardinal-male:
+        then: and-male
+        0: '{ones.male}'
+        10: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '{hundreds}[{>}]'
+        1000: '{<thousands-count} {thousands}[{>}]'
+        1000000: '{<cardinal-male} {millions}[{>}]'
+        1000000000: '{<cardinal-female} {milliards}[{>}]'
+        1000000000000: '{<cardinal-male} {billions}[{>}]'
+        1000000000000000: '{<cardinal-female} {billiards}[{>}]'
+        1000000000000000000: '{<cardinal-male} {trillions}[{>}]'
+        1000000000000000000000: '{<cardinal-female} {trilliards}[{>}]'
+        1000000000000000000000000: '{<cardinal-male} {quadrillions}[{>}]'
+        1000000000000000000000000000: '{<cardinal-female} {quadrilliards}[{>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {quintillions}[{>}]'
+        1000000000000000000000000000000000: '{<cardinal-female} {quintilliards}[{>}]'
+      cardinal-female:
+        extends: cardinal-male
+        then: and-female
+        0: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        then: and-neuter
+        0: '{ones.neuter}'
+      # Илјада has no count of one ("илјада", "две илјади").
+      thousands-count:
+        extends: cardinal-female
+        1: ''
+        2: '{ones.female}'
+      # "И" comes before the last word of a group ("сто дваесет и еден") and before a last group of one word
+      # ("илјада и сто", "еден милион и две илјади"), but not before one of more ("илјада дваесет и еден").
+      and-male:
+        then: cardinal-male
+        1: ' {union} {=}'
+        '20*1000': '[ {=}| {union} {=}]'
+        '100*1000': '[ {=}| {union} {=}]'
+        '1000*1000': '[ {=}| {union} {=}]'
+      and-female:
+        extends: and-male
+        then: cardinal-female
+      and-neuter:
+        extends: and-male
+        then: cardinal-neuter
+      # The last word of an ordinal is ordinal; a round scale ordinal joins its count, with one left out
+      # ("илјадити", "двеилјадити", "дваесет и едномилионити").
+      ordinal:
+        then: and-ordinal
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{tens}{>}|{ordinals.tens}]'
+        100: '[{hundreds}{>}|{ordinals.hundreds}]'
+        1000: '[{<thousands-count} {thousands}{>}|{<combining-female}{ordinals.thousands}]'
+        1000000: '[{<cardinal-male} {millions}{>}|{<combining-male}{ordinals.millions}]'
+        1000000000: '[{<cardinal-female} {milliards}{>}|{<combining-female}{ordinals.milliards}]'
+        1000000000000: '[{<cardinal-male} {billions}{>}|{<combining-male}{ordinals.billions}]'
+        1000000000000000: '[{<cardinal-female} {billiards}{>}|{<combining-female}{ordinals.billiards}]'
+        1000000000000000000: '[{<cardinal-male} {trillions}{>}|{<combining-male}{ordinals.trillions}]'
+        1000000000000000000000: '[{<cardinal-female} {trilliards}{>}|{<combining-female}{ordinals.trilliards}]'
+        1000000000000000000000000: '[{<cardinal-male} {quadrillions}{>}|{<combining-male}{ordinals.quadrillions}]'
+        1000000000000000000000000000: '[{<cardinal-female} {quadrilliards}{>}|{<combining-female}{ordinals.quadrilliards}]'
+        1000000000000000000000000000000: '[{<cardinal-male} {quintillions}{>}|{<combining-male}{ordinals.quintillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-female} {quintilliards}{>}|{<combining-female}{ordinals.quintilliards}]'
+      and-ordinal:
+        extends: and-male
+        then: ordinal-after-and
+      # After "и", a round scale ordinal keeps a count of one ("една милијарда и едномилионити").
+      ordinal-after-and:
+        extends: ordinal
+        1000000: '[{<cardinal-male} {millions}{>}|{<combining-final-male}{ordinals.millions}]'
+        1000000000: '[{<cardinal-female} {milliards}{>}|{<combining-final-female}{ordinals.milliards}]'
+        1000000000000: '[{<cardinal-male} {billions}{>}|{<combining-final-male}{ordinals.billions}]'
+        1000000000000000: '[{<cardinal-female} {billiards}{>}|{<combining-final-female}{ordinals.billiards}]'
+        1000000000000000000: '[{<cardinal-male} {trillions}{>}|{<combining-final-male}{ordinals.trillions}]'
+        1000000000000000000000: '[{<cardinal-female} {trilliards}{>}|{<combining-final-female}{ordinals.trilliards}]'
+        1000000000000000000000000: '[{<cardinal-male} {quadrillions}{>}|{<combining-final-male}{ordinals.quadrillions}]'
+        1000000000000000000000000000: '[{<cardinal-female} {quadrilliards}{>}|{<combining-final-female}{ordinals.quadrilliards}]'
+        1000000000000000000000000000000: '[{<cardinal-male} {quintillions}{>}|{<combining-final-male}{ordinals.quintillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-female} {quintilliards}{>}|{<combining-final-female}{ordinals.quintilliards}]'
+      combining-male:
+        extends: combining-final-male
+        1: ''
+        2: '{combining.male}'
+      combining-final-male:
+        extends: cardinal-male
+        then: and-combining-male
+        0: '{combining.male}'
+      and-combining-male:
+        extends: and-male
+        then: combining-final-male
+      combining-female:
+        extends: combining-final-female
+        1: ''
+        2: '{combining.female}'
+      combining-final-female:
+        extends: cardinal-female
+        then: and-combining-female
+        0: '{combining.female}'
+      and-combining-female:
+        extends: and-male
+        then: combining-final-female
+    # Macedonian follows the long scale: милијарда is 10**9, билион 10**12 and билијарда 10**15.
+    mega: [_, thousands, millions, milliards, billions, billiards, trillions, trilliards, quadrillions, quadrilliards, quintillions, quintilliards]
+    thousands: {one: илјада, other: илјади}
+    millions: {one: милион, other: милиони}
+    milliards: {one: милијарда, other: милијарди}
+    billions: {one: билион, other: билиони}
+    billiards: {one: билијарда, other: билијарди}
+    trillions: {one: трилион, other: трилиони}
+    trilliards: {one: трилијарда, other: трилијарди}
+    quadrillions: {one: квадрилион, other: квадрилиони}
+    quadrilliards: {one: квадрилијарда, other: квадрилијарди}
+    quintillions: {one: квинтилион, other: квинтилиони}
+    quintilliards: {one: квинтилијарда, other: квинтилијарди}
+    # The count of a round scale ordinal ("двеилјадити", "двамилионити").
+    combining:
+      male: [_, едно, два, три, четири, пет, шест, седум, осум, девет]
+      female: [_, едно, две, три, четири, пет, шест, седум, осум, девет]
+    union: и
+    micro_separator: кома
+    ordinals:
+      ones: [нулти, прв, втор, трет, четврти, петти, шести, седми, осми, деветти]
+      teens: [десетти, единаесетти, дванаесетти, тринаесетти, четиринаесетти, петнаесетти, шеснаесетти, седумнаесетти, осумнаесетти, деветнаесетти]
+      tens: [_, _, дваесетти, триесетти, четириесетти, педесетти, шеесетти, седумдесетти, осумдесетти, деведесетти]
+      hundreds: [_, стоти, двестоти, тристоти, четиристоти, петстоти, шестоти, седумстоти, осумстоти, деветстоти]
+      thousands: илјадити
+      millions: милионити
+      milliards: милијардити
+      billions: билионити
+      billiards: билијардити
+      trillions: трилионити
+      trilliards: трилијардити
+      quadrillions: квадрилионити
+      quadrilliards: квадрилијардити
+      quintillions: квинтилионити
+      quintilliards: квинтилијардити
+    # The feminine and neuter ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [нулта, прва, втора, трета, четврта, петта, шеста, седма, осма, деветта]
+          teens: [десетта, единаесетта, дванаесетта, тринаесетта, четиринаесетта, петнаесетта, шеснаесетта, седумнаесетта, осумнаесетта, деветнаесетта]
+          tens: [_, _, дваесетта, триесетта, четириесетта, педесетта, шеесетта, седумдесетта, осумдесетта, деведесетта]
+          hundreds: [_, стота, двестота, тристота, четиристота, петстота, шестота, седумстота, осумстота, деветстота]
+          thousands: илјадита
+          millions: милионита
+          milliards: милијардита
+          billions: билионита
+          billiards: билијардита
+          trillions: трилионита
+          trilliards: трилијардита
+          quadrillions: квадрилионита
+          quadrilliards: квадрилијардита
+          quintillions: квинтилионита
+          quintilliards: квинтилијардита
+      neuter:
+        ordinals:
+          ones: [нулто, прво, второ, трето, четврто, петто, шесто, седмо, осмо, деветто]
+          teens: [десетто, единаесетто, дванаесетто, тринаесетто, четиринаесетто, петнаесетто, шеснаесетто, седумнаесетто, осумнаесетто, деветнаесетто]
+          tens: [_, _, дваесетто, триесетто, четириесетто, педесетто, шеесетто, седумдесетто, осумдесетто, деведесетто]
+          hundreds: [_, стото, двестото, тристото, четиристото, петстото, шестото, седумстото, осумстото, деветстото]
+          thousands: илјадито
+          millions: милионито
+          milliards: милијардито
+          billions: билионито
+          billiards: билијардито
+          trillions: трилионито
+          trilliards: трилијардито
+          quadrillions: квадрилионито
+          quadrilliards: квадрилијардито
+          quintillions: квинтилионито
+          quintilliards: квинтилијардито

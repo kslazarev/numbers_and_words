@@ -67,6 +67,13 @@ module CldrComparison
   LOCALES = {
     ar: { cldr: :ar, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine', within(1..99)) } },
     az: { cldr: :az, kinds: CARDINAL.merge(ORDINAL) },
+    # CLDR spells Belarusian ordinals from 1000 with cardinal scale words (дваццаць адна тысяча for the 21000th) or
+    # apart (адна тысячны, дзвух тысячны), so they are compared below 1000.
+    be: {
+      cldr: :be,
+      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine', within(0...1000)) }
+        .merge(gendered('cardinal', FEMALE_NEUTER), gendered('ordinal', FEMALE_NEUTER, { ordinal: true }, within(0...1000)))
+    },
     bg: {
       cldr: :bg,
       kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') }
@@ -135,6 +142,8 @@ module CldrComparison
     ko: { cldr: :ko, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-sinokorean') } },
     lt: { cldr: :lt, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') } },
     lv: { cldr: :lv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') } },
+    # CLDR has no Macedonian ordinals.
+    mk: { cldr: :mk, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
     ms: { cldr: :ms, kinds: CARDINAL.merge(ORDINAL) },
     nl: { cldr: :nl, kinds: CARDINAL.merge(ORDINAL) },
     pl: {
@@ -189,9 +198,11 @@ module CldrComparison
   end
 
   # Per-locale encodings of the same letter: CLDR Romanian uses the legacy
-  # cedilla ş/ţ for the comma-below ș/ț, and CLDR Ukrainian writes the
-  # apostrophe as U+02BC where the gem uses U+2019.
+  # cedilla ş/ţ for the comma-below ș/ț, CLDR Ukrainian writes the
+  # apostrophe as U+02BC where the gem uses U+2019, and CLDR Belarusian writes
+  # the Latin i in адзiн for the Cyrillic і.
   LOCALE_NORMALIZATION = {
+    be: ->(words) { words.tr('i', 'і') },
     ro: ->(words) { words.tr('şţŞŢ', 'șțȘȚ') },
     uk: ->(words) { words.tr("\u02BC", "\u2019") }
   }.freeze
