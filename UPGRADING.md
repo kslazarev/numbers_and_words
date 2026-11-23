@@ -1,6 +1,6 @@
 # Upgrading
 
-## Upgrading to 1.2.0
+## Upgrading to Version 1.2.0
 
 The public API, `to_words` with the options in the README and on each language page, is unchanged. So is its output in every language, except as described below.
 
@@ -38,7 +38,7 @@ Some calls that raised now return words:
 
 Each language now spells numbers from rule sets in its locale file (`numbers.rules`) and lists its options there (`numbers.supported_options`). British English and Swiss French list only what differs from English and French. Many of the gem's classes and translation keys are gone or renamed. Code that reached into those classes, such as `NumbersAndWords::Strategies::FiguresConverter::Options::En::Ordinal` or `NumbersAndWords::Translations::Families::Latin`, or that overrode translations under `numbers.*`, may need changes.
 
-## Upgrading to 1.1.0
+## Upgrading to Version 1.1.0
 
 Version 1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly. This works in both 1.1 and 2.0. To raise for unsupported options now, as 2.0 will, set `strict_options`.
 
@@ -170,10 +170,10 @@ Several languages now use the usual forms, as reviewed in [#255](https://github.
 | Brazilian Portuguese (`pt-BR`) | 2,000,000, feminine | `duas milhões` | `dois milhões` |
 | Vietnamese (`vi`) | 18 | `thứ mười tám` | `mười tám` |
 
-- **Danish:** The number 1 is the counting form `en`; `gender: :neuter` gives `et`.
-- **Hungarian:** The form `két` replaces `kettő` before hundreds and scale words (`huszonkétezer`), but not at the end (`huszonkettő`).
-- **Spanish:** The `apocopated: true` option shortens only the masculine `uno`, and only a final one (`veintiún`, not `veinticinco`).
-- **Czech:** Without `gender`, numbers use the counting forms (`jedna`, `dva`); pass `gender: :female` for the previous `dvě`.
+* **Danish:** The number 1 is the counting form `en`; `gender: :neuter` gives `et`.
+* **Hungarian:** The form `két` replaces `kettő` before hundreds and scale words (`huszonkétezer`), but not at the end (`huszonkettő`).
+* **Spanish:** The `apocopated: true` option shortens only the masculine `uno`, and only a final one (`veintiún`, not `veinticinco`).
+* **Czech:** Without `gender`, numbers use the counting forms (`jedna`, `dva`); pass `gender: :female` for the previous `dvě`.
 
 See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
 
@@ -205,7 +205,7 @@ I18n.with_locale(:cs) { 1984.to_words(ordinal: true, gender: :male) }
 # 1.1.0 => "tisící devítistý osmdesátý čtvrtý"
 ```
 
-#### Negative Numbers Are Read With a Minus Word
+#### Negative Numbers Are Read with a Minus Word
 
 Negative numbers used to lose their sign, or read as a garbled number in some languages. They now start with the language's word for minus, with no space after it in Chinese, Japanese and Thai. Ordinals of negative numbers raise `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`.
 

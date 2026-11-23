@@ -1,7 +1,10 @@
 plugins:
+  - rubocop-md
   - rubocop-performance
+  - rubocop-prose
   - rubocop-rake
   - rubocop-rspec
+  - rubocop-yaml
 
 AllCops:
   NewCops: enable
@@ -63,3 +66,50 @@ Style/AsciiComments:
 
 Style/Documentation:
   Enabled: false
+
+# rubocop-yaml 0.1.0 parses every inspected file as YAML; keep its cops to YAML files.
+YAML/Lint/InvalidSyntax:
+  Include:
+    - '**/*.yml'
+    - '**/*.yaml'
+
+YAML/Lint/DuplicateKey:
+  Include:
+    - '**/*.yml'
+    - '**/*.yaml'
+
+# Full sentences and title-case headings, see AGENTS.md.
+Prose/SentenceCapitalization:
+  Enabled: true
+  # Georgian has Mtavruli capitals in Unicode, but sentences don't start with them.
+  IgnoredWords:
+    - ქართული
+
+Markdown/HeadingCapitalization:
+  Enabled: true
+  # The gem name, version suffixes, and the README's French headings, which capitalize only their first word.
+  IgnoredWords:
+    - numbers_and_words
+    - alpha
+    - à
+    - jour
+    - requise
+    - supportées
+
+Markdown/ListItemCapitalization:
+  Enabled: true
+  Style: initial_capital
+
+Markdown/ListItemPunctuation:
+  Enabled: true
+  # Changelog entries end with their attribution links, \([@author](...)\), which the cop reads as unpunctuated.
+  Exclude:
+    - CHANGELOG.md
+
+Markdown/TableSpacing:
+  Style: compact
+
+# The license text is kept verbatim.
+Prose/MaxLength:
+  Exclude:
+    - LICENSE.txt

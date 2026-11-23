@@ -64,7 +64,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:'en-GB') { 21.77.to_words(micro_separator: "plus") }
+I18n.with_locale(:'en-GB') { 21.77.to_words(micro_separator: 'plus') }
 # => "twenty-one plus seven seven"
 ```
 
@@ -80,7 +80,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
 # => "zero and one tenth"
 ```
 
-### Hundreds With Union
+### Hundreds with Union
 
 The `hundreds_with_union: true` option adds "and" after a hundred (one hundred and one), and before a final part below one hundred after a scale word (one thousand and one, two million and thirty). It becomes the default for British English in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 

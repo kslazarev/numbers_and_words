@@ -2,11 +2,7 @@
 
 # numbers_and_words
 
-[![Gem Version](https://badge.fury.io/rb/numbers_and_words.svg)](https://badge.fury.io/rb/numbers_and_words)
-[![Test](https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml)
-[![Lint](https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml)
-[![Package](https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml)
-[![Coverage Status](https://coveralls.io/repos/github/kslazarev/numbers_and_words/badge.svg?branch=master)](https://coveralls.io/github/kslazarev/numbers_and_words?branch=master)
+[![Gem Version](https://badge.fury.io/rb/numbers_and_words.svg)](https://badge.fury.io/rb/numbers_and_words) [![Test](https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/test.yml) [![Lint](https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/lint.yml) [![Package](https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml/badge.svg?branch=master)](https://github.com/kslazarev/numbers_and_words/actions/workflows/package.yml) [![Coverage Status](https://coveralls.io/repos/github/kslazarev/numbers_and_words/badge.svg?branch=master)](https://coveralls.io/github/kslazarev/numbers_and_words?branch=master)
 
 Spell out numbers in several languages using the I18n gem.
 
@@ -24,7 +20,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
 ## Installation / Установка / Installation
 
-```
+```sh
 gem install numbers_and_words
 ```
 
@@ -84,7 +80,7 @@ I18n.with_locale(:fr) { -1.5.to_words }
 
 The `to_words` command spells each argument, or each number on standard input, one per line.
 
-```
+```sh
 $ to_words 42 1.5
 forty-two
 one and five tenths
@@ -101,7 +97,7 @@ veintiuna
 
 Choose the language with `-l`/`--locale` (default `en`). Every option has a flag, such as `--ordinal` (and `--no-ordinal`), `--gender VALUE` or `--precision N`. The `to_words --help` command lists the flags and the languages that support each. Errors go to standard error, with exit status 1.
 
-## Supported Languages / Языки / Langues Supportées
+## Supported Languages / Языки / Langues supportées
 
 Each language page has examples, says whether it reads decimals, and documents its options. [Features](docs/features.md) compares the languages.
 
@@ -197,7 +193,7 @@ I18n.with_locale(:es) { 0.2.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts of a float.
 
 ```ruby
-I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
+I18n.with_locale(:en) { 21.77.to_words(micro_separator: 'plus') }
 # => "twenty-one plus seventy-seven hundredths"
 ```
 
@@ -329,7 +325,7 @@ Every language accepts `precision`, `micro_separator`, `fallback`, `unit`, `subu
 
 Vietnamese has no grammatical gender, so `21.to_words(gender: :female)` in `vi` returns "hai mươi mốt" and warns once:
 
-```
+```text
 numbers_and_words: The option :gender is not supported in :vi; supported: :micro_separator, :ordinal, :precision, :remove_zero, :subunit, :unit, :zero_subunit. It is ignored; set NumbersAndWords.config.strict_options = true to raise, the default in 2.0.
 ```
 
@@ -343,14 +339,14 @@ All bundled locales load by default. To load only some, configure the gem after 
 
 ```ruby
 NumbersAndWords.configure do |config|
-  config.locales = [:en, :ru]
+  config.locales = %i[en ru]
 end
 ```
 
 Or set it directly:
 
 ```ruby
-NumbersAndWords.config.locales = [:en, :ru]
+NumbersAndWords.config.locales = %i[en ru]
 ```
 
 Regional locales such as `"en-US"` become their bundled locale. Setting `nil` restores all bundled locales and `[]` loads none. An unsupported locale raises `ArgumentError` and changes nothing. An assignment takes effect at once. A `configure` block takes effect when it completes, and not at all if it raises.
@@ -371,7 +367,7 @@ Configuration only changes this gem's locale files in `I18n.load_path` and its p
 
 Require the gem before looking up translations, as Rails does, and configure it during initialization. Configuring reloads the I18n backend, as assigning `I18n.load_path` does, so store runtime-only translations afterwards. Configuring again doesn't duplicate load paths. The gem never changes `I18n.locale` or `I18n.default_locale`, so don't disable their locales.
 
-## Requirements / Требования / Configuration Requise
+## Requirements / Требования / Configuration requise
 
 * The gem requires Ruby 3.1 or later, including JRuby.
 * The gem requires I18n and is tested with 1.6 and later.

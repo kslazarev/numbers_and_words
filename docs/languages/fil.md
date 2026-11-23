@@ -62,7 +62,7 @@ I18n.with_locale(:fil) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:fil) { 21.77.to_words(micro_separator: "punto") }
+I18n.with_locale(:fil) { 21.77.to_words(micro_separator: 'punto') }
 # => "dalawampu’t isa punto pito pito"
 ```
 

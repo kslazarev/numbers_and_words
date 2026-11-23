@@ -61,7 +61,7 @@ I18n.with_locale(:cy) { 1.5.to_words(precision: 3) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:cy) { 21.77.to_words(micro_separator: "coma") }
+I18n.with_locale(:cy) { 21.77.to_words(micro_separator: 'coma') }
 # => "dau ddeg un coma saith saith"
 ```
 

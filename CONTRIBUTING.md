@@ -6,21 +6,21 @@ You're encouraged to submit [pull requests](https://github.com/kslazarev/numbers
 
 In the examples below, replace `contributor` in URLs with your GitHub username.
 
-### Fork the Project
+## Fork the Project
 
 Fork the [project on GitHub](https://github.com/kslazarev/numbers_and_words) and check out your copy.
 
-```
+```sh
 git clone https://github.com/contributor/numbers_and_words.git
 cd numbers_and_words
 git remote add upstream https://github.com/kslazarev/numbers_and_words.git
 ```
 
-### Bundle Install and Test
+## Bundle Install and Test
 
 Make sure you can build the project and run the tests.
 
-```
+```sh
 bundle install
 bundle exec rake
 ```
@@ -37,7 +37,7 @@ See [BENCHMARKS](BENCHMARKS.md) for performance measurements and [RELEASING](REL
 
 Make sure your fork is up-to-date and create a topic branch for your feature or bug fix.
 
-```
+```sh
 git checkout master
 git pull upstream master
 git checkout -b my-feature-branch
@@ -87,21 +87,21 @@ Add a line to the *(Next)* section of the [CHANGELOG](CHANGELOG.md), formatted l
 
 Make sure git knows your name and email address:
 
-```
+```sh
 git config --global user.name "Your Name"
 git config --global user.email "contributor@example.com"
 ```
 
 Write a commit message that describes what changed and why.
 
-```
+```sh
 git add ...
 git commit
 ```
 
 ### Push
 
-```
+```sh
 git push origin my-feature-branch
 ```
 
@@ -113,7 +113,7 @@ Go to https://github.com/contributor/numbers_and_words and select your feature b
 
 Update the [CHANGELOG](CHANGELOG.md) with the pull request number, then amend your previous commit and force push.
 
-```
+```sh
 git commit --amend
 git push origin my-feature-branch -f
 ```
@@ -122,7 +122,7 @@ git push origin my-feature-branch -f
 
 If you've been working on a change for a while, rebase with upstream/master.
 
-```
+```sh
 git fetch upstream
 git rebase upstream/master
 git push origin my-feature-branch -f

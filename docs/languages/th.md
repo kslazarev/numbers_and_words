@@ -66,7 +66,7 @@ I18n.with_locale(:th) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:th) { 21.77.to_words(micro_separator: "plus") }
+I18n.with_locale(:th) { 21.77.to_words(micro_separator: 'plus') }
 # => "ยี่สิบเอ็ดplusเจ็ดเจ็ด"
 ```
 

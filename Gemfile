@@ -24,6 +24,12 @@ group :test do
   gem 'rubocop-performance', '1.27.0', require: false
   gem 'rubocop-rake', '0.7.1', require: false
   gem 'rubocop-rspec', '3.10.2', require: false
+  # Markdown, prose and YAML lint; rubocop-prose and rubocop-yaml need Ruby 3.2, and Lint runs on the latest Ruby.
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.2')
+    gem 'rubocop-md', '3.0.0', require: false
+    gem 'rubocop-prose', '0.2.0', require: false
+    gem 'rubocop-yaml', '0.1.0', require: false
+  end
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
   # Unicode CLDR spell-out rules for spec/cldr_comparison_spec.rb, pinned because new CLDR data changes the reviewed

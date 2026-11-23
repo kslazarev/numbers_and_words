@@ -29,7 +29,7 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
         expect(project.remote_file('v1.2.3', 'CHANGELOG.md')).to match(%r{## 1\.2\.3 \(\d{4}/\d{2}/\d{2}\)})
         expect(project.remote_file('master', 'lib/numbers_and_words/version.rb')).to include("VERSION = '1.2.4'")
         notes = project.remote_file('master', 'CHANGELOG.md')
-        expect(notes).to include('## 1.2.4 (Next)', "### Features\n\n  * Your contribution here.", "### Bugs\n\n  * Your contribution here.")
+        expect(notes).to include('## 1.2.4 (Next)', "### Features\n\n* Your contribution here.", "### Bugs\n\n* Your contribution here.")
 
         directory = project.environment.fetch('RELEASE_DATA_DIR')
         archive = File.join(directory, 'release.gem')
@@ -56,16 +56,19 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
           ## 1.0.4 (Next)
 
           ### Features
-            * Add a feature.
-            * Your contribution here.
+
+          * Add a feature.
+          * Your contribution here.
 
           ### Bugs
-            * Your contribution here.
+
+          * Your contribution here.
 
           ## 1.0.3 (Dec 23, 2025)
 
           ### Features
-            * Earlier feature.
+
+          * Earlier feature.
         MARKDOWN
         project.configure_workflow(require: 'tasks/release', builder: 'NumbersAndWordsRelease.workflow')
         project.commit!
@@ -74,10 +77,10 @@ if RUBY_ENGINE == 'ruby' && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('
 
         released = project.remote_file('v1.2.3', 'CHANGELOG.md')
         section = released[/^## 1\.2\.3 .*?(?=^## 1\.0\.3)/m]
-        expect(section).to include("### Features\n  * Add a feature.")
+        expect(section).to include("### Features\n\n* Add a feature.")
         expect(section).not_to include('### Bugs', 'Your contribution here.')
         notes = project.remote_file('master', 'CHANGELOG.md')
-        expect(notes).to include("## 1.2.4 (Next)\n\n### Features\n\n  * Your contribution here.\n\n### Bugs\n\n  * Your contribution here.")
+        expect(notes).to include("## 1.2.4 (Next)\n\n### Features\n\n* Your contribution here.\n\n### Bugs\n\n* Your contribution here.")
       end
     end
   end

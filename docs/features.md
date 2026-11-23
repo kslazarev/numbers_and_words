@@ -8,7 +8,6 @@ This page lists what each bundled language supports. The `bundle exec ruby scrip
 * **Largest number**: Numbers from this power of ten raise `RangeError`.
 * **Other options**: The column lists the language's own options.
 
-
 | Language | Decimals | Gender | Case | Ordinals | Largest number | Other options |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`af`](languages/af.md) | yes | — | — | all | 10<sup>36</sup> | — |

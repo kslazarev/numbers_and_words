@@ -66,7 +66,7 @@ I18n.with_locale(:eo) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:eo) { 21.77.to_words(micro_separator: "punkto") }
+I18n.with_locale(:eo) { 21.77.to_words(micro_separator: 'punkto') }
 # => "dudek unu punkto sep sep"
 ```
 
