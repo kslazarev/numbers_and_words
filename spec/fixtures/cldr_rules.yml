@@ -415,6 +415,10 @@ kk:
     prefix: 'бір '
     before: [миллион, миллиард]
     affects: 2
+lo:
+  - reason: CLDR's Lao rules write zero, the places from a hundred (ร้อย, พัน, หมื่น, แสน, ล้าน) and the ordinal prefix ที่ in Thai, as do its minus (ลบ) and decimal point (จุด); the gem writes them in Lao (ສູນ, ຮ້ອຍ, ພັນ, ໝື່ນ, ແສນ, ລ້ານ, ທີ)
+    replace_parts: { ศูนย์: ສູນ, ร้อย: ຮ້ອຍ, พัน: ພັນ, หมื่น: ໝື່ນ, แสน: ແສນ, ล้าน: ລ້ານ, ที่: ທີ }
+    affects: 137
 lt:
   - reason: CLDR uses the genitive plural milijonų after every number; Lithuanian uses milijonai after 2-9 and milijonas after a final 1
     replace: { du milijonų: du milijonai, vienas milijonų: vienas milijonas, trys milijonų: trys milijonai }
@@ -455,6 +459,13 @@ mt:
   - reason: CLDR uses the form before a noun for the ones of a compound count (tliet u għoxrin elf); the gem uses the independent form, as in tlieta u għoxrin sena
     replace: { tliet u: tlieta u }
     affects: 1
+my:
+  - reason: CLDR spells seven ခုနှစ်, the gem ခုနစ်, the spelling of the Myanmar Language Commission dictionary; both are in use
+    replace_parts: { ခုနှစ်: ခုနစ် }
+    affects: 39
+  - reason: CLDR keeps the low tone of ten (ဆယ်) before units from 21 on (နှစ်ဆယ်တစ်) but uses the creaky tone in 11-19 (ဆယ့်တစ်); the gem uses the creaky tone ဆယ့် whenever a number follows ten (နှစ်ဆယ့်တစ်), as for ရာ့ and ထောင့်
+    replace_parts: { ဆယ်တစ်: ဆယ့်တစ်, ဆယ်နှစ်: ဆယ့်နှစ်, ဆယ်သုံး: ဆယ့်သုံး, ဆယ်လေး: ဆယ့်လေး, ဆယ်ငါး: ဆယ့်ငါး, ဆယ်ခြောက်: ဆယ့်ခြောက်, ဆယ်ခုနစ်: ဆယ့်ခုနစ်, ဆယ်ရှစ်: ဆယ့်ရှစ်, ဆယ်ကိုး: ဆယ့်ကိုး }
+    affects: 150
 nl:
   - reason: Dutch spelling puts a space after duizend and around miljoen (duizend honderd); CLDR joins them
     replace_parts: { duizendeen: duizend een, duizendhonderd: duizend honderd, duizendeerste: duizend eerste, duizendvier: duizend vier, duizendzeven: duizend zeven }

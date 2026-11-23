@@ -148,8 +148,10 @@ module CldrComparison
     ja: { cldr: :ja, kinds: CARDINAL.merge(ORDINAL) },
     ka: { cldr: :ka, kinds: CARDINAL },
     kk: { cldr: :kk, kinds: CARDINAL.merge(ORDINAL) },
+    km: { cldr: :km, kinds: CARDINAL.merge(ORDINAL) },
     # CLDR Korean ordinals are native (첫째, 첫 번째); the gem's Sino-Korean 제일 has no CLDR rule set.
     ko: { cldr: :ko, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-sinokorean') } },
+    lo: { cldr: :lo, kinds: CARDINAL.merge(ORDINAL) },
     lt: { cldr: :lt, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') } },
     lv: { cldr: :lv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') } },
     # CLDR has no Macedonian ordinals.
@@ -159,6 +161,7 @@ module CldrComparison
     # and -feminine are the forms before a noun (żewġ, tliet, mitt), which the gem doesn't spell, and CLDR has no
     # Maltese ordinals. twitter_cldr 6.14.0 raises on CLDR Maltese numbers from 11 million up to a billion.
     mt: { cldr: :mt, kinds: { 'cardinal' => compare({}, 'spellout-numbering', NUMBERS - [21_000_000, 123_456_789]) } },
+    my: { cldr: :my, kinds: CARDINAL.merge(ORDINAL) },
     nl: { cldr: :nl, kinds: CARDINAL.merge(ORDINAL) },
     pl: {
       cldr: :pl,

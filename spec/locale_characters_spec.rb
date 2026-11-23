@@ -13,6 +13,9 @@ describe LocaleCharacters do
       %w[Armenian աa],
       %w[Georgian აa],
       %w[Hangul 일a],
+      %w[Lao ສູນศ],
+      %w[Khmer សូន្យa],
+      %w[Myanmar သုညa],
       [%w[Han Hiragana], 'いちイチ']
     ].each do |script, word|
       it "rejects wrong-script letters in #{word.dump} for #{script}" do

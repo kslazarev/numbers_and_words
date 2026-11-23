@@ -1,0 +1,45 @@
+my:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: အနုတ်
+    ones: [သုည, တစ်, နှစ်, သုံး, လေး, ငါး, ခြောက်, ခုနစ်, ရှစ်, ကိုး]
+    # Ten, a hundred and a thousand take the creaky tone (ဆယ့်, ရာ့, ထောင့်) when another number follows.
+    ten: ဆယ်
+    ten_before: ဆယ့်
+    hundred: ရာ
+    hundred_before: ရာ့
+    thousand: ထောင်
+    thousand_before: ထောင့်
+    ten_thousand: သောင်း
+    hundred_thousand: သိန်း
+    million: သန်း
+    ten_million: ကုဋေ
+    hundred_trillion: ကောဋိ
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A number is one word with places up to ကုဋေ (10**7), which counts up to ten million of itself
+    # ("တစ်ရာကုဋေ", 10**9), and ကောဋိ (10**14), which counts any number of itself, without a limit. Ten is ဆယ်,
+    # without တစ်. Numbers are written without spaces between words.
+    word_separator: ''
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '[{ten_before}{>}|{ten}]'
+        20: '{ones}[{ten_before}{>}|{ten}]'
+        100: '{ones}[{hundred_before}{>}|{hundred}]'
+        1000: '{ones}[{thousand_before}{>}|{thousand}]'
+        10000: '{ones}{ten_thousand}[{>}]'
+        100000: '{ones}{hundred_thousand}[{>}]'
+        1000000: '{ones}{million}[{>}]'
+        10000000: '{<}{ten_million}[{>}]'
+        100000000000000: '{<}{hundred_trillion}[{>}]'
+      # First to tenth are the Pali ordinals; CLDR spells larger ordinals as cardinals.
+      ordinal:
+        0: '{=cardinal}'
+        1: '{pali_ordinals}'
+        11: '{=cardinal}'
+    pali_ordinals: [_, ပထမ, ဒုတိယ, တတိယ, စတုတ္ထ, ပဉ္စမ, ဆဋ္ဌမ, သတ္တမ, အဋ္ဌမ, နဝမ, ဒသမ]
+    micro_separator: ဒသမ

@@ -1,0 +1,32 @@
+km:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: ដក
+    ones: [សូន្យ, មួយ, ពីរ, បី, បួន, ប្រាំ, ប្រាំមួយ, ប្រាំពីរ, ប្រាំបី, ប្រាំបួន]
+    tens: [_, ដប់, ម្ភៃ, សាមសិប, សែសិប, ហាសិប, ហុកសិប, ចិតសិប, ប៉ែតសិប, កៅសិប]
+    hundred: រយ
+    thousand: ពាន់
+    ten_thousand: ម៉ឺន
+    hundred_thousand: សែន
+    million: លាន
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A number is one word, grouped by millions with one លាន for each power of a million ("មួយលានលាន"), without a
+    # limit. Numbers are written without spaces between words.
+    word_separator: ''
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[{>}]'
+        100: '{ones}{hundred}[{>}]'
+        1000: '{ones}{thousand}[{>}]'
+        10000: '{ones}{ten_thousand}[{>}]'
+        100000: '{ones}{hundred_thousand}[{>}]'
+        '1000000*1000000': '{<cardinal}{million*6}[{>}]'
+      ordinal:
+        0: '{ordinal_prefix}{=cardinal}'
+    ordinal_prefix: ទី
+    micro_separator: ចុច

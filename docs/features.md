@@ -42,12 +42,15 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ja`](languages/ja.md) | yes | — | — | all | 10<sup>52</sup> | `script` |
 | [`ka`](languages/ka.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`kk`](languages/kk.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`km`](languages/km.md) | yes | — | — | all | unlimited | — |
 | [`ko`](languages/ko.md) | yes | — | — | all | 10<sup>52</sup> | — |
+| [`lo`](languages/lo.md) | yes | — | — | all | unlimited | — |
 | [`lt`](languages/lt.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`lv`](languages/lv.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`mk`](languages/mk.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`mt`](languages/mt.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
+| [`my`](languages/my.md) | yes | — | — | all | unlimited | — |
 | [`nb`](languages/nb.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`nl`](languages/nl.md) | yes | — | — | all | 10<sup>36</sup> | `pronounced`, `tens_of_hundreds` |
 | [`pl`](languages/pl.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, locative | all | 10<sup>48</sup> | — |
