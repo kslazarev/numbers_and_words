@@ -41,6 +41,13 @@ el:
         1000000: '{<cardinal-neuter} {millions}[ {>}]'
         1000000000: '{<cardinal-neuter} {billions}[ {>}]'
         1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-neuter} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-neuter} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal-neuter} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-neuter} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-neuter} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-neuter} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-neuter} {decillions}[ {>}]'
       cardinal-male:
         0: '{ones.male}'
         10: '{teens.male%}'
@@ -52,6 +59,13 @@ el:
         1000000: '{<cardinal-neuter} {millions}[ {>}]'
         1000000000: '{<cardinal-neuter} {billions}[ {>}]'
         1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-neuter} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-neuter} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal-neuter} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-neuter} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-neuter} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-neuter} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-neuter} {decillions}[ {>}]'
       cardinal-female:
         0: '{ones.female}'
         10: '{teens.female%}'
@@ -63,6 +77,13 @@ el:
         1000000: '{<cardinal-neuter} {millions}[ {>}]'
         1000000000: '{<cardinal-neuter} {billions}[ {>}]'
         1000000000000: '{<cardinal-neuter} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-neuter} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-neuter} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal-neuter} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-neuter} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-neuter} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-neuter} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-neuter} {decillions}[ {>}]'
       # Ordinals stop below 10,000, and every part is ordinal ("εκατοστός εικοστός πρώτος").
       ordinal:
         0: '{ones.neuter}'
@@ -72,11 +93,18 @@ el:
         20: '{ordinals.tens}[ {>}]'
         100: '{ordinals.hundreds}[ {>}]'
         1000: '{ordinals.thousands}[ {>}]'
-    mega: [_, thousands, millions, billions, trillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: χιλιάδα, other: χιλιάδες}
     millions: {one: εκατομμύριο, other: εκατομμύρια}
     billions: {one: δισεκατομμύριο, other: δισεκατομμύρια}
     trillions: {one: τρισεκατομμύριο, other: τρισεκατομμύρια}
+    quadrillions: {one: τετράκις εκατομμύριο, other: τετράκις εκατομμύρια}
+    quintillions: {one: πεντάκις εκατομμύριο, other: πεντάκις εκατομμύρια}
+    sextillions: {one: εξάκις εκατομμύριο, other: εξάκις εκατομμύρια}
+    septillions: {one: επτάκις εκατομμύριο, other: επτάκις εκατομμύρια}
+    octillions: {one: οκτάκις εκατομμύριο, other: οκτάκις εκατομμύρια}
+    nonillions: {one: εννεάκις εκατομμύριο, other: εννεάκις εκατομμύρια}
+    decillions: {one: δεκάκις εκατομμύριο, other: δεκάκις εκατομμύρια}
     ordinals:
       ones: [_, πρώτος, δεύτερος, τρίτος, τέταρτος, πέμπτος, έκτος, έβδομος, όγδοος, ένατος]
       teens: [δέκατος, ενδέκατος, δωδέκατος]

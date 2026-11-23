@@ -1,6 +1,6 @@
 # Armenian (`hy`)
 
-Հայերեն. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
+Հայերեն. Scale words follow the short scale used in Armenia, from միլիարդ (10<sup>9</sup>) through տրիլիոն, կվադրիլիոն, կվինտիլիոն, սեքստիլիոն, սեպտիլիոն, օկտիլիոն, նոնիլիոն and դեցիլիոն (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -96,4 +96,5 @@ I18n.with_locale(:hy) { 0.7.to_words(remove_zero: true) }
 
 - [Omniglot: Armenian Numbers](https://www.omniglot.com/language/numbers/armenian.htm): Cardinal and ordinal forms, including final-vowel changes.
 - [Wiktionary: Quadrillion](https://en.wiktionary.org/wiki/հազար_երկիլիոն): կվադրիլիոն and its ordinal կվադրիլիոներորդ.
+- [Armenian Wikipedia: Number Naming Systems](https://hy.wikipedia.org/wiki/Թվերի_անվանման_համակարգեր): Short-scale names of large numbers, from կվինտիլիոն to դեցիլիոն.
 - [Unicode CLDR: Armenian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/hy.xml): The spell-out rules ICU uses to write numbers in words.

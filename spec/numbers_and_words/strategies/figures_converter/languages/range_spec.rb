@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Indonesian, Malay, Romanian and Greek limits' do # rubocop:disable RSpec/DescribeClass -- covers four languages
-  { id: 15, ms: 15, ro: 18, el: 15 }.each do |locale, power|
+  { id: 36, ms: 36, ro: 36, el: 36 }.each do |locale, power|
     it "raises for #{locale} numbers from 10**#{power}" do
       I18n.with_locale(locale) do
         expect(((10**power) - 1).to_words).not_to be_empty

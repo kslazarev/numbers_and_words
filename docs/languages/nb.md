@@ -2,7 +2,7 @@
 
 Norsk bokmål. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the modern counting system (tjueen, not en og tjue) and sju and tretti, not syv and tredve. "og" joins tens and ones to hundreds (hundre og en) and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no "ett" (hundre, tusen); after a larger part it is "ett hundre" or "ett tusen". Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
+Numbers use the modern counting system (tjueen, not en og tjue) and sju and tretti, not syv and tredve. "og" joins tens and ones to hundreds (hundre og en) and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no "ett" (hundre, tusen); after a larger part it is "ett hundre" or "ett tusen". Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
 
 ## Examples
 
@@ -110,4 +110,5 @@ I18n.with_locale(:nb) { 0.7.to_words(remove_zero: true) }
 
 - [Språkrådet: Numbers, Time and Dates](https://sprakradet.no/godt-og-korrekt-sprak/rettskriving-og-grammatikk/tall-tid-dato/): Norwegian numeral conventions.
 - [Bokmålsordboka: tjueen](https://ordbokene.no/nob/bm/tjueen): Compound cardinal spelling.
+- [Store norske leksikon: Tabell over store tall](https://snl.no/tabell_over_store_tall): Scale names such as trilliard (10<sup>21</sup>), kvadrillion and kvintillion.
 - [Unicode CLDR: Norwegian Bokmål Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/nb.xml): The spell-out rules ICU uses to write numbers in words.

@@ -2,7 +2,7 @@
 
 עברית. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the feminine counting form by default (אחת, שתיים, שלוש); see [Gender](#gender). Multipliers of אלף, מיליון and larger are masculine (עשרים ואחד אלף), and 2,000 to 10,000 have their own forms (אלפיים, שלושת אלפים, עשרת אלפים). The conjunction ו joins the last part of each group (עשרים ואחת), and a single last part to the rest of the number (אלף ואחת). Numbers up to 999,999,999,999,999 are supported; larger numbers raise `RangeError`.
+Numbers use the feminine counting form by default (אחת, שתיים, שלוש); see [Gender](#gender). Multipliers of אלף, מיליון and larger are masculine (עשרים ואחד אלף), and 2,000 to 10,000 have their own forms (אלפיים, שלושת אלפים, עשרת אלפים). The conjunction ו joins the last part of each group (עשרים ואחת), and a single last part to the rest of the number (אלף ואחת). Scale words follow the short scale used in Israel, with מיליארד for 10<sup>9</sup> and טריליון for 10<sup>12</sup>, up to דסיליון (10<sup>33</sup>); numbers up to 10<sup>36</sup> - 1 are supported, and larger numbers raise `RangeError`.
 
 Hebrew is written right to left. `to_words` returns the words in logical (reading) order without bidirectional control characters, so they display correctly wherever right-to-left text is supported, such as an HTML element with `dir="rtl"` or `dir="auto"`. Inside left-to-right text, isolate them, for example with `<bdi>` in HTML. A terminal without bidirectional support shows the letters reversed.
 
@@ -132,4 +132,6 @@ I18n.with_locale(:he) { 12.02.to_words(unit: :shekel, subunit: :agora) }
 ## Sources
 
 - [Academy of the Hebrew Language: Use of Numerals](https://hebrew-academy.org.il/topic/hahlatot/grammardecisions/terminology-ordinance/4-3-%D7%94%D7%A9%D7%99%D7%9E%D7%95%D7%A9-%D7%91%D7%A9%D7%9D-%D7%94%D7%9E%D7%A1%D7%A4%D7%A8/): Gender, construct forms and definiteness in numeral phrases.
+- [Academy of the Hebrew Language: טריליון](https://terms.hebrew-academy.org.il/munnah/48993_2): The Academy's general terms (2013) give טריליון for 10<sup>12</sup>; its 1985 mathematics dictionary had ביליון, which Unicode CLDR still uses.
+- [Hebrew Wikipedia: Number Names](https://he.wikipedia.org/wiki/שמות_מספרים): Israel uses the short scale with מיליארד for 10<sup>9</sup>, and the spellings of the larger scale words.
 - [Unicode CLDR: Hebrew Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/he.xml): The spell-out rules ICU uses to write numbers in words.

@@ -39,6 +39,8 @@ cs:
         1000000000000000000000: '{<cardinal-female} {sextillions}[ {>}]'
         1000000000000000000000000: '{<cardinal-male} {septillions}[ {>}]'
         1000000000000000000000000000: '{<cardinal-female} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-female} {decillions}[ {>}]'
       cardinal-female:
         extends: cardinal-male
         0: '{ones.female}'
@@ -61,7 +63,7 @@ cs:
         20: '{ordinals.tens}[ {>}]'
         100: '{ordinals.hundreds}[ {>}]'
         1000: '{ordinals.thousands}[ {>}]'
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tisíc
       few: tisíce
@@ -98,6 +100,14 @@ cs:
       one: kvadriliarda
       few: kvadriliardy
       many: kvadriliard
+    nonillions:
+      one: kvintilion
+      few: kvintiliony
+      many: kvintilionů
+    decillions:
+      one: kvintiliarda
+      few: kvintiliardy
+      many: kvintiliard
     ordinals:
       ones: [nultý, první, druhý, třetí, čtvrtý, pátý, šestý, sedmý, osmý, devátý]
       teens: [_, jedenáctý, dvanáctý, třináctý, čtrnáctý, patnáctý, šestnáctý, sedmnáctý, osmnáctý, devatenáctý]

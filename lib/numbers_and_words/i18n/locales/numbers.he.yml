@@ -34,6 +34,27 @@ he:
         1000000000000: '{trillions}[{>after-female}]'
         2000000000000: '{two} {trillions}[{>after-female}]'
         '3000000000000/1000000000000': '{<cardinal-male} {trillions}[{>after-female}]'
+        1000000000000000: '{quadrillions}[{>after-female}]'
+        2000000000000000: '{two} {quadrillions}[{>after-female}]'
+        '3000000000000000/1000000000000000': '{<cardinal-male} {quadrillions}[{>after-female}]'
+        1000000000000000000: '{quintillions}[{>after-female}]'
+        2000000000000000000: '{two} {quintillions}[{>after-female}]'
+        '3000000000000000000/1000000000000000000': '{<cardinal-male} {quintillions}[{>after-female}]'
+        1000000000000000000000: '{sextillions}[{>after-female}]'
+        2000000000000000000000: '{two} {sextillions}[{>after-female}]'
+        '3000000000000000000000/1000000000000000000000': '{<cardinal-male} {sextillions}[{>after-female}]'
+        1000000000000000000000000: '{septillions}[{>after-female}]'
+        2000000000000000000000000: '{two} {septillions}[{>after-female}]'
+        '3000000000000000000000000/1000000000000000000000000': '{<cardinal-male} {septillions}[{>after-female}]'
+        1000000000000000000000000000: '{octillions}[{>after-female}]'
+        2000000000000000000000000000: '{two} {octillions}[{>after-female}]'
+        '3000000000000000000000000000/1000000000000000000000000000': '{<cardinal-male} {octillions}[{>after-female}]'
+        1000000000000000000000000000000: '{nonillions}[{>after-female}]'
+        2000000000000000000000000000000: '{two} {nonillions}[{>after-female}]'
+        '3000000000000000000000000000000/1000000000000000000000000000000': '{<cardinal-male} {nonillions}[{>after-female}]'
+        1000000000000000000000000000000000: '{decillions}[{>after-female}]'
+        2000000000000000000000000000000000: '{two} {decillions}[{>after-female}]'
+        '3000000000000000000000000000000000/1000000000000000000000000000000000': '{<cardinal-male} {decillions}[{>after-female}]'
       and-female:
         then: cardinal-female
         1: ' {union}{=}'
@@ -58,6 +79,27 @@ he:
         1000000000000: '{trillions}[{>after-male}]'
         2000000000000: '{two} {trillions}[{>after-male}]'
         '3000000000000/1000000000000': '{<cardinal-male} {trillions}[{>after-male}]'
+        1000000000000000: '{quadrillions}[{>after-male}]'
+        2000000000000000: '{two} {quadrillions}[{>after-male}]'
+        '3000000000000000/1000000000000000': '{<cardinal-male} {quadrillions}[{>after-male}]'
+        1000000000000000000: '{quintillions}[{>after-male}]'
+        2000000000000000000: '{two} {quintillions}[{>after-male}]'
+        '3000000000000000000/1000000000000000000': '{<cardinal-male} {quintillions}[{>after-male}]'
+        1000000000000000000000: '{sextillions}[{>after-male}]'
+        2000000000000000000000: '{two} {sextillions}[{>after-male}]'
+        '3000000000000000000000/1000000000000000000000': '{<cardinal-male} {sextillions}[{>after-male}]'
+        1000000000000000000000000: '{septillions}[{>after-male}]'
+        2000000000000000000000000: '{two} {septillions}[{>after-male}]'
+        '3000000000000000000000000/1000000000000000000000000': '{<cardinal-male} {septillions}[{>after-male}]'
+        1000000000000000000000000000: '{octillions}[{>after-male}]'
+        2000000000000000000000000000: '{two} {octillions}[{>after-male}]'
+        '3000000000000000000000000000/1000000000000000000000000000': '{<cardinal-male} {octillions}[{>after-male}]'
+        1000000000000000000000000000000: '{nonillions}[{>after-male}]'
+        2000000000000000000000000000000: '{two} {nonillions}[{>after-male}]'
+        '3000000000000000000000000000000/1000000000000000000000000000000': '{<cardinal-male} {nonillions}[{>after-male}]'
+        1000000000000000000000000000000000: '{decillions}[{>after-male}]'
+        2000000000000000000000000000000000: '{two} {decillions}[{>after-male}]'
+        '3000000000000000000000000000000000/1000000000000000000000000000000000': '{<cardinal-male} {decillions}[{>after-male}]'
       and-male:
         then: cardinal-male
         1: ' {union}{=}'
@@ -69,11 +111,18 @@ he:
       # One to ten have ordinals of their own; larger ordinals take the definite article (see Languages::He).
       ordinal:
         1: '{ordinals.ones}'
-    mega: [_, thousand, millions, billions, trillions]
+    mega: [_, thousand, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousand: אלף
     millions: מיליון
     billions: מיליארד
     trillions: טריליון
+    quadrillions: קוודריליון
+    quintillions: קווינטיליון
+    sextillions: סקסטיליון
+    septillions: ספטיליון
+    octillions: אוקטיליון
+    nonillions: נוניליון
+    decillions: דסיליון
     two: שני
     union: ו
     definite: ה

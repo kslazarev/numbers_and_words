@@ -34,6 +34,11 @@ nb:
         1000000000000: '{<group-first} {trillions}[{>}]'
         1000000000000000: '{<group-first} {quadrillions}[{>}]'
         1000000000000000000: '{<group-first} {quintillions}[{>}]'
+        1000000000000000000000: '{<group-first} {sextillions}[{>}]'
+        1000000000000000000000000: '{<group-first} {septillions}[{>}]'
+        1000000000000000000000000000: '{<group-first} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<group-first} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<group-first} {decillions}[{>}]'
       inner:
         extends: cardinal
         100: '{<hundreds-inner} {hundred}[ {union} {>cardinal}]'
@@ -43,6 +48,11 @@ nb:
         1000000000000: '{<group-inner} {trillions}[{>}]'
         1000000000000000: '{<group-inner} {quadrillions}[{>}]'
         1000000000000000000: '{<group-inner} {quintillions}[{>}]'
+        1000000000000000000000: '{<group-inner} {sextillions}[{>}]'
+        1000000000000000000000000: '{<group-inner} {septillions}[{>}]'
+        1000000000000000000000000000: '{<group-inner} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<group-inner} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<group-inner} {decillions}[{>}]'
       after:
         then: inner
         1: ' {union} {=}'
@@ -92,6 +102,11 @@ nb:
         1000000000000: '[{<group-first} {trillions}{>ordinal-after}|{<ordinal-count} {ordinals.trillions}]'
         1000000000000000: '[{<group-first} {quadrillions}{>ordinal-after}|{<ordinal-count} {ordinals.quadrillions}]'
         1000000000000000000: '[{<group-first} {quintillions}{>ordinal-after}|{<ordinal-count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<group-first} {sextillions}{>ordinal-after}|{<ordinal-count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<group-first} {septillions}{>ordinal-after}|{<ordinal-count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<group-first} {octillions}{>ordinal-after}|{<ordinal-count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<group-first} {nonillions}{>ordinal-after}|{<ordinal-count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<group-first} {decillions}{>ordinal-after}|{<ordinal-count} {ordinals.decillions}]'
       ordinal-inner:
         extends: ordinal
         100: '{<hundreds-inner} [{hundred} {union} {>ordinal}|{ordinals.hundred}]'
@@ -101,6 +116,11 @@ nb:
         1000000000000: '{<group-inner} [{trillions}{>ordinal-after}|{ordinals.trillions}]'
         1000000000000000: '{<group-inner} [{quadrillions}{>ordinal-after}|{ordinals.quadrillions}]'
         1000000000000000000: '{<group-inner} [{quintillions}{>ordinal-after}|{ordinals.quintillions}]'
+        1000000000000000000000: '{<group-inner} [{sextillions}{>ordinal-after}|{ordinals.sextillions}]'
+        1000000000000000000000000: '{<group-inner} [{septillions}{>ordinal-after}|{ordinals.septillions}]'
+        1000000000000000000000000000: '{<group-inner} [{octillions}{>ordinal-after}|{ordinals.octillions}]'
+        1000000000000000000000000000000: '{<group-inner} [{nonillions}{>ordinal-after}|{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '{<group-inner} [{decillions}{>ordinal-after}|{ordinals.decillions}]'
       ordinal-after:
         then: ordinal-inner
         1: ' {union} {=}'
@@ -109,13 +129,18 @@ nb:
         extends: group-first
         1: ''
         2: '{ones}'
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: tusen, other: tusen}
     millions: {one: million, other: millioner}
     billions: {one: milliard, other: milliarder}
     trillions: {one: billion, other: billioner}
     quadrillions: {one: billiard, other: billiarder}
     quintillions: {one: trillion, other: trillioner}
+    sextillions: {one: trilliard, other: trilliarder}
+    septillions: {one: kvadrillion, other: kvadrillioner}
+    octillions: {one: kvadrilliard, other: kvadrilliarder}
+    nonillions: {one: kvintillion, other: kvintillioner}
+    decillions: {one: kvintilliard, other: kvintilliarder}
     union: og
     micro_separator: komma
     ordinals:
@@ -129,6 +154,11 @@ nb:
       trillions: billionte
       quadrillions: billiardte
       quintillions: trillionte
+      sextillions: trilliardte
+      septillions: kvadrillionte
+      octillions: kvadrilliardte
+      nonillions: kvintillionte
+      decillions: kvintilliardte
     # The gender of a final one ("ei", "ett").
     genders:
       female:

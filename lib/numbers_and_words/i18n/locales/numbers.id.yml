@@ -29,16 +29,30 @@ id:
         1000000: '{<cardinal} {millions}[ {>}]'
         1000000000: '{<cardinal} {billions}[ {>}]'
         1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
       # An ordinal is ke- and the cardinal ("kedua puluh satu"), and "pertama" for one.
       ordinal:
         0: '{ones}'
         1: '{ordinals.first}'
         2: '{ordinals.prefix}{=cardinal}'
-    mega: [_, thousands, millions, billions, trillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: ribu
     millions: juta
     billions: miliar
     trillions: triliun
+    quadrillions: kuadriliun
+    quintillions: kuintiliun
+    sextillions: sekstiliun
+    septillions: septiliun
+    octillions: oktiliun
+    nonillions: noniliun
+    decillions: desiliun
     ordinals:
       first: pertama
       prefix: ke

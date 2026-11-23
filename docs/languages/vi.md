@@ -1,6 +1,6 @@
 # Vietnamese (`vi`)
 
-Tiếng Việt. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
+Tiếng Việt. Numbers from a billion on count tỷ, so larger scales compound it: nghìn tỷ (10<sup>12</sup>), triệu tỷ (10<sup>15</sup>), tỷ tỷ (10<sup>18</sup>), nghìn tỷ tỷ, triệu tỷ tỷ, tỷ tỷ tỷ (10<sup>27</sup>) and so on. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -97,4 +97,5 @@ I18n.with_locale(:vi) { 0.7.to_words(remove_zero: true) }
 - [Mathnasium: Decimal Numbers](https://mathnasium.edu.vn/uu-dai/so-thap-phan-lop-5-cach-doc-viet-so-sanh-va-bai-tap/): Numeric fractional readings and leading zeros.
 - [Navi: Decimal Numbers](https://navi.edu.vn/goc-kham-pha/toan/don-vi-kien-thuc/60057170384781568/so-thap-phan): Numeric and digit-by-digit reading conventions.
 - [VietJack: Decimal Place Values](https://vietjack.me/ly-thuyet-hang-cua-so-thap-phan-doc-viet-so-thap-phan-moi-2024-bai-tap-229422.html): Place-value-based decimal readings.
+- [Wikipedia: Vietnamese Numerals](https://en.wikipedia.org/wiki/Vietnamese_numerals): Large numbers compounded from tỷ, such as nghìn tỷ, triệu tỷ and tỷ tỷ.
 - [Unicode CLDR: Vietnamese Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/vi.xml): The spell-out rules ICU uses to write numbers in words.

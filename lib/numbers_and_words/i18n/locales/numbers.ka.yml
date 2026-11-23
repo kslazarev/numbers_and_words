@@ -34,6 +34,13 @@ ka:
         1000000: '[{<cardinal} {partials.millions} {>}|{<cardinal} {millions}]'
         1000000000: '[{<cardinal} {partials.billions} {>}|{<cardinal} {billions}]'
         1000000000000: '[{<cardinal} {partials.trillions} {>}|{<cardinal} {trillions}]'
+        1000000000000000: '[{<cardinal} {partials.quadrillions} {>}|{<cardinal} {quadrillions}]'
+        1000000000000000000: '[{<cardinal} {partials.quintillions} {>}|{<cardinal} {quintillions}]'
+        1000000000000000000000: '[{<cardinal} {partials.sextillions} {>}|{<cardinal} {sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {partials.septillions} {>}|{<cardinal} {septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {partials.octillions} {>}|{<cardinal} {octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {partials.nonillions} {>}|{<cardinal} {nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {partials.decillions} {>}|{<cardinal} {decillions}]'
       # An ordinal puts მე- and -ე around its last word, or the last part of a compound ("ოცდამეერთე"); one is
       # "პირველი" alone, and a leading one before a single scale word is left out ("მემილიონე").
       ordinal:
@@ -58,17 +65,38 @@ ka:
         1000000: '[{<cardinal} {partials.millions} {>}|{ordinals.millions}]'
         1000000000: '[{<cardinal} {partials.billions} {>}|{ordinals.billions}]'
         1000000000000: '[{<cardinal} {partials.trillions} {>}|{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {partials.quadrillions} {>}|{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {partials.quintillions} {>}|{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {partials.sextillions} {>}|{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {partials.septillions} {>}|{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {partials.octillions} {>}|{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {partials.nonillions} {>}|{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {partials.decillions} {>}|{ordinals.decillions}]'
       ordinal-inner:
         extends: ordinal
         1: '{ordinals.ones}'
         1000000: '[{<cardinal} {partials.millions} {>}|{<cardinal} {ordinals.millions}]'
         1000000000: '[{<cardinal} {partials.billions} {>}|{<cardinal} {ordinals.billions}]'
         1000000000000: '[{<cardinal} {partials.trillions} {>}|{<cardinal} {ordinals.trillions}]'
-    mega: [_, thousands, millions, billions, trillions]
+        1000000000000000: '[{<cardinal} {partials.quadrillions} {>}|{<cardinal} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {partials.quintillions} {>}|{<cardinal} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {partials.sextillions} {>}|{<cardinal} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {partials.septillions} {>}|{<cardinal} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {partials.octillions} {>}|{<cardinal} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {partials.nonillions} {>}|{<cardinal} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {partials.decillions} {>}|{<cardinal} {ordinals.decillions}]'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: ათასი
     millions: მილიონი
     billions: მილიარდი
     trillions: ტრილიონი
+    quadrillions: კვადრილიონი
+    quintillions: კვინტილიონი
+    sextillions: სექსტილიონი
+    septillions: სეპტილიონი
+    octillions: ოქტილიონი
+    nonillions: ნონილიონი
+    decillions: დეცილიონი
     partials:
       ones: [ნული, ერთი, ორ, სამ, ოთხ, ხუთ, ექვს, შვიდ, რვა, ცხრა]
       twenty: ოცდა
@@ -80,6 +108,13 @@ ka:
       millions: მილიონ
       billions: მილიარდ
       trillions: ტრილიონ
+      quadrillions: კვადრილიონ
+      quintillions: კვინტილიონ
+      sextillions: სექსტილიონ
+      septillions: სეპტილიონ
+      octillions: ოქტილიონ
+      nonillions: ნონილიონ
+      decillions: დეცილიონ
     ordinals:
       first: პირველი
       ones: [მენულე, მეერთე, მეორე, მესამე, მეოთხე, მეხუთე, მეექვსე, მეშვიდე, მერვე, მეცხრე]
@@ -91,4 +126,11 @@ ka:
       millions: მემილიონე
       billions: მემილიარდე
       trillions: მეტრილიონე
+      quadrillions: მეკვადრილიონე
+      quintillions: მეკვინტილიონე
+      sextillions: მესექსტილიონე
+      septillions: მესეპტილიონე
+      octillions: მეოქტილიონე
+      nonillions: მენონილიონე
+      decillions: მედეცილიონე
     subunit_separator: და

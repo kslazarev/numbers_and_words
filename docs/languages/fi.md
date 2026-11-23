@@ -2,7 +2,7 @@
 
 Suomi. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers below a million are one word (kaksituhattakaksikymmentäyksi); millions and larger are separate words (kaksi miljoonaa). Scale words take the partitive after numbers above one (kaksituhatta, kaksi miljoonaa), and a lone one is omitted (tuhat, miljoona). Numbers up to 999,999,999,999,999 are supported, with miljoona, miljardi and biljoona; larger numbers raise `RangeError`. Finnish numbers have no gender.
+Numbers below a million are one word (kaksituhattakaksikymmentäyksi); millions and larger are separate words (kaksi miljoonaa). Scale words take the partitive after numbers above one (kaksituhatta, kaksi miljoonaa), and a lone one is omitted (tuhat, miljoona). Biljoona (10<sup>12</sup>), triljoona (10<sup>18</sup>), kvadriljoona (10<sup>24</sup>) and kvintiljoona (10<sup>30</sup>) count up to 999 999 times, so 10<sup>15</sup> is tuhat biljoonaa and 10<sup>21</sup> tuhat triljoonaa, the recommended readings, rather than the rare biljardi and triljardi. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Finnish numbers have no gender.
 
 ## Examples
 
@@ -92,4 +92,6 @@ I18n.with_locale(:fi) { 0.7.to_words(remove_zero: true) }
 
 - [Finnish Language Office: Ordinals](https://kielitoimistonohjepankki.fi/ohje/luvut-ja-numerot-jarjestysluvut/): Ordinal usage and spelling.
 - [J. Korpela: Basic Finnish Numerals](https://www.jkorpela.fi/finnish/Basic_numerals.html): Cardinal and ordinal forms.
+- [Wikipedia: Suurten lukujen nimet](https://fi.wikipedia.org/wiki/Suurten_lukujen_nimet): The names triljoona, kvadriljoona and kvintiljoona, and biljardi and triljardi as nonstandard.
+- [Wiktionary: biljardi](https://en.wiktionary.org/wiki/biljardi): Tuhat biljoonaa as the recommended reading of 10<sup>15</sup>.
 - [Unicode CLDR: Finnish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/fi.xml): The spell-out rules ICU uses to write numbers in words.

@@ -2,7 +2,7 @@
 
 Bahasa Indonesia.
 
-One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta, satu miliar). Teens are formed with belas (dua belas), tens with puluh (dua puluh satu) and hundreds with ratus (dua ratus). Numbers up to 999,999,999,999,999 (triliun) are supported; larger numbers raise `RangeError`.
+One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta, satu miliar). Teens are formed with belas (dua belas), tens with puluh (dua puluh satu) and hundreds with ratus (dua ratus). Scales follow the short scale, from miliar (10<sup>9</sup>) and triliun (10<sup>12</sup>) through kuadriliun, kuintiliun, sekstiliun, septiliun, oktiliun, noniliun and desiliun (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -96,4 +96,5 @@ I18n.with_locale(:id) { 0.7.to_words(remove_zero: true) }
 - [EYD: Numerals and Numbers](https://ejaan.kemendikdasmen.go.id/eyd/penulisan-kata/angka-dan-bilangan/): Official Indonesian numeral spelling rules.
 - [KBBI: miliar](https://kbbi.kemendikdasmen.go.id/entri/miliar): The billion scale word.
 - [KBBI: triliun](https://kbbi.kemendikdasmen.go.id/entri/triliun): The trillion scale word.
+- [KBBI: desiliun](https://kbbi.kemendikdasmen.go.id/entri/desiliun): The 10<sup>33</sup> scale word, in the American (short) scale.
 - [Unicode CLDR: Indonesian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/id.xml): The spell-out rules ICU uses to write numbers in words.

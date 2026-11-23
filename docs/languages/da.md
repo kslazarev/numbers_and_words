@@ -1,6 +1,6 @@
 # Danish (`da`)
 
-Dansk. Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`.
+Dansk. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -104,4 +104,5 @@ I18n.with_locale(:da) { 0.7.to_words(remove_zero: true) }
 ## Sources
 
 - [Dansk Sprognævn: Numeral Inflection](https://sproget.dk/sprogviden/spoergsmaal-og-svar/dansk-sprognaevn/sv00004961/): Common-gender anden and neuter andet.
+- [Lex: Store tal](https://lex.dk/store_tal): Scale names up to kvintilliard (10<sup>33</sup>).
 - [Unicode CLDR: Danish Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/da.xml): The spell-out rules ICU uses to write numbers in words.

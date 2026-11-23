@@ -37,6 +37,11 @@ ar:
         1000000000000: '{<trillions-count}[ {union}{>}]'
         1000000000000000: '{<quadrillions-count}[ {union}{>}]'
         1000000000000000000: '{<quintillions-count}[ {union}{>}]'
+        1000000000000000000000: '{<sextillions-count}[ {union}{>}]'
+        1000000000000000000000000: '{<septillions-count}[ {union}{>}]'
+        1000000000000000000000000000: '{<octillions-count}[ {union}{>}]'
+        1000000000000000000000000000000: '{<nonillions-count}[ {union}{>}]'
+        1000000000000000000000000000000000: '{<decillions-count}[ {union}{>}]'
       thousands-count:
         1: '{thousands}'
         3: '{=cardinal} {thousands}'
@@ -121,13 +126,83 @@ ar:
         then: quintillions-count
         1: '{two_hundred_construct} {quintillions_singular} {union}{=}'
         3: '{two_hundreds} {union}{=}'
+      sextillions-count:
+        1: '{sextillions}'
+        3: '{=cardinal} {sextillions}'
+        100: '{hundreds}[{>sextillions-after-hundreds}| {sextillions_singular}]'
+        200: '[{>sextillions-after-two-hundred}|{two_hundred_construct} {sextillions_singular}]'
+        300: '{hundreds}[{>sextillions-after-hundreds}| {sextillions_singular}]'
+      sextillions-after-hundreds:
+        then: sextillions-count
+        1: ' {sextillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      sextillions-after-two-hundred:
+        then: sextillions-count
+        1: '{two_hundred_construct} {sextillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      septillions-count:
+        1: '{septillions}'
+        3: '{=cardinal} {septillions}'
+        100: '{hundreds}[{>septillions-after-hundreds}| {septillions_singular}]'
+        200: '[{>septillions-after-two-hundred}|{two_hundred_construct} {septillions_singular}]'
+        300: '{hundreds}[{>septillions-after-hundreds}| {septillions_singular}]'
+      septillions-after-hundreds:
+        then: septillions-count
+        1: ' {septillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      septillions-after-two-hundred:
+        then: septillions-count
+        1: '{two_hundred_construct} {septillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      octillions-count:
+        1: '{octillions}'
+        3: '{=cardinal} {octillions}'
+        100: '{hundreds}[{>octillions-after-hundreds}| {octillions_singular}]'
+        200: '[{>octillions-after-two-hundred}|{two_hundred_construct} {octillions_singular}]'
+        300: '{hundreds}[{>octillions-after-hundreds}| {octillions_singular}]'
+      octillions-after-hundreds:
+        then: octillions-count
+        1: ' {octillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      octillions-after-two-hundred:
+        then: octillions-count
+        1: '{two_hundred_construct} {octillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      nonillions-count:
+        1: '{nonillions}'
+        3: '{=cardinal} {nonillions}'
+        100: '{hundreds}[{>nonillions-after-hundreds}| {nonillions_singular}]'
+        200: '[{>nonillions-after-two-hundred}|{two_hundred_construct} {nonillions_singular}]'
+        300: '{hundreds}[{>nonillions-after-hundreds}| {nonillions_singular}]'
+      nonillions-after-hundreds:
+        then: nonillions-count
+        1: ' {nonillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      nonillions-after-two-hundred:
+        then: nonillions-count
+        1: '{two_hundred_construct} {nonillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
+      decillions-count:
+        1: '{decillions}'
+        3: '{=cardinal} {decillions}'
+        100: '{hundreds}[{>decillions-after-hundreds}| {decillions_singular}]'
+        200: '[{>decillions-after-two-hundred}|{two_hundred_construct} {decillions_singular}]'
+        300: '{hundreds}[{>decillions-after-hundreds}| {decillions_singular}]'
+      decillions-after-hundreds:
+        then: decillions-count
+        1: ' {decillions_singular} {union}{=}'
+        3: ' {union}{=}'
+      decillions-after-two-hundred:
+        then: decillions-count
+        1: '{two_hundred_construct} {decillions_singular} {union}{=}'
+        3: '{two_hundreds} {union}{=}'
       # Ordinals go from 1 to 99 ("الحادي والعشرون").
       ordinal:
         1: '{ordinals.ones}'
         10: '{ordinals.ten}'
         11: '{ordinals.compound_ones%} {ordinals.teen}'
         20: '[{ordinals.compound_ones%} {union}{ordinals.tens}|{ordinals.tens}]'
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: ألف, two: ألفان, few: آلاف, many: ألفًا, other: ألف}
     thousands_singular: ألف
     millions: {one: مليون, two: مليونان, few: ملايين, many: مليونًا, other: مليون}
@@ -140,6 +215,16 @@ ar:
     quadrillions_singular: كوادريليون
     quintillions: {one: كوينتليون, two: كوينتليونان, few: كوينتليونات, many: كوينتليونًا, other: كوينتليون}
     quintillions_singular: كوينتليون
+    sextillions: {one: سكستليون, two: سكستليونان, few: سكستليونات, many: سكستليونًا, other: سكستليون}
+    sextillions_singular: سكستليون
+    septillions: {one: سبتليون, two: سبتليونان, few: سبتليونات, many: سبتليونًا, other: سبتليون}
+    septillions_singular: سبتليون
+    octillions: {one: أوكتليون, two: أوكتليونان, few: أوكتليونات, many: أوكتليونًا, other: أوكتليون}
+    octillions_singular: أوكتليون
+    nonillions: {one: نونليون, two: نونليونان, few: نونليونات, many: نونليونًا, other: نونليون}
+    nonillions_singular: نونليون
+    decillions: {one: ديسيليون, two: ديسيليونان, few: ديسيليونات, many: ديسيليونًا, other: ديسيليون}
+    decillions_singular: ديسيليون
     ordinals:
       ones: [_, الأول, الثاني, الثالث, الرابع, الخامس, السادس, السابع, الثامن, التاسع]
       # A one before a ten ("الحادي عشر").

@@ -68,6 +68,18 @@ to_words:
     1000000000000: en billion
     999999999999999: ni hundre og nittini billioner ni hundre og nittini milliarder
       ni hundre og nittini millioner ni hundre og nittini tusen ni hundre og nittini
+  large scales:
+    1000000000000000000000: en trilliard
+    2000000000000000000000: to trilliarder
+    1000000000000000000000000: en kvadrillion
+    2000000000000000000000000: to kvadrillioner
+    1000000000000000000000000000: en kvadrilliard
+    2000000000000000000000000000: to kvadrilliarder
+    1000000000000000000000000000000: en kvintillion
+    2000000000000000000000000000000: to kvintillioner
+    1000000000000000000000000000000000: en kvintilliard
+    2000000000000000000000000000000000: to kvintilliarder
+    987654321123456789012345678901234567: ni hundre og åttisju kvintilliarder seks hundre og femtifire kvintillioner tre hundre og tjueen kvadrilliarder ett hundre og tjuetre kvadrillioner fire hundre og femtiseks trilliarder sju hundre og åttini trillioner tolv billiarder tre hundre og førtifem billioner seks hundre og syttiåtte milliarder ni hundre og en millioner to hundre og trettifire tusen fem hundre og sekstisju
   female gender:
     options:
       :gender: female
@@ -114,6 +126,16 @@ to_words:
     21000: tjueen tusende
     100000: hundre tusende
     1000000: millionte
+    1000000000000000000000: trilliardte
+    2000000000000000000000: to trilliardte
+    1000000000000000000000000: kvadrillionte
+    2000000000000000000000000: to kvadrillionte
+    1000000000000000000000000000: kvadrilliardte
+    2000000000000000000000000000: to kvadrilliardte
+    1000000000000000000000000000000: kvintillionte
+    2000000000000000000000000000000: to kvintillionte
+    1000000000000000000000000000000000: kvintilliardte
+    2000000000000000000000000000000000: to kvintilliardte
     2000000: to millionte
     2025000: to millioner tjuefem tusende
     1000000000: milliardte

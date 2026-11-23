@@ -2,7 +2,7 @@
 
 Български. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Numbers up to 10<sup>21</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Scale words follow the short scale up to децилион (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

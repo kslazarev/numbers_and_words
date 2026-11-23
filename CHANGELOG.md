@@ -7,6 +7,7 @@
   * Compare what each language supports in [docs/features.md](docs/features.md), generated from the locale files. \[[#365](https://github.com/kslazarev/numbers_and_words/pull/365)\] \([@dblock](https://github.com/dblock)\)
   * Read decimals in Arabic, Armenian, Danish, Estonian, Georgian, Kazakh, Latvian, Lithuanian, Swedish and Turkish, as Unicode CLDR reads them, so that every language reads decimals. \[[#366](https://github.com/kslazarev/numbers_and_words/pull/366)\] \([@dblock](https://github.com/dblock)\)
   * Accept `gender:` in French, German, Italian, Latvian, Lithuanian and Swedish, also for units with a gender, such as "une heure" instead of "un heure" in French. \[[#367](https://github.com/kslazarev/numbers_and_words/pull/367)\] \([@dblock](https://github.com/dblock)\)
+  * Spell numbers up to 10<sup>36</sup> in Arabic, Armenian, Bulgarian, Czech, Danish, Finnish, Georgian, Greek, Hebrew, Indonesian, Malay, Norwegian, Romanian, Slovak and Vietnamese, so that every language with scale words reaches it. \[[#368](https://github.com/kslazarev/numbers_and_words/pull/368)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs

@@ -46,12 +46,18 @@ vi:
         2: '{ordinals.prefix} {=cardinal}'
         4: '{ordinals.prefix} {ordinals.fourth}'
         5: '{ordinals.prefix} {=cardinal}'
-    mega: [_, thousands, millions, billions, trillions, quadrillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: 'nghìn'
     millions: 'triệu'
     billions: 'tỷ'
     trillions: 'nghìn tỷ'
     quadrillions: 'triệu tỷ'
+    quintillions: 'tỷ tỷ'
+    sextillions: 'nghìn tỷ tỷ'
+    septillions: 'triệu tỷ tỷ'
+    octillions: 'tỷ tỷ tỷ'
+    nonillions: 'nghìn tỷ tỷ tỷ'
+    decillions: 'triệu tỷ tỷ tỷ'
     units:
       tens:
         one: 'mốt'
