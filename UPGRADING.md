@@ -12,7 +12,7 @@ Error and warning messages start with a capital letter and end with a period. Th
 | --- | --- |
 | `numbers must be below 10**30 in :cs` | `Numbers in :cs only support values below 10**30.` |
 | `decimals are not supported in :sv` | `Decimals are not supported in :sv.` |
-| `Arabic ordinals support 1 to 99` | `Ordinals in :ar only support numbers between 1 and 99.` |
+| `Arabic ordinals support 1 to 99` | `Ordinals in :ar only support numbers from 1.` (Arabic ordinals from 100 now read) |
 | `unsupported option :gender for locale :vi; supported: ...` | `The option :gender is not supported in :vi; supported: ....` |
 
 An ordinal too large for any words in those four languages now raises the cardinal `RangeError`, as Greek already did.
@@ -31,7 +31,7 @@ Some calls that raised now return words:
 
 * Decimals read in every language instead of raising `NumbersAndWords::UnsupportedNumberError`.
 * Larger numbers read instead of raising `RangeError`, up to 10<sup>36</sup> in every language with scale words.
-* Czech, Greek and Polish ordinals of every size read.
+* Arabic, Czech, Greek and Polish ordinals of every size read.
 * A `precision` shorter than a decimal's fractional part rounds it (`0.129.to_words(precision: 2)` reads 0.13) instead of raising `ArgumentError`.
 
 ### Internals Moved Into the Locale Files

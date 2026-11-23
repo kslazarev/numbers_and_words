@@ -63,8 +63,10 @@ module NumbersAndWords
             rules(case_words, *option_words).spell(number, cardinal_set)
           end
 
+          # The ordinal rule set of the gender, such as ordinal-female, where the locale file has one, or else ordinal.
           def ordinal_set
-            with_option_rules('ordinal')
+            set = "ordinal-#{gender}"
+            gender && locale_words(:rules).include?(set.to_sym) ? set : with_option_rules('ordinal')
           end
 
           # The rule set of the gender, such as cardinal-female, where the locale file has one, or else cardinal. An

@@ -6,6 +6,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/ordinals'
 require 'numbers_and_words/strategies/figures_converter/languages/rule_sets/declarations'
 require 'numbers_and_words/strategies/figures_converter/languages/rule_sets'
 
+require 'numbers_and_words/strategies/figures_converter/languages/ar'
 require 'numbers_and_words/strategies/figures_converter/languages/cs'
 require 'numbers_and_words/strategies/figures_converter/languages/en'
 require 'numbers_and_words/strategies/figures_converter/languages/es'

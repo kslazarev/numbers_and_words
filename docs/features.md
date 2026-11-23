@@ -11,7 +11,7 @@ This page lists what each bundled language supports. The `bundle exec ruby scrip
 | Language | Decimals | Gender | Case | Ordinals | Largest number | Other options |
 | --- | --- | --- | --- | --- | --- | --- |
 | [`af`](languages/af.md) | yes | — | — | all | 10<sup>36</sup> | — |
-| [`ar`](languages/ar.md) | yes | male, female | — | 1 to 99 | 10<sup>36</sup> | — |
+| [`ar`](languages/ar.md) | yes | male, female | — | from 1 | 10<sup>36</sup> | — |
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`be`](languages/be.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |

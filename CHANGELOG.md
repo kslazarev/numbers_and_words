@@ -3,7 +3,7 @@
 ### Features
 
 * Spell every language from rule sets in its locale file (`numbers.rules`), with a small rule engine, `NumbersAndWords::Rules`, instead of Ruby code for each language, and declare its options under `numbers.supported_options`. Conversions are as fast as in 1.1.0, or up to 3.3 times faster. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361), [#362](https://github.com/kslazarev/numbers_and_words/pull/362), [#363](https://github.com/kslazarev/numbers_and_words/pull/363), [#373](https://github.com/kslazarev/numbers_and_words/pull/373)\] \([@dblock](https://github.com/dblock)\)
-* Write error and warning messages as sentences, such as `Numbers in :cs only support values below 10**30.` instead of `numbers must be below 10**30 in :cs`. Ordinals out of range share one message, such as `Ordinals in :ar only support numbers between 1 and 99.`. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361)\] \([@dblock](https://github.com/dblock)\)
+* Write error and warning messages as sentences, such as `Numbers in :cs only support values below 10**30.` instead of `numbers must be below 10**30 in :cs`. Ordinals out of range share one message, such as `Ordinals in :ar only support numbers from 1.`. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361)\] \([@dblock](https://github.com/dblock)\)
 * Compare what each language supports in [docs/features.md](docs/features.md), generated from the locale files. \[[#365](https://github.com/kslazarev/numbers_and_words/pull/365)\] \([@dblock](https://github.com/dblock)\)
 * Read decimals in Arabic, Armenian, Danish, Estonian, Georgian, Kazakh, Latvian, Lithuanian, Swedish and Turkish, as Unicode CLDR does, so every language reads decimals. \[[#366](https://github.com/kslazarev/numbers_and_words/pull/366)\] \([@dblock](https://github.com/dblock)\)
 * Accept `gender:` in French, German, Italian, Latvian, Lithuanian and Swedish, and apply a unit's gender, such as French "une heure" instead of "un heure". \[[#367](https://github.com/kslazarev/numbers_and_words/pull/367)\] \([@dblock](https://github.com/dblock)\)
@@ -16,6 +16,7 @@
 * List applications and gems that use numbers_and_words in [docs/users.md](docs/users.md). \[[#383](https://github.com/kslazarev/numbers_and_words/pull/383)\] \([@dblock](https://github.com/dblock)\)
 * Write the documentation in full sentences, each starting with a capitalized subject, such as "The `precision` option pads …". \[[#384](https://github.com/kslazarev/numbers_and_words/pull/384)\] \([@dblock](https://github.com/dblock)\)
 * Lint the Markdown with rubocop-prose and rubocop-md, and the YAML with rubocop-yaml, enforcing full sentences and title-case headings. \[[#385](https://github.com/kslazarev/numbers_and_words/pull/385)\] \([@dblock](https://github.com/dblock)\)
+* Spell Arabic ordinals from 100, as the definite cardinal ("المائة والواحد والعشرون", "الثلاثة آلاف"), instead of raising `RangeError`. \[[#387](https://github.com/kslazarev/numbers_and_words/pull/387)\] \([@dblock](https://github.com/dblock)\)
 * Your contribution here.
 
 ### Bugs
