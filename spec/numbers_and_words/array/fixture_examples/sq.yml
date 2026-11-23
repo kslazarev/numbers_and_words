@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - një
+      - dy
+      - tre
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - njëmbëdhjetë
+      - njëzet e dy
+      - njëqind e tridhjetë e tre

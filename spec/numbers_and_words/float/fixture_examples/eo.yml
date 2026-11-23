@@ -1,0 +1,41 @@
+to_words:
+  fractional:
+    0.1: nul komo unu
+    0.5: nul komo kvin
+    0.01: nul komo nul unu
+    0.05: nul komo nul kvin
+    0.001: nul komo nul nul unu
+    0.21: nul komo du unu
+    0.77: nul komo sep sep
+    0.777: nul komo sep sep sep
+    0.7777: nul komo sep sep sep sep
+    0.1001: nul komo unu nul nul unu
+  integral_and_fractional:
+    1.5: unu komo kvin
+    2.5: du komo kvin
+    3.14: tri komo unu kvar
+    21.05: dudek unu komo nul kvin
+    21.77: dudek unu komo sep sep
+    101.001: cent unu komo nul nul unu
+    1000.5: mil komo kvin
+    4242.7463: kvar mil ducent kvardek du komo sep kvar ses tri
+  precision:
+    options:
+      :precision: 3
+    1.5: unu komo kvin nul nul
+    0.1: nul komo unu nul nul
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komo sep
+    0.05: komo nul kvin
+    1.5: unu komo kvin
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: unu komo kvin
+    2.25: du komo du kvin
+  micro_separator:
+    options:
+      :micro_separator: punkto
+    21.77: dudek unu punkto sep sep

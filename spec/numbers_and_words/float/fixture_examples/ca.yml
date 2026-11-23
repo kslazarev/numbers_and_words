@@ -1,0 +1,47 @@
+to_words:
+  fractional:
+    0.1: zero coma u
+    0.5: zero coma cinc
+    0.01: zero coma zero u
+    0.05: zero coma zero cinc
+    0.001: zero coma zero zero u
+    0.21: zero coma vint-i-u
+    0.77: zero coma setanta-set
+    0.777: zero coma set-cents setanta-set
+    0.7777: zero coma set set set set
+    0.1001: zero coma u zero zero u
+  integral_and_fractional:
+    1.5: u coma cinc
+    2.5: dos coma cinc
+    3.14: tres coma catorze
+    21.05: vint-i-u coma zero cinc
+    21.77: vint-i-u coma setanta-set
+    101.001: cent u coma zero zero u
+    1000.5: mil coma cinc
+    4242.7463: quatre mil dos-cents quaranta-dos coma set quatre sis tres
+  precision:
+    options:
+      :precision: 3
+    1.5: u coma cinc-cents
+    0.1: zero coma cent
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: coma set
+    0.05: coma zero cinc
+    1.5: u coma cinc
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: u coma cinc
+    2.25: dos coma vint-i-cinc
+  micro_separator:
+    options:
+      :micro_separator: punt
+    21.77: vint-i-u punt setanta-set
+  female:
+    options:
+      :gender: female
+    1.5: una coma cinc
+    2.2: dues coma dues
+    21.21: vint-i-una coma vint-i-una

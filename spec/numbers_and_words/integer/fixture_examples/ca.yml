@@ -1,0 +1,238 @@
+to_words:
+  ones:
+    0: zero
+    1: u
+    2: dos
+    3: tres
+    4: quatre
+    5: cinc
+    6: sis
+    7: set
+    8: vuit
+    9: nou
+  tens:
+    10: deu
+    11: onze
+    12: dotze
+    13: tretze
+    14: catorze
+    15: quinze
+    16: setze
+    17: disset
+    18: divuit
+    19: dinou
+    20: vint
+    21: vint-i-u
+    22: vint-i-dos
+    23: vint-i-tres
+    24: vint-i-quatre
+    25: vint-i-cinc
+    28: vint-i-vuit
+    30: trenta
+    31: trenta-u
+    32: trenta-dos
+    40: quaranta
+    44: quaranta-quatre
+    50: cinquanta
+    60: seixanta
+    70: setanta
+    80: vuitanta
+    90: noranta
+    99: noranta-nou
+  hundreds:
+    100: cent
+    101: cent u
+    102: cent dos
+    110: cent deu
+    111: cent onze
+    120: cent vint
+    121: cent vint-i-u
+    200: dos-cents
+    201: dos-cents u
+    300: tres-cents
+    400: quatre-cents
+    500: cinc-cents
+    600: sis-cents
+    700: set-cents
+    800: vuit-cents
+    900: nou-cents
+    999: nou-cents noranta-nou
+  thousands:
+    1000: mil
+    1001: mil u
+    1100: mil cent
+    1999: mil nou-cents noranta-nou
+    2000: dos mil
+    2001: dos mil u
+    3000: tres mil
+    10000: deu mil
+    11000: onze mil
+    19000: dinou mil
+    20000: vint mil
+    21000: vint-i-un mil
+    22000: vint-i-dos mil
+    100000: cent mil
+    101000: cent un mil
+    200000: dos-cents mil
+    999999: nou-cents noranta-nou mil nou-cents noranta-nou
+  millions:
+    1000000: un milió
+    1000001: un milió u
+    1001000: un milió mil
+    2000000: dos milions
+    3000000: tres milions
+    21000000: vint-i-un milions
+    100000000: cent milions
+    200000000: dos-cents milions
+    123456789: cent vint-i-tres milions quatre-cents cinquanta-sis mil set-cents vuitanta-nou
+  large_scales:
+    1000000000: un miliard
+    2000000000: dos miliards
+    1000000000000: un bilió
+    2000000000000: dos bilions
+    1000000000000000: un biliard
+    2000000000000000: dos biliards
+    1000000000000000000: un trilió
+    2000000000000000000: dos trilions
+    1000000000000000000000: un triliard
+    1000000000000000000000000: un quadrilió
+    1000000000000000000000000000: un quadriliard
+    1000000000000000000000000000000: un quintilió
+    1000000000000000000000000000000000: un quintiliard
+    2000000000000000000000000000000000: dos quintiliards
+    123456789012345678901234567890123456: cent vint-i-tres quintiliards quatre-cents cinquanta-sis quintilions set-cents vuitanta-nou quadriliards dotze quadrilions tres-cents quaranta-cinc triliards sis-cents setanta-vuit trilions nou-cents un biliards dos-cents trenta-quatre bilions cinc-cents seixanta-set miliards vuit-cents noranta milions cent vint-i-tres mil quatre-cents cinquanta-sis
+    999999999999999999999999999999999999: nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
+    1000000000000000000000000000000000000: un sextilió
+    2000000000000000000000000000000000000: dos sextilions
+    1000000000000000000000000000000000000000: un sextiliard
+    2000000000000000000000000000000000000000: dos sextiliards
+    999999999999999999999999999999999999999999: nou-cents noranta-nou sextiliards nou-cents noranta-nou sextilions nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-nou
+  female:
+    options:
+      :gender: female
+    1: una
+    2: dues
+    3: tres
+    11: onze
+    12: dotze
+    13: tretze
+    21: vint-i-una
+    22: vint-i-dues
+    23: vint-i-tres
+    31: trenta-una
+    101: cent una
+    102: cent dues
+    103: cent tres
+    200: dues-centes
+    201: dues-centes una
+    300: tres-centes
+    999: nou-centes noranta-nou
+    1000: mil
+    1001: mil una
+    1002: mil dues
+    2000: dues mil
+    21000: vint-i-una mil
+    22000: vint-i-dues mil
+    200000: dues-centes mil
+    1000000: un milió
+    1000001: un milió una
+    2000000: dos milions
+    3000000: tres milions
+    22000000: vint-i-dos milions
+    2000000002: dos miliards dues
+  male:
+    options:
+      :gender: male
+    1: u
+    2: dos
+    3: tres
+    21: vint-i-u
+    23: vint-i-tres
+    200: dos-cents
+    2000: dos mil
+  ordinal:
+    options:
+      :ordinal: true
+    0: zeroè
+    1: primer
+    2: segon
+    3: tercer
+    4: quart
+    5: cinquè
+    6: sisè
+    7: setè
+    8: vuitè
+    9: novè
+    10: desè
+    11: onzè
+    12: dotzè
+    13: tretzè
+    14: catorzè
+    15: quinzè
+    16: setzè
+    17: dissetè
+    18: divuitè
+    19: dinovè
+    20: vintè
+    21: vint-i-unè
+    22: vint-i-dosè
+    23: vint-i-tresè
+    24: vint-i-quatrè
+    25: vint-i-cinquè
+    28: vint-i-vuitè
+    30: trentè
+    31: trenta-unè
+    40: quarantè
+    44: quaranta-quatrè
+    50: cinquantè
+    90: norantè
+    99: noranta-novè
+    100: centè
+    101: cent unè
+    102: cent dosè
+    110: cent desè
+    111: cent onzè
+    121: cent vint-i-unè
+    200: dos-centè
+    201: dos-cents unè
+    999: nou-cents noranta-novè
+    1000: milè
+    1001: mil unè
+    1100: mil centè
+    2000: dos milè
+    2001: dos mil unè
+    21000: vint-i-un milè
+    100000: cent milè
+    1000000: milionè
+    1000001: un milió unè
+    1001000: un milió milè
+    2000000: dos milionè
+    1000000000: miliardè
+    2000000000: dos miliardè
+    1000000000000000000000000000000000: quintiliardè
+    2000000000000000000000000000000005: dos quintiliards cinquè
+    999999999999999999999999999999999999: nou-cents noranta-nou quintiliards nou-cents noranta-nou quintilions nou-cents noranta-nou quadriliards nou-cents noranta-nou quadrilions nou-cents noranta-nou triliards nou-cents noranta-nou trilions nou-cents noranta-nou biliards nou-cents noranta-nou bilions nou-cents noranta-nou miliards nou-cents noranta-nou milions nou-cents noranta-nou mil nou-cents noranta-novè
+  female_ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: primera
+    2: segona
+    3: tercera
+    4: quarta
+    5: cinquena
+    10: desena
+    11: onzena
+    20: vintena
+    21: vint-i-unena
+    22: vint-i-dosena
+    23: vint-i-tresena
+    24: vint-i-quatrena
+    100: centena
+    101: cent unena
+    200: dos-centena
+    1000: milena
+    1001: mil unena
+    2000: dos milena
+    1000000: milionena
+    2000000: dos milionena

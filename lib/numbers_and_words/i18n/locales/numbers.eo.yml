@@ -1,0 +1,76 @@
+eo:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: komo
+    ones: [nul, unu, du, tri, kvar, kvin, ses, sep, ok, naŭ]
+    tens: [_, dek, dudek, tridek, kvardek, kvindek, sesdek, sepdek, okdek, naŭdek]
+    hundreds: [_, cent, ducent, tricent, kvarcent, kvincent, sescent, sepcent, okcent, naŭcent]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Tens and hundreds are one word ("dudek", "ducent"); mil and the scale nouns take their count before them, without
+    # unu ("mil", "miliono", "du mil", "du milionoj").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<count}{thousands}[ {>}]'
+        1000000: '{<count}{millions}[ {>}]'
+        1000000000: '{<count}{billions}[ {>}]'
+        1000000000000: '{<count}{trillions}[ {>}]'
+        1000000000000000000: '{<count}{quintillions}[ {>}]'
+        1000000000000000000000000: '{<count}{septillions}[ {>}]'
+        1000000000000000000000000000000: '{<count}{nonillions}[ {>}]'
+      count:
+        1: ''
+        2: '{=cardinal} '
+      # An ordinal is the cardinal joined by hyphens with the ending -a ("dudek-unua", "du-mila"); a final scale noun
+      # changes its -o to -a ("miliona", "du-miliona").
+      ordinal:
+        0: '{ones}a'
+        10: '{tens}[-{>}|a]'
+        100: '{hundreds}[-{>}|a]'
+        1000: '{<hyphen-count}[{thousands}-{>}|{thousands}a]'
+        1000000: '{<hyphen-count}[{millions}-{>}|{ordinals.millions}]'
+        1000000000: '{<hyphen-count}[{billions}-{>}|{ordinals.billions}]'
+        1000000000000: '{<hyphen-count}[{trillions}-{>}|{ordinals.trillions}]'
+        1000000000000000000: '{<hyphen-count}[{quintillions}-{>}|{ordinals.quintillions}]'
+        1000000000000000000000000: '{<hyphen-count}[{septillions}-{>}|{ordinals.septillions}]'
+        1000000000000000000000000000000: '{<hyphen-count}[{nonillions}-{>}|{ordinals.nonillions}]'
+      # The cardinal joined by hyphens, as the count of a scale word in an ordinal.
+      hyphenated:
+        0: '{ones}'
+        10: '{tens}[-{>}]'
+        100: '{hundreds}[-{>}]'
+        1000: '{<hyphen-count}{thousands}[-{>}]'
+        1000000: '{<hyphen-count}{millions}[-{>}]'
+        1000000000: '{<hyphen-count}{billions}[-{>}]'
+        1000000000000: '{<hyphen-count}{trillions}[-{>}]'
+        1000000000000000000: '{<hyphen-count}{quintillions}[-{>}]'
+        1000000000000000000000000: '{<hyphen-count}{septillions}[-{>}]'
+        1000000000000000000000000000000: '{<hyphen-count}{nonillions}[-{>}]'
+      hyphen-count:
+        1: ''
+        2: '{=hyphenated}-'
+    # The long scale has no word for 10^15, 10^21, 10^27 or 10^33, which are a thousand of the scale word below
+    # ("mil bilionoj"); the -iardo words past miliardo don't exist (Plena Manlibro de Esperanta Gramatiko).
+    mega: [_, thousands, millions, billions, trillions, mil_trillions, quintillions, mil_quintillions, septillions, mil_septillions, nonillions, mil_nonillions]
+    thousands: mil
+    millions: {one: miliono, other: milionoj}
+    billions: {one: miliardo, other: miliardoj}
+    trillions: {one: biliono, other: bilionoj}
+    quintillions: {one: triliono, other: trilionoj}
+    septillions: {one: kvadriliono, other: kvadrilionoj}
+    nonillions: {one: kvintiliono, other: kvintilionoj}
+    ordinals:
+      millions: miliona
+      billions: miliarda
+      trillions: biliona
+      quintillions: triliona
+      septillions: kvadriliona
+      nonillions: kvintiliona
+    subunit_separator: kaj

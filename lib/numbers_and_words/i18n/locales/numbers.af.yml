@@ -1,0 +1,93 @@
+af:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: min
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: komma
+    ones: [nul, een, twee, drie, vier, vyf, ses, sewe, agt, nege]
+    teens: [tien, elf, twaalf, dertien, veertien, vyftien, sestien, sewentien, agttien, negentien]
+    tens: [_, tien, twintig, dertig, veertig, vyftig, sestig, sewentig, tagtig, negentig]
+    hundreds: honderd
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The ones come before the tens, joined by -en- ("een-en-twintig"); honderd and duisend are written together with a
+    # count below 21 and leave out a count of one ("honderd", "tweehonderd", "tienduisend", "een-en-twintig duisend"),
+    # and the larger scale words keep een ("een miljoen").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{teens%}'
+        20: '[{ones%}-en-{tens}|{tens}]'
+        100: '{<count}{hundreds}[ {>}]'
+        1000: '{<thousands-count}{thousands}[ {>}]'
+        1000000: '{<cardinal} {millions}[ {>}]'
+        1000000000: '{<cardinal} {billions}[ {>}]'
+        1000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
+      count:
+        1: ''
+        2: '{ones}'
+      thousands-count:
+        1: ''
+        2: '{=cardinal}'
+        21: '{=cardinal} '
+      # The last word of an ordinal is ordinal, a count of one before honderd and duisend is left out as
+      # in cardinals ("duisendste", "een miljoenste"), and a final one after a scale word is "en eerste" ("honderd en eerste").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{ones%}-en-{ordinals.tens}|{ordinals.tens}]'
+        100: '{<count}[{hundreds} {>ordinal-rest}|{ordinals.hundreds}]'
+        1000: '{<thousands-count}[{thousands} {>ordinal-rest}|{ordinals.thousands}]'
+        1000000: '[{<cardinal} {millions} {>ordinal-rest}|{<cardinal} {ordinals.millions}]'
+        1000000000: '[{<cardinal} {billions} {>ordinal-rest}|{<cardinal} {ordinals.billions}]'
+        1000000000000: '[{<cardinal} {trillions} {>ordinal-rest}|{<cardinal} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal} {quadrillions} {>ordinal-rest}|{<cardinal} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>ordinal-rest}|{<cardinal} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>ordinal-rest}|{<cardinal} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>ordinal-rest}|{<cardinal} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>ordinal-rest}|{<cardinal} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>ordinal-rest}|{<cardinal} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>ordinal-rest}|{<cardinal} {ordinals.decillions}]'
+      ordinal-rest:
+        extends: ordinal
+        1: '{union} {ordinals.ones}'
+        2: '{ordinals.ones}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: duisend
+    millions: miljoen
+    billions: miljard
+    trillions: biljoen
+    quadrillions: biljard
+    quintillions: triljoen
+    sextillions: triljard
+    septillions: kwadriljoen
+    octillions: kwadriljard
+    nonillions: kwintiljoen
+    decillions: kwintiljard
+    union: en
+    ordinals:
+      ones: [nulste, eerste, tweede, derde, vierde, vyfde, sesde, sewende, agtste, negende]
+      teens: [tiende, elfde, twaalfde, dertiende, veertiende, vyftiende, sestiende, sewentiende, agttiende, negentiende]
+      tens: [_, tiende, twintigste, dertigste, veertigste, vyftigste, sestigste, sewentigste, tagtigste, negentigste]
+      hundreds: honderdste
+      thousands: duisendste
+      millions: miljoenste
+      billions: miljardste
+      trillions: biljoenste
+      quadrillions: biljardste
+      quintillions: triljoenste
+      sextillions: triljardste
+      septillions: kwadriljoenste
+      octillions: kwadriljardste
+      nonillions: kwintiljoenste
+      decillions: kwintiljardste
+    subunit_separator: en

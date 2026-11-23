@@ -11,18 +11,21 @@ What each bundled language supports, generated from its locale file and classes 
 
 | Language | Decimals | Gender | Case | Ordinals | Largest number | Other options |
 | --- | --- | --- | --- | --- | --- | --- |
+| [`af`](languages/af.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`ar`](languages/ar.md) | yes | male, female | — | 1 to 99 | 10<sup>36</sup> | — |
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`be`](languages/be.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bn`](languages/bn.md) | yes | — | — | all | unlimited | — |
 | [`bs`](languages/bs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
+| [`ca`](languages/ca.md) | yes | male, female | — | all | 10<sup>42</sup> | — |
 | [`cs`](languages/cs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`da`](languages/da.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`de`](languages/de.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`el`](languages/el.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`en`](languages/en.md) | yes, fraction | — | — | all | 10<sup>48</sup> | `hundreds_with_union`, `pronounced`, `remove_hyphen` |
 | [`en-GB`](languages/en-GB.md) | yes, fraction | — | — | all | 10<sup>48</sup> | `hundreds_with_union`, `pronounced`, `remove_hyphen` |
+| [`eo`](languages/eo.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`es`](languages/es.md) | yes | male, female | — | all | 10<sup>48</sup> | `apocopated` |
 | [`et`](languages/et.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`fi`](languages/fi.md) | yes | — | — | all | 10<sup>36</sup> | — |
@@ -52,6 +55,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ru`](languages/ru.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, prepositional, animate | all | 10<sup>36</sup> | — |
 | [`sk`](languages/sk.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`sl`](languages/sl.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
+| [`sq`](languages/sq.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`sr`](languages/sr.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`sv`](languages/sv.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`th`](languages/th.md) | yes | — | — | all | unlimited | — |

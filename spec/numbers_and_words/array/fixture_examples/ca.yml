@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - u
+      - dos
+      - tres
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - onze
+      - vint-i-dos
+      - cent trenta-tres

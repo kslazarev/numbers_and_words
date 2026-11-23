@@ -1,0 +1,99 @@
+sq:
+  numbers:
+    supported_options:
+      gender: {values: [male, female], default: male}
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: presje
+    ones: [zero, një, dy, tre, katër, pesë, gjashtë, shtatë, tetë, nëntë]
+    female_ones: [zero, një, dy, tri, katër, pesë, gjashtë, shtatë, tetë, nëntë]
+    teens: [dhjetë, njëmbëdhjetë, dymbëdhjetë, trembëdhjetë, katërmbëdhjetë, pesëmbëdhjetë, gjashtëmbëdhjetë, shtatëmbëdhjetë, tetëmbëdhjetë, nëntëmbëdhjetë]
+    tens: [_, dhjetë, njëzet, tridhjetë, dyzet, pesëdhjetë, gjashtëdhjetë, shtatëdhjetë, tetëdhjetë, nëntëdhjetë]
+    hundreds: [_, njëqind, dyqind, treqind, katërqind, pesëqind, gjashtëqind, shtatëqind, tetëqind, nëntëqind]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Each part after the first joins with e ("njëqind e njëzet e një"). Three is tre, or tri in the feminine; mijë
+    # counts in the masculine and milion and the larger scale words in the feminine ("tre mijë", "tri milionë").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{teens%}'
+        20: '{tens}[ e {>}]'
+        100: '{hundreds}[ e {>}]'
+        1000: '{<cardinal} {thousands}[ e {>}]'
+        1000000: '{<cardinal-female} {millions}[ e {>}]'
+        1000000000: '{<cardinal-female} {billions}[ e {>}]'
+        1000000000000: '{<cardinal-female} {trillions}[ e {>}]'
+        1000000000000000: '{<cardinal-female} {quadrillions}[ e {>}]'
+        1000000000000000000: '{<cardinal-female} {quintillions}[ e {>}]'
+        1000000000000000000000: '{<cardinal-female} {sextillions}[ e {>}]'
+        1000000000000000000000000: '{<cardinal-female} {septillions}[ e {>}]'
+        1000000000000000000000000000: '{<cardinal-female} {octillions}[ e {>}]'
+        1000000000000000000000000000000: '{<cardinal-female} {nonillions}[ e {>}]'
+        1000000000000000000000000000000000: '{<cardinal-female} {decillions}[ e {>}]'
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
+      # An ordinal is the article i, or e in the feminine, and the cardinal with its last word ordinal ("i parë",
+      # "i njëzet e njëtë", "i njëqindtë"); zero keeps its cardinal form.
+      ordinal:
+        0: '{ones}'
+        1: '{ordinals.article} {=ordinal-words}'
+      ordinal-words:
+        1: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{tens} e {>ordinal-final}|{ordinals.tens}]'
+        100: '[{hundreds} e {>ordinal-final}|{ordinals.hundreds}]'
+        1000: '[{<cardinal} {thousands} e {>ordinal-final}|{<cardinal} {ordinals.thousands}]'
+        1000000: '[{<cardinal-female} {millions} e {>ordinal-final}|{<cardinal-female} {ordinals.millions}]'
+        1000000000: '[{<cardinal-female} {billions} e {>ordinal-final}|{<cardinal-female} {ordinals.billions}]'
+        1000000000000: '[{<cardinal-female} {trillions} e {>ordinal-final}|{<cardinal-female} {ordinals.trillions}]'
+        1000000000000000: '[{<cardinal-female} {quadrillions} e {>ordinal-final}|{<cardinal-female} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal-female} {quintillions} e {>ordinal-final}|{<cardinal-female} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal-female} {sextillions} e {>ordinal-final}|{<cardinal-female} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal-female} {septillions} e {>ordinal-final}|{<cardinal-female} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal-female} {octillions} e {>ordinal-final}|{<cardinal-female} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal-female} {nonillions} e {>ordinal-final}|{<cardinal-female} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-female} {decillions} e {>ordinal-final}|{<cardinal-female} {ordinals.decillions}]'
+      # A final one, two or three in a compound ("i njëzet e njëtë", "i njëqind e dytë").
+      ordinal-final:
+        extends: ordinal-words
+        1: '{ordinals.final}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: mijë
+    millions: {one: milion, other: milionë}
+    billions: {one: miliard, other: miliardë}
+    trillions: {one: bilion, other: bilionë}
+    quadrillions: {one: biliard, other: biliardë}
+    quintillions: {one: trilion, other: trilionë}
+    sextillions: {one: triliard, other: triliardë}
+    septillions: {one: kuadrilion, other: kuadrilionë}
+    octillions: {one: kuadriliard, other: kuadriliardë}
+    nonillions: {one: kuintilion, other: kuintilionë}
+    decillions: {one: kuintiliard, other: kuintiliardë}
+    ordinals:
+      article: i
+      ones: [_, parë, dytë, tretë, katërt, pestë, gjashtë, shtatë, tetë, nëntë]
+      final: [_, njëtë, dytë, tretë, katërt, pestë, gjashtë, shtatë, tetë, nëntë]
+      teens: [dhjetë, njëmbëdhjetë, dymbëdhjetë, trembëdhjetë, katërmbëdhjetë, pesëmbëdhjetë, gjashtëmbëdhjetë, shtatëmbëdhjetë, tetëmbëdhjetë, nëntëmbëdhjetë]
+      tens: [_, dhjetë, njëzetë, tridhjetë, dyzetë, pesëdhjetë, gjashtëdhjetë, shtatëdhjetë, tetëdhjetë, nëntëdhjetë]
+      hundreds: [_, njëqindtë, dyqindtë, treqindtë, katërqindtë, pesëqindtë, gjashtëqindtë, shtatëqindtë, tetëqindtë, nëntëqindtë]
+      thousands: mijëtë
+      millions: miliontë
+      billions: miliardtë
+      trillions: biliontë
+      quadrillions: biliardtë
+      quintillions: triliontë
+      sextillions: triliardtë
+      septillions: kuadriliontë
+      octillions: kuadriliardtë
+      nonillions: kuintiliontë
+      decillions: kuintiliardtë
+    # The feminine ordinals take the article e ("e parë").
+    genders:
+      female:
+        ordinals:
+          article: e
+    subunit_separator: e

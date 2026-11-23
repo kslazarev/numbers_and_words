@@ -107,6 +107,8 @@ Each language page has examples, says whether it reads decimals, and documents i
 
 | Language | Name | Code |
 | --- | --- | --- |
+| [Afrikaans](docs/languages/af.md)* | Afrikaans | `af` |
+| [Albanian](docs/languages/sq.md)* | Shqip | `sq` |
 | [Arabic](docs/languages/ar.md)* | العربية | `ar` |
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
 | [Azerbaijani](docs/languages/az.md)* | Azərbaycan dili | `az` |
@@ -116,12 +118,14 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
 | [Bosnian](docs/languages/bs.md)* | Bosanski | `bs` |
 | [Bulgarian](docs/languages/bg.md)* | Български | `bg` |
+| [Catalan](docs/languages/ca.md)* | Català | `ca` |
 | [Chinese](docs/languages/zh.md)* | 中文 | `zh` |
 | [Croatian](docs/languages/hr.md)* | Hrvatski | `hr` |
 | [Czech](docs/languages/cs.md) | Čeština | `cs` |
 | [Danish](docs/languages/da.md) | Dansk | `da` |
 | [Dutch](docs/languages/nl.md) | Nederlands | `nl` |
 | [English](docs/languages/en.md) | English | `en` |
+| [Esperanto](docs/languages/eo.md)* | Esperanto | `eo` |
 | [Estonian](docs/languages/et.md) | Eesti | `et` |
 | [Finnish](docs/languages/fi.md)* | Suomi | `fi` |
 | [French](docs/languages/fr.md) | Français | `fr` |

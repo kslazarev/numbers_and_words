@@ -65,6 +65,7 @@ module CldrComparison
   MASCULINE_FEMININE = { male: 'masculine' }.merge(FEMALE).freeze
 
   LOCALES = {
+    af: { cldr: :af, kinds: CARDINAL.merge(ORDINAL) },
     ar: { cldr: :ar, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine', within(1..99)) } },
     az: { cldr: :az, kinds: CARDINAL.merge(ORDINAL) },
     # CLDR spells Belarusian ordinals from 1000 with cardinal scale words (дваццаць адна тысяча for the 21000th) or
@@ -83,6 +84,12 @@ module CldrComparison
     bs: { cldr: :bs, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
     # Czech counts with jedna by default and takes gender: for jeden/jedna/jedno; CLDR has no counting
     # set with jedna, so the default is compared with spellout-numbering, which says jeden.
+    # Catalan counts with u, as CLDR spellout-numbering does, not the un of spellout-cardinal-masculine.
+    ca: {
+      cldr: :ca,
+      kinds: { 'cardinal' => compare({}, 'spellout-numbering'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') }
+        .merge(gendered('cardinal', FEMALE), gendered('ordinal', FEMALE, ordinal: true))
+    },
     cs: { cldr: :cs, kinds: { 'cardinal' => compare({}, 'spellout-numbering') }.merge(gendered('cardinal', FEMALE_NEUTER.merge(male: 'masculine'))) },
     da: {
       cldr: :da,
@@ -97,6 +104,7 @@ module CldrComparison
     },
     en: { cldr: :en, kinds: CARDINAL.merge(ORDINAL) },
     # Spanish counts with uno, as CLDR spellout-numbering does; apocopated: true gives the un of spellout-cardinal-masculine.
+    eo: { cldr: :eo, kinds: CARDINAL.merge(ORDINAL) },
     es: {
       cldr: :es,
       kinds: {
@@ -170,6 +178,7 @@ module CldrComparison
       kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal', within(0...1000)) }
         .merge(gendered('cardinal', FEMALE_NEUTER))
     },
+    sq: { cldr: :sq, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE)) },
     sv: { cldr: :sv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-neuter'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-neuter') } },
     th: { cldr: :th, kinds: CARDINAL.merge(ORDINAL) },
     tr: { cldr: :tr, kinds: CARDINAL.merge(ORDINAL) },
