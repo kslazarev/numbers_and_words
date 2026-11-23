@@ -119,6 +119,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Bosnian](docs/languages/bs.md)* | Bosanski | `bs` |
 | [Bulgarian](docs/languages/bg.md)* | Български | `bg` |
 | [Catalan](docs/languages/ca.md)* | Català | `ca` |
+| [Burmese](docs/languages/my.md)* | မြန်မာဘာသာ | `my` |
 | [Chinese](docs/languages/zh.md)* | 中文 | `zh` |
 | [Croatian](docs/languages/hr.md)* | Hrvatski | `hr` |
 | [Czech](docs/languages/cs.md) | Čeština | `cs` |
@@ -140,7 +141,9 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Italian](docs/languages/it.md) | Italiano | `it` |
 | [Japanese](docs/languages/ja.md)* | 日本語 | `ja` |
 | [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
+| [Khmer](docs/languages/km.md)* | ភាសាខ្មែរ | `km` |
 | [Korean](docs/languages/ko.md)* | 한국어 | `ko` |
+| [Lao](docs/languages/lo.md)* | ພາສາລາວ | `lo` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
 | [Macedonian](docs/languages/mk.md)* | Македонски | `mk` |

@@ -5,7 +5,7 @@ module NumbersAndWords
     module FiguresConverter
       module Decorators
         # The fractional part digit by digit, including leading zeros, joined by numbers.word_separator: Finnish,
-        # Norwegian, Hindi, Bengali, Urdu, Indonesian, Malay and Thai ("สามจุดศูนย์ห้า").
+        # Norwegian, Hindi, Bengali, Urdu, Indonesian, Malay, Thai ("สามจุดศูนย์ห้า"), Lao, Khmer and Burmese.
         module Digits
           class Fractional < Base
             def run

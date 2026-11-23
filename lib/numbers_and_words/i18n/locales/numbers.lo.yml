@@ -1,0 +1,40 @@
+lo:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: ລົບ
+    ones: [ສູນ, ໜຶ່ງ, ສອງ, ສາມ, ສີ່, ຫ້າ, ຫົກ, ເຈັດ, ແປດ, ເກົ້າ]
+    ten: ສິບ
+    twenty: ຊາວ
+    hundred: ຮ້ອຍ
+    thousand: ພັນ
+    ten_thousand: ໝື່ນ
+    hundred_thousand: ແສນ
+    million: ລ້ານ
+    final_one: ເອັດ
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A number is one word, grouped by millions with one ລ້ານ for each power of a million ("ໜຶ່ງລ້ານລ້ານ"), without
+    # a limit; 20 is ຊາວ, and a final one after a ten is ເອັດ ("ສິບເອັດ", "ຊາວເອັດ"), but ໜຶ່ງ after a hundred or a
+    # larger place ("ໜຶ່ງຮ້ອຍໜຶ່ງ"). Numbers are written without spaces between words.
+    word_separator: ''
+    # How decimals are read (see Decorators.readings).
+    decimals: {reading: digits}
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{ten}[{>after-ten}]'
+        20: '{twenty}[{>after-ten}]'
+        30: '{ones}{ten}[{>after-ten}]'
+        100: '{ones}{hundred}[{>}]'
+        1000: '{ones}{thousand}[{>}]'
+        10000: '{ones}{ten_thousand}[{>}]'
+        100000: '{ones}{hundred_thousand}[{>}]'
+        '1000000*1000000': '{<cardinal}{million*6}[{>}]'
+      after-ten:
+        1: '{final_one}'
+        2: '{ones}'
+      ordinal:
+        0: '{ordinal_prefix}{=cardinal}'
+    ordinal_prefix: ທີ
+    micro_separator: ຈຸດ
