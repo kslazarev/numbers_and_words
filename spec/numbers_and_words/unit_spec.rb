@@ -303,11 +303,14 @@ describe NumbersAndWords::Unit do
                 'مائة وثلاثة دنانير', 'مائة وأحد عشر دينارًا', 'مائتا دينار', 'ألف دينار', 'ألفا دينار', 'ثلاثة آلاف دينار', 'أحد عشر ألف دينار'])
     end
 
+    it 'agrees with a feminine Arabic unit' do
+      expect([1, 2, 3, 10, 11, 21, 3_000].map { |number| words(:ar, number, unit: :lira) })
+        .to eq(['ليرة واحدة', 'ليرتان', 'ثلاث ليرات', 'عشر ليرات', 'إحدى عشرة ليرة', 'إحدى وعشرون ليرة', 'ثلاثة آلاف ليرة'])
+    end
+
     it 'raises for what Hebrew and Arabic units do not support yet' do
       expect { words(:ar, 101, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 101 is not supported in :ar yet.')
       expect { words(:ar, 2_002, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 2002 is not supported in :ar yet.')
-      expect { words(:ar, 3, unit: :lira) }
-        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The unit :lira has gender :female, and numbers in :ar only agree with male units yet.')
       expect { words(:he, 1, unit: :shekel, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :he yet.')
       expect { words(:ar, 1, unit: :dinar, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :ar yet.')
     end

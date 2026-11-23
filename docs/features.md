@@ -11,7 +11,7 @@ What each bundled language supports, generated from its locale file and classes 
 
 | Language | Decimals | Gender | Case | Ordinals | Largest number | Other options |
 | --- | --- | --- | --- | --- | --- | --- |
-| [`ar`](languages/ar.md) | yes | — | — | 1 to 99 | 10<sup>36</sup> | — |
+| [`ar`](languages/ar.md) | yes | male, female | — | 1 to 99 | 10<sup>36</sup> | — |
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bn`](languages/bn.md) | yes | — | — | all | unlimited | — |
