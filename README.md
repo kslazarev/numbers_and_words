@@ -139,6 +139,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Hungarian](docs/languages/hu.md) | Magyar | `hu` |
 | [Icelandic](docs/languages/is.md)* | Íslenska | `is` |
 | [Indonesian](docs/languages/id.md) | Bahasa Indonesia | `id` |
+| [Irish](docs/languages/ga.md)* | Gaeilge | `ga` |
 | [Italian](docs/languages/it.md) | Italiano | `it` |
 | [Japanese](docs/languages/ja.md)* | 日本語 | `ja` |
 | [Kazakh](docs/languages/kk.md) | Қазақша | `kk` |
@@ -169,6 +170,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Ukrainian](docs/languages/uk.md) | Українська | `uk` |
 | [Urdu](docs/languages/ur.md)* | اردو | `ur` |
 | [Vietnamese](docs/languages/vi.md) | Tiếng Việt | `vi` |
+| [Welsh](docs/languages/cy.md)* | Cymraeg | `cy` |
 
 \* Experimental: known gaps or no native-speaker review yet, as its page explains. See [#255](https://github.com/kslazarev/numbers_and_words/issues/255) to help.
 

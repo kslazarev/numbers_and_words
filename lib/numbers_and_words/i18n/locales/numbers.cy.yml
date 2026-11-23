@@ -1,0 +1,950 @@
+cy:
+  numbers:
+    # Unicode CLDR's plural categories, which are also those of the mutations after a number: un softens a
+    # feminine noun, dau and dwy soften any noun, tri and chwe aspirate c, p and t.
+    plural:
+      zero: n = 0
+      one: n = 1
+      two: n = 2
+      few: n = 3
+      many: n = 6
+    supported_options:
+      gender: {values: [male, female], default: male}
+      ordinal: {minimum: 1}
+      remove_zero: {keeps_micro_separator: true}
+      vigesimal: {rules: vigesimal}
+    minus: minws
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: pwynt
+    ones: [dim, un, dau, tri, pedwar, pump, chwech, saith, wyth, naw]
+    ten: deg
+    # The decimal tens of Unicode CLDR.
+    tens: [_, un deg, dau ddeg, tri deg, pedwar deg, pum deg, chwe deg, saith deg, wyth deg, naw deg]
+    hundreds: [_, cant, dau gant, tri chant, pedwar cant, pum cant, chwe chant, saith cant, wyth cant, naw cant]
+    # Hundreds before a noun ("can mil", "tri chan mil").
+    hundreds_count: [_, can, dau gan, tri chan, pedwar can, pum can, chwe chan, saith can, wyth can, naw can]
+    # The counts before a masculine and a feminine noun.
+    prefix_m: [_, un, dau, tri, pedwar, pum, chwe, saith, wyth, naw, deg]
+    prefix_f: [_, un, dwy, tair, pedair, pum, chwe, saith, wyth, naw, deg]
+    # The vigesimal numbers, and the forms after a (ac before a vowel), which aspirates c, p and t.
+    twelve: deuddeg
+    fifteen: pymtheg
+    eighteen: deunaw
+    ar_ddeg: ar ddeg
+    ar_bymtheg: ar bymtheg
+    scores: [_, ar hugain, a deugain, a thrigain, a phedwar ugain]
+    score_words: [_, ugain, deugain, trigain, pedwar ugain]
+    fifty: hanner cant
+    fifty_count: hanner can
+    and_ones: [_, ac un, a dau, a thri, a phedwar, a phump, a chwech, a saith, ac wyth, a naw, a deg]
+    and_prefix_m: [_, ac un, a dau, a thri, a phedwar, a phum, a chwe, a saith, ac wyth, a naw, a deg]
+    and_prefix_f: [_, ac un, a dwy, a thair, a phedair, a phum, a chwe, a saith, ac wyth, a naw, a deg]
+    and_twelve: a deuddeg
+    and_fifteen: a phymtheg
+    and_eighteen: a deunaw
+    and_score_words: [_, ac ugain, a deugain, a thrigain, a phedwar ugain]
+    and_fifty_count: a hanner can
+    and_fifty: a hanner cant
+    # The words that an option changes when it is on: gender: :female counts with dwy, tair and pedair.
+    options:
+      female:
+        ones: [dim, un, dwy, tair, pedair, pump, chwech, saith, wyth, naw]
+        and_ones: [_, ac un, a dwy, a thair, a phedair, a phump, a chwech, a saith, ac wyth, a naw, a deg]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Cardinals follow the decimal system of Unicode CLDR, with the mutations of a noun after a number; vigesimal:
+    # true reads the traditional system ("un ar hugain").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{ten}'
+        11: '{tens} {>}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<count-thousands}[ {>}]'
+        1000000: '{<count-millions}[ {>}]'
+        1000000000: '{<count-billions}[ {>}]'
+        1000000000000: '{<count-trillions}[ {>}]'
+        1000000000000000: '{<count-quadrillions}[ {>}]'
+        1000000000000000000: '{<count-quintillions}[ {>}]'
+        1000000000000000000000: '{<count-sextillions}[ {>}]'
+        1000000000000000000000000: '{<count-septillions}[ {>}]'
+        1000000000000000000000000000: '{<count-octillions}[ {>}]'
+        1000000000000000000000000000000: '{<count-nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<count-decillions}[ {>}]'
+      cardinal-vigesimal:
+        0: '{ones}'
+        10: '{ten}'
+        11: '{ones%} {ar_ddeg}'
+        '12/12': '{twelve}'
+        13: '{ones%} {ar_ddeg}'
+        '15/15': '{fifteen}'
+        '16/15': '{ones%} {ar_bymtheg}'
+        '18/18': '{eighteen}'
+        '19/15': '{ones%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{score_words}]'
+        '50/20': '{fifty}'
+        '51/20': '[{>} {scores}|{score_words}]'
+        100: '{hundreds}[ {>vigesimal-and}]'
+        1000: '{<vigesimal-count-thousands}[{>vigesimal-rest}]'
+        1000000: '{<vigesimal-count-millions}[{>vigesimal-rest}]'
+        1000000000: '{<vigesimal-count-billions}[{>vigesimal-rest}]'
+        1000000000000: '{<vigesimal-count-trillions}[{>vigesimal-rest}]'
+        1000000000000000: '{<vigesimal-count-quadrillions}[{>vigesimal-rest}]'
+        1000000000000000000: '{<vigesimal-count-quintillions}[{>vigesimal-rest}]'
+        1000000000000000000000: '{<vigesimal-count-sextillions}[{>vigesimal-rest}]'
+        1000000000000000000000000: '{<vigesimal-count-septillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000: '{<vigesimal-count-octillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000000: '{<vigesimal-count-nonillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000000000: '{<vigesimal-count-decillions}[{>vigesimal-rest}]'
+      # A last part below a hundred after a or ac ("cant ac un", "mil a deg").
+      vigesimal-and:
+        1: '{and_ones}'
+        11: '{and_ones%} {ar_ddeg}'
+        '12/12': '{and_twelve}'
+        13: '{and_ones%} {ar_ddeg}'
+        '15/15': '{and_fifteen}'
+        '16/15': '{and_ones%} {ar_bymtheg}'
+        '18/18': '{and_eighteen}'
+        '19/15': '{and_ones%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words}]'
+        '50/20': '{and_fifty}'
+        '51/20': '[{>} {scores}|{and_score_words}]'
+      vigesimal-rest:
+        1: ' {=vigesimal-and}'
+        100: ' {=cardinal-vigesimal}'
+      # The count of a scale word, and the word mutated by the count's last digit ("dwy fil", "tri thriliwn", "dau
+      # filiwn" for two billion).
+      count-thousands:
+        1: '{thousands%}'
+        2: '{prefix_f} {thousands}'
+        10: '{ten} {thousands%}'
+        11: '{tens} {>unit-thousands}'
+        20: '{tens}[ {>unit-thousands}| {thousands%}]'
+        100: '[{hundreds} {>rest-thousands}|{hundreds_count} {thousands%}]'
+      unit-thousands:
+        1: '{prefix_f} {thousands}'
+      rest-thousands:
+        extends: count-thousands
+        1: '{prefix_f} {thousands}'
+      count-millions:
+        1: '{millions%}'
+        2: '{prefix_f} {millions}'
+        10: '{ten} {millions%}'
+        11: '{tens} {>unit-millions}'
+        20: '{tens}[ {>unit-millions}| {millions%}]'
+        100: '[{hundreds} {>rest-millions}|{hundreds_count} {millions%}]'
+      unit-millions:
+        1: '{prefix_f} {millions}'
+      rest-millions:
+        extends: count-millions
+        1: '{prefix_f} {millions}'
+      count-billions:
+        1: '{billions%}'
+        2: '{prefix_m} {billions}'
+        10: '{ten} {billions%}'
+        11: '{tens} {>unit-billions}'
+        20: '{tens}[ {>unit-billions}| {billions%}]'
+        100: '[{hundreds} {>rest-billions}|{hundreds_count} {billions%}]'
+      unit-billions:
+        1: '{prefix_m} {billions}'
+      rest-billions:
+        extends: count-billions
+        1: '{prefix_m} {billions}'
+      count-trillions:
+        1: '{trillions%}'
+        2: '{prefix_m} {trillions}'
+        10: '{ten} {trillions%}'
+        11: '{tens} {>unit-trillions}'
+        20: '{tens}[ {>unit-trillions}| {trillions%}]'
+        100: '[{hundreds} {>rest-trillions}|{hundreds_count} {trillions%}]'
+      unit-trillions:
+        1: '{prefix_m} {trillions}'
+      rest-trillions:
+        extends: count-trillions
+        1: '{prefix_m} {trillions}'
+      count-quadrillions:
+        1: '{quadrillions%}'
+        2: '{prefix_m} {quadrillions}'
+        10: '{ten} {quadrillions%}'
+        11: '{tens} {>unit-quadrillions}'
+        20: '{tens}[ {>unit-quadrillions}| {quadrillions%}]'
+        100: '[{hundreds} {>rest-quadrillions}|{hundreds_count} {quadrillions%}]'
+      unit-quadrillions:
+        1: '{prefix_m} {quadrillions}'
+      rest-quadrillions:
+        extends: count-quadrillions
+        1: '{prefix_m} {quadrillions}'
+      count-quintillions:
+        1: '{quintillions%}'
+        2: '{prefix_m} {quintillions}'
+        10: '{ten} {quintillions%}'
+        11: '{tens} {>unit-quintillions}'
+        20: '{tens}[ {>unit-quintillions}| {quintillions%}]'
+        100: '[{hundreds} {>rest-quintillions}|{hundreds_count} {quintillions%}]'
+      unit-quintillions:
+        1: '{prefix_m} {quintillions}'
+      rest-quintillions:
+        extends: count-quintillions
+        1: '{prefix_m} {quintillions}'
+      count-sextillions:
+        1: '{sextillions%}'
+        2: '{prefix_m} {sextillions}'
+        10: '{ten} {sextillions%}'
+        11: '{tens} {>unit-sextillions}'
+        20: '{tens}[ {>unit-sextillions}| {sextillions%}]'
+        100: '[{hundreds} {>rest-sextillions}|{hundreds_count} {sextillions%}]'
+      unit-sextillions:
+        1: '{prefix_m} {sextillions}'
+      rest-sextillions:
+        extends: count-sextillions
+        1: '{prefix_m} {sextillions}'
+      count-septillions:
+        1: '{septillions%}'
+        2: '{prefix_m} {septillions}'
+        10: '{ten} {septillions%}'
+        11: '{tens} {>unit-septillions}'
+        20: '{tens}[ {>unit-septillions}| {septillions%}]'
+        100: '[{hundreds} {>rest-septillions}|{hundreds_count} {septillions%}]'
+      unit-septillions:
+        1: '{prefix_m} {septillions}'
+      rest-septillions:
+        extends: count-septillions
+        1: '{prefix_m} {septillions}'
+      count-octillions:
+        1: '{octillions%}'
+        2: '{prefix_m} {octillions}'
+        10: '{ten} {octillions%}'
+        11: '{tens} {>unit-octillions}'
+        20: '{tens}[ {>unit-octillions}| {octillions%}]'
+        100: '[{hundreds} {>rest-octillions}|{hundreds_count} {octillions%}]'
+      unit-octillions:
+        1: '{prefix_m} {octillions}'
+      rest-octillions:
+        extends: count-octillions
+        1: '{prefix_m} {octillions}'
+      count-nonillions:
+        1: '{nonillions%}'
+        2: '{prefix_m} {nonillions}'
+        10: '{ten} {nonillions%}'
+        11: '{tens} {>unit-nonillions}'
+        20: '{tens}[ {>unit-nonillions}| {nonillions%}]'
+        100: '[{hundreds} {>rest-nonillions}|{hundreds_count} {nonillions%}]'
+      unit-nonillions:
+        1: '{prefix_m} {nonillions}'
+      rest-nonillions:
+        extends: count-nonillions
+        1: '{prefix_m} {nonillions}'
+      count-decillions:
+        1: '{decillions%}'
+        2: '{prefix_m} {decillions}'
+        10: '{ten} {decillions%}'
+        11: '{tens} {>unit-decillions}'
+        20: '{tens}[ {>unit-decillions}| {decillions%}]'
+        100: '[{hundreds} {>rest-decillions}|{hundreds_count} {decillions%}]'
+      unit-decillions:
+        1: '{prefix_m} {decillions}'
+      rest-decillions:
+        extends: count-decillions
+        1: '{prefix_m} {decillions}'
+      vigesimal-count-thousands:
+        1: '{thousands%}'
+        2: '{prefix_f} {thousands}'
+        11: '{prefix_f%} {thousands%} {ar_ddeg}'
+        '12/12': '{twelve} {thousands%}'
+        13: '{prefix_f%} {thousands%} {ar_ddeg}'
+        '15/15': '{fifteen} {thousands%}'
+        '16/15': '{prefix_f%} {thousands%} {ar_bymtheg}'
+        '18/18': '{eighteen} {thousands%}'
+        '19/15': '{prefix_f%} {thousands%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-thousands} {scores}|{score_words} {thousands%}]'
+        '50/20': '{fifty_count} {thousands%}'
+        '51/20': '[{>vigesimal-unit-thousands} {scores}|{score_words} {thousands%}]'
+        100: '[{hundreds} {>vigesimal-and-thousands}|{hundreds_count} {thousands%}]'
+      vigesimal-unit-thousands:
+        extends: vigesimal-count-thousands
+        1: '{prefix_f} {thousands}'
+      vigesimal-and-thousands:
+        1: '{and_prefix_f} {thousands}'
+        11: '{and_prefix_f%} {thousands%} {ar_ddeg}'
+        '12/12': '{and_twelve} {thousands%}'
+        13: '{and_prefix_f%} {thousands%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {thousands%}'
+        '16/15': '{and_prefix_f%} {thousands%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {thousands%}'
+        '19/15': '{and_prefix_f%} {thousands%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {thousands%}]'
+        '50/20': '{and_fifty_count} {thousands%}'
+        '51/20': '[{>} {scores}|{and_score_words} {thousands%}]'
+      vigesimal-count-millions:
+        1: '{millions%}'
+        2: '{prefix_f} {millions}'
+        11: '{prefix_f%} {millions%} {ar_ddeg}'
+        '12/12': '{twelve} {millions%}'
+        13: '{prefix_f%} {millions%} {ar_ddeg}'
+        '15/15': '{fifteen} {millions%}'
+        '16/15': '{prefix_f%} {millions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {millions%}'
+        '19/15': '{prefix_f%} {millions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-millions} {scores}|{score_words} {millions%}]'
+        '50/20': '{fifty_count} {millions%}'
+        '51/20': '[{>vigesimal-unit-millions} {scores}|{score_words} {millions%}]'
+        100: '[{hundreds} {>vigesimal-and-millions}|{hundreds_count} {millions%}]'
+      vigesimal-unit-millions:
+        extends: vigesimal-count-millions
+        1: '{prefix_f} {millions}'
+      vigesimal-and-millions:
+        1: '{and_prefix_f} {millions}'
+        11: '{and_prefix_f%} {millions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {millions%}'
+        13: '{and_prefix_f%} {millions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {millions%}'
+        '16/15': '{and_prefix_f%} {millions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {millions%}'
+        '19/15': '{and_prefix_f%} {millions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {millions%}]'
+        '50/20': '{and_fifty_count} {millions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {millions%}]'
+      vigesimal-count-billions:
+        1: '{billions%}'
+        2: '{prefix_m} {billions}'
+        11: '{prefix_m%} {billions%} {ar_ddeg}'
+        '12/12': '{twelve} {billions%}'
+        13: '{prefix_m%} {billions%} {ar_ddeg}'
+        '15/15': '{fifteen} {billions%}'
+        '16/15': '{prefix_m%} {billions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {billions%}'
+        '19/15': '{prefix_m%} {billions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-billions} {scores}|{score_words} {billions%}]'
+        '50/20': '{fifty_count} {billions%}'
+        '51/20': '[{>vigesimal-unit-billions} {scores}|{score_words} {billions%}]'
+        100: '[{hundreds} {>vigesimal-and-billions}|{hundreds_count} {billions%}]'
+      vigesimal-unit-billions:
+        extends: vigesimal-count-billions
+        1: '{prefix_m} {billions}'
+      vigesimal-and-billions:
+        1: '{and_prefix_m} {billions}'
+        11: '{and_prefix_m%} {billions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {billions%}'
+        13: '{and_prefix_m%} {billions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {billions%}'
+        '16/15': '{and_prefix_m%} {billions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {billions%}'
+        '19/15': '{and_prefix_m%} {billions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {billions%}]'
+        '50/20': '{and_fifty_count} {billions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {billions%}]'
+      vigesimal-count-trillions:
+        1: '{trillions%}'
+        2: '{prefix_m} {trillions}'
+        11: '{prefix_m%} {trillions%} {ar_ddeg}'
+        '12/12': '{twelve} {trillions%}'
+        13: '{prefix_m%} {trillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {trillions%}'
+        '16/15': '{prefix_m%} {trillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {trillions%}'
+        '19/15': '{prefix_m%} {trillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-trillions} {scores}|{score_words} {trillions%}]'
+        '50/20': '{fifty_count} {trillions%}'
+        '51/20': '[{>vigesimal-unit-trillions} {scores}|{score_words} {trillions%}]'
+        100: '[{hundreds} {>vigesimal-and-trillions}|{hundreds_count} {trillions%}]'
+      vigesimal-unit-trillions:
+        extends: vigesimal-count-trillions
+        1: '{prefix_m} {trillions}'
+      vigesimal-and-trillions:
+        1: '{and_prefix_m} {trillions}'
+        11: '{and_prefix_m%} {trillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {trillions%}'
+        13: '{and_prefix_m%} {trillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {trillions%}'
+        '16/15': '{and_prefix_m%} {trillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {trillions%}'
+        '19/15': '{and_prefix_m%} {trillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {trillions%}]'
+        '50/20': '{and_fifty_count} {trillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {trillions%}]'
+      vigesimal-count-quadrillions:
+        1: '{quadrillions%}'
+        2: '{prefix_m} {quadrillions}'
+        11: '{prefix_m%} {quadrillions%} {ar_ddeg}'
+        '12/12': '{twelve} {quadrillions%}'
+        13: '{prefix_m%} {quadrillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {quadrillions%}'
+        '16/15': '{prefix_m%} {quadrillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {quadrillions%}'
+        '19/15': '{prefix_m%} {quadrillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-quadrillions} {scores}|{score_words} {quadrillions%}]'
+        '50/20': '{fifty_count} {quadrillions%}'
+        '51/20': '[{>vigesimal-unit-quadrillions} {scores}|{score_words} {quadrillions%}]'
+        100: '[{hundreds} {>vigesimal-and-quadrillions}|{hundreds_count} {quadrillions%}]'
+      vigesimal-unit-quadrillions:
+        extends: vigesimal-count-quadrillions
+        1: '{prefix_m} {quadrillions}'
+      vigesimal-and-quadrillions:
+        1: '{and_prefix_m} {quadrillions}'
+        11: '{and_prefix_m%} {quadrillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {quadrillions%}'
+        13: '{and_prefix_m%} {quadrillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {quadrillions%}'
+        '16/15': '{and_prefix_m%} {quadrillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {quadrillions%}'
+        '19/15': '{and_prefix_m%} {quadrillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {quadrillions%}]'
+        '50/20': '{and_fifty_count} {quadrillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {quadrillions%}]'
+      vigesimal-count-quintillions:
+        1: '{quintillions%}'
+        2: '{prefix_m} {quintillions}'
+        11: '{prefix_m%} {quintillions%} {ar_ddeg}'
+        '12/12': '{twelve} {quintillions%}'
+        13: '{prefix_m%} {quintillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {quintillions%}'
+        '16/15': '{prefix_m%} {quintillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {quintillions%}'
+        '19/15': '{prefix_m%} {quintillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-quintillions} {scores}|{score_words} {quintillions%}]'
+        '50/20': '{fifty_count} {quintillions%}'
+        '51/20': '[{>vigesimal-unit-quintillions} {scores}|{score_words} {quintillions%}]'
+        100: '[{hundreds} {>vigesimal-and-quintillions}|{hundreds_count} {quintillions%}]'
+      vigesimal-unit-quintillions:
+        extends: vigesimal-count-quintillions
+        1: '{prefix_m} {quintillions}'
+      vigesimal-and-quintillions:
+        1: '{and_prefix_m} {quintillions}'
+        11: '{and_prefix_m%} {quintillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {quintillions%}'
+        13: '{and_prefix_m%} {quintillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {quintillions%}'
+        '16/15': '{and_prefix_m%} {quintillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {quintillions%}'
+        '19/15': '{and_prefix_m%} {quintillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {quintillions%}]'
+        '50/20': '{and_fifty_count} {quintillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {quintillions%}]'
+      vigesimal-count-sextillions:
+        1: '{sextillions%}'
+        2: '{prefix_m} {sextillions}'
+        11: '{prefix_m%} {sextillions%} {ar_ddeg}'
+        '12/12': '{twelve} {sextillions%}'
+        13: '{prefix_m%} {sextillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {sextillions%}'
+        '16/15': '{prefix_m%} {sextillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {sextillions%}'
+        '19/15': '{prefix_m%} {sextillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-sextillions} {scores}|{score_words} {sextillions%}]'
+        '50/20': '{fifty_count} {sextillions%}'
+        '51/20': '[{>vigesimal-unit-sextillions} {scores}|{score_words} {sextillions%}]'
+        100: '[{hundreds} {>vigesimal-and-sextillions}|{hundreds_count} {sextillions%}]'
+      vigesimal-unit-sextillions:
+        extends: vigesimal-count-sextillions
+        1: '{prefix_m} {sextillions}'
+      vigesimal-and-sextillions:
+        1: '{and_prefix_m} {sextillions}'
+        11: '{and_prefix_m%} {sextillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {sextillions%}'
+        13: '{and_prefix_m%} {sextillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {sextillions%}'
+        '16/15': '{and_prefix_m%} {sextillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {sextillions%}'
+        '19/15': '{and_prefix_m%} {sextillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {sextillions%}]'
+        '50/20': '{and_fifty_count} {sextillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {sextillions%}]'
+      vigesimal-count-septillions:
+        1: '{septillions%}'
+        2: '{prefix_m} {septillions}'
+        11: '{prefix_m%} {septillions%} {ar_ddeg}'
+        '12/12': '{twelve} {septillions%}'
+        13: '{prefix_m%} {septillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {septillions%}'
+        '16/15': '{prefix_m%} {septillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {septillions%}'
+        '19/15': '{prefix_m%} {septillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-septillions} {scores}|{score_words} {septillions%}]'
+        '50/20': '{fifty_count} {septillions%}'
+        '51/20': '[{>vigesimal-unit-septillions} {scores}|{score_words} {septillions%}]'
+        100: '[{hundreds} {>vigesimal-and-septillions}|{hundreds_count} {septillions%}]'
+      vigesimal-unit-septillions:
+        extends: vigesimal-count-septillions
+        1: '{prefix_m} {septillions}'
+      vigesimal-and-septillions:
+        1: '{and_prefix_m} {septillions}'
+        11: '{and_prefix_m%} {septillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {septillions%}'
+        13: '{and_prefix_m%} {septillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {septillions%}'
+        '16/15': '{and_prefix_m%} {septillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {septillions%}'
+        '19/15': '{and_prefix_m%} {septillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {septillions%}]'
+        '50/20': '{and_fifty_count} {septillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {septillions%}]'
+      vigesimal-count-octillions:
+        1: '{octillions%}'
+        2: '{prefix_m} {octillions}'
+        11: '{prefix_m%} {octillions%} {ar_ddeg}'
+        '12/12': '{twelve} {octillions%}'
+        13: '{prefix_m%} {octillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {octillions%}'
+        '16/15': '{prefix_m%} {octillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {octillions%}'
+        '19/15': '{prefix_m%} {octillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-octillions} {scores}|{score_words} {octillions%}]'
+        '50/20': '{fifty_count} {octillions%}'
+        '51/20': '[{>vigesimal-unit-octillions} {scores}|{score_words} {octillions%}]'
+        100: '[{hundreds} {>vigesimal-and-octillions}|{hundreds_count} {octillions%}]'
+      vigesimal-unit-octillions:
+        extends: vigesimal-count-octillions
+        1: '{prefix_m} {octillions}'
+      vigesimal-and-octillions:
+        1: '{and_prefix_m} {octillions}'
+        11: '{and_prefix_m%} {octillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {octillions%}'
+        13: '{and_prefix_m%} {octillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {octillions%}'
+        '16/15': '{and_prefix_m%} {octillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {octillions%}'
+        '19/15': '{and_prefix_m%} {octillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {octillions%}]'
+        '50/20': '{and_fifty_count} {octillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {octillions%}]'
+      vigesimal-count-nonillions:
+        1: '{nonillions%}'
+        2: '{prefix_m} {nonillions}'
+        11: '{prefix_m%} {nonillions%} {ar_ddeg}'
+        '12/12': '{twelve} {nonillions%}'
+        13: '{prefix_m%} {nonillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {nonillions%}'
+        '16/15': '{prefix_m%} {nonillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {nonillions%}'
+        '19/15': '{prefix_m%} {nonillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-nonillions} {scores}|{score_words} {nonillions%}]'
+        '50/20': '{fifty_count} {nonillions%}'
+        '51/20': '[{>vigesimal-unit-nonillions} {scores}|{score_words} {nonillions%}]'
+        100: '[{hundreds} {>vigesimal-and-nonillions}|{hundreds_count} {nonillions%}]'
+      vigesimal-unit-nonillions:
+        extends: vigesimal-count-nonillions
+        1: '{prefix_m} {nonillions}'
+      vigesimal-and-nonillions:
+        1: '{and_prefix_m} {nonillions}'
+        11: '{and_prefix_m%} {nonillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {nonillions%}'
+        13: '{and_prefix_m%} {nonillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {nonillions%}'
+        '16/15': '{and_prefix_m%} {nonillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {nonillions%}'
+        '19/15': '{and_prefix_m%} {nonillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {nonillions%}]'
+        '50/20': '{and_fifty_count} {nonillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {nonillions%}]'
+      vigesimal-count-decillions:
+        1: '{decillions%}'
+        2: '{prefix_m} {decillions}'
+        11: '{prefix_m%} {decillions%} {ar_ddeg}'
+        '12/12': '{twelve} {decillions%}'
+        13: '{prefix_m%} {decillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {decillions%}'
+        '16/15': '{prefix_m%} {decillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {decillions%}'
+        '19/15': '{prefix_m%} {decillions%} {ar_bymtheg}'
+        '20/20': '[{>vigesimal-unit-decillions} {scores}|{score_words} {decillions%}]'
+        '50/20': '{fifty_count} {decillions%}'
+        '51/20': '[{>vigesimal-unit-decillions} {scores}|{score_words} {decillions%}]'
+        100: '[{hundreds} {>vigesimal-and-decillions}|{hundreds_count} {decillions%}]'
+      vigesimal-unit-decillions:
+        extends: vigesimal-count-decillions
+        1: '{prefix_m} {decillions}'
+      vigesimal-and-decillions:
+        1: '{and_prefix_m} {decillions}'
+        11: '{and_prefix_m%} {decillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {decillions%}'
+        13: '{and_prefix_m%} {decillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {decillions%}'
+        '16/15': '{and_prefix_m%} {decillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {decillions%}'
+        '19/15': '{and_prefix_m%} {decillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {decillions%}]'
+        '50/20': '{and_fifty_count} {decillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {decillions%}]'
+      # Ordinals are traditional below a hundred ("unfed ar hugain"). Above, as in a compound ordinal, the first part
+      # of the number takes the ordinal ending, the hundreds or the leading scale word ("canfed", "dwy filfed"), and
+      # the rest follows as a traditional cardinal after a or ac ("canfed ac un"), whether or not vigesimal: true.
+      ordinal:
+        1: '{ordinals.ones}'
+        11: '{ordinals.teens%}'
+        '20/20': '[{>ordinal-unit} {scores}|{ordinals.scores}]'
+        '50/20': '{ordinals.fifty}'
+        '51/20': '[{>ordinal-unit} {scores}|{ordinals.scores}]'
+        100: '{ordinals.hundreds}[ {>vigesimal-and}]'
+        1000: '{<ordinal-vigesimal-count-thousands}[{>vigesimal-rest}]'
+        1000000: '{<ordinal-vigesimal-count-millions}[{>vigesimal-rest}]'
+        1000000000: '{<ordinal-vigesimal-count-billions}[{>vigesimal-rest}]'
+        1000000000000: '{<ordinal-vigesimal-count-trillions}[{>vigesimal-rest}]'
+        1000000000000000: '{<ordinal-vigesimal-count-quadrillions}[{>vigesimal-rest}]'
+        1000000000000000000: '{<ordinal-vigesimal-count-quintillions}[{>vigesimal-rest}]'
+        1000000000000000000000: '{<ordinal-vigesimal-count-sextillions}[{>vigesimal-rest}]'
+        1000000000000000000000000: '{<ordinal-vigesimal-count-septillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000: '{<ordinal-vigesimal-count-octillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000000: '{<ordinal-vigesimal-count-nonillions}[{>vigesimal-rest}]'
+        1000000000000000000000000000000000: '{<ordinal-vigesimal-count-decillions}[{>vigesimal-rest}]'
+      # The ordinal before ar hugain, a deugain and so on: unfed for one.
+      ordinal-unit:
+        extends: ordinal
+        1: '{ordinals.units}'
+      ordinal-vigesimal-count-thousands:
+        1: '{ordinals.thousands%}'
+        2: '{prefix_f} {ordinals.thousands}'
+        11: '{prefix_f%} {ordinals.thousands%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.thousands%}'
+        13: '{prefix_f%} {ordinals.thousands%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.thousands%}'
+        '16/15': '{prefix_f%} {ordinals.thousands%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.thousands%}'
+        '19/15': '{prefix_f%} {ordinals.thousands%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-thousands} {scores}|{score_words} {ordinals.thousands%}]'
+        '50/20': '{fifty_count} {ordinals.thousands%}'
+        '51/20': '[{>ordinal-vigesimal-unit-thousands} {scores}|{score_words} {ordinals.thousands%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-thousands}|{hundreds_count} {ordinals.thousands%}]'
+      ordinal-vigesimal-unit-thousands:
+        extends: ordinal-vigesimal-count-thousands
+        1: '{prefix_f} {ordinals.thousands}'
+      ordinal-vigesimal-and-thousands:
+        1: '{and_prefix_f} {ordinals.thousands}'
+        11: '{and_prefix_f%} {ordinals.thousands%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.thousands%}'
+        13: '{and_prefix_f%} {ordinals.thousands%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.thousands%}'
+        '16/15': '{and_prefix_f%} {ordinals.thousands%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.thousands%}'
+        '19/15': '{and_prefix_f%} {ordinals.thousands%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.thousands%}]'
+        '50/20': '{and_fifty_count} {ordinals.thousands%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.thousands%}]'
+      ordinal-vigesimal-count-millions:
+        1: '{ordinals.millions%}'
+        2: '{prefix_f} {ordinals.millions}'
+        11: '{prefix_f%} {ordinals.millions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.millions%}'
+        13: '{prefix_f%} {ordinals.millions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.millions%}'
+        '16/15': '{prefix_f%} {ordinals.millions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.millions%}'
+        '19/15': '{prefix_f%} {ordinals.millions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-millions} {scores}|{score_words} {ordinals.millions%}]'
+        '50/20': '{fifty_count} {ordinals.millions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-millions} {scores}|{score_words} {ordinals.millions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-millions}|{hundreds_count} {ordinals.millions%}]'
+      ordinal-vigesimal-unit-millions:
+        extends: ordinal-vigesimal-count-millions
+        1: '{prefix_f} {ordinals.millions}'
+      ordinal-vigesimal-and-millions:
+        1: '{and_prefix_f} {ordinals.millions}'
+        11: '{and_prefix_f%} {ordinals.millions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.millions%}'
+        13: '{and_prefix_f%} {ordinals.millions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.millions%}'
+        '16/15': '{and_prefix_f%} {ordinals.millions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.millions%}'
+        '19/15': '{and_prefix_f%} {ordinals.millions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.millions%}]'
+        '50/20': '{and_fifty_count} {ordinals.millions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.millions%}]'
+      ordinal-vigesimal-count-billions:
+        1: '{ordinals.billions%}'
+        2: '{prefix_m} {ordinals.billions}'
+        11: '{prefix_m%} {ordinals.billions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.billions%}'
+        13: '{prefix_m%} {ordinals.billions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.billions%}'
+        '16/15': '{prefix_m%} {ordinals.billions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.billions%}'
+        '19/15': '{prefix_m%} {ordinals.billions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-billions} {scores}|{score_words} {ordinals.billions%}]'
+        '50/20': '{fifty_count} {ordinals.billions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-billions} {scores}|{score_words} {ordinals.billions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-billions}|{hundreds_count} {ordinals.billions%}]'
+      ordinal-vigesimal-unit-billions:
+        extends: ordinal-vigesimal-count-billions
+        1: '{prefix_m} {ordinals.billions}'
+      ordinal-vigesimal-and-billions:
+        1: '{and_prefix_m} {ordinals.billions}'
+        11: '{and_prefix_m%} {ordinals.billions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.billions%}'
+        13: '{and_prefix_m%} {ordinals.billions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.billions%}'
+        '16/15': '{and_prefix_m%} {ordinals.billions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.billions%}'
+        '19/15': '{and_prefix_m%} {ordinals.billions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.billions%}]'
+        '50/20': '{and_fifty_count} {ordinals.billions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.billions%}]'
+      ordinal-vigesimal-count-trillions:
+        1: '{ordinals.trillions%}'
+        2: '{prefix_m} {ordinals.trillions}'
+        11: '{prefix_m%} {ordinals.trillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.trillions%}'
+        13: '{prefix_m%} {ordinals.trillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.trillions%}'
+        '16/15': '{prefix_m%} {ordinals.trillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.trillions%}'
+        '19/15': '{prefix_m%} {ordinals.trillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-trillions} {scores}|{score_words} {ordinals.trillions%}]'
+        '50/20': '{fifty_count} {ordinals.trillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-trillions} {scores}|{score_words} {ordinals.trillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-trillions}|{hundreds_count} {ordinals.trillions%}]'
+      ordinal-vigesimal-unit-trillions:
+        extends: ordinal-vigesimal-count-trillions
+        1: '{prefix_m} {ordinals.trillions}'
+      ordinal-vigesimal-and-trillions:
+        1: '{and_prefix_m} {ordinals.trillions}'
+        11: '{and_prefix_m%} {ordinals.trillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.trillions%}'
+        13: '{and_prefix_m%} {ordinals.trillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.trillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.trillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.trillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.trillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.trillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.trillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.trillions%}]'
+      ordinal-vigesimal-count-quadrillions:
+        1: '{ordinals.quadrillions%}'
+        2: '{prefix_m} {ordinals.quadrillions}'
+        11: '{prefix_m%} {ordinals.quadrillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.quadrillions%}'
+        13: '{prefix_m%} {ordinals.quadrillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.quadrillions%}'
+        '16/15': '{prefix_m%} {ordinals.quadrillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.quadrillions%}'
+        '19/15': '{prefix_m%} {ordinals.quadrillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-quadrillions} {scores}|{score_words} {ordinals.quadrillions%}]'
+        '50/20': '{fifty_count} {ordinals.quadrillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-quadrillions} {scores}|{score_words} {ordinals.quadrillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-quadrillions}|{hundreds_count} {ordinals.quadrillions%}]'
+      ordinal-vigesimal-unit-quadrillions:
+        extends: ordinal-vigesimal-count-quadrillions
+        1: '{prefix_m} {ordinals.quadrillions}'
+      ordinal-vigesimal-and-quadrillions:
+        1: '{and_prefix_m} {ordinals.quadrillions}'
+        11: '{and_prefix_m%} {ordinals.quadrillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.quadrillions%}'
+        13: '{and_prefix_m%} {ordinals.quadrillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.quadrillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.quadrillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.quadrillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.quadrillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.quadrillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.quadrillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.quadrillions%}]'
+      ordinal-vigesimal-count-quintillions:
+        1: '{ordinals.quintillions%}'
+        2: '{prefix_m} {ordinals.quintillions}'
+        11: '{prefix_m%} {ordinals.quintillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.quintillions%}'
+        13: '{prefix_m%} {ordinals.quintillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.quintillions%}'
+        '16/15': '{prefix_m%} {ordinals.quintillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.quintillions%}'
+        '19/15': '{prefix_m%} {ordinals.quintillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-quintillions} {scores}|{score_words} {ordinals.quintillions%}]'
+        '50/20': '{fifty_count} {ordinals.quintillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-quintillions} {scores}|{score_words} {ordinals.quintillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-quintillions}|{hundreds_count} {ordinals.quintillions%}]'
+      ordinal-vigesimal-unit-quintillions:
+        extends: ordinal-vigesimal-count-quintillions
+        1: '{prefix_m} {ordinals.quintillions}'
+      ordinal-vigesimal-and-quintillions:
+        1: '{and_prefix_m} {ordinals.quintillions}'
+        11: '{and_prefix_m%} {ordinals.quintillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.quintillions%}'
+        13: '{and_prefix_m%} {ordinals.quintillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.quintillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.quintillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.quintillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.quintillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.quintillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.quintillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.quintillions%}]'
+      ordinal-vigesimal-count-sextillions:
+        1: '{ordinals.sextillions%}'
+        2: '{prefix_m} {ordinals.sextillions}'
+        11: '{prefix_m%} {ordinals.sextillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.sextillions%}'
+        13: '{prefix_m%} {ordinals.sextillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.sextillions%}'
+        '16/15': '{prefix_m%} {ordinals.sextillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.sextillions%}'
+        '19/15': '{prefix_m%} {ordinals.sextillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-sextillions} {scores}|{score_words} {ordinals.sextillions%}]'
+        '50/20': '{fifty_count} {ordinals.sextillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-sextillions} {scores}|{score_words} {ordinals.sextillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-sextillions}|{hundreds_count} {ordinals.sextillions%}]'
+      ordinal-vigesimal-unit-sextillions:
+        extends: ordinal-vigesimal-count-sextillions
+        1: '{prefix_m} {ordinals.sextillions}'
+      ordinal-vigesimal-and-sextillions:
+        1: '{and_prefix_m} {ordinals.sextillions}'
+        11: '{and_prefix_m%} {ordinals.sextillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.sextillions%}'
+        13: '{and_prefix_m%} {ordinals.sextillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.sextillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.sextillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.sextillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.sextillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.sextillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.sextillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.sextillions%}]'
+      ordinal-vigesimal-count-septillions:
+        1: '{ordinals.septillions%}'
+        2: '{prefix_m} {ordinals.septillions}'
+        11: '{prefix_m%} {ordinals.septillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.septillions%}'
+        13: '{prefix_m%} {ordinals.septillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.septillions%}'
+        '16/15': '{prefix_m%} {ordinals.septillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.septillions%}'
+        '19/15': '{prefix_m%} {ordinals.septillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-septillions} {scores}|{score_words} {ordinals.septillions%}]'
+        '50/20': '{fifty_count} {ordinals.septillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-septillions} {scores}|{score_words} {ordinals.septillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-septillions}|{hundreds_count} {ordinals.septillions%}]'
+      ordinal-vigesimal-unit-septillions:
+        extends: ordinal-vigesimal-count-septillions
+        1: '{prefix_m} {ordinals.septillions}'
+      ordinal-vigesimal-and-septillions:
+        1: '{and_prefix_m} {ordinals.septillions}'
+        11: '{and_prefix_m%} {ordinals.septillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.septillions%}'
+        13: '{and_prefix_m%} {ordinals.septillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.septillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.septillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.septillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.septillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.septillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.septillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.septillions%}]'
+      ordinal-vigesimal-count-octillions:
+        1: '{ordinals.octillions%}'
+        2: '{prefix_m} {ordinals.octillions}'
+        11: '{prefix_m%} {ordinals.octillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.octillions%}'
+        13: '{prefix_m%} {ordinals.octillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.octillions%}'
+        '16/15': '{prefix_m%} {ordinals.octillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.octillions%}'
+        '19/15': '{prefix_m%} {ordinals.octillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-octillions} {scores}|{score_words} {ordinals.octillions%}]'
+        '50/20': '{fifty_count} {ordinals.octillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-octillions} {scores}|{score_words} {ordinals.octillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-octillions}|{hundreds_count} {ordinals.octillions%}]'
+      ordinal-vigesimal-unit-octillions:
+        extends: ordinal-vigesimal-count-octillions
+        1: '{prefix_m} {ordinals.octillions}'
+      ordinal-vigesimal-and-octillions:
+        1: '{and_prefix_m} {ordinals.octillions}'
+        11: '{and_prefix_m%} {ordinals.octillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.octillions%}'
+        13: '{and_prefix_m%} {ordinals.octillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.octillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.octillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.octillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.octillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.octillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.octillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.octillions%}]'
+      ordinal-vigesimal-count-nonillions:
+        1: '{ordinals.nonillions%}'
+        2: '{prefix_m} {ordinals.nonillions}'
+        11: '{prefix_m%} {ordinals.nonillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.nonillions%}'
+        13: '{prefix_m%} {ordinals.nonillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.nonillions%}'
+        '16/15': '{prefix_m%} {ordinals.nonillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.nonillions%}'
+        '19/15': '{prefix_m%} {ordinals.nonillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-nonillions} {scores}|{score_words} {ordinals.nonillions%}]'
+        '50/20': '{fifty_count} {ordinals.nonillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-nonillions} {scores}|{score_words} {ordinals.nonillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-nonillions}|{hundreds_count} {ordinals.nonillions%}]'
+      ordinal-vigesimal-unit-nonillions:
+        extends: ordinal-vigesimal-count-nonillions
+        1: '{prefix_m} {ordinals.nonillions}'
+      ordinal-vigesimal-and-nonillions:
+        1: '{and_prefix_m} {ordinals.nonillions}'
+        11: '{and_prefix_m%} {ordinals.nonillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.nonillions%}'
+        13: '{and_prefix_m%} {ordinals.nonillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.nonillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.nonillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.nonillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.nonillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.nonillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.nonillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.nonillions%}]'
+      ordinal-vigesimal-count-decillions:
+        1: '{ordinals.decillions%}'
+        2: '{prefix_m} {ordinals.decillions}'
+        11: '{prefix_m%} {ordinals.decillions%} {ar_ddeg}'
+        '12/12': '{twelve} {ordinals.decillions%}'
+        13: '{prefix_m%} {ordinals.decillions%} {ar_ddeg}'
+        '15/15': '{fifteen} {ordinals.decillions%}'
+        '16/15': '{prefix_m%} {ordinals.decillions%} {ar_bymtheg}'
+        '18/18': '{eighteen} {ordinals.decillions%}'
+        '19/15': '{prefix_m%} {ordinals.decillions%} {ar_bymtheg}'
+        '20/20': '[{>ordinal-vigesimal-unit-decillions} {scores}|{score_words} {ordinals.decillions%}]'
+        '50/20': '{fifty_count} {ordinals.decillions%}'
+        '51/20': '[{>ordinal-vigesimal-unit-decillions} {scores}|{score_words} {ordinals.decillions%}]'
+        100: '[{hundreds} {>ordinal-vigesimal-and-decillions}|{hundreds_count} {ordinals.decillions%}]'
+      ordinal-vigesimal-unit-decillions:
+        extends: ordinal-vigesimal-count-decillions
+        1: '{prefix_m} {ordinals.decillions}'
+      ordinal-vigesimal-and-decillions:
+        1: '{and_prefix_m} {ordinals.decillions}'
+        11: '{and_prefix_m%} {ordinals.decillions%} {ar_ddeg}'
+        '12/12': '{and_twelve} {ordinals.decillions%}'
+        13: '{and_prefix_m%} {ordinals.decillions%} {ar_ddeg}'
+        '15/15': '{and_fifteen} {ordinals.decillions%}'
+        '16/15': '{and_prefix_m%} {ordinals.decillions%} {ar_bymtheg}'
+        '18/18': '{and_eighteen} {ordinals.decillions%}'
+        '19/15': '{and_prefix_m%} {ordinals.decillions%} {ar_bymtheg}'
+        '20/20': '[{>} {scores}|{and_score_words} {ordinals.decillions%}]'
+        '50/20': '{and_fifty_count} {ordinals.decillions%}'
+        '51/20': '[{>} {scores}|{and_score_words} {ordinals.decillions%}]'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: {zero: mil, one: fil, two: fil, few: mil, many: mil, other: mil}
+    millions: {zero: miliwn, one: filiwn, two: filiwn, few: miliwn, many: miliwn, other: miliwn}
+    billions: {zero: biliwn, one: biliwn, two: filiwn, few: biliwn, many: biliwn, other: biliwn}
+    trillions: {zero: triliwn, one: triliwn, two: driliwn, few: thriliwn, many: thriliwn, other: triliwn}
+    quadrillions: {zero: cwadriliwn, one: cwadriliwn, two: gwadriliwn, few: chwadriliwn, many: chwadriliwn, other: cwadriliwn}
+    quintillions: {zero: cwintiliwn, one: cwintiliwn, two: gwintiliwn, few: chwintiliwn, many: chwintiliwn, other: cwintiliwn}
+    sextillions: {zero: secstiliwn, one: secstiliwn, two: secstiliwn, few: secstiliwn, many: secstiliwn, other: secstiliwn}
+    septillions: {zero: septiliwn, one: septiliwn, two: septiliwn, few: septiliwn, many: septiliwn, other: septiliwn}
+    octillions: {zero: octiliwn, one: octiliwn, two: octiliwn, few: octiliwn, many: octiliwn, other: octiliwn}
+    nonillions: {zero: noniliwn, one: noniliwn, two: noniliwn, few: noniliwn, many: noniliwn, other: noniliwn}
+    decillions: {zero: desiliwn, one: desiliwn, two: ddesiliwn, few: desiliwn, many: desiliwn, other: desiliwn}
+    ordinals:
+      ones: [_, cyntaf, ail, trydydd, pedwerydd, pumed, chweched, seithfed, wythfed, nawfed, degfed]
+      units: [_, unfed, ail, trydydd, pedwerydd, pumed, chweched, seithfed, wythfed, nawfed, degfed]
+      teens: [_, unfed ar ddeg, deuddegfed, trydydd ar ddeg, pedwerydd ar ddeg, pymthegfed, unfed ar bymtheg, ail ar bymtheg, deunawfed, pedwerydd ar bymtheg]
+      scores: [_, ugeinfed, deugeinfed, trigeinfed, pedwar ugeinfed]
+      fifty: hanner canfed
+      hundreds: [_, canfed, dau ganfed, tri chanfed, pedwar canfed, pum canfed, chwe chanfed, saith canfed, wyth canfed, naw canfed]
+      thousands: {zero: milfed, one: filfed, two: filfed, few: milfed, many: milfed, other: milfed}
+      millions: {zero: miliynfed, one: filiynfed, two: filiynfed, few: miliynfed, many: miliynfed, other: miliynfed}
+      billions: {zero: biliynfed, one: biliynfed, two: filiynfed, few: biliynfed, many: biliynfed, other: biliynfed}
+      trillions: {zero: triliynfed, one: triliynfed, two: driliynfed, few: thriliynfed, many: thriliynfed, other: triliynfed}
+      quadrillions: {zero: cwadriliynfed, one: cwadriliynfed, two: gwadriliynfed, few: chwadriliynfed, many: chwadriliynfed, other: cwadriliynfed}
+      quintillions: {zero: cwintiliynfed, one: cwintiliynfed, two: gwintiliynfed, few: chwintiliynfed, many: chwintiliynfed, other: cwintiliynfed}
+      sextillions: {zero: secstiliynfed, one: secstiliynfed, two: secstiliynfed, few: secstiliynfed, many: secstiliynfed, other: secstiliynfed}
+      septillions: {zero: septiliynfed, one: septiliynfed, two: septiliynfed, few: septiliynfed, many: septiliynfed, other: septiliynfed}
+      octillions: {zero: octiliynfed, one: octiliynfed, two: octiliynfed, few: octiliynfed, many: octiliynfed, other: octiliynfed}
+      nonillions: {zero: noniliynfed, one: noniliynfed, two: noniliynfed, few: noniliynfed, many: noniliynfed, other: noniliynfed}
+      decillions: {zero: desiliynfed, one: desiliynfed, two: ddesiliynfed, few: desiliynfed, many: desiliynfed, other: desiliynfed}
+    # The feminine ordinals: trydedd and pedwaredd, and pedair ugeinfed.
+    genders:
+      female:
+        ordinals:
+          ones: [_, cyntaf, ail, trydedd, pedwaredd, pumed, chweched, seithfed, wythfed, nawfed, degfed]
+          units: [_, unfed, ail, trydedd, pedwaredd, pumed, chweched, seithfed, wythfed, nawfed, degfed]
+          teens: [_, unfed ar ddeg, deuddegfed, trydedd ar ddeg, pedwaredd ar ddeg, pymthegfed, unfed ar bymtheg, ail ar bymtheg, deunawfed, pedwaredd ar bymtheg]
+          scores: [_, ugeinfed, deugeinfed, trigeinfed, pedair ugeinfed]

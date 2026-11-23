@@ -1,0 +1,374 @@
+ga:
+  numbers:
+    # Unicode CLDR's plural categories, which are also those of the initial mutations after a number: aon, dhá
+    # and trí to sé lenite a noun, seacht to deich eclipse it.
+    plural:
+      one: n = 1
+      two: n = 2
+      few: n = 3..6
+      many: n = 7..10
+    supported_options:
+      ordinal: {minimum: 1}
+      remove_zero: {keeps_micro_separator: true}
+    minus: míneas
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: pointe
+    # The bare numbers, with the particle a, as numbers are counted.
+    ones: [a náid, a haon, a dó, a trí, a ceathair, a cúig, a sé, a seacht, a hocht, a naoi]
+    ten: a deich
+    tens: [_, deich, fiche, tríocha, daichead, caoga, seasca, seachtó, ochtó, nócha]
+    hundreds: [_, céad, dhá chéad, trí chéad, ceithre chéad, cúig chéad, sé chéad, seacht gcéad, ocht gcéad, naoi gcéad]
+    # The numbers before a noun, which a scale word is.
+    prefix: [_, aon, dhá, trí, ceithre, cúig, sé, seacht, ocht, naoi, deich]
+    is: is
+    deag: déag
+    # Déag is lenited after a word ending in a vowel (a dó dhéag, aon mhíle dhéag), but not in an ordinal.
+    dheag: dhéag
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Bare numbers follow Unicode CLDR's spellout-numbering: a comma after a scale word ("míle, a haon") and the
+    # cardinal system for the counts of scale words ("fiche is aon mhíle").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{ten}'
+        11: '{ones%} {deag}'
+        12: '{ones%} {dheag}'
+        13: '{ones%} {deag}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<count-thousands}[, {>}]'
+        1000000: '{<count-millions}[, {>}]'
+        1000000000: '{<count-billions}[, {>}]'
+        1000000000000: '{<count-trillions}[, {>}]'
+        1000000000000000: '{<count-quadrillions}[, {>}]'
+        1000000000000000000: '{<count-quintillions}[, {>}]'
+        1000000000000000000000: '{<count-sextillions}[, {>}]'
+        1000000000000000000000000: '{<count-septillions}[, {>}]'
+        1000000000000000000000000000: '{<count-octillions}[, {>}]'
+        1000000000000000000000000000000: '{<count-nonillions}[, {>}]'
+        1000000000000000000000000000000000: '{<count-decillions}[, {>}]'
+      # The count of a scale word and the word mutated by the count's last digit: "míle", "dhá mhíle", "seacht míle",
+      # "aon mhíle dhéag", "fiche míle", "fiche is aon mhíle", "céad is aon mhíle", "céad fiche is trí mhíle".
+      count-thousands:
+        1: '{thousands%}'
+        2: '{prefix} {thousands}'
+        11: '{prefix%} {thousands%} {dheag}'
+        20: '{tens}[ {is} {>unit-thousands}| {thousands%}]'
+        100: '{hundreds}[{>is-thousands}| {thousands%}]'
+      unit-thousands:
+        1: '{prefix} {thousands}'
+      is-thousands:
+        1: ' {is} {=unit-thousands}'
+        11: ' {is} {=count-thousands}'
+        20: '[ {tens} {is} {>unit-thousands}| {is} {tens} {thousands%}]'
+      count-millions:
+        1: '{millions%}'
+        2: '{prefix} {millions}'
+        11: '{prefix%} {millions%} {deag}'
+        20: '{tens}[ {is} {>unit-millions}| {millions%}]'
+        100: '{hundreds}[{>is-millions}| {millions%}]'
+      unit-millions:
+        1: '{prefix} {millions}'
+      is-millions:
+        1: ' {is} {=unit-millions}'
+        11: ' {is} {=count-millions}'
+        20: '[ {tens} {is} {>unit-millions}| {is} {tens} {millions%}]'
+      count-billions:
+        1: '{billions%}'
+        2: '{prefix} {billions}'
+        11: '{prefix%} {billions%} {deag}'
+        20: '{tens}[ {is} {>unit-billions}| {billions%}]'
+        100: '{hundreds}[{>is-billions}| {billions%}]'
+      unit-billions:
+        1: '{prefix} {billions}'
+      is-billions:
+        1: ' {is} {=unit-billions}'
+        11: ' {is} {=count-billions}'
+        20: '[ {tens} {is} {>unit-billions}| {is} {tens} {billions%}]'
+      count-trillions:
+        1: '{trillions%}'
+        2: '{prefix} {trillions}'
+        11: '{prefix%} {trillions%} {deag}'
+        20: '{tens}[ {is} {>unit-trillions}| {trillions%}]'
+        100: '{hundreds}[{>is-trillions}| {trillions%}]'
+      unit-trillions:
+        1: '{prefix} {trillions}'
+      is-trillions:
+        1: ' {is} {=unit-trillions}'
+        11: ' {is} {=count-trillions}'
+        20: '[ {tens} {is} {>unit-trillions}| {is} {tens} {trillions%}]'
+      count-quadrillions:
+        1: '{quadrillions%}'
+        2: '{prefix} {quadrillions}'
+        11: '{prefix%} {quadrillions%} {deag}'
+        20: '{tens}[ {is} {>unit-quadrillions}| {quadrillions%}]'
+        100: '{hundreds}[{>is-quadrillions}| {quadrillions%}]'
+      unit-quadrillions:
+        1: '{prefix} {quadrillions}'
+      is-quadrillions:
+        1: ' {is} {=unit-quadrillions}'
+        11: ' {is} {=count-quadrillions}'
+        20: '[ {tens} {is} {>unit-quadrillions}| {is} {tens} {quadrillions%}]'
+      count-quintillions:
+        1: '{quintillions%}'
+        2: '{prefix} {quintillions}'
+        11: '{prefix%} {quintillions%} {deag}'
+        20: '{tens}[ {is} {>unit-quintillions}| {quintillions%}]'
+        100: '{hundreds}[{>is-quintillions}| {quintillions%}]'
+      unit-quintillions:
+        1: '{prefix} {quintillions}'
+      is-quintillions:
+        1: ' {is} {=unit-quintillions}'
+        11: ' {is} {=count-quintillions}'
+        20: '[ {tens} {is} {>unit-quintillions}| {is} {tens} {quintillions%}]'
+      count-sextillions:
+        1: '{sextillions%}'
+        2: '{prefix} {sextillions}'
+        11: '{prefix%} {sextillions%} {deag}'
+        20: '{tens}[ {is} {>unit-sextillions}| {sextillions%}]'
+        100: '{hundreds}[{>is-sextillions}| {sextillions%}]'
+      unit-sextillions:
+        1: '{prefix} {sextillions}'
+      is-sextillions:
+        1: ' {is} {=unit-sextillions}'
+        11: ' {is} {=count-sextillions}'
+        20: '[ {tens} {is} {>unit-sextillions}| {is} {tens} {sextillions%}]'
+      count-septillions:
+        1: '{septillions%}'
+        2: '{prefix} {septillions}'
+        11: '{prefix%} {septillions%} {deag}'
+        20: '{tens}[ {is} {>unit-septillions}| {septillions%}]'
+        100: '{hundreds}[{>is-septillions}| {septillions%}]'
+      unit-septillions:
+        1: '{prefix} {septillions}'
+      is-septillions:
+        1: ' {is} {=unit-septillions}'
+        11: ' {is} {=count-septillions}'
+        20: '[ {tens} {is} {>unit-septillions}| {is} {tens} {septillions%}]'
+      count-octillions:
+        1: '{octillions%}'
+        2: '{prefix} {octillions}'
+        11: '{prefix%} {octillions%} {deag}'
+        20: '{tens}[ {is} {>unit-octillions}| {octillions%}]'
+        100: '{hundreds}[{>is-octillions}| {octillions%}]'
+      unit-octillions:
+        1: '{prefix} {octillions}'
+      is-octillions:
+        1: ' {is} {=unit-octillions}'
+        11: ' {is} {=count-octillions}'
+        20: '[ {tens} {is} {>unit-octillions}| {is} {tens} {octillions%}]'
+      count-nonillions:
+        1: '{nonillions%}'
+        2: '{prefix} {nonillions}'
+        11: '{prefix%} {nonillions%} {deag}'
+        20: '{tens}[ {is} {>unit-nonillions}| {nonillions%}]'
+        100: '{hundreds}[{>is-nonillions}| {nonillions%}]'
+      unit-nonillions:
+        1: '{prefix} {nonillions}'
+      is-nonillions:
+        1: ' {is} {=unit-nonillions}'
+        11: ' {is} {=count-nonillions}'
+        20: '[ {tens} {is} {>unit-nonillions}| {is} {tens} {nonillions%}]'
+      count-decillions:
+        1: '{decillions%}'
+        2: '{prefix} {decillions}'
+        11: '{prefix%} {decillions%} {deag}'
+        20: '{tens}[ {is} {>unit-decillions}| {decillions%}]'
+        100: '{hundreds}[{>is-decillions}| {decillions%}]'
+      unit-decillions:
+        1: '{prefix} {decillions}'
+      is-decillions:
+        1: ' {is} {=unit-decillions}'
+        11: ' {is} {=count-decillions}'
+        20: '[ {tens} {is} {>unit-decillions}| {is} {tens} {decillions%}]'
+      # Ordinals of the established system of An Caighdeán Oifigiúil, without the article: the ordinal of the
+      # last digit comes first below a hundred ("aonú is fiche"), and after the tens above it ("céad tríocha is
+      # aonú"); aonú replaces céad in compounds.
+      ordinal:
+        1: '{ordinals.ones}'
+        11: '{ordinals.units%} {deag}'
+        20: '[{ordinals.units%} {is} {tens}|{ordinals.tens}]'
+        100: '[{hundreds}{>ordinal-rest}|{ordinals.hundreds}]'
+        1000: '[{<count-thousands}{>ordinal-scale-rest}|{<ordinal-count-thousands}]'
+        1000000: '[{<count-millions}{>ordinal-scale-rest}|{<ordinal-count-millions}]'
+        1000000000: '[{<count-billions}{>ordinal-scale-rest}|{<ordinal-count-billions}]'
+        1000000000000: '[{<count-trillions}{>ordinal-scale-rest}|{<ordinal-count-trillions}]'
+        1000000000000000: '[{<count-quadrillions}{>ordinal-scale-rest}|{<ordinal-count-quadrillions}]'
+        1000000000000000000: '[{<count-quintillions}{>ordinal-scale-rest}|{<ordinal-count-quintillions}]'
+        1000000000000000000000: '[{<count-sextillions}{>ordinal-scale-rest}|{<ordinal-count-sextillions}]'
+        1000000000000000000000000: '[{<count-septillions}{>ordinal-scale-rest}|{<ordinal-count-septillions}]'
+        1000000000000000000000000000: '[{<count-octillions}{>ordinal-scale-rest}|{<ordinal-count-octillions}]'
+        1000000000000000000000000000000: '[{<count-nonillions}{>ordinal-scale-rest}|{<ordinal-count-nonillions}]'
+        1000000000000000000000000000000000: '[{<count-decillions}{>ordinal-scale-rest}|{<ordinal-count-decillions}]'
+      # The part of an ordinal below a hundred after hundreds or a scale word ("céad is aonú", "míle is seachtú").
+      ordinal-rest:
+        1: ' {is} {ordinals.units}'
+        10: ' {is} {ordinals.tens}'
+        11: ' {is} {ordinals.units%} {deag}'
+        20: '[ {tens} {is} {ordinals.units%}| {is} {ordinals.tens}]'
+      # After a comma from a hundred ("dhá chéad fiche is trí mhíle, ceithre chéad is tríú déag").
+      ordinal-scale-rest:
+        extends: ordinal-rest
+        100: ', {=ordinal}'
+      # A round scale ordinal: the ordinal scale word after its count ("dhá mhíliú", "deich míliú").
+      ordinal-count-thousands:
+        1: '{ordinals.thousands%}'
+        2: '{prefix} {ordinals.thousands}'
+        11: '{prefix%} {ordinals.thousands%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-thousands}| {ordinals.thousands%}]'
+        100: '{hundreds}[{>ordinal-is-thousands}| {ordinals.thousands%}]'
+      ordinal-unit-thousands:
+        1: '{prefix} {ordinals.thousands}'
+      ordinal-is-thousands:
+        1: ' {is} {=ordinal-unit-thousands}'
+        11: ' {is} {=ordinal-count-thousands}'
+        20: '[ {tens} {is} {>ordinal-unit-thousands}| {is} {tens} {ordinals.thousands%}]'
+      ordinal-count-millions:
+        1: '{ordinals.millions%}'
+        2: '{prefix} {ordinals.millions}'
+        11: '{prefix%} {ordinals.millions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-millions}| {ordinals.millions%}]'
+        100: '{hundreds}[{>ordinal-is-millions}| {ordinals.millions%}]'
+      ordinal-unit-millions:
+        1: '{prefix} {ordinals.millions}'
+      ordinal-is-millions:
+        1: ' {is} {=ordinal-unit-millions}'
+        11: ' {is} {=ordinal-count-millions}'
+        20: '[ {tens} {is} {>ordinal-unit-millions}| {is} {tens} {ordinals.millions%}]'
+      ordinal-count-billions:
+        1: '{ordinals.billions%}'
+        2: '{prefix} {ordinals.billions}'
+        11: '{prefix%} {ordinals.billions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-billions}| {ordinals.billions%}]'
+        100: '{hundreds}[{>ordinal-is-billions}| {ordinals.billions%}]'
+      ordinal-unit-billions:
+        1: '{prefix} {ordinals.billions}'
+      ordinal-is-billions:
+        1: ' {is} {=ordinal-unit-billions}'
+        11: ' {is} {=ordinal-count-billions}'
+        20: '[ {tens} {is} {>ordinal-unit-billions}| {is} {tens} {ordinals.billions%}]'
+      ordinal-count-trillions:
+        1: '{ordinals.trillions%}'
+        2: '{prefix} {ordinals.trillions}'
+        11: '{prefix%} {ordinals.trillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-trillions}| {ordinals.trillions%}]'
+        100: '{hundreds}[{>ordinal-is-trillions}| {ordinals.trillions%}]'
+      ordinal-unit-trillions:
+        1: '{prefix} {ordinals.trillions}'
+      ordinal-is-trillions:
+        1: ' {is} {=ordinal-unit-trillions}'
+        11: ' {is} {=ordinal-count-trillions}'
+        20: '[ {tens} {is} {>ordinal-unit-trillions}| {is} {tens} {ordinals.trillions%}]'
+      ordinal-count-quadrillions:
+        1: '{ordinals.quadrillions%}'
+        2: '{prefix} {ordinals.quadrillions}'
+        11: '{prefix%} {ordinals.quadrillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-quadrillions}| {ordinals.quadrillions%}]'
+        100: '{hundreds}[{>ordinal-is-quadrillions}| {ordinals.quadrillions%}]'
+      ordinal-unit-quadrillions:
+        1: '{prefix} {ordinals.quadrillions}'
+      ordinal-is-quadrillions:
+        1: ' {is} {=ordinal-unit-quadrillions}'
+        11: ' {is} {=ordinal-count-quadrillions}'
+        20: '[ {tens} {is} {>ordinal-unit-quadrillions}| {is} {tens} {ordinals.quadrillions%}]'
+      ordinal-count-quintillions:
+        1: '{ordinals.quintillions%}'
+        2: '{prefix} {ordinals.quintillions}'
+        11: '{prefix%} {ordinals.quintillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-quintillions}| {ordinals.quintillions%}]'
+        100: '{hundreds}[{>ordinal-is-quintillions}| {ordinals.quintillions%}]'
+      ordinal-unit-quintillions:
+        1: '{prefix} {ordinals.quintillions}'
+      ordinal-is-quintillions:
+        1: ' {is} {=ordinal-unit-quintillions}'
+        11: ' {is} {=ordinal-count-quintillions}'
+        20: '[ {tens} {is} {>ordinal-unit-quintillions}| {is} {tens} {ordinals.quintillions%}]'
+      ordinal-count-sextillions:
+        1: '{ordinals.sextillions%}'
+        2: '{prefix} {ordinals.sextillions}'
+        11: '{prefix%} {ordinals.sextillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-sextillions}| {ordinals.sextillions%}]'
+        100: '{hundreds}[{>ordinal-is-sextillions}| {ordinals.sextillions%}]'
+      ordinal-unit-sextillions:
+        1: '{prefix} {ordinals.sextillions}'
+      ordinal-is-sextillions:
+        1: ' {is} {=ordinal-unit-sextillions}'
+        11: ' {is} {=ordinal-count-sextillions}'
+        20: '[ {tens} {is} {>ordinal-unit-sextillions}| {is} {tens} {ordinals.sextillions%}]'
+      ordinal-count-septillions:
+        1: '{ordinals.septillions%}'
+        2: '{prefix} {ordinals.septillions}'
+        11: '{prefix%} {ordinals.septillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-septillions}| {ordinals.septillions%}]'
+        100: '{hundreds}[{>ordinal-is-septillions}| {ordinals.septillions%}]'
+      ordinal-unit-septillions:
+        1: '{prefix} {ordinals.septillions}'
+      ordinal-is-septillions:
+        1: ' {is} {=ordinal-unit-septillions}'
+        11: ' {is} {=ordinal-count-septillions}'
+        20: '[ {tens} {is} {>ordinal-unit-septillions}| {is} {tens} {ordinals.septillions%}]'
+      ordinal-count-octillions:
+        1: '{ordinals.octillions%}'
+        2: '{prefix} {ordinals.octillions}'
+        11: '{prefix%} {ordinals.octillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-octillions}| {ordinals.octillions%}]'
+        100: '{hundreds}[{>ordinal-is-octillions}| {ordinals.octillions%}]'
+      ordinal-unit-octillions:
+        1: '{prefix} {ordinals.octillions}'
+      ordinal-is-octillions:
+        1: ' {is} {=ordinal-unit-octillions}'
+        11: ' {is} {=ordinal-count-octillions}'
+        20: '[ {tens} {is} {>ordinal-unit-octillions}| {is} {tens} {ordinals.octillions%}]'
+      ordinal-count-nonillions:
+        1: '{ordinals.nonillions%}'
+        2: '{prefix} {ordinals.nonillions}'
+        11: '{prefix%} {ordinals.nonillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-nonillions}| {ordinals.nonillions%}]'
+        100: '{hundreds}[{>ordinal-is-nonillions}| {ordinals.nonillions%}]'
+      ordinal-unit-nonillions:
+        1: '{prefix} {ordinals.nonillions}'
+      ordinal-is-nonillions:
+        1: ' {is} {=ordinal-unit-nonillions}'
+        11: ' {is} {=ordinal-count-nonillions}'
+        20: '[ {tens} {is} {>ordinal-unit-nonillions}| {is} {tens} {ordinals.nonillions%}]'
+      ordinal-count-decillions:
+        1: '{ordinals.decillions%}'
+        2: '{prefix} {ordinals.decillions}'
+        11: '{prefix%} {ordinals.decillions%} {deag}'
+        20: '{tens}[ {is} {>ordinal-unit-decillions}| {ordinals.decillions%}]'
+        100: '{hundreds}[{>ordinal-is-decillions}| {ordinals.decillions%}]'
+      ordinal-unit-decillions:
+        1: '{prefix} {ordinals.decillions}'
+      ordinal-is-decillions:
+        1: ' {is} {=ordinal-unit-decillions}'
+        11: ' {is} {=ordinal-count-decillions}'
+        20: '[ {tens} {is} {>ordinal-unit-decillions}| {is} {tens} {ordinals.decillions%}]'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: {one: mhíle, two: mhíle, few: mhíle, many: míle, other: míle}
+    millions: {one: mhilliún, two: mhilliún, few: mhilliún, many: milliún, other: milliún}
+    billions: {one: bhilliún, two: bhilliún, few: bhilliún, many: mbilliún, other: billiún}
+    trillions: {one: trilliún, two: thrilliún, few: thrilliún, many: dtrilliún, other: trilliún}
+    quadrillions: {one: quadrilliún, two: quadrilliún, few: quadrilliún, many: quadrilliún, other: quadrilliún}
+    quintillions: {one: quintilliún, two: quintilliún, few: quintilliún, many: quintilliún, other: quintilliún}
+    sextillions: {one: sextilliún, two: shextilliún, few: shextilliún, many: sextilliún, other: sextilliún}
+    septillions: {one: septilliún, two: sheptilliún, few: sheptilliún, many: septilliún, other: septilliún}
+    octillions: {one: octilliún, two: octilliún, few: octilliún, many: n-octilliún, other: octilliún}
+    nonillions: {one: nonilliún, two: nonilliún, few: nonilliún, many: nonilliún, other: nonilliún}
+    decillions: {one: deicilliún, two: dheicilliún, few: dheicilliún, many: ndeicilliún, other: deicilliún}
+    ordinals:
+      ones: [_, céad, dara, tríú, ceathrú, cúigiú, séú, seachtú, ochtú, naoú, deichiú]
+      units: [_, aonú, dara, tríú, ceathrú, cúigiú, séú, seachtú, ochtú, naoú]
+      tens: [_, deichiú, fichiú, tríochadú, daicheadú, caogadú, seascadú, seachtódú, ochtódú, nóchadú]
+      hundreds: [_, céadú, dhá chéadú, trí chéadú, ceithre chéadú, cúig chéadú, sé chéadú, seacht gcéadú, ocht gcéadú, naoi gcéadú]
+      thousands: {one: mhíliú, two: mhíliú, few: mhíliú, many: míliú, other: míliú}
+      millions: {one: mhilliúnú, two: mhilliúnú, few: mhilliúnú, many: milliúnú, other: milliúnú}
+      billions: {one: bhilliúnú, two: bhilliúnú, few: bhilliúnú, many: mbilliúnú, other: billiúnú}
+      trillions: {one: trilliúnú, two: thrilliúnú, few: thrilliúnú, many: dtrilliúnú, other: trilliúnú}
+      quadrillions: {one: quadrilliúnú, two: quadrilliúnú, few: quadrilliúnú, many: quadrilliúnú, other: quadrilliúnú}
+      quintillions: {one: quintilliúnú, two: quintilliúnú, few: quintilliúnú, many: quintilliúnú, other: quintilliúnú}
+      sextillions: {one: sextilliúnú, two: shextilliúnú, few: shextilliúnú, many: sextilliúnú, other: sextilliúnú}
+      septillions: {one: septilliúnú, two: sheptilliúnú, few: sheptilliúnú, many: septilliúnú, other: septilliúnú}
+      octillions: {one: octilliúnú, two: octilliúnú, few: octilliúnú, many: n-octilliúnú, other: octilliúnú}
+      nonillions: {one: nonilliúnú, two: nonilliúnú, few: nonilliúnú, many: nonilliúnú, other: nonilliúnú}
+      decillions: {one: deicilliúnú, two: dheicilliúnú, few: dheicilliúnú, many: ndeicilliúnú, other: deicilliúnú}

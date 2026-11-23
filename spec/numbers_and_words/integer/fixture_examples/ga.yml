@@ -1,0 +1,159 @@
+to_words:
+  ones:
+    0: a náid
+    1: a haon
+    2: a dó
+    3: a trí
+    4: a ceathair
+    5: a cúig
+    6: a sé
+    7: a seacht
+    8: a hocht
+    9: a naoi
+  teens:
+    10: a deich
+    11: a haon déag
+    12: a dó dhéag
+    13: a trí déag
+    15: a cúig déag
+    18: a hocht déag
+    19: a naoi déag
+  tens:
+    20: fiche
+    21: fiche a haon
+    30: tríocha
+    40: daichead
+    46: daichead a sé
+    50: caoga
+    60: seasca
+    70: seachtó
+    78: seachtó a hocht
+    80: ochtó
+    90: nócha
+    99: nócha a naoi
+  hundreds:
+    100: céad
+    101: céad a haon
+    103: céad a trí
+    115: céad a cúig déag
+    120: céad fiche
+    200: dhá chéad
+    300: trí chéad
+    400: ceithre chéad
+    600: sé chéad
+    700: seacht gcéad
+    800: ocht gcéad
+    900: naoi gcéad
+    999: naoi gcéad nócha a naoi
+  thousands:
+    1000: míle
+    1001: míle, a haon
+    1100: míle, céad
+    1126: míle, céad fiche a sé
+    1479: míle, ceithre chéad seachtó a naoi
+    2000: dhá mhíle
+    2915: dhá mhíle, naoi gcéad a cúig déag
+    3000: trí mhíle
+    6000: sé mhíle
+    7000: seacht míle
+    10000: deich míle
+    11000: aon mhíle dhéag
+    12000: dhá mhíle dhéag
+    13452: trí mhíle dhéag, ceithre chéad caoga a dó
+    17000: seacht míle dhéag
+    20000: fiche míle
+    21000: fiche is aon mhíle
+    27000: fiche is seacht míle
+    38482: tríocha is ocht míle, ceithre chéad ochtó a dó
+    100000: céad míle
+    100513: céad míle, cúig chéad a trí déag
+    101000: céad is aon mhíle
+    110000: céad is deich míle
+    116104: céad is sé mhíle dhéag, céad a ceathair
+    120000: céad is fiche míle
+    123456: céad fiche is trí mhíle, ceithre chéad caoga a sé
+    200000: dhá chéad míle
+  millions:
+    1000000: milliún
+    1000001: milliún, a haon
+    1001000: milliún, míle
+    2000000: dhá mhilliún
+    5000000: cúig mhilliún
+    9000000: naoi milliún
+    11000000: aon mhilliún déag
+    19000000: naoi milliún déag
+    21000000: fiche is aon mhilliún
+    30000000: tríocha milliún
+    123456789: céad fiche is trí mhilliún, ceithre chéad caoga is sé mhíle, seacht gcéad ochtó a naoi
+  large scales:
+    1000000000: billiún
+    2000000000: dhá bhilliún
+    8000000000: ocht mbilliún
+    17000000000: seacht mbilliún déag
+    1000000000000: trilliún
+    2000000000000: dhá thrilliún
+    7000000000000: seacht dtrilliún
+    1000000000000000: quadrilliún
+    1000000000000000000: quintilliún
+    2000000000000000000000: dhá shextilliún
+    1000000000000000000000000: septilliún
+    8000000000000000000000000000: ocht n-octilliún
+    1000000000000000000000000000000: nonilliún
+    3000000000000000000000000000000000: trí dheicilliún
+    9000000000000000000000000000000000: naoi ndeicilliún
+    987654321123456789012345678901234567: naoi gcéad ochtó is seacht ndeicilliún, sé chéad caoga is ceithre nonilliún, trí chéad fiche is aon octilliún, céad fiche is trí sheptilliún, ceithre chéad caoga is sé shextilliún, seacht gcéad ochtó is naoi quintilliún, dhá quadrilliún déag, trí chéad daichead is cúig thrilliún, sé chéad seachtó is ocht mbilliún, naoi gcéad is aon mhilliún, dhá chéad tríocha is ceithre mhíle, cúig chéad seasca a seacht
+  ordinal:
+    options:
+      :ordinal: true
+    1: céad
+    2: dara
+    3: tríú
+    4: ceathrú
+    5: cúigiú
+    6: séú
+    7: seachtú
+    8: ochtú
+    9: naoú
+    10: deichiú
+    11: aonú déag
+    12: dara déag
+    13: tríú déag
+    20: fichiú
+    21: aonú is fiche
+    22: dara is fiche
+    23: tríú is fiche
+    30: tríochadú
+    31: aonú is tríocha
+    32: dara is tríocha
+    39: naoú is tríocha
+    40: daicheadú
+    48: ochtú is daichead
+    50: caogadú
+    60: seascadú
+    70: seachtódú
+    80: ochtódú
+    90: nóchadú
+    100: céadú
+    101: céad is aonú
+    104: céad is ceathrú
+    116: céad is séú déag
+    120: céad is fichiú
+    131: céad tríocha is aonú
+    200: dhá chéadú
+    211: dhá chéad is aonú déag
+    1000: míliú
+    1007: míle is seachtú
+    2000: dhá mhíliú
+    10000: deich míliú
+    13004: trí mhíle dhéag is ceathrú
+    223413: dhá chéad fiche is trí mhíle, ceithre chéad is tríú déag
+    1000000: milliúnú
+    2000000: dhá mhilliúnú
+    1000000000: billiúnú
+    7000000000: seacht mbilliúnú
+    1000000000000000000000000000000000: deicilliúnú
+  remove_zero:
+    options:
+      :remove_zero: true
+    0: ''
+    21: fiche a haon

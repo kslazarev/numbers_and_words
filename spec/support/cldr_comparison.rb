@@ -90,6 +90,8 @@ module CldrComparison
       kinds: { 'cardinal' => compare({}, 'spellout-numbering'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') }
         .merge(gendered('cardinal', FEMALE), gendered('ordinal', FEMALE, ordinal: true))
     },
+    # Welsh follows CLDR's decimal system; vigesimal: true has no CLDR rule set.
+    cy: { cldr: :cy, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE)) },
     cs: { cldr: :cs, kinds: { 'cardinal' => compare({}, 'spellout-numbering') }.merge(gendered('cardinal', FEMALE_NEUTER.merge(male: 'masculine'))) },
     da: {
       cldr: :da,
@@ -119,6 +121,8 @@ module CldrComparison
     fil: { cldr: :fil, kinds: CARDINAL.merge(ORDINAL) },
     fr: { cldr: :fr, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') } },
     # Hebrew counts with the feminine standalone forms (שתיים, not the construct שתי).
+    # CLDR has no Irish ordinal spell-out rules.
+    ga: { cldr: :ga, kinds: CARDINAL },
     he: {
       cldr: :he,
       kinds: {

@@ -18,6 +18,7 @@
       bg: { one: [един], before: [милионен, милионна, милионно, милиарден, милиардна, милиардно], affects: 6 }
       ca: { one: [un], before: [milionè, miliardè, milionena, miliardena], affects: 4 }
       cs: { one: [jedna], before: [tisíc], affects: 12 }
+      cy: { one: [un], before: [cant, mil, miliwn, biliwn], affects: 24 }
       de: { one: [eine], before: [Millionste, Milliardeste], affects: 2 }
       el: { one: [ένα], before: [εκατομμυριοστός, εκατομμυριοστή, εκατομμυριοστό, δισεκατομμυριοστός, δισεκατομμυριοστή, δισεκατομμυριοστό], affects: 6 }
       es: { one: [un], before: [millonésimo, millonésima], affects: 2 }
@@ -196,6 +197,22 @@ ca:
     replace: { dos-cents: dues-centes, dos-cent: dues-centes, tres-cent: tres-centes, quatre-cent: quatre-centes, cinc-cent: cinc-centes, sis-cent: sis-centes, set-cent: set-centes, vuit-cent: vuit-centes, nou-cent: nou-centes, dos mil: dues mil, vint-i-un mil: vint-i-una mil }
     kinds: [cardinal/female]
     affects: 6
+cy:
+  - reason: CLDR reads ten alone as un deg; Welsh counts deg, and says un deg only before a unit in the teens (un deg un)
+    replace: { un deg: deg }
+    below: 11
+    affects: 2
+  - reason: CLDR reads a final ten after hundreds as un deg (cant un deg); the gem says deg there as it does alone
+    replace: { cant un deg: cant deg }
+    above: 109
+    below: 111
+    affects: 2
+  - reason: CLDR leaves out the mutation of a noun after a number and the gender of mil and miliwn, which are feminine; dau softens a noun (dau gant), un softens a feminine one (un fil), and a feminine noun is counted with dwy and tair (dwy fil, tair miliwn)
+    replace: { dau cant: dau gant, un mil: un fil, dau mil: dwy fil, tri mil: tair mil, un miliwn: un filiwn, dau miliwn: dwy filiwn, tri miliwn: tair miliwn }
+    affects: 14
+  - reason: CLDR says cant before a noun; it is can there (can mil), as in can mlynedd
+    replace: { cant mil: can mil }
+    affects: 2
 cs:
   - reason: 'the gem counts with jedna (raz, dva, tři: jedna, dvě, tři), the usual Czech counting form; CLDR spellout-numbering uses the masculine jeden'
     replace: { jeden: jedna }

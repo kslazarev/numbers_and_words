@@ -1,0 +1,26 @@
+to_words:
+  fractional:
+    0.1: a náid pointe a haon
+    0.01: a náid pointe a náid a haon
+    0.05: a náid pointe a náid a cúig
+    0.77: a náid pointe a seacht a seacht
+  integral_and_fractional:
+    1.5: a haon pointe a cúig
+    3.14: a trí pointe a haon a ceathair
+    21.05: fiche a haon pointe a náid a cúig
+    101.001: céad a haon pointe a náid a náid a haon
+    1000.8: míle pointe a hocht
+  precision:
+    options:
+      :precision: 3
+    1.5: a haon pointe a cúig a náid a náid
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: pointe a seacht
+    0.05: pointe a náid a cúig
+    1.5: a haon pointe a cúig
+  micro_separator:
+    options:
+      :micro_separator: ponc
+    21.77: fiche a haon ponc a seacht a seacht
