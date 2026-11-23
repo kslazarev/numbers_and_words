@@ -2,9 +2,9 @@
 
 Slovenščina. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-The ones come before the tens, joined by in, in one word (enaindvajset, petinštirideset); hundreds are one word (dvesto), and the parts after a hundred, tisoč or a scale word are separate words (sto ena, tisoč petsto). Numbers count with the counting forms (ena, dva, tri, štiri) by default. Slovenian has a dual, so scale words have four forms by the last two digits of their count: milijon and the other scale words in -ijon are masculine (en milijon, dva milijona, trije milijoni, pet milijonov, sto en milijon), milijarda and the other scale words in -ijarda feminine (ena milijarda, dve milijardi, tri milijarde, pet milijard). Tisoč doesn't change and has no count of one (tisoč, dva tisoč, tri tisoč). Scale words follow the long scale up to kvintilijarda (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. The names from bilijon (10<sup>12</sup>) on follow the same pattern and need a native speaker's review.
+The ones come before the tens, joined by in, in one word (enaindvajset, petinštirideset). Hundreds are one word (dvesto). The parts after a hundred, tisoč or a scale word are separate words (sto ena, tisoč petsto). By default numbers take the counting forms (ena, dva, tri, štiri). Slovenian has a dual, so scale words have four forms, chosen by the last two digits of their count. Milijon and the other scale words in -ijon are masculine (en milijon, dva milijona, trije milijoni, pet milijonov, sto en milijon). Milijarda and the other scale words in -ijarda are feminine (ena milijarda, dve milijardi, tri milijarde, pet milijard). Tisoč doesn't change and has no count of one (tisoč, dva tisoč, tri tisoč). Scale words follow the long scale up to kvintilijarda (10<sup>33</sup>); the names from bilijon (10<sup>12</sup>) on follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Unicode CLDR 46.1's Slovenian spell-out rules are Croatian words (dvaset ena, tisuću, milijun), so Slovenian isn't compared with CLDR.
+Unicode CLDR 46.1's Slovenian spell-out rules use Croatian words (dvaset ena, tisuću, milijun), so Slovenian isn't compared with CLDR.
 
 ## Examples
 
@@ -33,7 +33,7 @@ I18n.with_locale(:sl) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a feminine whole number with cela, celi, cele or celih, followed by a feminine number of desetinke, stotinke or tisočinke (ena desetinka, dve desetinki, tri desetinke, pet desetink); this reading needs a native speaker's review. Up to eleven fractional digits are supported; more raise `RangeError`.
+Decimals are read as a feminine whole number with cela, celi, cele or celih, followed by a feminine number of desetinke, stotinke or tisočinke (ena desetinka, dve desetinki, tri desetinke, pet desetink). This reading needs a native speaker's review. Up to eleven fractional digits are supported; more raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:sl) { 1.5.to_words }
@@ -68,7 +68,7 @@ I18n.with_locale(:sl) { 2.5.to_words(micro_separator: "in") }
 
 ### Gender
 
-Without `gender`, numbers take the counting forms (ena, dva, tri, štiri). `gender: :male`, `:female` or `:neuter` changes one to four at the end of the number (en, ena, eno; dva, dve, dve; trije, tri, tri; štirje, štiri, štiri); the ones in a compound such as enaindvajset don't change.
+Without `gender`, numbers take the counting forms (ena, dva, tri, štiri). `gender: :male`, `:female` or `:neuter` changes one to four at the end of the number (en, ena, eno; dva, dve, dve; trije, tri, tri; štirje, štiri, štiri). The ones in a compound such as enaindvajset don't change.
 
 ```ruby
 I18n.with_locale(:sl) { 103.to_words(gender: :male) }
@@ -83,7 +83,7 @@ I18n.with_locale(:sl) { 1.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (enaindvajseti, dvesto prvi), in the requested gender (prva, prvo; tretja, tretje). A round thousand or larger scale is written as one word with its count, which is left out when it is one (tisoči, dvatisoči, milijonti, dvamilijonti); this joined form, and the neuter tisoče, need a native speaker's review. Ordinals are spelled up to the largest number.
+`ordinal: true` makes the last word ordinal (enaindvajseti, dvesto prvi), in the requested gender (prva, prvo; tretja, tretje). A round thousand or larger scale is one word with its count, which is left out when it is one (tisoči, dvatisoči, milijonti, dvamilijonti). This joined form, and the neuter tisoče, need a native speaker's review. Ordinals are spelled up to the largest number.
 
 ```ruby
 I18n.with_locale(:sl) { 21.to_words(ordinal: true) }

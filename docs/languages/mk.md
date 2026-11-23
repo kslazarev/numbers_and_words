@@ -2,7 +2,7 @@
 
 Македонски. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-"и" joins the last part of each group (дваесет и еден, сто и пет), and a one-word last group to the rest (илјада и еден, две илјади и триста). Hundreds are сто, двесте, триста and then -стотини (четиристотини, шестотини). Илјада and the -ијарда scale words are feminine (две илјади, две милијарди), the -ион words masculine (два милиони). A count ending in one, but not in eleven, takes the singular (дваесет и една илјада). Scale words follow the long scale: милијарда is 10<sup>9</sup>, билион 10<sup>12</sup> and билијарда 10<sup>15</sup>, up to квинтилијарда (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Unicode CLDR stops at билијарда; the larger words follow the same pattern and await review by a native speaker. The personal forms of masculine nouns (двајца, тројца) are not supported.
+"и" joins the last part of each group (дваесет и еден, сто и пет). It also joins a last group of one word to the rest (илјада и еден, две илјади и триста). Hundreds are сто, двесте, триста, then end in -стотини (четиристотини, шестотини). Илјада and the scale words in -ијарда are feminine (две илјади, две милијарди); those in -ион are masculine (два милиони). A count ending in one, but not in eleven, takes the singular (дваесет и една илјада). Scale words follow the long scale: милијарда is 10<sup>9</sup>, билион 10<sup>12</sup> and билијарда 10<sup>15</sup>, up to квинтилијарда (10<sup>33</sup>). Unicode CLDR stops at билијарда; the larger words follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. The personal forms of masculine nouns (двајца, тројца) are not supported.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:mk) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with кома, as written: up to three decimal places as a number after a нула for each leading zero, and longer ones digit by digit.
+Decimals are read with кома: up to three decimal places as a number, after a нула for each leading zero, and longer ones digit by digit.
 
 ```ruby
 I18n.with_locale(:mk) { 3.14.to_words }
@@ -69,7 +69,7 @@ I18n.with_locale(:mk) { 21.77.to_words(micro_separator: "цело и") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two in the last group (еден, една, едно; два, две, две), and the ending of an ordinal.
+`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (еден, една, едно; два, две, две) and the ending of an ordinal.
 
 ```ruby
 I18n.with_locale(:mk) { 1.to_words(gender: :male) }
@@ -84,7 +84,7 @@ I18n.with_locale(:mk) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (дваесет и прв) in the requested gender (дваесет и прва, дваесет и прво). A round scale joins its count, with one left out (илјадити, двеилјадити, двамилионити, дваесет и едноилјадити); the compound ordinals of round scales await review by a native speaker.
+`ordinal: true` makes the last word ordinal (дваесет и прв) in the requested gender (дваесет и прва, дваесет и прво). A round scale is one word with its count, which is left out when it is one (илјадити, двеилјадити, двамилионити, дваесет и едноилјадити). These joined forms need a native speaker's review.
 
 ```ruby
 I18n.with_locale(:mk) { 21.to_words(ordinal: true) }
@@ -99,7 +99,7 @@ I18n.with_locale(:mk) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part, and keeps кома.
+`remove_zero: true` omits a zero integral part and keeps кома.
 
 ```ruby
 I18n.with_locale(:mk) { 0.7.to_words(remove_zero: true) }

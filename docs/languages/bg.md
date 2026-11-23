@@ -2,7 +2,7 @@
 
 Български. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Scale words follow the short scale up to децилион (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers use the literary forms (единадесет, двадесет), not the colloquial ones (единайсет, двайсет). "и" joins the last part of each group (двадесет и един, сто и пет), and a one-part last group to the rest (хиляда и един, две хиляди и триста). Хиляда is feminine (две хиляди, двадесет и една хиляди) and larger scale words are masculine (един милион, два милиона). Scale words follow the short scale up to децилион (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:bg) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals use the formal reading, a whole number and a fraction: the integral part in the neuter with the invariable цяло, then "и" and the fractional part in the feminine with its denominator (десета, стотна, хилядна), singular after one and plural otherwise. More than nine fractional digits raise `RangeError`.
+Decimals use the formal reading as a whole number and a fraction. The integral part is neuter, followed by the invariable цяло. Then come "и" and the feminine fractional part with its denominator (десета, стотна, хилядна), singular after one and plural otherwise. More than nine fractional digits raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:bg) { 3.14.to_words }
@@ -72,7 +72,7 @@ I18n.with_locale(:bg) { 21.77.to_words(micro_separator: "плюс") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two in the last group (един, една, едно; два, две).
+`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (един, една, едно; два, две).
 
 ```ruby
 I18n.with_locale(:bg) { 1.to_words(gender: :male) }

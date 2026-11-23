@@ -11,13 +11,13 @@ module FeatureMatrix
   HEADER = <<~MARKDOWN
     # Features
 
-    What each bundled language supports, generated from its locale file and classes by `bundle exec ruby script/features.rb`; a spec fails when this page is out of date. The [README](../README.md#options--опции--options) documents the options every language shares, and each language's page its own.
+    What each bundled language supports. `bundle exec ruby script/features.rb` generates this page from the locale files and classes, and a spec fails when it is out of date. The [README](../README.md#options--опции--options) documents the options every language shares, and each language's page documents its own.
 
-    * **Decimals**: floats such as `21.77.to_words` read without a unit; *fraction* also reads them as a fraction with `fraction: true`.
-    * **Gender** and **Case**: the values of `gender:` and `case:`; *animate* adds `animate:`.
-    * **Ordinals**: the numbers `ordinal: true` spells, all of them up to the largest number unless a range is given.
+    * **Decimals**: whether floats such as `21.77.to_words` read without a unit. *fraction* means `fraction: true` also reads them as a fraction.
+    * **Gender** and **Case**: the values of `gender:` and `case:`. *animate* means the language also accepts `animate:`.
+    * **Ordinals**: the numbers `ordinal: true` spells. *all* means every number up to the largest number; otherwise the column gives a range.
     * **Largest number**: numbers from this power of ten raise `RangeError`.
-    * **Other options**: options of the language's own.
+    * **Other options**: the language's own options.
 
   MARKDOWN
 

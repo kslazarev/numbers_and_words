@@ -64,7 +64,7 @@ I18n.with_locale(:da) { 21.77.to_words(micro_separator: "punktum") }
 
 ### Gender
 
-`gender:` is `:common` or `:neuter`; without it, 1 is the counting form `en`. Hundreds and thousands always take the neuter `et` (`et hundrede`, `et tusind`).
+`gender: :common` or `gender: :neuter`. Without it, 1 is the counting form `en`. Hundreds and thousands always take the neuter `et` (`et hundrede`, `et tusind`).
 
 ```ruby
 I18n.with_locale(:da) { 1.to_words(gender: :common) }

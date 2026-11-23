@@ -2,7 +2,7 @@
 
 Ελληνικά. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Above τρισεκατομμύριο (10<sup>12</sup>), scale words are a multiplier and εκατομμύριο, from τετράκις εκατομμύριο (10<sup>15</sup>) to δεκάκις εκατομμύριο (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Above τρισεκατομμύριο (10<sup>12</sup>), a scale word is a multiplier followed by εκατομμύριο, from τετράκις εκατομμύριο (10<sup>15</sup>) to δεκάκις εκατομμύριο (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -75,7 +75,7 @@ I18n.with_locale(:el) { 21.77.to_words(micro_separator: "τελεία") }
 
 ### Gender
 
-`gender: :neuter` (the default), `gender: :male` or `gender: :female` sets the gender of what is counted. It changes 1, 3, 4, the hundreds from 200 and one thousand in the last group of digits; thousands above one are always feminine and millions neuter.
+`gender: :neuter` (default), `gender: :male` or `gender: :female` sets the gender of what is counted. It changes 1, 3, 4, the hundreds from 200 and one thousand in the last group of digits. Thousands above one are always feminine, and millions neuter.
 
 ```ruby
 I18n.with_locale(:el) { 1.to_words(gender: :male) }
@@ -93,7 +93,7 @@ I18n.with_locale(:el) { 4.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο); every part below ten thousand is an ordinal word (χιλιοστό εκατοστό); from ten thousand, as in Unicode CLDR, a count is cardinal and neuter before the ordinal of its scale word (είκοσι ένα χιλιοστό, δύο εκατομμυριοστό), leaving out a count of one (εκατομμυριοστό). Zero keeps its cardinal form.
+`ordinal: true` gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο). Below ten thousand every part is an ordinal word (χιλιοστό εκατοστό). From ten thousand, as in Unicode CLDR, a count is cardinal and neuter before the ordinal of its scale word (είκοσι ένα χιλιοστό, δύο εκατομμυριοστό), and a count of one is left out (εκατομμυριοστό). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:el) { 1.to_words(ordinal: true) }

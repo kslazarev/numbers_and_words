@@ -1,8 +1,10 @@
 # Lao (`lo`)
 
-ພາສາລາວ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Each group of up to six digits uses the places ສິບ (10), ຮ້ອຍ (100), ພັນ (1,000), ໝື່ນ (10,000) and ແສນ (100,000), and ລ້ານ (1,000,000) repeats for larger numbers, so 10^9 is ໜຶ່ງພັນລ້ານ and 10^12 is ໜຶ່ງລ້ານລ້ານ; there is no limit. 20 is ຊາວ, and a final 1 after a ten is ເອັດ (ສິບເອັດ, ຊາວເອັດ), while 1 after a hundred or a larger place stays ໜຶ່ງ (ໜຶ່ງຮ້ອຍໜຶ່ງ), as in the Unicode CLDR rules. Lao numbers have no gender.
+ພາສາລາວ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Lao numbers have no gender.
 
-Common alternatives that the gem doesn't produce, for native speakers to review: ສິບພັນ for 10,000 and ຮ້ອຍພັນ for 100,000, ຕື້ for 10^9, and ຮ້ອຍ, ພັນ without ໜຶ່ງ. The readings from 10^18 on, past the Unicode CLDR rules, continue the repetition of ລ້ານ. The Unicode CLDR Lao rules write zero, the places from a hundred, minus, the decimal point and the ordinal prefix with Thai words (ศูนย์, ร้อย, พัน, หมื่น, แสน, ล้าน, ลบ, จุด, ที่); the gem uses the Lao words.
+Each group of up to six digits uses the places ສິບ (10), ຮ້ອຍ (100), ພັນ (1,000), ໝື່ນ (10,000) and ແສນ (100,000). ລ້ານ (1,000,000) repeats for larger numbers, so 10<sup>9</sup> is ໜຶ່ງພັນລ້ານ and 10<sup>12</sup> is ໜຶ່ງລ້ານລ້ານ; there is no limit. 20 is ຊາວ. As in the Unicode CLDR rules, a final 1 after a ten is ເອັດ (ສິບເອັດ, ຊາວເອັດ), while 1 after a hundred or a larger place stays ໜຶ່ງ (ໜຶ່ງຮ້ອຍໜຶ່ງ).
+
+The gem doesn't produce these common alternatives, which need a native speaker's review: ສິບພັນ for 10,000 and ຮ້ອຍພັນ for 100,000, ຕື້ for 10<sup>9</sup>, and ຮ້ອຍ, ພັນ without ໜຶ່ງ. The readings from 10<sup>18</sup> on, past the Unicode CLDR rules, keep repeating ລ້ານ. The CLDR Lao rules write zero, the places from a hundred, minus, the decimal point and the ordinal prefix with Thai words (ศูนย์, ร้อย, พัน, หมื่น, แสน, ล้าน, ลบ, จุด, ที่); the gem uses the Lao words.
 
 ## Examples
 

@@ -2,7 +2,7 @@
 
 Bosanski, in the Latin script. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers are written as separate words, with the ones after the tens (dvadeset jedan), as Unicode CLDR does; dvadeset i jedan is also in use. Numbers are ijekavian (dvije, dvjesta). A thousand alone is hiljadu (hiljadu dvjesta), and a count of thousands is feminine (dvije hiljade, dvadeset jedna hiljada). Scale words follow the long scale: milion (10<sup>6</sup>), milijarda (10<sup>9</sup>), bilion (10<sup>12</sup>), bilijarda and so on up to kvintilijarda (10<sup>33</sup>). Those in -ion are masculine (jedan milion, dva miliona) and those in -ijarda feminine (jedna milijarda, dvije milijarde, pet milijardi). A scale word agrees with the last numeral of its count (dvadeset jedan milion, sto dvadeset tri hiljade). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. CLDR's Bosnian rules stop at biliard (10<sup>15</sup>); the names from trilion (10<sup>18</sup>) on follow the same pattern and need a native speaker's review.
+Numbers are written as separate words, with the ones after the tens (dvadeset jedan), as in Unicode CLDR. Dvadeset i jedan is also in use. Numbers are ijekavian (dvije, dvjesta). A thousand alone is hiljadu (hiljadu dvjesta), and a count of thousands is feminine (dvije hiljade, dvadeset jedna hiljada). Scale words follow the long scale: milion (10<sup>6</sup>), milijarda (10<sup>9</sup>), bilion (10<sup>12</sup>), bilijarda and so on up to kvintilijarda (10<sup>33</sup>). Those in -ion are masculine (jedan milion, dva miliona) and those in -ijarda feminine (jedna milijarda, dvije milijarde, pet milijardi). A scale word agrees with the last numeral of its count (dvadeset jedan milion, sto dvadeset tri hiljade). Unicode CLDR stops at biliard (10<sup>15</sup>), so the names from trilion (10<sup>18</sup>) on follow the same pattern and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 Bosnian and Croatian differ in their words (hiljada and tisuća, milion and milijun) and in the i between tens and ones, so neither locale extends the other.
 
@@ -33,7 +33,7 @@ I18n.with_locale(:bs) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a neuter whole number with cijelo, cijela or cijelih, then i and a feminine number of desetinke, stotinke or hiljaditinke, as in Croatian; the fraction words need a native speaker's review. Up to eleven fractional digits are supported; more raise `RangeError`.
+Decimals are read as a neuter whole number with cijelo, cijela or cijelih, then i and a feminine number of desetinke, stotinke or hiljaditinke, as in Croatian. The fraction words await a native speaker's review. Up to eleven fractional digits are supported; more raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:bs) { 1.5.to_words }
@@ -68,7 +68,7 @@ I18n.with_locale(:bs) { 2.5.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two at the end of the number (jedan, jedna, jedno; dva, dvije, dva).
+`gender: :male` (default), `:female` or `:neuter` changes one and two at the end of the number (jedan, jedna, jedno; dva, dvije, dva).
 
 ```ruby
 I18n.with_locale(:bs) { 1.to_words(gender: :male) }
@@ -83,7 +83,7 @@ I18n.with_locale(:bs) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (dvadeset prvi), in the requested gender (prva, prvo; treća, treće). A round thousand or larger scale is written as one word with its count, which is left out when it is one (hiljaditi, dvijehiljaditi, milioniti, dvamilioniti); this joined form needs a native speaker's review. Ordinals are spelled up to the largest number. CLDR has no Bosnian ordinals.
+`ordinal: true` makes the last word ordinal (dvadeset prvi), in the requested gender (prva, prvo; treća, treće). A round thousand or larger scale is joined to its count, which is left out when it is one (hiljaditi, dvijehiljaditi, milioniti, dvamilioniti). This joined form awaits a native speaker's review. Ordinals are spelled up to the largest cardinal. Unicode CLDR has no Bosnian ordinals.
 
 ```ruby
 I18n.with_locale(:bs) { 21.to_words(ordinal: true) }
@@ -101,7 +101,7 @@ I18n.with_locale(:bs) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part; the ordinal of zero stays nulti.
+`remove_zero: true` omits a zero integral part. The ordinal of zero stays nulti.
 
 ```ruby
 I18n.with_locale(:bs) { 0.7.to_words(remove_zero: true) }

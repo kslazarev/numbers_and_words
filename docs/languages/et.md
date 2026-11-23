@@ -1,6 +1,6 @@
 # Estonian (`et`)
 
-Eesti. One hundred and one thousand are sada and tuhat, not the also valid ükssada and üks tuhat; a million and larger scales keep one. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Eesti. One hundred and one thousand are sada and tuhat, rather than the also valid ükssada and üks tuhat. A million and larger scales keep one. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

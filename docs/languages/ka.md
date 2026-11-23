@@ -35,7 +35,7 @@ I18n.with_locale(:ka) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with მძიმე and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+Decimals are read with მძიმე followed by each fractional digit, including leading zeros, as Unicode CLDR reads them.
 
 ```ruby
 I18n.with_locale(:ka) { 3.14.to_words }
@@ -67,7 +67,7 @@ I18n.with_locale(:ka) { 21.77.to_words(micro_separator: "წერტილი")
 
 ### Ordinal
 
-`ordinal: true` gives პირველი for 1, and otherwise adds მე- and -ე to the last word, or to the last part of a compound ("ოცდამეერთე"). Of round thousands and larger scales, only the ordinal of one is supported (მეათასე, მემილიონე); others, such as 2,000, raise `RangeError` until a native speaker confirms their form. Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` gives პირველი for 1, and otherwise adds მე- and -ე to the last word, or to the last part of a compound ("ოცდამეერთე"). Of round thousands and larger scales, only one thousand, one million and so on have ordinals (მეათასე, მემილიონე). Others, such as 2,000, raise `RangeError` until a native speaker confirms their form. Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:ka) { 1.to_words(ordinal: true) }

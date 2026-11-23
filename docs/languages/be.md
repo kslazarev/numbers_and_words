@@ -2,7 +2,7 @@
 
 Беларуская. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers follow the official orthography of 2008 (пяцьдзясят, чацвёрты), not the classical one (чацьверты). Тысяча is feminine (адна тысяча, дзве тысячы) and larger scale words are masculine (адзін мільён, два мільёны, пяць мільёнаў). Scale words follow the short scale up to дэцыльён (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Unicode CLDR stops at квадрыльён; the larger words follow the same pattern and await review by a native speaker. Unlike Russian and Ukrainian, Belarusian has no `case:` or `animate:` option yet.
+Numbers follow the official orthography of 2008 (пяцьдзясят, чацвёрты), not the classical one (чацьверты). Тысяча is feminine (адна тысяча, дзве тысячы) and larger scale words are masculine (адзін мільён, два мільёны, пяць мільёнаў). Scale words follow the short scale up to дэцыльён (10<sup>33</sup>). Unicode CLDR stops at квадрыльён, so the larger names follow the same pattern and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Unlike Russian and Ukrainian, Belarusian has no `case:` or `animate:` option yet.
 
 ## Examples
 
@@ -63,7 +63,7 @@ I18n.with_locale(:be) { 21.77.to_words(micro_separator: "плюс") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two in the last group (адзін, адна, адно; два, дзве, два), and the ending of an ordinal.
+`gender: :male` (default), `:female` or `:neuter` changes one and two in the last group (адзін, адна, адно; два, дзве, два), and the ending of an ordinal.
 
 ```ruby
 I18n.with_locale(:be) { 1001.to_words(gender: :female) }

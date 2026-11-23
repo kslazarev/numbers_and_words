@@ -2,11 +2,11 @@
 
 Cymraeg. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers are read in the decimal system, as Unicode CLDR reads them and as Welsh is taught ("dau ddeg un"), with the mutations of a scale word after the count's last digit: dau softens it ("dau gant", "dau filiwn" for two billion), tri and chwe aspirate c, p and t ("tri chant", "chwe thriliwn"), and mil and miliwn are feminine, softened after un and counted with dwy, tair and pedair ("dwy fil", "tair miliwn"). One hundred, one thousand and one million are "cant", "mil" and "miliwn" alone, ten is "deg", and cant is "can" before a scale word ("can mil"). Welsh uses the short scale: miliwn, biliwn, triliwn. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers are read in the decimal system ("dau ddeg un"), as Welsh is taught and as Unicode CLDR reads them. A scale word mutates after the last digit of its count: dau softens it ("dau gant", "dau filiwn" for two billion), and tri and chwe aspirate c, p and t ("tri chant", "chwe thriliwn"). Mil and miliwn are feminine: softened after un and counted with dwy, tair and pedair ("dwy fil", "tair miliwn"). One hundred, one thousand and one million are "cant", "mil" and "miliwn" alone, and ten is "deg". Cant is "can" before a scale word ("can mil"). Welsh uses the short scale: miliwn, biliwn, triliwn. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Unicode CLDR stops at kwadriliwn (10<sup>15</sup>); the gem writes it cwadriliwn, as Welsh spells a k sound, and cwintiliwn, secstiliwn, septiliwn, octiliwn, noniliwn and desiliwn (10<sup>18</sup> to 10<sup>33</sup>) follow its pattern and need native-speaker review, as does treating them as masculine like biliwn ("dau gwadriliwn").
+Unicode CLDR stops at kwadriliwn (10<sup>15</sup>). The gem writes it cwadriliwn, as Welsh spells a k sound with c. Cwintiliwn, secstiliwn, septiliwn, octiliwn, noniliwn and desiliwn (10<sup>18</sup> to 10<sup>33</sup>) follow the same pattern and await a native speaker's review, as does treating them as masculine like biliwn ("dau gwadriliwn").
 
-Unicode CLDR also reads one hundred as "un cant", ten as "un deg" and leaves the counted scale words unmutated and masculine ("dau cant", "dau mil"); the gem follows the grammars, see [cldr_rules.yml](../../spec/fixtures/cldr_rules.yml). Numbers are joined without "a" or commas, as in CLDR.
+Unicode CLDR also reads one hundred as "un cant" and ten as "un deg", and leaves counted scale words unmutated and masculine ("dau cant", "dau mil"). The gem follows the grammars instead, see [cldr_rules.yml](../../spec/fixtures/cldr_rules.yml). As in Unicode CLDR, numbers are joined without "a" or commas.
 
 ## Examples
 
@@ -67,7 +67,7 @@ I18n.with_locale(:cy) { 21.77.to_words(micro_separator: "coma") }
 
 ### Gender
 
-`gender:` is `:male` (the default) or `:female`, the gender of what is counted: a final two, three or four is dwy, tair or pedair. The counts of scale words take the gender of the scale word ("dwy fil", "dau filiwn").
+`gender: :male` (default) or `gender: :female` sets the gender of what is counted: a final two, three or four is dwy, tair or pedair. The counts of scale words take the gender of the scale word ("dwy fil", "dau filiwn").
 
 ```ruby
 I18n.with_locale(:cy) { 2.to_words(gender: :female) }
@@ -82,7 +82,7 @@ I18n.with_locale(:cy) { 3.to_words(gender: :male) }
 
 ### Vigesimal
 
-`vigesimal: true` reads the traditional system, which counts in twenties below a hundred ("un ar hugain", "deg a thrigain"), with deuddeg, pymtheg, deunaw and hanner cant, "a" or "ac" before a last part below a hundred ("cant ac un", "mil a phump"), and a scale word after the first part of its count ("un fil ar hugain"). Unicode CLDR has no vigesimal Welsh rules.
+`vigesimal: true` reads the traditional system, which counts in twenties below a hundred ("un ar hugain", "deg a thrigain") and has deuddeg, pymtheg, deunaw and hanner cant. It puts "a" or "ac" before a last part below a hundred ("cant ac un", "mil a phump"), and a scale word after the first part of its count ("un fil ar hugain"). Unicode CLDR has no vigesimal Welsh rules.
 
 ```ruby
 I18n.with_locale(:cy) { 21.to_words(vigesimal: true) }
@@ -103,7 +103,7 @@ I18n.with_locale(:cy) { 17.to_words(vigesimal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` spells the traditional ordinals, with or without `vigesimal: true`, as Welsh has no decimal ordinals in standard use: "unfed ar hugain", "deugeinfed", "hanner canfed". Above a hundred the first part of the number takes the ordinal ending, the hundreds or the leading scale word ("canfed", "dau ganfed", "dwy filfed", "miliynfed"), and the rest follows as a traditional cardinal ("canfed ac un"); grammars give no compound ordinals above a hundred, so these need native-speaker review. `gender: :female` gives trydedd, pedwaredd and pedair ugeinfed. Ordinals start at 1; Welsh has no ordinal of zero. Unicode CLDR has no Welsh ordinals.
+`ordinal: true` spells the traditional ordinals ("unfed ar hugain", "deugeinfed", "hanner canfed"), with or without `vigesimal: true`, as Welsh has no decimal ordinals in standard use. Above a hundred, the first part of the number, the hundreds or the leading scale word, takes the ordinal ending ("canfed", "dau ganfed", "dwy filfed", "miliynfed"). The rest follows as a traditional cardinal ("canfed ac un"). Grammars give no compound ordinals above a hundred, so these await a native speaker's review. `gender: :female` gives trydedd, pedwaredd and pedair ugeinfed. Ordinals start at 1; Welsh has no ordinal of zero. Unicode CLDR has no Welsh ordinals.
 
 ```ruby
 I18n.with_locale(:cy) { 1.to_words(ordinal: true) }

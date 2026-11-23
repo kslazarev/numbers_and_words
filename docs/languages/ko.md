@@ -1,6 +1,10 @@
 # Korean (`ko`)
 
-한국어. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are Sino-Korean numbers written in Hangul. Digits are grouped by ten thousands: each group of up to four digits uses the places 십 (10), 백 (100) and 천 (1,000), and is followed by 만 (10^4), 억 (10^8), 조 (10^12), 경 (10^16), 해 (10^20) and so on up to 극 (10^48); larger numbers raise `RangeError`. 일 is not read before 십, 백 and 천 (십일, 백, 천), nor before 만 (만, 만 일, 일억 만), but is before larger scales (일억, 일조). Skipped places are not read (백일). As the Korean spelling rules require (한글 맞춤법 제44항), groups of 만 are separated by spaces (만 이천삼백사십오) and the words within a group are written together. Zero is 영; the 공 used when reading digits such as phone numbers is not supported. Native Korean numbers (하나, 둘, 셋) and counters are not supported yet.
+한국어. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are Sino-Korean numbers written in Hangul.
+
+Digits are grouped by ten thousands. Each group of up to four digits uses the places 십 (10), 백 (100) and 천 (1,000), followed by 만 (10<sup>4</sup>), 억 (10<sup>8</sup>), 조 (10<sup>12</sup>), 경 (10<sup>16</sup>), 해 (10<sup>20</sup>) and so on up to 극 (10<sup>48</sup>); larger numbers raise `RangeError`. 일 is not read before 십, 백 and 천 (십일, 백, 천) or before 만 (만, 만 일, 일억 만), but is read before larger scale words (일억, 일조). Skipped places are not read (백일). Following the Korean spelling rules (한글 맞춤법 제44항), groups of 만 are separated by spaces (만 이천삼백사십오), and the words within a group are written together.
+
+Zero is 영. The 공 used when reading digits, such as phone numbers, is not supported. Native Korean numbers (하나, 둘, 셋) and counters are not supported yet.
 
 ## Examples
 
@@ -41,7 +45,7 @@ I18n.with_locale(:ko) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with 점 followed by each fractional digit, including leading zeros, with a space on each side of 점.
+Decimals are read with 점, spaced on both sides, followed by each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:ko) { 3.14.to_words }

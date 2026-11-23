@@ -1,8 +1,10 @@
 # Khmer (`km`)
 
-ភាសាខ្មែរ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. The tens have their own words (ដប់, ម្ភៃ, សាមសិប, សែសិប, ហាសិប, ហុកសិប, ចិតសិប, ប៉ែតសិប, កៅសិប), and six to nine are counted from five (ប្រាំមួយ, ប្រាំពីរ, ប្រាំបី, ប្រាំបួន). Each group of up to six digits uses the places រយ (100), ពាន់ (1,000), ម៉ឺន (10,000) and សែន (100,000), and លាន (1,000,000) repeats for larger numbers, so 10^9 is មួយពាន់លាន and 10^12 is មួយលានលាន; there is no limit. Khmer numbers have no gender.
+ភាសាខ្មែរ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. Khmer numbers have no gender.
 
-Ten million is ដប់លាន, as in the Unicode CLDR rules, rather than មួយកោដិ, which some areas use for a billion. The CLDR rules stop at 10^12 and read 10^10 to 10^12 with កោដិ (10^7) as មួយពាន់កោដិ; the gem continues with លាន (10^10 is មួយម៉ឺនលាន), as in current usage, and the readings from 10^12 on, past CLDR, are for native speakers to review, as are the loanwords ប៊ីលាន (billion) and ទ្រីលាន (trillion), which the gem doesn't use.
+The tens have their own words (ដប់, ម្ភៃ, សាមសិប, សែសិប, ហាសិប, ហុកសិប, ចិតសិប, ប៉ែតសិប, កៅសិប), and six to nine are counted from five (ប្រាំមួយ, ប្រាំពីរ, ប្រាំបី, ប្រាំបួន). Each group of up to six digits uses the places រយ (100), ពាន់ (1,000), ម៉ឺន (10,000) and សែន (100,000). លាន (1,000,000) repeats for larger numbers, so 10<sup>9</sup> is មួយពាន់លាន and 10<sup>12</sup> is មួយលានលាន; there is no limit.
+
+Ten million is ដប់លាន, as in the Unicode CLDR rules, rather than មួយកោដិ, which some areas use for a billion. The CLDR rules stop at 10<sup>12</sup> and read 10<sup>10</sup> to 10<sup>12</sup> with កោដិ (10<sup>7</sup>), as មួយពាន់កោដិ. The gem continues with លាន, as in current usage (10<sup>10</sup> is មួយម៉ឺនលាន). The readings from 10<sup>12</sup> on, past CLDR, need a native speaker's review. So do the loanwords ប៊ីលាន (billion) and ទ្រីលាន (trillion), which the gem doesn't use.
 
 ## Examples
 

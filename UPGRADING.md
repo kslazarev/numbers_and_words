@@ -2,11 +2,11 @@
 
 ## Upgrading to 1.2.0
 
-The public API, `to_words` with the options in the README and on each language page, is unchanged, and so is its output in every language.
+The public API, `to_words` with the options in the README and on each language page, is unchanged. So is its output in every language, except as described below.
 
 ### Error and Warning Messages Are Sentences
 
-Error and warning messages start with a capital letter and end with a period, and the ordinal range errors of Arabic, Czech, Greek and Polish share one message. The error classes don't change; rescue them rather than matching messages.
+Error and warning messages start with a capital letter and end with a period. The ordinal range errors of Arabic, Czech, Greek and Polish share one message. The error classes don't change, so rescue them rather than matching messages.
 
 | 1.1 | 1.2 |
 | --- | --- |
@@ -19,7 +19,7 @@ An ordinal too large for any words in those four languages now raises the cardin
 
 ### Newly Supported Options Change Output
 
-Options that a language ignored with a warning in 1.1 now apply, so calls that passed them change:
+Options that a language ignored with a warning in 1.1 now apply, so calls that pass them change:
 
 | Option | Languages | 1.1 | 1.2 |
 | --- | --- | --- | --- |
@@ -27,25 +27,30 @@ Options that a language ignored with a warning in 1.1 now apply, so calls that p
 | `gender:`, or a unit with a `gender` | ar, de, fr, fr-CH, it, lt, lv, sv | `21.to_words(unit: :heure)` with `gender: female` is "vingt et un heures" | "vingt et une heures" |
 | `case:` | pl | ignored with a warning | declines cardinals; with `ordinal: true`, a decimal or a unit, raises `NumbersAndWords::UnsupportedOptionError` |
 
-Decimals now read in every language instead of raising `NumbersAndWords::UnsupportedNumberError`, larger numbers instead of `RangeError` (to 10<sup>36</sup> in every language with scale words), and Czech, Greek and Polish ordinals of every size. A `precision` shorter than a decimal's fractional part rounds it (`0.129.to_words(precision: 2)` reads 0.13) instead of raising `ArgumentError`.
+Some calls that raised now return words:
+
+* Decimals read in every language instead of raising `NumbersAndWords::UnsupportedNumberError`.
+* Larger numbers read instead of raising `RangeError`, up to 10<sup>36</sup> in every language with scale words.
+* Czech, Greek and Polish ordinals of every size read.
+* A `precision` shorter than a decimal's fractional part rounds it (`0.129.to_words(precision: 2)` reads 0.13) instead of raising `ArgumentError`.
 
 ### Internals Moved Into the Locale Files
 
-Each language now spells numbers from rule sets in its locale file (`numbers.rules`) and lists its options there (`numbers.supported_options`); British English and Swiss French list only what differs from English and French. Code that reached into the gem's classes, such as `NumbersAndWords::Strategies::FiguresConverter::Options::En::Ordinal` or `NumbersAndWords::Translations::Families::Latin`, or that overrode its translations under `numbers.*`, may need changes, since many of those classes and keys are gone or renamed.
+Each language now spells numbers from rule sets in its locale file (`numbers.rules`) and lists its options there (`numbers.supported_options`). British English and Swiss French list only what differs from English and French. Many of the gem's classes and translation keys are gone or renamed. Code that reached into those classes, such as `NumbersAndWords::Strategies::FiguresConverter::Options::En::Ordinal` or `NumbersAndWords::Translations::Families::Latin`, or that overrode translations under `numbers.*`, may need changes.
 
 ## Upgrading to 1.1.0
 
-1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly; this works in 1.1 and 2.0 alike. To raise for unsupported options now, as 2.0 will, set `strict_options`.
+1.1.0 keeps the 1.0 behavior that callers may rely on, warns about what 2.0 will change, and fixes wrong output. To choose a default that 2.0 changes, and silence its warning, pass the option explicitly. This works in both 1.1 and 2.0. To raise for unsupported options now, as 2.0 will, set `strict_options`.
 
 ```ruby
 NumbersAndWords.config.strict_options = true
 ```
 
-Each warning is shown once per process. Warnings about changed defaults are deprecation warnings, which Ruby shows only with `Warning[:deprecated] = true` or `ruby -W:deprecated`; the others are always shown.
+Each warning is shown once per process. Warnings about changed defaults are deprecation warnings, which Ruby shows only with `Warning[:deprecated] = true` or `ruby -W:deprecated`. The others are always shown.
 
 ### Deprecated: Unsupported Options Are Ignored
 
-`to_words` used to ignore options a language doesn't support, and an invalid value could return garbage. Each language accepts the global options (`precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`) and the options on its [language page](docs/languages). 1.1.0 ignores anything else with a warning, and 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, as 1.1.0 does with `NumbersAndWords.config.strict_options = true`.
+`to_words` used to ignore options a language doesn't support, and an invalid value could return garbage. Each language accepts the global options (`precision`, `micro_separator`, `fallback`, `unit`, `subunit` and `zero_subunit`) and the options on its [language page](docs/languages). 1.1.0 ignores anything else with a warning. 2.0 will raise `NumbersAndWords::UnsupportedOptionError`, an `ArgumentError`, as 1.1.0 does with `NumbersAndWords.config.strict_options = true`.
 
 ```ruby
 I18n.with_locale(:vi) { 21.to_words(gender: :female) }
@@ -61,7 +66,7 @@ Pass each option only to the locales that accept it. Flags such as `ordinal` acc
 
 ### Deprecated: Decimals Are Read as a Fraction by Default
 
-English, French, Swiss French, Italian and Portuguese read decimals as a fraction by default, as in 1.0. `fraction: false` reads them with a decimal point, as British English does, and 2.0 will make it the default. English reads each digit after the point; Brazilian Portuguese reads up to six decimal places as a number (`três vírgula mil quatrocentos e dezesseis`); the others read up to three decimal places as a number and longer ones digit by digit.
+English, French, Swiss French, Italian and Portuguese read decimals as a fraction by default, as in 1.0. `fraction: false` reads them with a decimal point, as British English does. 2.0 will make it the default. With a decimal point, English reads each digit after the point. Brazilian Portuguese reads up to six decimal places as a number (`três vírgula mil quatrocentos e dezesseis`). The others read up to three decimal places as a number, and longer ones digit by digit.
 
 | Language | Number | 1.0.x, 1.1.0 | `fraction: false`, 2.0.0 |
 | --- | --- | --- | --- |
@@ -75,11 +80,11 @@ I18n.with_locale(:en) { 21.77.to_words(fraction: false) }
 # => "twenty-one point seven seven"
 ```
 
-To keep the fraction reading in 2.0, pass `fraction: true`, which British English accepts too. With `remove_zero: true`, `0.7` is `seven tenths`, or `point seven` with `fraction: false`. Amounts with a [`unit`](README.md#unit) read decimals with a decimal point in every version. See [#289](https://github.com/kslazarev/numbers_and_words/pull/289).
+To keep the fraction reading in 2.0, pass `fraction: true`. British English accepts it too. With `remove_zero: true`, `0.7` is `seven tenths`, or `point seven` with `fraction: false`. Amounts with a [`unit`](README.md#unit) read decimals with a decimal point in every version. See [#289](https://github.com/kslazarev/numbers_and_words/pull/289).
 
 ### Deprecated: French Uses the Traditional Spelling by Default
 
-French (`fr`) and Swiss French (`fr-CH`) use the traditional spelling by default, as in 1.0. `spelling: :reformed` follows the 1990 spelling reform, hyphenating every numeral in a compound number except the nouns `million`, `milliard` and larger, and 2.0 will make it the default.
+French (`fr`) and Swiss French (`fr-CH`) use the traditional spelling by default, as in 1.0. `spelling: :reformed` follows the 1990 spelling reform: it hyphenates every numeral in a compound number except the nouns `million`, `milliard` and larger. 2.0 will make it the default.
 
 ```ruby
 I18n.with_locale(:fr) { 321.to_words }
@@ -94,7 +99,7 @@ To keep the traditional spelling in 2.0, pass `spelling: :traditional`. See [#25
 
 ### Deprecated: British English Omits "and" After Hundreds by Default
 
-British English (`en-GB`) omits "and" by default, as in 1.0. `hundreds_with_union: true` adds it after hundreds, and before a final part below one hundred after thousand, million or a larger scale, and 2.0 will make it the default. American English (`en`) won't change.
+British English (`en-GB`) omits "and" by default, as in 1.0. `hundreds_with_union: true` adds it after hundreds, and after thousand, million or a larger scale before a final part below one hundred. 2.0 will make it the default. American English (`en`) won't change.
 
 ```ruby
 I18n.with_locale(:'en-GB') { 101.to_words }
@@ -109,7 +114,7 @@ To keep the 1.0 output in 2.0, pass `hundreds_with_union: false`. See [#251](htt
 
 ### Deprecated: Swedish, Ukrainian and Kazakh Locale Codes
 
-Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. The gem now uses the ISO 639-1 codes, regional variants such as `sv-SE` included. The old codes still convert, with a warning, and 2.0 will raise `NumbersAndWords::UnsupportedLanguageError` for them.
+Three languages used non-standard codes: `se` is Northern Sami, and `ua` and `kz` are country codes. The gem now uses the ISO 639-1 codes, including in regional variants such as `sv-SE`. The old codes still convert, with a warning. 2.0 will raise `NumbersAndWords::UnsupportedLanguageError` for them.
 
 | Language | 1.0.x | 1.1.0 | 2.0.0 |
 | --- | --- | --- | --- |
@@ -123,11 +128,11 @@ I18n.with_locale(:uk) { 21.to_words }
 # 1.1.0 => "двадцять один"
 ```
 
-Replace the old codes in `I18n` locales, `NumbersAndWords.config.locales` and `fallback:`. The gem's locale files are now `numbers.sv.yml`, `numbers.uk.yml` and `numbers.kk.yml` and are looked up under the new codes, so move application overrides of the gem's `numbers.*` translations from `se`, `ua` and `kz` to `sv`, `uk` and `kk` now. See [#300](https://github.com/kslazarev/numbers_and_words/pull/300).
+Replace the old codes in `I18n` locales, `NumbersAndWords.config.locales` and `fallback:`. The gem's locale files are now `numbers.sv.yml`, `numbers.uk.yml` and `numbers.kk.yml`, looked up under the new codes. So move application overrides of the gem's `numbers.*` translations from `se`, `ua` and `kz` to `sv`, `uk` and `kk` now. See [#300](https://github.com/kslazarev/numbers_and_words/pull/300).
 
 ### Unsupported Languages Raise `NumbersAndWords::UnsupportedLanguageError`
 
-Unsupported or disabled locales raise `NumbersAndWords::UnsupportedLanguageError`, a `RuntimeError` as before, with the same messages, so `rescue RuntimeError` still works and the error can now be rescued by name. See [#293](https://github.com/kslazarev/numbers_and_words/pull/293).
+Unsupported or disabled locales raise `NumbersAndWords::UnsupportedLanguageError`. It is a `RuntimeError`, as before, with the same messages, so `rescue RuntimeError` still works. The error can now also be rescued by name. See [#293](https://github.com/kslazarev/numbers_and_words/pull/293).
 
 ```ruby
 begin
@@ -143,7 +148,7 @@ The following fix wrong output and can't be turned off.
 
 #### More Natural Forms in Several Languages
 
-Several languages now use the usual forms, as reviewed in [#255](https://github.com/kslazarev/numbers_and_words/issues/255). The previous forms can't be restored.
+Several languages now use the usual forms, as reviewed in [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 | Language | Number | 1.0.x | 1.1.0 |
 | --- | --- | --- | --- |
@@ -174,7 +179,7 @@ See [#289](https://github.com/kslazarev/numbers_and_words/pull/289) for details.
 
 #### Portuguese Uses European Forms and the Long Scale
 
-Portuguese (`pt`) is the language of Portugal, and 1.0 mixed Brazilian forms into it. It now uses the European Portuguese forms of the [Acordo Ortográfico](https://en.wikipedia.org/wiki/Portuguese_Language_Orthographic_Agreement_of_1990) and the long scale, as in Portugal, and joins scale words with `e` as Brazilian Portuguese does. Brazilian Portuguese (`pt-BR`) is unchanged; use it for the Brazilian forms. This is a fix and can't be turned off in `pt`; use `pt-BR` for the Brazilian forms.
+Portuguese (`pt`) is the language of Portugal, and 1.0 mixed Brazilian forms into it. It now uses the European Portuguese forms of the [Acordo Ortográfico](https://en.wikipedia.org/wiki/Portuguese_Language_Orthographic_Agreement_of_1990) and the long scale, as in Portugal. It joins scale words with `e`, as Brazilian Portuguese does. Brazilian Portuguese (`pt-BR`) is unchanged; use it for the Brazilian forms.
 
 | Number | 1.0.x | 1.1.0 |
 | --- | --- | --- |
@@ -192,7 +197,7 @@ Brazilian Portuguese ordinals of 10³⁶ and more raise `RangeError`, as their c
 
 #### Czech Ordinals of Thousands
 
-Czech ordinals from 1,000 to 9,999 start with one word for the thousands (`tisící`, `dvoutisící`); from 10,000 they raise `RangeError` instead of returning wrong words.
+Czech ordinals from 1,000 to 9,999 start with one word for the thousands (`tisící`, `dvoutisící`). From 10,000 they raise `RangeError` instead of returning wrong words.
 
 ```ruby
 I18n.with_locale(:cs) { 1984.to_words(ordinal: true, gender: :male) }
@@ -202,7 +207,7 @@ I18n.with_locale(:cs) { 1984.to_words(ordinal: true, gender: :male) }
 
 #### Negative Numbers Are Read With a Minus Word
 
-Negative numbers used to lose their sign, or read as a garbled number in some languages. They now start with the language's word for minus, joined without a space in Chinese, Japanese and Thai. Ordinals of negative numbers raise `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`.
+Negative numbers used to lose their sign, or read as a garbled number in some languages. They now start with the language's word for minus, with no space after it in Chinese, Japanese and Thai. Ordinals of negative numbers raise `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError`.
 
 ```ruby
 I18n.with_locale(:en) { -5.to_words }
@@ -218,13 +223,13 @@ To keep the old output, convert the absolute value, `number.abs.to_words`.
 
 #### Out-of-Range Numbers and Unsupported Decimals Raise Errors
 
-Numbers beyond a language's largest scale word used to print a bare multiplier ("en " in Danish for 10<sup>21</sup>, "un" in Spanish for 10<sup>48</sup>) and now raise `RangeError`; each language page gives its limit. Decimals in a language without decimals used to raise `NameError` and now raise `NumbersAndWords::UnsupportedNumberError` ("decimals are not supported in :da").
+Numbers beyond a language's largest scale word used to print a bare multiplier ("en " in Danish for 10<sup>21</sup>, "un" in Spanish for 10<sup>48</sup>). They now raise `RangeError`; each language page gives its limit. Decimals in a language without decimals used to raise `NameError`, and now raise `NumbersAndWords::UnsupportedNumberError` ("decimals are not supported in :da").
 
-Russian, Ukrainian and Czech decimals with more fractional digits than their fraction words name (23) also raise `RangeError` ("decimals support up to 23 fractional digits in :ru"); with 16 to 23 digits, such as `0.1 + 0.2`, they used to end in a bare prefix ("ноль целых и тридцать квадриллионов четыре сто") and now end in their fraction word ("... четыре стоквадриллионных").
+Russian, Ukrainian and Czech decimals with more fractional digits than their fraction words name (23) also raise `RangeError` ("decimals support up to 23 fractional digits in :ru"). With 16 to 23 digits, such as `0.1 + 0.2`, they used to end in a bare prefix ("ноль целых и тридцать квадриллионов четыре сто"). They now end in their fraction word ("... четыре стоквадриллионных").
 
 #### Decimals Keep the Cardinal Form With `ordinal: true`
 
-`ordinal: true` used to turn parts of a decimal into ordinals in some languages and now applies to whole numbers only; a float, including one such as `2.0`, keeps its cardinal reading in every language.
+`ordinal: true` used to turn parts of a decimal into ordinals in some languages. It now applies to whole numbers only. A float, including one such as `2.0`, keeps its cardinal reading in every language.
 
 ```ruby
 I18n.with_locale(:en) { 1.5.to_words(ordinal: true) }

@@ -1,6 +1,6 @@
 # Polish (`pl`)
 
-Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals of all of them. Masculine-personal forms are not implemented.
+Polski. Experimental: masculine-personal forms are not implemented. Numbers up to 10<sup>48</sup> - 1 and up to 48 decimal places are supported, also as ordinals; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -62,7 +62,7 @@ I18n.with_locale(:pl) { 21.77.to_words(micro_separator: "plus") }
 
 ### Case
 
-`case:` declines a cardinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:locative`, as Unicode CLDR's Polish rules do. Every word declines and a scale word takes the case of its count, in the singular after one and the plural otherwise ("dwóch tysięcy", "pięcioma tysiącami"); a final one after other digits stays jeden ("dwudziestu jeden"). Ordinals are not declined yet: `case:` other than `:nominative` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
+`case:` declines a cardinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:locative`, as Unicode CLDR's Polish rules do. Every word declines. A scale word takes the case of its count, in the singular after one and the plural otherwise ("dwóch tysięcy", "pięcioma tysiącami"). A final one after other digits stays jeden ("dwudziestu jeden"). Ordinals are not declined yet: `case:` other than `:nominative` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
 
 ```ruby
 I18n.with_locale(:pl) { 2.to_words(case: :genitive) }
@@ -86,7 +86,7 @@ I18n.with_locale(:pl) { 2.to_words(case: :dative, gender: :female) }
 
 ### Gender
 
-`gender: :male` (default), `:female` or `:neuter`
+`gender: :male` (default), `:female` or `:neuter`.
 
 ```ruby
 I18n.with_locale(:pl) { 1.to_words(gender: :female) }
@@ -101,7 +101,7 @@ I18n.with_locale(:pl) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender, makes the tens and ones ordinal and keeps the hundreds and scale words before them cardinal ("dwa tysiące dwudziesty pierwszy"). A round scale ordinal joins its count in its combining form ("dwutysięczny", "stutysięczny"), leaving out a count of one ("tysięczny", "milionowy").
+`ordinal: true`, optionally with `gender:`, makes the tens and ones ordinal and keeps the hundreds and scale words before them cardinal ("dwa tysiące dwudziesty pierwszy"). The ordinal of a round scale is one word with its count in combining form ("dwutysięczny", "stutysięczny"), leaving out a count of one ("tysięczny", "milionowy").
 
 ```ruby
 I18n.with_locale(:pl) { 21.to_words(ordinal: true) }

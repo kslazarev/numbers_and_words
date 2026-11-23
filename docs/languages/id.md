@@ -2,7 +2,7 @@
 
 Bahasa Indonesia.
 
-One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta, satu miliar). Teens are formed with belas (dua belas), tens with puluh (dua puluh satu) and hundreds with ratus (dua ratus). Scales follow the short scale, from miliar (10<sup>9</sup>) and triliun (10<sup>12</sup>) through kuadriliun, kuintiliun, sekstiliun, septiliun, oktiliun, noniliun and desiliun (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta, satu miliar). Teens are formed with belas (dua belas), tens with puluh (dua puluh satu) and hundreds with ratus (dua ratus). Scale words follow the short scale, from miliar (10<sup>9</sup>) and triliun (10<sup>12</sup>) through kuadriliun, kuintiliun, sekstiliun, septiliun, oktiliun, noniliun and desiliun (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

@@ -2,7 +2,9 @@
 
 Hrvatski. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers are written as separate words, with i between the tens and the ones (dvadeset i jedan), as Unicode CLDR does; dvadeset jedan is also in use. A thousand alone is tisuću (tisuću dvjesto), and a count of thousands is feminine (dvije tisuće, dvadeset i jedna tisuća). Scale words follow the long scale: milijun (10<sup>6</sup>), milijarda (10<sup>9</sup>), bilijun (10<sup>12</sup>), bilijarda and so on up to kvintilijarda (10<sup>33</sup>). Those in -ijun are masculine (jedan milijun, dva milijuna) and those in -ijarda feminine (jedna milijarda, dvije milijarde, pet milijardi). A scale word agrees with the last numeral of its count (dvadeset i jedan milijun, sto dvadeset i tri tisuće). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. CLDR stops at bilijarda (10<sup>15</sup>); the names from trilijun (10<sup>18</sup>) on follow the same pattern and need a native speaker's review.
+Numbers are written as separate words, with i between the tens and the ones (dvadeset i jedan), as in Unicode CLDR; dvadeset jedan is also in use. A thousand alone is tisuću (tisuću dvjesto), and a count of thousands is feminine (dvije tisuće, dvadeset i jedna tisuća). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+
+Scale words follow the long scale: milijun (10<sup>6</sup>), milijarda (10<sup>9</sup>), bilijun (10<sup>12</sup>), bilijarda and so on up to kvintilijarda (10<sup>33</sup>). Those in -ijun are masculine (jedan milijun, dva milijuna), and those in -ijarda are feminine (jedna milijarda, dvije milijarde, pet milijardi). A scale word agrees with the last numeral of its count (dvadeset i jedan milijun, sto dvadeset i tri tisuće). CLDR stops at bilijarda (10<sup>15</sup>). The names from trilijun (10<sup>18</sup>) on follow the same pattern and need a native speaker's review.
 
 ## Examples
 
@@ -31,7 +33,7 @@ I18n.with_locale(:hr) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a neuter whole number with cijelo, cijela or cijelih, then i and a feminine number of desetinke, stotinke or tisućinke, as Croatian schools teach. Up to eleven fractional digits are supported; more raise `RangeError`.
+Decimals are read as Croatian schools teach: a neuter whole number with cijelo, cijela or cijelih, then i and a feminine count of desetinke, stotinke or tisućinke. Up to eleven fractional digits are supported; more raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:hr) { 1.5.to_words }
@@ -81,7 +83,7 @@ I18n.with_locale(:hr) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal, without i after the tens (dvadeset prvi), in the requested gender (prva, prvo; treća, treće). A round thousand or larger scale is written as one word with its count, which is left out when it is one (tisućiti, dvijetisućiti, milijunti, dvamilijunti); this joined form needs a native speaker's review. Ordinals are spelled up to the largest number.
+`ordinal: true` makes the last word ordinal, in the requested gender (prva, prvo; treća, treće), and drops the i after the tens (dvadeset prvi). A round thousand or larger scale is one word with its count, and a count of one is left out (tisućiti, dvijetisućiti, milijunti, dvamilijunti). This joined form needs a native speaker's review. Ordinals are spelled up to the largest supported number.
 
 ```ruby
 I18n.with_locale(:hr) { 21.to_words(ordinal: true) }
@@ -99,7 +101,7 @@ I18n.with_locale(:hr) { 2000.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part; the ordinal of zero stays nulti.
+`remove_zero: true` omits a zero integral part. The ordinal of zero stays nulti.
 
 ```ruby
 I18n.with_locale(:hr) { 0.7.to_words(remove_zero: true) }

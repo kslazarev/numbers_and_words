@@ -1,8 +1,8 @@
 # Serbian (`sr`)
 
-Српски, in the Cyrillic script, the Unicode CLDR default for `sr`; the Latin script isn't supported. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+Српски. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers are ekavian and written as separate words, with и between the tens and the ones (двадесет и један), as CLDR does; двадесет један is also in use. A thousand alone is хиљаду (хиљаду двеста), and a count of thousands is feminine (две хиљаде, двадесет и једна хиљада). Scale words follow the long scale: милион (10<sup>6</sup>), милијарда (10<sup>9</sup>), билион (10<sup>12</sup>), билијарда and so on up to квинтилијарда (10<sup>33</sup>). Those in -ион are masculine (један милион, два милиона) and those in -ијарда feminine (једна милијарда, две милијарде, пет милијарди). A scale word agrees with the last numeral of its count (двадесет и један милион, сто двадесет и три хиљаде). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. CLDR stops at билијарда (10<sup>15</sup>); the names from трилион (10<sup>18</sup>) on follow the same pattern and need a native speaker's review.
+Words are in the Cyrillic script, the Unicode CLDR default for `sr`; the Latin script isn't supported. Numbers are ekavian and written as separate words. As in CLDR, и joins the tens and the ones (двадесет и један); двадесет један is also in use. A thousand alone is хиљаду (хиљаду двеста), and a count of thousands is feminine (две хиљаде, двадесет и једна хиљада). Scale words follow the long scale: милион (10<sup>6</sup>), милијарда (10<sup>9</sup>), билион (10<sup>12</sup>), билијарда and so on up to квинтилијарда (10<sup>33</sup>). Those in -ион are masculine (један милион, два милиона), and those in -ијарда feminine (једна милијарда, две милијарде, пет милијарди). A scale word agrees with the last numeral of its count (двадесет и један милион, сто двадесет и три хиљаде). CLDR stops at билијарда (10<sup>15</sup>); the names from трилион (10<sup>18</sup>) on follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -66,7 +66,7 @@ I18n.with_locale(:sr) { 2.5.to_words(micro_separator: "плус") }
 
 ### Gender
 
-`gender: :male` (the default), `:female` or `:neuter` changes one and two at the end of the number (један, једна, једно; два, две, два).
+`gender: :male` (default), `:female` or `:neuter` changes one and two at the end of the number (један, једна, једно; два, две, два).
 
 ```ruby
 I18n.with_locale(:sr) { 1.to_words(gender: :male) }
@@ -81,7 +81,7 @@ I18n.with_locale(:sr) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal (двадесет и први), in the requested gender (прва, прво; трећа, треће). A round thousand or larger scale is written as one word with its count, which is left out when it is one (хиљадити, двехиљадити, милионити, двамилионити); this joined form needs a native speaker's review. Ordinals are spelled up to the largest number.
+`ordinal: true` makes the last word ordinal (двадесет и први), in the requested gender (прва, прво; трећа, треће). A round thousand or larger scale is one word with its count, which is left out when it is one (хиљадити, двехиљадити, милионити, двамилионити). This joined form needs a native speaker's review. Ordinals are spelled up to the largest number.
 
 ```ruby
 I18n.with_locale(:sr) { 21.to_words(ordinal: true) }

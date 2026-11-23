@@ -1,8 +1,10 @@
 # Burmese (`my`)
 
-မြန်မာဘာသာ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces. The places are ဆယ် (10), ရာ (100), ထောင် (1,000), သောင်း (10,000), သိန်း (100,000), သန်း (1,000,000) and ကုဋေ (10^7); ten is ဆယ် without တစ်. ဆယ်, ရာ and ထောင် take the creaky tone (ဆယ့်, ရာ့, ထောင့်) when another number follows them (နှစ်ဆယ့်တစ်, သုံးရာ့တစ်, တစ်ထောင့်တစ်ရာ), but not when they end the number (နှစ်ဆယ်). ကုဋေ counts up to ten million of itself (10^9 is တစ်ရာကုဋေ, 10^12 is တစ်သိန်းကုဋေ), and ကောဋိ (10^14) counts any number of itself, so there is no limit. Burmese numbers have no gender.
+မြန်မာဘာသာ. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are written without spaces.
 
-Seven is spelled ခုနစ်, as in the Myanmar Language Commission dictionary, where the Unicode CLDR rules write ခုနှစ်. CLDR keeps the low tone of ten after 20 (နှစ်ဆယ်တစ်); the gem uses the creaky tone there too. The readings from 10^18 on, past the CLDR rules, continue CLDR's ကောဋိ (10^21 is တစ်ကုဋေကောဋိ) and are for native speakers to review.
+The places are ဆယ် (10), ရာ (100), ထောင် (1,000), သောင်း (10,000), သိန်း (100,000), သန်း (1,000,000) and ကုဋေ (10<sup>7</sup>). Ten is ဆယ် without တစ်. ဆယ်, ရာ and ထောင် take the creaky tone (ဆယ့်, ရာ့, ထောင့်) when another number follows them (နှစ်ဆယ့်တစ်, သုံးရာ့တစ်, တစ်ထောင့်တစ်ရာ), but not at the end of the number (နှစ်ဆယ်). ကုဋေ counts up to ten million of itself (10<sup>9</sup> is တစ်ရာကုဋေ, 10<sup>12</sup> is တစ်သိန်းကုဋေ). ကောဋိ (10<sup>14</sup>) counts any number of itself, so there is no largest number. Burmese numbers have no gender.
+
+Seven is spelled ခုနစ်, as in the Myanmar Language Commission dictionary; the Unicode CLDR rules write ခုနှစ်. CLDR keeps the low tone of ten after 20 (နှစ်ဆယ်တစ်), but the gem uses the creaky tone there too. From 10<sup>18</sup> on, past the CLDR rules, the readings continue CLDR's ကောဋိ (10<sup>21</sup> is တစ်ကုဋေကောဋိ) and need a native speaker's review.
 
 ## Examples
 
@@ -69,7 +71,7 @@ I18n.with_locale(:my) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` gives the Pali ordinals from first to tenth (ပထမ to ဒသမ). Larger ordinals, and zero, are the cardinal, as in the Unicode CLDR rules: in a sentence Burmese follows them with a measure word and မြောက် (ဆယ့်တစ်ခုမြောက်), which depends on the noun, so the gem leaves it to the caller.
+`ordinal: true` gives the Pali ordinals from first to tenth (ပထမ to ဒသမ). Larger ordinals, and zero, are the cardinal, as in the Unicode CLDR rules. In a sentence Burmese adds a measure word and မြောက် (ဆယ့်တစ်ခုမြောက်). The measure word depends on the noun, so the gem leaves it to the caller.
 
 ```ruby
 I18n.with_locale(:my) { 1.to_words(ordinal: true) }

@@ -32,7 +32,7 @@ I18n.with_locale(:hu) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as the integral part, `egész`, and the fractional part as a number of tized, század, ezred and so on. Both parts are in the form used before a noun, so a final two is két.
+Decimals are read as the integral part, `egész`, and a count of tized, század, ezred and so on. Both parts are in the form used before a noun, so a final two is két.
 
 ```ruby
 I18n.with_locale(:hu) { 2.2.to_words }
@@ -64,7 +64,7 @@ I18n.with_locale(:hu) { 21.77.to_words(micro_separator: "plus") }
 
 ### Ordinal
 
-`ordinal: true` uses első and második only for 1 and 2 alone; compounds use egyedik and kettedik ("százegyedik", "ezeregyedik"). One millionth is milliomodik, not the also valid egymilliomodik; compounds keep egy ("egymillió-egyedik").
+`ordinal: true` uses első and második only for 1 and 2 alone. Compounds use egyedik and kettedik ("százegyedik", "ezeregyedik"). The millionth is milliomodik, although egymilliomodik is also valid. Compounds keep egy ("egymillió-egyedik").
 
 ```ruby
 I18n.with_locale(:hu) { 21.to_words(ordinal: true) }

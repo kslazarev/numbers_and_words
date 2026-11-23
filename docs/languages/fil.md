@@ -2,7 +2,7 @@
 
 Filipino. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-The gem spells native Tagalog numbers, in everyday spelling without the dictionary accents Unicode CLDR writes (isa, not isá). Teens are labing- joined to the unit, assimilated before a consonant (labindalawa, labimpito) and hyphenated before a vowel and w (labing-isa, labing-walo); tens are one word (dalawampu, tatlumpu, apatnapu). A count before daan (hundred), libo (thousand) and the larger scales takes the linker -ng, -g after n, or na after a consonant (dalawang daan, isang daang libo, apat na libo), and daan becomes raan after a vowel (apat na raan). ’t, short for at (and), follows tens and thousands (dalawampu’t isa, isang libo’t isa), and at follows hundreds and millions (isang daan at isa). Scales follow the short scale: milyon, bilyon (10<sup>9</sup>), trilyon and katrilyon (10<sup>15</sup>) as in CLDR, then kuwintilyon, sekstilyon, septilyon, oktilyon, nonilyon and desilyon (10<sup>33</sup>), extended by the same pattern for a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+The gem spells native Tagalog numbers, in everyday spelling without the dictionary accents Unicode CLDR writes (isa, not isá). Teens are labing- joined to the unit: assimilated before a consonant (labindalawa, labimpito) and hyphenated before a vowel and w (labing-isa, labing-walo). Tens are one word (dalawampu, tatlumpu, apatnapu). A count before daan (hundred), libo (thousand) and the larger scales takes the linker -ng, -g after n, or na after a consonant (dalawang daan, isang daang libo, apat na libo). Daan becomes raan after a vowel (apat na raan). ’t, short for at (and), follows tens and thousands (dalawampu’t isa, isang libo’t isa), and at follows hundreds and millions (isang daan at isa). Scales follow the short scale: milyon, bilyon (10<sup>9</sup>), trilyon and katrilyon (10<sup>15</sup>) as in Unicode CLDR, then kuwintilyon, sekstilyon, septilyon, oktilyon, nonilyon and desilyon (10<sup>33</sup>), which follow the same pattern and await a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 The Spanish-derived numbers (uno, dos, tres), which Filipino uses for time and money, and the forms sandaan and sanlibo aren't supported.
 
@@ -36,7 +36,7 @@ I18n.with_locale(:fil) { [1, 2, 3].to_words }
 
 ## Decimals
 
-Decimals are read with tuldok followed by each fractional digit, including leading zeros, as CLDR does.
+Decimals are read with tuldok followed by each fractional digit, including leading zeros, as Unicode CLDR reads them.
 
 ```ruby
 I18n.with_locale(:fil) { 3.14.to_words }
@@ -68,7 +68,7 @@ I18n.with_locale(:fil) { 21.77.to_words(micro_separator: "punto") }
 
 ### Ordinal
 
-`ordinal: true` joins ika- to the cardinal (ikaapat, ikadalawampu’t isa), with una, ikalawa and ikatlo for one, two and three; a number of several words takes it on the first (ikaisang daan, not ikasandaan). Zero keeps its cardinal form. Decimals keep the cardinal form.
+`ordinal: true` joins ika- to the cardinal (ikaapat, ikadalawampu’t isa), with una, ikalawa and ikatlo for one, two and three. A number of several words takes it on the first (ikaisang daan, not ikasandaan). Zero and decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:fil) { 1.to_words(ordinal: true) }
