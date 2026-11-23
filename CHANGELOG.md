@@ -2,7 +2,7 @@
 
 ### Features
 
-  * Spell every language from rule sets in its locale file (`numbers.rules`) with a small rule engine, `NumbersAndWords::Rules`, and declare its options under `numbers.supported_options`, instead of Ruby code for each language; conversions are 1.2 to 3.6 times faster than 1.1.0. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361), [#362](https://github.com/kslazarev/numbers_and_words/pull/362)\] \([@dblock](https://github.com/dblock)\)
+  * Spell every language from rule sets in its locale file (`numbers.rules`) with a small rule engine, `NumbersAndWords::Rules`, and declare its options under `numbers.supported_options`, instead of Ruby code for each language; conversions are as fast as in 1.1.0 or up to 3.3 times faster. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361), [#362](https://github.com/kslazarev/numbers_and_words/pull/362), [#363](https://github.com/kslazarev/numbers_and_words/pull/363)\] \([@dblock](https://github.com/dblock)\)
   * Write error and warning messages as sentences, such as `Numbers in :cs only support values below 10**30.` instead of `numbers must be below 10**30 in :cs`, with one message for ordinals out of range, such as `Ordinals in :ar only support numbers between 1 and 99.`. \[[#361](https://github.com/kslazarev/numbers_and_words/pull/361)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 

@@ -65,23 +65,6 @@ module NumbersAndWords
       COMPILED.clear
     end
 
-    # Drops the compiled rule sets and the supported options when I18n's Simple backend reloads or stores
-    # translations, which may change numbers.rules, numbers.supported_options or the words in place.
-    module Invalidation
-      def store_translations(...)
-        super.tap { Invalidation.clear }
-      end
-
-      def reload!(...)
-        super.tap { Invalidation.clear }
-      end
-
-      def self.clear
-        Rules.clear
-        OptionsValidation.clear
-      end
-    end
-
     def initialize(translations, limit, words: nil, compiled: Rules.compiled(translations))
       @translations = translations
       @limit = limit
@@ -93,27 +76,35 @@ module NumbersAndWords
     end
 
     def spell(number, set_name)
-      expand(number, set_name.to_s).squeeze(' ').strip
+      expand(+'', number, set_name.to_s).squeeze(' ').strip
     end
 
     private
 
-    def expand(number, set_name)
-      raise Translations::Families::Base.range_error(@limit) if @maximum && number >= @maximum
-
-      rule = rule_set(set_name).find { |candidate| candidate.base <= number }
-      quotient, remainder = number.divmod(rule.divisor)
-      (remainder.zero? ? rule.zero_parts : rule.parts).map do |part|
-        part.is_a?(String) ? part : spell_token(part, number, quotient, remainder)
-      end.join
+    # Appends the words of the number to the buffer.
+    def expand(buffer, number, set_name)
+      rule = rule_for(number, set_name)
+      quotient = number / rule.divisor
+      remainder = number % rule.divisor
+      (remainder.zero? ? rule.zero_parts : rule.parts).each do |part|
+        part.is_a?(String) ? buffer << part : spell_token(buffer, part, number, quotient, remainder)
+      end
+      buffer
     end
 
-    def spell_token(token, number, quotient, remainder)
+    # The rule with the largest key not above the number.
+    def rule_for(number, set_name)
+      raise Translations::Families::Base.range_error(@limit) if @maximum && number >= @maximum
+
+      rule_set(set_name).find { |candidate| candidate.base <= number }
+    end
+
+    def spell_token(buffer, token, number, quotient, remainder)
       case token.kind
-      when :quotient then expand(quotient, token.name)
-      when :remainder then expand(remainder, token.name)
-      when :whole then expand(number, token.name)
-      else word(token.name, token.kind == :remainder_word ? remainder : quotient)
+      when :quotient then expand(buffer, quotient, token.name)
+      when :remainder then expand(buffer, remainder, token.name)
+      when :whole then expand(buffer, number, token.name)
+      else buffer << word(token.name, token.kind == :remainder_word ? remainder : quotient).to_s
       end
     end
 
@@ -184,5 +175,3 @@ module NumbersAndWords
     end
   end
 end
-
-I18n::Backend::Simple.prepend(NumbersAndWords::Rules::Invalidation)

@@ -36,10 +36,12 @@ module NumbersAndWords
     # The defaults of a language that change in 2.0, as option => [1.x default, 2.0 default], from the options
     # under numbers.supported_options with a legacy_default, such as fraction: {default: false, legacy_default: true}.
     def legacy_defaults(language)
-      OptionsValidation.declared_options(language).each_with_object({}) do |(name, declared), defaults|
-        next unless declared.is_a?(::Hash) && declared.key?(:legacy_default)
+      I18n.cached(:legacy_defaults, language) do
+        OptionsValidation.declared_options(language).each_with_object({}) do |(name, declared), defaults|
+          next unless declared.is_a?(::Hash) && declared.key?(:legacy_default)
 
-        defaults[name] = [declared[:legacy_default], declared[:default]].map { |value| value.is_a?(::String) ? value.to_sym : value }
+          defaults[name] = [declared[:legacy_default], declared[:default]].map { |value| value.is_a?(::String) ? value.to_sym : value }
+        end.freeze
       end
     end
 

@@ -20,15 +20,13 @@ module NumbersAndWords
           end
 
           # A language's own option class, such as Options::Pl::Gender, or the option it declares in its locale
-          # file; an option the language doesn't support is nil.
+          # file, made once per locale for each conversion; an option the language doesn't support is nil.
           def method_missing(method_name, *args, &block)
-            name = proxy_class_name(method_name)
-            return Object.const_get(name).new(self, args, block) if Object.const_defined?(name)
+            locale = ::I18n.locale
+            return option(method_name, locale, args, block) unless args.empty? && block.nil?
 
-            declared = OptionsValidation.declared_options(I18n.local_language)[method_name]
-            Option.new(self, name: method_name, default: declared.is_a?(::Hash) ? declared[:default] : nil) if declared
-          rescue NameError
-            nil
+            values = ((@values ||= {})[locale] ||= {})
+            values.fetch(method_name) { values[method_name] = option(method_name, locale, args, block) }
           end
 
           def respond_to_missing?(method_name, include_private = false)
@@ -37,9 +35,20 @@ module NumbersAndWords
 
           private
 
-          def proxy_class_name(method_name)
-            CLASS_NAMES.compute_if_absent(::I18n.locale) { Concurrent::Map.new }[method_name] ||=
-              "#{module_name}::#{I18n.language_class_name}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
+          def option(method_name, locale, args, block)
+            name = proxy_class_name(method_name, locale)
+            return Object.const_get(name).new(self, args, block) if Object.const_defined?(name)
+
+            declared = OptionsValidation.declared_options(I18n.local_language(locale))[method_name]
+            Option.new(self, name: method_name, default: declared.is_a?(::Hash) ? declared[:default] : nil) if declared
+          rescue NameError
+            nil
+          end
+
+          def proxy_class_name(method_name, locale = ::I18n.locale)
+            names = CLASS_NAMES[locale] || CLASS_NAMES.compute_if_absent(locale) { Concurrent::Map.new }
+            names[method_name] ||=
+              "#{module_name}::#{I18n.language_class_name(locale)}::#{method_name.to_s.split('_').collect(&:capitalize).join}"
           end
 
           def module_name

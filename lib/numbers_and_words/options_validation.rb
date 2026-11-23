@@ -63,7 +63,7 @@ module NumbersAndWords
     # The options under numbers.supported_options in the language's locale file: true for a true or false option,
     # or the values it takes and its default.
     def declared_options(language)
-      ::I18n.t(:supported_options, scope: :numbers, locale: language, default: {})
+      I18n.cached(:supported_options, language) { ::I18n.t(:supported_options, scope: :numbers, locale: language, default: {}) }
     end
 
     # The declared options, with any option class of the language's own, such as a custom extension, as a

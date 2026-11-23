@@ -58,7 +58,7 @@ module NumbersAndWords
     def zero_form(entry, number)
       return unless number.zero? && entry.is_a?(Hash) && !entry.key?(:zero)
 
-      form = ::I18n.t('numbers.unit_after_zero', default: nil)&.to_sym
+      form = I18n.t('numbers.unit_after_zero', default: nil)&.to_sym
       form if entry.key?(form)
     end
 
@@ -88,7 +88,7 @@ module NumbersAndWords
       locale = ::I18n.locale
       raise UnsupportedOptionError, "The unit #{unit.inspect} has no translation in #{locale.inspect}, expected at #{key}." unless ::I18n.exists?(key, locale)
 
-      ::I18n.t(key, locale:)
+      I18n.t(key, locale:)
     end
 
     # The unit's gender, where the language has genders and the call does not choose one.
@@ -127,7 +127,7 @@ module NumbersAndWords
     # numbers.unit_after_decimal: form: few in Romanian ("virgulă cinci lei"), and below_two: one in French and
     # Portuguese ("1,5 euro").
     def decimal_category(number)
-      after = ::I18n.t('numbers.unit_after_decimal', default: {})
+      after = I18n.t('numbers.unit_after_decimal', default: {})
       form = after[:below_two] if number.abs < 2
       (form || after[:form] || :other).to_sym
     end

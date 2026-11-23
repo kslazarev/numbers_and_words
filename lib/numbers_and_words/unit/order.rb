@@ -12,7 +12,7 @@ module NumbersAndWords
       module_function
 
       def phrase(count, words, form, options)
-        order = ::I18n.t('numbers.unit_order', locale: I18n.local_language, default: {})
+        order = I18n.t('numbers.unit_order', locale: I18n.local_language, default: {})
         return Unit.join(words, form) if order.empty?
 
         check!(count, order, options)
@@ -29,7 +29,7 @@ module NumbersAndWords
       end
 
       def check_gender!(unit, gender)
-        return if gender.nil? || gender.to_sym == :male || !::I18n.t('numbers.unit_masculine_only', locale: I18n.local_language, default: false)
+        return if gender.nil? || gender.to_sym == :male || !I18n.t('numbers.unit_masculine_only', locale: I18n.local_language, default: false)
 
         raise UnsupportedOptionError, "The unit #{unit.inspect} has gender #{gender.inspect}, and numbers in #{::I18n.locale.inspect} only agree with male units yet."
       end

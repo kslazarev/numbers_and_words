@@ -58,9 +58,11 @@ module NumbersAndWords
           # The decorators of the current language and those it shares; a language without decimals has none.
           def language_decorators
             language = I18n.local_language
-            raise UnsupportedNumberError, "Decimals are not supported in #{::I18n.locale.inspect}." unless decimals?(language)
+            I18n.cached(:decorators, language) do
+              raise UnsupportedNumberError, "Decimals are not supported in #{::I18n.locale.inspect}." unless decimals?(language)
 
-            readings(language).map { |name| I18n.class_name(name) }.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }
+              readings(language).map { |name| I18n.class_name(name) }.select { |name| const_defined?(name, false) }.map { |name| const_get(name, false) }.freeze
+            end
           end
 
           # The language and the readings it uses for decimals, in order: its numbers.decimals.reading, which names
@@ -75,7 +77,7 @@ module NumbersAndWords
           def next_reading(name)
             return unless I18n.languages.include?(name)
 
-            ::I18n.t('numbers.decimals.reading', locale: name, default: nil)&.to_sym || I18n.parents[name]
+            I18n.t('numbers.decimals.reading', locale: name, default: nil)&.to_sym || I18n.parents[name]
           end
         end
       end

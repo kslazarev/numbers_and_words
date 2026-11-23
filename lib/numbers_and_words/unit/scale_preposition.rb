@@ -34,7 +34,7 @@ module NumbersAndWords
       end
 
       def word(name)
-        ::I18n.t("numbers.#{name}", locale: I18n.local_language, default: '')
+        I18n.t("numbers.#{name}", locale: I18n.local_language, default: '')
       end
     end
   end
