@@ -32,6 +32,7 @@ Some calls that raised now return words:
 * Decimals read in every language instead of raising `NumbersAndWords::UnsupportedNumberError`.
 * Larger numbers read instead of raising `RangeError`, up to 10<sup>36</sup> in every language with scale words.
 * Arabic, Czech, Greek and Polish ordinals of every size read.
+* An Arabic unit after a count above 100 ending in 01 or 02 repeats (`101.to_words(unit: :dinar)` reads مائة دينار ودينار) instead of raising `NumbersAndWords::UnsupportedNumberError`.
 * A `precision` shorter than a decimal's fractional part rounds it (`0.129.to_words(precision: 2)` reads 0.13) instead of raising `ArgumentError`.
 
 ### Internals Moved Into the Locale Files

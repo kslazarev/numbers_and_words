@@ -308,9 +308,15 @@ describe NumbersAndWords::Unit do
         .to eq(['ليرة واحدة', 'ليرتان', 'ثلاث ليرات', 'عشر ليرات', 'إحدى عشرة ليرة', 'إحدى وعشرون ليرة', 'ثلاثة آلاف ليرة'])
     end
 
+    it 'repeats an Arabic unit after a count above 100 ending in 01 or 02' do
+      expect([101, 102, 201, 302, 1_001, 1_101, 2_002, 100_001, 1_000_001, 103, 1_100].map { |number| words(:ar, number, unit: :dinar) })
+        .to eq(['مائة دينار ودينار', 'مائة دينار وديناران', 'مائتا دينار ودينار', 'ثلاثمائة دينار وديناران', 'ألف دينار ودينار', 'ألف ومائة دينار ودينار',
+                'ألفا دينار وديناران', 'مائة ألف دينار ودينار', 'مليون دينار ودينار', 'مائة وثلاثة دنانير', 'ألف ومائة دينار'])
+      expect([101, 102].map { |number| words(:ar, number, unit: :lira) }).to eq(['مائة ليرة وليرة', 'مائة ليرة وليرتان'])
+      expect([words(:ar, -101, unit: :dinar), words(:ar, 1.101, unit: :dinar, subunit: :fils, precision: 3)]).to eq(['سالب مائة دينار ودينار', 'دينار واحد ومائة فلس وفلس'])
+    end
+
     it 'raises for what Hebrew and Arabic units do not support yet' do
-      expect { words(:ar, 101, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 101 is not supported in :ar yet.')
-      expect { words(:ar, 2_002, unit: :dinar) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'A unit after 2002 is not supported in :ar yet.')
       expect { words(:he, 1, unit: :shekel, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :he yet.')
       expect { words(:ar, 1, unit: :dinar, ordinal: true) }.to raise_error(NumbersAndWords::UnsupportedOptionError, 'A unit cannot be used with ordinal: true in :ar yet.')
     end

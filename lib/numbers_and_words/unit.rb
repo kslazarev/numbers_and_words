@@ -28,13 +28,23 @@ module NumbersAndWords
       Wrappers::Sign.words(number, options) { |count| whole_phrase(count, unit, entry, options) }
     end
 
-    # A whole number, at least zero, and its unit, in the form and order the language puts them in.
+    # A whole number, at least zero, and its unit, in the form and order the language puts them in. A count that
+    # repeats its unit (see Order.repeated) is the rest of the count with its unit, then the unit again in the form
+    # of the last digits, joined like a subunit (Arabic مائة دينار ودينار).
     def whole_phrase(count, unit, entry, options)
+      repeated = Order.repeated(count) unless options[:ordinal]
+      return repeated_phrase(count, repeated, unit, entry, options) if repeated
+
       gender = entry[:gender] if entry.is_a?(Hash)
       number_options = Apocope.apply(with_gender(options, entry))
       words = Wrappers::Integer.new(count).to_words(number_options)
       words = BeforeNoun.apply(words, number_options[:gender] || gender) unless options[:ordinal]
       Order.phrase(count, words, whole_form(unit, "#{SCOPE}.#{unit}", entry, count, options), options)
+    end
+
+    def repeated_phrase(count, repeated, unit, entry, options)
+      head = whole_phrase(count - repeated, unit, entry, options)
+      "#{head}#{Amount.subunit_separator}#{whole_form(unit, "#{SCOPE}.#{unit}", entry, repeated, options)}"
     end
 
     # Decimals keep the cardinal form: ordinal: true applies to whole numbers only.
