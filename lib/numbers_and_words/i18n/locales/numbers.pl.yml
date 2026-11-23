@@ -6,6 +6,7 @@ pl:
       few: 'v = 0 and i % 10 = 2..4 and i % 100 != 12..14'
       many: 'v = 0'
     supported_options:
+      case: {values: [nominative, genitive, dative, accusative, instrumental, locative]}
       gender: {values: [male, female, neuter], default: male}
       ordinal: true
       remove_zero: true
@@ -14,6 +15,8 @@ pl:
       male: [zero, jeden, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
       female: [zero, jedna, dwie, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
       neuter: [zero, jedno, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
+    # A final one after other digits, in every gender and case ("dwadzieścia jeden", "dwudziestu jeden").
+    final_one: jeden
     teens: [_, jedenaście, dwanaście, trzynaście, czternaście, piętnaście, szesnaście, siedemnaście, osiemnaście, dziewiętnaście]
     tens: [_, dziesięć, dwadzieścia, trzydzieści, czterdzieści, pięćdziesiąt, sześćdziesiąt, siedemdziesiąt, osiemdziesiąt, dziewięćdziesiąt]
     hundreds: [_, sto, dwieście, trzysta, czterysta, pięćset, sześćset, siedemset, osiemset, dziewięćset]
@@ -22,6 +25,7 @@ pl:
     decimals: {reading: cs, integral_gender: female, fractional_gender: female}
     rules:
       cardinal-male:
+        then: final-male
         0: '{ones.male}'
         10: '{tens}'
         11: '{teens%}'
@@ -43,13 +47,17 @@ pl:
         1000000000000000000000000000000000000000000: '{<scale-count} {tredecillions}[ {>}]'
         1000000000000000000000000000000000000000000000: '{<scale-count} {quattuordecillions}[ {>}]'
       # A final one after other digits is masculine whatever is counted ("dwadzieścia jeden", "tysiąc jeden").
+      final-male:
+        extends: cardinal-male
+        1: '{final_one}'
+        2: '{ones.male}'
       cardinal-female:
         extends: cardinal-male
         then: final-female
         0: '{ones.female}'
       final-female:
         extends: cardinal-female
-        1: '{ones.male}'
+        1: '{final_one}'
         2: '{ones.female}'
       cardinal-neuter:
         extends: cardinal-male
@@ -57,12 +65,12 @@ pl:
         0: '{ones.neuter}'
       final-neuter:
         extends: cardinal-neuter
-        1: '{ones.male}'
+        1: '{final_one}'
         2: '{ones.neuter}'
       # A scale word's count is masculine, and a count of one is left out ("tysiąc", "milion", "dwa tysiące").
       scale-count:
         extends: cardinal-male
-        then: cardinal-male
+        then: final-male
         1: ''
         2: '{ones.male}'
       # A hundred is ordinal only when it ends the number ("dwusetny", but "sto dwudziesty pierwszy").
@@ -136,6 +144,105 @@ pl:
       duodecillions: sekstyliardowy
       tredecillions: septylionowy
       quattuordecillions: septyliardowy
+    # Words in the other cases, where they differ from the nominative ones above (see Unicode CLDR's Polish
+    # spellout-cardinal-<gender>-<case> rules); a scale word is in the singular after one and in the plural after
+    # any other count ("dwóch tysięcy", "pięcioma tysiącami"), and a final one after other digits stays jeden.
+    cases:
+      genitive:
+        ones:
+          male: [zera, jednego, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          female: [zera, jednej, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          neuter: [zera, jednego, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+        teens: [_, jedenastu, dwunastu, trzynastu, czternastu, piętnastu, szesnastu, siedemnastu, osiemnastu, dziewiętnastu]
+        tens: [_, dziesięciu, dwudziestu, trzydziestu, czterdziestu, pięćdziesięciu, sześćdziesięciu, siedemdziesięciu, osiemdziesięciu, dziewięćdziesięciu]
+        hundreds: [_, stu, dwustu, trzystu, czterystu, pięciuset, sześciuset, siedmiuset, ośmiuset, dziewięciuset]
+        thousands: { one: tysiąca, few: tysięcy, many: tysięcy, other: tysiąca }
+        millions: { one: miliona, few: milionów, many: milionów, other: miliona }
+        billions: { one: miliarda, few: miliardów, many: miliardów, other: miliarda }
+        trillions: { one: biliona, few: bilionów, many: bilionów, other: biliona }
+        quadrillions: { one: biliarda, few: biliardów, many: biliardów, other: biliarda }
+        quintillions: { one: tryliona, few: trylionów, many: trylionów, other: tryliona }
+        sextillions: { one: tryliarda, few: tryliardów, many: tryliardów, other: tryliarda }
+        septillions: { one: kwadryliona, few: kwadrylionów, many: kwadrylionów, other: kwadryliona }
+        octillions: { one: kwadryliarda, few: kwadryliardów, many: kwadryliardów, other: kwadryliarda }
+        nonillions: { one: kwintyliona, few: kwintylionów, many: kwintylionów, other: kwintyliona }
+        decillions: { one: kwintyliarda, few: kwintyliardów, many: kwintyliardów, other: kwintyliarda }
+        undecillions: { one: sekstyliona, few: sekstylionów, many: sekstylionów, other: sekstyliona }
+        duodecillions: { one: sekstyliarda, few: sekstyliardów, many: sekstyliardów, other: sekstyliarda }
+        tredecillions: { one: septyliona, few: septylionów, many: septylionów, other: septyliona }
+        quattuordecillions: { one: septyliarda, few: septyliardów, many: septyliardów, other: septyliarda }
+      dative:
+        ones:
+          male: [zeru, jednemu, dwóm, trzem, czterem, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          female: [zeru, jednej, dwóm, trzem, czterem, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          neuter: [zeru, jednemu, dwóm, trzem, czterem, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+        teens: [_, jedenastu, dwunastu, trzynastu, czternastu, piętnastu, szesnastu, siedemnastu, osiemnastu, dziewiętnastu]
+        tens: [_, dziesięciu, dwudziestu, trzydziestu, czterdziestu, pięćdziesięciu, sześćdziesięciu, siedemdziesięciu, osiemdziesięciu, dziewięćdziesięciu]
+        hundreds: [_, stu, dwustu, trzystu, czterystu, pięciuset, sześciuset, siedmiuset, ośmiuset, dziewięciuset]
+        thousands: { one: tysiącowi, few: tysiącom, many: tysiącom, other: tysiącowi }
+        millions: { one: milionowi, few: milionom, many: milionom, other: milionowi }
+        billions: { one: miliardowi, few: miliardom, many: miliardom, other: miliardowi }
+        trillions: { one: bilionowi, few: bilionom, many: bilionom, other: bilionowi }
+        quadrillions: { one: biliardowi, few: biliardom, many: biliardom, other: biliardowi }
+        quintillions: { one: trylionowi, few: trylionom, many: trylionom, other: trylionowi }
+        sextillions: { one: tryliardowi, few: tryliardom, many: tryliardom, other: tryliardowi }
+        septillions: { one: kwadrylionowi, few: kwadrylionom, many: kwadrylionom, other: kwadrylionowi }
+        octillions: { one: kwadryliardowi, few: kwadryliardom, many: kwadryliardom, other: kwadryliardowi }
+        nonillions: { one: kwintylionowi, few: kwintylionom, many: kwintylionom, other: kwintylionowi }
+        decillions: { one: kwintyliardowi, few: kwintyliardom, many: kwintyliardom, other: kwintyliardowi }
+        undecillions: { one: sekstylionowi, few: sekstylionom, many: sekstylionom, other: sekstylionowi }
+        duodecillions: { one: sekstyliardowi, few: sekstyliardom, many: sekstyliardom, other: sekstyliardowi }
+        tredecillions: { one: septylionowi, few: septylionom, many: septylionom, other: septylionowi }
+        quattuordecillions: { one: septyliardowi, few: septyliardom, many: septyliardom, other: septyliardowi }
+      instrumental:
+        ones:
+          male: [zerem, jednym, dwoma, trzema, czterema, pięcioma, sześcioma, siedmioma, ośmioma, dziewięcioma]
+          female: [zerem, jedną, dwiema, trzema, czterema, pięcioma, sześcioma, siedmioma, ośmioma, dziewięcioma]
+          neuter: [zerem, jednym, dwoma, trzema, czterema, pięcioma, sześcioma, siedmioma, ośmioma, dziewięcioma]
+        teens: [_, jedenastoma, dwunastoma, trzynastoma, czternastoma, piętnastoma, szesnastoma, siedemnastoma, osiemnastoma, dziewiętnastoma]
+        tens: [_, dziesięcioma, dwudziestoma, trzydziestoma, czterdziestoma, pięćdziesięcioma, sześćdziesięcioma, siedemdziesięcioma, osiemdziesięcioma, dziewięćdziesięcioma]
+        hundreds: [_, stu, dwustu, trzystu, czterystu, pięciuset, sześciuset, siedmiuset, ośmiuset, dziewięciuset]
+        thousands: { one: tysiącem, few: tysiącami, many: tysiącami, other: tysiącem }
+        millions: { one: milionem, few: milionami, many: milionami, other: milionem }
+        billions: { one: miliardem, few: miliardami, many: miliardami, other: miliardem }
+        trillions: { one: bilionem, few: bilionami, many: bilionami, other: bilionem }
+        quadrillions: { one: biliardem, few: biliardami, many: biliardami, other: biliardem }
+        quintillions: { one: trylionem, few: trylionami, many: trylionami, other: trylionem }
+        sextillions: { one: tryliardem, few: tryliardami, many: tryliardami, other: tryliardem }
+        septillions: { one: kwadrylionem, few: kwadrylionami, many: kwadrylionami, other: kwadrylionem }
+        octillions: { one: kwadryliardem, few: kwadryliardami, many: kwadryliardami, other: kwadryliardem }
+        nonillions: { one: kwintylionem, few: kwintylionami, many: kwintylionami, other: kwintylionem }
+        decillions: { one: kwintyliardem, few: kwintyliardami, many: kwintyliardami, other: kwintyliardem }
+        undecillions: { one: sekstylionem, few: sekstylionami, many: sekstylionami, other: sekstylionem }
+        duodecillions: { one: sekstyliardem, few: sekstyliardami, many: sekstyliardami, other: sekstyliardem }
+        tredecillions: { one: septylionem, few: septylionami, many: septylionami, other: septylionem }
+        quattuordecillions: { one: septyliardem, few: septyliardami, many: septyliardami, other: septyliardem }
+      locative:
+        ones:
+          male: [zerze, jednym, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          female: [zerze, jednej, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+          neuter: [zerze, jednym, dwóch, trzech, czterech, pięciu, sześciu, siedmiu, ośmiu, dziewięciu]
+        teens: [_, jedenastu, dwunastu, trzynastu, czternastu, piętnastu, szesnastu, siedemnastu, osiemnastu, dziewiętnastu]
+        tens: [_, dziesięciu, dwudziestu, trzydziestu, czterdziestu, pięćdziesięciu, sześćdziesięciu, siedemdziesięciu, osiemdziesięciu, dziewięćdziesięciu]
+        hundreds: [_, stu, dwustu, trzystu, czterystu, pięciuset, sześciuset, siedmiuset, ośmiuset, dziewięciuset]
+        thousands: { one: tysiącu, few: tysiącach, many: tysiącach, other: tysiącu }
+        millions: { one: milionie, few: milionach, many: milionach, other: milionie }
+        billions: { one: miliardzie, few: miliardach, many: miliardach, other: miliardzie }
+        trillions: { one: bilionie, few: bilionach, many: bilionach, other: bilionie }
+        quadrillions: { one: biliardzie, few: biliardach, many: biliardach, other: biliardzie }
+        quintillions: { one: trylionie, few: trylionach, many: trylionach, other: trylionie }
+        sextillions: { one: tryliardzie, few: tryliardach, many: tryliardach, other: tryliardzie }
+        septillions: { one: kwadrylionie, few: kwadrylionach, many: kwadrylionach, other: kwadrylionie }
+        octillions: { one: kwadryliardzie, few: kwadryliardach, many: kwadryliardach, other: kwadryliardzie }
+        nonillions: { one: kwintylionie, few: kwintylionach, many: kwintylionach, other: kwintylionie }
+        decillions: { one: kwintyliardzie, few: kwintyliardach, many: kwintyliardach, other: kwintyliardzie }
+        undecillions: { one: sekstylionie, few: sekstylionach, many: sekstylionach, other: sekstylionie }
+        duodecillions: { one: sekstyliardzie, few: sekstyliardach, many: sekstyliardach, other: sekstyliardzie }
+        tredecillions: { one: septylionie, few: septylionach, many: septylionach, other: septylionie }
+        quattuordecillions: { one: septyliardzie, few: septyliardach, many: septyliardach, other: septyliardzie }
+      accusative:
+        ones:
+          female: [zero, jedną, dwie, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć]
     # The combining forms of a count before a round scale ordinal.
     combining:
       ones: [_, jedno, dwu, trzy, cztero, pięcio, sześcio, siedmio, ośmio, dziewięcio]

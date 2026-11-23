@@ -1,6 +1,6 @@
 # Polish (`pl`)
 
-Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals of all of them. Noun cases and masculine-personal forms are not implemented.
+Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals of all of them. Masculine-personal forms are not implemented.
 
 ## Examples
 
@@ -58,6 +58,30 @@ I18n.with_locale(:pl) { 0.1.to_words(precision: 2) }
 ```ruby
 I18n.with_locale(:pl) { 21.77.to_words(micro_separator: "plus") }
 # => "dwadzieścia jeden całych plus siedemdziesiąt siedem setnych"
+```
+
+### Case
+
+`case:` declines a cardinal: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:locative`, as Unicode CLDR's Polish rules do. Every word declines and a scale word takes the case of its count, in the singular after one and the plural otherwise ("dwóch tysięcy", "pięcioma tysiącami"); a final one after other digits stays jeden ("dwudziestu jeden"). Ordinals are not declined yet: `case:` other than `:nominative` with `ordinal: true` raises `NumbersAndWords::UnsupportedOptionError`.
+
+```ruby
+I18n.with_locale(:pl) { 2.to_words(case: :genitive) }
+# => "dwóch"
+
+I18n.with_locale(:pl) { 21.to_words(case: :genitive) }
+# => "dwudziestu jeden"
+
+I18n.with_locale(:pl) { 5_000.to_words(case: :instrumental) }
+# => "pięcioma tysiącami"
+
+I18n.with_locale(:pl) { 1_000_000.to_words(case: :locative) }
+# => "milionie"
+
+I18n.with_locale(:pl) { 1.to_words(case: :accusative, gender: :female) }
+# => "jedną"
+
+I18n.with_locale(:pl) { 2.to_words(case: :dative, gender: :female) }
+# => "dwóm"
 ```
 
 ### Gender

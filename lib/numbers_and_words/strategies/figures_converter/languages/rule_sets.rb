@@ -43,7 +43,15 @@ module NumbersAndWords
           end
 
           def ordinal(number)
+            check_ordinal_case
             declined(rules(gender_words, *option_words).spell(number, ordinal_set))
+          end
+
+          # An ordinal in another case needs its endings under numbers.ordinals.endings.
+          def check_ordinal_case
+            return if grammatical_case == :nominative || ordinals[:endings]
+
+            raise UnsupportedOptionError, "The case: #{grammatical_case.inspect} option is not supported for ordinals in #{I18n.local_language.inspect}."
           end
 
           def cardinal(number)

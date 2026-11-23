@@ -47,6 +47,13 @@ module CldrComparison
 
   # The gem's Arabic ordinals cover 1-99 and Hebrew ordinals start at 1; CLDR spells Russian ordinals only below 100,000
   # and Hungarian ones below a billion.
+  # Each case in each gender, compared with spellout-cardinal-<gender>-<case>.
+  def self.cases(names, genders)
+    names.product(genders.to_a).to_h do |name, (gem_gender, cldr_gender)|
+      ["cardinal/#{gem_gender}/#{name}", compare({ gender: gem_gender, case: name }, "spellout-cardinal-#{cldr_gender}-#{name}")]
+    end
+  end
+
   def self.within(range)
     NUMBERS.select { |number| range.cover?(number) }
   end
@@ -122,7 +129,11 @@ module CldrComparison
     lv: { cldr: :lv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') } },
     ms: { cldr: :ms, kinds: CARDINAL.merge(ORDINAL) },
     nl: { cldr: :nl, kinds: CARDINAL.merge(ORDINAL) },
-    pl: { cldr: :pl, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
+    pl: {
+      cldr: :pl,
+      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER))
+                                                                         .merge(cases(%i[genitive dative accusative instrumental locative], { male: 'masculine' }.merge(FEMALE_NEUTER)))
+    },
     'pt-BR': {
       cldr: :pt,
       kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') }
