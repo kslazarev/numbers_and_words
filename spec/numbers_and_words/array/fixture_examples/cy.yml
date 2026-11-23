@@ -1,0 +1,28 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - un
+      - dau
+      - tri
+  complex_example:
+    ?
+      - 100
+      - 21
+      - 13
+    :
+      - cant
+      - dau ddeg un
+      - un deg tri
+  complex_example2:
+    ?
+      - 200
+      - 300
+      - 2000
+    :
+      - dau gant
+      - tri chant
+      - dwy fil

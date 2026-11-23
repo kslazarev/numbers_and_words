@@ -57,7 +57,8 @@ module FeatureMatrix
 
   def ordinals(declared)
     return 'no' unless declared
-    return 'all' unless declared.is_a?(Hash) && declared[:maximum]
+    return 'all' unless declared.is_a?(Hash) && (declared[:minimum] || declared[:maximum])
+    return "from #{declared[:minimum]}" unless declared[:maximum]
 
     "#{declared[:minimum]} to #{declared[:maximum]}"
   end

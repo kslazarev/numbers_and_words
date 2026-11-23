@@ -1,0 +1,35 @@
+to_words:
+  fractional:
+    0.1: dim pwynt un
+    0.01: dim pwynt dim un
+    0.05: dim pwynt dim pump
+    0.77: dim pwynt saith saith
+  integral_and_fractional:
+    1.5: un pwynt pump
+    3.14: tri pwynt un pedwar
+    21.05: dau ddeg un pwynt dim pump
+    101.001: cant un pwynt dim dim un
+    2000.6: dwy fil pwynt chwech
+  precision:
+    options:
+      :precision: 3
+    1.5: un pwynt pump dim dim
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: pwynt saith
+    0.05: pwynt dim pump
+    1.5: un pwynt pump
+  micro_separator:
+    options:
+      :micro_separator: coma
+    21.77: dau ddeg un coma saith saith
+  female:
+    options:
+      :gender: female
+    2.2: dwy pwynt dau
+    3.14: tair pwynt un pedwar
+  vigesimal:
+    options:
+      :vigesimal: true
+    21.5: un ar hugain pwynt pump

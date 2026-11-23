@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-# Polish ordinals stop below 1,000, Czech and Greek ones below 10,000 and Arabic ones below 100; Hebrew and Arabic ones
-# start at 1. Georgian ones of a multiple of a thousand or more need a multiplier of one. Each raises RangeError outside
-# its range.
+# Polish ordinals stop below 1,000, Czech and Greek ones below 10,000 and Arabic ones below 100; Hebrew, Arabic, Irish
+# and Welsh ones start at 1. Georgian ones of a multiple of a thousand or more need a multiplier of one. Each raises
+# RangeError outside its range.
 GEORGIAN_ORDINALS = Class.new do
   def self.cover?(number)
     return true if number.zero? || !(number % 1000).zero?
@@ -18,7 +18,7 @@ end
 ORDINAL_SCALE_STEM_EXCEPTIONS = [[:ro, 1000], [:hu, 1000], [:hu, 1_000_000]].freeze
 SMALL_ORDINALS = [0, 1, 2].freeze
 ORDINAL_DECIMALS = [1.5, 21.25, -1.5, 2.0, [1.5, 2.25]].freeze
-ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ka: GEORGIAN_ORDINALS }.freeze
+ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ga: 1.., cy: 1.., ka: GEORGIAN_ORDINALS }.freeze
 
 # Every language spells ordinals (#263); the fixtures check exact words, and this checks that no number
 # falls through a gap in a language's ordinal tables.

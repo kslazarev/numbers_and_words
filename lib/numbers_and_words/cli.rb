@@ -26,6 +26,7 @@ module NumbersAndWords
       tens_of_hundreds: 'Read thousands as tens of hundreds',
       subunit: 'Spell the decimal places as a second unit, e.g. cents, under units.VALUE',
       unit: 'Append a unit translated by the application under units.VALUE',
+      vigesimal: 'Count in twenties, e.g. Welsh "un ar hugain"',
       zero_subunit: 'Spell a zero subunit, e.g. "zero cents"'
     }.freeze
 

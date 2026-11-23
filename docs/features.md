@@ -20,6 +20,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`bs`](languages/bs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`ca`](languages/ca.md) | yes | male, female | — | all | 10<sup>42</sup> | — |
 | [`cs`](languages/cs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
+| [`cy`](languages/cy.md) | yes | male, female | — | from 1 | 10<sup>36</sup> | `vigesimal` |
 | [`da`](languages/da.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`de`](languages/de.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`el`](languages/el.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
@@ -33,6 +34,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`fil`](languages/fil.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`fr`](languages/fr.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | `spelling` |
 | [`fr-CH`](languages/fr-CH.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | `spelling` |
+| [`ga`](languages/ga.md) | yes | — | — | from 1 | 10<sup>36</sup> | — |
 | [`he`](languages/he.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`hi`](languages/hi.md) | yes | male, female | — | all | unlimited | — |
 | [`hr`](languages/hr.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |

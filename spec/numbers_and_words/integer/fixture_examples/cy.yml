@@ -1,0 +1,211 @@
+to_words:
+  ones:
+    0: dim
+    1: un
+    2: dau
+    3: tri
+    4: pedwar
+    5: pump
+    6: chwech
+    7: saith
+    8: wyth
+    9: naw
+  teens:
+    10: deg
+    11: un deg un
+    12: un deg dau
+    15: un deg pump
+    16: un deg chwech
+    19: un deg naw
+  tens:
+    20: dau ddeg
+    21: dau ddeg un
+    30: tri deg
+    40: pedwar deg
+    50: pum deg
+    56: pum deg chwech
+    60: chwe deg
+    70: saith deg
+    80: wyth deg
+    90: naw deg
+    99: naw deg naw
+  hundreds:
+    100: cant
+    101: cant un
+    110: cant deg
+    111: cant un deg un
+    200: dau gant
+    300: tri chant
+    400: pedwar cant
+    500: pum cant
+    600: chwe chant
+    700: saith cant
+    999: naw cant naw deg naw
+  thousands:
+    1000: mil
+    1001: mil un
+    1100: mil cant
+    1965: mil naw cant chwe deg pump
+    2000: dwy fil
+    3000: tair mil
+    4000: pedair mil
+    5000: pum mil
+    6000: chwe mil
+    10000: deg mil
+    12000: un deg dwy fil
+    21000: dau ddeg un fil
+    100000: can mil
+    123456: cant dau ddeg tair mil pedwar cant pum deg chwech
+    200000: dau gan mil
+    300000: tri chan mil
+  millions:
+    1000000: miliwn
+    2000000: dwy filiwn
+    3000000: tair miliwn
+    21000000: dau ddeg un filiwn
+    123456789: cant dau ddeg tair miliwn pedwar cant pum deg chwe mil saith cant wyth deg naw
+  large scales:
+    1000000000: biliwn
+    2000000000: dau filiwn
+    3000000000: tri biliwn
+    1000000000000: triliwn
+    2000000000000: dau driliwn
+    3000000000000: tri thriliwn
+    6000000000000: chwe thriliwn
+    1000000000000000: cwadriliwn
+    2000000000000000: dau gwadriliwn
+    3000000000000000: tri chwadriliwn
+    1000000000000000000: cwintiliwn
+    1000000000000000000000: secstiliwn
+    1000000000000000000000000: septiliwn
+    1000000000000000000000000000: octiliwn
+    1000000000000000000000000000000: noniliwn
+    1000000000000000000000000000000000: desiliwn
+    2000000000000000000000000000000000: dau ddesiliwn
+    987654321123456789012345678901234567: naw cant wyth deg saith desiliwn chwe chant pum deg pedwar noniliwn tri chant dau ddeg un octiliwn cant dau ddeg tri septiliwn pedwar cant pum deg chwe secstiliwn saith cant wyth deg naw cwintiliwn un deg dau gwadriliwn tri chant pedwar deg pum triliwn chwe chant saith deg wyth biliwn naw cant un filiwn dau gant tri deg pedair mil pum cant chwe deg saith
+  female:
+    options:
+      :gender: female
+    1: un
+    2: dwy
+    3: tair
+    4: pedair
+    5: pump
+    12: un deg dwy
+    22: dau ddeg dwy
+    103: cant tair
+    2002: dwy fil dwy
+  vigesimal:
+    options:
+      :vigesimal: true
+    10: deg
+    11: un ar ddeg
+    12: deuddeg
+    13: tri ar ddeg
+    14: pedwar ar ddeg
+    15: pymtheg
+    16: un ar bymtheg
+    17: dau ar bymtheg
+    18: deunaw
+    19: pedwar ar bymtheg
+    20: ugain
+    21: un ar hugain
+    25: pump ar hugain
+    30: deg ar hugain
+    31: un ar ddeg ar hugain
+    40: deugain
+    41: un a deugain
+    50: hanner cant
+    51: un ar ddeg a deugain
+    60: trigain
+    70: deg a thrigain
+    80: pedwar ugain
+    90: deg a phedwar ugain
+    99: pedwar ar bymtheg a phedwar ugain
+    100: cant
+    101: cant ac un
+    105: cant a phump
+    120: cant ac ugain
+    123: cant a thri ar hugain
+    1001: mil ac un
+    2005: dwy fil a phump
+    12000: deuddeg mil
+    21000: un fil ar hugain
+    50000: hanner can mil
+    123000: cant a thair mil ar hugain
+  vigesimal female:
+    options:
+      :vigesimal: true
+      :gender: female
+    13: tair ar ddeg
+    17: dwy ar bymtheg
+    22: dwy ar hugain
+    103: cant a thair
+  ordinal:
+    options:
+      :ordinal: true
+    1: cyntaf
+    2: ail
+    3: trydydd
+    4: pedwerydd
+    5: pumed
+    6: chweched
+    7: seithfed
+    8: wythfed
+    9: nawfed
+    10: degfed
+    11: unfed ar ddeg
+    12: deuddegfed
+    13: trydydd ar ddeg
+    14: pedwerydd ar ddeg
+    15: pymthegfed
+    16: unfed ar bymtheg
+    17: ail ar bymtheg
+    18: deunawfed
+    19: pedwerydd ar bymtheg
+    20: ugeinfed
+    21: unfed ar hugain
+    22: ail ar hugain
+    30: degfed ar hugain
+    31: unfed ar ddeg ar hugain
+    40: deugeinfed
+    41: unfed a deugain
+    50: hanner canfed
+    60: trigeinfed
+    70: degfed a thrigain
+    80: pedwar ugeinfed
+    90: degfed a phedwar ugain
+    100: canfed
+    101: canfed ac un
+    123: canfed a thri ar hugain
+    200: dau ganfed
+    300: tri chanfed
+    1000: milfed
+    1001: milfed ac un
+    2000: dwy filfed
+    10000: deg milfed
+    100000: can milfed
+    1000000: miliynfed
+    2000000: dwy filiynfed
+    1000000000: biliynfed
+    2000000000: dau filiynfed
+  ordinal female:
+    options:
+      :ordinal: true
+      :gender: female
+    3: trydedd
+    4: pedwaredd
+    13: trydedd ar ddeg
+    19: pedwaredd ar bymtheg
+    80: pedair ugeinfed
+  ordinal vigesimal:
+    options:
+      :ordinal: true
+      :vigesimal: true
+    21: unfed ar hugain
+    101: canfed ac un
+  remove_zero:
+    options:
+      :remove_zero: true
+    0: ''
+    21: dau ddeg un

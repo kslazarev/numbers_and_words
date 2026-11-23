@@ -10,9 +10,10 @@ module NumbersAndWords
           RangeError.new("Numbers in #{::I18n.locale.inspect} only support values below 10**#{power}.")
         end
 
-        # The RangeError for an ordinal outside the range the current locale declares.
-        def self.ordinal_range_error(minimum, maximum)
-          RangeError.new("Ordinals in #{::I18n.locale.inspect} only support numbers between #{minimum} and #{maximum}.")
+        # The RangeError for an ordinal outside the range the current locale declares, or below its minimum.
+        def self.ordinal_range_error(minimum, maximum = nil)
+          range = maximum ? "between #{minimum} and #{maximum}" : "from #{minimum}"
+          RangeError.new("Ordinals in #{::I18n.locale.inspect} only support numbers #{range}.")
         end
 
         # The RangeError for a decimal with more fractional digits than the current locale can name.

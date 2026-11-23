@@ -1,0 +1,28 @@
+to_words:
+  simple_example:
+    ?
+      - 1
+      - 2
+      - 3
+    :
+      - a haon
+      - a dó
+      - a trí
+  complex_example:
+    ?
+      - 100
+      - 21
+      - 12
+    :
+      - céad
+      - fiche a haon
+      - a dó dhéag
+  complex_example2:
+    ?
+      - 1001
+      - 2000
+      - 7000
+    :
+      - míle, a haon
+      - dhá mhíle
+      - seacht míle
