@@ -1,0 +1,24 @@
+to_words:
+  fractional:
+    0.1: núll komma einn
+    0.01: núll komma núll einn
+    0.05: núll komma núll fimm
+    0.77: núll komma sjö sjö
+  integral_and_fractional:
+    1.5: einn komma fimm
+    3.14: þrír komma einn fjórir
+    21.05: tuttugu og einn komma núll fimm
+    101.001: eitt hundrað og einn komma núll núll einn
+  precision:
+    options:
+      :precision: 3
+    1.5: einn komma fimm núll núll
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: komma sjö
+    1.5: einn komma fimm
+  micro_separator:
+    options:
+      :micro_separator: punktur
+    21.77: tuttugu og einn punktur sjö sjö

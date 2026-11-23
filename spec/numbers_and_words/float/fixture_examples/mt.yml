@@ -1,0 +1,24 @@
+to_words:
+  fractional:
+    0.1: żero punt wieħed
+    0.01: żero punt żero wieħed
+    0.05: żero punt żero ħamsa
+    0.77: żero punt sebgħa sebgħa
+  integral_and_fractional:
+    1.5: wieħed punt ħamsa
+    3.14: tlieta punt wieħed erbgħa
+    21.05: wieħed u għoxrin punt żero ħamsa
+    101.001: mija u wieħed punt żero żero wieħed
+  precision:
+    options:
+      :precision: 3
+    1.5: wieħed punt ħamsa żero żero
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: punt sebgħa
+    1.5: wieħed punt ħamsa
+  micro_separator:
+    options:
+      :micro_separator: virgola
+    21.77: wieħed u għoxrin virgola sebgħa sebgħa

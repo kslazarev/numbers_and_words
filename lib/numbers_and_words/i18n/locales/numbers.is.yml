@@ -1,0 +1,172 @@
+is:
+  numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule): a count ending in one, but not in 11, is
+    # singular ("tuttugu og ein milljón"); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: mínus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: komma
+    # One to four agree in gender with what is counted; the other numbers don't change.
+    ones: [núll, einn, tveir, þrír, fjórir, fimm, sex, sjö, átta, níu]
+    female_ones: [núll, ein, tvær, þrjár, fjórar, fimm, sex, sjö, átta, níu]
+    neuter_ones: [núll, eitt, tvö, þrjú, fjögur, fimm, sex, sjö, átta, níu]
+    teens: [tíu, ellefu, tólf, þrettán, fjórtán, fimmtán, sextán, sautján, átján, nítján]
+    tens: [_, _, tuttugu, þrjátíu, fjörutíu, fimmtíu, sextíu, sjötíu, áttatíu, níutíu]
+    hundred: {one: hundrað, other: hundruð}
+    union: og
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # "Og" comes before the last element of a number: between tens and ones ("tuttugu og einn"), or before a last
+    # part of one element, such as a ten, a round hundred or a round thousand ("eitt hundrað og tuttugu", "eitt
+    # þúsund og eitt hundrað", but "eitt hundrað tuttugu og einn"). Hundrað and þúsund are neuter and count with
+    # eitt, tvö; milljón, billjón and the other -jón words are feminine (ein milljón, tvær milljónir), and
+    # milljarður and the other -arður words masculine (einn milljarður, tveir milljarðar).
+    rules:
+      cardinal:
+        then: and
+        0: '{ones}'
+        10: '{teens%}'
+        20: '[{tens} {union} {ones%}|{tens}]'
+        100: '{<cardinal-neuter} {hundred}[{>}]'
+        1000: '{<cardinal-neuter} {thousands}[{>}]'
+        1000000: '{<cardinal-female} {millions}[{>}]'
+        1000000000: '{<cardinal} {billions}[{>}]'
+        1000000000000: '{<cardinal-female} {trillions}[{>}]'
+        1000000000000000: '{<cardinal} {quadrillions}[{>}]'
+        1000000000000000000: '{<cardinal-female} {quintillions}[{>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[{>}]'
+        1000000000000000000000000: '{<cardinal-female} {septillions}[{>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<cardinal-female} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[{>}]'
+      cardinal-female:
+        extends: cardinal
+        then: and-female
+        0: '{female_ones}'
+        20: '[{tens} {union} {female_ones%}|{tens}]'
+      cardinal-neuter:
+        extends: cardinal
+        then: and-neuter
+        0: '{neuter_ones}'
+        20: '[{tens} {union} {neuter_ones%}|{tens}]'
+      # The rest of a number after a hundred or a scale word: "og" before a single element (a number below 20, a
+      # ten, or a round hundred, thousand or million), none before a part that has its own "og".
+      and:
+        then: cardinal
+        1: ' {union} {=}'
+        20: '[ {=}| {union} {=}]'
+        100: '[ {=}| {union} {=}]'
+        '1000*1000': '[ {=}| {union} {=}]'
+      and-female:
+        extends: and
+        then: cardinal-female
+      and-neuter:
+        extends: and
+        then: cardinal-neuter
+      # Every element of an ordinal is ordinal ("tuttugasti og fyrsti", "hundraðasti og fyrsti"), with "og" where
+      # the cardinal has it. A count of one word is written together with hundraðasti and þúsundasti
+      # ("tvöhundraðasti", "tvöþúsundasti"), a longer count apart ("tuttugu og eitt þúsundasti"); a one is left
+      # out ("hundraðasti", "þúsundasti", "milljónasti").
+      ordinal:
+        then: ordinal-and
+        0: '{ordinals.ones}'
+        10: '{ordinals.teens%}'
+        20: '[{ordinals.tens} {union} {ordinals.ones%}|{ordinals.tens}]'
+        100: '{<ordinal-neuter-count}{ordinals.hundred}[{>}]'
+        1000: '{<ordinal-neuter-count}{ordinals.thousands}[{>}]'
+        1000000: '{<ordinal-female-count}{ordinals.millions}[{>}]'
+        1000000000: '{<ordinal-male-count}{ordinals.billions}[{>}]'
+        1000000000000: '{<ordinal-female-count}{ordinals.trillions}[{>}]'
+        1000000000000000: '{<ordinal-male-count}{ordinals.quadrillions}[{>}]'
+        1000000000000000000: '{<ordinal-female-count}{ordinals.quintillions}[{>}]'
+        1000000000000000000000: '{<ordinal-male-count}{ordinals.sextillions}[{>}]'
+        1000000000000000000000000: '{<ordinal-female-count}{ordinals.septillions}[{>}]'
+        1000000000000000000000000000: '{<ordinal-male-count}{ordinals.octillions}[{>}]'
+        1000000000000000000000000000000: '{<ordinal-female-count}{ordinals.nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<ordinal-male-count}{ordinals.decillions}[{>}]'
+      ordinal-and:
+        extends: and
+        then: ordinal
+      ordinal-neuter-count:
+        1: ''
+        2: '{neuter_ones}'
+        10: '{teens%}'
+        20: '[{=cardinal-neuter} |{tens}]'
+        100: '{=cardinal-neuter} '
+      ordinal-female-count:
+        1: ''
+        2: '{=cardinal-female} '
+      ordinal-male-count:
+        1: ''
+        2: '{=cardinal} '
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: {one: þúsund, other: þúsund}
+    millions: {one: milljón, other: milljónir}
+    billions: {one: milljarður, other: milljarðar}
+    trillions: {one: billjón, other: billjónir}
+    quadrillions: {one: billjarður, other: billjarðar}
+    quintillions: {one: trilljón, other: trilljónir}
+    sextillions: {one: trilljarður, other: trilljarðar}
+    septillions: {one: kvaðrilljón, other: kvaðrilljónir}
+    octillions: {one: kvaðrilljarður, other: kvaðrilljarðar}
+    nonillions: {one: kvintilljón, other: kvintilljónir}
+    decillions: {one: kvintilljarður, other: kvintilljarðar}
+    # The masculine ordinals.
+    ordinals:
+      ones: [núllti, fyrsti, annar, þriðji, fjórði, fimmti, sjötti, sjöundi, áttundi, níundi]
+      teens: [tíundi, ellefti, tólfti, þrettándi, fjórtándi, fimmtándi, sextándi, sautjándi, átjándi, nítjándi]
+      tens: [_, _, tuttugasti, þrítugasti, fertugasti, fimmtugasti, sextugasti, sjötugasti, áttugasti, nítugasti]
+      hundred: hundraðasti
+      thousands: þúsundasti
+      millions: milljónasti
+      billions: milljarðasti
+      trillions: billjónasti
+      quadrillions: billjarðasti
+      quintillions: trilljónasti
+      sextillions: trilljarðasti
+      septillions: kvaðrilljónasti
+      octillions: kvaðrilljarðasti
+      nonillions: kvintilljónasti
+      decillions: kvintilljarðasti
+    # The feminine and neuter ordinals: weak adjectives end in -a, and annar is önnur or annað.
+    genders:
+      female:
+        ordinals:
+          ones: [núllta, fyrsta, önnur, þriðja, fjórða, fimmta, sjötta, sjöunda, áttunda, níunda]
+          teens: [tíunda, ellefta, tólfta, þrettánda, fjórtánda, fimmtánda, sextánda, sautjánda, átjánda, nítjánda]
+          tens: [_, _, tuttugasta, þrítugasta, fertugasta, fimmtugasta, sextugasta, sjötugasta, áttugasta, nítugasta]
+          hundred: hundraðasta
+          thousands: þúsundasta
+          millions: milljónasta
+          billions: milljarðasta
+          trillions: billjónasta
+          quadrillions: billjarðasta
+          quintillions: trilljónasta
+          sextillions: trilljarðasta
+          septillions: kvaðrilljónasta
+          octillions: kvaðrilljarðasta
+          nonillions: kvintilljónasta
+          decillions: kvintilljarðasta
+      neuter:
+        ordinals:
+          ones: [núllta, fyrsta, annað, þriðja, fjórða, fimmta, sjötta, sjöunda, áttunda, níunda]
+          teens: [tíunda, ellefta, tólfta, þrettánda, fjórtánda, fimmtánda, sextánda, sautjánda, átjánda, nítjánda]
+          tens: [_, _, tuttugasta, þrítugasta, fertugasta, fimmtugasta, sextugasta, sjötugasta, áttugasta, nítugasta]
+          hundred: hundraðasta
+          thousands: þúsundasta
+          millions: milljónasta
+          billions: milljarðasta
+          trillions: billjónasta
+          quadrillions: billjarðasta
+          quintillions: trilljónasta
+          sextillions: trilljarðasta
+          septillions: kvaðrilljónasta
+          octillions: kvaðrilljarðasta
+          nonillions: kvintilljónasta
+          decillions: kvintilljarðasta
+    subunit_separator: og

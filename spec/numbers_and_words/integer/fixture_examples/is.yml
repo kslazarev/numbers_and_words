@@ -1,0 +1,199 @@
+to_words:
+  ones:
+    0: núll
+    1: einn
+    2: tveir
+    3: þrír
+    4: fjórir
+    5: fimm
+    6: sex
+    7: sjö
+    8: átta
+    9: níu
+  tens:
+    10: tíu
+    11: ellefu
+    12: tólf
+    13: þrettán
+    14: fjórtán
+    15: fimmtán
+    16: sextán
+    17: sautján
+    18: átján
+    19: nítján
+    20: tuttugu
+    21: tuttugu og einn
+    22: tuttugu og tveir
+    30: þrjátíu
+    40: fjörutíu
+    45: fjörutíu og fimm
+    50: fimmtíu
+    60: sextíu
+    70: sjötíu
+    80: áttatíu
+    99: níutíu og níu
+  hundreds:
+    100: eitt hundrað
+    101: eitt hundrað og einn
+    110: eitt hundrað og tíu
+    111: eitt hundrað og ellefu
+    120: eitt hundrað og tuttugu
+    121: eitt hundrað tuttugu og einn
+    200: tvö hundruð
+    300: þrjú hundruð
+    400: fjögur hundruð
+    456: fjögur hundruð fimmtíu og sex
+    999: níu hundruð níutíu og níu
+  thousands:
+    1000: eitt þúsund
+    1001: eitt þúsund og einn
+    1020: eitt þúsund og tuttugu
+    1021: eitt þúsund tuttugu og einn
+    1100: eitt þúsund og eitt hundrað
+    1121: eitt þúsund eitt hundrað tuttugu og einn
+    2000: tvö þúsund
+    2500: tvö þúsund og fimm hundruð
+    4000: fjögur þúsund
+    11000: ellefu þúsund
+    21000: tuttugu og eitt þúsund
+    22000: tuttugu og tvö þúsund
+    100000: eitt hundrað þúsund
+    123456: eitt hundrað tuttugu og þrjú þúsund fjögur hundruð fimmtíu og sex
+    999999: níu hundruð níutíu og níu þúsund níu hundruð níutíu og níu
+  millions:
+    1000000: ein milljón
+    1000001: ein milljón og einn
+    1001000: ein milljón og eitt þúsund
+    2000000: tvær milljónir
+    3000000: þrjár milljónir
+    4000000: fjórar milljónir
+    5000000: fimm milljónir
+    11000000: ellefu milljónir
+    21000000: tuttugu og ein milljón
+    22000000: tuttugu og tvær milljónir
+    101000000: eitt hundrað og ein milljón
+  billions:
+    1000000000: einn milljarður
+    2000000000: tveir milljarðar
+    21000000000: tuttugu og einn milljarður
+    1000000000000: ein billjón
+    2000000000000: tvær billjónir
+    1000000000000000: einn billjarður
+    2000000000000000: tveir billjarðar
+  large scales:
+    1000000000000000000: ein trilljón
+    2000000000000000000: tvær trilljónir
+    1000000000000000000000: einn trilljarður
+    2000000000000000000000: tveir trilljarðar
+    1000000000000000000000000: ein kvaðrilljón
+    2000000000000000000000000: tvær kvaðrilljónir
+    1000000000000000000000000000: einn kvaðrilljarður
+    2000000000000000000000000000: tveir kvaðrilljarðar
+    1000000000000000000000000000000: ein kvintilljón
+    2000000000000000000000000000000: tvær kvintilljónir
+    1000000000000000000000000000000000: einn kvintilljarður
+    2000000000000000000000000000000000: tveir kvintilljarðar
+    999999999999999999999999999999999999: níu hundruð níutíu og níu kvintilljarðar níu hundruð níutíu og níu kvintilljónir níu hundruð níutíu og níu kvaðrilljarðar níu hundruð níutíu og níu kvaðrilljónir níu hundruð níutíu og níu trilljarðar níu hundruð níutíu og níu trilljónir níu hundruð níutíu og níu billjarðar níu hundruð níutíu og níu billjónir níu hundruð níutíu og níu milljarðar níu hundruð níutíu og níu milljónir níu hundruð níutíu og níu þúsund níu hundruð níutíu og níu
+  female gender:
+    options:
+      :gender: female
+    0: núll
+    1: ein
+    2: tvær
+    3: þrjár
+    4: fjórar
+    5: fimm
+    21: tuttugu og ein
+    22: tuttugu og tvær
+    101: eitt hundrað og ein
+    1001: eitt þúsund og ein
+    2004: tvö þúsund og fjórar
+    1000003: ein milljón og þrjár
+  neuter gender:
+    options:
+      :gender: neuter
+    1: eitt
+    2: tvö
+    3: þrjú
+    4: fjögur
+    21: tuttugu og eitt
+    104: eitt hundrað og fjögur
+    1000002: ein milljón og tvö
+    2000000000: tveir milljarðar
+  ordinal:
+    options:
+      :ordinal: true
+    0: núllti
+    1: fyrsti
+    2: annar
+    3: þriðji
+    4: fjórði
+    5: fimmti
+    6: sjötti
+    7: sjöundi
+    8: áttundi
+    9: níundi
+    10: tíundi
+    11: ellefti
+    12: tólfti
+    13: þrettándi
+    19: nítjándi
+    20: tuttugasti
+    21: tuttugasti og fyrsti
+    22: tuttugasti og annar
+    30: þrítugasti
+    40: fertugasti
+    50: fimmtugasti
+    60: sextugasti
+    70: sjötugasti
+    80: áttugasti
+    90: nítugasti
+    99: nítugasti og níundi
+    100: hundraðasti
+    101: hundraðasti og fyrsti
+    120: hundraðasti og tuttugasti
+    121: hundraðasti tuttugasti og fyrsti
+    200: tvöhundraðasti
+    300: þrjúhundraðasti
+    1000: þúsundasti
+    1001: þúsundasti og fyrsti
+    1100: þúsundasti og hundraðasti
+    2000: tvöþúsundasti
+    2021: tvöþúsundasti tuttugasti og fyrsti
+    10000: tíuþúsundasti
+    20000: tuttuguþúsundasti
+    21000: tuttugu og eitt þúsundasti
+    100000: eitt hundrað þúsundasti
+    1000000: milljónasti
+    2000000: tvær milljónasti
+    1000000000: milljarðasti
+    3000000001: þrír milljarðasti og fyrsti
+    1000000000000: billjónasti
+    1000000000000000: billjarðasti
+    1000000000000000000: trilljónasti
+    1000000000000000000000: trilljarðasti
+    1000000000000000000000000: kvaðrilljónasti
+    1000000000000000000000000000: kvaðrilljarðasti
+    1000000000000000000000000000000: kvintilljónasti
+    1000000000000000000000000000000000: kvintilljarðasti
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: fyrsta
+    2: önnur
+    3: þriðja
+    21: tuttugasta og fyrsta
+    22: tuttugasta og önnur
+    100: hundraðasta
+    1000: þúsundasta
+    1000000: milljónasta
+  neuter ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    1: fyrsta
+    2: annað
+    22: tuttugasta og annað
+    101: hundraðasta og fyrsta
+    2000: tvöþúsundasta

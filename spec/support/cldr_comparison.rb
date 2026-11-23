@@ -141,6 +141,8 @@ module CldrComparison
     hy: { cldr: :hy, kinds: CARDINAL },
     # twitter_cldr 6.14.0 fails to parse the CLDR rule for Indonesian 1st (pertama), which has no trailing semicolon.
     id: { cldr: :id, kinds: CARDINAL.merge('ordinal' => compare({ ordinal: true }, 'spellout-ordinal', NUMBERS - [1])) },
+    # CLDR has no Icelandic ordinals.
+    is: { cldr: :is, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
     # Italian counts with uno, as CLDR spellout-numbering does, not the un of spellout-cardinal-masculine.
     it: { cldr: :it, kinds: { 'cardinal' => compare({}, 'spellout-numbering'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') } },
     ja: { cldr: :ja, kinds: CARDINAL.merge(ORDINAL) },
@@ -153,6 +155,10 @@ module CldrComparison
     # CLDR has no Macedonian ordinals.
     mk: { cldr: :mk, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },
     ms: { cldr: :ms, kinds: CARDINAL.merge(ORDINAL) },
+    # Maltese counts with the independent forms of spellout-numbering (tnejn, tlieta); CLDR spellout-cardinal-masculine
+    # and -feminine are the forms before a noun (żewġ, tliet, mitt), which the gem doesn't spell, and CLDR has no
+    # Maltese ordinals. twitter_cldr 6.14.0 raises on CLDR Maltese numbers from 11 million up to a billion.
+    mt: { cldr: :mt, kinds: { 'cardinal' => compare({}, 'spellout-numbering', NUMBERS - [21_000_000, 123_456_789]) } },
     nl: { cldr: :nl, kinds: CARDINAL.merge(ORDINAL) },
     pl: {
       cldr: :pl,
@@ -207,12 +213,14 @@ module CldrComparison
   end
 
   # Per-locale encodings of the same letter: CLDR Romanian uses the legacy
-  # cedilla ş/ţ for the comma-below ș/ț, CLDR Ukrainian writes the
+  # cedilla ş/ţ for the comma-below ș/ț, CLDR Maltese writes the apostrophe
+  # as U+02BC where the gem uses U+0027 (erba'), CLDR Ukrainian writes the
   # apostrophe as U+02BC where the gem uses U+2019, and CLDR Belarusian writes
   # the Latin i in адзiн for the Cyrillic і.
   LOCALE_NORMALIZATION = {
     be: ->(words) { words.tr('i', 'і') },
     ro: ->(words) { words.tr('şţŞŢ', 'șțȘȚ') },
+    mt: ->(words) { words.tr("\u02BC", "'") },
     uk: ->(words) { words.tr("\u02BC", "\u2019") }
   }.freeze
 
