@@ -1,0 +1,88 @@
+ta:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: எதிர்ம
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: புள்ளி
+    ones: [பூஜ்யம், ஒன்று, இரண்டு, மூன்று, நான்கு, ஐந்து, ஆறு, ஏழு, எட்டு, ஒன்பது, பத்து, பதினொன்று, பன்னிரண்டு, பதின்மூன்று, பதினான்கு, பதினைந்து, பதினாறு, பதினேழு, பதினெட்டு, பத்தொன்பது]
+    tens: [~, ~, இருபது, முப்பது, நாற்பது, ஐம்பது, அறுபது, எழுபது, எண்பது, தொண்ணூறு]
+    hundreds: [~, நூறு, இருநூறு, முந்நூறு, நானூறு, ஐநூறு, அறுநூறு, எழுநூறு, எண்ணூறு, தொள்ளாயிரம்]
+    # The forms of tens and hundreds followed by another number ("இருபத்து ஒன்று", "நூற்று ஒன்று").
+    tens_linking: [~, ~, இருபத்து, முப்பத்து, நாற்பத்து, ஐம்பத்து, அறுபத்து, எழுபத்து, எண்பத்து, தொண்ணூற்று]
+    hundreds_linking: [~, நூற்று, இருநூற்று, முந்நூற்று, நானூற்று, ஐநூற்று, அறுநூற்று, எழுநூற்று, எண்ணூற்று, தொள்ளாயிரத்து]
+    # The stems that fuse with a vowel, as Unicode CLDR's %%spellout-prefix: a stem and ஆயிரம் are one word
+    # ("இரண்டாயிரம்"), and so are a stem and the ordinal ending ஆவது ("இரண்டாவது"), the vowel written as its sign.
+    stems: [~, ஒன்ற, இரண்ட, மூன்ற, நான்க, ஐந்த, ஆற, ஏழ, எட்ட, ஒன்பத, பத்த, பதினொன்ற, பன்னிரண்ட, பதின்மூன்ற, பதினான்க, பதினைந்த, பதினாற, பதினேழ, பதினெட்ட, பத்தொன்பத]
+    tens_stems: [~, ~, இருபத, முப்பத, நாற்பத, ஐம்பத, அறுபத, எழுபத, எண்பத, தொண்ணூற]
+    hundreds_stems: [~, நூற, இருநூற, முந்நூற, நானூற, ஐநூற, அறுநூற, எழுநூற, எண்ணூற, தொள்ளாயிரத்த]
+    # One before a scale word is ஒரு ("ஒரு லட்சம்").
+    one_attributive: ஒரு
+    thousand: ஆயிரம்
+    thousand_linking: ஆயிரத்து
+    thousand_ordinal: ஆயிரத்தாவது
+    thousand_suffix: ாயிரம்
+    thousand_linking_suffix: ாயிரத்து
+    thousand_ordinal_suffix: ாயிரத்தாவது
+    lakh: லட்சம்
+    lakh_linking: லட்சத்து
+    lakh_ordinal: லட்சத்தாவது
+    crore: கோடி
+    crore_linking: கோடியே
+    crore_ordinal: கோடியாவது
+    arab: அரபம்
+    arab_ordinal: அரபத்தாவது
+    kharab: கரபம்
+    kharab_ordinal: கரபத்தாவது
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # Tamil groups by the Indian system, as Unicode CLDR does: ஆயிரம் (10^3), லட்சம் (10^5), கோடி (10^7), அரபம்
+    # (10^9) and கரபம் (10^11), each counting from 1 to 99 except the last, which counts any number. A word followed
+    # by another number takes its linking form (ஆயிரத்து, லட்சத்து, கோடியே).
+    rules:
+      cardinal:
+        0: '{ones}'
+        20: '[{tens_linking} {>}|{tens}]'
+        100: '[{hundreds_linking} {>}|{hundreds}]'
+        1000: '[{<thousands-linking} {>}|{<thousands}]'
+        100000: '{<scale-count} [{lakh_linking} {>}|{lakh}]'
+        10000000: '{<scale-count} [{crore_linking} {>}|{crore}]'
+        1000000000: '{<scale-count} {arab}[ {>}]'
+        100000000000: '{<scale-count} {kharab}[ {>}]'
+      scale-count:
+        1: '{one_attributive}'
+        2: '{=cardinal}'
+      # The stem of a number from 1 to 99, its last word fused with what follows.
+      stem:
+        1: '{stems}'
+        20: '[{tens_linking} {>}|{tens_stems}]'
+      thousands:
+        1: '{thousand}'
+        2: '{=stem}{thousand_suffix}'
+      thousands-linking:
+        1: '{thousand_linking}'
+        2: '{=stem}{thousand_linking_suffix}'
+      thousands-ordinal:
+        1: '{thousand_ordinal}'
+        2: '{=stem}{thousand_ordinal_suffix}'
+      # An ordinal adds ஆவது to the last word ("இருபத்து ஒன்றாவது", "நூறாவது"); the first is முதலாவது, and zero
+      # keeps its cardinal form.
+      ordinal:
+        0: '{ones}'
+        1: '{ordinals.first}'
+        2: '{=stem}{ordinals.suffix}'
+        100: '[{hundreds_linking} {>ordinal-compound}|{hundreds_stems}{ordinals.suffix}]'
+        1000: '[{<thousands-linking} {>ordinal-compound}|{<thousands-ordinal}]'
+        100000: '{<scale-count} [{lakh_linking} {>ordinal-compound}|{lakh_ordinal}]'
+        10000000: '{<scale-count} [{crore_linking} {>ordinal-compound}|{crore_ordinal}]'
+        1000000000: '{<scale-count} [{arab} {>ordinal-compound}|{arab_ordinal}]'
+        100000000000: '{<scale-count} [{kharab} {>ordinal-compound}|{kharab_ordinal}]'
+      # The last part of a longer ordinal, where one is ஒன்றாவது ("நூற்று ஒன்றாவது").
+      ordinal-compound:
+        then: ordinal
+        1: '{=stem}{ordinals.suffix}'
+        2: '{=}'
+    ordinals:
+      first: முதலாவது
+      suffix: ாவது

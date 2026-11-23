@@ -1,0 +1,69 @@
+fil:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: tuldok
+    ones: [wala, isa, dalawa, tatlo, apat, lima, anim, pito, walo, siyam, sampu, labing-isa, labindalawa, labintatlo, labing-apat, labinlima, labing-anim, labimpito, labing-walo, labinsiyam]
+    tens: [~, ~, dalawampu, tatlumpu, apatnapu, limampu, animnapu, pitumpu, walumpu, siyamnapu]
+    # Daan is raan after a vowel ("apat na raan").
+    hundreds: [~, isang daan, dalawang daan, tatlong daan, apat na raan, limang daan, anim na raan, pitong daan, walong daan, siyam na raan]
+    # A count before a scale word ends in the linker -ng, -g after n, or na after a consonant ("dalawang libo",
+    # "isang daang libo", "apat na libo").
+    ones_linked: [~, isang, dalawang, tatlong, apat na, limang, anim na, pitong, walong, siyam na, sampung, labing-isang, labindalawang, labintatlong, labing-apat na, labinlimang, labing-anim na, labimpitong, labing-walong, labinsiyam na]
+    tens_linked: [~, ~, dalawampung, tatlumpung, apatnapung, limampung, animnapung, pitumpung, walumpung, siyamnapung]
+    hundreds_linked: [~, isang daang, dalawang daang, tatlong daang, apat na raang, limang daang, anim na raang, pitong daang, walong daang, siyam na raang]
+    # "at" (and) joins hundreds and millions to what follows, and its short form ’t tens and thousands
+    # ("dalawampu’t isa", "isang daan at isa", "isang libo’t isa").
+    union: at
+    union_short: ’t
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    rules:
+      cardinal:
+        0: '{ones}'
+        20: '{tens}[{union_short} {>}]'
+        100: '{hundreds}[ {union} {>}]'
+        1000: '{<count} {thousands}[{union_short} {>}]'
+        1000000: '{<count} {millions}[ {union} {>}]'
+        1000000000: '{<count} {billions}[ {union} {>}]'
+        1000000000000: '{<count} {trillions}[ {union} {>}]'
+        1000000000000000: '{<count} {quadrillions}[ {union} {>}]'
+        1000000000000000000: '{<count} {quintillions}[ {union} {>}]'
+        1000000000000000000000: '{<count} {sextillions}[ {union} {>}]'
+        1000000000000000000000000: '{<count} {septillions}[ {union} {>}]'
+        1000000000000000000000000000: '{<count} {octillions}[ {union} {>}]'
+        1000000000000000000000000000000: '{<count} {nonillions}[ {union} {>}]'
+        1000000000000000000000000000000000: '{<count} {decillions}[ {union} {>}]'
+      # A count from 1 to 999 before a scale word, its last word with the linker.
+      count:
+        1: '{ones_linked}'
+        20: '[{tens}{union_short} {>}|{tens_linked}]'
+        100: '[{hundreds} {union} {>}|{hundreds_linked}]'
+      # An ordinal is ika- joined to the cardinal ("ikaapat", "ikadalawampu’t isa"), with una, ikalawa and ikatlo
+      # for one, two and three; zero keeps its cardinal form.
+      ordinal:
+        0: '{ones}'
+        1: '{ordinals.first}'
+        2: '{ordinals.second}'
+        3: '{ordinals.third}'
+        4: '{ordinals.prefix}{=cardinal}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: libo
+    millions: milyon
+    billions: bilyon
+    trillions: trilyon
+    quadrillions: katrilyon
+    quintillions: kuwintilyon
+    sextillions: sekstilyon
+    septillions: septilyon
+    octillions: oktilyon
+    nonillions: nonilyon
+    decillions: desilyon
+    ordinals:
+      prefix: ika
+      first: una
+      second: ikalawa
+      third: ikatlo

@@ -28,7 +28,9 @@ What each bundled language supports, generated from its locale file and classes 
 | [`eo`](languages/eo.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`es`](languages/es.md) | yes | male, female | — | all | 10<sup>48</sup> | `apocopated` |
 | [`et`](languages/et.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`fa`](languages/fa.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`fi`](languages/fi.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`fil`](languages/fil.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`fr`](languages/fr.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | `spelling` |
 | [`fr-CH`](languages/fr-CH.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | `spelling` |
 | [`he`](languages/he.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
@@ -63,6 +65,8 @@ What each bundled language supports, generated from its locale file and classes 
 | [`sq`](languages/sq.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`sr`](languages/sr.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`sv`](languages/sv.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
+| [`sw`](languages/sw.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`ta`](languages/ta.md) | yes | — | — | all | unlimited | — |
 | [`th`](languages/th.md) | yes | — | — | all | unlimited | — |
 | [`tr`](languages/tr.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`uk`](languages/uk.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, prepositional, vocative, animate | all | 10<sup>36</sup> | — |

@@ -1,0 +1,23 @@
+to_words:
+  fractional:
+    0.1: sifuri nukta moja
+    0.01: sifuri nukta sifuri moja
+    0.21: sifuri nukta mbili moja
+  integral_and_fractional:
+    1.5: moja nukta tano
+    3.14: tatu nukta moja nne
+    21.05: ishirini na moja nukta sifuri tano
+    1000.5: elfu moja nukta tano
+  precision:
+    options:
+      :precision: 3
+    1.5: moja nukta tano sifuri sifuri
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: nukta saba
+    1.5: moja nukta tano
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: moja nukta tano

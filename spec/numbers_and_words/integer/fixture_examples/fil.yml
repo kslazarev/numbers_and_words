@@ -1,0 +1,106 @@
+to_words:
+  ones:
+    0: wala
+    1: isa
+    2: dalawa
+    3: tatlo
+    4: apat
+    5: lima
+    6: anim
+    7: pito
+    8: walo
+    9: siyam
+  tens:
+    10: sampu
+    11: labing-isa
+    12: labindalawa
+    13: labintatlo
+    14: labing-apat
+    15: labinlima
+    16: labing-anim
+    17: labimpito
+    18: labing-walo
+    19: labinsiyam
+    20: dalawampu
+    21: dalawampu’t isa
+    30: tatlumpu
+    40: apatnapu
+    50: limampu
+    60: animnapu
+    70: pitumpu
+    80: walumpu
+    90: siyamnapu
+    99: siyamnapu’t siyam
+  hundreds:
+    100: isang daan
+    101: isang daan at isa
+    110: isang daan at sampu
+    121: isang daan at dalawampu’t isa
+    200: dalawang daan
+    300: tatlong daan
+    400: apat na raan
+    500: limang daan
+    600: anim na raan
+    700: pitong daan
+    800: walong daan
+    900: siyam na raan
+    999: siyam na raan at siyamnapu’t siyam
+  thousands:
+    1000: isang libo
+    1001: isang libo’t isa
+    1100: isang libo’t isang daan
+    2000: dalawang libo
+    2021: dalawang libo’t dalawampu’t isa
+    4000: apat na libo
+    10000: sampung libo
+    11000: labing-isang libo
+    14000: labing-apat na libo
+    20000: dalawampung libo
+    21000: dalawampu’t isang libo
+    100000: isang daang libo
+    400000: apat na raang libo
+    999999: siyam na raan at siyamnapu’t siyam na libo’t siyam na raan at siyamnapu’t siyam
+  millions:
+    1000000: isang milyon
+    1000001: isang milyon at isa
+    2000000: dalawang milyon
+    21000000: dalawampu’t isang milyon
+    123456789: isang daan at dalawampu’t tatlong milyon at apat na raan at limampu’t anim na libo’t pitong daan at walumpu’t siyam
+  billions:
+    1000000000: isang bilyon
+    2000000000: dalawang bilyon
+    1000000000000: isang trilyon
+    1000000000000000: isang katrilyon
+  large_scales:
+    1000000000000000000: isang kuwintilyon
+    1000000000000000000000: isang sekstilyon
+    1000000000000000000000000: isang septilyon
+    1000000000000000000000000000: isang oktilyon
+    1000000000000000000000000000000: isang nonilyon
+    1000000000000000000000000000000000: isang desilyon
+    9000000000000000000000000000000000: siyam na desilyon
+  ordinal:
+    options:
+      :ordinal: true
+    0: wala
+    1: una
+    2: ikalawa
+    3: ikatlo
+    4: ikaapat
+    5: ikalima
+    10: ikasampu
+    11: ikalabing-isa
+    12: ikalabindalawa
+    20: ikadalawampu
+    21: ikadalawampu’t isa
+    22: ikadalawampu’t dalawa
+    23: ikadalawampu’t tatlo
+    100: ikaisang daan
+    101: ikaisang daan at isa
+    1000: ikaisang libo
+    2000: ikadalawang libo
+    1000000: ikaisang milyon
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000000000000000000000: ikaisang desilyon

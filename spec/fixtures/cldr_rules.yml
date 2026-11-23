@@ -22,6 +22,7 @@
       el: { one: [ένα], before: [εκατομμυριοστός, εκατομμυριοστή, εκατομμυριοστό, δισεκατομμυριοστός, δισεκατομμυριοστή, δισεκατομμυριοστό], affects: 6 }
       es: { one: [un], before: [millonésimo, millonésima], affects: 2 }
       et: { one: [üks], before: [sada, tuhat], affects: 10 }
+      fa: { one: [یک], before: [هزار], affects: 3 }
       fi: { one: [yksi], before: [miljoona, miljardi], affects: 2 }
       fr: { one: [un], before: [millionième, milliardième], affects: 2 }
       hu: { one: [egy], before: [milliomodik], affects: 1 }
@@ -32,6 +33,7 @@
       ru: { one: [одна], before: [тысяча], kinds: [ordinal, ordinal/female, ordinal/neuter], affects: 6 }
       sk: { one: [jedna, jeden], before: [sto, tisíc, milión, miliarda], affects: 36 }
       sv: { one: [en], before: [miljonte, miljardte], affects: 2 }
+      ta: { one: [ஒன்று], before: [ஆயிரம்], affects: 3 }
       tr: { one: [bir], before: [milyonuncu, milyarıncı], affects: 2 }
 pl:
   - reason: CLDR's feminine instrumental uses the masculine dwoma for a final two after tens (dwudziestoma dwoma), but dwiema for two alone; the gem uses dwiema in both, and both forms are in use
@@ -315,6 +317,30 @@ fi:
   - reason: the gem uses yhdes for a final 1 inside compound ordinals (kahdeskymmenesyhdes miljoonas); CLDR uses ensimmäinen; both are in use
     replace_parts: { ensimmäinentuhannes: yhdestuhannes, ensimmäinen miljoonas: yhdes miljoonas }
     affects: 2
+fil:
+  - reason: CLDR writes the dictionary accents for stress and the glottal stop (isá, sampû, walâ); everyday Filipino, as the Komisyon sa Wikang Filipino's orthography, omits them
+    replace_parts: { á: a, í: i, ó: o, â: a, û: u }
+    affects: 234
+  - reason: CLDR writes the tens as two words (dalawáng pû); Filipino writes one word, with the linker assimilated (dalawampu, tatlumpu, apatnapu)
+    replace: { dalawang pu: dalawampu, tatlong pu: tatlumpu, apat na pu: apatnapu, limang pu: limampu, anim na pu: animnapu, pitong pu: pitumpu, walong pu: walumpu, siyam na pu: siyamnapu }
+    affects: 170
+  - reason: CLDR hyphenates every teen (labíng-dalawá); Filipino joins labing to a consonant, with the linker assimilated (labindalawa, labimpito), and hyphenates it before a vowel and w (labing-isa, labing-apat, labing-walo)
+    replace: { labing-dalawa: labindalawa, labing-tatlo: labintatlo, labing-lima: labinlima, labing-pito: labimpito, labing-siyam: labinsiyam }
+    affects: 10
+  - reason: daan becomes raan after a vowel (apat na raan, siyam na raan); CLDR keeps daan
+    replace: { na daan: na raan }
+    affects: 6
+  - reason: a count before libo takes the linker (isang daang libo); CLDR omits it after daan
+    replace: { daan libo: daang libo }
+    affects: 2
+  - reason: Filipino joins the ordinal prefix ika- to the number (ikaapat, ikadalawampu); CLDR writes it apart
+    join_after: [ika]
+    kinds: [ordinal]
+    affects: 118
+  - reason: Filipino says una for the first and ikalawa and ikatlo for the second and third; CLDR adds ika- to the cardinal (ika isá, ika dalawá, ika tatló)
+    replace: { ikaisa: una, ikadalawa: ikalawa, ikatatlo: ikatlo }
+    kinds: [ordinal]
+    affects: 3
 fr:
   - reason: the gem follows the 1990 reform by default and joins every number word with hyphens (deux-cents, cent-un); CLDR uses the traditional spaces around cent and mille
     hyphenate: [million, millions, milliard, milliards]
@@ -539,6 +565,138 @@ sv:
   - reason: the gem writes numbers below a million as one word (ettusenett, etthundraförsta), as Språkrådet recommends; CLDR breaks them after tusen and hundra
     join_after: [tusen, hundra]
     affects: 12
+sw:
+  - reason: the gem joins thousands and millions to what follows with na (elfu moja na mia moja), as for hundreds and tens; CLDR uses a comma (elfu moja, mia moja); grammars give both
+    replace_parts: { ', ': ' na ' }
+    affects: 8
+  - reason: an ordinal takes the concord wa of the first noun class for every number (wa kwanza, wa pili, wa tatu); CLDR omits it for the first and second only
+    prefix: 'wa '
+    kinds: [ordinal]
+    above: 0
+    below: 3
+    affects: 2
+ta:
+  - reason: CLDR 46.1 misspells 400 (நாநூறூ); current CLDR and Tamil write நானூறு
+    replace_parts: { நாநூறூ: நானூறு }
+    affects: 1
+  - reason: CLDR 46.1 says one before lakh and crore as ஒன்று; Tamil and current CLDR say ஒரு (ஒரு லட்சம்)
+    replace: { ஒன்று லட்சம்: ஒரு லட்சம், ஒன்று கோடி: ஒரு கோடி }
+    affects: 2
+  - reason: CLDR 46.1 gives tens their standalone form before units (இருபது ஒன்று); Tamil and current CLDR use the linking form (இருபத்து ஒன்று)
+    replace:
+        இருபது ஒன்று: இருபத்து ஒன்று
+        இருபது இரண்டு: இருபத்து இரண்டு
+        இருபது மூன்று: இருபத்து மூன்று
+        இருபது நான்கு: இருபத்து நான்கு
+        இருபது ஐந்து: இருபத்து ஐந்து
+        இருபது ஆறு: இருபத்து ஆறு
+        இருபது ஏழு: இருபத்து ஏழு
+        இருபது எட்டு: இருபத்து எட்டு
+        இருபது ஒன்பது: இருபத்து ஒன்பது
+        முப்பது ஒன்று: முப்பத்து ஒன்று
+        முப்பது இரண்டு: முப்பத்து இரண்டு
+        முப்பது மூன்று: முப்பத்து மூன்று
+        முப்பது நான்கு: முப்பத்து நான்கு
+        முப்பது ஐந்து: முப்பத்து ஐந்து
+        முப்பது ஆறு: முப்பத்து ஆறு
+        முப்பது ஏழு: முப்பத்து ஏழு
+        முப்பது எட்டு: முப்பத்து எட்டு
+        முப்பது ஒன்பது: முப்பத்து ஒன்பது
+        நாற்பது ஒன்று: நாற்பத்து ஒன்று
+        நாற்பது இரண்டு: நாற்பத்து இரண்டு
+        நாற்பது மூன்று: நாற்பத்து மூன்று
+        நாற்பது நான்கு: நாற்பத்து நான்கு
+        நாற்பது ஐந்து: நாற்பத்து ஐந்து
+        நாற்பது ஆறு: நாற்பத்து ஆறு
+        நாற்பது ஏழு: நாற்பத்து ஏழு
+        நாற்பது எட்டு: நாற்பத்து எட்டு
+        நாற்பது ஒன்பது: நாற்பத்து ஒன்பது
+        ஐம்பது ஒன்று: ஐம்பத்து ஒன்று
+        ஐம்பது இரண்டு: ஐம்பத்து இரண்டு
+        ஐம்பது மூன்று: ஐம்பத்து மூன்று
+        ஐம்பது நான்கு: ஐம்பத்து நான்கு
+        ஐம்பது ஐந்து: ஐம்பத்து ஐந்து
+        ஐம்பது ஆறு: ஐம்பத்து ஆறு
+        ஐம்பது ஏழு: ஐம்பத்து ஏழு
+        ஐம்பது எட்டு: ஐம்பத்து எட்டு
+        ஐம்பது ஒன்பது: ஐம்பத்து ஒன்பது
+        அறுபது ஒன்று: அறுபத்து ஒன்று
+        அறுபது இரண்டு: அறுபத்து இரண்டு
+        அறுபது மூன்று: அறுபத்து மூன்று
+        அறுபது நான்கு: அறுபத்து நான்கு
+        அறுபது ஐந்து: அறுபத்து ஐந்து
+        அறுபது ஆறு: அறுபத்து ஆறு
+        அறுபது ஏழு: அறுபத்து ஏழு
+        அறுபது எட்டு: அறுபத்து எட்டு
+        அறுபது ஒன்பது: அறுபத்து ஒன்பது
+        எழுபது ஒன்று: எழுபத்து ஒன்று
+        எழுபது இரண்டு: எழுபத்து இரண்டு
+        எழுபது மூன்று: எழுபத்து மூன்று
+        எழுபது நான்கு: எழுபத்து நான்கு
+        எழுபது ஐந்து: எழுபத்து ஐந்து
+        எழுபது ஆறு: எழுபத்து ஆறு
+        எழுபது ஏழு: எழுபத்து ஏழு
+        எழுபது எட்டு: எழுபத்து எட்டு
+        எழுபது ஒன்பது: எழுபத்து ஒன்பது
+        எண்பது ஒன்று: எண்பத்து ஒன்று
+        எண்பது இரண்டு: எண்பத்து இரண்டு
+        எண்பது மூன்று: எண்பத்து மூன்று
+        எண்பது நான்கு: எண்பத்து நான்கு
+        எண்பது ஐந்து: எண்பத்து ஐந்து
+        எண்பது ஆறு: எண்பத்து ஆறு
+        எண்பது ஏழு: எண்பத்து ஏழு
+        எண்பது எட்டு: எண்பத்து எட்டு
+        எண்பது ஒன்பது: எண்பத்து ஒன்பது
+        தொண்ணூறு ஒன்று: தொண்ணூற்று ஒன்று
+        தொண்ணூறு இரண்டு: தொண்ணூற்று இரண்டு
+        தொண்ணூறு மூன்று: தொண்ணூற்று மூன்று
+        தொண்ணூறு நான்கு: தொண்ணூற்று நான்கு
+        தொண்ணூறு ஐந்து: தொண்ணூற்று ஐந்து
+        தொண்ணூறு ஆறு: தொண்ணூற்று ஆறு
+        தொண்ணூறு ஏழு: தொண்ணூற்று ஏழு
+        தொண்ணூறு எட்டு: தொண்ணூற்று எட்டு
+        தொண்ணூறு ஒன்பது: தொண்ணூற்று ஒன்பது
+    affects: 76
+  - reason: CLDR 46.1 gives hundreds their standalone form before what follows (நூறு ஒன்று); Tamil and current CLDR use the linking form (நூற்று ஒன்று)
+    replace_parts: { 'நூறு ': 'நூற்று ', 'நானூறு ': 'நானூற்று ', 'தொள்ளாயிரம் ': 'தொள்ளாயிரத்து ' }
+    affects: 7
+  - reason: CLDR 46.1 gives thousands, lakhs and crores their standalone form before what follows (ஆயிரம் ஒன்று); Tamil and current CLDR use the linking forms (ஆயிரத்து ஒன்று, ஒரு லட்சத்து, ஒரு கோடியே)
+    replace_parts: { 'ஆயிரம் ': 'ஆயிரத்து ', 'லட்சம் ': 'லட்சத்து ', 'கோடி ': 'கோடியே ' }
+    affects: 5
+  - reason: CLDR 46.1 writes a count and ஆயிரம் apart (இரண்டு ஆயிரம்); Tamil and current CLDR join them in one word (இரண்டாயிரம்)
+    replace_parts:
+        ஒன்று ஆயிர: ஒன்றாயிர
+        இரண்டு ஆயிர: இரண்டாயிர
+        மூன்று ஆயிர: மூன்றாயிர
+        நான்கு ஆயிர: நான்காயிர
+        ஐந்து ஆயிர: ஐந்தாயிர
+        ஆறு ஆயிர: ஆறாயிர
+        ஏழு ஆயிர: ஏழாயிர
+        எட்டு ஆயிர: எட்டாயிர
+        ஒன்பது ஆயிர: ஒன்பதாயிர
+        பத்து ஆயிர: பத்தாயிர
+        பதினொன்று ஆயிர: பதினொன்றாயிர
+        பன்னிரண்டு ஆயிர: பன்னிரண்டாயிர
+        பதின்மூன்று ஆயிர: பதின்மூன்றாயிர
+        பதினான்கு ஆயிர: பதினான்காயிர
+        பதினைந்து ஆயிர: பதினைந்தாயிர
+        பதினாறு ஆயிர: பதினாறாயிர
+        பதினேழு ஆயிர: பதினேழாயிர
+        பதினெட்டு ஆயிர: பதினெட்டாயிர
+        பத்தொன்பது ஆயிர: பத்தொன்பதாயிர
+        இருபது ஆயிர: இருபதாயிர
+        முப்பது ஆயிர: முப்பதாயிர
+        நாற்பது ஆயிர: நாற்பதாயிர
+        ஐம்பது ஆயிர: ஐம்பதாயிர
+        அறுபது ஆயிர: அறுபதாயிர
+        எழுபது ஆயிர: எழுபதாயிர
+        எண்பது ஆயிர: எண்பதாயிர
+        தொண்ணூறு ஆயிர: தொண்ணூறாயிர
+    affects: 4
+  - reason: CLDR 46.1 writes 13th and 14th without the n of 13 and 14 (பதிமூன்றாவது); current CLDR writes பதின்மூன்றாவது and பதினான்காவது, as the cardinals
+    replace: { பதிமூன்றாவது: பதின்மூன்றாவது, பதிநான்காவது: பதினான்காவது }
+    kinds: [ordinal]
+    affects: 2
 th:
   - reason: the gem says เอ็ด for a final 1 after a hundred or thousand (หนึ่งร้อยเอ็ด), CLDR หนึ่ง; both are used
     replace_parts: { ร้อยหนึ่ง: ร้อยเอ็ด }
