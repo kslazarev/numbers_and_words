@@ -1,4 +1,4 @@
-## 1.2.0 (Next)
+## 1.2.0 (2026/11/23)
 
 ### Features
 
@@ -19,13 +19,11 @@
 * Spell Arabic ordinals from 100, as the definite cardinal ("المائة والواحد والعشرون", "الثلاثة آلاف"), instead of raising `RangeError`. \[[#387](https://github.com/kslazarev/numbers_and_words/pull/387)\] \([@dblock](https://github.com/dblock)\)
 * Spell an Arabic unit after a count above 100 ending in 01 or 02 by repeating it ("مائة دينار ودينار", "مائة دينار وديناران"), instead of raising `UnsupportedNumberError`. \[[#388](https://github.com/kslazarev/numbers_and_words/pull/388)\] \([@dblock](https://github.com/dblock)\)
 * Follow Unicode CLDR's current rules in Serbian, which writes the ones after the tens without и (двадесет један, двадесет први), and Catalan, which reads 10<sup>9</sup>, 10<sup>15</sup> and the other odd powers of a thousand as mil milions, mil bilions and so on instead of miliard and biliard. \[[#389](https://github.com/kslazarev/numbers_and_words/pull/389)\] \([@dblock](https://github.com/dblock)\)
-* Your contribution here.
 
 ### Bugs
 
 * Round a decimal to a `precision` shorter than its fractional part (`0.129.to_words(precision: 2)`) instead of raising `ArgumentError`. Read nothing for `0.0.to_words(remove_zero: true)` instead of a dangling decimal word. Raise a clear error when a rule set has no rule for a number. \[[#372](https://github.com/kslazarev/numbers_and_words/pull/372)\] \([@dblock](https://github.com/dblock)\)
 * Make `script/cldr_differences.rb` compare the readings the specs test, with the 2.0 defaults. It recorded French spellings that aren't differences as exceptions to review. \[[#369](https://github.com/kslazarev/numbers_and_words/pull/369)\] \([@dblock](https://github.com/dblock)\)
-* Your contribution here.
 
 ## 1.1.1 (2026/11/22)
 
