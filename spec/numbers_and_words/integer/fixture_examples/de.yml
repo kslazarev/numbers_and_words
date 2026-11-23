@@ -104,3 +104,45 @@ to_words:
     2001000: zweimillioneneintausendste
     1000000000: milliardste
     1000000000000: billionste
+  male gender:
+    options:
+      :gender: male
+    1: ein
+    2: zwei
+    21: einundzwanzig
+    81: einundachtzig
+    101: einhundertein
+    1001: eintausendein
+    2001: zweitausendein
+    21000: einundzwanzigtausend
+    21001: einundzwanzigtausendein
+    2000001: zwei Millionen ein
+    1000000001: eine Milliarde ein
+  female gender:
+    options:
+      :gender: female
+    1: eine
+    2: zwei
+    21: einundzwanzig
+    81: einundachtzig
+    101: einhunderteine
+    1001: eintausendeine
+    2001: zweitausendeine
+    21000: einundzwanzigtausend
+    21001: einundzwanzigtausendeine
+    2000001: zwei Millionen eine
+    1000000001: eine Milliarde eine
+  neuter gender:
+    options:
+      :gender: neuter
+    1: ein
+    2: zwei
+    21: einundzwanzig
+    81: einundachtzig
+    101: einhundertein
+    1001: eintausendein
+    2001: zweitausendein
+    21000: einundzwanzigtausend
+    21001: einundzwanzigtausendein
+    2000001: zwei Millionen ein
+    1000000001: eine Milliarde ein

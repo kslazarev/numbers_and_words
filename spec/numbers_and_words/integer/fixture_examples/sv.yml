@@ -107,3 +107,17 @@ to_words:
     2000000: 'två miljonte'
     2025000: 'två miljoner tjugofemtusende'
     1000000000: 'miljardte'
+  common gender:
+    options:
+      :gender: common
+    1: en
+    2: två
+    21: tjugoen
+    81: åttioen
+    101: etthundraen
+    1001: ettusenen
+    2001: tvåtusenen
+    21000: tjugoettusen
+    21001: tjugoettusenen
+    2000001: två miljoner en
+    1000000001: en miljard en

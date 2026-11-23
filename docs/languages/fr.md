@@ -91,6 +91,27 @@ I18n.with_locale(:fr) { 3.1416.to_words(fraction: false) }
 # => "trois virgule un quatre un six"
 ```
 
+### Gender
+
+`gender: :male` (default) or `gender: :female`: a final un is une ("vingt et une"); the counts of mille and larger scale words stay masculine. A lone premier is première.
+
+```ruby
+I18n.with_locale(:fr) { 1.to_words(gender: :female) }
+# => "une"
+
+I18n.with_locale(:fr) { 21.to_words(gender: :female) }
+# => "vingt et une"
+
+I18n.with_locale(:fr) { 21_001.to_words(gender: :female) }
+# => "vingt et un mille une"
+
+I18n.with_locale(:fr) { 1.to_words(ordinal: true, gender: :female) }
+# => "première"
+
+I18n.with_locale(:fr) { 21.to_words(ordinal: true, gender: :female) }
+# => "vingt et unième"
+```
+
 ### Ordinal
 
 `ordinal: true` gives the masculine form: 1 alone is premier, and otherwise only the last word takes the suffix -ième, dropping a final e or plural s ("deux centième"). The ordinal of a round million or larger is a numeral, so `spelling: :reformed` joins it to its multiplier with a hyphen ("deux-millionième"; traditional "deux millionième"). Decimals keep the cardinal form.

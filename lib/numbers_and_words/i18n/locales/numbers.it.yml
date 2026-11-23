@@ -1,11 +1,13 @@
 it:
   numbers:
     supported_options:
+      gender: {values: [male, female], default: male}
       fraction: {default: false, legacy_default: true}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: meno
     ones: [zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove]
+    female_ones: [zero, una, due, tre, quattro, cinque, sei, sette, otto, nove]
     fractional_one: un
     teens: [_, undici, dodici, tredici, quattordici, quindici, sedici, diciassette, diciotto, diciannove]
     tens: [_, dieci, venti, trenta, quaranta, cinquanta, sessanta, settanta, ottanta, novanta]
@@ -67,6 +69,31 @@ it:
         0: '{ones}'
         1: ''
         2: '{ones}'
+      # A final uno is una in the feminine ("ventuna", "centouna", "milleuna"); the counts of scale words stay
+      # masculine.
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
+        20: '{tens_stems}{>with-i-female}'
+        30: '{tens_stems}{>with-a-female}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred-female}'
+        1000: '{<thousands-count}{thousands}[{>compound-female}]'
+      compound-female:
+        extends: compound
+        1: '{female_ones}'
+        2: '{ones}'
+        20: '{tens_stems}{>with-i-female}'
+        30: '{tens_stems}{>with-a-female}'
+        100: '{<hundreds-count}{hundreds_stem}{>after-hundred-female}'
+      with-i-female:
+        extends: with-i
+        then: compound-female
+      with-a-female:
+        extends: with-a
+        then: compound-female
+      after-hundred-female:
+        extends: after-hundred
+        then: compound-female
       # Before mila, tre keeps no accent.
       plain:
         extends: cardinal
@@ -296,6 +323,10 @@ it:
       union: ''
     union: e
     ordinals:
+      # The feminine of an ordinal ("prima", "ventitreesima").
+      endings:
+        female:
+          nominative: {o: a}
       units: [zero, primo, secondo, terzo, quarto, quinto, sesto, settimo, ottavo, nono, decimo]
       teens: [_, undicesimo, dodicesimo, tredicesimo, quattordicesimo, quindicesimo, sedicesimo, diciassettesimo, diciottesimo, diciannovesimo]
       # The last part of a compound ordinal ("ventunesimo", "centodiecesimo").

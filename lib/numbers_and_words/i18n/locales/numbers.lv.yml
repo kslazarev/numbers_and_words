@@ -4,6 +4,7 @@ lv:
     plural:
       one: 'n % 10 = 1 and n % 100 != 11'
     supported_options:
+      gender: {values: [male, female], default: male}
       ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: mīnus
@@ -11,6 +12,7 @@ lv:
     decimals: {reading: digits}
     micro_separator: komats
     ones: [nulle, viens, divi, trīs, četri, pieci, seši, septiņi, astoņi, deviņi]
+    female_ones: [nulle, viena, divas, trīs, četras, piecas, sešas, septiņas, astoņas, deviņas]
     teens: [_, vienpadsmit, divpadsmit, trīspadsmit, četrpadsmit, piecpadsmit, sešpadsmit, septiņpadsmit, astoņpadsmit, deviņpadsmit]
     tens: [_, desmit, divdesmit, trīsdesmit, četrdesmit, piecdesmit, sešdesmit, septiņdesmit, astoņdesmit, deviņdesmit]
     hundreds: [_, simts, divi simti, trīs simti, četri simti, pieci simti, seši simti, septiņi simti, astoņi simti, deviņi simti]
@@ -39,6 +41,10 @@ lv:
       count:
         extends: cardinal
         100: '{hundred_before_words}[ {>}]'
+      # The last group takes the feminine; the counts of scale words stay masculine ("divi miljoni viena").
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
       # The last word of an ordinal is ordinal; a round hundred or scale word joins a count of one word in its
       # combining form ("divsimtais", "divtūkstošais", but "divi simti tūkstošais"), and a leading one before a
       # single scale word is left out ("tūkstošais", "miljonais").
@@ -121,6 +127,10 @@ lv:
       one: deciljons
       other: deciljoni
     ordinals:
+      # The feminine of an ordinal ("pirmā", "simtā").
+      endings:
+        female:
+          nominative: {ais: ā}
       ones: [nultais, pirmais, otrais, trešais, ceturtais, piektais, sestais, septītais, astotais, devītais]
       teens: [_, vienpadsmitais, divpadsmitais, trīspadsmitais, četrpadsmitais, piecpadsmitais, sešpadsmitais, septiņpadsmitais, astoņpadsmitais, deviņpadsmitais]
       tens: [_, desmitais, divdesmitais, trīsdesmitais, četrdesmitais, piecdesmitais, sešdesmitais, septiņdesmitais, astoņdesmitais, deviņdesmitais]

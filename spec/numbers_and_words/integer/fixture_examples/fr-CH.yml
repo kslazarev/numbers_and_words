@@ -112,3 +112,27 @@ to_words:
     options:
       :ordinal: true
     2000000: 'deux-millionième'
+  female gender:
+    options:
+      :gender: female
+    1: une
+    2: deux
+    21: vingt-et-une
+    81: huitante-et-une
+    101: cent-une
+    1001: mille-une
+    2001: deux-mille-une
+    21000: vingt-et-un-mille
+    21001: vingt-et-un-mille-une
+    2000001: deux millions une
+    1000000001: un milliard une
+  female ordinal:
+    options:
+      :gender: female
+      :ordinal: true
+    1: première
+    3: troisième
+    21: vingt-et-unième
+    100: centième
+    1000: millième
+    1000000: millionième

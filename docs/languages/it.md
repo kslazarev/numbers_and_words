@@ -85,6 +85,27 @@ I18n.with_locale(:it) { 3.1416.to_words(fraction: false) }
 # => "tre virgola uno quattro uno sei"
 ```
 
+### Gender
+
+`gender: :male` (default) or `gender: :female`: a final uno is una ("ventuna", "centouna"); the counts of mila and larger scale words stay masculine. Ordinals end in -a.
+
+```ruby
+I18n.with_locale(:it) { 1.to_words(gender: :female) }
+# => "una"
+
+I18n.with_locale(:it) { 21.to_words(gender: :female) }
+# => "ventuna"
+
+I18n.with_locale(:it) { 1001.to_words(gender: :female) }
+# => "milleuna"
+
+I18n.with_locale(:it) { 1.to_words(ordinal: true, gender: :female) }
+# => "prima"
+
+I18n.with_locale(:it) { 23.to_words(ordinal: true, gender: :female) }
+# => "ventitreesima"
+```
+
 ### Ordinal
 
 `ordinal: true` gives the masculine form. Above ten the ordinal is one word ending in -esimo ("ventunesimo", "duemillesimo"). Final tre and sei keep their vowel before the suffix ("ventitreesimo", "ventiseiesimo"). Zero keeps its cardinal form.

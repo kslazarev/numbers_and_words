@@ -240,6 +240,12 @@ describe NumbersAndWords::Unit do
         .to eq(['un euro', 'un centesimo', 'una lira', 'ventuno euro', 'un euro e un centesimo'])
     end
 
+    it 'reads French un as une before a feminine unit' do
+      I18n.backend.store_translations(:fr, units: { heure: { one: 'heure', other: 'heures', gender: :female } })
+      expect([1, 21, 1_001, 2_000_001].map { |number| words(:fr, number, unit: :heure) })
+        .to eq(['une heure', 'vingt-et-une heures', 'mille-une heures', 'deux millions une heures'])
+    end
+
     it 'reads Romanian unu as un, or o before a feminine unit, and keeps compounds' do
       expect([words(:ro, 1, unit: :leu), words(:ro, 1, unit: :ban), words(:ro, 1, unit: :lira), words(:ro, 101, unit: :leu), words(:ro, 21, unit: :lira)])
         .to eq(['un leu', 'un ban', 'o liră', 'o sută unu lei', 'douăzeci și una de lire'])

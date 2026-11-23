@@ -67,6 +67,24 @@ I18n.with_locale(:de) { 21.77.to_words(micro_separator: "plus") }
 # => "einundzwanzig plus sieben sieben"
 ```
 
+### Gender
+
+`gender: :male`, `gender: :female` or `gender: :neuter`: a final eins becomes ein or eine before its noun ("hunderteine"). Without `gender`, eins is kept. Ordinals keep their form.
+
+```ruby
+I18n.with_locale(:de) { 1.to_words(gender: :female) }
+# => "eine"
+
+I18n.with_locale(:de) { 101.to_words(gender: :female) }
+# => "einhunderteine"
+
+I18n.with_locale(:de) { 1001.to_words(gender: :female) }
+# => "eintausendeine"
+
+I18n.with_locale(:de) { 1.to_words(gender: :male) }
+# => "ein"
+```
+
 ### Ordinal
 
 `ordinal: true` gives the uninflected `-te`/`-ste` form, written as one lowercase word, even with million or larger scales. A single scale has no multiplier ("millionste", "milliardste"); two or more keep it ("zweimillionste").

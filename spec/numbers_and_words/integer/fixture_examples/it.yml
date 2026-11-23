@@ -144,3 +144,27 @@ to_words:
       :ordinal: true
     108: 'centottesimo'
     180: 'centottantesimo'
+  female gender:
+    options:
+      :gender: female
+    1: una
+    2: due
+    21: ventuna
+    81: ottantuna
+    101: centouna
+    1001: milleuna
+    2001: duemilauna
+    21000: ventunomila
+    21001: ventunomilauna
+    2000001: due milioni una
+    1000000001: un miliardo una
+  female ordinal:
+    options:
+      :gender: female
+      :ordinal: true
+    1: prima
+    3: terza
+    21: ventunesima
+    100: centesima
+    1000: millesima
+    1000000: milionesima

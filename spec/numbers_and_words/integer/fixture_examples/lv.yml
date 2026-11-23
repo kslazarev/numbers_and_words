@@ -106,3 +106,27 @@ to_words:
     5000000: 'piecmiljonais'
     2025000: 'divi miljoni divdesmit pieci tūkstošais'
     1000000000: 'miljardais'
+  female gender:
+    options:
+      :gender: female
+    1: viena
+    2: divas
+    21: divdesmit viena
+    81: astoņdesmit viena
+    101: simt viena
+    1001: viens tūkstotis viena
+    2001: divi tūkstoši viena
+    21000: divdesmit viens tūkstotis
+    21001: divdesmit viens tūkstotis viena
+    2000001: divi miljoni viena
+    1000000001: viens miljards viena
+  female ordinal:
+    options:
+      :gender: female
+      :ordinal: true
+    1: pirmā
+    3: trešā
+    21: divdesmit pirmā
+    100: simtā
+    1000: tūkstošā
+    1000000: miljonā
