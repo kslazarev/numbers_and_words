@@ -97,7 +97,8 @@ module NumbersAndWords
     def rule_for(number, set_name)
       raise Translations::Families::Base.range_error(@limit) if @maximum && number >= @maximum
 
-      rule_set(set_name).find { |candidate| candidate.base <= number } ||
+      # The rules are sorted from the largest key down, so the first one not above the number is found by bisection.
+      rule_set(set_name).bsearch { |candidate| candidate.base <= number } ||
         raise(ArgumentError, "The rule set #{set_name} in #{::I18n.locale.inspect} has no rule for #{number}.")
     end
 
@@ -133,7 +134,7 @@ module NumbersAndWords
     end
 
     def rule_set(name)
-      @compiled[:sets][name] ||= compile(name)
+      (@sets ||= {})[name] ||= (@compiled[:sets][name] ||= compile(name))
     end
 
     # A rule set's rules from the largest key down, compiled from its own templates and those it extends, so that

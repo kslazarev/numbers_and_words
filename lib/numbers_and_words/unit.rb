@@ -108,7 +108,7 @@ module NumbersAndWords
     end
 
     def form(unit, key, count)
-      ::I18n.t(key, count:)
+      I18n.t(key, count:)
     rescue ::I18n::InvalidPluralizationData
       raise UnsupportedOptionError, "The unit #{unit.inspect} has no form for count #{count} or :other in #{::I18n.locale.inspect}, at #{key}."
     end

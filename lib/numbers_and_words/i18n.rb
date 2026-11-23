@@ -23,9 +23,11 @@ module NumbersAndWords
       @languages ||= locale_files.map { |path| language_of(path) }
     end
 
-    # ::I18n.t, kept until translations change; a translation with a count is looked up each time.
+    # ::I18n.t, kept until translations change; a translation with a count is kept for counts below a thousand,
+    # which are most of them, and looked up each time for others.
     def t(key, **options)
-      return ::I18n.t(key, **options) if options.key?(:count)
+      count = options[:count]
+      return ::I18n.t(key, **options) unless count.nil? || (count.is_a?(::Integer) && count.between?(0, 999))
 
       cached(:translations, [::I18n.locale, key, options]) { ::I18n.t(key, **options) }
     end
@@ -33,13 +35,18 @@ module NumbersAndWords
     # The value the block derives from translations, kept under the key in the named cache of I18n's Simple backend
     # until it stores or reloads translations. With another backend, which may change translations without telling,
     # the block runs each time.
-    def cached(name, key, &)
+    # The cache is looked up again after the block runs, since its first lookup may load the translations and so
+    # replace the cache.
+    def cached(name, key)
       backend = ::I18n.backend
       return yield unless backend.is_a?(Invalidation)
 
-      cache = backend.numbers_and_words_cache(name)
-      value = cache.fetch(key, MISSING)
-      value.equal?(MISSING) ? cache.compute_if_absent(key, &) : value
+      value = backend.numbers_and_words_cache(name).fetch(key, MISSING)
+      return value unless value.equal?(MISSING)
+
+      value = yield
+      backend.numbers_and_words_cache(name).put_if_absent(key, value)
+      value
     end
 
     # What separates the words of a number in the language: a space, or nothing in languages written without spaces,
