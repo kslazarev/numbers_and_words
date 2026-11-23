@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - wieħed
+      - tnejn
+      - tlieta
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - ħdax
+      - tnejn u għoxrin
+      - mija u tlieta u tletin

@@ -1,0 +1,142 @@
+to_words:
+  ones:
+    0: żero
+    1: wieħed
+    2: tnejn
+    3: tlieta
+    4: erbgħa
+    5: ħamsa
+    6: sitta
+    7: sebgħa
+    8: tmienja
+    9: disgħa
+  tens:
+    10: għaxra
+    11: ħdax
+    12: tnax
+    13: tlettax
+    14: erbatax
+    15: ħmistax
+    16: sittax
+    17: sbatax
+    18: tmintax
+    19: dsatax
+    20: għoxrin
+    21: wieħed u għoxrin
+    22: tnejn u għoxrin
+    30: tletin
+    40: erbgħin
+    45: ħamsa u erbgħin
+    50: ħamsin
+    60: sittin
+    70: sebgħin
+    80: tmenin
+    99: disgħa u disgħin
+  hundreds:
+    100: mija
+    101: mija u wieħed
+    110: mija u għaxra
+    111: mija u ħdax
+    121: mija u wieħed u għoxrin
+    200: mitejn
+    201: mitejn u wieħed
+    300: tliet mija
+    400: "erba' mija"
+    500: ħames mija
+    600: sitt mija
+    700: "seba' mija"
+    800: tmien mija
+    900: "disa' mija"
+    999: "disa' mija u disgħa u disgħin"
+  thousands:
+    1000: elf
+    1001: elf u wieħed
+    1100: elf u mija
+    2000: elfejn
+    2001: elfejn u wieħed
+    3000: tlitt elef
+    4000: erbat elef
+    5000: ħamest elef
+    6000: sitt elef
+    7000: sebat elef
+    8000: tmint elef
+    9000: disat elef
+    10000: għaxart elef
+    11000: ħdax-il elf
+    12000: tnax-il elf
+    19000: dsatax-il elf
+    20000: għoxrin elf
+    21000: wieħed u għoxrin elf
+    23000: tlieta u għoxrin elf
+    100000: mitt elf
+    101000: mija u wieħed elf
+    103000: mija u tlitt elef
+    111000: mija u ħdax-il elf
+    200000: mitejn elf
+    300000: tliet mitt elf
+    123456: "mija u tlieta u għoxrin elf u erba' mija u sitta u ħamsin"
+  millions:
+    1000000: miljun
+    1000001: miljun u wieħed
+    2000000: żewġ miljuni
+    3000000: tliet miljuni
+    4000000: "erba' miljuni"
+    10000000: għaxar miljuni
+    11000000: ħdax-il miljun
+    21000000: wieħed u għoxrin miljun
+    100000000: mitt miljun
+    103000000: mija u tliet miljuni
+    123456789: "mija u tlieta u għoxrin miljun u erba' mija u sitta u ħamsin elf u seba' mija u disgħa u tmenin"
+  billions:
+    1000000000: biljun
+    2000000000: żewġ biljuni
+    1000000000001: triljun u wieħed
+    1000000000000000: kvadriljun
+    3000000000000000: tliet kvadriljuni
+  large scales:
+    1000000000000000000: kvintiljun
+    2000000000000000000: żewġ kvintiljuni
+    1000000000000000000000: sestiljun
+    1000000000000000000000000: settiljun
+    1000000000000000000000000000: ottiljun
+    1000000000000000000000000000000: noniljun
+    1000000000000000000000000000000000: deċiljun
+    11000000000000000000000000000000000: ħdax-il deċiljun
+  female gender:
+    options:
+      :gender: female
+    1: waħda
+    2: tnejn
+    21: waħda u għoxrin
+    101: mija u waħda
+    1001: elf u waħda
+    21000: wieħed u għoxrin elf
+  ordinal:
+    options:
+      :ordinal: true
+    0: żero
+    1: ewwel
+    2: tieni
+    3: tielet
+    4: "raba'"
+    5: ħames
+    6: sitt
+    7: "seba'"
+    8: tmien
+    9: "disa'"
+    10: għaxar
+    11: ħdax
+    20: għoxrin
+    21: wieħed u għoxrin
+    100: mija
+    1000: elf
+    1000000: miljun
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    1: ewwel
+    2: tieni
+    21: waħda u għoxrin
+    101: mija u waħda
+    21000: wieħed u għoxrin elf

@@ -1,0 +1,107 @@
+mt:
+  numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule), from the last two digits: one and two
+    # have their own forms (elf, elfejn), 3-10 count a plural (tlitt elef, tliet miljuni), 11-19 a singular after
+    # the -il form (ħdax-il elf); any other count is other and takes the singular (għoxrin elf, mitt elf).
+    plural:
+      one: 'n = 1'
+      two: 'n = 2'
+      few: 'n = 0 or n % 100 = 3..10'
+      many: 'n % 100 = 11..19'
+    supported_options:
+      gender: {values: [male, female], default: male}
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: punt
+    # The independent numbers, said alone or after "u"; only one has a feminine (waħda).
+    ones: [żero, wieħed, tnejn, tlieta, erbgħa, ħamsa, sitta, sebgħa, tmienja, disgħa]
+    female_ones: [żero, waħda, tnejn, tlieta, erbgħa, ħamsa, sitta, sebgħa, tmienja, disgħa]
+    # The ones of an ordinal above ten, which take the gender asked for.
+    last_ones: [żero, wieħed, tnejn, tlieta, erbgħa, ħamsa, sitta, sebgħa, tmienja, disgħa]
+    teens: [għaxra, ħdax, tnax, tlettax, erbatax, ħmistax, sittax, sbatax, tmintax, dsatax]
+    tens: [_, _, għoxrin, tletin, erbgħin, ħamsin, sittin, sebgħin, tmenin, disgħin]
+    hundreds: [_, mija, mitejn, tliet mija, "erba' mija", ħames mija, sitt mija, "seba' mija", tmien mija, "disa' mija"]
+    # The forms of a number before the noun it counts: two to ten (żewġ, tliet), with a t before elef (tlitt elef),
+    # eleven to nineteen with -il (ħdax-il elf), and mitt for mija (mitt elf, tliet mitt elf).
+    counted: [_, _, żewġ, tliet, "erba'", ħames, sitt, "seba'", tmien, "disa'", għaxar]
+    counted_thousands: [_, _, _, tlitt, erbat, ħamest, sitt, sebat, tmint, disat, għaxart]
+    counted_teens: [_, ħdax-il, tnax-il, tlettax-il, erbatax-il, ħmistax-il, sittax-il, sbatax-il, tmintax-il, dsatax-il]
+    counted_hundreds: [_, mitt, mitejn, tliet mitt, "erba' mitt", ħames mitt, sitt mitt, "seba' mitt", tmien mitt, "disa' mitt"]
+    union: u
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # "U" joins every part, ones before tens ("wieħed u għoxrin", "elf u mija u wieħed"). A scale word takes its form
+    # from the last two digits of its count (see plural), and one is left out before it ("elf", "miljun").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{teens%}'
+        20: '[{ones%} {union} {tens}|{tens}]'
+        100: '{hundreds}[ {union} {>}]'
+        1000: '{<thousands-count} {thousands}[ {union} {>}]'
+        1000000: '{<scale-count} {millions}[ {union} {>}]'
+        1000000000: '{<scale-count} {billions}[ {union} {>}]'
+        1000000000000: '{<scale-count} {trillions}[ {union} {>}]'
+        1000000000000000: '{<scale-count} {quadrillions}[ {union} {>}]'
+        1000000000000000000: '{<scale-count} {quintillions}[ {union} {>}]'
+        1000000000000000000000: '{<scale-count} {sextillions}[ {union} {>}]'
+        1000000000000000000000000: '{<scale-count} {septillions}[ {union} {>}]'
+        1000000000000000000000000000: '{<scale-count} {octillions}[ {union} {>}]'
+        1000000000000000000000000000000: '{<scale-count} {nonillions}[ {union} {>}]'
+        1000000000000000000000000000000000: '{<scale-count} {decillions}[ {union} {>}]'
+      # gender: :female changes a last one (waħda, waħda u għoxrin); the counts of scale words stay masculine.
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
+        20: '[{female_ones%} {union} {tens}|{tens}]'
+      # The count of miljun and the larger scale words: żewġ miljuni, tliet miljuni, ħdax-il miljun, wieħed u
+      # għoxrin miljun, mitt miljun, mija u tliet miljuni.
+      scale-count:
+        extends: scale-rest
+        1: ''
+        100: '[{hundreds} {union} {>scale-rest}|{counted_hundreds}]'
+      scale-rest:
+        1: '{ones}'
+        2: '{counted}'
+        11: '{counted_teens%}'
+        20: '{=cardinal}'
+      # The count of elf: elfejn alone, tlitt elef, ħdax-il elf, mitt elf, mija u tlitt elef.
+      thousands-count:
+        extends: thousands-rest
+        1: ''
+        2: ''
+        100: '[{hundreds} {union} {>thousands-rest}|{counted_hundreds}]'
+      thousands-rest:
+        extends: scale-rest
+        3: '{counted_thousands}'
+      # One to ten have ordinals of their own; zero and the ordinals above ten are the cardinals (ħdax, wieħed u
+      # għoxrin), which take the gender asked for.
+      ordinal:
+        0: '{=ordinal-cardinal}'
+        1: '{ordinals.ones}'
+        11: '{=ordinal-cardinal}'
+      ordinal-cardinal:
+        extends: cardinal
+        0: '{last_ones}'
+        20: '[{last_ones%} {union} {tens}|{tens}]'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: {one: elf, two: elfejn, few: elef, many: elf, other: elf}
+    millions: {one: miljun, two: miljuni, few: miljuni, many: miljun, other: miljun}
+    billions: {one: biljun, two: biljuni, few: biljuni, many: biljun, other: biljun}
+    trillions: {one: triljun, two: triljuni, few: triljuni, many: triljun, other: triljun}
+    quadrillions: {one: kvadriljun, two: kvadriljuni, few: kvadriljuni, many: kvadriljun, other: kvadriljun}
+    quintillions: {one: kvintiljun, two: kvintiljuni, few: kvintiljuni, many: kvintiljun, other: kvintiljun}
+    sextillions: {one: sestiljun, two: sestiljuni, few: sestiljuni, many: sestiljun, other: sestiljun}
+    septillions: {one: settiljun, two: settiljuni, few: settiljuni, many: settiljun, other: settiljun}
+    octillions: {one: ottiljun, two: ottiljuni, few: ottiljuni, many: ottiljun, other: ottiljun}
+    nonillions: {one: noniljun, two: noniljuni, few: noniljuni, many: noniljun, other: noniljun}
+    decillions: {one: deċiljun, two: deċiljuni, few: deċiljuni, many: deċiljun, other: deċiljun}
+    ordinals:
+      ones: [_, ewwel, tieni, tielet, "raba'", ħames, sitt, "seba'", tmien, "disa'", għaxar]
+    # The feminine ones of an ordinal above ten.
+    genders:
+      female:
+        last_ones: [żero, waħda, tnejn, tlieta, erbgħa, ħamsa, sitta, sebgħa, tmienja, disgħa]
+    subunit_separator: u

@@ -37,6 +37,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`hu`](languages/hu.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`hy`](languages/hy.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`id`](languages/id.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`is`](languages/is.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`it`](languages/it.md) | yes, fraction | male, female | — | all | 10<sup>48</sup> | — |
 | [`ja`](languages/ja.md) | yes | — | — | all | 10<sup>52</sup> | `script` |
 | [`ka`](languages/ka.md) | yes | — | — | all | 10<sup>36</sup> | — |
@@ -46,6 +47,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`lv`](languages/lv.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`mk`](languages/mk.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |
+| [`mt`](languages/mt.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`nb`](languages/nb.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`nl`](languages/nl.md) | yes | — | — | all | 10<sup>36</sup> | `pronounced`, `tens_of_hundreds` |
 | [`pl`](languages/pl.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, locative | all | 10<sup>48</sup> | — |

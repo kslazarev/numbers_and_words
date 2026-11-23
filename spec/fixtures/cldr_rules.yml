@@ -372,6 +372,28 @@ hy:
   - reason: CLDR uses the bound form տասն for a final 10; standalone 10 is տասը
     replace: { տասն: տասը }
     affects: 2
+is:
+  - reason: CLDR misspells 7 as sjó (sea); the numeral is sjö
+    replace_parts: { sjó: sjö }
+    affects: 30
+  - reason: CLDR writes hundreds closed with a soft hyphen (eitthundrað, tvöhundrað); Icelandic writes them as two words (eitt hundrað, tvö hundruð)
+    split_before: [hundrað]
+    affects: 30
+  - reason: CLDR uses the singular hundrað after two to nine; the plural is hundruð (tvö hundruð)
+    replace: { tvö hundrað: tvö hundruð, þrjú hundrað: þrjú hundruð, fjögur hundrað: fjögur hundruð, fimm hundrað: fimm hundruð, sex hundrað: sex hundruð, sjö hundrað: sjö hundruð, átta hundrað: átta hundruð, níu hundrað: níu hundruð }
+    affects: 12
+  - reason: CLDR spells milljón with one j (millión) and gives it the plural milliónur, also after a final one; the word is milljón, plural milljónir, and a count ending in one takes the singular (tuttugu og ein milljón)
+    replace: { ein milliónur: ein milljón, milliónur: milljónir, millión: milljón }
+    affects: 12
+  - reason: CLDR says ein milliarð; milljarður is masculine (einn milljarður)
+    replace: { ein milliarð: einn milljarður }
+    affects: 3
+  - reason: CLDR puts og before every element (eitt hundrað og tuttugu og þrjú); Icelandic puts it only before the last element of a number, here between tens and ones (eitt hundrað tuttugu og þrjú)
+    replace_parts: { og tuttugu og: tuttugu og, og þrjátíu og: þrjátíu og, og fjörutíu og: fjörutíu og, og fimmtíu og: fimmtíu og, og sextíu og: sextíu og, og sjötíu og: sjötíu og, og áttatíu og: áttatíu og, og níutíu og: níutíu og }
+    affects: 9
+  - reason: CLDR puts og before every element (eitt þúsund og fjögur hundruð fimmtíu og sex); Icelandic puts it only before the last element of a number, so not before hundreds followed by more (eitt þúsund fjögur hundruð fimmtíu og sex)
+    replace: { og fjögur hundruð fimmtíu: fjögur hundruð fimmtíu, og sjö hundruð áttatíu: sjö hundruð áttatíu }
+    affects: 6
 it:
   - reason: the gem says ventunomila, CLDR ventunmila; both are in use
     replace: { ventunmila: ventunomila, ventunmillesimo: ventunomillesimo }
@@ -429,6 +451,10 @@ ms:
   - reason: the gem says satu juta, CLDR sejuta; both are used
     replace: { sejuta: satu juta, kesejuta: kesatu juta }
     affects: 2
+mt:
+  - reason: CLDR uses the form before a noun for the ones of a compound count (tliet u għoxrin elf); the gem uses the independent form, as in tlieta u għoxrin sena
+    replace: { tliet u: tlieta u }
+    affects: 1
 nl:
   - reason: Dutch spelling puts a space after duizend and around miljoen (duizend honderd); CLDR joins them
     replace_parts: { duizendeen: duizend een, duizendhonderd: duizend honderd, duizendeerste: duizend eerste, duizendvier: duizend vier, duizendzeven: duizend zeven }
