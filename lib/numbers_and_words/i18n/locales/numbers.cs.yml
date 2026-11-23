@@ -7,7 +7,7 @@ cs:
       many: 'n % 10 = 0 or n % 10 = 5,6,7,8,9 or n % 100 = 11,12,13,14'
     supported_options:
       gender: {values: [male, female, neuter], default: counting}
-      ordinal: {minimum: 0, maximum: 9999}
+      ordinal: true
       remove_zero: true
     minus: mínus
     ones:
@@ -63,6 +63,30 @@ cs:
         20: '{ordinals.tens}[ {>}]'
         100: '{ordinals.hundreds}[ {>}]'
         1000: '{ordinals.thousands}[ {>}]'
+        '10000/1000': '{<ordinal-count}{ordinals.thousand}[ {>}]'
+        1000000: '{<ordinal-count}{ordinals.millions}[ {>}]'
+        1000000000: '{<ordinal-count}{ordinals.billions}[ {>}]'
+        1000000000000: '{<ordinal-count}{ordinals.trillions}[ {>}]'
+        1000000000000000: '{<ordinal-count}{ordinals.quadrillions}[ {>}]'
+        1000000000000000000: '{<ordinal-count}{ordinals.quintillion}[ {>}]'
+        1000000000000000000000: '{<ordinal-count}{ordinals.sextillions}[ {>}]'
+        1000000000000000000000000: '{<ordinal-count}{ordinals.septillions}[ {>}]'
+        1000000000000000000000000000: '{<ordinal-count}{ordinals.octillions}[ {>}]'
+        1000000000000000000000000000000: '{<ordinal-count}{ordinals.nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<ordinal-count}{ordinals.decillions}[ {>}]'
+      # The count of a scale ordinal joins it in its genitive combining form ("desetitisící", "dvacetijednatisící",
+      # "stotisící", "dvoumiliontý"), and a count of one is left out ("miliontý").
+      ordinal-count:
+        then: ordinal-count-rest
+        1: ''
+        2: '{combining.ones}'
+        10: '{combining.tens}'
+        11: '{combining.teens%}'
+        20: '{combining.tens}[{>}]'
+        100: '{combining.hundreds}[{>}]'
+      ordinal-count-rest:
+        extends: ordinal-count
+        1: '{combining.one}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillion, sextillions, septillions, octillions, nonillions, decillions]
     thousands:
       one: tisíc
@@ -114,6 +138,24 @@ cs:
       tens: [_, desátý, dvacátý, třicátý, čtyřicátý, padesátý, šedesátý, sedmdesátý, osmdesátý, devadesátý]
       hundreds: [_, stý, dvoustý, třístý, čtyřstý, pětistý, šestistý, sedmistý, osmistý, devítistý]
       thousands: [_, tisící, dvoutisící, třítisící, čtyřtisící, pětitisící, šestitisící, sedmitisící, osmitisící, devítitisící]
+      thousand: tisící
+      millions: miliontý
+      billions: miliardtý
+      trillions: biliontý
+      quadrillions: biliardtý
+      quintillion: triliontý
+      sextillions: triliardtý
+      septillions: kvadriliontý
+      octillions: kvadriliardtý
+      nonillions: kvintiliontý
+      decillions: kvintiliardtý
+    # The combining forms of a count before a scale ordinal: the genitive stems, and jedna after tens ("dvacetijedna").
+    combining:
+      one: jedna
+      ones: [_, jedno, dvou, tří, čtyř, pěti, šesti, sedmi, osmi, devíti]
+      teens: [_, jedenácti, dvanácti, třinácti, čtrnácti, patnácti, šestnácti, sedmnácti, osmnácti, devatenácti]
+      tens: [_, deseti, dvaceti, třiceti, čtyřiceti, padesáti, šedesáti, sedmdesáti, osmdesáti, devadesáti]
+      hundreds: [_, sto, dvouset, tříset, čtyřset, pětiset, šestiset, sedmiset, osmiset, devítiset]
     # The feminine and neuter ordinals; counting numbers take the feminine ones ("dvacátá první").
     genders:
       female:
@@ -122,12 +164,34 @@ cs:
           teens: [_, jedenáctá, dvanáctá, třináctá, čtrnáctá, patnáctá, šestnáctá, sedmnáctá, osmnáctá, devatenáctá]
           tens: [_, desátá, dvacátá, třicátá, čtyřicátá, padesátá, šedesátá, sedmdesátá, osmdesátá, devadesátá]
           hundreds: [_, stá, dvoustá, třístá, čtyřstá, pětistá, šestistá, sedmistá, osmistá, devítistá]
+          thousand: tisící
+          millions: miliontá
+          billions: miliardtá
+          trillions: biliontá
+          quadrillions: biliardtá
+          quintillion: triliontá
+          sextillions: triliardtá
+          septillions: kvadriliontá
+          octillions: kvadriliardtá
+          nonillions: kvintiliontá
+          decillions: kvintiliardtá
       neuter:
         ordinals:
           ones: [nulté, první, druhé, třetí, čtvrté, páté, šesté, sedmé, osmé, deváté]
           teens: [_, jedenácté, dvanácté, třinácté, čtrnácté, patnácté, šestnácté, sedmnácté, osmnácté, devatenácté]
           tens: [_, desáté, dvacáté, třicáté, čtyřicáté, padesáté, šedesáté, sedmdesáté, osmdesáté, devadesáté]
           hundreds: [_, sté, dvousté, třísté, čtyřsté, pětisté, šestisté, sedmisté, osmisté, devítisté]
+          thousand: tisící
+          millions: milionté
+          billions: miliardté
+          trillions: bilionté
+          quadrillions: biliardté
+          quintillion: trilionté
+          sextillions: triliardté
+          septillions: kvadrilionté
+          octillions: kvadriliardté
+          nonillions: kvintilionté
+          decillions: kvintiliardté
     integral:
       zero: celá
       one: celá

@@ -17,6 +17,9 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__), File.expand_path('../spe
 require 'numbers_and_words'
 require 'support/cldr_comparison'
 
+# Compare the readings the specs test: the 2.0 defaults, without the 1.x ones (see spec/spec_helper.rb).
+NumbersAndWords::Compatibility.apply_defaults = false
+
 HEADER = <<~YAML
   # Differences between this gem and the Unicode CLDR spell-out rules that no rule
   # in spec/fixtures/cldr_rules.yml covers (see spec/cldr_comparison_spec.rb), by

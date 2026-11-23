@@ -93,7 +93,7 @@ I18n.with_locale(:el) { 4.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο); every part of the number is an ordinal word (χιλιοστό εκατοστό). Ordinals of 10,000 and above raise `RangeError`. Zero keeps its cardinal form.
+`ordinal: true` gives the ordinal in the requested gender, neuter by default (πρώτο, εικοστό πρώτο); every part below ten thousand is an ordinal word (χιλιοστό εκατοστό); from ten thousand, as in Unicode CLDR, a count is cardinal and neuter before the ordinal of its scale word (είκοσι ένα χιλιοστό, δύο εκατομμυριοστό), leaving out a count of one (εκατομμυριοστό). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:el) { 1.to_words(ordinal: true) }
@@ -104,6 +104,12 @@ I18n.with_locale(:el) { 21.to_words(ordinal: true, gender: :male) }
 
 I18n.with_locale(:el) { 2_000.to_words(ordinal: true, gender: :female) }
 # => "δισχιλιοστή"
+
+I18n.with_locale(:el) { 21_000.to_words(ordinal: true) }
+# => "είκοσι ένα χιλιοστό"
+
+I18n.with_locale(:el) { 2_000_000.to_words(ordinal: true, gender: :male) }
+# => "δύο εκατομμυριοστός"
 ```
 
 ### Remove Zero

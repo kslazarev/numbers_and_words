@@ -15,10 +15,10 @@ What each bundled language supports, generated from its locale file and classes 
 | [`az`](languages/az.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`bg`](languages/bg.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`bn`](languages/bn.md) | yes | — | — | all | unlimited | — |
-| [`cs`](languages/cs.md) | yes | male, female, neuter | — | 0 to 9999 | 10<sup>36</sup> | — |
+| [`cs`](languages/cs.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`da`](languages/da.md) | yes | common, neuter | — | all | 10<sup>36</sup> | — |
 | [`de`](languages/de.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
-| [`el`](languages/el.md) | yes | male, female, neuter | — | 0 to 9999 | 10<sup>36</sup> | — |
+| [`el`](languages/el.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`en`](languages/en.md) | yes, fraction | — | — | all | 10<sup>48</sup> | `hundreds_with_union`, `pronounced`, `remove_hyphen` |
 | [`en-GB`](languages/en-GB.md) | yes, fraction | — | — | all | 10<sup>48</sup> | `hundreds_with_union`, `pronounced`, `remove_hyphen` |
 | [`es`](languages/es.md) | yes | male, female | — | all | 10<sup>48</sup> | `apocopated` |
@@ -41,7 +41,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`nb`](languages/nb.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`nl`](languages/nl.md) | yes | — | — | all | 10<sup>36</sup> | `pronounced`, `tens_of_hundreds` |
-| [`pl`](languages/pl.md) | yes | male, female, neuter | — | 0 to 999 | 10<sup>48</sup> | — |
+| [`pl`](languages/pl.md) | yes | male, female, neuter | — | all | 10<sup>48</sup> | — |
 | [`pt`](languages/pt.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | — |
 | [`pt-BR`](languages/pt-BR.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | — |
 | [`ro`](languages/ro.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |

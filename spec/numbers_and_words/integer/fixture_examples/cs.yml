@@ -169,3 +169,22 @@ to_words:
       :gender: female
     22: 'dvacet dvě'
     1002: 'tisíc dvě'
+  large_ordinals:
+    options:
+      :ordinal: true
+      :gender: male
+    10000: desetitisící
+    11000: jedenáctitisící
+    12345: dvanáctitisící třístý čtyřicátý pátý
+    21000: dvacetijednatisící
+    100000: stotisící
+    200000: dvousettisící
+    1000000: miliontý
+    1000001: miliontý první
+    2000000: dvoumiliontý
+    1000000000: miliardtý
+  large_female_ordinals:
+    options:
+      :ordinal: true
+      :gender: female
+    2000000: dvoumiliontá

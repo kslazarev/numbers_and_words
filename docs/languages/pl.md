@@ -1,6 +1,6 @@
 # Polish (`pl`)
 
-Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals 0 to 999. Noun cases and masculine-personal forms are not implemented.
+Polski. Experimental: cardinals support magnitudes below 10<sup>48</sup> and decimals up to 48 places, and ordinals of all of them. Noun cases and masculine-personal forms are not implemented.
 
 ## Examples
 
@@ -77,7 +77,7 @@ I18n.with_locale(:pl) { 2.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender, spells integers from 0 to 999; larger ones raise `RangeError`.
+`ordinal: true`, optionally with gender, makes the tens and ones ordinal and keeps the hundreds and scale words before them cardinal ("dwa tysiące dwudziesty pierwszy"). A round scale ordinal joins its count in its combining form ("dwutysięczny", "stutysięczny"), leaving out a count of one ("tysięczny", "milionowy").
 
 ```ruby
 I18n.with_locale(:pl) { 21.to_words(ordinal: true) }
@@ -85,6 +85,15 @@ I18n.with_locale(:pl) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:pl) { 121.to_words(ordinal: true, gender: :female) }
 # => "sto dwudziesta pierwsza"
+
+I18n.with_locale(:pl) { 2021.to_words(ordinal: true) }
+# => "dwa tysiące dwudziesty pierwszy"
+
+I18n.with_locale(:pl) { 2000.to_words(ordinal: true) }
+# => "dwutysięczny"
+
+I18n.with_locale(:pl) { 1_000_000.to_words(ordinal: true, gender: :female) }
+# => "milionowa"
 ```
 
 ### Remove Zero
