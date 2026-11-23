@@ -45,6 +45,7 @@ pl:
 af:
   - reason: CLDR adds -de to the cardinal from four to nine (sewede, agtde, negede); the Afrikaanse Woordelys en Spelreëls has sewende, agtste and negende
     replace: { sewede: sewende, agtde: agtste, negede: negende }
+    ticket: CLDR-19920
     affects: 3
   - reason: CLDR writes a count of hundreds apart (vier honderd) in some ordinals, but together in its cardinals and in its other ordinals (vierhonderd)
     replace: { twee honderd: tweehonderd, drie honderd: driehonderd, vier honderd: vierhonderd, vyf honderd: vyfhonderd, ses honderd: seshonderd, sewe honderd: sewehonderd, agt honderd: agthonderd, nege honderd: negehonderd }
@@ -57,6 +58,7 @@ af:
   - reason: CLDR reads 101st with the cardinal (honderd eenste), unlike its own en eerste after duisend and miljoen (duisend en eerste); the gem says honderd en eerste
     replace: { honderd eenste: honderd en eerste }
     kinds: [ordinal]
+    ticket: CLDR-19920
     affects: 1
 ar:
   - reason: CLDR writes the hamza (إثنان); اثنان begins with a connecting hamzat wasl and is written without it
@@ -92,15 +94,19 @@ az:
 be:
   - reason: CLDR uses the superseded spellings пяцьдзесят and шэсцьдзесят (and the genitive stem пяцідзясят before a final digit of an ordinal); the 2008 Belarusian orthography writes пяцьдзясят and шэсцьдзясят
     replace: { пяцьдзесят: пяцьдзясят, шэсцьдзесят: шэсцьдзясят, пяцідзясят: пяцьдзясят }
+    ticket: CLDR-19920
     affects: 106
   - reason: CLDR misspells the ordinal of three as трэйці, трэццяя and трэццяе; the standard forms are трэці, трэцяя and трэцяе
     replace: { трэйці: трэці, трэццяя: трэцяя, трэццяе: трэцяе }
+    ticket: CLDR-19920
     affects: 27
   - reason: CLDR writes the ordinal of four in the classical orthography (чацьверты); the official orthography writes чацвёрты
     replace: { чацьверты: чацвёрты, чацьвертая: чацвёртая, чацьвертае: чацвёртае }
+    ticket: CLDR-19920
     affects: 27
   - reason: CLDR forms the ordinal of 200 from the feminine дзве (дзвухсоты); it takes the genitive двух, as двухтысячны does
     replace: { дзвухсоты: двухсоты, дзвухсотая: двухсотая, дзвухсотае: двухсотае }
+    ticket: CLDR-19920
     affects: 3
   - reason: CLDR builds some ordinals of 50, 60 and 70 on the cardinal stem (шэсцьдзесяты, семдзесяты) or misspells them; they take the genitive stem with я before the stress (пяцідзясяты, шасцідзясяты, сямідзясяты)
     replace:
@@ -115,6 +121,7 @@ be:
     affects: 8
   - reason: CLDR's feminine and neuter rule sets spell 700 as сямсот, its masculine one as семсот; the standard form is семсот
     replace: { сямсот: семсот }
+    ticket: CLDR-19920
     affects: 1
 bg:
   - reason: CLDR uses the colloquial contracted teens and tens (единайсет, двайсет); the gem uses the literary standard forms (единадесет, двадесет)
@@ -159,26 +166,33 @@ bg:
 bs:
   - reason: CLDR spells the feminine one jedinica, a noun (the digit one); the feminine numeral is jedna
     replace: { jedinica: jedna }
+    ticket: CLDR-19920
     affects: 22
   - reason: CLDR says jedinica hiljada; a thousand alone is hiljadu (hiljadu sto), as in CLDR's Croatian tisuću
     drop_one: { one: [jedna], before: [hiljada] }
+    ticket: CLDR-19920
     affects: 9
   - reason: CLDR says jedinica hiljada; a thousand alone is hiljadu (hiljadu sto), as in CLDR's Croatian tisuću
     replace: { hiljada: hiljadu }
     above: 999
     below: 2000
+    ticket: CLDR-19920
     affects: 9
   - reason: CLDR uses the ekavian dve and dvesta; Bosnian is ijekavian (dvije, dvjesta)
     replace: { dve: dvije, dvesta: dvjesta }
+    ticket: CLDR-19920
     affects: 15
   - reason: CLDR misspells jedanaest as jedenaest and uses the colloquial šestnaest and četristo; the standard forms are jedanaest, šesnaest and četiristo
     replace: { jedenaest: jedanaest, šestnaest: šesnaest, četristo: četiristo }
+    ticket: CLDR-19920
     affects: 15
   - reason: CLDR keeps the genitive plural hiljada and the singular milion after two to four; they take the paucal hiljade and miliona (dvije hiljade, tri miliona)
     replace: { dvije hiljada: dvije hiljade, tri hiljada: tri hiljade, dva milion: dva miliona, tri milion: tri miliona }
+    ticket: CLDR-19920
     affects: 12
   - reason: CLDR says jedan miliard; the word is milijarda and feminine (jedna milijarda)
     replace: { jedan miliard: jedna milijarda }
+    ticket: CLDR-19920
     affects: 3
 ca:
   - reason: CLDR keeps primer, segon, tercer and quart in compound ordinals (vint-i-primer, mil primer); Catalan uses them only alone and forms compounds with -è/-ena (vint-i-unè, vint-i-dosena)
@@ -319,6 +333,7 @@ eo:
   - reason: CLDR adds -a to a final scale noun (milionoa, du milionoja); its ordinal adjective replaces the noun ending -o with -a (miliona, du-miliona)
     replace_parts: { milionoja: miliona, milionoa: miliona, miliardoja: miliarda, miliardoa: miliarda }
     kinds: [ordinal]
+    ticket: CLDR-19920
     affects: 4
 es:
   - reason: the gem uses undécimo and duodécimo, CLDR decimoprimero and decimosegundo; the RAE accepts both
@@ -394,6 +409,7 @@ hr:
     affects: 8
   - reason: CLDR picks the form of a scale word by the whole count, not its last digits; the noun agrees with the last numeral (sto dvadeset i tri tisuće, dvadeset i jedan milijun)
     replace: { tri tisuća: tri tisuće, jedan milijuna: jedan milijun }
+    ticket: CLDR-19920
     affects: 6
 hu:
   - reason: Hungarian hyphenates numbers above 2000 between groups of three digits (százhuszonháromezer-négyszázötvenhat); CLDR does not
@@ -418,24 +434,31 @@ hy:
 is:
   - reason: CLDR misspells 7 as sjó (sea); the numeral is sjö
     replace_parts: { sjó: sjö }
+    ticket: CLDR-19920
     affects: 30
   - reason: CLDR writes hundreds closed with a soft hyphen (eitthundrað, tvöhundrað); Icelandic writes them as two words (eitt hundrað, tvö hundruð)
     split_before: [hundrað]
+    ticket: CLDR-19920
     affects: 30
   - reason: CLDR uses the singular hundrað after two to nine; the plural is hundruð (tvö hundruð)
     replace: { tvö hundrað: tvö hundruð, þrjú hundrað: þrjú hundruð, fjögur hundrað: fjögur hundruð, fimm hundrað: fimm hundruð, sex hundrað: sex hundruð, sjö hundrað: sjö hundruð, átta hundrað: átta hundruð, níu hundrað: níu hundruð }
+    ticket: CLDR-19920
     affects: 12
   - reason: CLDR spells milljón with one j (millión) and gives it the plural milliónur, also after a final one; the word is milljón, plural milljónir, and a count ending in one takes the singular (tuttugu og ein milljón)
     replace: { ein milliónur: ein milljón, milliónur: milljónir, millión: milljón }
+    ticket: CLDR-19920
     affects: 12
   - reason: CLDR says ein milliarð; milljarður is masculine (einn milljarður)
     replace: { ein milliarð: einn milljarður }
+    ticket: CLDR-19920
     affects: 3
   - reason: CLDR puts og before every element (eitt hundrað og tuttugu og þrjú); Icelandic puts it only before the last element of a number, here between tens and ones (eitt hundrað tuttugu og þrjú)
     replace_parts: { og tuttugu og: tuttugu og, og þrjátíu og: þrjátíu og, og fjörutíu og: fjörutíu og, og fimmtíu og: fimmtíu og, og sextíu og: sextíu og, og sjötíu og: sjötíu og, og áttatíu og: áttatíu og, og níutíu og: níutíu og }
+    ticket: CLDR-19920
     affects: 9
   - reason: CLDR puts og before every element (eitt þúsund og fjögur hundruð fimmtíu og sex); Icelandic puts it only before the last element of a number, so not before hundreds followed by more (eitt þúsund fjögur hundruð fimmtíu og sex)
     replace: { og fjögur hundruð fimmtíu: fjögur hundruð fimmtíu, og sjö hundruð áttatíu: sjö hundruð áttatíu }
+    ticket: CLDR-19920
     affects: 6
 it:
   - reason: the gem says ventunomila, CLDR ventunmila; both are in use
@@ -461,6 +484,7 @@ kk:
 lo:
   - reason: CLDR's Lao rules write zero, the places from a hundred (ร้อย, พัน, หมื่น, แสน, ล้าน) and the ordinal prefix ที่ in Thai, as do its minus (ลบ) and decimal point (จุด); the gem writes them in Lao (ສູນ, ຮ້ອຍ, ພັນ, ໝື່ນ, ແສນ, ລ້ານ, ທີ)
     replace_parts: { ศูนย์: ສູນ, ร้อย: ຮ້ອຍ, พัน: ພັນ, หมื่น: ໝື່ນ, แสน: ແສນ, ล้าน: ລ້ານ, ที่: ທີ }
+    ticket: CLDR-19920
     affects: 137
 lt:
   - reason: CLDR uses the genitive plural milijonų after every number; Lithuanian uses milijonai after 2-9 and milijonas after a final 1
@@ -479,17 +503,21 @@ lv:
 mk:
   - reason: CLDR joins the feminine count to сто for every hundred (еднасто, двесто, четиристо); Macedonian says сто, двесте, триста and -стотини from 400 (четиристотини, шестотини)
     replace: { еднасто: сто, двесто: двесте, тристо: триста, четиристо: четиристотини, петсто: петстотини, шестсто: шестотини, седумсто: седумстотини, осумсто: осумстотини, деветсто: деветстотини }
+    ticket: CLDR-19920
     affects: 30
   - reason: CLDR's neuter rule set says два; the neuter of two is две, as the feminine (две деца)
     replace: { два: две }
     kinds: [cardinal/neuter]
     below: 1000
+    ticket: CLDR-19920
     affects: 9
   - reason: CLDR never inflects the scale words; илјада and милион take the plural илјади and милиони after a count other than one, and милијарда, which is feminine, counts with една
     replace: { две илјада: две илјади, три илјада: три илјади, шест илјада: шест илјади, сто илјада: сто илјади, два милион: два милиони, три милион: три милиони, еден милијарда: една милијарда }
+    ticket: CLDR-19920
     affects: 18
   - reason: Macedonian puts и before a last part of one word (сто и еден, илјада и сто); CLDR puts и only between tens and units
     replace: { сто еден: сто и еден, сто една: сто и една, сто едно: сто и едно, сто десет: сто и десет, сто единаесет: сто и единаесет, илјада еден: илјада и еден, илјада една: илјада и една, илјада едно: илјада и едно, илјада сто: илјада и сто }
+    ticket: CLDR-19920
     affects: 15
 ms:
   - reason: the gem says sifar for zero, CLDR kosong; both are used
@@ -577,6 +605,7 @@ sr:
 sq:
   - reason: CLDR spells 10^9 miliar; the Albanian word is miliard (plural miliardë)
     replace: { miliar: miliard, miliarë: miliardë }
+    ticket: CLDR-19920
     affects: 2
 sv:
   - reason: the gem writes numbers below a million as one word (ettusenett, etthundraförsta), as Språkrådet recommends; CLDR breaks them after tusen and hundra
