@@ -32,10 +32,10 @@ What each bundled language supports, generated from its locale file and classes 
 | [`hy`](languages/hy.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`id`](languages/id.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`it`](languages/it.md) | yes, fraction | male, female | — | all | 10<sup>48</sup> | — |
-| [`ja`](languages/ja.md) | yes | — | — | all | unlimited | `script` |
+| [`ja`](languages/ja.md) | yes | — | — | all | 10<sup>52</sup> | `script` |
 | [`ka`](languages/ka.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`kk`](languages/kk.md) | yes | — | — | all | 10<sup>36</sup> | — |
-| [`ko`](languages/ko.md) | yes | — | — | all | unlimited | — |
+| [`ko`](languages/ko.md) | yes | — | — | all | 10<sup>52</sup> | — |
 | [`lt`](languages/lt.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`lv`](languages/lv.md) | yes | male, female | — | all | 10<sup>36</sup> | — |
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |

@@ -45,8 +45,6 @@ module CldrComparison
     end
   end
 
-  # The gem's Arabic ordinals cover 1-99 and Hebrew ordinals start at 1; CLDR spells Russian ordinals only below 100,000
-  # and Hungarian ones below a billion.
   # Each case in each gender, compared with spellout-cardinal-<gender>-<case>.
   def self.cases(names, genders)
     names.product(genders.to_a).to_h do |name, (gem_gender, cldr_gender)|
@@ -54,6 +52,8 @@ module CldrComparison
     end
   end
 
+  # The gem's Arabic ordinals cover 1-99 and Hebrew ordinals start at 1; CLDR spells Russian ordinals only below 100,000
+  # and Hungarian ones below a billion.
   def self.within(range)
     NUMBERS.select { |number| range.cover?(number) }
   end

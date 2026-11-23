@@ -62,8 +62,14 @@ module FeatureMatrix
     "#{declared[:minimum]} to #{declared[:maximum]}"
   end
 
+  # The first power of ten that raises RangeError, up to 10**120.
   def largest(language)
-    mega = I18n.t('numbers.mega', locale: language, default: nil)
-    mega ? "10<sup>#{mega.size * 3}</sup>" : 'unlimited'
+    power = (1..120).find do |exponent|
+      I18n.with_locale(language) { (10**exponent).to_words }
+      false
+    rescue RangeError
+      true
+    end
+    power ? "10<sup>#{power}</sup>" : 'unlimited'
   end
 end

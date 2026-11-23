@@ -17,6 +17,18 @@ Error and warning messages start with a capital letter and end with a period, an
 
 An ordinal too large for any words in those four languages now raises the cardinal `RangeError`, as Greek already did.
 
+### Newly Supported Options Change Output
+
+Options that a language ignored with a warning in 1.1 now apply, so calls that passed them change:
+
+| Option | Languages | 1.1 | 1.2 |
+| --- | --- | --- | --- |
+| `remove_zero: true` | ar, da, et, hy, ka, kk, lt, lv, sv, tr | `0.to_words(remove_zero: true)` is "nul" (Danish), with a warning | "" |
+| `gender:`, or a unit with a `gender` | ar, de, fr, fr-CH, it, lt, lv, sv | `21.to_words(unit: :heure)` with `gender: female` is "vingt et un heures" | "vingt et une heures" |
+| `case:` | pl | ignored with a warning | declines cardinals; with `ordinal: true`, a decimal or a unit, raises `NumbersAndWords::UnsupportedOptionError` |
+
+Decimals now read in every language instead of raising `NumbersAndWords::UnsupportedNumberError`, larger numbers instead of `RangeError` (to 10<sup>36</sup> in every language with scale words), and Czech, Greek and Polish ordinals of every size. A `precision` shorter than a decimal's fractional part rounds it (`0.129.to_words(precision: 2)` reads 0.13) instead of raising `ArgumentError`.
+
 ### Internals Moved Into the Locale Files
 
 Each language now spells numbers from rule sets in its locale file (`numbers.rules`) and lists its options there (`numbers.supported_options`); British English and Swiss French list only what differs from English and French. Code that reached into the gem's classes, such as `NumbersAndWords::Strategies::FiguresConverter::Options::En::Ordinal` or `NumbersAndWords::Translations::Families::Latin`, or that overrode its translations under `numbers.*`, may need changes, since many of those classes and keys are gone or renamed.

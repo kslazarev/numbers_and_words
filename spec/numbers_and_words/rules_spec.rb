@@ -29,7 +29,8 @@ describe NumbersAndWords::Rules do
         word: { extends: 'cardinal', 100 => '{<} {hundred}[ {>}]' },
         whole: { then: 'cardinal', 0 => '{=}', 100 => '[{=cardinal}|just {=}]' },
         hundreds: { extends: 'cardinal', '1100/100': '{<} hundred[ {>}]', 2000 => '{<} {thousands}[ {>}]' },
-        grouped: { extends: 'cardinal', '1000*1000': '{<} {kilo*3}[ {>}]' }
+        grouped: { extends: 'cardinal', '1000*1000': '{<} {kilo*3}[ {>}]' },
+        from_one: { 1 => '{ones}' }
       },
       kilo: 'K',
       ordinals: %w[zeroth first second third fourth fifth sixth seventh eighth ninth],
@@ -47,6 +48,11 @@ describe NumbersAndWords::Rules do
         end
       end
     end.new
+  end
+
+  it 'raises for a number below the first rule of a rule set' do
+    expect(rules.spell(1, 'from_one')).to eq('one')
+    expect { rules.spell(0, 'from_one') }.to raise_error(ArgumentError, /The rule set from_one in :\w+ has no rule for 0\./)
   end
 
   it 'looks up words by the quotient, or by the remainder with %' do
