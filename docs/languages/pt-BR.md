@@ -82,7 +82,7 @@ I18n.with_locale(:'pt-BR') { 3.1416.to_words(fraction: false) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. Mil agrees with what is counted (duzentas mil), but milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos).
+`gender: :male` (default) or `gender: :female`. Mil agrees with what is counted (duzentas mil). Milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos).
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 1_000_000_001.to_words(gender: :female) }
@@ -97,7 +97,7 @@ I18n.with_locale(:'pt-BR') { 21_000.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` reads a single thousand, million or larger scale without primeiro (milésimo, milionésimo primeiro).
+`ordinal: true` reads a lone thousand, million or larger scale without a leading primeiro (milésimo, milionésimo primeiro).
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 21.to_words(ordinal: true) }
@@ -109,7 +109,7 @@ I18n.with_locale(:'pt-BR') { 1_000_001.to_words(ordinal: true) }
 
 ### Remove Zero
 
-`remove_zero: true` omits a zero integral part. The decimal point reading, "zero vírgula sete" with `fraction: false`, is the usual one.
+`remove_zero: true` omits a zero integral part. The usual reading is with a decimal point: "zero vírgula sete" with `fraction: false`.
 
 ```ruby
 I18n.with_locale(:'pt-BR') { 0.7.to_words(remove_zero: true) }

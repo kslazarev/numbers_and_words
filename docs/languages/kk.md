@@ -32,7 +32,7 @@ I18n.with_locale(:kk) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as the whole part, бүтін, and the fractional part as a count of the fraction word in the ablative (оннан, жүзден, мыңнан), as Unicode CLDR reads them: 7.5 is five of ten. Up to 18 fractional digits are supported; more raise `RangeError`.
+Decimals are read as Unicode CLDR reads them: the whole part, бүтін, then the fraction word in the ablative (оннан, жүзден, мыңнан) and its count, so 7.5 is "seven whole, out of ten five". Up to 18 fractional digits are supported; more raise `RangeError`.
 
 ```ruby
 I18n.with_locale(:kk) { 3.14.to_words }

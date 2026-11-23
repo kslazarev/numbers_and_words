@@ -1,6 +1,6 @@
 # Vietnamese (`vi`)
 
-Tiếng Việt. Numbers from a billion on count tỷ, so larger scales compound it: nghìn tỷ (10<sup>12</sup>), triệu tỷ (10<sup>15</sup>), tỷ tỷ (10<sup>18</sup>), nghìn tỷ tỷ, triệu tỷ tỷ, tỷ tỷ tỷ (10<sup>27</sup>) and so on. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Tiếng Việt. From a billion on, numbers count tỷ, so larger scales compound it: nghìn tỷ (10<sup>12</sup>), triệu tỷ (10<sup>15</sup>), tỷ tỷ (10<sup>18</sup>), nghìn tỷ tỷ, triệu tỷ tỷ, tỷ tỷ tỷ (10<sup>27</sup>) and so on. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -32,7 +32,7 @@ I18n.with_locale(:vi) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with `phẩy`, one `không` for each leading zero, and the remaining fractional part as a number. The digit-by-digit reading, also valid after a leading zero, is not used.
+Decimals are read with `phẩy`, one `không` for each leading zero, and the remaining fractional part as a number. The digit-by-digit reading, also valid after a leading zero, isn't used.
 
 ```ruby
 I18n.with_locale(:vi) { 0.05.to_words }

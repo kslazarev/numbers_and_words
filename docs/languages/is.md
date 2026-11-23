@@ -2,9 +2,11 @@
 
 Íslenska. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-One to four agree in gender with what is counted (einn, ein, eitt); see [Gender](#gender). "Og" comes before the last element of a number: between tens and ones (tuttugu og einn), or before a last part that is a single element, such as a number below twenty, a ten or a round hundred or thousand (eitt hundrað og tuttugu, eitt þúsund og eitt hundrað), but not before a part that has its own "og" (eitt hundrað tuttugu og einn). Hundrað and þúsund are neuter and counted with eitt, tvö (eitt hundrað, tvö hundruð, tuttugu og eitt þúsund). Milljón and the other words in -jón are feminine (ein milljón, tvær milljónir), milljarður and the other words in -arður masculine (einn milljarður, tveir milljarðar), and a count ending in one, but not in eleven, takes the singular (tuttugu og ein milljón). Scale words follow the long scale used in Iceland, with milljarður for 10<sup>9</sup>, billjón for 10<sup>12</sup> and billjarður for 10<sup>15</sup>; Unicode CLDR stops at billjarður, and the names from trilljón (10<sup>18</sup>) up to kvintilljarður (10<sup>33</sup>) follow the same pattern and need review by a native speaker. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+One to four agree in gender with what is counted (einn, ein, eitt); see [Gender](#gender). "Og" comes before the last element of a number. It goes between tens and ones (tuttugu og einn), or before a last part that is a single element: a number below twenty, a ten, or a round hundred or thousand (eitt hundrað og tuttugu, eitt þúsund og eitt hundrað). It doesn't go before a part that has its own "og" (eitt hundrað tuttugu og einn). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Numbers are spelled in the nominative only; Icelandic also declines one to four in the accusative, dative and genitive, which isn't supported.
+Hundrað and þúsund are neuter and counted with eitt, tvö (eitt hundrað, tvö hundruð, tuttugu og eitt þúsund). Milljón and the other words in -jón are feminine (ein milljón, tvær milljónir), and milljarður and the other words in -arður are masculine (einn milljarður, tveir milljarðar). A count ending in one, but not in eleven, takes the singular (tuttugu og ein milljón). Scale words follow the long scale used in Iceland, with milljarður for 10<sup>9</sup>, billjón for 10<sup>12</sup> and billjarður for 10<sup>15</sup>. Unicode CLDR stops at billjarður. The names from trilljón (10<sup>18</sup>) up to kvintilljarður (10<sup>33</sup>) follow the same pattern and need a native speaker's review.
+
+Numbers are spelled in the nominative only. Icelandic also declines one to four in the accusative, dative and genitive, which isn't supported.
 
 ## Examples
 
@@ -42,7 +44,7 @@ I18n.with_locale(:is) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with komma and then each fractional digit, including leading zeros.
+Decimals are read with komma followed by each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:is) { 3.14.to_words }
@@ -74,7 +76,7 @@ I18n.with_locale(:is) { 21.77.to_words(micro_separator: "punktur") }
 
 ### Gender
 
-`gender: :male` (the default, einn, tveir, þrír, fjórir), `:female` (ein, tvær, þrjár, fjórar) or `:neuter` (eitt, tvö, þrjú, fjögur) is the gender of what is counted. It applies to one to four in the last part of a number; the counts of hundrað, þúsund and the larger scale words keep the gender of the scale word.
+`gender: :male` (the default, einn, tveir, þrír, fjórir), `:female` (ein, tvær, þrjár, fjórar) or `:neuter` (eitt, tvö, þrjú, fjögur) sets the gender of what is counted. It applies to one to four in the last part of a number. The counts of hundrað, þúsund and the larger scale words keep the gender of the scale word.
 
 ```ruby
 I18n.with_locale(:is) { 2.to_words(gender: :male) }
@@ -89,7 +91,7 @@ I18n.with_locale(:is) { 1004.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes every element ordinal, with "og" where the cardinal has it (tuttugasti og fyrsti, hundraðasti og fyrsti). A one before a scale word is left out (hundraðasti, þúsundasti, milljónasti), a count of one word is written together with hundraðasti and þúsundasti (tvöhundraðasti, tvöþúsundasti), and a longer count, or the count of a million and larger, is written apart (tuttugu og eitt þúsundasti, tvær milljónasti). Ordinals take the gender asked for: fyrsti, annar in the masculine, fyrsta, önnur in the feminine and fyrsta, annað in the neuter. They are spelled in the nominative singular only. The ordinals of compound numbers above a hundred, and of millions and larger, need review by a native speaker.
+`ordinal: true` makes every element ordinal, with "og" where the cardinal has it (tuttugasti og fyrsti, hundraðasti og fyrsti). A one before a scale word is left out (hundraðasti, þúsundasti, milljónasti). A one-word count is written together with hundraðasti and þúsundasti (tvöhundraðasti, tvöþúsundasti). A longer count, or the count of a million and larger, is written apart (tuttugu og eitt þúsundasti, tvær milljónasti). Ordinals take the requested gender: fyrsti, annar in the masculine, fyrsta, önnur in the feminine and fyrsta, annað in the neuter. They are spelled in the nominative singular only. The ordinals of compound numbers above a hundred, and of millions and larger, need a native speaker's review.
 
 ```ruby
 I18n.with_locale(:is) { 1.to_words(ordinal: true) }

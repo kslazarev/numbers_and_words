@@ -1,6 +1,6 @@
 # British English (`en-GB`)
 
-English (British). With `hundreds_with_union: true`, "and" follows a hundred (one hundred and one) and comes before a final part below one hundred after a scale word (one thousand and one, two million and thirty); 2.0 will make it the default. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
+English (British). [`hundreds_with_union: true`](#hundreds-with-union) adds the British "and" (one hundred and one, one thousand and one), and becomes the default in 2.0. Numbers up to 10<sup>48</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -82,7 +82,7 @@ I18n.with_locale(:'en-GB') { 0.1.to_words(fraction: true) }
 
 ### Hundreds With Union
 
-`hundreds_with_union: true` adds "and" after hundreds, and before a final part below one hundred after a larger scale. 2.0 will make it the default for British English and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`hundreds_with_union: true` adds "and" after a hundred (one hundred and one), and before a final part below one hundred after a scale word (one thousand and one, two million and thirty). It becomes the default for British English in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:'en-GB') { 111.to_words }

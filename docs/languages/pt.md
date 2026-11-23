@@ -2,7 +2,7 @@
 
 Português europeu. Brazilian Portuguese is [`pt-BR`](pt-BR.md).
 
-European Portuguese uses the long scale: a new scale word every million (`milhão` 10⁶, `bilião` 10¹², `trilião` 10¹⁸, `quatrilião` 10²⁴, `quintilião` 10³⁰), with `mil` for the thousands in between (`mil milhões` is 10⁹, `mil biliões` 10¹⁵). `e` joins the last group of three digits to the rest when it is below one hundred or a round hundred (`mil e trinta`, `um milhão e duzentos mil`, but `mil cento e vinte`). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+European Portuguese uses the long scale, with a new scale word every million: milhão (10<sup>6</sup>), bilião (10<sup>12</sup>), trilião (10<sup>18</sup>), quatrilião (10<sup>24</sup>) and quintilião (10<sup>30</sup>). Mil counts the thousands in between (mil milhões is 10<sup>9</sup>, mil biliões 10<sup>15</sup>). "e" joins the last group of three digits to the rest when it is below one hundred or a round hundred (mil e trinta, um milhão e duzentos mil, but mil cento e vinte). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -96,7 +96,7 @@ I18n.with_locale(:pt) { 0.000000001.to_words(fraction: true) }
 
 ### Ordinal
 
-`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Scale ordinals follow the long scale: `milésimo milionésimo` is 10⁹ and `bilionésimo` 10¹². Zero keeps its cardinal form.
+`ordinal: true` makes every part of the number ordinal ("vigésimo primeiro"), including the multiplier of a scale word ("segundo milésimo"). Scale ordinals follow the long scale: milésimo milionésimo is 10<sup>9</sup> and bilionésimo 10<sup>12</sup>. Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:pt) { 1.to_words(ordinal: true) }
@@ -114,7 +114,7 @@ I18n.with_locale(:pt) { 1_000_000_000_000.to_words(ordinal: true) }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas), but milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it too.
+`gender: :male` (default) or `gender: :female`. The groups below a million agree with what is counted (duas mil, duzentas). Milhão and larger scale nouns, and inteiro and décimo in fractions, are masculine (dois milhões, dois inteiros e dois décimos). Ordinals take feminine endings (vigésima primeira). A [`unit`](../../README.md#unit) with `gender: female` sets it too.
 
 ```ruby
 I18n.with_locale(:pt) { 2_222_222.to_words(gender: :female) }

@@ -2,9 +2,19 @@
 
 Malti. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the independent forms said alone (tnejn, tlieta, għaxra), as Unicode CLDR's spellout-numbering does, not the forms before a noun (żewġ, tliet, għaxar), which aren't supported. Only one has a feminine (wieħed, waħda); see [Gender](#gender). "U" joins every part, with the ones before the tens (wieħed u għoxrin, elf u mija u wieħed). A scale word takes its form from the last two digits of its count, as Maltese nouns do: one is the word alone (elf, miljun), two the dual or żewġ (elfejn, żewġ miljuni), three to ten the plural after the form before a noun (tlitt elef, tliet miljuni, mija u tlitt elef), eleven to nineteen the singular after the form in -il (ħdax-il elf), and any other count the singular (għoxrin elf, mitt elf, tliet mitt elf). The ones of a compound count above twenty are independent (tlieta u għoxrin elf), where CLDR has the form before a noun (tliet u għoxrin elf). Scale words follow the short scale, with biljun for 10<sup>9</sup>, triljun for 10<sup>12</sup> and kvadriljun for 10<sup>15</sup>, as in Unicode CLDR; kvintiljun (10<sup>18</sup>), sestiljun, settiljun, ottiljun, noniljun and deċiljun (10<sup>33</sup>) follow the same pattern and need review by a native speaker. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers use the independent forms, said alone (tnejn, tlieta, għaxra), as Unicode CLDR's spellout-numbering does. The forms before a noun (żewġ, tliet, għaxar) aren't supported. Only one has a feminine (wieħed, waħda); see [Gender](#gender). "U" joins every part, with the ones before the tens (wieħed u għoxrin, elf u mija u wieħed).
 
-Words are written with the ASCII apostrophe (erba', disa'), as in Maltese orthography; Unicode CLDR uses the modifier letter apostrophe (ʼ).
+As with any Maltese noun, a scale word's form depends on the last two digits of its count:
+
+- One: the word alone (elf, miljun).
+- Two: the dual or żewġ (elfejn, żewġ miljuni).
+- Three to ten: the plural, after the form before a noun (tlitt elef, tliet miljuni, mija u tlitt elef).
+- Eleven to nineteen: the singular, after the form in -il (ħdax-il elf).
+- Any other count: the singular (għoxrin elf, mitt elf, tliet mitt elf).
+
+The ones of a compound count above twenty are independent (tlieta u għoxrin elf), where CLDR has the form before a noun (tliet u għoxrin elf). Scale words follow the short scale: biljun (10<sup>9</sup>), triljun (10<sup>12</sup>) and kvadriljun (10<sup>15</sup>), as in Unicode CLDR. Kvintiljun (10<sup>18</sup>), sestiljun, settiljun, ottiljun, noniljun and deċiljun (10<sup>33</sup>) follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+
+Words are written with the ASCII apostrophe (erba', disa'), as in Maltese orthography. Unicode CLDR uses the modifier letter apostrophe (ʼ).
 
 ## Examples
 
@@ -42,7 +52,7 @@ I18n.with_locale(:mt) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with punt and then each fractional digit, including leading zeros.
+Decimals are read with punt followed by each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:mt) { 3.14.to_words }
@@ -74,7 +84,7 @@ I18n.with_locale(:mt) { 21.77.to_words(micro_separator: "virgola") }
 
 ### Gender
 
-`gender: :male` (the default, wieħed) or `gender: :female` (waħda) is the gender of what is counted. It applies to a one in the last part of a number; the counts of scale words stay masculine (wieħed u għoxrin elf).
+`gender: :male` (default, wieħed) or `gender: :female` (waħda) sets the gender of a one in the last part of a number. The counts of scale words stay masculine (wieħed u għoxrin elf).
 
 ```ruby
 I18n.with_locale(:mt) { 1.to_words(gender: :male) }
@@ -89,7 +99,7 @@ I18n.with_locale(:mt) { 1001.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinals of one to ten (ewwel, tieni, tielet, raba', ħames, sitt, seba', tmien, disa', għaxar), which don't change with gender. Above ten, and for zero, Maltese uses the cardinal, which takes the gender asked for (ħdax, wieħed u għoxrin, waħda u għoxrin). Ordinals are given without the definite article, which Maltese uses before them and which assimilates to the next letter (l-ewwel, it-tieni, il-ħdax-il); the forms before a noun (il-ħdax-il darba) aren't supported.
+`ordinal: true` gives the ordinals of one to ten (ewwel, tieni, tielet, raba', ħames, sitt, seba', tmien, disa', għaxar), which don't change with gender. Above ten, and for zero, Maltese uses the cardinal in the requested gender (ħdax, wieħed u għoxrin, waħda u għoxrin). Maltese puts the definite article before ordinals, assimilated to the next letter (l-ewwel, it-tieni, il-ħdax-il); the gem leaves it out. The forms before a noun (il-ħdax-il darba) aren't supported.
 
 ```ruby
 I18n.with_locale(:mt) { 1.to_words(ordinal: true) }

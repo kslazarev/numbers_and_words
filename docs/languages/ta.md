@@ -2,9 +2,9 @@
 
 தமிழ். Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Tamil script, separated by spaces.
 
-Tamil uses the Indian numbering system, as Unicode CLDR does: ஆயிரம் (10<sup>3</sup>), லட்சம் (10<sup>5</sup>), கோடி (10<sup>7</sup>), அரபம் (10<sup>9</sup>) and கரபம் (10<sup>11</sup>), each counting from 1 to 99. Larger numbers repeat கரபம் with its count spelled the same way (10<sup>13</sup> is நூறு கரபம், 10<sup>18</sup> is ஒரு கோடி கரபம்), so there is no largest number. Tamil news often says நூறு கோடி for 10<sup>9</sup> instead of அரபம்.
+Tamil uses the Indian numbering system, as Unicode CLDR does: ஆயிரம் (10<sup>3</sup>), லட்சம் (10<sup>5</sup>), கோடி (10<sup>7</sup>), அரபம் (10<sup>9</sup>) and கரபம் (10<sup>11</sup>), each counting from 1 to 99. Larger numbers repeat கரபம் with its count spelled the same way (10<sup>13</sup> is நூறு கரபம், 10<sup>18</sup> is ஒரு கோடி கரபம்), so there is no largest number. Tamil news often says நூறு கோடி instead of அரபம் for 10<sup>9</sup>.
 
-A word followed by another number takes its linking form: tens and hundreds end in -த்து and -ற்று (இருபத்து ஒன்று, நூற்று ஒன்று), and the scales become ஆயிரத்து, லட்சத்து and கோடியே. A count joins ஆயிரம் in one word (இரண்டாயிரம், இருபத்து ஒன்றாயிரம்), and one before லட்சம், கோடி and the larger scales is ஒரு (ஒரு லட்சம்). The words follow the counting forms of the current CLDR rules (CLDR's `spellout-numbering`); the attributive forms used before a noun (இருபத்தொரு) aren't supported. 800 is written எண்ணூறு, with the sandhi of ண் and ந, where CLDR writes எண்நூறு, and zero is CLDR's பூஜ்யம், not பூஜ்ஜியம் or the native சுழியம்.
+A word followed by another number takes its linking form. Tens and hundreds end in -த்து and -ற்று (இருபத்து ஒன்று, நூற்று ஒன்று), and the scales become ஆயிரத்து, லட்சத்து and கோடியே. A count joins ஆயிரம் in one word (இரண்டாயிரம், இருபத்து ஒன்றாயிரம்). One before லட்சம், கோடி and the larger scales is ஒரு (ஒரு லட்சம்). The words are the counting forms of the current CLDR rules (`spellout-numbering`); the forms used before a noun (இருபத்தொரு) aren't supported. 800 is written எண்ணூறு, with the sound change (sandhi) of ண் and ந, where CLDR writes எண்நூறு. Zero is CLDR's பூஜ்யம், not பூஜ்ஜியம் or the native சுழியம்.
 
 ## Examples
 
@@ -68,7 +68,7 @@ I18n.with_locale(:ta) { 21.77.to_words(micro_separator: "தசம") }
 
 ### Ordinal
 
-`ordinal: true` adds ஆவது to the last word, as CLDR does (இரண்டாவது, இருபத்து ஒன்றாவது, நூறாவது); a scale word takes it after its linking form (ஆயிரத்தாவது, ஒரு லட்சத்தாவது). The first is முதலாவது, and zero keeps its cardinal form. The adjectival ordinals in -ஆம் (இரண்டாம்) aren't supported. Decimals keep the cardinal form.
+`ordinal: true` adds ஆவது to the last word, as CLDR does (இரண்டாவது, இருபத்து ஒன்றாவது, நூறாவது). A scale word takes it after its linking form (ஆயிரத்தாவது, ஒரு லட்சத்தாவது). The first is முதலாவது. Zero and decimals keep the cardinal form. The adjectival ordinals in -ஆம் (இரண்டாம்) aren't supported.
 
 ```ruby
 I18n.with_locale(:ta) { 1.to_words(ordinal: true) }

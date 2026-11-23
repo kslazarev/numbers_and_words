@@ -2,7 +2,7 @@
 
 हिन्दी. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Devanagari, separated by spaces.
 
-Hindi uses the Indian numbering system. Each number from 0 to 99 is its own word (इक्कीस, अठहत्तर, निन्यानबे), not a compound of tens and ones. The last three digits are read as hundreds (छह सौ अठहत्तर), and each scale above them counts from 1 to 99: हज़ार (10^3), लाख (10^5), करोड़ (10^7), अरब (10^9) and खरब (10^11), so 1,23,45,678 is एक करोड़ तेईस लाख पैंतालीस हज़ार छह सौ अठहत्तर. Larger numbers repeat खरब with its count spelled the same way (10^13 is एक सौ खरब, 10^18 is एक करोड़ खरब), not the rare names नील, पद्म and शंख. 100 and 1,000 are एक सौ and एक हज़ार.
+Hindi uses the Indian numbering system. Each number from 0 to 99 is its own word (इक्कीस, अठहत्तर, निन्यानबे), not a compound of tens and ones. The last three digits are read as hundreds (छह सौ अठहत्तर). Each scale above them counts from 1 to 99: हज़ार (10<sup>3</sup>), लाख (10<sup>5</sup>), करोड़ (10<sup>7</sup>), अरब (10<sup>9</sup>) and खरब (10<sup>11</sup>). So 1,23,45,678 is एक करोड़ तेईस लाख पैंतालीस हज़ार छह सौ अठहत्तर. Larger numbers repeat खरब with a spelled-out count (10<sup>13</sup> is एक सौ खरब, 10<sup>18</sup> is एक करोड़ खरब), rather than the rare names नील, पद्म and शंख. 100 and 1,000 are एक सौ and एक हज़ार.
 
 ## Examples
 
@@ -72,7 +72,7 @@ I18n.with_locale(:hi) { 21.77.to_words(micro_separator: "बिंदु") }
 
 ### Ordinal
 
-`ordinal: true` gives पहला, दूसरा, तीसरा, चौथा and छठा for 1, 2, 3, 4 and 6, and adds वाँ to the cardinal otherwise (पाँचवाँ, इक्कीसवाँ, एक सौवाँ). Larger numbers ending in these add वाँ (101 is एक सौ एकवाँ). Decimals keep the cardinal form.
+`ordinal: true` gives पहला, दूसरा, तीसरा, चौथा and छठा for 1, 2, 3, 4 and 6. Otherwise it adds वाँ to the cardinal (पाँचवाँ, इक्कीसवाँ, एक सौवाँ), also for larger numbers ending in 1, 2, 3, 4 or 6 (101 is एक सौ एकवाँ). Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:hi) { 1.to_words(ordinal: true) }
@@ -90,7 +90,7 @@ I18n.with_locale(:hi) { 100.to_words(ordinal: true) }
 
 ### Gender
 
-`gender: :male` (the default) or `gender: :female`, the gender of an ordinal: पहली, दूसरी, छठी, and वीं instead of वाँ. Cardinals do not change.
+`gender: :male` (the default) or `gender: :female` sets the gender of an ordinal: पहली, दूसरी, छठी, and वीं instead of वाँ. Cardinals do not change.
 
 ```ruby
 I18n.with_locale(:hi) { 1.to_words(ordinal: true, gender: :female) }

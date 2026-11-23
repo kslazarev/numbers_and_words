@@ -2,7 +2,7 @@
 
 বাংলা. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are in Bengali script, separated by spaces.
 
-Bengali uses the Indian numbering system. Each number from 0 to 99 is its own word (একুশ, আটাত্তর, নিরানব্বই), not a compound of tens and ones. The last three digits are read as hundreds, written as one word with শ (একশ, ছয়শ আটাত্তর), and each scale above them counts from 1 to 99: হাজার (10^3), লাখ (10^5) and কোটি (10^7), so 1,23,45,678 is এক কোটি তেইশ লাখ পঁয়তাল্লিশ হাজার ছয়শ আটাত্তর. As usual in Bengali, larger numbers repeat কোটি with its count spelled the same way (10^9 is একশ কোটি, 10^10 is এক হাজার কোটি, 10^14 is এক কোটি কোটি), not the rare names অর্বুদ and খর্ব. লাখ is used, not the more formal লক্ষ.
+Bengali uses the Indian numbering system. Each number from 0 to 99 is its own word (একুশ, আটাত্তর, নিরানব্বই), not a compound of tens and ones. The last three digits are read as hundreds, written as one word with শ (একশ, ছয়শ আটাত্তর). Each scale above them counts from 1 to 99: হাজার (10<sup>3</sup>), লাখ (10<sup>5</sup>) and কোটি (10<sup>7</sup>). So 1,23,45,678 is এক কোটি তেইশ লাখ পঁয়তাল্লিশ হাজার ছয়শ আটাত্তর. As usual in Bengali, larger numbers repeat কোটি with its count spelled the same way (10<sup>9</sup> is একশ কোটি, 10<sup>10</sup> is এক হাজার কোটি, 10<sup>14</sup> is এক কোটি কোটি), rather than the rare names অর্বুদ and খর্ব. লাখ is used, not the more formal লক্ষ.
 
 ## Examples
 
@@ -72,7 +72,7 @@ I18n.with_locale(:bn) { 21.77.to_words(micro_separator: "বিন্দু") }
 
 ### Ordinal
 
-`ordinal: true` gives the Sanskrit-derived ordinals প্রথম, দ্বিতীয়, তৃতীয়, চতুর্থ, পঞ্চম, ষষ্ঠ, সপ্তম, অষ্টম, নবম and দশম for 1 to 10. Above 10 it adds তম to the cardinal (একুশতম, একশতম), as is common, not the formal forms such as একাদশ and বিংশ. Ordinals do not change with gender. Decimals keep the cardinal form.
+`ordinal: true` gives the Sanskrit-derived ordinals প্রথম, দ্বিতীয়, তৃতীয়, চতুর্থ, পঞ্চম, ষষ্ঠ, সপ্তম, অষ্টম, নবম and দশম for 1 to 10. Above 10 it adds তম to the cardinal (একুশতম, একশতম), the common form, rather than formal ones such as একাদশ and বিংশ. Ordinals do not change with gender. Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:bn) { 1.to_words(ordinal: true) }

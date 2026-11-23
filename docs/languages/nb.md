@@ -2,7 +2,7 @@
 
 Norsk bokmål. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers use the modern counting system (tjueen, not en og tjue) and sju and tretti, not syv and tredve. "og" joins tens and ones to hundreds (hundre og en) and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no "ett" (hundre, tusen); after a larger part it is "ett hundre" or "ett tusen". Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
+Numbers use the modern counting system (tjueen, not en og tjue), with sju and tretti, not syv and tredve. "og" joins tens and ones to hundreds (hundre og en), and a last part below one hundred to the rest (tusen og en). Tusen is neuter, so a one before it is ett (hundre og ett tusen). A leading hundred or thousand has no ett (hundre, tusen); after a larger part it is ett hundre or ett tusen. Million and larger scales are nouns: en million, to millioner, en milliard. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`. Regional locales such as `nb-NO` use `nb`, and `no` is an alias of `nb`.
 
 ## Examples
 
@@ -37,7 +37,7 @@ I18n.with_locale(:nb) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with komma and then each fractional digit, including leading zeros.
+Decimals are read with komma followed by each fractional digit, including leading zeros.
 
 ```ruby
 I18n.with_locale(:nb) { 3.14.to_words }
@@ -69,7 +69,7 @@ I18n.with_locale(:nb) { 21.77.to_words(micro_separator: "punktum") }
 
 ### Gender
 
-`gender: :male` (the default, en), `:female` (ei) or `:neuter` (ett) is the gender of what is counted. It applies only to a last part of exactly one; compounds keep "en" (tjueen).
+`gender: :male` (default, en), `:female` (ei) or `:neuter` (ett) sets the gender of a last part of exactly one. Compounds keep en (tjueen).
 
 ```ruby
 I18n.with_locale(:nb) { 1.to_words(gender: :male) }
@@ -84,7 +84,7 @@ I18n.with_locale(:nb) { 101.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word, or the ones of a compound, ordinal (tjueførste). One hundred, one thousand and one million are the ordinal of the scale word alone.
+`ordinal: true` makes the last word, or the ones of a compound, ordinal (tjueførste). The ordinal of one hundred, one thousand or one million is the scale word alone (millionte).
 
 ```ruby
 I18n.with_locale(:nb) { 1.to_words(ordinal: true) }

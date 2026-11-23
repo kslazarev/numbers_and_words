@@ -32,7 +32,7 @@ I18n.with_locale(:cs) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Fraction names are unaccented like the scale words (biliontina, biliontiny and biliontin, as bilion); accented variants are also valid Czech.
+Fraction names are unaccented like the scale words (biliontina, biliontiny and biliontin, as bilion). Accented variants are also valid Czech.
 
 ```ruby
 I18n.with_locale(:cs) { 21.77.to_words }
@@ -64,7 +64,7 @@ I18n.with_locale(:cs) { 21.77.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :female`, `gender: :male` or `gender: :neuter`; without it, numbers use the counting forms (jedna, dva) and ordinals the feminine.
+`gender: :female`, `gender: :male` or `gender: :neuter`. Without it, numbers use the counting forms (jedna, dva) and ordinals the feminine.
 
 ```ruby
 I18n.with_locale(:cs) { 1.to_words(gender: :female) }

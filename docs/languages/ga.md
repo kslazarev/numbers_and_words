@@ -2,11 +2,11 @@
 
 Gaeilge. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers are bare numbers, as they are counted, following Unicode CLDR: the particle a before a final unit ("a haon", "fiche a haon"), and a comma after a scale word ("míle, a haon"). The counts of scale words use the cardinal system, with the initial mutation of the scale word after the count's last digit: aon, dhá and trí to sé lenite it ("dhá mhíle", "trí mhilliún"), seacht to deich eclipse it ("seacht gcéad", "ocht mbilliún"), déag follows it ("aon mhíle dhéag") and the tens take it unchanged ("fiche míle", "fiche is aon mhíle"). Irish uses the short scale: milliún, billiún, trilliún, quadrilliún. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers are bare numbers, the form used for counting, as in Unicode CLDR. The particle a comes before a final unit ("a haon", "fiche a haon"), and a comma follows a scale word ("míle, a haon"). The counts of scale words use the cardinal forms, and the count's last digit mutates the scale word: aon, dhá and trí to sé lenite it ("dhá mhíle", "trí mhilliún"), and seacht to deich eclipse it ("seacht gcéad", "ocht mbilliún"). Déag follows the scale word ("aon mhíle dhéag"), and the tens leave it unchanged ("fiche míle", "fiche is aon mhíle"). Irish uses the short scale: milliún, billiún, trilliún, quadrilliún. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Unicode CLDR stops at quadrilliún (10<sup>15</sup>); quintilliún, sextilliún, septilliún, octilliún, nonilliún and deicilliún (10<sup>18</sup> to 10<sup>33</sup>) follow its pattern and need native-speaker review, as do their mutations (dhá shextilliún, ocht n-octilliún, trí dheicilliún). Irish forms such as cuintilliún and seisilliún have also been proposed, but none is standard.
+Unicode CLDR stops at quadrilliún (10<sup>15</sup>). Quintilliún, sextilliún, septilliún, octilliún, nonilliún and deicilliún (10<sup>18</sup> to 10<sup>33</sup>) follow its pattern. They and their mutations (dhá shextilliún, ocht n-octilliún, trí dheicilliún) need a native speaker's review. Irish forms such as cuintilliún and seisilliún have also been proposed, but none is standard.
 
-Numbers don't agree in gender, and the forms before a noun (aon, dhá, ceithre) appear only in the counts of scale words.
+Numbers don't agree in gender. The forms used before a noun (aon, dhá, ceithre) appear only in the counts of scale words.
 
 ## Examples
 
@@ -41,7 +41,7 @@ I18n.with_locale(:ga) { [1, 2, 3].to_words }
 
 ## Decimals
 
-Decimals are read with pointe and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+Decimals are read with pointe followed by each fractional digit, including leading zeros, as Unicode CLDR reads them.
 
 ```ruby
 I18n.with_locale(:ga) { 3.14.to_words }
@@ -73,7 +73,7 @@ I18n.with_locale(:ga) { 21.77.to_words(micro_separator: "ponc") }
 
 ### Ordinal
 
-`ordinal: true` spells ordinals in the established system of An Caighdeán Oifigiúil, without the article an: the ordinal of the last digit comes before the tens below a hundred ("aonú is fiche"), and after them above it ("céad tríocha is aonú"); aonú replaces céad in compounds, and déag isn't lenited. Second is dara, also in compounds (dóú is also standard). A round scale ordinal is mutated as the cardinal is ("dhá mhíliú"). Ordinals start at 1; Irish has no ordinal of zero. Unicode CLDR has no Irish ordinals.
+`ordinal: true` follows the established system of An Caighdeán Oifigiúil, without the article an. Below a hundred, the ordinal of the last digit comes before the tens ("aonú is fiche"); above a hundred, it comes after them ("céad tríocha is aonú"). Aonú replaces céad in compounds, and déag isn't lenited. Second is dara, also in compounds; dóú is also standard. A round scale ordinal mutates like the cardinal ("dhá mhíliú"). Ordinals start at 1, as Irish has no ordinal of zero. Unicode CLDR has no Irish ordinals.
 
 ```ruby
 I18n.with_locale(:ga) { 1.to_words(ordinal: true) }

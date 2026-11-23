@@ -32,7 +32,7 @@ I18n.with_locale(:tr) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with virgül and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+Decimals are read with virgül followed by each fractional digit, including leading zeros, as in Unicode CLDR.
 
 ```ruby
 I18n.with_locale(:tr) { 3.14.to_words }

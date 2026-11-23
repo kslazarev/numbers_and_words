@@ -2,7 +2,7 @@
 
 Shqip. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Each part after the first joins with e (njëzet e një, njëqind e dhjetë, një mijë e një). Teens are the unit and mbëdhjetë (njëmbëdhjetë, trembëdhjetë), and hundreds are one word with their count (njëqind, dyqind). Three is tre, or tri in the feminine (see [Gender](#gender)); mijë counts in the masculine (tre mijë) and milion and the larger scale words, which take the plural -ë, in the feminine (tri milionë), as Unicode CLDR counts them. Scales follow the long scale, from milion (10<sup>6</sup>) and miliard (10<sup>9</sup>, which Unicode CLDR spells miliar) through bilion, biliard, trilion, triliard, kuadrilion, kuadriliard, kuintilion and kuintiliard (10<sup>33</sup>); Unicode CLDR stops at biliard (10<sup>15</sup>), so the larger names follow the same pattern and await review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+"e" joins each part after the first (njëzet e një, njëqind e dhjetë, një mijë e një). Teens are the unit and mbëdhjetë (njëmbëdhjetë, trembëdhjetë). Hundreds are one word with their count (njëqind, dyqind). Three is tre, or tri in the feminine; see [Gender](#gender). As in Unicode CLDR, mijë counts in the masculine (tre mijë), and milion and the larger scale words, with the plural -ë, in the feminine (tri milionë). Scales follow the long scale: milion (10<sup>6</sup>), miliard (10<sup>9</sup>, which Unicode CLDR spells miliar), bilion, biliard, trilion, triliard, kuadrilion, kuadriliard, kuintilion and kuintiliard (10<sup>33</sup>). Unicode CLDR stops at biliard (10<sup>15</sup>); the larger names follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -66,7 +66,7 @@ I18n.with_locale(:sq) { 21.77.to_words(micro_separator: "pikë") }
 
 ### Gender
 
-`gender:` is `:male` (the default) or `:female`; only three changes, to tri, also at the end of a compound (njëzet e tri).
+`gender: :male` (default) or `gender: :female`. Only three changes, to tri, also at the end of a compound (njëzet e tri).
 
 ```ruby
 I18n.with_locale(:sq) { 3.to_words(gender: :male) }
@@ -78,7 +78,9 @@ I18n.with_locale(:sq) { 23.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` gives the indefinite ordinal with its article, i, or e with `gender: :female`: the last word takes -të, or -t after katër (i parë, i dytë, i katërt, i njëzetë, i njëqindtë, i një mijëtë, i një miliontë), and a final one in a compound is njëtë (i njëzet e njëtë). Zero keeps its cardinal form. Unicode CLDR has no Albanian ordinals; the gem writes compounds apart, as its cardinals (i njëzet e njëtë), where they are also written as one word (i njëzetenjëtë), and does not decline the article or give the definite forms (i pari). Ordinals are spelled up to the largest cardinal.
+`ordinal: true` gives the indefinite ordinal with its article: i, or e with `gender: :female`. The last word takes -të, or -t after katër (i parë, i dytë, i katërt, i njëzetë, i njëqindtë, i një mijëtë, i një miliontë). A final one in a compound is njëtë (i njëzet e njëtë). Zero keeps its cardinal form. Ordinals are spelled up to the largest cardinal.
+
+Unicode CLDR has no Albanian ordinals. The gem writes compounds apart, like its cardinals (i njëzet e njëtë), though they are also written as one word (i njëzetenjëtë). It does not decline the article or give the definite forms (i pari).
 
 ```ruby
 I18n.with_locale(:sq) { 1.to_words(ordinal: true) }

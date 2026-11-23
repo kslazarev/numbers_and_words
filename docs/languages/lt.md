@@ -32,7 +32,7 @@ I18n.with_locale(:lt) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with kablelis and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+Decimals are read with kablelis followed by each fractional digit, including leading zeros, as Unicode CLDR reads them.
 
 ```ruby
 I18n.with_locale(:lt) { 3.14.to_words }
@@ -64,7 +64,7 @@ I18n.with_locale(:lt) { 21.77.to_words(micro_separator: "taškas") }
 
 ### Gender
 
-`gender: :male` (default) or `gender: :female`. The last group agrees with the noun; the counts of tūkstantis and larger scale words stay masculine. Ordinals take the feminine ending.
+`gender: :male` (default) or `gender: :female`. The last group agrees with the noun, but the counts of tūkstantis and larger scale words stay masculine. Ordinals take the feminine ending.
 
 ```ruby
 I18n.with_locale(:lt) { 1.to_words(gender: :female) }
@@ -85,7 +85,7 @@ I18n.with_locale(:lt) { 100.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), except round hundreds and thousands, which take their standard definite form (šimtasis, tūkstantasis), and millions and larger, which take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis); a multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
+`ordinal: true` makes the last word ordinal ("dvidešimt pirmas"). Ordinals use the indefinite form (pirmas, dešimtas), with two exceptions. Round hundreds and thousands take their standard definite form (šimtasis, tūkstantasis), and millions and larger take -inis (milijoninis). A round hundred, thousand or larger scale is one word with the combining form of a one-word multiplier (dušimtasis, penkiatūkstantasis, dešimttūkstantasis, dumilijoninis). A multiplier of several words stays separate (dvidešimt vienas tūkstantasis). Ordinals are experimental until a native speaker reviews them, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
 ```ruby
 I18n.with_locale(:lt) { 1.to_words(ordinal: true) }

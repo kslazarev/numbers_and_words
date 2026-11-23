@@ -2,9 +2,9 @@
 
 Română. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu), see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>, followed by trilion, triliard, cvadrilion, cvadriliard, cvintilion and cvintiliard (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count. Mie is feminine (o mie, două mii, douăzeci și una de mii). Milion and larger scales are neuter, so they take the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu); see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>, followed by trilion, triliard, cvadrilion, cvadriliard, cvintilion and cvintiliard (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-With [`unit`](../../README.md#unit), a unit takes its `one` form after 1, `few` after 0, counts ending in 01 to 19 and decimals ("douăzeci și unu virgulă cinci lei"), and `other` after counts ending in 00 or 20 to 99, so `other` includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei". One before a unit is `un`, or `o` for a feminine unit ("un leu", "o liră"); compounds keep the counting form ("o sută unu lei", "douăzeci și una de lire").
+With [`unit`](../../README.md#unit), a unit takes its `one` form after 1, and `few` after 0, counts ending in 01 to 19 and decimals ("douăzeci și unu virgulă cinci lei"). It takes `other` after counts ending in 00 or 20 to 99, so `other` includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei". One before a unit is `un`, or `o` for a feminine unit ("un leu", "o liră"). Compounds keep the counting form ("o sută unu lei", "douăzeci și una de lire").
 
 ## Examples
 
@@ -42,7 +42,7 @@ I18n.with_locale(:ro) { [1, 2, 3].to_words }
 
 ## Decimals
 
-Decimals are read with `virgulă` followed by the fractional part: up to three decimal places as a number after one `zero` for each leading zero, and longer ones digit by digit. The fractional part uses the masculine counting form.
+Decimals are read with `virgulă` followed by the fractional part: up to three decimal places as a number, after a `zero` for each leading zero, and longer ones digit by digit. The fractional part uses the masculine counting form.
 
 ```ruby
 I18n.with_locale(:ro) { 3.14.to_words }
@@ -77,7 +77,7 @@ I18n.with_locale(:ro) { 21.77.to_words(micro_separator: "punct") }
 
 ### Gender
 
-`gender: :male` (the default), `gender: :female` or `gender: :neuter`, the gender of what is counted, changes the last group of digits. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune).
+`gender: :male` (default), `:female` or `:neuter` sets the gender of the last group of digits. Neuter nouns take the masculine one and the feminine two (un scaun, două scaune).
 
 ```ruby
 I18n.with_locale(:ro) { 1.to_words(gender: :female) }
@@ -92,7 +92,7 @@ I18n.with_locale(:ro) { 12.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` gives the ordinal with its article, masculine by default (primul, al doilea, al douăzeci și unulea) and feminine with `gender: :female` (prima, a doua, a douăzeci și una); neuter nouns take the masculine ordinal. Only the last word changes (al două miilea), and a leading un before a scale is dropped (al milionulea). Zero keeps its cardinal form.
+`ordinal: true` gives the ordinal with its article: masculine by default (primul, al doilea, al douăzeci și unulea) and feminine with `gender: :female` (prima, a doua, a douăzeci și una). Neuter nouns take the masculine ordinal. Only the last word changes (al două miilea), and a leading un before a scale is dropped (al milionulea). Zero keeps its cardinal form.
 
 ```ruby
 I18n.with_locale(:ro) { 2.to_words(ordinal: true) }

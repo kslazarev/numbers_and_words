@@ -2,7 +2,7 @@
 
 Bahasa Melayu. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Malay counts like Indonesian with its own words: lapan for 8, bilion and trilion for 10<sup>9</sup> and 10<sup>12</sup>, and the formal sifar for zero (kosong is common in speech). One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu), and larger scales keep satu (satu juta). Scales above trilion follow the short scale: kuadrilion, kuintilion, sekstilion, septilion, oktilion, nonilion and desilion (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+Malay counts like Indonesian, with its own words: lapan for 8, bilion (10<sup>9</sup>), trilion (10<sup>12</sup>) and the formal sifar for zero (kosong is common in speech). One ten, hundred or thousand takes the prefix se- (sepuluh, sebelas, seratus, seribu). Larger scales keep satu (satu juta). Scales above trilion follow the short scale: kuadrilion, kuintilion, sekstilion, septilion, oktilion, nonilion and desilion (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 

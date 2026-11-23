@@ -2,9 +2,9 @@
 
 Kiswahili. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-The count follows mia (hundred) and the scale words (mia mbili, elfu tatu, milioni ishirini na moja), and na (and) joins every part (mia moja na ishirini na moja). Unicode CLDR joins the groups after a thousand or a million with a comma (elfu moja, mia moja); the gem uses na there too (elfu moja na mia moja), as grammars also give. A hundred thousand is elfu mia moja, as in CLDR, not laki moja. Scales follow the short scale: milioni, bilioni (10<sup>9</sup>), trilioni and kvadrilioni (10<sup>15</sup>) as in CLDR, then kwintilioni, sekstilioni, septilioni, oktilioni, nonilioni and desilioni (10<sup>33</sup>), extended by the same pattern for a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
+The count follows mia (hundred) and the scale words (mia mbili, elfu tatu, milioni ishirini na moja). Na (and) joins every part (mia moja na ishirini na moja). Unicode CLDR joins the groups after a thousand or a million with a comma (elfu moja, mia moja); the gem uses na there too (elfu moja na mia moja), as grammars also do. A hundred thousand is elfu mia moja, as in CLDR, not laki moja. Scales follow the short scale: milioni, bilioni (10<sup>9</sup>), trilioni and kvadrilioni (10<sup>15</sup>), as in CLDR. Kwintilioni, sekstilioni, septilioni, oktilioni, nonilioni and desilioni (10<sup>33</sup>) follow the same pattern and need a native speaker's review. Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
-Numbers spelled out are the counting forms; the noun-class agreement of one to five and eight with a counted noun (watu wawili, vitu viwili) isn't supported.
+Numbers take the counting forms. The noun-class agreement of one to five and eight with a counted noun (watu wawili, vitu viwili) isn't supported.
 
 ## Examples
 
@@ -65,7 +65,7 @@ I18n.with_locale(:sw) { 21.77.to_words(micro_separator: "pointi") }
 
 ### Ordinal
 
-`ordinal: true` gives wa and the cardinal (wa tatu, wa ishirini na moja), with kwanza and pili for one and two (wa kwanza, wa pili). Wa is the concord of the first noun class (mtu wa tatu); other classes (ya, la, cha, za) aren't supported. CLDR omits wa for the first and second only. Decimals keep the cardinal form.
+`ordinal: true` gives wa and the cardinal (wa tatu, wa ishirini na moja), with kwanza and pili for one and two (wa kwanza, wa pili). Wa agrees with the first noun class (mtu wa tatu); other classes (ya, la, cha, za) aren't supported. CLDR omits wa for the first and second only. Decimals keep the cardinal form.
 
 ```ruby
 I18n.with_locale(:sw) { 1.to_words(ordinal: true) }

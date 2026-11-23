@@ -34,7 +34,7 @@ I18n.with_locale(:en) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read as a fraction, or with `point` with `fraction: false` (see [Fraction](#fraction)), which 2.0 will make the default.
+Decimals are read as a fraction. [`fraction: false`](#fraction), the default in 2.0, reads them with `point`.
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words }
@@ -69,7 +69,7 @@ I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
 
 ### Fraction
 
-`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads `point` and then each fractional digit, including leading zeros. 2.0 will make `fraction: false` the default and warns about the change (see [UPGRADING](../../UPGRADING.md)).
+`fraction: true`, the default, reads decimals as a fraction. `fraction: false` reads `point` and then each fractional digit, including leading zeros. It becomes the default in 2.0, and the gem warns about the change (see [UPGRADING](../../UPGRADING.md)).
 
 ```ruby
 I18n.with_locale(:en) { 21.77.to_words(fraction: false) }

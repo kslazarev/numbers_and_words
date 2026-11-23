@@ -35,7 +35,7 @@ I18n.with_locale(:hy) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Decimals are read with ստորակետ and then each fractional digit, including leading zeros, as Unicode CLDR reads them (CLDR spells the word ստորակել).
+Decimals are read with ստորակետ followed by each fractional digit, including leading zeros, as Unicode CLDR reads them (CLDR spells the word ստորակել).
 
 ```ruby
 I18n.with_locale(:hy) { 3.14.to_words }

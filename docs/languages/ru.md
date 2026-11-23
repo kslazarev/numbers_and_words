@@ -59,7 +59,7 @@ I18n.with_locale(:ru) { 21.77.to_words(micro_separator: "plus") }
 
 ### Gender
 
-`gender: :male` (default), :female or :neuter
+`gender: :male` (default), `:female` or `:neuter`.
 
 ```ruby
 I18n.with_locale(:ru) { 1001.to_words(gender: :female) }
@@ -71,7 +71,7 @@ I18n.with_locale(:ru) { 1001.to_words(gender: :neuter) }
 
 ### Ordinal
 
-`ordinal: true` makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). A scale group of exactly one omits its one ("тысяча первый", "миллион первый"), while cardinals keep it ("одна тысяча один", "один миллион один"). Keeping один in an ordinal such as "один миллион первый" is also correct. `gender:` selects the masculine, feminine or neuter ending.
+`ordinal: true` makes the last word ordinal ("двадцать первый") and joins a round thousand or million to its multiplier ("двухтысячный"). A scale group of exactly one omits its one ("тысяча первый", "миллион первый"), while cardinals keep it ("одна тысяча один", "один миллион один"). Keeping один ("один миллион первый") is also correct. `gender:` selects the masculine, feminine or neuter ending.
 
 ```ruby
 I18n.with_locale(:ru) { 1.to_words(ordinal: true) }
@@ -98,7 +98,7 @@ I18n.with_locale(:ru) { 1_000_001.to_words(ordinal: true) }
 
 ### Case
 
-`case:` declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Every word of a cardinal declines, and a scale word agrees with its numeral ("двадцати одной тысячи", "двух тысяч"). Only the last word of an ordinal declines ("двадцать первого"), in the ending `gender:` selects.
+`case:` declines a number: `:nominative` (default), `:genitive`, `:dative`, `:accusative`, `:instrumental` or `:prepositional`. Every word of a cardinal declines. A scale word agrees with its numeral ("двадцати одной тысячи", "двух тысяч"). Only the last word of an ordinal declines ("двадцать первого"), in the ending `gender:` selects.
 
 ```ruby
 I18n.with_locale(:ru) { 21.to_words(case: :genitive) }
@@ -136,7 +136,7 @@ Decimals are not declined: `case:` other than `:nominative` raises `NumbersAndWo
 
 ### Animate
 
-`animate: true` gives the accusative its genitive form, as for an animate noun, instead of the default inanimate form. This applies to a masculine ordinal ("вижу двадцать первого"), "один" ("двадцать одного"), and "два", "три" and "четыре" alone ("двух"); compound numbers ending in them keep the nominative ("двадцать два").
+`animate: true` gives the accusative its genitive form, as for an animate noun, instead of the default inanimate form. It applies to a masculine ordinal ("вижу двадцать первого"), "один" ("двадцать одного"), and "два", "три" and "четыре" alone ("двух"); compound numbers ending in them keep the nominative ("двадцать два").
 
 ```ruby
 I18n.with_locale(:ru) { 21.to_words(ordinal: true, case: :accusative) }

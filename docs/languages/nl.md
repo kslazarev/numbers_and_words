@@ -77,7 +77,7 @@ I18n.with_locale(:nl) { 2_000_000.to_words(ordinal: true) }
 
 ### Pronounced
 
-`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as usually spoken, with a space before the remainder. Other numbers are read as usual.
+`pronounced: true` reads four-digit numbers with a nonzero hundreds digit as tens of hundreds, as usually spoken, with a space before the rest. Other numbers are read as usual.
 
 ```ruby
 I18n.with_locale(:nl) { 1910.to_words(pronounced: true) }
