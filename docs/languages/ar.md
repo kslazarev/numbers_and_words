@@ -133,7 +133,7 @@ I18n.with_locale(:ar) { 21.to_words(ordinal: true, gender: :female) }
 
 ### Ordinal
 
-The `ordinal: true` option gives the definite ordinal from 1 to 99, masculine or with `gender: :female` feminine. One is `الحادي` (feminine `الحادية`) in compounds. Other numbers raise `RangeError`; ordinals past 99 ("الحادي بعد المائة") aren't supported yet.
+The `ordinal: true` option gives the definite ordinal of every number from 1, masculine or with `gender: :female` feminine. Up to 99, ordinals have their own words, and one is `الحادي` (feminine `الحادية`) in compounds. From 100, the ordinal is the definite cardinal, as in Modern Standard Arabic ("الذكرى المائة والخمسون"): the article goes on each number word ("المائة والواحد والعشرون", "الثلاثة آلاف"), but not on a scale word after its count ("الواحد والعشرون ألفًا"), and after مائتا it goes on the scale word ("مائتا الألف"). The classical forms with بعد ("الحادي بعد المائة") and ordinal units after a hundred ("المائة والحادي والعشرون") are not supported, and need a native speaker's review. Zero raises `RangeError`.
 
 ```ruby
 I18n.with_locale(:ar) { 1.to_words(ordinal: true) }
@@ -144,6 +144,15 @@ I18n.with_locale(:ar) { 11.to_words(ordinal: true) }
 
 I18n.with_locale(:ar) { 21.to_words(ordinal: true) }
 # => "الحادي والعشرون"
+
+I18n.with_locale(:ar) { 121.to_words(ordinal: true) }
+# => "المائة والواحد والعشرون"
+
+I18n.with_locale(:ar) { 3000.to_words(ordinal: true) }
+# => "الثلاثة آلاف"
+
+I18n.with_locale(:ar) { 101.to_words(ordinal: true, gender: :female) }
+# => "المائة والواحدة"
 ```
 
 ### Remove Zero

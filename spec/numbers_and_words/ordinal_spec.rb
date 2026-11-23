@@ -18,7 +18,7 @@ end
 ORDINAL_SCALE_STEM_EXCEPTIONS = [[:ro, 1000], [:hu, 1000], [:hu, 1_000_000]].freeze
 SMALL_ORDINALS = [0, 1, 2].freeze
 ORDINAL_DECIMALS = [1.5, 21.25, -1.5, 2.0, [1.5, 2.25]].freeze
-ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1...100, he: 1.., ga: 1.., cy: 1.., ka: GEORGIAN_ORDINALS }.freeze
+ORDINAL_RANGES = { pl: 0...1000, cs: 0...10_000, el: 0...10_000, ar: 1.., he: 1.., ga: 1.., cy: 1.., ka: GEORGIAN_ORDINALS }.freeze
 
 # Every language spells ordinals (#263); the fixtures check exact words, and this checks that no number
 # falls through a gap in a language's ordinal tables.
@@ -38,7 +38,7 @@ describe 'ordinal option' do # rubocop:disable RSpec/DescribeClass -- covers eve
     end
   end
 
-  { he: [0], ar: [0, 100], ka: [2000, 21_000, 100_000, 2_000_000, 2_025_000] }.each do |locale, numbers|
+  { he: [0], ar: [0], ka: [2000, 21_000, 100_000, 2_000_000, 2_025_000] }.each do |locale, numbers|
     it "raises RangeError for #{locale} ordinals of #{numbers.join(' and ')}" do
       numbers.each { |number| expect { I18n.with_locale(locale) { number.to_words(ordinal: true) } }.to raise_error(RangeError) }
     end
