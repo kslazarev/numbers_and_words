@@ -62,7 +62,7 @@ I18n.with_locale(:hr) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the i between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:hr) { 2.5.to_words(micro_separator: "plus") }
+I18n.with_locale(:hr) { 2.5.to_words(micro_separator: 'plus') }
 # => "dva cijela plus pet desetinki"
 ```
 

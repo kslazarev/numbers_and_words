@@ -8,16 +8,16 @@ To add a project to this page, open a pull request that edits it.
 
 * [Login.gov](https://github.com/GSA-TTS/identity-idp), the sign-in service of the US government, spells out numbers from 0 to 10 in user-facing messages in the user's language. It falls back to digits for larger numbers and for languages that the library doesn't support ([`ReadableNumber`](https://github.com/GSA-TTS/identity-idp/blob/main/app/services/readable_number.rb)).
 * The [RISC-V Unified Database](https://github.com/riscv/riscv-unified-db) describes parameter constraints with ordinals, such as "The third element of parameter …", in its [`udb` gem](https://rubygems.org/gems/udb).
-* [trebekbot](https://github.com/gesteves/trebekbot), a Jeopardy! bot for Slack, accepts answers written as words, such as "seven" for 7.
+* The [trebekbot](https://github.com/gesteves/trebekbot) Jeopardy! bot for Slack accepts answers written as words, such as "seven" for 7.
 * [KudoChest](https://github.com/jcraigk/kudochest), a kudos app for Slack, shows levels in words.
 
 ## Gems
 
-* [voxbi](https://rubygems.org/gems/voxbi) is a French speech synthesizer.
-* [syllabize](https://rubygems.org/gems/syllabize) counts the syllables in a text.
-* [plurality](https://rubygems.org/gems/plurality) pluralizes sentences by the number of objects.
-* [humanize_fraction](https://rubygems.org/gems/humanize_fraction) writes fractions in words, such as "three fifths".
-* [doc_contract](https://rubygems.org/gems/doc_contract) and [pdf_templator](https://rubygems.org/gems/pdf_templator) generate contracts and PDF documents.
-* [MX-ID](https://rubygems.org/gems/MX-ID) provides utilities for Mexican government identifiers.
-* [pangrammic_surplus](https://rubygems.org/gems/pangrammic_surplus) and [rhopalic](https://rubygems.org/gems/rhopalic) solve word puzzles about self-enumerating pangrams and rhopalic phrases.
-* [dust-cms](https://rubygems.org/gems/dust-cms) is a content management system for Rails.
+* The [voxbi](https://rubygems.org/gems/voxbi) gem is a French speech synthesizer.
+* The [syllabize](https://rubygems.org/gems/syllabize) gem counts the syllables in a text.
+* The [plurality](https://rubygems.org/gems/plurality) gem pluralizes sentences by the number of objects.
+* The [humanize_fraction](https://rubygems.org/gems/humanize_fraction) gem writes fractions in words, such as "three fifths".
+* The [doc_contract](https://rubygems.org/gems/doc_contract) and [pdf_templator](https://rubygems.org/gems/pdf_templator) gems generate contracts and PDF documents.
+* The [MX-ID](https://rubygems.org/gems/MX-ID) gem provides utilities for Mexican government identifiers.
+* The [pangrammic_surplus](https://rubygems.org/gems/pangrammic_surplus) and [rhopalic](https://rubygems.org/gems/rhopalic) gems solve word puzzles about self-enumerating pangrams and rhopalic phrases.
+* The [dust-cms](https://rubygems.org/gems/dust-cms) gem is a content management system for Rails.

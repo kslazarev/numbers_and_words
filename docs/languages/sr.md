@@ -60,7 +60,7 @@ I18n.with_locale(:sr) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the и between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:sr) { 2.5.to_words(micro_separator: "плус") }
+I18n.with_locale(:sr) { 2.5.to_words(micro_separator: 'плус') }
 # => "два цела плус пет десетих"
 ```
 

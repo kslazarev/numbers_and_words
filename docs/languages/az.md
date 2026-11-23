@@ -69,7 +69,7 @@ I18n.with_locale(:az) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces "tam" between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:az) { 21.77.to_words(micro_separator: "vergül") }
+I18n.with_locale(:az) { 21.77.to_words(micro_separator: 'vergül') }
 # => "iyirmi bir vergül yüzdə yetmiş yeddi"
 ```
 

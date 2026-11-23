@@ -6,7 +6,7 @@ This page guides AI agents and contributors working on numbers_and_words. See [C
 
 * The `bundle install` command installs dependencies; no lockfile is committed.
 * The `bundle exec rake` command runs RuboCop and RSpec; CI runs them in the separate Lint and Test workflows.
-* The `bundle exec rake spec` and `bundle exec rake rubocop` commands run RSpec or RuboCop alone.
+* The `bundle exec rake spec` and `bundle exec rake rubocop` commands run RSpec or RuboCop alone. RuboCop also lints the Markdown (rubocop-prose, and rubocop-md for Ruby code blocks) and the YAML (rubocop-yaml) on Ruby 3.2 and later; label every code block with its language, since an unlabeled block is linted as Ruby.
 * The `I18N_VERSION=1.6.0 bundle exec rspec` command tests against the oldest i18n release CI covers.
 * The `bundle exec rake build` command, followed by `bundle exec ruby script/verify_package.rb`, builds the gem and tests the installed archive in an isolated consumer, as CI's Package workflow does.
 * The `bundle exec ruby script/features.rb` command regenerates [docs/features.md](docs/features.md) after changing what a language supports; a spec fails when it is out of date.
@@ -31,9 +31,9 @@ Everything about a language belongs in its locale file. Use Ruby only for what r
   * The `mega` and `micro` keys list the keys of scale and fraction words by power of 1000. A number past the last `mega` entry raises `RangeError`. A locale without `mega`, such as Japanese, sets its limit with its own scale table, or has none.
   * The `minus` key holds the word read before a negative number.
   * The `unit` option reads these keys (see `lib/numbers_and_words/unit/`):
-    * `subunit_separator`, with `subunit_separator_attached`.
-    * `unit_scale_preposition`, with `unit_scale_preposition_elided` and the letters it is elided before, `unit_scale_preposition_elided_before`.
-    * `before_unit` and `unit_order`.
+    * The `subunit_separator` and `subunit_separator_attached` keys join a unit and its subunit.
+    * The `unit_scale_preposition` key gives the preposition after a scale word, with `unit_scale_preposition_elided` and the letters it is elided before, `unit_scale_preposition_elided_before`.
+    * The `before_unit` and `unit_order` keys give the form and position of a number before its unit.
     * The `unit_after_decimal` key gives the form after a decimal (`{form: few}`, or `{below_two: one}`).
     * The `unit_after_zero` key gives the form after zero (`one`).
   * The `extends: fr` entry, in a regional locale such as `fr-CH`, makes the locale take the other's numbers and list only what differs. A key set to `~` drops one of the other's keys, such as a rule (`lib/numbers_and_words/i18n/extends.rb`). Its generated classes extend the other's, and it uses the other's decorators.

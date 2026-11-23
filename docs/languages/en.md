@@ -63,7 +63,7 @@ I18n.with_locale(:en) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:en) { 21.77.to_words(micro_separator: "plus") }
+I18n.with_locale(:en) { 21.77.to_words(micro_separator: 'plus') }
 # => "twenty-one plus seventy-seven hundredths"
 ```
 
@@ -82,7 +82,7 @@ I18n.with_locale(:en) { 3.1416.to_words(fraction: false) }
 # => "three point one four one six"
 ```
 
-### Hundreds With Union
+### Hundreds with Union
 
 The `hundreds_with_union: true` option adds "and" after hundreds.
 

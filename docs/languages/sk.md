@@ -66,7 +66,7 @@ I18n.with_locale(:sk) { 0.1.to_words(precision: 2) }
 The `micro_separator` option adds a word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:sk) { 21.77.to_words(micro_separator: "a") }
+I18n.with_locale(:sk) { 21.77.to_words(micro_separator: 'a') }
 # => "dvadsaťjedna celých a sedemdesiatsedem stotín"
 ```
 

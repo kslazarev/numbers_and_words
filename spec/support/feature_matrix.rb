@@ -18,7 +18,6 @@ module FeatureMatrix
     * **Ordinals**: The column gives the numbers `ordinal: true` spells. The value *all* means every number up to the largest number; otherwise the column gives a range.
     * **Largest number**: Numbers from this power of ten raise `RangeError`.
     * **Other options**: The column lists the language's own options.
-
   MARKDOWN
 
   module_function

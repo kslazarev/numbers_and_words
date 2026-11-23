@@ -58,7 +58,7 @@ I18n.with_locale(:tr) { 0.1.to_words(precision: 2) }
 The `micro_separator` option replaces the word between the integral and fractional parts.
 
 ```ruby
-I18n.with_locale(:tr) { 21.77.to_words(micro_separator: "nokta") }
+I18n.with_locale(:tr) { 21.77.to_words(micro_separator: 'nokta') }
 # => "yirmi bir nokta yedi yedi"
 ```
 
