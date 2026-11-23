@@ -17,8 +17,8 @@ sr:
     tens: [_, десет, двадесет, тридесет, четрдесет, педесет, шездесет, седамдесет, осамдесет, деведесет]
     hundreds: [_, сто, двеста, триста, четиристо, петсто, шестсто, седамсто, осамсто, деветсто]
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
-    # И joins the ones to the tens (двадесет и један). A thousand alone is хиљаду; a count of thousands is feminine
-    # (две хиљаде, двадесет и једна хиљада), of милион and the other scale words in -ион masculine (два милиона),
+    # The ones follow the tens without и (двадесет један), as in Unicode CLDR since its Serbian rules were revised. A thousand alone is хиљаду; a count of thousands is feminine
+    # (две хиљаде, двадесет једна хиљада), of милион and the other scale words in -ион masculine (два милиона),
     # and of милијарда and the other scale words in -ијарда feminine (две милијарде).
     # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
     decimals: {reading: ru, integral_gender: neuter, fractional_gender: female}
@@ -27,7 +27,7 @@ sr:
         0: '{ones.male}'
         10: '{tens}'
         11: '{teens%}'
-        20: '{tens}[ {union} {>}]'
+        20: '{tens}[ {>}]'
         100: '{hundreds}[ {>}]'
         1000: '{thousand}[ {>}]'
         '2000/1000': '{<cardinal-female} {thousands}[ {>}]'
@@ -47,13 +47,13 @@ sr:
       cardinal-neuter:
         extends: cardinal-male
         0: '{ones.neuter}'
-      # The last word of an ordinal is ordinal (двадесет и први, хиљаду двеста трећи); a round scale ordinal joins its
+      # The last word of an ordinal is ordinal (двадесет први, хиљаду двеста трећи); a round scale ordinal joins its
       # count, with one left out (хиљадити, двехиљадити, милионити, двамилионити).
       ordinal:
         0: '{ordinals.ones}'
         10: '{ordinals.tens}'
         11: '{ordinals.teens%}'
-        20: '[{tens} {union} {>}|{ordinals.tens}]'
+        20: '[{tens} {>}|{ordinals.tens}]'
         100: '[{hundreds} {>}|{ordinals.hundreds}]'
         1000: '[{thousand} {>}|{ordinals.thousands}]'
         '2000/1000': '[{<cardinal-female} {thousands} {>}|{<count-female}{ordinals.thousands}]'
@@ -67,7 +67,7 @@ sr:
         1000000000000000000000000000: '[{<cardinal-female} {octillions} {>}|{<count-female}{ordinals.octillions}]'
         1000000000000000000000000000000: '[{<cardinal-male} {nonillions} {>}|{<count-male}{ordinals.nonillions}]'
         1000000000000000000000000000000000: '[{<cardinal-female} {decillions} {>}|{<count-female}{ordinals.decillions}]'
-      # The count of a round scale ordinal, written as one word without и, and left out when it is one.
+      # The count of a round scale ordinal, written as one word, and left out when it is one.
       count-male:
         then: joined-male
         1: ''
@@ -87,7 +87,6 @@ sr:
         extends: count-female
         1: '{ones.female}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
-    union: и
     thousand: хиљаду
     thousands: {one: хиљада, few: хиљаде, other: хиљада}
     millions: {one: милион, few: милиона, other: милиона}

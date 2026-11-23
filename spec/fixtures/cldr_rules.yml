@@ -195,6 +195,10 @@ bs:
     ticket: CLDR-19920
     affects: 3
 ca:
+  - reason: CLDR 46.1 reads 10^9 as un miliard; CLDR's current Catalan rules, the gem and the Institut d'Estudis Catalans say mil milions
+    replace: { un miliard: mil milions, miliardè: mil milionè, miliardena: mil milionena }
+    ticket: CLDR-19343
+    affects: 4
   - reason: CLDR keeps primer, segon, tercer and quart in compound ordinals (vint-i-primer, mil primer); Catalan uses them only alone and forms compounds with -è/-ena (vint-i-unè, vint-i-dosena)
     replace: { primer: unè, segon: dosè, tercer: tresè, quart: quatrè, primera: unena, segona: dosena, tercera: tresena, quarta: quatrena }
     kinds: [ordinal, ordinal/female]
@@ -590,6 +594,10 @@ sk:
     join_before: [tisíc]
     affects: 12
 sr:
+  - reason: CLDR 46.1 joins the tens and the ones with и (двадесет и један); CLDR's current Serbian rules, and the gem, write them without it (двадесет један)
+    replace: { двадесет и: двадесет, тридесет и: тридесет, четрдесет и: четрдесет, педесет и: педесет, шездесет и: шездесет, седамдесет и: седамдесет, осамдесет и: осамдесет, деведесет и: деведесет }
+    ticket: CLDR-19350
+    affects: 304
   - reason: CLDR says једна хиљаду; a thousand alone is хиљаду (хиљаду сто), or једна хиљада
     replace: { једна хиљаду: хиљаду }
     affects: 9
