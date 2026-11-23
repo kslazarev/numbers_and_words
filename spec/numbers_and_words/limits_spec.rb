@@ -52,7 +52,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
   end
 
   it 'raises RangeError past the last fraction word' do
-    { ru: 23, uk: 23, cs: 23 }.each do |locale, digits|
+    { ru: 23, uk: 23, be: 23, cs: 23 }.each do |locale, digits|
       expect(words(locale, 10.0**-digits)).not_to be_empty
       expect { words(locale, 10.0**-(digits + 1)) }.to raise_error(RangeError, "Decimals in #{locale.inspect} only support up to #{digits} fractional digits.")
     end
@@ -61,7 +61,7 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
   end
 
   it 'raises RangeError past the last scale word' do
-    { ar: 36, bg: 36, cs: 36, da: 36, de: 36, el: 36, fi: 36, he: 36, hy: 36, id: 36, ka: 36, ms: 36, nb: 36, ro: 36, sk: 36, sv: 36, hr: 36, bs: 36, sr: 36, sl: 36, et: 36, vi: 36,
+    { ar: 36, bg: 36, cs: 36, da: 36, de: 36, el: 36, fi: 36, he: 36, hy: 36, id: 36, ka: 36, ms: 36, nb: 36, ro: 36, sk: 36, sv: 36, hr: 36, bs: 36, sr: 36, sl: 36, et: 36, vi: 36, be: 36, mk: 36,
       en: 48, es: 48, fr: 36, hu: 36, 'pt-BR': 36 }.each do |locale, power|
       expect(words(locale, (10**power) - 1)).not_to be_empty
       expect { words(locale, 10**power) }.to raise_error(RangeError, "Numbers in #{locale.inspect} only support values below 10**#{power}.")

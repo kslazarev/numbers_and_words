@@ -24,6 +24,7 @@
       fr: { one: [un], before: [millionième, milliardième], affects: 2 }
       hu: { one: [egy], before: [milliomodik], affects: 1 }
       hy: { one: [մեկ], before: [հարյուր, հազար], affects: 10 }
+      mk: { one: [една], before: [илјада], affects: 9 }
       nl: { one: [een], before: [miljoenste, miljardste], affects: 2 }
       pt-BR: { one: [um, uma], before: [milionésimo, milionésima, bilionésimo, bilionésima], affects: 4 }
       ru: { one: [одна], before: [тысяча], kinds: [ordinal, ordinal/female, ordinal/neuter], affects: 6 }
@@ -67,6 +68,33 @@ az:
     ticket: CLDR-19918
     kinds: [ordinal]
     affects: 8
+be:
+  - reason: CLDR uses the superseded spellings пяцьдзесят and шэсцьдзесят (and the genitive stem пяцідзясят before a final digit of an ordinal); the 2008 Belarusian orthography writes пяцьдзясят and шэсцьдзясят
+    replace: { пяцьдзесят: пяцьдзясят, шэсцьдзесят: шэсцьдзясят, пяцідзясят: пяцьдзясят }
+    affects: 106
+  - reason: CLDR misspells the ordinal of three as трэйці, трэццяя and трэццяе; the standard forms are трэці, трэцяя and трэцяе
+    replace: { трэйці: трэці, трэццяя: трэцяя, трэццяе: трэцяе }
+    affects: 27
+  - reason: CLDR writes the ordinal of four in the classical orthography (чацьверты); the official orthography writes чацвёрты
+    replace: { чацьверты: чацвёрты, чацьвертая: чацвёртая, чацьвертае: чацвёртае }
+    affects: 27
+  - reason: CLDR forms the ordinal of 200 from the feminine дзве (дзвухсоты); it takes the genitive двух, as двухтысячны does
+    replace: { дзвухсоты: двухсоты, дзвухсотая: двухсотая, дзвухсотае: двухсотае }
+    affects: 3
+  - reason: CLDR builds some ordinals of 50, 60 and 70 on the cardinal stem (шэсцьдзесяты, семдзесяты) or misspells them; they take the genitive stem with я before the stress (пяцідзясяты, шасцідзясяты, сямідзясяты)
+    replace:
+      шэсцьдзесяты: шасцідзясяты
+      семдзесяты: сямідзясяты
+      пяцідзесятая: пяцідзясятая
+      шэсцідзесятая: шасцідзясятая
+      семдзесятая: сямідзясятая
+      пяцьдзесятае: пяцідзясятае
+      шэсцідзясятае: шасцідзясятае
+      сямдзясятае: сямідзясятае
+    affects: 8
+  - reason: CLDR's feminine and neuter rule sets spell 700 as сямсот, its masculine one as семсот; the standard form is семсот
+    replace: { сямсот: семсот }
+    affects: 1
 bg:
   - reason: CLDR uses the colloquial contracted teens and tens (единайсет, двайсет); the gem uses the literary standard forms (единадесет, двадесет)
     replace_parts: { найсет: надесет, двайсет: двадесет, трийсет: тридесет, четиресет: четиридесет, шейсет: шестдесет }
@@ -332,6 +360,21 @@ lv:
   - reason: CLDR uses the plural after a final 1 (divdesmit viens tūkstoši); the noun agrees with viens (divdesmit viens tūkstotis)
     replace: { viens tūkstoši: viens tūkstotis, viens miljoni: viens miljons }
     affects: 2
+mk:
+  - reason: CLDR joins the feminine count to сто for every hundred (еднасто, двесто, четиристо); Macedonian says сто, двесте, триста and -стотини from 400 (четиристотини, шестотини)
+    replace: { еднасто: сто, двесто: двесте, тристо: триста, четиристо: четиристотини, петсто: петстотини, шестсто: шестотини, седумсто: седумстотини, осумсто: осумстотини, деветсто: деветстотини }
+    affects: 30
+  - reason: CLDR's neuter rule set says два; the neuter of two is две, as the feminine (две деца)
+    replace: { два: две }
+    kinds: [cardinal/neuter]
+    below: 1000
+    affects: 9
+  - reason: CLDR never inflects the scale words; илјада and милион take the plural илјади and милиони after a count other than one, and милијарда, which is feminine, counts with една
+    replace: { две илјада: две илјади, три илјада: три илјади, шест илјада: шест илјади, сто илјада: сто илјади, два милион: два милиони, три милион: три милиони, еден милијарда: една милијарда }
+    affects: 18
+  - reason: Macedonian puts и before a last part of one word (сто и еден, илјада и сто); CLDR puts и only between tens and units
+    replace: { сто еден: сто и еден, сто една: сто и една, сто едно: сто и едно, сто десет: сто и десет, сто единаесет: сто и единаесет, илјада еден: илјада и еден, илјада една: илјада и една, илјада едно: илјада и едно, илјада сто: илјада и сто }
+    affects: 15
 ms:
   - reason: the gem says sifar for zero, CLDR kosong; both are used
     replace: { kosong: sifar, kekosong: sifar }

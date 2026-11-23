@@ -110,6 +110,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Arabic](docs/languages/ar.md)* | العربية | `ar` |
 | [Armenian](docs/languages/hy.md) | Հայերեն | `hy` |
 | [Azerbaijani](docs/languages/az.md)* | Azərbaycan dili | `az` |
+| [Belarusian](docs/languages/be.md)* | Беларуская | `be` |
 | [Bengali](docs/languages/bn.md)* | বাংলা | `bn` |
 | [Brazilian Portuguese](docs/languages/pt-BR.md) | Português brasileiro | `pt-BR` |
 | [British English](docs/languages/en-GB.md) | English (British) | `en-GB` |
@@ -137,6 +138,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Korean](docs/languages/ko.md)* | 한국어 | `ko` |
 | [Latvian](docs/languages/lv.md) | Latviešu | `lv` |
 | [Lithuanian](docs/languages/lt.md) | Lietuvių | `lt` |
+| [Macedonian](docs/languages/mk.md)* | Македонски | `mk` |
 | [Malay](docs/languages/ms.md)* | Bahasa Melayu | `ms` |
 | [Norwegian Bokmål](docs/languages/nb.md)* | Norsk bokmål | `nb` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |

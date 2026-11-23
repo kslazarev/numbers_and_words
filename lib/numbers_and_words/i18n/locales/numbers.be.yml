@@ -1,0 +1,175 @@
+be:
+  numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
+      few: 'n % 10 = 2,3,4 and n % 100 != 12,13,14'
+      many: 'n % 10 = 0 or n % 10 = 5,6,7,8,9 or n % 100 = 11,12,13,14'
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: {keeps_ordinal_zero: true}
+    minus: мінус
+    ones:
+      male: [нуль, адзін, два, тры, чатыры, пяць, шэсць, сем, восем, дзевяць]
+      female: [нуль, адна, дзве, тры, чатыры, пяць, шэсць, сем, восем, дзевяць]
+      neuter: [нуль, адно, два, тры, чатыры, пяць, шэсць, сем, восем, дзевяць]
+    teens: [_, адзінаццаць, дванаццаць, трынаццаць, чатырнаццаць, пятнаццаць, шаснаццаць, сямнаццаць, васямнаццаць, дзевятнаццаць]
+    tens: [_, дзесяць, дваццаць, трыццаць, сорак, пяцьдзясят, шэсцьдзясят, семдзесят, восемдзесят, дзевяноста]
+    hundreds: [_, сто, дзвесце, трыста, чатырыста, пяцьсот, шэсцьсот, семсот, восемсот, дзевяцьсот]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: ru, integral_gender: female, fractional_gender: female}
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{<cardinal-female} {thousands}[ {>}]'
+        1000000: '{<cardinal-male} {millions}[ {>}]'
+        1000000000: '{<cardinal-male} {billions}[ {>}]'
+        1000000000000: '{<cardinal-male} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-male} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-male} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal-male} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-male} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-male} {decillions}[ {>}]'
+      cardinal-female:
+        extends: cardinal-male
+        0: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        0: '{ones.neuter}'
+      # Ordinals: only the last word is ordinal ("дваццаць першы"), a scale group of exactly one omits that one
+      # ("тысяча першы"), and a round scale word joins its count in the genitive ("двухтысячны", "статысячны").
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens} {>}|{ordinals.tens}]'
+        100: '[{hundreds} {>}|{ordinals.hundreds}]'
+        1000: '[{<scale-count-female} {thousands} {>}|{<combining}{ordinals.thousands}]'
+        1000000: '[{<scale-count} {millions} {>}|{<combining}{ordinals.millions}]'
+        1000000000: '[{<scale-count} {billions} {>}|{<combining}{ordinals.billions}]'
+        1000000000000: '[{<scale-count} {trillions} {>}|{<combining}{ordinals.trillions}]'
+        1000000000000000: '[{<scale-count} {quadrillions} {>}|{<combining}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<scale-count} {quintillions} {>}|{<combining}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<scale-count} {sextillions} {>}|{<combining}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<scale-count} {septillions} {>}|{<combining}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<scale-count} {octillions} {>}|{<combining}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<scale-count} {nonillions} {>}|{<combining}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<scale-count} {decillions} {>}|{<combining}{ordinals.decillions}]'
+      scale-count:
+        extends: cardinal-male
+        then: cardinal-male
+        1: ''
+        2: '{ones.male}'
+      scale-count-female:
+        extends: cardinal-female
+        then: cardinal-female
+        1: ''
+        2: '{ones.female}'
+      combining:
+        then: combining-rest
+        1: ''
+        2: '{ordinals.combining_ones}'
+        10: '{ordinals.combining_tens}'
+        11: '{ordinals.combining_teens%}'
+        20: '{ordinals.combining_tens}[{>}]'
+        100: '{ordinals.combining_hundreds}[{>}]'
+      combining-rest:
+        extends: combining
+        1: '{ordinals.combining_ones}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: {one: тысяча, few: тысячы, many: тысяч}
+    millions: {one: мільён, few: мільёны, many: мільёнаў}
+    billions: {one: мільярд, few: мільярды, many: мільярдаў}
+    trillions: {one: трыльён, few: трыльёны, many: трыльёнаў}
+    quadrillions: {one: квадрыльён, few: квадрыльёны, many: квадрыльёнаў}
+    quintillions: {one: квінтыльён, few: квінтыльёны, many: квінтыльёнаў}
+    sextillions: {one: секстыльён, few: секстыльёны, many: секстыльёнаў}
+    septillions: {one: септыльён, few: септыльёны, many: септыльёнаў}
+    octillions: {one: актыльён, few: актыльёны, many: актыльёнаў}
+    nonillions: {one: нанільён, few: нанільёны, many: нанільёнаў}
+    decillions: {one: дэцыльён, few: дэцыльёны, many: дэцыльёнаў}
+    # A count of two to four takes the nominative plural ("дзве цэлыя", "тры дзясятыя"), and of five or more the
+    # genitive plural ("пяць цэлых", "пяць дзясятых").
+    integral: {one: цэлая, few: цэлыя, many: цэлых}
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths]
+    tenths: {one: дзясятая, few: дзясятыя, many: дзясятых}
+    hundredths: {one: сотая, few: сотыя, many: сотых}
+    thousandths: {one: тысячная, few: тысячныя, many: тысячных}
+    millionths: {one: мільённая, few: мільённыя, many: мільённых}
+    billionths: {one: мільярдная, few: мільярдныя, many: мільярдных}
+    trillionths: {one: трыльённая, few: трыльённыя, many: трыльённых}
+    quadrillionths: {one: квадрыльённая, few: квадрыльённыя, many: квадрыльённых}
+    quintillionths: {one: квінтыльённая, few: квінтыльённыя, many: квінтыльённых}
+    sextillionths: {one: секстыльённая, few: секстыльённыя, many: секстыльённых}
+    micro_separator: і
+    # The prefixes of ten and a hundred before a fraction word ("дзесяцітысячных", "статысячных").
+    micro_prefix:
+      tens: дзесяці
+      hundreds: ста
+      union: ''
+    union: і
+    ordinals:
+      ones: [нулявы, першы, другі, трэці, чацвёрты, пяты, шосты, сёмы, восьмы, дзявяты]
+      teens: [_, адзінаццаты, дванаццаты, трынаццаты, чатырнаццаты, пятнаццаты, шаснаццаты, сямнаццаты, васямнаццаты, дзевятнаццаты]
+      tens: [_, дзясяты, дваццаты, трыццаты, саракавы, пяцідзясяты, шасцідзясяты, сямідзясяты, васьмідзясяты, дзевяносты]
+      hundreds: [_, соты, двухсоты, трохсоты, чатырохсоты, пяцісоты, шасцісоты, сямісоты, васьмісоты, дзевяцісоты]
+      thousands: тысячны
+      millions: мільённы
+      billions: мільярдны
+      trillions: трыльённы
+      quadrillions: квадрыльённы
+      quintillions: квінтыльённы
+      sextillions: секстыльённы
+      septillions: септыльённы
+      octillions: актыльённы
+      nonillions: нанільённы
+      decillions: дэцыльённы
+      # The genitive counts of a round scale ordinal ("дваццаціаднатысячны").
+      combining_ones: [_, адна, двух, трох, чатырох, пяці, шасці, сямі, васьмі, дзевяці]
+      combining_teens: [_, адзінаццаці, дванаццаці, трынаццаці, чатырнаццаці, пятнаццаці, шаснаццаці, сямнаццаці, васямнаццаці, дзевятнаццаці]
+      combining_tens: [_, дзесяці, дваццаці, трыццаці, сарака, пяцідзесяці, шасцідзесяці, сямідзесяці, васьмідзесяці, дзевяноста]
+      combining_hundreds: [_, ста, двухсот, трохсот, чатырохсот, пяцісот, шасцісот, сямісот, васьмісот, дзевяцісот]
+    # The feminine and neuter ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [нулявая, першая, другая, трэцяя, чацвёртая, пятая, шостая, сёмая, восьмая, дзявятая]
+          teens: [_, адзінаццатая, дванаццатая, трынаццатая, чатырнаццатая, пятнаццатая, шаснаццатая, сямнаццатая, васямнаццатая, дзевятнаццатая]
+          tens: [_, дзясятая, дваццатая, трыццатая, саракавая, пяцідзясятая, шасцідзясятая, сямідзясятая, васьмідзясятая, дзевяностая]
+          hundreds: [_, сотая, двухсотая, трохсотая, чатырохсотая, пяцісотая, шасцісотая, сямісотая, васьмісотая, дзевяцісотая]
+          thousands: тысячная
+          millions: мільённая
+          billions: мільярдная
+          trillions: трыльённая
+          quadrillions: квадрыльённая
+          quintillions: квінтыльённая
+          sextillions: секстыльённая
+          septillions: септыльённая
+          octillions: актыльённая
+          nonillions: нанільённая
+          decillions: дэцыльённая
+      neuter:
+        ordinals:
+          ones: [нулявое, першае, другое, трэцяе, чацвёртае, пятае, шостае, сёмае, восьмае, дзявятае]
+          teens: [_, адзінаццатае, дванаццатае, трынаццатае, чатырнаццатае, пятнаццатае, шаснаццатае, сямнаццатае, васямнаццатае, дзевятнаццатае]
+          tens: [_, дзясятае, дваццатае, трыццатае, саракавое, пяцідзясятае, шасцідзясятае, сямідзясятае, васьмідзясятае, дзевяностае]
+          hundreds: [_, сотае, двухсотае, трохсотае, чатырохсотае, пяцісотае, шасцісотае, сямісотае, васьмісотае, дзевяцісотае]
+          thousands: тысячнае
+          millions: мільённае
+          billions: мільярднае
+          trillions: трыльённае
+          quadrillions: квадрыльённае
+          quintillions: квінтыльённае
+          sextillions: секстыльённае
+          septillions: септыльённае
+          octillions: актыльённае
+          nonillions: нанільённае
+          decillions: дэцыльённае
