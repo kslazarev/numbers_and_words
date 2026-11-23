@@ -11,7 +11,7 @@ describe I18n, '#pl' do
   }.each do |form, numbers|
     numbers.each do |number|
       it "uses #{form} for #{number.inspect}" do
-        expect(NumbersAndWords::I18n::Plurals::Pl::RULE.call(number)).to eq(form)
+        expect(NumbersAndWords::I18n::Pluralization.rule(:pl).call(number)).to eq(form)
       end
     end
   end

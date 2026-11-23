@@ -19,7 +19,6 @@ require 'numbers_and_words/strategies/figures_converter/languages/ja'
 require 'numbers_and_words/strategies/figures_converter/languages/ko'
 require 'numbers_and_words/strategies/figures_converter/languages/he'
 require 'numbers_and_words/strategies/figures_converter/languages/nb'
-require 'numbers_and_words/strategies/figures_converter/languages/pl'
 
 module NumbersAndWords
   module Strategies

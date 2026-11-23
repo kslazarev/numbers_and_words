@@ -205,6 +205,7 @@ fr:
     unit_after_zero: one
     unit_scale_preposition: de
     unit_scale_preposition_elided: "d'"
+    unit_scale_preposition_elided_before: aeiouàâäéèêëîïôöùûüæœ
     fraction_separator: et
     micro_prefix:
       tens: dix
