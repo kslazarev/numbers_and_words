@@ -27,7 +27,11 @@ module NumbersAndWords
 
           # The fractional part read digit by digit, as English does after "point".
           def decimal_point_digits
-            [*Array.new(leading_zeros, 0), *@strategy.figures.reverse].map { |digit| Wrappers::Integer.new(digit).to_words }.join(' ')
+            [*Array.new(leading_zeros, 0), *@strategy.figures.reverse].map { |digit| digit_words(digit) }.join(' ')
+          end
+
+          def digit_words(digit)
+            I18n.cached(:digit_words, [::I18n.locale, digit]) { Wrappers::Integer.new(digit).to_words }
           end
 
           def digit_by_digit?

@@ -14,10 +14,18 @@ module NumbersAndWords
             # of its value, such as French spelling: :traditional.
             def option_words
               scopes = locale_words(:options)
-              declared_options.keys.filter_map do |name|
+              options_with_words.filter_map do |name|
                 value = @options.public_send(name)&.result
                 key = value == true ? name : value
                 "options.#{key}" if key.is_a?(::Symbol) && scopes.include?(key)
+              end
+            end
+
+            # The declared options that are, or have a value or a default that is, a scope under numbers.options.
+            def options_with_words
+              locale[:options_with_words] ||= declared_options.filter_map do |name, declared|
+                keys = declared.is_a?(::Hash) ? [name, *declared[:values], declared[:default]] : [name]
+                name if keys.any? { |key| key.respond_to?(:to_sym) && locale_words(:options).include?(key.to_sym) }
               end
             end
 

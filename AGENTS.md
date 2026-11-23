@@ -37,6 +37,8 @@ Everything about a language belongs in its locale file; Ruby is only for what ru
 
 `to_words` ignores an undeclared option, except the global ones in `OptionsValidation::GLOBAL`, with a warning, and raises with `NumbersAndWords.config.strict_options = true`. Internal options such as `integral` or `fractional` must not go through `Integer#to_words`; call the wrappers directly. Error messages are sentences, such as `Ordinals in :ar only support numbers between 1 and 99.`; use `Translations::Families::Base.range_error`, `decimal_range_error` or `ordinal_range_error` for the shared ones.
 
+Read locale data with `NumbersAndWords::I18n.t`, and derive values from it with `NumbersAndWords::I18n.cached`, not with `::I18n.t` on every conversion: both keep the result on I18n's Simple backend until it stores or reloads translations (`lib/numbers_and_words/i18n/invalidation.rb`), and look it up each time with another backend. Check a change to a conversion path with `bundle exec rake benchmark`.
+
 A new language needs all of these, an entry in the script map in `spec/numbers_and_words/i18n_spec.rb`, and a CHANGELOG entry.
 
 ## Invariants Enforced by Specs

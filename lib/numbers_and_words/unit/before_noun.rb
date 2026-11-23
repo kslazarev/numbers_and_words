@@ -11,7 +11,7 @@ module NumbersAndWords
       module_function
 
       def apply(words, gender)
-        forms = ::I18n.t('numbers.before_unit', locale: I18n.local_language, default: {})
+        forms = I18n.t('numbers.before_unit', locale: I18n.local_language, default: {})
         return words if forms.empty?
 
         whole = forms.fetch(:whole, {})[words.to_sym]

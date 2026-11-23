@@ -16,7 +16,7 @@ module NumbersAndWords
 
       def prefix(words)
         language = I18n.local_language
-        [::I18n.t('numbers.minus', locale: language), words].join(I18n.word_separator(language))
+        [I18n.t('numbers.minus', locale: language), words].join(I18n.word_separator(language))
       end
 
       def ordinal?(options)

@@ -14,7 +14,7 @@ module NumbersAndWords
           end
 
           def ordinal_integer
-            @figures.to_a.reverse.join.to_i
+            @ordinal_integer ||= @figures.to_a.reverse.join.to_i
           end
 
           def ordinals

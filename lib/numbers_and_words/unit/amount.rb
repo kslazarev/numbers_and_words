@@ -40,10 +40,10 @@ module NumbersAndWords
       # numbers.subunit_separator_attached: true it is a prefix of the next word (Hebrew and Arabic "ו", "و").
       def subunit_separator
         language = I18n.local_language
-        word = ::I18n.t('numbers.subunit_separator', locale: language, default: '')
+        word = I18n.t('numbers.subunit_separator', locale: language, default: '')
         return Unit.separator if word.empty?
 
-        ::I18n.t('numbers.subunit_separator_attached', locale: language, default: false) ? " #{word}" : " #{word} "
+        I18n.t('numbers.subunit_separator_attached', locale: language, default: false) ? " #{word}" : " #{word} "
       end
     end
   end
