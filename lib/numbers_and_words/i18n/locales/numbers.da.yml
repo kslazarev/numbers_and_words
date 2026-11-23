@@ -31,6 +31,11 @@ da:
         1000000000000: '{<cardinal} {trillions}[{>}]'
         1000000000000000: '{<cardinal} {quadrillions}[{>}]'
         1000000000000000000: '{<cardinal} {quintillions}[{>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[{>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[{>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[{>}]'
       cardinal-neuter:
         extends: cardinal
         then: rest-neuter
@@ -59,6 +64,11 @@ da:
         1000000000000: '[{<cardinal} {trillions}{>}|{<count} {ordinals.trillions}]'
         1000000000000000: '[{<cardinal} {quadrillions}{>}|{<count} {ordinals.quadrillions}]'
         1000000000000000000: '[{<cardinal} {quintillions}{>}|{<count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions}{>}|{<count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions}{>}|{<count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions}{>}|{<count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions}{>}|{<count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions}{>}|{<count} {ordinals.decillions}]'
       ordinal-rest:
         extends: rest
         then: ordinal-inner
@@ -71,6 +81,11 @@ da:
         1000000000000: '[{<cardinal} {trillions}{>}|{<cardinal} {ordinals.trillions}]'
         1000000000000000: '[{<cardinal} {quadrillions}{>}|{<cardinal} {ordinals.quadrillions}]'
         1000000000000000000: '[{<cardinal} {quintillions}{>}|{<cardinal} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions}{>}|{<cardinal} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions}{>}|{<cardinal} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions}{>}|{<cardinal} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions}{>}|{<cardinal} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions}{>}|{<cardinal} {ordinals.decillions}]'
       count:
         extends: cardinal
         1: ''
@@ -79,13 +94,18 @@ da:
         extends: cardinal-neuter
         1: ''
         2: '{neuter}'
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: tusind, other: tusind}
     millions: {one: million, other: millioner}
     billions: {one: milliard, other: milliarder}
     trillions: {one: billion, other: billioner}
     quadrillions: {one: billiard, other: billiarder}
     quintillions: {one: trillion, other: trillioner}
+    sextillions: {one: trilliard, other: trilliarder}
+    septillions: {one: kvadrillion, other: kvadrillioner}
+    octillions: {one: kvadrilliard, other: kvadrilliarder}
+    nonillions: {one: kvintillion, other: kvintillioner}
+    decillions: {one: kvintilliard, other: kvintilliarder}
     union: og
     ordinals:
       ones: [nulte, første, anden, tredje, fjerde, femte, sjette, syvende, ottende, niende]
@@ -98,6 +118,11 @@ da:
       trillions: billionte
       quadrillions: billiardte
       quintillions: trillionte
+      sextillions: trilliardte
+      septillions: kvadrillionte
+      octillions: kvadrilliardte
+      nonillions: kvintillionte
+      decillions: kvintilliardte
     # The neuter ordinals.
     genders:
       neuter:

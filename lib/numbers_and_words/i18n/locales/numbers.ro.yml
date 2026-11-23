@@ -35,6 +35,18 @@ ro:
     trillions: bilioane
     quadrillion: biliard
     quadrillions: biliarde
+    quintillion: trilion
+    quintillions: trilioane
+    sextillion: triliard
+    sextillions: triliarde
+    septillion: cvadrilion
+    septillions: cvadrilioane
+    octillion: cvadriliard
+    octillions: cvadriliarde
+    nonillion: cvintilion
+    nonillions: cvintilioane
+    decillion: cvintiliard
+    decillions: cvintiliarde
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # A scale word counts in the feminine (mie) or the neuter (the others), with "de" after a count whose last two
     # digits are zero or 20 or more ("douăzeci de mii", "o sută de mii", but "două mii", "o sută una mii").
@@ -57,6 +69,18 @@ ro:
         2000000000000: '{<count-neuter} {trillions}[ {>}]'
         1000000000000000: '{one.neuter} {quadrillion}[ {>}]'
         2000000000000000: '{<count-neuter} {quadrillions}[ {>}]'
+        1000000000000000000: '{one.neuter} {quintillion}[ {>}]'
+        2000000000000000000: '{<count-neuter} {quintillions}[ {>}]'
+        1000000000000000000000: '{one.neuter} {sextillion}[ {>}]'
+        2000000000000000000000: '{<count-neuter} {sextillions}[ {>}]'
+        1000000000000000000000000: '{one.neuter} {septillion}[ {>}]'
+        2000000000000000000000000: '{<count-neuter} {septillions}[ {>}]'
+        1000000000000000000000000000: '{one.neuter} {octillion}[ {>}]'
+        2000000000000000000000000000: '{<count-neuter} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{one.neuter} {nonillion}[ {>}]'
+        2000000000000000000000000000000: '{<count-neuter} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{one.neuter} {decillion}[ {>}]'
+        2000000000000000000000000000000000: '{<count-neuter} {decillions}[ {>}]'
       cardinal-female:
         extends: cardinal-male
         0: '{ones.female}'
@@ -101,13 +125,31 @@ ro:
         2000000000000: '[{<count-neuter} {trillions} {>ordinal-inner}|{<count-neuter} {ordinals.trillions}]'
         1000000000000000: '[{one.neuter} {quadrillion} {>ordinal-inner}|{ordinals.quadrillion}]'
         2000000000000000: '[{<count-neuter} {quadrillions} {>ordinal-inner}|{<count-neuter} {ordinals.quadrillions}]'
+        1000000000000000000: '[{one.neuter} {quintillion} {>ordinal-inner}|{ordinals.quintillion}]'
+        2000000000000000000: '[{<count-neuter} {quintillions} {>ordinal-inner}|{<count-neuter} {ordinals.quintillions}]'
+        1000000000000000000000: '[{one.neuter} {sextillion} {>ordinal-inner}|{ordinals.sextillion}]'
+        2000000000000000000000: '[{<count-neuter} {sextillions} {>ordinal-inner}|{<count-neuter} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{one.neuter} {septillion} {>ordinal-inner}|{ordinals.septillion}]'
+        2000000000000000000000000: '[{<count-neuter} {septillions} {>ordinal-inner}|{<count-neuter} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{one.neuter} {octillion} {>ordinal-inner}|{ordinals.octillion}]'
+        2000000000000000000000000000: '[{<count-neuter} {octillions} {>ordinal-inner}|{<count-neuter} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{one.neuter} {nonillion} {>ordinal-inner}|{ordinals.nonillion}]'
+        2000000000000000000000000000000: '[{<count-neuter} {nonillions} {>ordinal-inner}|{<count-neuter} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{one.neuter} {decillion} {>ordinal-inner}|{ordinals.decillion}]'
+        2000000000000000000000000000000000: '[{<count-neuter} {decillions} {>ordinal-inner}|{<count-neuter} {ordinals.decillions}]'
       ordinal-inner:
         extends: ordinal-words
         1000000: '[{one.neuter} {million} {>ordinal-inner}|{one.neuter} {ordinals.million}]'
         1000000000: '[{one.neuter} {billion} {>ordinal-inner}|{one.neuter} {ordinals.billion}]'
         1000000000000: '[{one.neuter} {trillion} {>ordinal-inner}|{one.neuter} {ordinals.trillion}]'
         1000000000000000: '[{one.neuter} {quadrillion} {>ordinal-inner}|{one.neuter} {ordinals.quadrillion}]'
-    mega: [_, mie, milion, miliard, bilion, biliard]
+        1000000000000000000: '[{one.neuter} {quintillion} {>ordinal-inner}|{one.neuter} {ordinals.quintillion}]'
+        1000000000000000000000: '[{one.neuter} {sextillion} {>ordinal-inner}|{one.neuter} {ordinals.sextillion}]'
+        1000000000000000000000000: '[{one.neuter} {septillion} {>ordinal-inner}|{one.neuter} {ordinals.septillion}]'
+        1000000000000000000000000000: '[{one.neuter} {octillion} {>ordinal-inner}|{one.neuter} {ordinals.octillion}]'
+        1000000000000000000000000000000: '[{one.neuter} {nonillion} {>ordinal-inner}|{one.neuter} {ordinals.nonillion}]'
+        1000000000000000000000000000000000: '[{one.neuter} {decillion} {>ordinal-inner}|{one.neuter} {ordinals.decillion}]'
+    mega: [_, mie, milion, miliard, bilion, biliard, trilion, triliard, cvadrilion, cvadriliard, cvintilion, cvintiliard]
     ordinals:
       article: al
       first: primul
@@ -126,6 +168,18 @@ ro:
       trillions: bilioanelea
       quadrillion: biliardulea
       quadrillions: biliardelea
+      quintillion: trilionulea
+      quintillions: trilioanelea
+      sextillion: triliardulea
+      sextillions: triliardelea
+      septillion: cvadrilionulea
+      septillions: cvadrilioanelea
+      octillion: cvadriliardulea
+      octillions: cvadriliardelea
+      nonillion: cvintilionulea
+      nonillions: cvintilioanelea
+      decillion: cvintiliardulea
+      decillions: cvintiliardelea
     # The feminine ordinals.
     genders:
       female:
@@ -147,6 +201,18 @@ ro:
           trillions: bilioana
           quadrillion: biliarda
           quadrillions: biliarda
+          quintillion: trilioana
+          quintillions: trilioana
+          sextillion: triliarda
+          sextillions: triliarda
+          septillion: cvadrilioana
+          septillions: cvadrilioana
+          octillion: cvadriliarda
+          octillions: cvadriliarda
+          nonillion: cvintilioana
+          nonillions: cvintilioana
+          decillion: cvintiliarda
+          decillions: cvintiliarda
     micro_separator: virgulă
     subunit_separator: și
     # The form of a unit after a decimal: the few form, without "de" ("virgulă cinci lei").

@@ -115,3 +115,25 @@ to_words:
     options:
       :ordinal: true
     18: 'thứ mười tám'
+  large_scales:
+    1000000000000000000: 'một tỷ tỷ'
+    2000000000000000000: 'hai tỷ tỷ'
+    1000000000000000000000: 'một nghìn tỷ tỷ'
+    2000000000000000000000: 'hai nghìn tỷ tỷ'
+    1000000000000000000000000: 'một triệu tỷ tỷ'
+    2000000000000000000000000: 'hai triệu tỷ tỷ'
+    1000000000000000000000000000: 'một tỷ tỷ tỷ'
+    2000000000000000000000000000: 'hai tỷ tỷ tỷ'
+    1000000000000000000000000000000: 'một nghìn tỷ tỷ tỷ'
+    2000000000000000000000000000000: 'hai nghìn tỷ tỷ tỷ'
+    1000000000000000000000000000000000: 'một triệu tỷ tỷ tỷ'
+    2000000000000000000000000000000000: 'hai triệu tỷ tỷ tỷ'
+    123456789012345678901234567890123456: 'một trăm hai mươi ba triệu bốn trăm năm mươi sáu nghìn bảy trăm tám mươi chín tỷ không trăm mười hai triệu ba trăm bốn mươi lăm nghìn sáu trăm bảy mươi tám tỷ chín trăm linh một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy tỷ tám trăm chín mươi triệu một trăm hai mươi ba nghìn bốn trăm năm mươi sáu'
+    999999999999999999999999999999999999: 'chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn chín trăm chín mươi chín tỷ chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn chín trăm chín mươi chín tỷ chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn chín trăm chín mươi chín tỷ chín trăm chín mươi chín triệu chín trăm chín mươi chín nghìn chín trăm chín mươi chín'
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000000: 'thứ một tỷ tỷ'
+    1000000000000000000000000000000000: 'thứ một triệu tỷ tỷ tỷ'
+    2000000000000000005: 'thứ hai tỷ tỷ không trăm linh năm'
+    123456789012345678901234567890123456: 'thứ một trăm hai mươi ba triệu bốn trăm năm mươi sáu nghìn bảy trăm tám mươi chín tỷ không trăm mười hai triệu ba trăm bốn mươi lăm nghìn sáu trăm bảy mươi tám tỷ chín trăm linh một triệu hai trăm ba mươi bốn nghìn năm trăm sáu mươi bảy tỷ tám trăm chín mươi triệu một trăm hai mươi ba nghìn bốn trăm năm mươi sáu'

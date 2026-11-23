@@ -5,8 +5,8 @@ require 'spec_helper'
 describe NumbersAndWords::Strategies::FiguresConverter::Languages::Sk do
   around { |example| I18n.with_locale(:sk) { example.run } }
 
-  it 'raises for numbers from 10**21' do
-    expect { (10**21).to_words }.to raise_error(RangeError, 'Numbers in :sk only support values below 10**21.')
+  it 'raises for numbers from 10**36' do
+    expect { (10**36).to_words }.to raise_error(RangeError, 'Numbers in :sk only support values below 10**36.')
   end
 
   it 'raises for more than nine fractional digits' do

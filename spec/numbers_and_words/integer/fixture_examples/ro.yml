@@ -89,6 +89,20 @@ to_words:
     2000000000000: două bilioane
     999999999999999: nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
     999999999999999999: nouă sute nouăzeci și nouă de biliarde nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+  large scales:
+    1000000000000000000: un trilion
+    2000000000000000000: două trilioane
+    1000000000000000000000: un triliard
+    2000000000000000000000: două triliarde
+    1000000000000000000000000: un cvadrilion
+    2000000000000000000000000: două cvadrilioane
+    1000000000000000000000000000: un cvadriliard
+    2000000000000000000000000000: două cvadriliarde
+    1000000000000000000000000000000: un cvintilion
+    2000000000000000000000000000000: două cvintilioane
+    1000000000000000000000000000000000: un cvintiliard
+    2000000000000000000000000000000000: două cvintiliarde
+    987654321123456789012345678901234567: nouă sute optzeci și șapte de cvintiliarde șase sute cincizeci și patru de cvintilioane trei sute douăzeci și unu de cvadriliarde o sută douăzeci și trei de cvadrilioane patru sute cincizeci și șase de triliarde șapte sute optzeci și nouă de trilioane douăsprezece biliarde trei sute patruzeci și cinci de bilioane șase sute șaptezeci și opt de miliarde nouă sute unu milioane două sute treizeci și patru de mii cinci sute șaizeci și șapte
   ordinal:
     options:
       :ordinal: true
@@ -126,6 +140,18 @@ to_words:
     1000000: al milionulea
     2000000: al două milioanelea
     1000000000: al miliardulea
+    1000000000000000000: al trilionulea
+    2000000000000000000: al două trilioanelea
+    1000000000000000000000: al triliardulea
+    2000000000000000000000: al două triliardelea
+    1000000000000000000000000: al cvadrilionulea
+    2000000000000000000000000: al două cvadrilioanelea
+    1000000000000000000000000000: al cvadriliardulea
+    2000000000000000000000000000: al două cvadriliardelea
+    1000000000000000000000000000000: al cvintilionulea
+    2000000000000000000000000000000: al două cvintilioanelea
+    1000000000000000000000000000000000: al cvintiliardulea
+    2000000000000000000000000000000000: al două cvintiliardelea
   male gender:
     options:
       :gender: male

@@ -11,7 +11,7 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::He do
     expect(words.first(2)).to eq(%w[אפס] + ['עשרים ואחת'])
   end
 
-  it 'raises for numbers from 10**15' do
-    expect { (10**15).to_words }.to raise_error(RangeError, 'Numbers in :he only support values below 10**15.')
+  it 'raises for numbers from 10**36' do
+    expect { (10**36).to_words }.to raise_error(RangeError, 'Numbers in :he only support values below 10**36.')
   end
 end

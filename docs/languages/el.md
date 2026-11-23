@@ -2,7 +2,7 @@
 
 Ελληνικά. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Numbers up to 999,999,999,999,999 (τρισεκατομμύριο) are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count, and are neuter by default, as when counting (ένα, τρία, τέσσερα, διακόσια, χίλια); see [Gender](#gender). Thousands above one are the feminine noun χιλιάδες (δύο χιλιάδες, είκοσι μία χιλιάδες, διακόσιες χιλιάδες), and millions and larger are neuter (ένα εκατομμύριο, δύο εκατομμύρια). εκατό becomes εκατόν before the rest of its hundred (εκατόν ένα). Above τρισεκατομμύριο (10<sup>12</sup>), scale words are a multiplier and εκατομμύριο, from τετράκις εκατομμύριο (10<sup>15</sup>) to δεκάκις εκατομμύριο (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -119,4 +119,5 @@ I18n.with_locale(:el) { 0.7.to_words(remove_zero: true) }
 
 - [Eirmos: Greek Numbers](https://moderngreek.eirmosonline.com/foundation-vocabulary-shorts/numbers/): Cardinal forms and grammatical agreement.
 - [Elon.io: Greek Ordinal Numbers](https://elon.io/grammar/greek/numbers/ordinal-numbers): Ordinal formation and gender.
+- [Wiktionary: τετράκις εκατομμύριο](https://en.wiktionary.org/wiki/τετράκις_εκατομμύριο): The neuter scale word for 10<sup>15</sup>, a multiplier and εκατομμύριο, followed for the larger scales.
 - [Unicode CLDR: Greek Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/el.xml): The spell-out rules ICU uses to write numbers in words.

@@ -1,6 +1,6 @@
 # Czech (`cs`)
 
-Čeština. Without [`gender`](#gender), numbers use the counting forms jedna and dva (jedna, dva, tři, dvacet dva). Numbers up to 10<sup>30</sup> - 1 are supported; larger numbers raise `RangeError`.
+Čeština. Without [`gender`](#gender), numbers use the counting forms jedna and dva (jedna, dva, tři, dvacet dva). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -110,4 +110,5 @@ I18n.with_locale(:cs) { 0.7.to_words(remove_zero: true) }
 - [Czech Language Institute: bilion](https://prirucka.ujc.cas.cz/?slovo=bilion): Accented and unaccented scale-word variants.
 - [Czech Language Institute: miliontina](https://prirucka.ujc.cas.cz/?slovo=miliontina): Corresponding spelling variants in fraction names.
 - [Biliontina](https://cs.wikipedia.org/wiki/Biliontina): The fraction name for one trillionth.
+- [Czech Language Institute: kvintilion](https://prirucka.ujc.cas.cz/?slovo=kvintilion): The forms of kvintilion.
 - [Unicode CLDR: Czech Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/cs.xml): The spell-out rules ICU uses to write numbers in words.

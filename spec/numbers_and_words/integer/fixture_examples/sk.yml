@@ -68,6 +68,18 @@ to_words:
     1000000000000: bilión
     999999999999999: deväťstodeväťdesiatdeväť biliónov deväťstodeväťdesiatdeväť miliárd
       deväťstodeväťdesiatdeväť miliónov deväťstodeväťdesiatdeväťtisícdeväťstodeväťdesiatdeväť
+  large scales:
+    1000000000000000000000: triliarda
+    2000000000000000000000: dve triliardy
+    1000000000000000000000000: kvadrilión
+    2000000000000000000000000: dva kvadrilióny
+    1000000000000000000000000000: kvadriliarda
+    2000000000000000000000000000: dve kvadriliardy
+    1000000000000000000000000000000: kvintilión
+    2000000000000000000000000000000: dva kvintilióny
+    1000000000000000000000000000000000: kvintiliarda
+    2000000000000000000000000000000000: dve kvintiliardy
+    987654321123456789012345678901234567: deväťstoosemdesiatsedem kvintiliárd šesťstopäťdesiatštyri kvintiliónov tristodvadsaťjeden kvadriliárd stodvadsaťtri kvadriliónov štyristopäťdesiatšesť triliárd sedemstoosemdesiatdeväť triliónov dvanásť biliárd tristoštyridsaťpäť biliónov šesťstosedemdesiatosem miliárd deväťstojeden miliónov dvestotridsaťštyritisícpäťstošesťdesiatsedem
   female gender:
     options:
       :gender: female
@@ -117,6 +129,16 @@ to_words:
     2000000: dvojmiliónty
     2025000: dva milióny dvadsaťpäťtisíci
     1000000000: miliardtý
+    1000000000000000000000: triliardtý
+    2000000000000000000000: dvojtriliardtý
+    1000000000000000000000000: kvadriliónty
+    2000000000000000000000000: dvojkvadriliónty
+    1000000000000000000000000000: kvadriliardtý
+    2000000000000000000000000000: dvojkvadriliardtý
+    1000000000000000000000000000000: kvintiliónty
+    2000000000000000000000000000000: dvojkvintiliónty
+    1000000000000000000000000000000000: kvintiliardtý
+    2000000000000000000000000000000000: dvojkvintiliardtý
   female ordinal:
     options:
       :ordinal: true

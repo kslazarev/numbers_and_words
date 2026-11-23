@@ -2,7 +2,7 @@
 
 Română. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255).
 
-Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu), see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>. Numbers up to 10<sup>18</sup> - 1 are supported; larger numbers raise `RangeError`.
+Numbers agree with the noun they count: mie is feminine (o mie, două mii, douăzeci și una de mii), and milion and larger scales are neuter, taking the masculine one and the feminine two (un milion, două milioane, douăzeci și unu de milioane). A count whose last two digits are 00 or 20 to 99 takes `de` before the noun (douăzeci de mii, o sută de milioane); one ending in 01 to 19 does not (nouăsprezece mii). By default the last group uses the masculine counting form (unu, doi, douăzeci și unu), see [Gender](#gender). Romanian uses the long scale: bilion is 10<sup>12</sup> and biliard 10<sup>15</sup>, followed by trilion, triliard, cvadrilion, cvadriliard, cvintilion and cvintiliard (10<sup>33</sup>). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 With [`unit`](../../README.md#unit), a unit takes its `one` form after 1, `few` after 0, counts ending in 01 to 19 and decimals ("douăzeci și unu virgulă cinci lei"), and `other` after counts ending in 00 or 20 to 99, so `other` includes `de`: `{ one: leu, few: lei, other: de lei }` gives "douăzeci de lei". One before a unit is `un`, or `o` for a feminine unit ("un leu", "o liră"); compounds keep the counting form ("o sută unu lei", "douăzeci și una de lire").
 
@@ -125,4 +125,6 @@ I18n.with_locale(:ro) { 0.7.to_words(remove_zero: true) }
 - [DEX/DOOM: unulea](https://dexonline.ro/definitie/unulea): An ordinal form of one.
 - [DEX/DOOM: sutălea](https://dexonline.ro/definitie/sut%C4%83lea): Hundredth forms.
 - [DEX/DOOM: miilea](https://dexonline.ro/definitie/miilea): Thousandth forms.
+- [DEX/DOOM: cvadrilion](https://dexonline.ro/definitie/cvadrilion): The spelling cvadrilion and its plural cvadrilioane.
+- [DEX/DOOM: cvintilion](https://dexonline.ro/definitie/cvintilion): The spelling cvintilion and its plural cvintilioane.
 - [Unicode CLDR: Romanian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ro.xml): The spell-out rules ICU uses to write numbers in words.

@@ -93,6 +93,12 @@ to_words:
     35_568_717_692: třicet pět miliard pět set šedesát osm milionů sedm set sedmnáct tisíc šest set devadesát dva
   biliony:
     2_935_174_315_119: dva biliony devět set třicet pět miliard sto sedmdesát čtyři miliony tři sta patnáct tisíc sto devatenáct
+  large scales:
+    1_000_000_000_000_000_000_000_000_000_000: jeden kvintilion
+    2_000_000_000_000_000_000_000_000_000_000: dva kvintiliony
+    1_000_000_000_000_000_000_000_000_000_000_000: jedna kvintiliarda
+    2_000_000_000_000_000_000_000_000_000_000_000: dvě kvintiliardy
+    987_654_321_123_456_789_012_345_678_901_234_567: devět set osmdesát sedm kvintiliard šest set padesát čtyři kvintiliony tři sta dvacet jedna kvadriliarda sto dvacet tři kvadriliony čtyři sta padesát šest triliard sedm set osmdesát devět trilionů dvanáct biliard tři sta čtyřicet pět bilionů šest set sedmdesát osm miliard devět set jeden milion dvě stě třicet čtyři tisíce pět set šedesát sedm
 
   "male ordinals":
     options:

@@ -2,7 +2,7 @@
 
 العربية. Experimental until a native speaker reviews it, see [#255](https://github.com/kslazarev/numbers_and_words/issues/255). Words are returned in logical (reading) order without bidirectional control characters; the application's display lays them out right to left.
 
-Numbers use the masculine counting form. Groups of three digits are read from the largest, every part is joined with و ("and"), and ones come before tens (21 is واحد وعشرون). A scale word takes the form its count requires: singular for 1 (ألف), dual for 2 (ألفان), plural for 3 to 10 (ثلاثة آلاف) and accusative singular for 11 to 99 (أحد عشر ألفًا). After round hundreds it is singular (مائة ألف), and 200 takes its construct form (مائتا ألف). Hundreds are spelled مائة. Numbers up to 10<sup>21</sup> - 1 are supported.
+Numbers use the masculine counting form. Groups of three digits are read from the largest, every part is joined with و ("and"), and ones come before tens (21 is واحد وعشرون). A scale word takes the form its count requires: singular for 1 (ألف), dual for 2 (ألفان), plural for 3 to 10 (ثلاثة آلاف) and accusative singular for 11 to 99 (أحد عشر ألفًا). After round hundreds it is singular (مائة ألف), and 200 takes its construct form (مائتا ألف). Hundreds are spelled مائة. Scale words follow the short scale up to ديسيليون (10<sup>33</sup>), and numbers up to 10<sup>36</sup> - 1 are supported.
 
 ## Examples
 
@@ -129,4 +129,5 @@ I18n.with_locale(:ar) { 0.7.to_words(remove_zero: true) }
 
 - [Numbers in Arabic](https://numbersinarabic.com/big-numbers/): Hundreds and larger cardinal numbers.
 - [Kuwaiti Dinar](https://en.wikipedia.org/wiki/Kuwaiti_dinar): The 1,000-fils subdivision used in the currency example.
+- [Arabic Wikipedia: List of Numbers](https://ar.wikipedia.org/wiki/قائمة_الأعداد): The short-scale names تريليون, كوادريليون, كوينتليون and سكستليون.
 - [Unicode CLDR: Arabic Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ar.xml): The spell-out rules ICU uses to write numbers in words.

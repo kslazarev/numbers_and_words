@@ -30,6 +30,12 @@ fi:
         2000000000: '{<cardinal} {billions}[ {>}]'
         1000000000000: '{trillion}[ {>}]'
         2000000000000: '{<cardinal} {trillions}[ {>}]'
+        1000000000000000000: '{quintillion}[ {>}]'
+        2000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000000: '{septillion}[ {>}]'
+        2000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000000: '{nonillion}[ {>}]'
+        2000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
       # Every part of an ordinal is ordinal; the ones are "ensimmäinen" and "toinen" only at the end
       # ("kahdeskymmenesensimmäinen", "kahdestuhannes").
       ordinal:
@@ -47,10 +53,18 @@ fi:
         2000000000: '{<ordinal-count} {ordinals.billion}[ {>}]'
         1000000000000: '{ordinals.trillion}[ {>}]'
         2000000000000: '{<ordinal-count} {ordinals.trillion}[ {>}]'
+        1000000000000000000: '{ordinals.quintillion}[ {>}]'
+        2000000000000000000: '{<ordinal-count} {ordinals.quintillion}[ {>}]'
+        1000000000000000000000000: '{ordinals.septillion}[ {>}]'
+        2000000000000000000000000: '{<ordinal-count} {ordinals.septillion}[ {>}]'
+        1000000000000000000000000000000: '{ordinals.nonillion}[ {>}]'
+        2000000000000000000000000000000: '{<ordinal-count} {ordinals.nonillion}[ {>}]'
       ordinal-count:
         extends: ordinal
         0: '{ordinals.multipliers}'
-    mega: [_, tuhat, miljoona, miljardi, biljoona]
+    # Biljoona and the larger scale words count up to 999 999 times: 10**15 is tuhat biljoonaa, the recommended
+    # reading, not the rare biljardi, and so on for triljardi and the other -jardi words (see docs/languages/fi.md).
+    mega: [_, tuhat, miljoona, miljardi, biljoona, tuhat biljoonaa, triljoona, tuhat triljoonaa, kvadriljoona, tuhat kvadriljoonaa, kvintiljoona, tuhat kvintiljoonaa]
     thousand: tuhat
     thousands: tuhatta
     million: miljoona
@@ -59,6 +73,12 @@ fi:
     billions: miljardia
     trillion: biljoona
     trillions: biljoonaa
+    quintillion: triljoona
+    quintillions: triljoonaa
+    septillion: kvadriljoona
+    septillions: kvadriljoonaa
+    nonillion: kvintiljoona
+    nonillions: kvintiljoonaa
     micro_separator: pilkku
     ordinals:
       ones: [nollas, ensimmäinen, toinen, kolmas, neljäs, viides, kuudes, seitsemäs, kahdeksas, yhdeksäs]
@@ -70,4 +90,7 @@ fi:
       million: miljoonas
       billion: miljardis
       trillion: biljoonas
+      quintillion: triljoonas
+      septillion: kvadriljoonas
+      nonillion: kvintiljoonas
     subunit_separator: ja

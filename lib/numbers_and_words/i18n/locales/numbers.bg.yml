@@ -28,6 +28,11 @@ bg:
         1000000000000: '{<cardinal-male} {trillions}[{>}]'
         1000000000000000: '{<cardinal-male} {quadrillions}[{>}]'
         1000000000000000000: '{<cardinal-male} {quintillions}[{>}]'
+        1000000000000000000000: '{<cardinal-male} {sextillions}[{>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[{>}]'
+        1000000000000000000000000000: '{<cardinal-male} {octillions}[{>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[{>}]'
+        1000000000000000000000000000000000: '{<cardinal-male} {decillions}[{>}]'
       cardinal-female:
         extends: cardinal-male
         then: and-female
@@ -69,6 +74,11 @@ bg:
         1000000000000: '[{<cardinal-male} {trillions}{>}|{<combining-male}{ordinals.trillions}]'
         1000000000000000: '[{<cardinal-male} {quadrillions}{>}|{<combining-male}{ordinals.quadrillions}]'
         1000000000000000000: '[{<cardinal-male} {quintillions}{>}|{<combining-male}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal-male} {sextillions}{>}|{<combining-male}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal-male} {septillions}{>}|{<combining-male}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal-male} {octillions}{>}|{<combining-male}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal-male} {nonillions}{>}|{<combining-male}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-male} {decillions}{>}|{<combining-male}{ordinals.decillions}]'
       and-ordinal:
         extends: and-male
         then: ordinal-after-and
@@ -80,6 +90,11 @@ bg:
         1000000000000: '[{<cardinal-male} {trillions}{>}|{<combining-final-male}{ordinals.trillions}]'
         1000000000000000: '[{<cardinal-male} {quadrillions}{>}|{<combining-final-male}{ordinals.quadrillions}]'
         1000000000000000000: '[{<cardinal-male} {quintillions}{>}|{<combining-final-male}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal-male} {sextillions}{>}|{<combining-final-male}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal-male} {septillions}{>}|{<combining-final-male}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal-male} {octillions}{>}|{<combining-final-male}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal-male} {nonillions}{>}|{<combining-final-male}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-male} {decillions}{>}|{<combining-final-male}{ordinals.decillions}]'
       combining-male:
         extends: combining-final-male
         1: ''
@@ -102,13 +117,18 @@ bg:
       and-combining-female:
         extends: and-male
         then: combining-final-female
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: хиляда, other: хиляди}
     millions: {one: милион, other: милиона}
     billions: {one: милиард, other: милиарда}
     trillions: {one: трилион, other: трилиона}
     quadrillions: {one: квадрилион, other: квадрилиона}
     quintillions: {one: квинтилион, other: квинтилиона}
+    sextillions: {one: секстилион, other: секстилиона}
+    septillions: {one: септилион, other: септилиона}
+    octillions: {one: октилион, other: октилиона}
+    nonillions: {one: нонилион, other: нонилиона}
+    decillions: {one: децилион, other: децилиона}
     # The count of a round scale ordinal ("двехиляден", "двумилионен").
     combining:
       male: [_, едно, дву, три, четири, пет, шест, седем, осем, девет]
@@ -130,6 +150,11 @@ bg:
       trillions: трилионен
       quadrillions: квадрилионен
       quintillions: квинтилионен
+      sextillions: секстилионен
+      septillions: септилионен
+      octillions: октилионен
+      nonillions: нонилионен
+      decillions: децилионен
     # The feminine and neuter ordinals.
     genders:
       female:
@@ -144,6 +169,11 @@ bg:
           trillions: трилионна
           quadrillions: квадрилионна
           quintillions: квинтилионна
+          sextillions: секстилионна
+          septillions: септилионна
+          octillions: октилионна
+          nonillions: нонилионна
+          decillions: децилионна
       neuter:
         ordinals:
           ones: [нулево, първо, второ, трето, четвърто, пето, шесто, седмо, осмо, девето]
@@ -156,3 +186,8 @@ bg:
           trillions: трилионно
           quadrillions: квадрилионно
           quintillions: квинтилионно
+          sextillions: секстилионно
+          septillions: септилионно
+          octillions: октилионно
+          nonillions: нонилионно
+          decillions: децилионно

@@ -68,6 +68,22 @@ to_words:
     1000000000000: biljoona
     999999999999999: yhdeksänsataayhdeksänkymmentäyhdeksän biljoonaa yhdeksänsataayhdeksänkymmentäyhdeksän
       miljardia yhdeksänsataayhdeksänkymmentäyhdeksän miljoonaa yhdeksänsataayhdeksänkymmentäyhdeksäntuhattayhdeksänsataayhdeksänkymmentäyhdeksän
+  large scales:
+    1000000000000000: tuhat biljoonaa
+    2000000000000000: kaksituhatta biljoonaa
+    1000000000000000000: triljoona
+    2000000000000000000: kaksi triljoonaa
+    1000000000000000000000: tuhat triljoonaa
+    2000000000000000000000: kaksituhatta triljoonaa
+    1000000000000000000000000: kvadriljoona
+    2000000000000000000000000: kaksi kvadriljoonaa
+    1000000000000000000000000000: tuhat kvadriljoonaa
+    2000000000000000000000000000: kaksituhatta kvadriljoonaa
+    1000000000000000000000000000000: kvintiljoona
+    2000000000000000000000000000000: kaksi kvintiljoonaa
+    1000000000000000000000000000000000: tuhat kvintiljoonaa
+    2000000000000000000000000000000000: kaksituhatta kvintiljoonaa
+    987654321123456789012345678901234567: yhdeksänsataakahdeksankymmentäseitsemäntuhattakuusisataaviisikymmentäneljä kvintiljoonaa kolmesataakaksikymmentäyksituhattasatakaksikymmentäkolme kvadriljoonaa neljäsataaviisikymmentäkuusituhattaseitsemänsataakahdeksankymmentäyhdeksän triljoonaa kaksitoistatuhattakolmesataaneljäkymmentäviisi biljoonaa kuusisataaseitsemänkymmentäkahdeksan miljardia yhdeksänsataayksi miljoonaa kaksisataakolmekymmentäneljätuhattaviisisataakuusikymmentäseitsemän
   ordinal:
     options:
       :ordinal: true
@@ -97,3 +113,17 @@ to_words:
     2000000: kahdes miljoonas
     2025000: kahdes miljoonas kahdeskymmenesviidestuhannes
     1000000000: miljardis
+    1000000000000000: tuhannes biljoonas
+    2000000000000000: kahdestuhannes biljoonas
+    1000000000000000000: triljoonas
+    2000000000000000000: kahdes triljoonas
+    1000000000000000000000: tuhannes triljoonas
+    2000000000000000000000: kahdestuhannes triljoonas
+    1000000000000000000000000: kvadriljoonas
+    2000000000000000000000000: kahdes kvadriljoonas
+    1000000000000000000000000000: tuhannes kvadriljoonas
+    2000000000000000000000000000: kahdestuhannes kvadriljoonas
+    1000000000000000000000000000000: kvintiljoonas
+    2000000000000000000000000000000: kahdes kvintiljoonas
+    1000000000000000000000000000000000: tuhannes kvintiljoonas
+    2000000000000000000000000000000000: kahdestuhannes kvintiljoonas

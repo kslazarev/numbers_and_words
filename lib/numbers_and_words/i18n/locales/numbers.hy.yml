@@ -26,6 +26,12 @@ hy:
         1000000000: '{<cardinal} {billions}[ {>}]'
         1000000000000: '{<cardinal} {trillions}[ {>}]'
         1000000000000000: '{<cardinal} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal} {decillions}[ {>}]'
       # One to four have ordinals of their own ("առաջին"); the others add -երորդ to their last word ("քսանմեկերորդ"),
       # and a leading one before a single scale word is left out ("միլիոներորդ").
       ordinal:
@@ -44,6 +50,12 @@ hy:
         1000000000: '[{<cardinal} {billions} {>}|{<count} {ordinals.billions}]'
         1000000000000: '[{<cardinal} {trillions} {>}|{<count} {ordinals.trillions}]'
         1000000000000000: '[{<cardinal} {quadrillions} {>}|{<count} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<count} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<count} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<count} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<count} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<count} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<count} {ordinals.decillions}]'
       ordinal-inner:
         extends: ordinal
         1: '{ordinals.ones}'
@@ -51,17 +63,29 @@ hy:
         1000000000: '[{<cardinal} {billions} {>}|{<cardinal} {ordinals.billions}]'
         1000000000000: '[{<cardinal} {trillions} {>}|{<cardinal} {ordinals.trillions}]'
         1000000000000000: '[{<cardinal} {quadrillions} {>}|{<cardinal} {ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal} {quintillions} {>}|{<cardinal} {ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal} {sextillions} {>}|{<cardinal} {ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal} {septillions} {>}|{<cardinal} {ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal} {octillions} {>}|{<cardinal} {ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal} {nonillions} {>}|{<cardinal} {ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal} {decillions} {>}|{<cardinal} {ordinals.decillions}]'
       count:
         extends: cardinal
         then: cardinal
         1: ''
         2: '{ones}'
-    mega: [_, thousands, millions, billions, trillions, quadrillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: հազար
     millions: միլիոն
     billions: միլիարդ
     trillions: տրիլիոն
     quadrillions: կվադրիլիոն
+    quintillions: կվինտիլիոն
+    sextillions: սեքստիլիոն
+    septillions: սեպտիլիոն
+    octillions: օկտիլիոն
+    nonillions: նոնիլիոն
+    decillions: դեցիլիոն
     ordinals:
       first: [_, առաջին, երկրորդ, երրորդ, չորրորդ]
       ones: [զրոերորդ, մեկերորդ, երկուերորդ, երեքերորդ, չորսերորդ, հինգերորդ, վեցերորդ, յոթերորդ, ութերորդ, իններորդ]
@@ -73,3 +97,9 @@ hy:
       billions: միլիարդերորդ
       trillions: տրիլիոներորդ
       quadrillions: կվադրիլիոներորդ
+      quintillions: կվինտիլիոներորդ
+      sextillions: սեքստիլիոներորդ
+      septillions: սեպտիլիոներորդ
+      octillions: օկտիլիոներորդ
+      nonillions: նոնիլիոներորդ
+      decillions: դեցիլիոներորդ

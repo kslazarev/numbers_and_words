@@ -18,6 +18,18 @@ to_words:
     1000000: en million
     1000021: en million og enogtyve
     1000100: en million et hundrede
+  large scales:
+    1000000000000000000000: en trilliard
+    2000000000000000000000: to trilliarder
+    1000000000000000000000000: en kvadrillion
+    2000000000000000000000000: to kvadrillioner
+    1000000000000000000000000000: en kvadrilliard
+    2000000000000000000000000000: to kvadrilliarder
+    1000000000000000000000000000000: en kvintillion
+    2000000000000000000000000000000: to kvintillioner
+    1000000000000000000000000000000000: en kvintilliard
+    2000000000000000000000000000000000: to kvintilliarder
+    987654321123456789012345678901234567: ni hundrede og syvogfirs kvintilliarder seks hundrede og fireoghalvtreds kvintillioner tre hundrede og enogtyve kvadrilliarder et hundrede og treogtyve kvadrillioner fire hundrede og seksoghalvtreds trilliarder syv hundrede og niogfirs trillioner tolv billiarder tre hundrede og femogfyrre billioner seks hundrede og otteoghalvfjerds milliarder ni hundrede og en millioner to hundrede og fireogtredive tusind fem hundrede og syvogtres
   ordinal:
     options:
       :ordinal: true
@@ -65,6 +77,16 @@ to_words:
     2000000: 'to millionte'
     2025000: 'to millioner femogtyve tusinde'
     1000000000: 'milliardte'
+    1000000000000000000000: 'trilliardte'
+    2000000000000000000000: 'to trilliardte'
+    1000000000000000000000000: 'kvadrillionte'
+    2000000000000000000000000: 'to kvadrillionte'
+    1000000000000000000000000000: 'kvadrilliardte'
+    2000000000000000000000000000: 'to kvadrilliardte'
+    1000000000000000000000000000000: 'kvintillionte'
+    2000000000000000000000000000000: 'to kvintillionte'
+    1000000000000000000000000000000000: 'kvintilliardte'
+    2000000000000000000000000000000000: 'to kvintilliardte'
   neuter_ordinal:
     options:
       :ordinal: true

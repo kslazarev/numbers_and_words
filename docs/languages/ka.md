@@ -1,6 +1,6 @@
 # Georgian (`ka`)
 
-ქართული. Scale words are ათასი, მილიონი, მილიარდი and ტრილიონი. A scale word drops its final ი when any lower group follows, including another scale group ("ერთი მილიონ ათასი"). Numbers up to 10<sup>15</sup> - 1 are supported; larger numbers raise `RangeError`.
+ქართული. Scale words follow the short scale: ათასი, მილიონი, მილიარდი, ტრილიონი, კვადრილიონი, კვინტილიონი, სექსტილიონი, სეპტილიონი, ოქტილიონი, ნონილიონი and დეცილიონი (10<sup>33</sup>). A scale word drops its final ი when any lower group follows, including another scale group ("ერთი მილიონ ათასი"). Numbers up to 10<sup>36</sup> - 1 are supported; larger numbers raise `RangeError`.
 
 ## Examples
 
@@ -98,5 +98,6 @@ I18n.with_locale(:ka) { 0.7.to_words(remove_zero: true) }
 ## Sources
 
 - [Georgian Numeral Grammar](https://ka.wikipedia.org/wiki/რიცხვითი_სახელი): Cardinal scale endings and compound ordinal formation.
+- [Georgian Wikipedia: კვინტილიონი](https://ka.wikipedia.org/wiki/კვინტილიონი): Short-scale names of large numbers, from ტრილიონი to დეცილიონი.
 - [Wiktionary: ოცდამეერთე](https://en.wiktionary.org/wiki/ოცდამეერთე): The ერთ stem in compound ordinals.
 - [Unicode CLDR: Georgian Number Spellout Rules](https://github.com/unicode-org/cldr/blob/main/common/rbnf/ka.xml): The spell-out rules ICU uses to write numbers in words.

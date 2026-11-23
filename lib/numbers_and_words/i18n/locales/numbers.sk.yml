@@ -32,6 +32,11 @@ sk:
         1000000000000: '{<scale-male} {trillions}[ {>}]'
         1000000000000000: '{<scale-female} {quadrillions}[ {>}]'
         1000000000000000000: '{<scale-male} {quintillions}[ {>}]'
+        1000000000000000000000: '{<scale-female} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<scale-male} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<scale-female} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<scale-male} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<scale-female} {decillions}[ {>}]'
       cardinal-female:
         extends: cardinal-male
         0: '{ones.female}'
@@ -66,6 +71,11 @@ sk:
         1000000000000: '[{<scale-male} {trillions} {>}|{<ordinal-count}{ordinals.trillions}]'
         1000000000000000: '[{<scale-female} {quadrillions} {>}|{<ordinal-count}{ordinals.quadrillions}]'
         1000000000000000000: '[{<scale-male} {quintillions} {>}|{<ordinal-count}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<scale-female} {sextillions} {>}|{<ordinal-count}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<scale-male} {septillions} {>}|{<ordinal-count}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<scale-female} {octillions} {>}|{<ordinal-count}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<scale-male} {nonillions} {>}|{<ordinal-count}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<scale-female} {decillions} {>}|{<ordinal-count}{ordinals.decillions}]'
       ordinal-count:
         extends: combining
         then: combining
@@ -74,13 +84,18 @@ sk:
         extends: cardinal-male
         2: '{ordinals.combining}'
         5: '{ones.male}'
-    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions]
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: tisíc
     millions: {one: milión, few: milióny, other: miliónov}
     billions: {one: miliarda, few: miliardy, other: miliárd}
     trillions: {one: bilión, few: bilióny, other: biliónov}
     quadrillions: {one: biliarda, few: biliardy, other: biliárd}
     quintillions: {one: trilión, few: trilióny, other: triliónov}
+    sextillions: {one: triliarda, few: triliardy, other: triliárd}
+    septillions: {one: kvadrilión, few: kvadrilióny, other: kvadriliónov}
+    octillions: {one: kvadriliarda, few: kvadriliardy, other: kvadriliárd}
+    nonillions: {one: kvintilión, few: kvintilióny, other: kvintiliónov}
+    decillions: {one: kvintiliarda, few: kvintiliardy, other: kvintiliárd}
     integral:
       one: celá
       few: celé
@@ -101,6 +116,11 @@ sk:
       trillions: biliónty
       quadrillions: biliardtý
       quintillions: triliónty
+      sextillions: triliardtý
+      septillions: kvadriliónty
+      octillions: kvadriliardtý
+      nonillions: kvintiliónty
+      decillions: kvintiliardtý
       combining: [_, _, dvoj, troj, štvor]
     # The feminine and neuter ordinals.
     genders:
@@ -116,6 +136,11 @@ sk:
           trillions: biliónta
           quadrillions: biliardtá
           quintillions: triliónta
+          sextillions: triliardtá
+          septillions: kvadriliónta
+          octillions: kvadriliardtá
+          nonillions: kvintiliónta
+          decillions: kvintiliardtá
       neuter:
         ordinals:
           ones: [nulté, prvé, druhé, tretie, štvrté, piate, šieste, siedme, ôsme, deviate]
@@ -128,3 +153,8 @@ sk:
           trillions: biliónte
           quadrillions: biliardté
           quintillions: triliónte
+          sextillions: triliardté
+          septillions: kvadriliónte
+          octillions: kvadriliardté
+          nonillions: kvintiliónte
+          decillions: kvintiliardté

@@ -125,3 +125,27 @@ to_words:
     1000000: kesatu juta
     2000000: kedua juta
     1000000000: kesatu miliar
+  large_scales:
+    1000000000000000: satu kuadriliun
+    2000000000000000: dua kuadriliun
+    1000000000000000000: satu kuintiliun
+    2000000000000000000: dua kuintiliun
+    1000000000000000000000: satu sekstiliun
+    2000000000000000000000: dua sekstiliun
+    1000000000000000000000000: satu septiliun
+    2000000000000000000000000: dua septiliun
+    1000000000000000000000000000: satu oktiliun
+    2000000000000000000000000000: dua oktiliun
+    1000000000000000000000000000000: satu noniliun
+    2000000000000000000000000000000: dua noniliun
+    1000000000000000000000000000000000: satu desiliun
+    2000000000000000000000000000000000: dua desiliun
+    123456789012345678901234567890123456: seratus dua puluh tiga desiliun empat ratus lima puluh enam noniliun tujuh ratus delapan puluh sembilan oktiliun dua belas septiliun tiga ratus empat puluh lima sekstiliun enam ratus tujuh puluh delapan kuintiliun sembilan ratus satu kuadriliun dua ratus tiga puluh empat triliun lima ratus enam puluh tujuh miliar delapan ratus sembilan puluh juta seratus dua puluh tiga ribu empat ratus lima puluh enam
+    999999999999999999999999999999999999: sembilan ratus sembilan puluh sembilan desiliun sembilan ratus sembilan puluh sembilan noniliun sembilan ratus sembilan puluh sembilan oktiliun sembilan ratus sembilan puluh sembilan septiliun sembilan ratus sembilan puluh sembilan sekstiliun sembilan ratus sembilan puluh sembilan kuintiliun sembilan ratus sembilan puluh sembilan kuadriliun sembilan ratus sembilan puluh sembilan triliun sembilan ratus sembilan puluh sembilan miliar sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000: kesatu kuadriliun
+    1000000000000000000000000000000000: kesatu desiliun
+    2000000000000005: kedua kuadriliun lima
+    123456789012345678901234567890123456: keseratus dua puluh tiga desiliun empat ratus lima puluh enam noniliun tujuh ratus delapan puluh sembilan oktiliun dua belas septiliun tiga ratus empat puluh lima sekstiliun enam ratus tujuh puluh delapan kuintiliun sembilan ratus satu kuadriliun dua ratus tiga puluh empat triliun lima ratus enam puluh tujuh miliar delapan ratus sembilan puluh juta seratus dua puluh tiga ribu empat ratus lima puluh enam
