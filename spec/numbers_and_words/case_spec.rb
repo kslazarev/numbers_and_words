@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-# Russian and Ukrainian decline numbers by grammatical case; the fixtures check exact words, and this checks
+# Russian, Ukrainian and Polish decline numbers by grammatical case; the fixtures check exact words, and this checks
 # that every case and gender gives distinct words for every number.
-describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers Russian and Ukrainian
+describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers the languages with cases
   let(:numbers) do
     [*0..1100, 1999, 2000, 2001, 2021, 9999, 10_000, 21_000, 99_999, 100_000, 999_999, 1_000_000, 2_000_000,
      2_025_000, 21_000_000, 1_000_000_000, 2_000_000_000, 123_456_789]
@@ -68,6 +68,29 @@ describe 'case option' do # rubocop:disable RSpec/DescribeClass -- covers Russia
         expect { 2.5.to_words(case: :genitive) }.to raise_error(NumbersAndWords::UnsupportedOptionError, /not supported for decimals/)
         expect(2.5.to_words(case: :nominative)).to eq(2.5.to_words)
       end
+    end
+  end
+
+  describe 'Polish' do
+    around { |example| I18n.with_locale(:pl) { example.run } }
+
+    NumbersAndWords::OptionsValidation.supported_options(:pl)[:case].product(%i[male female neuter]).each do |grammatical_case, gender|
+      it "spells every #{gender} #{grammatical_case} cardinal" do
+        cardinals = [*0..1100, 2000, 2021, 21_000, 1_000_000, 2_000_000, 123_456_789].map { |number| number.to_words(gender:, case: grammatical_case) }
+        expect(cardinals.grep(/translation missing|\A\s*\z|\b_\b/i)).to eq([])
+        expect(cardinals.uniq.size).to eq(cardinals.size)
+      end
+    end
+
+    it 'keeps a final one after other digits' do
+      expect([21.to_words(case: :instrumental), 1_001.to_words(case: :dative, gender: :female), 21_000.to_words(case: :genitive)])
+        .to eq(['dwudziestoma jeden', 'tysiącowi jeden', 'dwudziestu jeden tysięcy'])
+    end
+
+    it 'rejects case: for ordinals' do
+      expect { 21.to_words(ordinal: true, case: :genitive) }
+        .to raise_error(NumbersAndWords::UnsupportedOptionError, 'The case: :genitive option is not supported for ordinals in :pl.')
+      expect(21.to_words(ordinal: true, case: :nominative)).to eq(21.to_words(ordinal: true))
     end
   end
 

@@ -30,6 +30,12 @@
       sk: { one: [jedna, jeden], before: [sto, tisíc, milión, miliarda], affects: 36 }
       sv: { one: [en], before: [miljonte, miljardte], affects: 2 }
       tr: { one: [bir], before: [milyonuncu, milyarıncı], affects: 2 }
+pl:
+  - reason: CLDR's feminine instrumental uses the masculine dwoma for a final two after tens (dwudziestoma dwoma), but dwiema for two alone; the gem uses dwiema in both, and both forms are in use
+    replace_parts: { dwoma: dwiema }
+    kinds: [cardinal/female/instrumental]
+    below: 100
+    affects: 8
 ar:
   - reason: CLDR writes the hamza (إثنان); اثنان begins with a connecting hamzat wasl and is written without it
     replace: { إثنان: اثنان, إثنا: اثنا }

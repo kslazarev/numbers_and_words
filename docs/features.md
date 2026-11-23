@@ -41,7 +41,7 @@ What each bundled language supports, generated from its locale file and classes 
 | [`ms`](languages/ms.md) | yes | — | — | all | 10<sup>36</sup> | — |
 | [`nb`](languages/nb.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
 | [`nl`](languages/nl.md) | yes | — | — | all | 10<sup>36</sup> | `pronounced`, `tens_of_hundreds` |
-| [`pl`](languages/pl.md) | yes | male, female, neuter | — | all | 10<sup>48</sup> | — |
+| [`pl`](languages/pl.md) | yes | male, female, neuter | nominative, genitive, dative, accusative, instrumental, locative | all | 10<sup>48</sup> | — |
 | [`pt`](languages/pt.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | — |
 | [`pt-BR`](languages/pt-BR.md) | yes, fraction | male, female | — | all | 10<sup>36</sup> | — |
 | [`ro`](languages/ro.md) | yes | male, female, neuter | — | all | 10<sup>36</sup> | — |
