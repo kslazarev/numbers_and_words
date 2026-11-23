@@ -45,8 +45,7 @@ module CldrComparison
     end
   end
 
-  # The gem's Arabic ordinals cover 1-99, Greek ordinals stop below 10,000 and
-  # Hebrew ordinals start at 1; CLDR spells Russian ordinals only below 100,000
+  # The gem's Arabic ordinals cover 1-99 and Hebrew ordinals start at 1; CLDR spells Russian ordinals only below 100,000
   # and Hungarian ones below a billion.
   def self.within(range)
     NUMBERS.select { |number| range.cover?(number) }
@@ -77,8 +76,8 @@ module CldrComparison
     de: { cldr: :de, kinds: { 'cardinal' => compare({}, 'spellout-numbering') }.merge(ORDINAL) },
     el: {
       cldr: :el,
-      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-neuter'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-neuter', within(0...10_000)) }
-        .merge(gendered('cardinal', MASCULINE_FEMININE), gendered('ordinal', MASCULINE_FEMININE, { ordinal: true }, within(0...10_000)))
+      kinds: { 'cardinal' => compare({}, 'spellout-cardinal-neuter'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-neuter') }
+        .merge(gendered('cardinal', MASCULINE_FEMININE), gendered('ordinal', MASCULINE_FEMININE, { ordinal: true }))
     },
     en: { cldr: :en, kinds: CARDINAL.merge(ORDINAL) },
     # Spanish counts with uno, as CLDR spellout-numbering does; apocopated: true gives the un of spellout-cardinal-masculine.

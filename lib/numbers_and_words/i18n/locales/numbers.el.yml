@@ -2,7 +2,7 @@ el:
   numbers:
     supported_options:
       gender: {values: [male, female, neuter], default: neuter}
-      ordinal: {minimum: 0, maximum: 9999}
+      ordinal: true
       remove_zero: {keeps_micro_separator: true}
     minus: μείον
     ones:
@@ -84,7 +84,8 @@ el:
         1000000000000000000000000000: '{<cardinal-neuter} {octillions}[ {>}]'
         1000000000000000000000000000000: '{<cardinal-neuter} {nonillions}[ {>}]'
         1000000000000000000000000000000000: '{<cardinal-neuter} {decillions}[ {>}]'
-      # Ordinals stop below 10,000, and every part is ordinal ("εκατοστός εικοστός πρώτος").
+      # Every part below 10,000 is ordinal ("εκατοστός εικοστός πρώτος"); from ten thousand a count is cardinal and
+      # neuter before the ordinal of its scale word ("είκοσι ένα χιλιοστός"), as in Unicode CLDR.
       ordinal:
         0: '{ones.neuter}'
         1: '{ordinals.ones}'
@@ -93,6 +94,24 @@ el:
         20: '{ordinals.tens}[ {>}]'
         100: '{ordinals.hundreds}[ {>}]'
         1000: '{ordinals.thousands}[ {>}]'
+        '10000/1000': '{ordinals.ten_thousand}[ {>}]'
+        '11000/1000': '{<cardinal-neuter} {ordinals.thousand}[ {>}]'
+        1000000: '{<scale-count} {ordinals.millions}[ {>}]'
+        1000000000: '{<scale-count} {ordinals.billions}[ {>}]'
+        1000000000000: '{<scale-count} {ordinals.trillions}[ {>}]'
+        1000000000000000: '{<scale-count} {ordinals.quadrillions}[ {>}]'
+        1000000000000000000: '{<scale-count} {ordinals.quintillions}[ {>}]'
+        1000000000000000000000: '{<scale-count} {ordinals.sextillions}[ {>}]'
+        1000000000000000000000000: '{<scale-count} {ordinals.septillions}[ {>}]'
+        1000000000000000000000000000: '{<scale-count} {ordinals.octillions}[ {>}]'
+        1000000000000000000000000000000: '{<scale-count} {ordinals.nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<scale-count} {ordinals.decillions}[ {>}]'
+      # A scale ordinal's count is neuter, and a count of one is left out ("εκατομμυριοστός", "δύο εκατομμυριοστός").
+      scale-count:
+        extends: cardinal-neuter
+        then: cardinal-neuter
+        1: ''
+        2: '{ones.neuter}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
     thousands: {one: χιλιάδα, other: χιλιάδες}
     millions: {one: εκατομμύριο, other: εκατομμύρια}
@@ -111,6 +130,18 @@ el:
       tens: [_, δέκατος, εικοστός, τριακοστός, τεσσαρακοστός, πεντηκοστός, εξηκοστός, εβδομηκοστός, ογδοηκοστός, ενενηκοστός]
       hundreds: [_, εκατοστός, διακοσιοστός, τριακοσιοστός, τετρακοσιοστός, πεντακοσιοστός, εξακοσιοστός, επτακοσιοστός, οκτακοσιοστός, εννιακοσιοστός]
       thousands: [_, χιλιοστός, δισχιλιοστός, τρισχιλιοστός, τετρακισχιλιοστός, πεντακισχιλιοστός, εξακισχιλιοστός, επτακισχιλιοστός, οκτακισχιλιοστός, εννεακισχιλιοστός]
+      thousand: χιλιοστός
+      ten_thousand: δεκακισχιλιοστός
+      millions: εκατομμυριοστός
+      billions: δισεκατομμυριοστός
+      trillions: τρισεκατομμυριοστός
+      quadrillions: τετράκις εκατομμυριοστός
+      quintillions: πεντάκις εκατομμυριοστός
+      sextillions: εξάκις εκατομμυριοστός
+      septillions: επτάκις εκατομμυριοστός
+      octillions: οκτάκις εκατομμυριοστός
+      nonillions: εννεάκις εκατομμυριοστός
+      decillions: δεκάκις εκατομμυριοστός
     # The feminine and neuter ordinals.
     genders:
       female:
@@ -120,6 +151,18 @@ el:
           tens: [_, δέκατη, εικοστή, τριακοστή, τεσσαρακοστή, πεντηκοστή, εξηκοστή, εβδομηκοστή, ογδοηκοστή, ενενηκοστή]
           hundreds: [_, εκατοστή, διακοσιοστή, τριακοσιοστή, τετρακοσιοστή, πεντακοσιοστή, εξακοσιοστή, επτακοσιοστή, οκτακοσιοστή, εννιακοσιοστή]
           thousands: [_, χιλιοστή, δισχιλιοστή, τρισχιλιοστή, τετρακισχιλιοστή, πεντακισχιλιοστή, εξακισχιλιοστή, επτακισχιλιοστή, οκτακισχιλιοστή, εννεακισχιλιοστή]
+          thousand: χιλιοστή
+          ten_thousand: δεκακισχιλιοστή
+          millions: εκατομμυριοστή
+          billions: δισεκατομμυριοστή
+          trillions: τρισεκατομμυριοστή
+          quadrillions: τετράκις εκατομμυριοστή
+          quintillions: πεντάκις εκατομμυριοστή
+          sextillions: εξάκις εκατομμυριοστή
+          septillions: επτάκις εκατομμυριοστή
+          octillions: οκτάκις εκατομμυριοστή
+          nonillions: εννεάκις εκατομμυριοστή
+          decillions: δεκάκις εκατομμυριοστή
       neuter:
         ordinals:
           ones: [_, πρώτο, δεύτερο, τρίτο, τέταρτο, πέμπτο, έκτο, έβδομο, όγδοο, ένατο]
@@ -127,5 +170,17 @@ el:
           tens: [_, δέκατο, εικοστό, τριακοστό, τεσσαρακοστό, πεντηκοστό, εξηκοστό, εβδομηκοστό, ογδοηκοστό, ενενηκοστό]
           hundreds: [_, εκατοστό, διακοσιοστό, τριακοσιοστό, τετρακοσιοστό, πεντακοσιοστό, εξακοσιοστό, επτακοσιοστό, οκτακοσιοστό, εννιακοσιοστό]
           thousands: [_, χιλιοστό, δισχιλιοστό, τρισχιλιοστό, τετρακισχιλιοστό, πεντακισχιλιοστό, εξακισχιλιοστό, επτακισχιλιοστό, οκτακισχιλιοστό, εννεακισχιλιοστό]
+          thousand: χιλιοστό
+          ten_thousand: δεκακισχιλιοστό
+          millions: εκατομμυριοστό
+          billions: δισεκατομμυριοστό
+          trillions: τρισεκατομμυριοστό
+          quadrillions: τετράκις εκατομμυριοστό
+          quintillions: πεντάκις εκατομμυριοστό
+          sextillions: εξάκις εκατομμυριοστό
+          septillions: επτάκις εκατομμυριοστό
+          octillions: οκτάκις εκατομμυριοστό
+          nonillions: εννεάκις εκατομμυριοστό
+          decillions: δεκάκις εκατομμυριοστό
     micro_separator: κόμμα
     subunit_separator: και

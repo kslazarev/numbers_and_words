@@ -7,7 +7,7 @@ pl:
       many: 'v = 0'
     supported_options:
       gender: {values: [male, female, neuter], default: male}
-      ordinal: {minimum: 0, maximum: 999}
+      ordinal: true
       remove_zero: true
     minus: minus
     ones:
@@ -72,6 +72,34 @@ pl:
         11: '{ordinals.teens%}'
         20: '{ordinals.tens}[ {>}]'
         100: '[{hundreds} {>}|{ordinals.hundreds}]'
+        1000: '[{<scale-count} {thousands} {>}|{<ordinal-count}{ordinals.thousands}]'
+        1000000: '[{<scale-count} {millions} {>}|{<ordinal-count}{ordinals.millions}]'
+        1000000000: '[{<scale-count} {billions} {>}|{<ordinal-count}{ordinals.billions}]'
+        1000000000000: '[{<scale-count} {trillions} {>}|{<ordinal-count}{ordinals.trillions}]'
+        1000000000000000: '[{<scale-count} {quadrillions} {>}|{<ordinal-count}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<scale-count} {quintillions} {>}|{<ordinal-count}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<scale-count} {sextillions} {>}|{<ordinal-count}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<scale-count} {septillions} {>}|{<ordinal-count}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<scale-count} {octillions} {>}|{<ordinal-count}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<scale-count} {nonillions} {>}|{<ordinal-count}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<scale-count} {decillions} {>}|{<ordinal-count}{ordinals.decillions}]'
+        1000000000000000000000000000000000000: '[{<scale-count} {undecillions} {>}|{<ordinal-count}{ordinals.undecillions}]'
+        1000000000000000000000000000000000000000: '[{<scale-count} {duodecillions} {>}|{<ordinal-count}{ordinals.duodecillions}]'
+        1000000000000000000000000000000000000000000: '[{<scale-count} {tredecillions} {>}|{<ordinal-count}{ordinals.tredecillions}]'
+        1000000000000000000000000000000000000000000000: '[{<scale-count} {quattuordecillions} {>}|{<ordinal-count}{ordinals.quattuordecillions}]'
+      # The count of a round scale ordinal joins it in its combining form ("dwutysięczny", "stutysięczny",
+      # "dwudziestojednotysięczny"), and a count of one is left out ("tysięczny", "milionowy").
+      ordinal-count:
+        then: ordinal-count-rest
+        1: ''
+        2: '{combining.ones}'
+        10: '{combining.tens}'
+        11: '{combining.teens%}'
+        20: '{combining.tens}[{>}]'
+        100: '{combining.hundreds}[{>}]'
+      ordinal-count-rest:
+        extends: ordinal-count
+        1: '{combining.ones}'
     mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions, undecillions, duodecillions, tredecillions, quattuordecillions]
     thousands: { one: tysiąc, few: tysiące, many: tysięcy, other: tysiąca }
     millions: { one: milion, few: miliony, many: milionów, other: miliona }
@@ -93,6 +121,27 @@ pl:
       teens: [_, jedenasty, dwunasty, trzynasty, czternasty, piętnasty, szesnasty, siedemnasty, osiemnasty, dziewiętnasty]
       tens: [_, dziesiąty, dwudziesty, trzydziesty, czterdziesty, pięćdziesiąty, sześćdziesiąty, siedemdziesiąty, osiemdziesiąty, dziewięćdziesiąty]
       hundreds: [_, setny, dwusetny, trzechsetny, czterechsetny, pięćsetny, sześćsetny, siedemsetny, osiemsetny, dziewięćsetny]
+      thousands: tysięczny
+      millions: milionowy
+      billions: miliardowy
+      trillions: bilionowy
+      quadrillions: biliardowy
+      quintillions: trylionowy
+      sextillions: tryliardowy
+      septillions: kwadrylionowy
+      octillions: kwadryliardowy
+      nonillions: kwintylionowy
+      decillions: kwintyliardowy
+      undecillions: sekstylionowy
+      duodecillions: sekstyliardowy
+      tredecillions: septylionowy
+      quattuordecillions: septyliardowy
+    # The combining forms of a count before a round scale ordinal.
+    combining:
+      ones: [_, jedno, dwu, trzy, cztero, pięcio, sześcio, siedmio, ośmio, dziewięcio]
+      teens: [_, jedenasto, dwunasto, trzynasto, czternasto, piętnasto, szesnasto, siedemnasto, osiemnasto, dziewiętnasto]
+      tens: [_, dziesięcio, dwudziesto, trzydziesto, czterdziesto, pięćdziesięcio, sześćdziesięcio, siedemdziesięcio, osiemdziesięcio, dziewięćdziesięcio]
+      hundreds: [_, stu, dwustu, trzystu, czterystu, pięćset, sześćset, siedemset, osiemset, dziewięćset]
     # The feminine and neuter ordinals.
     genders:
       female:
@@ -101,12 +150,42 @@ pl:
           teens: [_, jedenasta, dwunasta, trzynasta, czternasta, piętnasta, szesnasta, siedemnasta, osiemnasta, dziewiętnasta]
           tens: [_, dziesiąta, dwudziesta, trzydziesta, czterdziesta, pięćdziesiąta, sześćdziesiąta, siedemdziesiąta, osiemdziesiąta, dziewięćdziesiąta]
           hundreds: [_, setna, dwusetna, trzechsetna, czterechsetna, pięćsetna, sześćsetna, siedemsetna, osiemsetna, dziewięćsetna]
+          thousands: tysięczna
+          millions: milionowa
+          billions: miliardowa
+          trillions: bilionowa
+          quadrillions: biliardowa
+          quintillions: trylionowa
+          sextillions: tryliardowa
+          septillions: kwadrylionowa
+          octillions: kwadryliardowa
+          nonillions: kwintylionowa
+          decillions: kwintyliardowa
+          undecillions: sekstylionowa
+          duodecillions: sekstyliardowa
+          tredecillions: septylionowa
+          quattuordecillions: septyliardowa
       neuter:
         ordinals:
           ones: [zerowe, pierwsze, drugie, trzecie, czwarte, piąte, szóste, siódme, ósme, dziewiąte]
           teens: [_, jedenaste, dwunaste, trzynaste, czternaste, piętnaste, szesnaste, siedemnaste, osiemnaste, dziewiętnaste]
           tens: [_, dziesiąte, dwudzieste, trzydzieste, czterdzieste, pięćdziesiąte, sześćdziesiąte, siedemdziesiąte, osiemdziesiąte, dziewięćdziesiąte]
           hundreds: [_, setne, dwusetne, trzechsetne, czterechsetne, pięćsetne, sześćsetne, siedemsetne, osiemsetne, dziewięćsetne]
+          thousands: tysięczne
+          millions: milionowe
+          billions: miliardowe
+          trillions: bilionowe
+          quadrillions: biliardowe
+          quintillions: trylionowe
+          sextillions: tryliardowe
+          septillions: kwadrylionowe
+          octillions: kwadryliardowe
+          nonillions: kwintylionowe
+          decillions: kwintyliardowe
+          undecillions: sekstylionowe
+          duodecillions: sekstyliardowe
+          tredecillions: septylionowe
+          quattuordecillions: septyliardowe
     integral: { one: cała, few: całe, many: całych, other: całej }
     micro: [_, tenths, hundredths, thousandths, millionths, billionths, trillionths, quadrillionths, quintillionths, sextillionths, septillionths, octillionths, nonillionths, decillionths, undecillionths, duodecillionths, tredecillionths, quattuordecillionths, quindecillionths]
     tenths: { one: dziesiąta, few: dziesiąte, many: dziesiątych, other: dziesiątej }

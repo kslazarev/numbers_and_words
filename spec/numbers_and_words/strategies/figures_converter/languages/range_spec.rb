@@ -12,10 +12,12 @@ describe 'Indonesian, Malay, Romanian and Greek limits' do # rubocop:disable RSp
     end
   end
 
-  it 'raises for Greek ordinals from 10,000' do
+  it 'spells Greek ordinals up to the largest cardinal' do
     I18n.with_locale(:el) do
-      expect(9999.to_words(ordinal: true)).to eq('εννεακισχιλιοστό εννιακοσιοστό ενενηκοστό ένατο')
-      expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Ordinals in :el only support numbers between 0 and 9999.')
+      expect([9999, 10_000, 21_000, 2_000_000].map { |number| number.to_words(ordinal: true) })
+        .to eq(['εννεακισχιλιοστό εννιακοσιοστό ενενηκοστό ένατο', 'δεκακισχιλιοστό', 'είκοσι ένα χιλιοστό', 'δύο εκατομμυριοστό'])
+      expect(((10**36) - 1).to_words(ordinal: true)).to end_with('εννιακοσιοστό ενενηκοστό ένατο')
+      expect { (10**36).to_words(ordinal: true) }.to raise_error(RangeError, 'Numbers in :el only support values below 10**36.')
     end
   end
 

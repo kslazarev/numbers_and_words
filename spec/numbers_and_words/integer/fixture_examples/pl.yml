@@ -174,3 +174,35 @@ to_words:
     36: trzydziesta szósta
     100: setna
     999: dziewięćset dziewięćdziesiąta dziewiąta
+
+  large_ordinals:
+    options:
+      :ordinal: true
+    1000: tysięczny
+    1001: tysiąc pierwszy
+    1234: tysiąc dwieście trzydziesty czwarty
+    2000: dwutysięczny
+    2021: dwa tysiące dwudziesty pierwszy
+    5000: pięciotysięczny
+    21000: dwudziestojednotysięczny
+    100000: stutysięczny
+    500000: pięćsettysięczny
+    1000000: milionowy
+    1500000: milion pięćsettysięczny
+    2000000: dwumilionowy
+    1000000000: miliardowy
+
+  large_female_ordinals:
+    options:
+      :ordinal: true
+      :gender: female
+    2000: dwutysięczna
+    1000000: milionowa
+    2021: dwa tysiące dwudziesta pierwsza
+
+  large_neuter_ordinals:
+    options:
+      :ordinal: true
+      :gender: neuter
+    2000: dwutysięczne
+    1000000: milionowe

@@ -17,6 +17,7 @@
       bg: { one: [един], before: [милионен, милионна, милионно, милиарден, милиардна, милиардно], affects: 6 }
       cs: { one: [jedna], before: [tisíc], affects: 12 }
       de: { one: [eine], before: [Millionste, Milliardeste], affects: 2 }
+      el: { one: [ένα], before: [εκατομμυριοστός, εκατομμυριοστή, εκατομμυριοστό, δισεκατομμυριοστός, δισεκατομμυριοστή, δισεκατομμυριοστό], affects: 6 }
       es: { one: [un], before: [millonésimo, millonésima], affects: 2 }
       et: { one: [üks], before: [sada, tuhat], affects: 10 }
       fi: { one: [yksi], before: [miljoona, miljardi], affects: 2 }
@@ -186,6 +187,9 @@ el:
   - reason: the gem uses εννιακοσιοστός, CLDR the learned εννεακοσιοστός; both are in use
     replace_parts: { εννεακοσιοστ: εννιακοσιοστ }
     affects: 3
+  - reason: CLDR misspells the feminine 400th τρετρακοσιοστή; the word is τετρακοσιοστή
+    replace: { τρετρακοσιοστή: τετρακοσιοστή }
+    affects: 1
   - reason: CLDR leaves δεκατρεις unaccented; the word is δεκατρείς
     replace: { δεκατρεις: δεκατρείς }
     affects: 2

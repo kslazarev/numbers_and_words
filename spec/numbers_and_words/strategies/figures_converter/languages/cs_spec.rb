@@ -9,8 +9,10 @@ describe NumbersAndWords::Strategies::FiguresConverter::Languages::Cs do
     expect(2000.to_words(ordinal: true, gender: :female)).to eq('dvoutisící')
   end
 
-  it 'raises for ordinals of 10,000 or more instead of returning wrong words' do
-    expect { 10_000.to_words(ordinal: true) }.to raise_error(RangeError, 'Ordinals in :cs only support numbers between 0 and 9999.')
+  it 'joins the count of a scale ordinal in its combining form up to the largest cardinal' do
+    expect([10_000, 21_000, 200_000, 2_000_000].map { |number| number.to_words(ordinal: true, gender: :male) })
+      .to eq(%w[desetitisící dvacetijednatisící dvousettisící dvoumiliontý])
+    expect { (10**36).to_words(ordinal: true) }.to raise_error(RangeError, 'Numbers in :cs only support values below 10**36.')
   end
 
   it 'still converts cardinals of 10,000 or more' do

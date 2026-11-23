@@ -85,7 +85,7 @@ I18n.with_locale(:cs) { 22.to_words(gender: :female) }
 
 ### Ordinal
 
-`ordinal: true`, optionally with gender, spells ordinals below 10,000; larger ones raise `RangeError`.
+`ordinal: true`, optionally with gender, makes every part ordinal ("tisící dvoustý třicátý čtvrtý"). The count of a thousand or a larger scale word joins its ordinal in the genitive combining form ("desetitisící", "dvacetijednatisící", "stotisící", "dvoumiliontý"), leaving out a count of one ("miliontý").
 
 ```ruby
 I18n.with_locale(:cs) { 21.to_words(ordinal: true) }
@@ -93,6 +93,12 @@ I18n.with_locale(:cs) { 21.to_words(ordinal: true) }
 
 I18n.with_locale(:cs) { 21.to_words(gender: :female, ordinal: true) }
 # => "dvacátá první"
+
+I18n.with_locale(:cs) { 12_345.to_words(gender: :male, ordinal: true) }
+# => "dvanáctitisící třístý čtyřicátý pátý"
+
+I18n.with_locale(:cs) { 2_000_000.to_words(gender: :male, ordinal: true) }
+# => "dvoumiliontý"
 ```
 
 ### Remove Zero

@@ -8,10 +8,12 @@
   * Read decimals in Arabic, Armenian, Danish, Estonian, Georgian, Kazakh, Latvian, Lithuanian, Swedish and Turkish, as Unicode CLDR reads them, so that every language reads decimals. \[[#366](https://github.com/kslazarev/numbers_and_words/pull/366)\] \([@dblock](https://github.com/dblock)\)
   * Accept `gender:` in French, German, Italian, Latvian, Lithuanian and Swedish, also for units with a gender, such as "une heure" instead of "un heure" in French. \[[#367](https://github.com/kslazarev/numbers_and_words/pull/367)\] \([@dblock](https://github.com/dblock)\)
   * Spell numbers up to 10<sup>36</sup> in Arabic, Armenian, Bulgarian, Czech, Danish, Finnish, Georgian, Greek, Hebrew, Indonesian, Malay, Norwegian, Romanian, Slovak and Vietnamese, so that every language with scale words reaches it. \[[#368](https://github.com/kslazarev/numbers_and_words/pull/368)\] \([@dblock](https://github.com/dblock)\)
+  * Spell Czech, Greek and Polish ordinals up to the largest cardinal instead of raising `RangeError` from 10,000 (Czech, Greek) or 1,000 (Polish). \[[#369](https://github.com/kslazarev/numbers_and_words/pull/369)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
 
+  * Compare the readings the specs test, with the 2.0 defaults, in `script/cldr_differences.rb`, which recorded French spellings that aren't differences as exceptions to review. \[[#369](https://github.com/kslazarev/numbers_and_words/pull/369)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ## 1.1.1 (2026/11/22)
