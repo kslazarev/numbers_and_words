@@ -3,7 +3,11 @@ da:
     supported_options:
       gender: {values: [common, neuter], default: common}
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: komma
     ones: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
     common: [nul, en, to, tre, fire, fem, seks, syv, otte, ni]
     neuter: [nul, et, to, tre, fire, fem, seks, syv, otte, ni]

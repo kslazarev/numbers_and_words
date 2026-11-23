@@ -9,7 +9,11 @@ ar:
       many: 'n % 100 = 11..99'
     supported_options:
       ordinal: {minimum: 1, maximum: 99}
+      remove_zero: {keeps_micro_separator: true}
     minus: سالب
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: فاصل
     ones: [صفر, واحد, اثنان, ثلاثة, أربعة, خمسة, ستة, سبعة, ثمانية, تسعة]
     teens: [عشرة, أحد عشر, اثنا عشر, ثلاثة عشر, أربعة عشر, خمسة عشر, ستة عشر, سبعة عشر, ثمانية عشر, تسعة عشر]
     tens: [_, عشرة, عشرون, ثلاثون, أربعون, خمسون, ستون, سبعون, ثمانون, تسعون]

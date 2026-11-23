@@ -6,7 +6,11 @@ lt:
       ones: 'n % 10 = 2,3,4,5,6,7,8,9 and n % 100 != 12,13,14,15,16,17,18,19'
     supported_options:
       ordinal: true
+      remove_zero: {keeps_micro_separator: true}
     minus: minus
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: kablelis
     ones: [nulis, vienas, du, trys, keturi, penki, šeši, septyni, aštuoni, devyni]
     teens: [_, vienuolika, dvylika, trylika, keturiolika, penkiolika, šešiolika, septyniolika, aštuoniolika, devyniolika]
     tens: [_, dešimt, dvidešimt, trisdešimt, keturiasdešimt, penkiasdešimt, šešiasdešimt, septyniasdešimt, aštuoniasdešimt, devyniasdešimt]

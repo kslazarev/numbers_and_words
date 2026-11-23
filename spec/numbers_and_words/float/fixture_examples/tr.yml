@@ -1,0 +1,29 @@
+to_words:
+  fractional:
+    0.1: sıfır virgül bir
+    0.01: sıfır virgül sıfır bir
+    0.05: sıfır virgül sıfır beş
+    0.77: sıfır virgül yedi yedi
+  integral_and_fractional:
+    1.5: bir virgül beş
+    2.5: iki virgül beş
+    3.14: üç virgül bir dört
+    21.05: yirmi bir virgül sıfır beş
+    21.77: yirmi bir virgül yedi yedi
+    101.001: yüz bir virgül sıfır sıfır bir
+    5.123: beş virgül bir iki üç
+  precision:
+    options:
+      :precision: 3
+    1.5: bir virgül beş sıfır sıfır
+    0.1: sıfır virgül bir sıfır sıfır
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: virgül yedi
+    0.05: virgül sıfır beş
+    1.5: bir virgül beş
+  micro_separator:
+    options:
+      :micro_separator: x
+    21.77: yirmi bir x yedi yedi

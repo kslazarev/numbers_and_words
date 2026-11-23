@@ -32,17 +32,35 @@ I18n.with_locale(:da) { [11, 22, 133].to_words }
 
 ## Decimals
 
-Ordinary decimal readings are not supported yet. A float without `unit` and `subunit`, such as `1.5.to_words`, raises `NumbersAndWords::UnsupportedNumberError`, an `ArgumentError` ("Decimals are not supported in :da."). Amounts with both [`unit` and `subunit`](../../README.md#unit) work.
+Decimals are read with komma and then each fractional digit, including leading zeros, as Unicode CLDR reads them.
+
+```ruby
+I18n.with_locale(:da) { 3.14.to_words }
+# => "tre komma en fire"
+
+I18n.with_locale(:da) { 21.05.to_words }
+# => "enogtyve komma nul fem"
+```
 
 ## Options
 
 ### Precision
 
-With `unit` and `subunit`, `precision` sets how many decimal places make one subunit (2 by default). It does not enable decimal readings.
+`precision` pads the fractional part with zeros to that many digits.
+
+```ruby
+I18n.with_locale(:da) { 0.1.to_words(precision: 2) }
+# => "nul komma en nul"
+```
 
 ### Micro Separator
 
-`micro_separator` applies only to decimal readings, which are not supported, not to the separator between a unit and its subunit.
+`micro_separator` replaces the word between the integral and fractional parts.
+
+```ruby
+I18n.with_locale(:da) { 21.77.to_words(micro_separator: "punktum") }
+# => "enogtyve punktum syv syv"
+```
 
 ### Gender
 
@@ -72,6 +90,15 @@ I18n.with_locale(:da) { 2_000.to_words(ordinal: true) }
 
 I18n.with_locale(:da) { 2.to_words(ordinal: true, gender: :neuter) }
 # => "andet"
+```
+
+### Remove Zero
+
+`remove_zero: true` omits a zero integral part and keeps komma.
+
+```ruby
+I18n.with_locale(:da) { 0.7.to_words(remove_zero: true) }
+# => "komma syv"
 ```
 
 ## Sources

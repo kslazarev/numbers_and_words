@@ -67,16 +67,21 @@ describe 'Language limits' do # rubocop:disable RSpec/DescribeClass -- covers ev
     end
   end
 
-  (NumbersAndWords::I18n.languages - decimal_languages).each do |locale|
-    it "raises UnsupportedNumberError for #{locale} decimals" do
-      UNSUPPORTED_DECIMALS.each do |number|
-        expect { words(locale, number) }.to raise_error(NumbersAndWords::UnsupportedNumberError, "Decimals are not supported in #{locale.inspect}.")
-      end
-      expect { words(locale, 1.5, fallback: :en) }.to raise_error(NumbersAndWords::UnsupportedNumberError)
+  it 'raises UnsupportedNumberError for decimals in a language without a decimal reading' do
+    I18n.reload!
+    allow(NumbersAndWords::Strategies::FiguresConverter::Decorators).to receive(:decimals?).and_return(false)
+    UNSUPPORTED_DECIMALS.each do |number|
+      expect { words(:sv, number) }.to raise_error(NumbersAndWords::UnsupportedNumberError, 'Decimals are not supported in :sv.')
     end
+    expect { words(:sv, 1.5, fallback: :en) }.to raise_error(NumbersAndWords::UnsupportedNumberError)
   end
 
-  it 'lists the languages without decimals' do
-    expect(NumbersAndWords::I18n.languages - decimal_languages).to match_array(%i[ar da et hy ka kk lt lv sv tr])
+  it 'reads decimals in every language' do
+    expect(NumbersAndWords::I18n.languages - decimal_languages).to eq([])
+  end
+
+  it 'raises RangeError past the Kazakh fraction words' do
+    expect(words(:kk, 0.5, precision: 18)).to start_with('нөл бүтін квинтиллионнан')
+    expect { words(:kk, 0.5, precision: 19) }.to raise_error(RangeError, 'Decimals in :kk only support up to 18 fractional digits.')
   end
 end

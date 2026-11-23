@@ -30,9 +30,9 @@ describe 'declarations in the locale file' do # rubocop:disable RSpec/DescribeCl
 
   it 'reads decimals with the reading numbers.decimals names' do
     I18n.with_locale(:sv) do
-      expect { 1.05.to_words }.to raise_error(NumbersAndWords::UnsupportedNumberError)
-      I18n.backend.store_translations(:sv, numbers: { decimals: { reading: 'digits' }, micro_separator: 'komma' })
       expect(1.05.to_words).to eq('ett komma noll fem')
+      I18n.backend.store_translations(:sv, numbers: { decimals: { reading: 'plain' } })
+      expect(1.05.to_words).to eq('ett komma fem')
     end
   end
 end
