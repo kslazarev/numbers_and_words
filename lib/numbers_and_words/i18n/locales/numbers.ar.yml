@@ -8,6 +8,7 @@ ar:
       few: 'n % 100 = 3..10'
       many: 'n % 100 = 11..99'
     supported_options:
+      gender: {values: [male, female], default: male}
       ordinal: {minimum: 1, maximum: 99}
       remove_zero: {keeps_micro_separator: true}
     minus: سالب
@@ -16,6 +17,11 @@ ar:
     micro_separator: فاصل
     ones: [صفر, واحد, اثنان, ثلاثة, أربعة, خمسة, ستة, سبعة, ثمانية, تسعة]
     teens: [عشرة, أحد عشر, اثنا عشر, ثلاثة عشر, أربعة عشر, خمسة عشر, ستة عشر, سبعة عشر, ثمانية عشر, تسعة عشر]
+    # The numbers below a hundred for a feminine noun: from three to ten a number takes the opposite gender to its
+    # noun ("ثلاث نساء"), one and two agree with it, and a one before tens is إحدى ("إحدى وعشرون").
+    female_ones: [صفر, واحدة, اثنتان, ثلاث, أربع, خمس, ست, سبع, ثماني, تسع]
+    female_teens: [عشر, إحدى عشرة, اثنتا عشرة, ثلاث عشرة, أربع عشرة, خمس عشرة, ست عشرة, سبع عشرة, ثماني عشرة, تسع عشرة]
+    female_ones_with_tens: [_, إحدى, اثنتان, ثلاث, أربع, خمس, ست, سبع, ثماني, تسع]
     tens: [_, عشرة, عشرون, ثلاثون, أربعون, خمسون, ستون, سبعون, ثمانون, تسعون]
     hundreds: [_, مائة, مائتان, ثلاثمائة, أربعمائة, خمسمائة, ستمائة, سبعمائة, ثمانمائة, تسعمائة]
     two_hundred_construct: مائتا
@@ -42,6 +48,12 @@ ar:
         1000000000000000000000000000: '{<octillions-count}[ {union}{>}]'
         1000000000000000000000000000000: '{<nonillions-count}[ {union}{>}]'
         1000000000000000000000000000000000: '{<decillions-count}[ {union}{>}]'
+      # The last group agrees with a feminine noun; the counts of scale words stay masculine ("ثلاثة آلاف").
+      cardinal-female:
+        extends: cardinal
+        0: '{female_ones}'
+        10: '{female_teens%}'
+        20: '[{female_ones_with_tens%} {union}{tens}|{tens}]'
       thousands-count:
         1: '{thousands}'
         3: '{=cardinal} {thousands}'
@@ -232,15 +244,22 @@ ar:
       ten: العاشر
       teen: عشر
       tens: [_, _, العشرون, الثلاثون, الأربعون, الخمسون, الستون, السبعون, الثمانون, التسعون]
+    # The feminine ordinals.
+    genders:
+      female:
+        ordinals:
+          ones: [_, الأولى, الثانية, الثالثة, الرابعة, الخامسة, السادسة, السابعة, الثامنة, التاسعة]
+          compound_ones: [_, الحادية, الثانية, الثالثة, الرابعة, الخامسة, السادسة, السابعة, الثامنة, التاسعة]
+          ten: العاشرة
+          teen: عشرة
     subunit_separator: و
     subunit_separator_attached: true
     # One follows its unit (دينار واحد) and two is the unit's dual alone (ديناران). A count above 100 ending in 01
-    # or 02 repeats the unit (مائة دينار ودينار), which isn't supported, and numbers agree only with masculine units.
+    # or 02 repeats the unit (مائة دينار ودينار), which isn't supported.
     unit_order:
       after: [1]
       alone: [2]
       unsupported_after_hundred: [1, 2]
-    unit_masculine_only: true
     # Before a unit, a dual scale word or hundred takes its construct form (ألفا دينار, مائتا دينار) and an
     # accusative scale word loses its ending (أحد عشر ألف دينار).
     before_unit:

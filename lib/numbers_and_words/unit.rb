@@ -31,7 +31,6 @@ module NumbersAndWords
     # A whole number, at least zero, and its unit, in the form and order the language puts them in.
     def whole_phrase(count, unit, entry, options)
       gender = entry[:gender] if entry.is_a?(Hash)
-      Order.check_gender!(unit, gender)
       number_options = Apocope.apply(with_gender(options, entry))
       words = Wrappers::Integer.new(count).to_words(number_options)
       words = BeforeNoun.apply(words, number_options[:gender] || gender) unless options[:ordinal]

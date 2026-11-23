@@ -7,7 +7,7 @@ module NumbersAndWords
     # counts that the unit's form says by itself (the Arabic dual "ديناران"), and unsupported_after_hundred: the last
     # two digits of counts above 100 that raise, because the unit form they need isn't a plural category (Arabic
     # 101 repeats the unit: مائة دينار ودينار). An ordinal in such a language follows its noun with an article, which
-    # isn't supported either. With numbers.unit_masculine_only: true, a unit of another gender raises.
+    # isn't supported either.
     module Order
       module_function
 
@@ -26,12 +26,6 @@ module NumbersAndWords
         return unless count > 100 && order.fetch(:unsupported_after_hundred, []).include?(count % 100)
 
         raise UnsupportedNumberError, "A unit after #{count} is not supported in #{::I18n.locale.inspect} yet."
-      end
-
-      def check_gender!(unit, gender)
-        return if gender.nil? || gender.to_sym == :male || !I18n.t('numbers.unit_masculine_only', locale: I18n.local_language, default: false)
-
-        raise UnsupportedOptionError, "The unit #{unit.inspect} has gender #{gender.inspect}, and numbers in #{::I18n.locale.inspect} only agree with male units yet."
       end
     end
   end

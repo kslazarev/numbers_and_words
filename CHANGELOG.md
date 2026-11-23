@@ -10,6 +10,7 @@
   * Spell numbers up to 10<sup>36</sup> in Arabic, Armenian, Bulgarian, Czech, Danish, Finnish, Georgian, Greek, Hebrew, Indonesian, Malay, Norwegian, Romanian, Slovak and Vietnamese, so that every language with scale words reaches it. \[[#368](https://github.com/kslazarev/numbers_and_words/pull/368)\] \([@dblock](https://github.com/dblock)\)
   * Spell Czech, Greek and Polish ordinals up to the largest cardinal instead of raising `RangeError` from 10,000 (Czech, Greek) or 1,000 (Polish). \[[#369](https://github.com/kslazarev/numbers_and_words/pull/369)\] \([@dblock](https://github.com/dblock)\)
   * Accept `case:` in Polish for cardinals in the genitive, dative, accusative, instrumental and locative, as Unicode CLDR declines them. \[[#370](https://github.com/kslazarev/numbers_and_words/pull/370)\] \([@dblock](https://github.com/dblock)\)
+  * Accept `gender: :female` in Arabic, with feminine numbers below a hundred, feminine ordinals and units with `gender: female`, which raised `UnsupportedOptionError`. \[[#371](https://github.com/kslazarev/numbers_and_words/pull/371)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 
 ### Bugs
