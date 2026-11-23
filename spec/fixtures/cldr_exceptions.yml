@@ -84,6 +84,12 @@ fi:
       gem: sadaskahdeskymmeneskolmas miljoonas neljässadasviideskymmeneskuudestuhannesseitsemässadaskahdeksaskymmenesyhdeksäs
       cldr: sadaskahdeskymmeneskolmas miljoonasneljässadasviideskymmeneskuudestuhannesseitsemässadaskahdeksaskymmenesyhdeksäs
       reason: the gem separates the words after miljoonas with a space; CLDR writes the whole ordinal as one word
+fil:
+  ordinal:
+    0:
+      gem: wala
+      cldr: ika walâ
+      reason: the gem keeps the cardinal for the zero ordinal, as Indonesian does; ikawala would read like ikawalo (8th)
 fr:
   ordinal:
     123456789:
@@ -258,6 +264,12 @@ ru:
       gem: двухсотое
       cldr: двести
       reason: CLDR reads 200th as the cardinal двести; the ordinal is двухсотый
+ta:
+  cardinal:
+    1000000000:
+      gem: ஒரு அரபம்
+      cldr: நூறு கோடி
+      reason: CLDR 46.1 counts 10^9 as a hundred crore; current CLDR and the gem use அரபம், as Hindi uses अरब
 th:
   cardinal:
     1001:

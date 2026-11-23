@@ -12,7 +12,7 @@ module DocumentationExamples
   RECEIVER = /#{NUMBER}|\[#{NUMBER}(?:, #{NUMBER})*\]/
   VALUE = /true|false|:\w+|-?\d+|"[^"\\#]*"/
   OPTION = /\w+: #{VALUE}/
-  CALL = /\AI18n\.with_locale\(:(?:(?<locale>[a-z]{2})|'(?<locale>[a-z]{2}-[A-Z]{2})')\) \{ (?<receiver>#{RECEIVER})\.to_words(?:\((?<options>#{OPTION}(?:, #{OPTION})*)\))? \}\z/
+  CALL = /\AI18n\.with_locale\(:(?:(?<locale>[a-z]{2,3})|'(?<locale>[a-z]{2,3}-[A-Z]{2})')\) \{ (?<receiver>#{RECEIVER})\.to_words(?:\((?<options>#{OPTION}(?:, #{OPTION})*)\))? \}\z/
 
   Example = Struct.new(:path, :line, :code, :locale, :receiver, :options, :expected)
 

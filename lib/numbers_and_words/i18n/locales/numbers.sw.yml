@@ -1,0 +1,54 @@
+sw:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_micro_separator: true}
+    minus: kasoro
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: nukta
+    ones: [sifuri, moja, mbili, tatu, nne, tano, sita, saba, nane, tisa]
+    tens: [~, kumi, ishirini, thelathini, arobaini, hamsini, sitini, sabini, themanini, tisini]
+    hundreds: mia
+    # "na" (and) joins every part ("mia moja na ishirini na moja").
+    union: na
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The count follows mia and the scale words ("mia mbili", "elfu tatu", "milioni ishirini na moja").
+    rules:
+      cardinal:
+        0: '{ones}'
+        10: '{tens}[ {union} {>}]'
+        100: '{hundreds} {<}[ {union} {>}]'
+        1000: '{thousands} {<}[ {union} {>}]'
+        1000000: '{millions} {<}[ {union} {>}]'
+        1000000000: '{billions} {<}[ {union} {>}]'
+        1000000000000: '{trillions} {<}[ {union} {>}]'
+        1000000000000000: '{quadrillions} {<}[ {union} {>}]'
+        1000000000000000000: '{quintillions} {<}[ {union} {>}]'
+        1000000000000000000000: '{sextillions} {<}[ {union} {>}]'
+        1000000000000000000000000: '{septillions} {<}[ {union} {>}]'
+        1000000000000000000000000000: '{octillions} {<}[ {union} {>}]'
+        1000000000000000000000000000000: '{nonillions} {<}[ {union} {>}]'
+        1000000000000000000000000000000000: '{decillions} {<}[ {union} {>}]'
+      # An ordinal is wa and the cardinal ("wa tatu", "wa ishirini na moja"), with kwanza and pili for one and two.
+      ordinal:
+        0: '{ordinals.prefix} {=cardinal}'
+        1: '{ordinals.prefix} {ordinals.first}'
+        2: '{ordinals.prefix} {ordinals.second}'
+        3: '{ordinals.prefix} {=cardinal}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousands: elfu
+    millions: milioni
+    billions: bilioni
+    trillions: trilioni
+    quadrillions: kvadrilioni
+    quintillions: kwintilioni
+    sextillions: sekstilioni
+    septillions: septilioni
+    octillions: oktilioni
+    nonillions: nonilioni
+    decillions: desilioni
+    ordinals:
+      prefix: wa
+      first: kwanza
+      second: pili

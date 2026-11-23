@@ -1,0 +1,81 @@
+to_words:
+  ones:
+    0: sifuri
+    1: moja
+    2: mbili
+    3: tatu
+    4: nne
+    5: tano
+    6: sita
+    7: saba
+    8: nane
+    9: tisa
+  tens:
+    10: kumi
+    11: kumi na moja
+    12: kumi na mbili
+    19: kumi na tisa
+    20: ishirini
+    21: ishirini na moja
+    30: thelathini
+    40: arobaini
+    50: hamsini
+    60: sitini
+    70: sabini
+    80: themanini
+    90: tisini
+    99: tisini na tisa
+  hundreds:
+    100: mia moja
+    101: mia moja na moja
+    110: mia moja na kumi
+    121: mia moja na ishirini na moja
+    200: mia mbili
+    999: mia tisa na tisini na tisa
+  thousands:
+    1000: elfu moja
+    1001: elfu moja na moja
+    1100: elfu moja na mia moja
+    2000: elfu mbili
+    2021: elfu mbili na ishirini na moja
+    10000: elfu kumi
+    21000: elfu ishirini na moja
+    100000: elfu mia moja
+    999999: elfu mia tisa na tisini na tisa na mia tisa na tisini na tisa
+  millions:
+    1000000: milioni moja
+    1001000: milioni moja na elfu moja
+    2000000: milioni mbili
+    21000000: milioni ishirini na moja
+    123456789: milioni mia moja na ishirini na tatu na elfu mia nne na hamsini na sita na mia saba na themanini na tisa
+  billions:
+    1000000000: bilioni moja
+    2000000000: bilioni mbili
+    1000000000000: trilioni moja
+    1000000000000000: kvadrilioni moja
+  large_scales:
+    1000000000000000000: kwintilioni moja
+    1000000000000000000000: sekstilioni moja
+    1000000000000000000000000: septilioni moja
+    1000000000000000000000000000: oktilioni moja
+    1000000000000000000000000000000: nonilioni moja
+    1000000000000000000000000000000000: desilioni moja
+    2000000000000000000000000000000000: desilioni mbili
+  ordinal:
+    options:
+      :ordinal: true
+    0: wa sifuri
+    1: wa kwanza
+    2: wa pili
+    3: wa tatu
+    10: wa kumi
+    11: wa kumi na moja
+    21: wa ishirini na moja
+    22: wa ishirini na mbili
+    100: wa mia moja
+    1000: wa elfu moja
+    1000000: wa milioni moja
+  large_scale_ordinals:
+    options:
+      :ordinal: true
+    1000000000000000000000000000000000: wa desilioni moja

@@ -114,7 +114,9 @@ module CldrComparison
       }.merge(gendered('cardinal', FEMALE), gendered('ordinal', FEMALE, ordinal: true))
     },
     et: { cldr: :et, kinds: CARDINAL },
+    fa: { cldr: :fa, kinds: CARDINAL },
     fi: { cldr: :fi, kinds: CARDINAL.merge(ORDINAL) },
+    fil: { cldr: :fil, kinds: CARDINAL.merge(ORDINAL) },
     fr: { cldr: :fr, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-masculine') } },
     # Hebrew counts with the feminine standalone forms (שתיים, not the construct שתי).
     he: {
@@ -189,6 +191,9 @@ module CldrComparison
     },
     sq: { cldr: :sq, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE)) },
     sv: { cldr: :sv, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-neuter'), 'ordinal' => compare({ ordinal: true }, 'spellout-ordinal-neuter') } },
+    sw: { cldr: :sw, kinds: CARDINAL.merge(ORDINAL) },
+    # twitter_cldr 6.14.0 bundles CLDR 46.1, whose Tamil ordinals from 21 are digits (21ாவது).
+    ta: { cldr: :ta, kinds: CARDINAL.merge('ordinal' => compare({ ordinal: true }, 'spellout-ordinal', within(0..20))) },
     th: { cldr: :th, kinds: CARDINAL.merge(ORDINAL) },
     tr: { cldr: :tr, kinds: CARDINAL.merge(ORDINAL) },
     uk: { cldr: :uk, kinds: { 'cardinal' => compare({}, 'spellout-cardinal-masculine') }.merge(gendered('cardinal', FEMALE_NEUTER)) },

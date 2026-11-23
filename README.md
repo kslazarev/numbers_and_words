@@ -128,6 +128,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [English](docs/languages/en.md) | English | `en` |
 | [Esperanto](docs/languages/eo.md)* | Esperanto | `eo` |
 | [Estonian](docs/languages/et.md) | Eesti | `et` |
+| [Filipino](docs/languages/fil.md)* | Filipino | `fil` |
 | [Finnish](docs/languages/fi.md)* | Suomi | `fi` |
 | [French](docs/languages/fr.md) | Français | `fr` |
 | [Georgian](docs/languages/ka.md) | ქართული | `ka` |
@@ -150,6 +151,7 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Malay](docs/languages/ms.md)* | Bahasa Melayu | `ms` |
 | [Maltese](docs/languages/mt.md)* | Malti | `mt` |
 | [Norwegian Bokmål](docs/languages/nb.md)* | Norsk bokmål | `nb` |
+| [Persian](docs/languages/fa.md)* | فارسی | `fa` |
 | [Polish](docs/languages/pl.md)* | Polski | `pl` |
 | [Portuguese](docs/languages/pt.md) | Português | `pt` |
 | [Romanian](docs/languages/ro.md)* | Română | `ro` |
@@ -158,8 +160,10 @@ Each language page has examples, says whether it reads decimals, and documents i
 | [Slovak](docs/languages/sk.md)* | Slovenčina | `sk` |
 | [Slovenian](docs/languages/sl.md)* | Slovenščina | `sl` |
 | [Spanish](docs/languages/es.md) | Español | `es` |
+| [Swahili](docs/languages/sw.md)* | Kiswahili | `sw` |
 | [Swedish](docs/languages/sv.md)* | Svenska | `sv` |
 | [Swiss French](docs/languages/fr-CH.md) | Français (Suisse) | `fr-CH` |
+| [Tamil](docs/languages/ta.md)* | தமிழ் | `ta` |
 | [Thai](docs/languages/th.md)* | ภาษาไทย | `th` |
 | [Turkish](docs/languages/tr.md) | Türkçe | `tr` |
 | [Ukrainian](docs/languages/uk.md) | Українська | `uk` |

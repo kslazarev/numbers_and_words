@@ -14,21 +14,22 @@ module LocaleCharacters
     end
   end
 
-  # script is a Unicode script name, or a list of them for a locale written in several (Japanese kanji and kana).
-  def self.errors(value, script)
+  # script is a Unicode script name, or a list of them for a locale written in several (Japanese kanji and kana);
+  # allowed lists invisible characters the orthography requires, such as the Persian zero-width non-joiner.
+  def self.errors(value, script, allowed: '')
     letter = Regexp.new("\\A[#{Array(script).map { |name| "\\p{#{name}}" }.join}]\\z")
 
     strings(value).flat_map do |path, text|
-      problems(text, letter).map { |problem| "#{path}: #{text.dump} (#{problem})" }
+      problems(text, letter, allowed).map { |problem| "#{path}: #{text.dump} (#{problem})" }
     end
   end
 
-  def self.problems(text, letter)
+  def self.problems(text, letter, allowed = '')
     foreign = text.scan(/\p{L}/).grep_v(letter).uniq
     problems = []
     problems << "unexpected letters #{foreign.map { |character| format('U+%04X', character.ord) }.join(', ')}" unless foreign.empty?
     problems << 'not NFC-normalized' unless text.unicode_normalized?(:nfc)
-    problems << 'invisible control/format characters' if text.match?(/[\p{Cc}\p{Cf}\p{Default_Ignorable_Code_Point}\p{Zl}\p{Zp}]/)
+    problems << 'invisible control/format characters' if text.delete(allowed).match?(/[\p{Cc}\p{Cf}\p{Default_Ignorable_Code_Point}\p{Zl}\p{Zp}]/)
     problems
   end
 end

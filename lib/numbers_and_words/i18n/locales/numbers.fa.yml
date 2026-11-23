@@ -1,0 +1,74 @@
+fa:
+  numbers:
+    supported_options:
+      ordinal: true
+      remove_zero: {keeps_ordinal_zero: true, keeps_micro_separator: true}
+    minus: منفی
+    # How decimals are read (see Decorators.readings), after micro_separator.
+    decimals: {reading: digits}
+    micro_separator: ممیز
+    ones: [صفر, یک, دو, سه, چهار, پنج, شش, هفت, هشت, نه, ده, یازده, دوازده, سیزده, چهارده, پانزده, شانزده, هفده, هجده, نوزده]
+    tens: [~, ~, بیست, سی, چهل, پنجاه, شصت, هفتاد, هشتاد, نود]
+    hundreds: [~, صد, دویست, سیصد, چهارصد, پانصد, ششصد, هفتصد, هشتصد, نهصد]
+    # The conjunction "و" (read -o) joins every part ("صد و بیست و یک").
+    union: و
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # A hundred and a thousand are صد and هزار without یک ("هزار و یک"), but larger scales count one ("یک میلیون").
+    # Scale words keep their form after any count ("دو هزار", "سه میلیون").
+    rules:
+      cardinal:
+        0: '{ones}'
+        20: '{tens}[ {union} {>}]'
+        100: '{hundreds}[ {union} {>}]'
+        1000: '{thousands}[ {union} {>}]'
+        2000: '{<} {thousands}[ {union} {>}]'
+        1000000: '{<} {millions}[ {union} {>}]'
+        1000000000: '{<} {milliards}[ {union} {>}]'
+        1000000000000: '{<} {billions}[ {union} {>}]'
+        1000000000000000: '{<} {billiards}[ {union} {>}]'
+        1000000000000000000: '{<} {trillions}[ {union} {>}]'
+        1000000000000000000000: '{<} {trilliards}[ {union} {>}]'
+        1000000000000000000000000: '{<} {quadrillions}[ {union} {>}]'
+        1000000000000000000000000000: '{<} {quadrilliards}[ {union} {>}]'
+        1000000000000000000000000000000: '{<} {quintillions}[ {union} {>}]'
+        1000000000000000000000000000000000: '{<} {quintilliards}[ {union} {>}]'
+      # An ordinal adds -م to the last word of the cardinal ("بیست و یکم", "صدم", "یک میلیونم"); three is سوم and
+      # thirty سی‌ام, written with a zero-width non-joiner after its final ی.
+      ordinal:
+        0: '{=cardinal}{ordinals.suffix}'
+        3: '{ordinals.third}'
+        4: '{=cardinal}{ordinals.suffix}'
+        20: '{tens}[ {union} {>}|{ordinals.suffix}]'
+        30: '[{tens} {union} {>}|{ordinals.thirtieth}]'
+        40: '{tens}[ {union} {>}|{ordinals.suffix}]'
+        100: '{hundreds}[ {union} {>}|{ordinals.suffix}]'
+        1000: '{thousands}[ {union} {>}|{ordinals.suffix}]'
+        2000: '{<cardinal} {thousands}[ {union} {>}|{ordinals.suffix}]'
+        1000000: '{<cardinal} {millions}[ {union} {>}|{ordinals.suffix}]'
+        1000000000: '{<cardinal} {milliards}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000: '{<cardinal} {billions}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000: '{<cardinal} {billiards}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000: '{<cardinal} {trillions}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000000: '{<cardinal} {trilliards}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000000000: '{<cardinal} {quadrillions}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000000000000: '{<cardinal} {quadrilliards}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000000000000000: '{<cardinal} {quintillions}[ {union} {>}|{ordinals.suffix}]'
+        1000000000000000000000000000000000: '{<cardinal} {quintilliards}[ {union} {>}|{ordinals.suffix}]'
+    # The long scale, which Persian follows (میلیارد is 10^9 and بیلیون 10^12); Unicode CLDR stops at 10^18 and
+    # says هزار میلیارد for 10^12.
+    mega: [_, thousands, millions, milliards, billions, billiards, trillions, trilliards, quadrillions, quadrilliards, quintillions, quintilliards]
+    thousands: هزار
+    millions: میلیون
+    milliards: میلیارد
+    billions: بیلیون
+    billiards: بیلیارد
+    trillions: تریلیون
+    trilliards: تریلیارد
+    quadrillions: کوآدریلیون
+    quadrilliards: کوآدریلیارد
+    quintillions: کوینتیلیون
+    quintilliards: کوینتیلیارد
+    ordinals:
+      suffix: م
+      third: سوم
+      thirtieth: سی‌ام

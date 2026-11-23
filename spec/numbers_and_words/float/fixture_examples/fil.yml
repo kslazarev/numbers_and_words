@@ -1,0 +1,23 @@
+to_words:
+  fractional:
+    0.1: wala tuldok isa
+    0.01: wala tuldok wala isa
+    0.21: wala tuldok dalawa isa
+  integral_and_fractional:
+    1.5: isa tuldok lima
+    3.14: tatlo tuldok isa apat
+    21.05: dalawampu’t isa tuldok wala lima
+    1000.5: isang libo tuldok lima
+  precision:
+    options:
+      :precision: 3
+    1.5: isa tuldok lima wala wala
+  remove_zero:
+    options:
+      :remove_zero: true
+    0.7: tuldok pito
+    1.5: isa tuldok lima
+  ordinal:
+    options:
+      :ordinal: true
+    1.5: isa tuldok lima

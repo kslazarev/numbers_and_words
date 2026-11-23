@@ -48,6 +48,14 @@ describe LocaleCharacters do
       end
     end
 
+    it 'allows the invisible characters it is given, and only those' do
+      word = "\u0633\u06CC\u200C\u0627\u0645"
+
+      expect(described_class.errors({ 'word' => word }, 'Arabic', allowed: "\u200C")).to be_empty
+      expect(described_class.errors({ 'word' => "#{word}\u200B" }, 'Arabic', allowed: "\u200C"))
+        .to include(a_string_including('invisible control/format characters'))
+    end
+
     it 'allows native scripts, accents, combining marks, punctuation and spaces' do
       {
         'Latin' => ["\u00e9", "q\u0301", 'twenty-one', "l\u2019un", 'səksən', 'qırx', 'üçüncü', 'beş', ' ', '', '_', 1, nil],

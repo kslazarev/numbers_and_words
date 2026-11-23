@@ -54,9 +54,9 @@ describe NumbersAndWords::I18n do
 
   describe 'locale files' do
     locales_dir = File.expand_path('../../lib/numbers_and_words/i18n/locales', __dir__)
-    lookup_locales = %w[ar be bg el he hy ka kk mk ru sk sr uk]
+    lookup_locales = %w[ar be bg el fa he hy ka kk mk ru sk sr uk]
     scripts = {
-      'Latin' => %w[af az bs ca cs da de en en-GB eo es et fi fr fr-CH hr hu id is it lt lv ms mt nb nl pl pt pt-BR ro sk sl sq sv tr vi],
+      'Latin' => %w[af az bs ca cs da de en en-GB eo es et fi fil fr fr-CH hr hu id is it lt lv ms mt nb nl pl pt pt-BR ro sk sl sq sv sw tr vi],
       'Cyrillic' => %w[be bg kk mk ru sr uk],
       'Armenian' => %w[hy],
       'Georgian' => %w[ka],
@@ -68,11 +68,14 @@ describe NumbersAndWords::I18n do
       %w[Han Hiragana Katakana] => %w[ja],
       'Hangul' => %w[ko],
       'Hebrew' => %w[he],
-      'Arabic' => %w[ar ur],
+      'Arabic' => %w[ar fa ur],
       'Devanagari' => %w[hi],
       'Bengali' => %w[bn],
+      'Tamil' => %w[ta],
       'Greek' => %w[el]
     }.flat_map { |script, locales| locales.map { |locale| [locale, script] } }.to_h
+    # Persian writes a zero-width non-joiner between a word and a suffix that must not join it (30th is سی, U+200C and ام).
+    allowed = { 'fa' => "\u200C" }
 
     Dir[File.join(locales_dir, '*.yml')].each do |path|
       locale = File.basename(path, '.yml').delete_prefix('numbers.')
@@ -86,7 +89,7 @@ describe NumbersAndWords::I18n do
         translations = numbers.reject { |key, _value| references.key?(key) || NOT_TRANSLATED.include?(key) }
 
         expect(LocaleCharacters.errors(references, 'Latin')).to be_empty
-        expect(LocaleCharacters.errors(translations, script)).to be_empty
+        expect(LocaleCharacters.errors(translations, script, allowed: allowed.fetch(locale, ''))).to be_empty
       end
     end
 

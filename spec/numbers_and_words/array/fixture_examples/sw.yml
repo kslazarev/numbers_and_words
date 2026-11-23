@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - moja
+      - mbili
+      - tatu
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - kumi na moja
+      - ishirini na mbili
+      - mia moja na thelathini na tatu
