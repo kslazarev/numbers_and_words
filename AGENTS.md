@@ -9,6 +9,7 @@ Guidance for AI agents and contributors working on numbers_and_words. See [CONTR
 * `bundle exec rake spec` or `bundle exec rake rubocop`: run one of them.
 * `I18N_VERSION=1.6.0 bundle exec rspec`: test against the oldest i18n release CI covers.
 * `bundle exec rake build` then `bundle exec ruby script/verify_package.rb`: build the gem and test the installed archive in an isolated consumer, as CI's Package workflow does.
+* `bundle exec ruby script/features.rb`: regenerate [docs/features.md](docs/features.md) after changing what a language supports; a spec fails when it is out of date.
 * `bundle exec rake benchmark`: throughput and allocation benchmarks, see [BENCHMARKS](BENCHMARKS.md).
 * `bundle exec rspec spec/cldr_comparison_spec.rb`: compare spelled-out integers with the Unicode CLDR spell-out rules (part of `rake spec`); `bundle exec ruby script/cldr_differences.rb` updates the rule counts in `spec/fixtures/cldr_rules.yml` and the exceptions in `spec/fixtures/cldr_exceptions.yml`, see [CONTRIBUTING](CONTRIBUTING.md#unicode-cldr-comparison).
 
@@ -38,6 +39,8 @@ Everything about a language belongs in its locale file; Ruby is only for what ru
 `to_words` ignores an undeclared option, except the global ones in `OptionsValidation::GLOBAL`, with a warning, and raises with `NumbersAndWords.config.strict_options = true`. Internal options such as `integral` or `fractional` must not go through `Integer#to_words`; call the wrappers directly. Error messages are sentences, such as `Ordinals in :ar only support numbers between 1 and 99.`; use `Translations::Families::Base.range_error`, `decimal_range_error` or `ordinal_range_error` for the shared ones.
 
 Read locale data with `NumbersAndWords::I18n.t`, and derive values from it with `NumbersAndWords::I18n.cached`, not with `::I18n.t` on every conversion: both keep the result on I18n's Simple backend until it stores or reloads translations (`lib/numbers_and_words/i18n/invalidation.rb`), and look it up each time with another backend. Check a change to a conversion path with `bundle exec rake benchmark`.
+
+A language reads decimals, declares `gender` if its numbers agree in gender, spells ordinals up to its largest number, and lists scale words up to at least 10<sup>36</sup> where the language has them (or as far as Unicode CLDR goes); a new language starts with all of these, and a gap is explained on its page.
 
 A new language needs all of these, an entry in the script map in `spec/numbers_and_words/i18n_spec.rb`, and a CHANGELOG entry.
 

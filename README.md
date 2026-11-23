@@ -103,7 +103,7 @@ Choose the language with `-l`/`--locale` (default `en`). Every option has a flag
 
 ## Supported Languages / Языки / Langues Supportées
 
-Each language page has examples, says whether it reads decimals, and documents its options.
+Each language page has examples, says whether it reads decimals, and documents its options. [Features](docs/features.md) compares what each language supports.
 
 | Language | Name | Code |
 | --- | --- | --- |
