@@ -1,0 +1,136 @@
+bs:
+  numbers:
+    # The plural category of a count (see NumbersAndWords::I18n::PluralRule); any other count is other.
+    plural:
+      one: 'n % 10 = 1 and n % 100 != 11'
+      few: 'n % 10 = 2..4 and n % 100 != 12..14'
+    supported_options:
+      gender: {values: [male, female, neuter], default: male}
+      ordinal: true
+      remove_zero: {keeps_ordinal_zero: true}
+    minus: minus
+    ones:
+      male: [nula, jedan, dva, tri, četiri, pet, šest, sedam, osam, devet]
+      female: [nula, jedna, dvije, tri, četiri, pet, šest, sedam, osam, devet]
+      neuter: [nula, jedno, dva, tri, četiri, pet, šest, sedam, osam, devet]
+    teens: [_, jedanaest, dvanaest, trinaest, četrnaest, petnaest, šesnaest, sedamnaest, osamnaest, devetnaest]
+    tens: [_, deset, dvadeset, trideset, četrdeset, pedeset, šezdeset, sedamdeset, osamdeset, devedeset]
+    hundreds: [_, sto, dvjesta, trista, četiristo, petsto, šeststo, sedamsto, osamsto, devetsto]
+    # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
+    # The ones follow the tens without i (dvadeset jedan). A thousand alone is hiljadu; a count of thousands is
+    # feminine (dvije hiljade, dvadeset jedna hiljada), of milion and the other scale words in -ion masculine
+    # (dva miliona), and of milijarda and the other scale words in -ijarda feminine (dvije milijarde).
+    # How decimals are read (see Decorators.readings) and the genders of their parts (see RuleSets#decimal_gender).
+    decimals: {reading: ru, integral_gender: neuter, fractional_gender: female}
+    rules:
+      cardinal-male:
+        0: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[ {>}]'
+        100: '{hundreds}[ {>}]'
+        1000: '{thousand}[ {>}]'
+        '2000/1000': '{<cardinal-female} {thousands}[ {>}]'
+        1000000: '{<cardinal-male} {millions}[ {>}]'
+        1000000000: '{<cardinal-female} {billions}[ {>}]'
+        1000000000000: '{<cardinal-male} {trillions}[ {>}]'
+        1000000000000000: '{<cardinal-female} {quadrillions}[ {>}]'
+        1000000000000000000: '{<cardinal-male} {quintillions}[ {>}]'
+        1000000000000000000000: '{<cardinal-female} {sextillions}[ {>}]'
+        1000000000000000000000000: '{<cardinal-male} {septillions}[ {>}]'
+        1000000000000000000000000000: '{<cardinal-female} {octillions}[ {>}]'
+        1000000000000000000000000000000: '{<cardinal-male} {nonillions}[ {>}]'
+        1000000000000000000000000000000000: '{<cardinal-female} {decillions}[ {>}]'
+      cardinal-female:
+        extends: cardinal-male
+        0: '{ones.female}'
+      cardinal-neuter:
+        extends: cardinal-male
+        0: '{ones.neuter}'
+      # The last word of an ordinal is ordinal (dvadeset prvi, hiljadu dvjesta treći); a round scale ordinal joins its
+      # count, with one left out (hiljaditi, dvijehiljaditi, milioniti, dvamilioniti).
+      ordinal:
+        0: '{ordinals.ones}'
+        10: '{ordinals.tens}'
+        11: '{ordinals.teens%}'
+        20: '[{tens} {>}|{ordinals.tens}]'
+        100: '[{hundreds} {>}|{ordinals.hundreds}]'
+        1000: '[{thousand} {>}|{ordinals.thousands}]'
+        '2000/1000': '[{<cardinal-female} {thousands} {>}|{<count-female}{ordinals.thousands}]'
+        1000000: '[{<cardinal-male} {millions} {>}|{<count-male}{ordinals.millions}]'
+        1000000000: '[{<cardinal-female} {billions} {>}|{<count-female}{ordinals.billions}]'
+        1000000000000: '[{<cardinal-male} {trillions} {>}|{<count-male}{ordinals.trillions}]'
+        1000000000000000: '[{<cardinal-female} {quadrillions} {>}|{<count-female}{ordinals.quadrillions}]'
+        1000000000000000000: '[{<cardinal-male} {quintillions} {>}|{<count-male}{ordinals.quintillions}]'
+        1000000000000000000000: '[{<cardinal-female} {sextillions} {>}|{<count-female}{ordinals.sextillions}]'
+        1000000000000000000000000: '[{<cardinal-male} {septillions} {>}|{<count-male}{ordinals.septillions}]'
+        1000000000000000000000000000: '[{<cardinal-female} {octillions} {>}|{<count-female}{ordinals.octillions}]'
+        1000000000000000000000000000000: '[{<cardinal-male} {nonillions} {>}|{<count-male}{ordinals.nonillions}]'
+        1000000000000000000000000000000000: '[{<cardinal-female} {decillions} {>}|{<count-female}{ordinals.decillions}]'
+      # The count of a round scale ordinal, written as one word without i, and left out when it is one.
+      count-male:
+        then: joined-male
+        1: ''
+        2: '{ones.male}'
+        10: '{tens}'
+        11: '{teens%}'
+        20: '{tens}[{>}]'
+        100: '{hundreds}[{>}]'
+      joined-male:
+        extends: count-male
+        1: '{ones.male}'
+      count-female:
+        extends: count-male
+        then: joined-female
+        2: '{ones.female}'
+      joined-female:
+        extends: count-female
+        1: '{ones.female}'
+    mega: [_, thousands, millions, billions, trillions, quadrillions, quintillions, sextillions, septillions, octillions, nonillions, decillions]
+    thousand: hiljadu
+    thousands: {one: hiljada, few: hiljade, other: hiljada}
+    millions: {one: milion, few: miliona, other: miliona}
+    billions: {one: milijarda, few: milijarde, other: milijardi}
+    trillions: {one: bilion, few: biliona, other: biliona}
+    quadrillions: {one: bilijarda, few: bilijarde, other: bilijardi}
+    quintillions: {one: trilion, few: triliona, other: triliona}
+    sextillions: {one: trilijarda, few: trilijarde, other: trilijardi}
+    septillions: {one: kvadrilion, few: kvadriliona, other: kvadriliona}
+    octillions: {one: kvadrilijarda, few: kvadrilijarde, other: kvadrilijardi}
+    nonillions: {one: kvintilion, few: kvintiliona, other: kvintiliona}
+    decillions: {one: kvintilijarda, few: kvintilijarde, other: kvintilijardi}
+    # The masculine ordinals; the feminine and neuter ones change the ending of the last word (prva, prvo, treće).
+    ordinals:
+      ones: [nulti, prvi, drugi, treći, četvrti, peti, šesti, sedmi, osmi, deveti]
+      teens: [_, jedanaesti, dvanaesti, trinaesti, četrnaesti, petnaesti, šesnaesti, sedamnaesti, osamnaesti, devetnaesti]
+      tens: [_, deseti, dvadeseti, trideseti, četrdeseti, pedeseti, šezdeseti, sedamdeseti, osamdeseti, devedeseti]
+      hundreds: [_, stoti, dvjestoti, tristoti, četiristoti, petstoti, šeststoti, sedamstoti, osamstoti, devetstoti]
+      thousands: hiljaditi
+      millions: milioniti
+      billions: milijarditi
+      trillions: bilioniti
+      quadrillions: bilijarditi
+      quintillions: trilioniti
+      sextillions: trilijarditi
+      septillions: kvadrilioniti
+      octillions: kvadrilijarditi
+      nonillions: kvintilioniti
+      decillions: kvintilijarditi
+      endings:
+        female:
+          nominative: {i: a}
+        neuter:
+          nominative: {i: o, ći: će}
+    # Decimals: jedno cijelo, dva cijela, pet cijelih, then jedna desetinka, dvije desetinke, pet desetinki.
+    integral: {one: cijelo, few: cijela, other: cijelih}
+    micro: [_, tenths, hundredths, thousandths, millionths, billionths]
+    tenths: {one: desetinka, few: desetinke, other: desetinki}
+    hundredths: {one: stotinka, few: stotinke, other: stotinki}
+    thousandths: {one: hiljaditinka, few: hiljaditinke, other: hiljaditinki}
+    millionths: {one: milionitinka, few: milionitinke, other: milionitinki}
+    billionths: {one: milijarditinka, few: milijarditinke, other: milijarditinki}
+    micro_separator: i
+    micro_prefix:
+      tens: deset
+      hundreds: sto
+      union: ''

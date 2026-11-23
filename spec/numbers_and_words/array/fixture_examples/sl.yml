@@ -1,0 +1,15 @@
+to_words:
+  simple_example:
+    ? - 1
+      - 2
+      - 3
+    : - ena
+      - dva
+      - tri
+  complex_example:
+    ? - 11
+      - 22
+      - 133
+    : - enajst
+      - dvaindvajset
+      - sto triintrideset

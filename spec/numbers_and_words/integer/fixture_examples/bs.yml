@@ -1,0 +1,228 @@
+to_words:
+  ones:
+    0: nula
+    1: jedan
+    2: dva
+    3: tri
+    4: četiri
+    5: pet
+    6: šest
+    7: sedam
+    8: osam
+    9: devet
+  tens:
+    10: deset
+    11: jedanaest
+    12: dvanaest
+    13: trinaest
+    14: četrnaest
+    15: petnaest
+    16: šesnaest
+    17: sedamnaest
+    18: osamnaest
+    19: devetnaest
+    20: dvadeset
+    21: dvadeset jedan
+    22: dvadeset dva
+    25: dvadeset pet
+    30: trideset
+    40: četrdeset
+    45: četrdeset pet
+    50: pedeset
+    60: šezdeset
+    70: sedamdeset
+    80: osamdeset
+    90: devedeset
+    99: devedeset devet
+  hundreds:
+    100: sto
+    101: sto jedan
+    110: sto deset
+    111: sto jedanaest
+    121: sto dvadeset jedan
+    200: dvjesta
+    222: dvjesta dvadeset dva
+    300: trista
+    400: četiristo
+    456: četiristo pedeset šest
+    500: petsto
+    600: šeststo
+    700: sedamsto
+    800: osamsto
+    900: devetsto
+    999: devetsto devedeset devet
+  thousands:
+    1000: hiljadu
+    1001: hiljadu jedan
+    1100: hiljadu sto
+    1234: hiljadu dvjesta trideset četiri
+    2000: dvije hiljade
+    2021: dvije hiljade dvadeset jedan
+    3000: tri hiljade
+    4000: četiri hiljade
+    5000: pet hiljada
+    11000: jedanaest hiljada
+    12000: dvanaest hiljada
+    21000: dvadeset jedna hiljada
+    22000: dvadeset dvije hiljade
+    25000: dvadeset pet hiljada
+    100000: sto hiljada
+    101000: sto jedna hiljada
+    102000: sto dvije hiljade
+    123456: sto dvadeset tri hiljade četiristo pedeset šest
+    999999: devetsto devedeset devet hiljada devetsto devedeset devet
+  millions:
+    1000000: jedan milion
+    1000001: jedan milion jedan
+    1001000: jedan milion hiljadu
+    2000000: dva miliona
+    3000000: tri miliona
+    5000000: pet miliona
+    11000000: jedanaest miliona
+    21000000: dvadeset jedan milion
+    22000000: dvadeset dva miliona
+    101000000: sto jedan milion
+    102000000: sto dva miliona
+    103000000: sto tri miliona
+    123456789: sto dvadeset tri miliona četiristo pedeset šest hiljada sedamsto osamdeset devet
+  billions:
+    1000000000: jedna milijarda
+    2000000000: dvije milijarde
+    5000000000: pet milijardi
+    21000000000: dvadeset jedna milijarda
+    1000000000000: jedan bilion
+    2000000000000: dva biliona
+    5000000000000: pet biliona
+    1000000000000000: jedna bilijarda
+    2000000000000000: dvije bilijarde
+  large scales:
+    1000000000000000000: jedan trilion
+    2000000000000000000: dva triliona
+    1000000000000000000000: jedna trilijarda
+    2000000000000000000000: dvije trilijarde
+    5000000000000000000000: pet trilijardi
+    1000000000000000000000000: jedan kvadrilion
+    2000000000000000000000000: dva kvadriliona
+    1000000000000000000000000000: jedna kvadrilijarda
+    2000000000000000000000000000: dvije kvadrilijarde
+    1000000000000000000000000000000: jedan kvintilion
+    2000000000000000000000000000000: dva kvintiliona
+    5000000000000000000000000000000: pet kvintiliona
+    1000000000000000000000000000000000: jedna kvintilijarda
+    2000000000000000000000000000000000: dvije kvintilijarde
+    5000000000000000000000000000000000: pet kvintilijardi
+    987654321123456789012345678901234567: devetsto osamdeset sedam kvintilijardi šeststo pedeset četiri kvintiliona trista dvadeset jedna kvadrilijarda sto dvadeset tri kvadriliona četiristo pedeset šest trilijardi sedamsto osamdeset devet triliona dvanaest bilijardi trista četrdeset pet biliona šeststo sedamdeset osam milijardi devetsto jedan milion dvjesta trideset četiri hiljade petsto šezdeset sedam
+  female gender:
+    options:
+      :gender: female
+    1: jedna
+    2: dvije
+    21: dvadeset jedna
+    22: dvadeset dvije
+    101: sto jedna
+    1001: hiljadu jedna
+    1000002: jedan milion dvije
+  neuter gender:
+    options:
+      :gender: neuter
+    1: jedno
+    2: dva
+    21: dvadeset jedno
+    22: dvadeset dva
+    101: sto jedno
+    1001: hiljadu jedno
+    1000002: jedan milion dva
+  ordinal:
+    options:
+      :ordinal: true
+    0: nulti
+    1: prvi
+    2: drugi
+    3: treći
+    4: četvrti
+    5: peti
+    6: šesti
+    7: sedmi
+    8: osmi
+    9: deveti
+    10: deseti
+    11: jedanaesti
+    12: dvanaesti
+    19: devetnaesti
+    20: dvadeseti
+    21: dvadeset prvi
+    22: dvadeset drugi
+    23: dvadeset treći
+    30: trideseti
+    40: četrdeseti
+    90: devedeseti
+    99: devedeset deveti
+    100: stoti
+    101: sto prvi
+    111: sto jedanaesti
+    121: sto dvadeset prvi
+    200: dvjestoti
+    300: tristoti
+    400: četiristoti
+    600: šeststoti
+    900: devetstoti
+    999: devetsto devedeset deveti
+    1000: hiljaditi
+    1001: hiljadu prvi
+    1100: hiljadu stoti
+    1234: hiljadu dvjesta trideset četvrti
+    2000: dvijehiljaditi
+    2021: dvije hiljade dvadeset prvi
+    3000: trihiljaditi
+    5000: pethiljaditi
+    11000: jedanaesthiljaditi
+    21000: dvadesetjednahiljaditi
+    22000: dvadesetdvijehiljaditi
+    100000: stohiljaditi
+    101000: stojednahiljaditi
+    1000000: milioniti
+    1000001: jedan milion prvi
+    2000000: dvamilioniti
+    2025000: dva miliona dvadesetpethiljaditi
+    21000000: dvadesetjedanmilioniti
+    1000000000: milijarditi
+    2000000000: dvijemilijarditi
+    1000000000000: bilioniti
+    1000000000000000: bilijarditi
+    1000000000000000000: trilioniti
+    1000000000000000000000: trilijarditi
+    1000000000000000000000000: kvadrilioniti
+    1000000000000000000000000000: kvadrilijarditi
+    1000000000000000000000000000000: kvintilioniti
+    1000000000000000000000000000000000: kvintilijarditi
+    2000000000000000000000000000000000: dvijekvintilijarditi
+  female ordinal:
+    options:
+      :ordinal: true
+      :gender: female
+    0: nulta
+    1: prva
+    3: treća
+    21: dvadeset prva
+    23: dvadeset treća
+    100: stota
+    1000: hiljadita
+    2000: dvijehiljadita
+    1000000: milionita
+  neuter ordinal:
+    options:
+      :ordinal: true
+      :gender: neuter
+    0: nulto
+    1: prvo
+    3: treće
+    21: dvadeset prvo
+    23: dvadeset treće
+    100: stoto
+    1000: hiljadito
+    2000: dvijehiljadito
+    1000000: milionito
+  negative:
+    -1: minus jedan
+    -21: minus dvadeset jedan
+    -1000: minus hiljadu
