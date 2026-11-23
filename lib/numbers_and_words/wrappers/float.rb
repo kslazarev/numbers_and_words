@@ -17,8 +17,11 @@ module NumbersAndWords
 
       private
 
+      # A precision shorter than the fractional part rounds the number to that many places (0.129 with precision: 2
+      # reads 0.13).
       def unsigned_words(value, options)
         @options = options
+        value = value.round(precision).to_f if precision && value.round(precision) != value
         @parts = decimal_string(value).split('.')
         words = []
         words << integral_part_with(options)
@@ -52,7 +55,7 @@ module NumbersAndWords
 
       def fractional_part
         part = parts.last
-        part += ZERO_SYMBOL * (precision - part.length) if precision
+        part = part.ljust(precision, ZERO_SYMBOL) if precision
         part
       end
 

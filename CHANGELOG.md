@@ -15,6 +15,7 @@
 
 ### Bugs
 
+  * Round a decimal to a `precision` shorter than its fractional part (`0.129.to_words(precision: 2)`) instead of raising `ArgumentError`, read nothing for `0.0.to_words(remove_zero: true)` instead of a dangling decimal word, and raise a clear error for a rule set without a rule for a number. \[[#372](https://github.com/kslazarev/numbers_and_words/pull/372)\] \([@dblock](https://github.com/dblock)\)
   * Compare the readings the specs test, with the 2.0 defaults, in `script/cldr_differences.rb`, which recorded French spellings that aren't differences as exceptions to review. \[[#369](https://github.com/kslazarev/numbers_and_words/pull/369)\] \([@dblock](https://github.com/dblock)\)
   * Your contribution here.
 

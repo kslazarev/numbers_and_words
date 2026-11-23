@@ -148,6 +148,9 @@ de:
         decillions: {one: quintilliarde, other: quintilliarden}
     union: und
     micro_separator: Komma
+    # The integral part of a decimal is counted, eins whatever its noun ("eins Komma fünf Tonnen"); counting has no
+    # rule set of its own, so it keeps the cardinal ones.
+    decimals: {integral_gender: counting}
     subunit_separator: und
     # Before a unit, "eins" at the end of a number is "ein", or "eine" before a feminine unit (ein Euro, eine Mark).
     before_unit:

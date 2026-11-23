@@ -9,6 +9,7 @@ module NumbersAndWords
             # Without an integral part, as remove_zero leaves it, the fractional part alone, or after the decimal
             # word ("point seven") in a language that declares remove_zero: {keeps_micro_separator: true}.
             def elements_logic
+              return @elements.first if @elements.one?
               return @elements.join(union_element) unless @elements.first.empty?
 
               keeps_micro_separator? ? [micro_separator, @elements.last].join(word_separator) : @elements.last

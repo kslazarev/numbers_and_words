@@ -33,6 +33,21 @@ describe NumbersAndWords::Wrappers do
       expect(described_class.new(1.0e-5).to_words(precision: 6, fraction: true)).to eq('zero and ten millionths')
     end
 
+    it 'rounds to a precision shorter than the fractional part' do
+      I18n.with_locale(:'en-GB') do
+        expect([0.129.to_words(precision: 2), 0.001.to_words(precision: 2), 1.5.to_words(precision: 0)])
+          .to eq(['zero point one three', 'zero', 'two'])
+      end
+    end
+
+    it 'reads nothing for zero with remove_zero, without the decimal word' do
+      expect(%i[en en-GB da fi].map { |locale| I18n.with_locale(locale) { 0.0.to_words(remove_zero: true) } }).to eq(['', '', '', ''])
+    end
+
+    it 'counts the integral part of a German decimal whatever its gender' do
+      I18n.with_locale(:de) { expect(1.5.to_words(gender: :female)).to eq('eins Komma fünf') }
+    end
+
     it 'expands large scientific notation into the full integral magnitude' do
       expect(described_class.new(1.0e20).to_words).to eq('one hundred quintillion')
     end

@@ -92,11 +92,13 @@ module NumbersAndWords
       buffer
     end
 
-    # The rule with the largest key not above the number.
+    # The rule with the largest key not above the number; a rule set without one, such as a set whose first key is
+    # 1 asked to spell 0, is an error in the locale file.
     def rule_for(number, set_name)
       raise Translations::Families::Base.range_error(@limit) if @maximum && number >= @maximum
 
-      rule_set(set_name).find { |candidate| candidate.base <= number }
+      rule_set(set_name).find { |candidate| candidate.base <= number } ||
+        raise(ArgumentError, "The rule set #{set_name} in #{::I18n.locale.inspect} has no rule for #{number}.")
     end
 
     def spell_token(buffer, token, number, quotient, remainder)
