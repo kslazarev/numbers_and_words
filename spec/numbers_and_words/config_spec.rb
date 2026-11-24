@@ -169,9 +169,15 @@ describe NumbersAndWords::Config do
     expect(output).to eq("forty-two\nen,ru\n")
   end
 
-  it 'loads in a real consumer subprocess whose default external encoding is not UTF-8' do
-    output, error, status = run_consumer('puts I18n.with_locale(:"fr-CH") { 90.to_words }', '-E', 'US-ASCII')
-    expect(status.success?).to be(true), error
-    expect(output).to eq("nonante\n")
+  ['US-ASCII', 'UTF-8:ISO-8859-1'].each do |encoding|
+    it "loads in a real consumer subprocess with the default encodings #{encoding}" do
+      code = <<~RUBY
+        puts I18n.with_locale(:"fr-CH") { 90.to_words }
+        puts NumbersAndWords::I18n::Pluralization.rule(:ru).call(5)
+      RUBY
+      output, error, status = run_consumer(code, '-E', encoding)
+      expect(status.success?).to be(true), error
+      expect(output).to eq("nonante\nmany\n")
+    end
   end
 end

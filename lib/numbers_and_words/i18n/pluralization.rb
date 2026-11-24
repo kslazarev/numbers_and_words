@@ -28,7 +28,7 @@ module NumbersAndWords
       # since I18n loads the rules while it loads translations.
       def rules
         @rules ||= I18n.locale_files.each_with_object({}) do |file, rules|
-          next unless File.read(file, encoding: 'UTF-8').include?("\n    plural:\n")
+          next unless File.binread(file).match?(/\n    plural:\r?\n/)
 
           language = I18n.language_of(file)
           rules[language] = PluralRule.new(YAML.load_file(file).dig(language.to_s, 'numbers', 'plural')).to_proc
