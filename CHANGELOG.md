@@ -6,6 +6,7 @@
 
 ### Bugs
 
+* Load the gem when Ruby's default external encoding isn't UTF-8, such as under `LANG=C`, instead of raising `ArgumentError`. \[[#392](https://github.com/kslazarev/numbers_and_words/pull/392)\] \([@davidharrishmc](https://github.com/davidharrishmc)\)
 * Your contribution here.
 
 ## 1.2.0 (2026/11/23)

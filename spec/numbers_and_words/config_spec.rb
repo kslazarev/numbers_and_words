@@ -150,18 +150,28 @@ describe NumbersAndWords::Config do
     expect(I18n.load_path).to eq(I18n.load_path.uniq)
   end
 
+  def run_consumer(code, *ruby_options)
+    gem_directory = Gem.loaded_specs.fetch('i18n').base_dir
+    Bundler.with_unbundled_env do
+      Open3.capture3({ 'GEM_HOME' => gem_directory, 'GEM_PATH' => gem_directory }, Gem.ruby, *ruby_options,
+                     '-I', File.expand_path('../../lib', __dir__), '-rnumbers_and_words', '-e', code)
+    end
+  end
+
   it 'works in a real consumer subprocess with ordinary automatic loading' do
     code = <<~RUBY
       NumbersAndWords.config.locales = [:en, :ru]
       puts I18n.with_locale(:en) { 42.to_words }
       puts I18n.available_locales.sort.join(',')
     RUBY
-    gem_directory = Gem.loaded_specs.fetch('i18n').base_dir
-    output, error, status = Bundler.with_unbundled_env do
-      Open3.capture3({ 'GEM_HOME' => gem_directory, 'GEM_PATH' => gem_directory }, Gem.ruby,
-                     '-I', File.expand_path('../../lib', __dir__), '-rnumbers_and_words', '-e', code)
-    end
+    output, error, status = run_consumer(code)
     expect(status.success?).to be(true), error
     expect(output).to eq("forty-two\nen,ru\n")
+  end
+
+  it 'loads in a real consumer subprocess whose default external encoding is not UTF-8' do
+    output, error, status = run_consumer('puts I18n.with_locale(:"fr-CH") { 90.to_words }', '-E', 'US-ASCII')
+    expect(status.success?).to be(true), error
+    expect(output).to eq("nonante\n")
   end
 end
