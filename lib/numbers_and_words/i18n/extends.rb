@@ -25,7 +25,7 @@ module NumbersAndWords
 
       # The locale a bundled file extends, or nil.
       def self.parent(file)
-        File.foreach(file, encoding: 'UTF-8').lazy.map { |line| line[/\A    extends: (\S+)/, 1] }.find(&:itself)&.to_sym
+        File.foreach(file, mode: 'rb').lazy.map { |line| line[/\A    extends: (\S+)/, 1] }.find(&:itself)&.to_sym
       end
     end
   end
