@@ -1,5 +1,21 @@
 # Upgrading
 
+## Upgrading to Version 1.2.2
+
+### French and Italian Fractions Count Tenths in the Masculine
+
+With `gender: :female` and `fraction: true`, French and Italian now count the tenths, hundredths and smaller parts of a fraction in the masculine, since dixième and decimo are masculine nouns. The whole part still takes the gender, and the reading with a decimal point doesn't change.
+
+```ruby
+I18n.with_locale(:fr) { 1.01.to_words(gender: :female, fraction: true) }
+# 1.2.1 => "une et une centième"
+# 1.2.2 => "une et un centième"
+
+I18n.with_locale(:it) { 21.21.to_words(gender: :female, fraction: true) }
+# 1.2.1 => "ventuna e ventuna centesimi"
+# 1.2.2 => "ventuna e ventuno centesimi"
+```
+
 ## Upgrading to Version 1.2.0
 
 The public API, `to_words` with the options in the README and on each language page, is unchanged. So is its output in every language, except as described below.

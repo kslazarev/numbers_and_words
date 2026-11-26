@@ -67,3 +67,12 @@ to_words:
       :precision: 2
       :fraction: true
     0.1: zero e dieci centesimi
+  female_gender_as_fraction:
+    options:
+      :gender: female
+      :fraction: true
+    0.1: zero e un decimo
+    0.21: zero e ventuno centesimi
+    1.01: una e un centesimo
+    1.7: una e sette decimi
+    21.21: ventuna e ventuno centesimi

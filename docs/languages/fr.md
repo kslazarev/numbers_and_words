@@ -93,7 +93,7 @@ I18n.with_locale(:fr) { 3.1416.to_words(fraction: false) }
 
 ### Gender
 
-The `gender` option takes `:male` (default) or `:female`. With `gender: :female`, a final un is une ("vingt et une"); the counts of mille and larger scale words stay masculine. A lone premier is première.
+The `gender` option takes `:male` (default) or `:female`. With `gender: :female`, a final un is une ("vingt et une"); the counts of mille and larger scale words stay masculine, and so does the count of a fraction's dixièmes or centièmes. A lone premier is première.
 
 ```ruby
 I18n.with_locale(:fr) { 1.to_words(gender: :female) }
@@ -104,6 +104,9 @@ I18n.with_locale(:fr) { 21.to_words(gender: :female) }
 
 I18n.with_locale(:fr) { 21_001.to_words(gender: :female) }
 # => "vingt et un mille une"
+
+I18n.with_locale(:fr) { 1.01.to_words(gender: :female, fraction: true) }
+# => "une et un centième"
 
 I18n.with_locale(:fr) { 1.to_words(ordinal: true, gender: :female) }
 # => "première"

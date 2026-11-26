@@ -8,6 +8,10 @@ module NumbersAndWords
           # What the locale file declares about the options and decimals of a language: the words and rule sets an
           # option picks under numbers.supported_options, and the genders of a decimal under numbers.decimals.
           module Declarations
+            # The numbers.decimals keys of the gender of each part of a decimal, and of that part with fraction: true.
+            PART_GENDERS = { integral: :integral_gender, fractional: :fractional_gender }.freeze
+            FRACTION_PART_GENDERS = { integral: :fraction_integral_gender, fractional: :fraction_fractional_gender }.freeze
+
             private
 
             # The words under numbers.options.<option> of each declared option that is on, or numbers.options.<value>
@@ -60,15 +64,20 @@ module NumbersAndWords
             end
 
             # integral_gender or fractional_gender for that part of a decimal, or fraction_gender for both parts with
-            # fraction: true, as Portuguese "dois inteiros e dois décimos".
+            # fraction: true, as Portuguese "dois inteiros e dois décimos". With fraction: true, fraction_integral_gender
+            # or fraction_fractional_gender comes first, as the masculine count of tenths in French "une et un dixième".
             def decimal_gender
               part = decimal_part
               return unless part
 
               decimals = locale[:decimals] ||= @translations.t(:decimals, default: {})
-              gender = decimals[:"#{part}_gender"]
-              gender ||= decimals[:fraction_gender] if @options.options[:fraction]
-              gender&.to_sym
+              part_gender(decimals, part)&.to_sym
+            end
+
+            def part_gender(decimals, part)
+              return decimals[PART_GENDERS[part]] unless @options.options[:fraction]
+
+              decimals[FRACTION_PART_GENDERS[part]] || decimals[PART_GENDERS[part]] || decimals[:fraction_gender]
             end
 
             def decimal_part
