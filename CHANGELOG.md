@@ -6,6 +6,7 @@
 
 ### Bugs
 
+* Count the tenths and hundredths of a French or Italian fraction in the masculine with `gender: :female` (`1.01.to_words(gender: :female, fraction: true)` is "une et un centième", not "une et une centième"). \[[#393](https://github.com/kslazarev/numbers_and_words/pull/393)\] \([@bardrop](https://github.com/bardrop)\)
 * Your contribution here.
 
 ## 1.2.1 (2026/11/24)

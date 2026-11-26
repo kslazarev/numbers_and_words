@@ -21,8 +21,9 @@ fr:
     # The separator inside a group and around mille: a hyphen in the reformed spelling, a space in the traditional one.
     sp: '-'
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
-    # How decimals are read (see Decorators.readings).
-    decimals: {reading: point_or_fraction}
+    # How decimals are read (see Decorators.readings) and the gender of the count of a fraction's masculine
+    # dixièmes and centièmes (see RuleSets#decimal_gender).
+    decimals: {reading: point_or_fraction, fraction_fractional_gender: male}
     rules:
       cardinal:
         0: '{ones}'

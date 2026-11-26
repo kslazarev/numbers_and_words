@@ -25,7 +25,7 @@ Everything about a language belongs in its locale file. Use Ruby only for what r
     * The `{rules: hundreds}` value makes an option spell with the `cardinal-hundreds` and `ordinal-hundreds` rule sets.
     * The `ordinal: {minimum: 0, maximum: 9999}` entry limits ordinals; `ordinal: {minimum: 1}` alone limits them only from below.
     * The `remove_zero: {keeps_ordinal_zero: true, keeps_micro_separator: true}` entry keeps the ordinal of zero and the decimal word ("point seven") with `remove_zero`.
-  * The `decimals: {integral_gender: female, fractional_gender: female}` entry, at the top of `numbers`, gives the genders of a decimal's parts; `fraction_gender` gives the gender of both parts with `fraction: true`.
+  * The `decimals: {integral_gender: female, fractional_gender: female}` entry, at the top of `numbers`, gives the genders of a decimal's parts; `fraction_gender` gives the gender of both parts with `fraction: true`, and `fraction_integral_gender` or `fraction_fractional_gender` the gender of one part with `fraction: true` only.
   * The `word_separator: ''` entry means that the language is written without spaces between words (Chinese, Japanese, Thai). It applies to decimals, units and the minus word.
   * The `plural` key gives the plural categories of a count, where the language needs more than I18n's `one` and `other`. It uses a subset of the Unicode CLDR plural syntax, such as `one: n % 10 = 1 and n % 100 != 11` (see `lib/numbers_and_words/i18n/plural_rule.rb`).
   * The `mega` and `micro` keys list the keys of scale and fraction words by power of 1000. A number past the last `mega` entry raises `RangeError`. A locale without `mega`, such as Japanese, sets its limit with its own scale table, or has none.

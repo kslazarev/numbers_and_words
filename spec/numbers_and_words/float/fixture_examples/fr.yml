@@ -61,3 +61,12 @@ to_words:
     0.7: "sept dixièmes"
     0.05: "cinq centièmes"
     42.1: "quarante-deux et un dixième"
+  female_gender_as_fraction:
+    options:
+      :gender: female
+      :fraction: true
+    0.1: zéro et un dixième
+    0.21: zéro et vingt-et-un centièmes
+    1.01: une et un centième
+    1.7: une et sept dixièmes
+    21.21: vingt-et-une et vingt-et-un centièmes

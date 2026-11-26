@@ -87,7 +87,7 @@ I18n.with_locale(:it) { 3.1416.to_words(fraction: false) }
 
 ### Gender
 
-The `gender` option takes `:male` (the default) or `:female`. A final uno becomes una ("ventuna", "centouna"), but the counts of mila and larger scale words stay masculine. Feminine ordinals end in -a.
+The `gender` option takes `:male` (the default) or `:female`. A final uno becomes una ("ventuna", "centouna"), but the counts of mila and larger scale words stay masculine, and so does the count of a fraction's decimi or centesimi. Feminine ordinals end in -a.
 
 ```ruby
 I18n.with_locale(:it) { 1.to_words(gender: :female) }
@@ -98,6 +98,9 @@ I18n.with_locale(:it) { 21.to_words(gender: :female) }
 
 I18n.with_locale(:it) { 1001.to_words(gender: :female) }
 # => "milleuna"
+
+I18n.with_locale(:it) { 1.01.to_words(gender: :female, fraction: true) }
+# => "una e un centesimo"
 
 I18n.with_locale(:it) { 1.to_words(ordinal: true, gender: :female) }
 # => "prima"

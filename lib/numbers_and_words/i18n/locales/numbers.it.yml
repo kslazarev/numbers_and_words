@@ -15,6 +15,8 @@ it:
     tens_stems: [_, _, vent, trent, quarant, cinquant, sessant, settant, ottant, novant]
     hundreds_stem: cent
     accented_tre: tré
+    # The gender of the count of a fraction's masculine decimi and centesimi (see RuleSets#decimal_gender).
+    decimals: {fraction_fractional_gender: male}
     # Rule sets for whole numbers (see NumbersAndWords::Rules): the key is the smallest number a rule applies to.
     # Tens and hundreds lose their vowel before uno and otto ("ventuno", "centotto"), a final tre is accented
     # ("ventitré") but not before mila ("ventitremila"), and a count of milioni ends in un ("ventun milioni").
